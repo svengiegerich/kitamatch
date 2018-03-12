@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('foo', function () {
+    return 'Hello World';
 });
+
+//Root
+Route::get('/', 'ApplicantController@index');
+
+//Applicant
+Route::get('/applicant', 'ApplicantController@index');
+
+//Program
+
+
