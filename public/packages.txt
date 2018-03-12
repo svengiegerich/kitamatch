@@ -1,0 +1,44 @@
+ii  dh-php                           0.28+ubuntu16.04.1+deb.sury.org+1                        all          debhelper add-on to handle PHP PECL extensions
+ii  libapache2-mod-php               1:7.2+60+ubuntu16.04.1+deb.sury.org+1                    all          server-side, HTML-embedded scripting language (Apache 2 module) (default)
+ii  libapache2-mod-php7.0            7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        server-side, HTML-embedded scripting language (Apache 2 module)
+ii  libapache2-mod-php7.1            7.1.15-1+ubuntu16.04.1+deb.sury.org+2                    amd64        server-side, HTML-embedded scripting language (Apache 2 module)
+ii  libapache2-mod-php7.2            7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        server-side, HTML-embedded scripting language (Apache 2 module)
+ii  php                              1:7.2+60+ubuntu16.04.1+deb.sury.org+1                    all          server-side, HTML-embedded scripting language (default)
+ii  php-common                       1:60+ubuntu16.04.1+deb.sury.org+1                        all          Common files for PHP packages
+ii  php-mbstring                     1:7.2+60+ubuntu16.04.1+deb.sury.org+1                    all          MBSTRING module for PHP [default]
+ii  php-pear                         1:1.10.5+submodules+notgz-1+ubuntu16.04.1+deb.sury.org+1 all          PEAR Base System
+ii  php-xml                          1:7.2+60+ubuntu16.04.1+deb.sury.org+1                    all          DOM, SimpleXML, WDDX, XML, and XSL module for PHP [default]
+ii  php7.0-cli                       7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        command-line interpreter for the PHP scripting language
+ii  php7.0-common                    7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        documentation, examples and common module for PHP
+ii  php7.0-curl                      7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        CURL module for PHP
+ii  php7.0-dev                       7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        Files for PHP7.0 module development
+ii  php7.0-gd                        7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        GD module for PHP
+ii  php7.0-json                      7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        JSON module for PHP
+ii  php7.0-mbstring                  7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        MBSTRING module for PHP
+ii  php7.0-mcrypt                    7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        libmcrypt module for PHP
+ii  php7.0-mysql                     7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        MySQL module for PHP
+ii  php7.0-opcache                   7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        Zend OpCache module for PHP
+ii  php7.0-readline                  7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        readline module for PHP
+ii  php7.0-xml                       7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        DOM, SimpleXML, WDDX, XML, and XSL module for PHP
+ii  php7.0-zip                       7.0.28-1+ubuntu16.04.1+deb.sury.org+1                    amd64        Zip module for PHP
+ii  php7.1                           7.1.15-1+ubuntu16.04.1+deb.sury.org+2                    all          server-side, HTML-embedded scripting language (metapackage)
+ii  php7.1-cli                       7.1.15-1+ubuntu16.04.1+deb.sury.org+2                    amd64        command-line interpreter for the PHP scripting language
+ii  php7.1-common                    7.1.15-1+ubuntu16.04.1+deb.sury.org+2                    amd64        documentation, examples and common module for PHP
+ii  php7.1-json                      7.1.15-1+ubuntu16.04.1+deb.sury.org+2                    amd64        JSON module for PHP
+ii  php7.1-opcache                   7.1.15-1+ubuntu16.04.1+deb.sury.org+2                    amd64        Zend OpCache module for PHP
+ii  php7.1-readline                  7.1.15-1+ubuntu16.04.1+deb.sury.org+2                    amd64        readline module for PHP
+ii  php7.2                           7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     all          server-side, HTML-embedded scripting language (metapackage)
+ii  php7.2-cli                       7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        command-line interpreter for the PHP scripting language
+ii  php7.2-common                    7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        documentation, examples and common module for PHP
+ii  php7.2-curl                      7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        CURL module for PHP
+ii  php7.2-dev                       7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        Files for PHP7.2 module development
+ii  php7.2-fpm                       7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        server-side, HTML-embedded scripting language (FPM-CGI binary)
+ii  php7.2-gd                        7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        GD module for PHP
+ii  php7.2-json                      7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        JSON module for PHP
+ii  php7.2-mbstring                  7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        MBSTRING module for PHP
+ii  php7.2-mysql                     7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        MySQL module for PHP
+ii  php7.2-opcache                   7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        Zend OpCache module for PHP
+ii  php7.2-readline                  7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        readline module for PHP
+ii  php7.2-xml                       7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        DOM, SimpleXML, WDDX, XML, and XSL module for PHP
+ii  php7.2-zip                       7.2.3-1+ubuntu16.04.1+deb.sury.org+1                     amd64        Zip module for PHP
+ii  pkg-php-tools                    1.33+deb.sury.org~xenial+1                               all          various packaging tools and scripts for PHP packages
