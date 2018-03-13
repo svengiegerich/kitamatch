@@ -14,7 +14,7 @@ class PreferenceController extends Controller
     
     public function show($prid) {
         $preference = Applicant::find($prid);
-        return view('preference.show', array('preference' => $prefence));
+        return view('preference.show', array('preference' => $preference));
     }
     
 }

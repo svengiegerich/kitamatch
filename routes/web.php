@@ -30,4 +30,4 @@ Route::put('/applicant/{applicant}', 'ApplicantController@update');
 //Program
 
 //Prefernece
-Route::get('/preference/{prefernce}', 'PreferenceController@show');
+Route::get('/preference/{preference}', 'PreferenceController@show');
