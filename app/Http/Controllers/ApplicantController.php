@@ -21,7 +21,7 @@ class ApplicantController extends Controller
         return view('applicant.show', array('applicant' => $applicant));
     }
     
-    public function getAll() {
+    public function all() {
         $applicants = Applicant::all();
         return view('applicant.all', array('applicants' => $applicants));
     }

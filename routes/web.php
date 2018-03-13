@@ -21,6 +21,7 @@ Route::get('/', 'ApplicantController@index');
 
 //Applicant
 Route::get('/applicant', 'ApplicantController@index');
+Route::get('/applicant/all', 'ApplicantController@all');
 Route::get('/applicant/create', 'ApplicantController@create');
 Route::get('/applicant/{applicant}', 'ApplicantController@show');
 Route::get('/applicant/{applicant}/edit', 'ApplicantController@edit');
