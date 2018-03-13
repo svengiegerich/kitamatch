@@ -8,8 +8,6 @@ use App\Applicant;
 class ApplicantController extends Controller
 {
     public function index() {
-$app = new Applicant();	
-$app->getAllApplicants();
-	return view('applicant.index');
+	   return view('applicant.index');
     }
 }
