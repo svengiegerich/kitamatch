@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Matching;
+use App\Applicant;
 use App\Traits\GetPreferences;
 
 class MatchingController extends Controller
