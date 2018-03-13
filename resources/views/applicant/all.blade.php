@@ -4,6 +4,8 @@
 	<title>Applicant</title>
   </head>
 <body>
-    Applicant!
+    @foreach($applicants as $applicant)
+        {{$applicant->first_name}}
+    @endforeach
 </body>
 </html>

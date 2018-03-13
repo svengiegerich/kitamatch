@@ -8,5 +8,5 @@ class Applicant extends Model
 {
     //
     
-    public $primarykey = 'aid';
+    public $primaryKey = 'aid';
 }
