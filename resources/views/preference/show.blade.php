@@ -4,6 +4,7 @@
     <title>Preference {{ $preference->prid }}</title>
   </head>
   <body>
+      <?php echo $preference; ?>
     <h1>Preference {{ $preference->prid }}</h1>
     <ul>
         <li>ID from: {{ $preference->id_from }}</li>
