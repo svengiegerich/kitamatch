@@ -18,7 +18,7 @@ class PreferenceController extends Controller
     }
     
     public function showByApplicant($aid) {
-        $preferences = getPreferencesByApplicant($aid);
+        $preferences = $this->getPreferencesByApplicant($aid);
         return view('preference.showByApplicant', array('preferences' => $preferences));
     }
     
