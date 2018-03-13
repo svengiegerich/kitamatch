@@ -8,10 +8,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Preference;
+use App\Traits\GetPreferences;
 
 class PreferenceController extends Controller
 {
-    
+    use GetPreferences;
     
     public function show($prid) {
         $preference = Preference::find($prid);
@@ -22,31 +23,13 @@ class PreferenceController extends Controller
         $preferences = $this->getPreferencesByApplicant($aid);
         return view('preference.showByApplicant', array('preferences' => $preferences));
     }
+    public function showByProgram($pid) {
+        $preferences = $this->getPreferencesByProgram($pid);
+        return view('preference.showByApplicant', array('preferences' => $preferences));
+    }
     
     public function all() {
         $preference = Preference::all();
         return view('preference.all', array('preferences' => $preferences));
     }
-    
-    
-    //get all preferences of an applicant
-    private function getPreferencesByApplicant($aid) {
-        $preferences = DB::table('preferences')->where('id_from', '=', $aid)
-                            ->where('active', '=', 1)
-                            ->orderBy('rank', 'asc')
-                            ->get();
-        return $preferences;
-    }
-    
-    //get all preferences of an program
-    private function getPreferencesByProgram($pid) {
-        $preferences = DB::table('preferences')->whereColumn([
-                                        ['pid', '=', $pid],
-                                        ['active', '=', 1],
-                                            ])
-                            ->orderBy('rank', 'asc')
-                            ->get();
-        return $preferences;
-    }
-    
 }
