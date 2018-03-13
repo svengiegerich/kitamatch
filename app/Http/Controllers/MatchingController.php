@@ -20,10 +20,15 @@ class MatchingController extends Controller
     
     public createJson() {
         //https://matchingtools.com/#operation/hri_demo
+        
         $applicants = Applicant::all();
         
         foreach ($applicants as $applicant) {
-            
+            $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
         }
+        
+        //by program
+        
+        //by capacity
     }
 }

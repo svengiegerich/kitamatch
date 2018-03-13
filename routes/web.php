@@ -34,3 +34,7 @@ Route::get('/preference/{preference}', 'PreferenceController@show');
 Route::get('/preference/applicant/{applicantID}', 'PreferenceController@showByApplicant');
 Route::get('/preference/program/{programID}', 'PreferenceController@showByProgram');
 Route::get('/preference/all', 'PreferenceController@all');
+
+
+//Matchings
+Route::get('/matchings/json', 'PreferenceController@createJson');
