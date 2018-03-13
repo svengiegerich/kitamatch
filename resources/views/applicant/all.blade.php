@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<title>Applicant</title>
+	<title>Applicants</title>
   </head>
 <body>
     <table>
