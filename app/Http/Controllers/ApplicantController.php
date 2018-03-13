@@ -11,9 +11,18 @@ use App\Applicant;
 class ApplicantController extends Controller
 {
     public function index() {
-	   
-        
         return view('applicant.index');
+    }
+    
+    public function store(Request $request) {
+        //Validation
+        
+        $applicant = new Applicant;
+        $applicant->first_name = $request->first_name;
+        $applicant->last_name = $request->last_name;
+        $applicant->adress = $request->adress;
+        
+        $applicant->save();
     }
     
     public function show($aid) {
@@ -30,7 +39,11 @@ class ApplicantController extends Controller
         //
     }
     
-    public function update($aid) {
-        //
+    public function update($request) {
+        $applicant = App\Applicant::find($request->aid);
+        
+        //...
+        
+        $applicant->save();
     }
 }
