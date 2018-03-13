@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Applicant;
+use App\Preference;
 
 class PreferenceController extends Controller
 {
     
     
     public function show($prid) {
-        $preference = Applicant::find($prid);
+        $preference = Preference::find($prid);
         return view('preference.show', array('preference' => $preference));
     }
     
