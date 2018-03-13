@@ -1,5 +1,7 @@
 <?php namespace App\Traits;
 
+use Illuminate\Support\Facades\DB;
+
 trait GetPreferences
 {
     //get all preferences of an applicant
