@@ -26,6 +26,7 @@ class MatchingController extends Controller
         
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
+            echo "ets";
         }
         
         //by program
