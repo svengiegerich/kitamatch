@@ -31,10 +31,8 @@ class PreferenceController extends Controller
     
     //get all preferences of an applicant
     private function getPreferencesByApplicant($aid) {
-        $preferences = DB::table('preferences')->whereColumn([
-                                        ['id_from', $aid],
-                                        ['active', 1],
-                                            ])
+        $preferences = DB::table('preferences')->where('id_from', '=', $aid)
+                            ->where('active', '=', 1)
                             ->orderBy('rank', 'asc')
                             ->get();
         return $preferences;
