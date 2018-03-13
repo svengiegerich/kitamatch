@@ -14,11 +14,11 @@ class MatchingController extends Controller
 {
     use GetPreferences;
     
-    public getMatchings() {
+    public function getMatchings() {
         
     }
     
-    public createJson() {
+    public function createJson() {
         //https://matchingtools.com/#operation/hri_demo
         
         $applicants = Applicant::all();
