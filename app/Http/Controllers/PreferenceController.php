@@ -30,7 +30,7 @@ class PreferenceController extends Controller
     
     //get all preferences of an applicant
     private function getPreferencesByApplicant($aid) {
-        $preferences = App\Preference::whereColumn([
+        $preferences = DB::table('preferences')->whereColumn([
                                         ['aid', '=', $aid],
                                         ['active', '=', 1],
                                             ])
@@ -41,7 +41,7 @@ class PreferenceController extends Controller
     
     //get all preferences of an program
     private function getPreferencesByProgram($pid) {
-        $preferences = App\Preference::whereColumn([
+        $preferences = DB::table('preferences')->whereColumn([
                                         ['pid', '=', $pid],
                                         ['active', '=', 1],
                                             ])
