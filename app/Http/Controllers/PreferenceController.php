@@ -32,7 +32,7 @@ class PreferenceController extends Controller
     //get all preferences of an applicant
     private function getPreferencesByApplicant($aid) {
         $preferences = DB::table('preferences')->whereColumn([
-                                        ['aid', '=', $aid],
+                                        ['id_from', '=', $aid],
                                         ['active', '=', 1],
                                             ])
                             ->orderBy('rank', 'asc')
