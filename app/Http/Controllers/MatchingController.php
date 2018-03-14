@@ -30,6 +30,7 @@ class MatchingController extends Controller
     }
     
     public function all() {
+        echo "hey";
         $matches = Matching::all();
         return view('matching.all', array('matches' => $matches));
     }
