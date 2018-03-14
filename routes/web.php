@@ -37,5 +37,6 @@ Route::get('/preference/all', 'PreferenceController@all');
 
 
 //Matchings
-Route::get('/matchings/json', 'MatchingController@createJson');
-Route::get('/matchings/get', 'MatchingController@findMatchings');
+Route::get('/matching/all', 'MatchingController@all');
+Route::get('/matching/json', 'MatchingController@createJson');
+Route::get('/matching/get', 'MatchingController@findMatchings');

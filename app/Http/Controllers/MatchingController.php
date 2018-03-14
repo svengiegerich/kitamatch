@@ -30,7 +30,6 @@ class MatchingController extends Controller
     }
     
     public function all() {
-        echo "hey";
         $matches = Matching::all();
         return view('matching.all', array('matches' => $matches));
     }
@@ -59,7 +58,7 @@ class MatchingController extends Controller
             $this->store($match, 1);
         }
         
-        $this->all();
+        return Redirect::to('matchings/all');
     }
     
     public function createJson() {
