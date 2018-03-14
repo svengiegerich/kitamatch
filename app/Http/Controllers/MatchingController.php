@@ -22,20 +22,22 @@ class MatchingController extends Controller
     public function createJson() {
         //https://matchingtools.com/#operation/hri_demo
         $json = [];
-		$preferenceList = [];
+		$preferencesApplicants = [];
 		
         $applicants = Applicant::all();
         
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
+			preferenceList = "";
 			foreach ($preferencesByApplicant as $preference) {
-				$preferenceList[$applicant->aid][] = $preference->id_to;
+				$preferenceList .= $preference->id_to;
+				$preferenceList .= ",";
 			}
-			
+			$preferencesApplicants[$applicant->aid] = $preferenceList;
         }
 		
-		print_r ($preferenceList);
+		echo json_encode($preferencesApplicants);
         
         //by program
         
