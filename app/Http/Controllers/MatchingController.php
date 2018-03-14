@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Program;
+use App\Http\Controllers\ProgramController;
 
 use App\Matching;
 use App\Applicant;
