@@ -12,9 +12,9 @@
         </tr>
         @foreach($matches as $match)
             <tr>
-                <td>{{$preference->aid}}</td>
-                <td>{{$preference->pid}}</td>
-                <td>{{$preference->active}}</td>
+                <td>{{$match->aid}}</td>
+                <td>{{$match->pid}}</td>
+                <td>{{$match->active}}</td>
             </tr>
         @endforeach
     </table>

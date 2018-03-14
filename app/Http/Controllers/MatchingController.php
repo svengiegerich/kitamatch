@@ -59,7 +59,7 @@ class MatchingController extends Controller
             $this->store($match, 1);
         }
         
-        return redirect()->route('matching/all');
+        return redirect()->action('MatchingController@all');
     }
     
     public function createJson() {
