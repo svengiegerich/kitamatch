@@ -32,10 +32,10 @@ Route::put('/applicant/{applicant}', 'ApplicantController@update');
 //Preference
 Route::get('/preference/single/{preference}', 'PreferenceController@show');
 // By Applicant
-Route::get('/preference/applicant/{applicantID}', 'PreferenceController@showByApplicant');
-Route::post('/preference/applicant/create/{applicantID}', 'PreferenceController@addByApplicant');
+Route::get('/preference/applicant/{aD}', 'PreferenceController@showByApplicant');
+Route::post('/preference/applicant/create/{aID}', 'PreferenceController@addByApplicant');
 
-Route::get('/preference/program/{programID}', 'PreferenceController@showByProgram');
+Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
 Route::get('/preference/all', 'PreferenceController@all');
 
 
