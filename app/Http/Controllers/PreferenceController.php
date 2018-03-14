@@ -27,7 +27,7 @@ class PreferenceController extends Controller
     public function addByApplicant(Request $request, $aid) {
         $preference = new Preference;
         
-        echo "test:"
+        echo "test:";
         echo $aid;
         
         $preference->id_from = $aid;
