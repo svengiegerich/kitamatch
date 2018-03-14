@@ -29,7 +29,7 @@ class MatchingController extends Controller
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
-			preferenceList = "";
+			$preferenceList = "";
 			foreach ($preferencesByApplicant as $preference) {
 				$preferenceList .= $preference->id_to;
 				$preferenceList .= ",";
