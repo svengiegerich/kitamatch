@@ -22,14 +22,25 @@ class MatchingController extends Controller
     use GetPreferences;
     
     public function getMatchings() {
+		/*$url = 'https://api.matchingtools.org/hri/demo';
 
-	
+		$ch = curl_init($url);
+
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		curl_setopt($ch, CURLOPT_URL,$url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$output = curl_exec ($ch);
+		$info = curl_getinfo($ch);
+		$http_result = $info ['http_code'];
+		curl_close ($ch);
+	*/
 		$client = new Client(); //GuzzleHttp\Client
 		$result = $client->post('https://api.matchingtools.org/hri/demo', [
-			'form_params' => [
-				'header' => 'Content-Type: application/json',
-				'u' => 'mannheim:Exc3llence!',
-				'd' => $this->createJson()
+			'auth' => [
+				'mannheim', 'Exc3llence!'
+			],
+			'json' => [
+				$this->createJson()
 			]
 		]);
 		print_r($result);
