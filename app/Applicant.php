@@ -9,4 +9,5 @@ class Applicant extends Model
     //
     
     public $primaryKey = 'aid';
+    public $timestamps = false;
 }

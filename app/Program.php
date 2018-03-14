@@ -9,4 +9,5 @@ class Program extends Model
     //
 	
     public $primaryKey = 'pid';
+    public $timestamps = false;
 }
