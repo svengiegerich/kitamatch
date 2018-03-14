@@ -33,9 +33,9 @@ class PreferenceController extends Controller
         $preference->id_from = $aid;
         $preference->id_to = $request->input('preference-id-to');
         
-        //$preference->save();
+        $preference->save();
         
-        //return redirect()->action('PreferenceController@all');
+        return redirect()->action('PreferenceController@all');
     }
     
     public function showByProgram($pid) {
