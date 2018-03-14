@@ -43,7 +43,7 @@ class MatchingController extends Controller
 				'{"student_prefs":{"1":["1","2"],"2":["1","2"]},"college_prefs":{"1":["1","2"],"2":["1","2"]},"college_capacity":{"1":2,"2":3}}',
             'headers' => ['Accept' => 'application/json']
 		]);
-		print_r($result);
+		echo $result;
     }
     
     public function createJson() {
