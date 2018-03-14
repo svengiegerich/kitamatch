@@ -29,7 +29,7 @@ class MatchingController extends Controller
 			'form_params' => [
 				'header' => 'Content-Type: application/json',
 				'u' => 'mannheim:Exc3llence!',
-				'd' => $this->createJson();
+				'd' => $this->createJson()
 			]
 		]);
 		print_r($result);
