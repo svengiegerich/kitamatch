@@ -8,6 +8,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProgramController;
 
+//Guzzle
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
+
 use App\Matching;
 use App\Applicant;
 use App\Program;
@@ -18,7 +22,17 @@ class MatchingController extends Controller
     use GetPreferences;
     
     public function getMatchings() {
-        
+
+	
+		$client = new Client(); //GuzzleHttp\Client
+		$result = $client->post('https://api.matchingtools.org/hri/demo', [
+			'form_params' => [
+				'header' => 'Content-Type: application/json',
+				'u' => 'mannheim:Exc3llence!',
+				'd' => $this->createJson();
+			]
+		]);
+		print_r($result);
     }
     
     public function createJson() {
@@ -62,7 +76,6 @@ class MatchingController extends Controller
 			$capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
 		}
 		$json["college_capacity"] = $capacityList;
-		
-		echo json_encode($json);
+		return (json_encode($json));
     }
 }

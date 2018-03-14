@@ -21,7 +21,6 @@ trait GetPreferences
                             ->where('pr_kind', '=', 2)
                             ->orderBy('rank', 'asc')
                             ->get();
-		print_r($pid);
         return $preferences;
     }
 }
