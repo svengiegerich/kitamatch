@@ -23,11 +23,11 @@ class MatchingController extends Controller
     
     public function store($request, $active) {
         $match = new Matching;
-        $match->aid = $request->student;
-        $match->pid = $request->college;
-        $match->active = $active;
-        
-        $match->save();
+        //$match->aid = $request->student;
+        //$match->pid = $request->college;
+        //$match->active = $active;
+        print_r($request);
+        //$match->save();
     }
     
     public function findMatchings() {
