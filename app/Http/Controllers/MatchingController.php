@@ -70,8 +70,6 @@ class MatchingController extends Controller
         foreach ($programs as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
 			
-			print_r($preferencesByProgram);
-			
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
