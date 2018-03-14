@@ -35,7 +35,7 @@ Route::get('/preference/single/{preference}', 'PreferenceController@show');
 Route::get('/preference/applicant/{aID}', 'PreferenceController@showByApplicant');
 Route::post('/preference/applicant/create/{aID}', 'PreferenceController@addByApplicant');
 Route::delete('/preference/applicant/{prid}', function ($prid) {
-    Task::findOrFail($prid)->delete();
+    Preference::findOrFail($prid)->delete();
 
     return redirect('/preference/applicant/1');
 });
