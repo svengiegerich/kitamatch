@@ -49,7 +49,7 @@ class MatchingController extends Controller
 				'mannheim', 'Exc3llence!'
 			],
 			'body' =>
-				$this->createJson,
+				$this->createJson(),
             'headers' => ['Accept' => 'application/json']
 		]);
 		
