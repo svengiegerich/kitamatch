@@ -28,7 +28,7 @@ class PreferenceController extends Controller
         $preference = new Preference;
         
         $preference->id_from = $aid;
-        $preference->id_to = $request->input('preference-id-to');
+        $preference->id_to = $request->to;
         $preference->pr_kind = 1;
         
         $preference->save();

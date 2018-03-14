@@ -14,7 +14,7 @@
             <label for="task" class="col-sm-3 control-label">Preference</label>
 
             <div class="col-sm-6">
-                <input type="preference-id-to" name="name" id="preference-to" class="form-control">
+                <input type="to" name="name" id="preference-to" class="form-control">
             </div>
         </div>
 
