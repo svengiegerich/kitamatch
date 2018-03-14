@@ -29,7 +29,7 @@ class PreferenceController extends Controller
     }
     
     public function all() {
-        $preference = Preference::all();
+        $preferences = Preference::all();
         return view('preference.all', array('preferences' => $preferences));
     }
 }
