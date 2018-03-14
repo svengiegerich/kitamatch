@@ -39,8 +39,8 @@ class MatchingController extends Controller
 			'auth' => [
 				'mannheim', 'Exc3llence!'
 			],
-			'form_params' => [
-				$this->createJson()
+			'json' => [
+				'{"student_prefs":{"1":["1","2"],"2":["1","2"],"3":[]},"college_prefs":{"1":["1","2"],"2":["1","2"]},"college_capacity":{"1":2,"2":3}}'
 			]
 		]);
 		print_r($result);
