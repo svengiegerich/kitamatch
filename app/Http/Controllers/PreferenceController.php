@@ -35,7 +35,7 @@ class PreferenceController extends Controller
         
         $preference->save();
         
-        return redirect()->action('PreferenceController@all');
+        return redirect()->action('PreferenceController@showByApplicant', $aid);
     }
     
     public function showByProgram($pid) {

@@ -15,6 +15,7 @@
 
             <div class="col-sm-6">
                 <input type="text" name="to" id="preference-id-to" class="form-control">
+                <br />
                 <input type="text" name="rank" id="preference-rank" class="form-control">
             </div>
         </div>
@@ -55,9 +56,10 @@
                                 <!-- Task Name -->
                                 <td class="table-text">
                                     <div>{{ $preference->id_to }}</div>
+                                </td>
+                                <td class="table-text">
                                     <div>{{ $preference->rank }}</div>
                                 </td>
-
                                 <td>
                                     <!-- TODO: Delete Button -->
                                 </td>
