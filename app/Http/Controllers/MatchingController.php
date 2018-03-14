@@ -21,7 +21,16 @@ class MatchingController extends Controller
 {
     use GetPreferences;
     
-    public function getMatchings() {
+    public function store($request, $active) {
+        $match = new Matching;
+        $match->aid = $request->student;
+        $match->pid = $request->college;
+        $match->active = $active;
+        
+        $match->save();
+    }
+    
+    public function findMatchings() {
 		/*$url = 'https://api.matchingtools.org/hri/demo';
 
 		$ch = curl_init($url);
@@ -40,12 +49,20 @@ class MatchingController extends Controller
 				'mannheim', 'Exc3llence!'
 			],
 			'body' =>
-				'{"student_prefs":{"1":["1","2"],"2":["1","2"]},"college_prefs":{"1":["1","2"],"2":["1","2"]},"college_capacity":{"1":2,"2":3}}',
+				$this->createJson,
             'headers' => ['Accept' => 'application/json']
 		]);
 		
         //status code: $response->getStatusCode(); 
         echo $response->getBody();
+        
+        $matchingResult = json_decode($response->getBody())['hri_matching'];
+        //temp: set active = 0 for all previous entries
+        $Matching = new Matching;
+        $Matching->resetMatchings();
+        foreach ($matchingResult as $match) {
+            $this->store($match, 1)
+        }
     }
     
     public function createJson() {
