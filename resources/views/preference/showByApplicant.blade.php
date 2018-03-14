@@ -5,13 +5,15 @@
 
 <div class="panel-body">
     
+    <h3>Preferences of {{ Request::route('aID') }}</h3>
+    
     <!-- New Preference Form -->
     <form action="/preference/applicant/{{ Request::route('aID') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
         <div class="form-group">
-            <label for="task" class="col-sm-3 control-label">Preference</label>
+            <label for="task" class="col-sm-3 control-label"><h5>Add Preferences</h5></label>
             <div class="col-sm-6">
                 Program
                 <input type="text" name="to" id="preference-id-to" class="form-control">
@@ -25,7 +27,7 @@
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Add Preference
+                    <i class="fa fa-plus"></i> Add
                 </button>
             </div>
         </div>
@@ -37,7 +39,7 @@
     @if (count($preferences) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                Current Preferences
+                <h5>Current Preferences</h5>
             </div>
 
             <div class="panel-body">
