@@ -17,4 +17,5 @@ class Matching extends Model
     }
     
     public $primaryKey = 'mid';
+    public $timestamps = false;
 }
