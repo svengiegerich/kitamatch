@@ -35,7 +35,7 @@ class MatchingController extends Controller
 		curl_close ($ch);
 	*/
 		$client = new Client(); //GuzzleHttp\Client
-		$result = $client->post('https://api.matchingtools.org/hri/demo', [
+		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
 			],
@@ -43,7 +43,7 @@ class MatchingController extends Controller
 				'{"student_prefs":{"1":["1","2"],"2":["1","2"]},"college_prefs":{"1":["1","2"],"2":["1","2"]},"college_capacity":{"1":2,"2":3}}',
             'headers' => ['Accept' => 'application/json']
 		]);
-		echo $result;
+		echo $response->getStatusCode(); 
     }
     
     public function createJson() {
