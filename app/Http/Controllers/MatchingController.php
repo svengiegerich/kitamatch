@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Program;
 
 use App\Matching;
 use App\Applicant;
+use App\Program;
 use App\Traits\GetPreferences;
 
 class MatchingController extends Controller
@@ -23,9 +25,9 @@ class MatchingController extends Controller
         //https://matchingtools.com/#operation/hri_demo
         $json = [];
 		$preferencesApplicants = [];
-		
+
+		//by applicant
         $applicants = Applicant::all();
-        
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
@@ -35,11 +37,29 @@ class MatchingController extends Controller
 			}
 			$preferencesApplicants[$applicant->aid] = $preferenceList;
         }
-		
-		echo json_encode($preferencesApplicants);
+		$json["student_prefs"] = $preferencesApplicants;
         
         //by program
-        
+		$programs = Program::all();
+        foreach ($programs as $program) {
+            $preferencesByProgram = $this->getPreferencesByProgram($applicant->pid);
+			
+			$preferenceList = array();
+			foreach ($preferencesByPorgram as $preference) {
+				$preferenceList[] = (string)$preference->id_to;
+			}
+			$preferencesPrograms[$program->pid] = $preferenceList;
+        }
+		$json["college_prefs"] = $preferencesPrograms;
+		
         //by capacity
+		$capacityList = array();
+		$Program = new program;
+		foreach ($programs as $program) {
+			$capacityList[(string)$program->pid] = ->getCapacity($program->pid);
+		}
+		$json["college_capacity"] = $Program->$capacityList;
+		
+		echo json_encode($json);
     }
 }
