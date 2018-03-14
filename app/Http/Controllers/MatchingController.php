@@ -36,7 +36,7 @@ class MatchingController extends Controller
 	*/
 		$client = new Client(); //GuzzleHttp\Client
 		print_r($this->createJson());
-		$result = $client->post('https://api.matchingtools.org/hri/demo', [
+		/*$result = $client->post('https://api.matchingtools.org/hri/demo', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
 			],
@@ -44,7 +44,7 @@ class MatchingController extends Controller
 				$this->createJson()
 			]
 		]);
-		print_r($result);
+		print_r($result);*/
     }
     
     public function createJson() {
