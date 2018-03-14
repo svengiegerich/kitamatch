@@ -35,7 +35,7 @@ class MatchingController extends Controller
 			
         }
 		
-		echo $preferenceList;
+		print $preferenceList;
         
         //by program
         
