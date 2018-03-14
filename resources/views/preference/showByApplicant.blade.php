@@ -15,6 +15,7 @@
 
             <div class="col-sm-6">
                 <input type="text" name="to" id="preference-id-to" class="form-control">
+                <input type="text" name="rank" id="preference-rank" class="form-control">
             </div>
         </div>
 
@@ -43,6 +44,7 @@
                     <!-- Table Headings -->
                     <thead>
                         <th>Preference</th>
+                        <th>Rank</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -53,6 +55,7 @@
                                 <!-- Task Name -->
                                 <td class="table-text">
                                     <div>{{ $preference->id_to }}</div>
+                                    <div>{{ $preference->rank }}</div>
                                 </td>
 
                                 <td>

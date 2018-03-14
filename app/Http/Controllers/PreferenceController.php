@@ -30,6 +30,8 @@ class PreferenceController extends Controller
         $preference->id_from = $aid;
         $preference->id_to = $request->to;
         $preference->pr_kind = 1;
+        $preference->rank = $request->rank;
+        $preference->active = 1;
         
         $preference->save();
         
