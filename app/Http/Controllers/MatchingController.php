@@ -31,19 +31,8 @@ class MatchingController extends Controller
     }
     
     public function findMatchings() {
-		/*$url = 'https://api.matchingtools.org/hri/demo';
-
-		$ch = curl_init($url);
-
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-		curl_setopt($ch, CURLOPT_URL,$url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$output = curl_exec ($ch);
-		$info = curl_getinfo($ch);
-		$http_result = $info ['http_code'];
-		curl_close ($ch);
-	*/
-		$client = new Client(); //GuzzleHttp\Client
+        //GuzzleHttp\Client
+		$client = new Client(); 
 		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
@@ -54,16 +43,18 @@ class MatchingController extends Controller
 		]);
 		
         //status code: $response->getStatusCode(); 
-        echo $response->getBody();
         
+        //write the matches 
         $result = json_decode($response->getBody(), true);
         $matchingResult = $result['hri_matching'];
         //temp: set active = 0 for all previous entries
         $Matching = new Matching;
-        $Matching->resetMatchings();
+        $Matching->resetMatches();
         foreach ($matchingResult as $match) {
             $this->store($match, 1);
         }
+        
+        return view('matching.all', array('matches' => $matches));
     }
     
     public function createJson() {
