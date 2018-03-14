@@ -57,9 +57,9 @@ class MatchingController extends Controller
 		$Program = new program;
 		foreach ($programs as $program) {
 			$pid = (string)$program->pid;
-			$capacityList[$pid] = ->getCapacity($program->pid);
+			$capacityList[$pid] = $Program->getCapacity($program->pid);
 		}
-		$json["college_capacity"] = $Program->$capacityList;
+		$json["college_capacity"] = $capacityList;
 		
 		echo json_encode($json);
     }
