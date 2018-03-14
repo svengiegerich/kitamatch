@@ -65,7 +65,7 @@
                                     <div>{{ $preference->rank }}</div>
                                 </td>
                                 <td>
-                                    <form action="/task/{{ $task->id }}" method="POST">
+                                    <form action="/preference/applicant/{{ $preference->prid }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
