@@ -24,13 +24,11 @@ class PreferenceController extends Controller
         return view('preference.showByApplicant', array('preferences' => $preferences));
     }
     
-    public function addByApplicant(Request $request) {
+    public function addByApplicant(Request $request, $aid) {
         $preference = new Preference;
         
-        
-        print_r($request);
-        //$preference->id_from = $request->preference-id-from;
-        //$preference->id_to = $request->preference-id-to;
+        $preference->id_from = $aid;
+        $preference->id_to = $request->input('preference-id-to');
         
         $preference->save();
         

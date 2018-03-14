@@ -6,7 +6,7 @@
 <div class="panel-body">
     
     <!-- New Preference Form -->
-    <form action="/preference/applicant/create" method="POST" class="form-horizontal">
+    <form action="/preference/applicant/create/{{ Request::route('applicantID') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
