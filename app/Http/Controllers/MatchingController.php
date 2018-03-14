@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
