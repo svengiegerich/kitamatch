@@ -7,15 +7,20 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 
-    <body>
+    <body class=".bg-light">
         <div class="container">
             <nav class="navbar navbar-default">
                 <!-- Navbar Contents -->
             </nav>
-        </div>
+            
+            <div class="py-5 text-center">   
+                <h2>KitaMatch</h2>
+                <p class="lead"></p>
+            </div>
 
-        @yield('content')
+            @yield('content')
         
+        </div>
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

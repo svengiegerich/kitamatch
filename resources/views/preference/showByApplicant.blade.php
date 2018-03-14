@@ -12,10 +12,11 @@
         <!-- Preference ID -->
         <div class="form-group">
             <label for="task" class="col-sm-3 control-label">Preference</label>
-
             <div class="col-sm-6">
+                Program
                 <input type="text" name="to" id="preference-id-to" class="form-control">
                 <br />
+                Rank
                 <input type="text" name="rank" id="preference-rank" class="form-control">
             </div>
         </div>
@@ -61,7 +62,7 @@
                                     <div>{{ $preference->rank }}</div>
                                 </td>
                                 <td>
-                                    <!-- TODO: Delete Button -->
+                                    <input type="hidden" name="_method" value="DELETE">
                                 </td>
                             </tr>
                         @endforeach
