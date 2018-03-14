@@ -45,7 +45,7 @@ class MatchingController extends Controller
             $preferencesByProgram = $this->getPreferencesByProgram($applicant->pid);
 			
 			$preferenceList = array();
-			foreach ($preferencesByPorgram as $preference) {
+			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
 			}
 			$preferencesPrograms[$program->pid] = $preferenceList;
