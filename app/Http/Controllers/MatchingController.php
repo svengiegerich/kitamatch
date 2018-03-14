@@ -30,6 +30,11 @@ class MatchingController extends Controller
         $match->save();
     }
     
+    public function all() {
+        $matches = Matching::all();
+        return view('matching.all', array('matches' => $matches));
+    }
+    
     public function findMatchings() {
         //GuzzleHttp\Client
 		$client = new Client(); 
@@ -54,7 +59,7 @@ class MatchingController extends Controller
             $this->store($match, 1);
         }
         
-        return view('matching.all', array('matches' => $matches));
+        $this->all();
     }
     
     public function createJson() {
