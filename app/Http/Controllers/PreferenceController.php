@@ -23,6 +23,18 @@ class PreferenceController extends Controller
         $preferences = $this->getPreferencesByApplicant($aid);
         return view('preference.showByApplicant', array('preferences' => $preferences));
     }
+    
+    public function addByApplicant($request) {
+        $preference = new Preference;
+        
+        $preference->id_from = $request->preference-id-from;
+        $preference->id_to = $request->preference-id-to;
+        
+        $preference->save();
+        
+        return redirect()->action('PreferenceController@all');
+    }
+    
     public function showByProgram($pid) {
         $preferences = $this->getPreferencesByProgram($pid);
         return view('preference.showByApplicant', array('preferences' => $preferences));

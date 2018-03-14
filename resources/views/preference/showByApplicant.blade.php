@@ -2,6 +2,35 @@
 
 @section('content')
 
+
+<div class="panel-body">
+    
+    <!-- New Preference Form -->
+    <form action="/preference/applicant/create" method="POST" class="form-horizontal">
+        {{ csrf_field() }}
+
+        <!-- Preference ID -->
+        <div class="form-group">
+            <label for="task" class="col-sm-3 control-label">Preference</label>
+
+            <div class="col-sm-6">
+                <input type="text" name="name" id="preference-id-from" class="form-control">
+                <input type="text" name="name" id="preference-id-to" class="form-control">
+            </div>
+        </div>
+
+        <!-- Add Preference Button -->
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-plus"></i> Add Preference
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
 <!-- Current Preferences -->
     @if (count($preferences) > 0)
         <div class="panel panel-default">
