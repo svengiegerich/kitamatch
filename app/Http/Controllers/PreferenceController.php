@@ -27,8 +27,10 @@ class PreferenceController extends Controller
     public function addByApplicant(Request $request) {
         $preference = new Preference;
         
-        $preference->id_from = $request->preference-id-from;
-        $preference->id_to = $request->preference-id-to;
+        
+        print_r($request);
+        //$preference->id_from = $request->preference-id-from;
+        //$preference->id_to = $request->preference-id-to;
         
         $preference->save();
         
