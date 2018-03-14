@@ -30,7 +30,7 @@ class MatchingController extends Controller
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
 			foreach ($preferencesByApplicant as $preference) {
-				$preferenceList[$applicant->aid] = $preference->id_to;
+				$preferenceList[$applicant->aid][] = $preference->id_to;
 			}
 			
         }
