@@ -39,7 +39,7 @@ class PreferenceController extends Controller
     }
     
     public function deleteByApplication(Request $request, $prid) {
-        $preference = App\Preference::find($prid);
+        $preference = App\PreferenceController::find($prid);
         $aid = $preference->id_from;
         $preference->delete();
         return redirect()->action('PreferenceController@showByApplicant', $aid);
