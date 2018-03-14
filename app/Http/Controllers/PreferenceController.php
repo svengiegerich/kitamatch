@@ -38,6 +38,11 @@ class PreferenceController extends Controller
         return redirect()->action('PreferenceController@showByApplicant', $aid);
     }
     
+    public function deleteByApplication(Request $request, $aid) {
+        print_r($request);
+        return redirect()->action('PreferenceController@showByApplicant', $aid);
+    }
+    
     public function showByProgram($pid) {
         $preferences = $this->getPreferencesByProgram($pid);
         return view('preference.showByApplicant', array('preferences' => $preferences));
