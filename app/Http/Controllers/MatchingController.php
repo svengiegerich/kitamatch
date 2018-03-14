@@ -61,7 +61,7 @@ class MatchingController extends Controller
         $Matching = new Matching;
         $Matching->resetMatchings();
         foreach ($matchingResult as $match) {
-            $this->store($match, 1)
+            $this->store($match, 1);
         }
     }
     
