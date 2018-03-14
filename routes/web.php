@@ -38,3 +38,4 @@ Route::get('/preference/all', 'PreferenceController@all');
 
 //Matchings
 Route::get('/matchings/json', 'MatchingController@createJson');
+Route::get('/matchings/getmatchings', 'MatchingController@getMatchings');
