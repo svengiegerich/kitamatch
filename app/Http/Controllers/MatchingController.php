@@ -56,7 +56,8 @@ class MatchingController extends Controller
         //status code: $response->getStatusCode(); 
         echo $response->getBody();
         
-        $matchingResult = json_decode($response->getBody())['hri_matching'];
+        $result = json_decode($response->getBody(), true);
+        $matchingResult = $result['hri_matching'];
         //temp: set active = 0 for all previous entries
         $Matching = new Matching;
         $Matching->resetMatchings();
