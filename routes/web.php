@@ -30,7 +30,7 @@ Route::put('/applicant/{applicant}', 'ApplicantController@update');
 //Program
 
 //Prefernece
-Route::get('/preference/{preference}', 'PreferenceController@show');
+Route::get('/preference/single/{preference}', 'PreferenceController@show');
 Route::get('/preference/applicant/{applicantID}', 'PreferenceController@showByApplicant');
 Route::get('/preference/program/{programID}', 'PreferenceController@showByProgram');
 Route::get('/preference/all', 'PreferenceController@all');
