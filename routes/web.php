@@ -34,7 +34,7 @@ Route::get('/preference/single/{preference}', 'PreferenceController@show');
 // By Applicant
 Route::get('/preference/applicant/{aID}', 'PreferenceController@showByApplicant');
 Route::post('/preference/applicant/create/{aID}', 'PreferenceController@addByApplicant');
-Route::delete('/preference/applicant/{aID}', 'PreferenceController@deleteByApplication');
+Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByApplication');
 
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
 Route::get('/preference/all', 'PreferenceController@all');
