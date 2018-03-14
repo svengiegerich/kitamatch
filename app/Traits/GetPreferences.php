@@ -18,10 +18,10 @@ trait GetPreferences
     public function getPreferencesByProgram($pid) {
         $preferences = DB::table('preferences')->where('id_from', '=', $pid)
                             ->where('active', '=', 1)
-                            ->where('pr_kind', '=', 1)
+                            ->where('pr_kind', '=', 2)
                             ->orderBy('rank', 'asc')
                             ->get();
-		print_r($preferences);
+		print_r($pid);
         return $preferences;
     }
 }

@@ -42,7 +42,7 @@ class MatchingController extends Controller
         //by program
 		$programs = Program::all();
         foreach ($programs as $program) {
-            $preferencesByProgram = $this->getPreferencesByProgram($applicant->pid);
+            $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
 			
 			print_r($preferencesByProgram);
 			
