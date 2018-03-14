@@ -45,7 +45,8 @@
 
                     <!-- Table Headings -->
                     <thead>
-                        <th>Preference</th>
+                        <th>PrID</th>
+                        <th>Program</th>
                         <th>Rank</th>
                         <th>&nbsp;</th>
                     </thead>
@@ -54,7 +55,9 @@
                     <tbody>
                         @foreach ($preferences as $preference)
                             <tr>
-                                <!-- Task Name -->
+                                <td class="table-text">
+                                    <div>{{ $preference->prid }}</div>
+                                </td>
                                 <td class="table-text">
                                     <div>{{ $preference->id_to }}</div>
                                 </td>
