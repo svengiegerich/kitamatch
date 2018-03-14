@@ -26,7 +26,6 @@ class MatchingController extends Controller
         $match->aid = $request['student'];
         $match->pid = $request['college'];
         $match->active = $active;
-        print_r($request);
         $match->save();
     }
     
