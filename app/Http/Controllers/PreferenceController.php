@@ -77,7 +77,7 @@ class PreferenceController extends Controller
                 }
             }
             return view('preference.uncoordinated', array('program' => $program, 
-                                                          'freeApplicants' => $availableApplicants, 
+                                                          'availableApplicants' => $availableApplicants, 
                                                           'preferences' => $preferences,
                                                           'activeOffers' => $activeOffers)
                        );
