@@ -33,6 +33,13 @@
                 </div>
             </div>
             <div class="col-md-2 mb-2">
+                <label for="capacity">Capacity</label>
+                <input type="numeric" class="form-control" name="capacity" id="capacity" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Program status required
+                </div>
+            </div>
+            <div class="col-md-2 mb-2">
                 <label for="kind">Kind</label>
                 <select name="kind">
                     <option value="1">Public</option>

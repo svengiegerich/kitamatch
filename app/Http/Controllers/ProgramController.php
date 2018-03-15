@@ -24,6 +24,7 @@ class ProgramController extends Controller
         $program = new Program;
         $program->name = $request->name;
         $program->adress = $request->address;
+        $program->capacity = $request->capacity;
         $program->status = $request->status;
         $program->coordination = $request->coordination;
         

@@ -9,6 +9,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Capacity</th>
             <th>Address</th>
             <th>Kind</th>
             <th>Coordination</th>
@@ -19,6 +20,7 @@
             <tr>
                 <td>{{$program->pid}}</td>
                 <td>{{$program->name}}</td>
+                <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>
                 <td>{{$program->kind}}</td>
                 <td>{{$program->coordination}}</td>
