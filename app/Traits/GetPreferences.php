@@ -22,7 +22,7 @@ trait GetPreferences
                             ->whereIn('pr_kind', [2,3])
                             ->orderBy('rank', 'asc')
                             ->get();
-        $print_r($preferences);
+        print_r($preferences);
         return $preferences;
     }
     
