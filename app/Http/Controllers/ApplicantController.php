@@ -24,7 +24,9 @@ class ApplicantController extends Controller
         $applicant = new Applicant;
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
-        $applicant->adress = $request->adress;
+        $applicant->adress = $request->address;
+        //status: 1->active, 0->inactive, ...
+        $applicant->status = $request->status;
         
         $applicant->save();
         
@@ -43,6 +45,13 @@ class ApplicantController extends Controller
     
     public function edit($aid) {
         //
+    }
+    
+    public function delete(Request $request, $aid) {
+        $applicant = applicant::find($aid);
+        //temp: set active=0 instead of deleting
+        $applicant->delete();
+        return redirect()->action('ApplicantController@all');
     }
     
     public function update($request) {

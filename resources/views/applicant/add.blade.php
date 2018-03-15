@@ -33,6 +33,16 @@
             </div>
         </div>
         
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Status</label>
+                <input type="text" class="form-control" name="status" id="status" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Application status required
+                </div>
+            </div>
+        </div>
+        
         <hr class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Add appplicant</button>
     </form>

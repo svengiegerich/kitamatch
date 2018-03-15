@@ -20,10 +20,14 @@ Route::get('foo', function () {
 Route::get('/', 'ApplicantController@index');
 
 //Applicant
-Route::get('/applicant', 'ApplicantController@index');
+Route::get('/applicant', 'ApplicantController@all');
+
 Route::get('/applicant/all', 'ApplicantController@all');
+Route::delete('/applicant/all', 'ApplicantController@delete');
+
 Route::get('/applicant/add', 'ApplicantController@add');
 Route::post('/applicant/add', 'ApplicantController@store');
+
 Route::get('/applicant/{applicant}', 'ApplicantController@show');
 Route::get('/applicant/{applicant}/edit', 'ApplicantController@edit');
 Route::put('/applicant/{applicant}', 'ApplicantController@update');
