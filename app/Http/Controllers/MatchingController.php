@@ -107,17 +107,14 @@ class MatchingController extends Controller
                 ['coordination', '=', 0]
             ])
             ->get();
-        print_r($programsU);
-        echo "break";
         foreach ($programsU as $program) {
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
-			
+			print_r($preferencesByProgram);
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
 			}
 			$preferencesPrograms[$program->pid] = $preferenceList;
-            echo "break";
         }
 
         $json["college_prefs"] = $preferencesPrograms;
