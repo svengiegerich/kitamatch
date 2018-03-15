@@ -82,7 +82,9 @@ class MatchingController extends Controller
         }
 		$json["student_prefs"] = $preferencesApplicants;
         
+        //--------------------
         //by program
+        
         //-first: only program that take part in the coordinated way
         $programsC = DB::table('programs')->where([
                 ['status', '=', 1],
@@ -105,6 +107,8 @@ class MatchingController extends Controller
                 ['coordination', '=', 0]
             ])
             ->get();
+        print_r($programsU);
+        echo "break";
         foreach ($programsU as $program) {
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
 			
@@ -113,10 +117,12 @@ class MatchingController extends Controller
 				$preferenceList[] = (string)$preference->id_to;
 			}
 			$preferencesPrograms[$program->pid] = $preferenceList;
+            echo "break";
         }
-        
-        //->
+
         $json["college_prefs"] = $preferencesPrograms;
+        
+        //--------------------
         
         //by capacity
 		$capacityList = array();
