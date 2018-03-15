@@ -73,7 +73,7 @@ class PreferenceController extends Controller
             //mark every active or cloased offer
             //1: active, -1: no match
             //temp: easier?
-            $activeOffers = array();
+            $offers = array();
             foreach ($preferences as $preference) {
                 foreach ($availableApplicants as $applicant) {
                     if ($preference->id_to == $applicant->aid) {
