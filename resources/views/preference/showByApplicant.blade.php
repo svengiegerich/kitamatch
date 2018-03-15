@@ -8,7 +8,7 @@
     <h3>Preferences of Applicant <strong>{{ Request::route('aID') }}</strong></h3>
     
     <!-- New Preference Form -->
-    <form action="/preference/applicant/{{ echo $preferences{0}['prid'] }}" method="POST" class="form-horizontal">
+    <form action="/preference/applicant/<?php echo $preferences{0}['prid']; ?>" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
