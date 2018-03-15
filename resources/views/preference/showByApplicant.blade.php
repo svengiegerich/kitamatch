@@ -5,7 +5,7 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Applicant <strong><?php $aids = (Array)$prefences; echo $aids[0]['id_from']; ?></strong></h3>
+    <h3>Preferences of Applicant <strong><?php $aids = (Array)$preferences; echo $aids[0]['id_from']; ?></strong></h3>
     
     <!-- New Preference Form -->
     <form action="/preference/applicant/<?php echo $aids[0]['id_from']; ?>" method="POST" class="form-horizontal">
