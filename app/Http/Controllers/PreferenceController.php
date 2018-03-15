@@ -61,13 +61,13 @@ class PreferenceController extends Controller
         
         //check if coordinated or not
         $program = Program::find($pid);
-        print_r($program);
         if ($program->coordination == 1) {
             return view('preference.showByProgram', array('preferences' => $preferences));
         } else {
             //temp: get all open and reassonable applicants
             $availableApplicants = Applicant::all();
             //mark every active offer
+            //temp: easier?
             $activeOffers = array();
             foreach ($preferences as $preference) {
                 foreach ($availableApplicants as $applicant) {

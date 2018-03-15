@@ -37,7 +37,7 @@ class MatchingController extends Controller
     
     public function findMatchings() {
         //GuzzleHttp\Client
-		$client = new Client(); 
+		/*$client = new Client(); 
 		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
@@ -57,9 +57,11 @@ class MatchingController extends Controller
         $Matching->resetMatches();
         foreach ($matchingResult as $match) {
             $this->store($match, 1);
-        }
+        }*/
         
-        return redirect()->action('MatchingController@all');
+        print_r($this->createJson());
+        
+        //return redirect()->action('MatchingController@all');
     }
     
     public function createJson() {
@@ -81,13 +83,13 @@ class MatchingController extends Controller
 		$json["student_prefs"] = $preferencesApplicants;
         
         //by program
-        //first: only program that take part in the coordinated way
-        $programs = DB::table('programs')->where([
+        //-first: only program that take part in the coordinated way
+        $programsC = DB::table('programs')->where([
                 ['status', '=', 1],
                 ['coordination', '=', 1]
             ])
             ->get();
-        foreach ($programs as $program) {
+        foreach ($programsC as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
 			
 			$preferenceList = array();
@@ -96,12 +98,36 @@ class MatchingController extends Controller
 			}
 			$preferencesPrograms[$program->pid] = $preferenceList;
         }
-		$json["college_prefs"] = $preferencesPrograms;
 		
+        //-second: add the programs that take the uncoordinated way
+        $programsU = DB::table('programs')->where([
+                ['status', '=', 1],
+                ['coordination', '=', 0]
+            ])
+            ->get();
+        foreach ($programsU as $program) {
+            $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
+			
+			$preferenceList = array();
+			foreach ($preferencesByProgram as $preference) {
+				$preferenceList[] = (string)$preference->id_to;
+			}
+			$preferencesPrograms[$program->pid] = $preferenceList;
+        }
+        
+        //->
+        $json["college_prefs"] = $preferencesPrograms;
+        
         //by capacity
 		$capacityList = array();
 		$Program = new program;
-		foreach ($programs as $program) {
+        //coordinated
+		foreach ($programsC as $program) {
+			$pid = (string)$program->pid;
+			$capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+		}
+        //uncoordinated
+        foreach ($programsU as $program) {
 			$pid = (string)$program->pid;
 			$capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
 		}

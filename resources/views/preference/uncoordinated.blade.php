@@ -2,8 +2,6 @@
 
 @section('content')
 
-<?php print_r($activeOffers); ?>
-
 <div class="panel-body">
     <h4>Program {{$program->pid}} - uncoordinated process</h4>
 
