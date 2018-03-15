@@ -14,6 +14,10 @@ class ApplicantController extends Controller
         return view('applicant.index');
     }
     
+    public function add() {
+        return view('applicant.add');
+    }
+    
     public function store(Request $request) {
         //Validation
         

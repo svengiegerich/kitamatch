@@ -5,7 +5,7 @@
 <div class="col-md-8 order-md-1" >
     <h4>Add Applicant</h4>
     
-    <form action="/preference/applicant/<?php echo $preferences{0}->prid; ?>" method="POST" class="">
+    <form action="/preference/applicant/add" method="POST" class="">
         {{ csrf_field() }}
         
         <div class="row">
