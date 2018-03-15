@@ -26,8 +26,7 @@
                 <td>
                     <form action="/preference/program/uncoordinated/{{$applicant->aid}}" method="POST">
                         {{ csrf_field() }}
-                        {{ method_field('SUBMIT') }}
-
+                        <input type="hidden" name="aid" value="{{$applicant->aid}}">
                         <button>Offer</button>
                     </form>
                 </td>
