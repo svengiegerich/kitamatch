@@ -27,7 +27,6 @@ class Preference extends Model
             ->where('status', '>', 0)
             ->whereIn('pr_kind', [2, 3])
             ->first();
-        echo "hey";
         print_r($preferenceProgram);
         //if not also create pref applicant sided
         if ($preferenceProgram === null) {
