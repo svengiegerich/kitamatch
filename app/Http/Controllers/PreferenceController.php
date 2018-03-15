@@ -71,13 +71,8 @@ class PreferenceController extends Controller
             $activeOffers = array();
             foreach ($preferences as $preference) {
                 foreach ($availableApplicants as $applicant) {
-                    echo $preference->id_to;
-                    echo "b";
-                    echo $applicant->aid;
-                    echo "break";
                     if ($preference->id_to == $applicant->aid) {
                         $activeOffers[$applicant->aid] = 1;
-                        echo "i";
                     }
                 }
             }

@@ -22,17 +22,19 @@
             <tr
                 <?php if (array_key_exists($applicant->aid, $activeOffers)) { echo 'class="table-info"'; } ?>
                 >
-                <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->address}}</td>
                 <td>
+                    @if (!(array_key_exists($applicant->aid, $activeOffers)))
+                    <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST"> 
                         {{ csrf_field() }}
                         <input type="hidden" name="aid" value="{{$applicant->aid}}">
                         <button>Offer</button>
+                    </form>
+                    @endif
                 </td>
-                </form>
             </tr>
             @endforeach
         </tbody>
