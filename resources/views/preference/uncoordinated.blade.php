@@ -4,7 +4,7 @@
 
 
 <div class="panel-body">
-    <h4>Program <?php echo $program->pid; ?> - uncoordinated process</h4>
+    <h4>Program {{$program->pid}} - uncoordinated process</h4>
 
     <table class="table">
         <thead>
@@ -19,7 +19,7 @@
         <tbody>
             @foreach($program->freeApplicants as $applicant)
             <tr>
-                <form action="/preference/program/uncoordinated/{{$applicant->aid}}" method="POST">
+                <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
