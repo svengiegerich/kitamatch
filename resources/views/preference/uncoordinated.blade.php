@@ -19,9 +19,9 @@
             @foreach($availableApplicants as $applicant)
             <tr
                 <?php if (array_key_exists($applicant->aid, $offers)) { 
-                        if ($offers[$applicant->aid] = 1) {
+                        if ($offers[$applicant->aid] == 1) {
                             echo 'class="table-info"';
-                        } else if ($offers[$applicant->aid] = -1) {
+                        } else if ($offers[$applicant->aid] == -1) {
                             echo 'class="table-danger"';
                         }
                     }
