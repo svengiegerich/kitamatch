@@ -5,10 +5,10 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Program <strong><?php echo $program->name; } ?></strong></h3>
+    <h3>Preferences of Program <strong><?php echo $program->name; ?></strong></h3>
     
     <!-- New Preference Form -->
-    <form action="/preference/program/<?php echo $program->pid; } ?>" method="POST" class="form-horizontal">
+    <form action="/preference/program/<?php echo $program->pid; ?>" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->

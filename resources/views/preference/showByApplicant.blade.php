@@ -66,7 +66,6 @@
                                 <td class="table-text">
                                     <div>{{ $preference->rank }}</div>
                                 </td>
-                                //delete
                                 <td>
                                     <form action="/preference/applicant/{{ $preference->prid }}" method="POST">
                                         {{ csrf_field() }}
