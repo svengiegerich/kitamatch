@@ -128,7 +128,7 @@ class PreferenceController extends Controller
             ->where('id_to', '=', $pid)
             ->first();
         //if not also create pref applicant sided
-        if ($user === null) {
+        if ($preferenceApplicant === null) {
             $preferenceApplicant = new Preference;
 
             $preference->id_from = $request->aid;
