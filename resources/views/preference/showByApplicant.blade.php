@@ -5,10 +5,10 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Applicant <strong><?php foreach ($preferences as $preference) { echo $preference->id_to; break; } ?></strong></h3>
+    <h3>Preferences of Applicant <strong><?php foreach ($preferences as $preference) { echo $preference->id_from; break; } ?></strong></h3>
     
     <!-- New Preference Form -->
-    <form action="/preference/applicant/<?php foreach ($preferences as $preference) { echo $preference->id_to; break; } ?>" method="POST" class="form-horizontal">
+    <form action="/preference/applicant/<?php foreach ($preferences as $preference) { echo $preference->id_from; break; } ?>" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
