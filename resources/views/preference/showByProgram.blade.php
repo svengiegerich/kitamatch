@@ -8,7 +8,7 @@
     <h3>Preferences of Program <strong><?php foreach ($preferences as $preference) { echo $preference->id_to; break; } ?></strong></h3>
     
     <!-- New Preference Form -->
-    <form action="/preference/program/<?php print_r($pids); ?>" method="POST" class="form-horizontal">
+    <form action="/preference/program/<?php foreach ($preferences as $preference) { echo $preference->id_to; break; } ?>" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
