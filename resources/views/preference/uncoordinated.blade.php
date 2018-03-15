@@ -4,8 +4,24 @@
 
 
 <div class="panel-body">
-    <h4>Program <?php foreach ($preferences as $preference) { echo $preference->id_from; break; } ?> - uncoordinated process</h4>
-    
+    <h4>Program <?php echo $program->pid; ?> - uncoordinated process</h4>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+        </tr>
+        @foreach($program->freeApplicants as $applicant)
+        <tr>
+            <td>{{$applicant->aid}}</td>
+            <td>{{$applicant->first_name}}</td>
+            <td>{{$applicant->last_name}}</td>
+            <td>{{$applicant->address}}</td>
+        </tr>
+        @endforeach
+    </table>
 </div>
 
 

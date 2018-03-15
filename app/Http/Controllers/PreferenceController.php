@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Preference;
 use App\Program;
+use App\Applicant;
 use App\Traits\GetPreferences;
 
 class PreferenceController extends Controller
@@ -62,11 +63,10 @@ class PreferenceController extends Controller
         $program = Program::find($pid);
         print_r($program);
         if ($program->coordination == 1) {
-            
-            
             return view('preference.showByProgram', array('preferences' => $preferences));
         } else {
-            return view('preference.uncoordinated', array('preferences' => $preferences));
+            $program->freeApplicants = Applicant::all();;
+            return view('preference.uncoordinated', array('program' => $program));
         }
     }
     
