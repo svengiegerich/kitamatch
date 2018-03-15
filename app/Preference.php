@@ -12,13 +12,13 @@ class Preference extends Model
     
     public function updateStatus($prid, $status) {
         $exec = DB::table('preferences')
-            ->where('prid', '=', $prid);
+            ->where('prid', '=', $prid)
             ->update(array('status' => $status));
     }
     
     public private resetUncoordinated() {
         $nonactive = DB::table('preferences')
-            ->where('pr_kind', '>=', '3');
+            ->where('pr_kind', '>=', '3')
             ->update(array('status' => -1));
     }
     
