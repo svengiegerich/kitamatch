@@ -5,10 +5,10 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Applicant <strong><?php $aids = (Array)$preferences; print($aids); ?></strong></h3>
+    <h3>Preferences of Applicant <strong><?php $aids = (Array)$preferences; print_r($aids); ?></strong></h3>
     
     <!-- New Preference Form -->
-    <form action="/preference/applicant/<?php print($aids); ?>" method="POST" class="form-horizontal">
+    <form action="/preference/applicant/<?php print_r($aids); ?>" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
