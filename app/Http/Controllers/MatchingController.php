@@ -41,6 +41,8 @@ class MatchingController extends Controller
         $Preference = new Preference;
         $Matching = new Matching;
         
+        print $this->createJson();
+        
         //GuzzleHttp\Client
 		$client = new Client(); 
 		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
@@ -51,7 +53,7 @@ class MatchingController extends Controller
 				$this->createJson(),
             'headers' => ['Accept' => 'application/json']
 		]);
-		
+        
         //status code: $response->getStatusCode(); 
         
         //write the matches 
@@ -69,15 +71,15 @@ class MatchingController extends Controller
             //tmp
             //check if program is uncoordinated
             if (!($Program->isCoordinated($match['college']))) {
-                // if then update prefs to 1
+                echo "nun";
+                
+                // if then update prefs back to 1
                 $preferencesUncoordinated = $this->getPreferencesByProgram($match['college']);
                 foreach ($preferencesUncoordinated as $preference) {
                     $Preference->updateStatus($preference->prid, 1);
                 }
             }
         }
-        
-        print_r($this->createJson());
         
         //return redirect()->action('MatchingController@all');
     }
@@ -136,7 +138,6 @@ class MatchingController extends Controller
             ->get();
         foreach ($programsU as $program) {
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
-			echo "  print by program u";
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
