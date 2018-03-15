@@ -19,6 +19,7 @@
             @foreach($availableApplicants as $applicant)
             <tr
                 <?php if (array_key_exists($applicant->aid, $offers)) { 
+                        print_r($offers);
                         if ($offers[$applicant->aid = 1]) {
                             echo 'class="table-info"';
                         } else if ($offers[$applicant->aid = -1]) {
