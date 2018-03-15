@@ -77,6 +77,7 @@ class PreferenceController extends Controller
             foreach ($preferences as $preference) {
                 foreach ($availableApplicants as $applicant) {
                     if ($preference->id_to == $applicant->aid) {
+                        echo "hey";
                         if ($preference->status = 1) {
                             $offers[$applicant->aid] = 1;
                         } else if ($preference->status = -1) {
@@ -86,6 +87,7 @@ class PreferenceController extends Controller
                     }
                 }
             }
+            print_r($offers);
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 
                                                           'preferences' => $preferences,
