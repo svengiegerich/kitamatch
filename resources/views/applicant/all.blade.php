@@ -16,7 +16,7 @@
         </tr>
         @foreach($applicants as $applicant)
             <tr>
-                <td>{{$applicant->aid}}</td>
+                <td><a href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></td>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->address}}</td>
