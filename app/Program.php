@@ -11,9 +11,10 @@ class Program extends Model
     //
 	
     public function isCoordinated($pid) {
-        return DB::table('programs')->select('coordination')
+        $res = DB::table('programs')->select('coordination')
             ->where('pid', '=', $pid)
-            ->get();
+            ->get()
+        return $res->coordination;
     }
     
     public $primaryKey = 'pid';
