@@ -22,7 +22,7 @@
                 <td>{{$applicant->address}}</td>
                 <td>{{$applicant->status}}</td>
                 <td>
-                    <form action="applicant/{{ $applicant->aid }}" method="POST">
+                    <form action="/applicant/{{ $applicant->aid }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 

@@ -23,7 +23,7 @@ Route::get('/', 'ApplicantController@index');
 Route::get('/applicant', 'ApplicantController@all');
 
 Route::get('/applicant/all', 'ApplicantController@all');
-Route::delete('/applicant/all', 'ApplicantController@delete');
+Route::delete('/applicant/{applicant}', 'ApplicantController@delete');
 
 Route::get('/applicant/add', 'ApplicantController@add');
 Route::post('/applicant/add', 'ApplicantController@store');
