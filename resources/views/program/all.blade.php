@@ -23,7 +23,7 @@
                 <td>{{$program->name}}</td>
                 <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>
-                <td>{{$program->kind}}</td>
+                <td>{{$program->p_kind}}</td>
                 <td>{{$program->coordination}}</td>
                 <td>{{$program->status}}</td>
                 <td>
