@@ -19,16 +19,15 @@ trait GetPreferences
     public function getPreferencesByProgram($pid) {
         $preferences = DB::table('preferences')->where('id_from', '=', $pid)
                             ->where('status', '=', 1)
-                            ->whereIn('pr_kind', [2,3])
+                            ->where('pr_kind', '=', 2)
                             ->orderBy('rank', 'asc')
                             ->get();
-        print_r($preferences);
         return $preferences;
     }
     
     public function getPreferencesUncoordinatedByProgram($pid) {
         $preferences = DB::table('preferences')->where('id_from', '=', $pid)
-                            ->whereIn('status', [1, -1])
+                            ->whereIn('status', [1, -1)
                             ->where('pr_kind', '=', 3)
                             ->orderBy('rank', 'asc')
                             ->get();
