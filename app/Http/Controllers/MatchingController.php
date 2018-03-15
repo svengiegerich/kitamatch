@@ -97,7 +97,10 @@ class MatchingController extends Controller
 			foreach ($preferencesByApplicant as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
 			}
-			$preferencesApplicants[$applicant->aid] = $preferenceList;
+            //check if there are any preferences
+            if (preferenceList.length > 0) {
+                $preferencesApplicants[$applicant->aid] = $preferenceList;
+            }
         }
 		$json["student_prefs"] = $preferencesApplicants;
         
@@ -117,7 +120,10 @@ class MatchingController extends Controller
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
 			}
-			$preferencesPrograms[$program->pid] = $preferenceList;
+            //check if there are any preferences
+            if (preferenceList.length > 0) {
+                $preferencesPrograms[$program->pid] = $preferenceList;
+            }
         }
 		
         //-second: add the programs that take the uncoordinated way
@@ -133,7 +139,10 @@ class MatchingController extends Controller
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
 			}
-			$preferencesPrograms[$program->pid] = $preferenceList;
+            //check if there are any preferences
+            if (preferenceList.length > 0) {
+                $preferencesPrograms[$program->pid] = $preferenceList;
+            }
         }
 
         $json["college_prefs"] = $preferencesPrograms;
@@ -145,13 +154,17 @@ class MatchingController extends Controller
 		$Program = new program;
         //coordinated
 		foreach ($programsC as $program) {
-			$pid = (string)$program->pid;
-			$capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+			if ($Preference->hasPreferencesByProgram($program->pid)) {
+                $pid = (string)$program->pid;
+			    $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+            }
 		}
         //uncoordinated
         foreach ($programsU as $program) {
-			$pid = (string)$program->pid;
-			$capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+			if ($Preference->hasPreferencesByProgram($program->pid)) {
+                $pid = (string)$program->pid;
+                $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+            }
 		}
 		$json["college_capacity"] = $capacityList;
 		return (json_encode($json));

@@ -22,6 +22,32 @@ class Preference extends Model
             ->update(array('status' => -1));
     }
     
+    public function hasPreferencesByProgram($pid) {
+        $preferenceProgram = Preference::where('id_from', '=', $pid)
+            ->where('status', '>', 0)
+            ->whereIn('pr_kind', [2, 3])
+            ->first();
+        //if not also create pref applicant sided
+        if ($preferenceProgram === null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public function hasPreferencesByApplicant($aid) {
+        $preferenceApplicant = Preference::where('id_from', '=', $aid)
+            ->where('status', '>', 0)
+            ->whereIn('pr_kind', [1, 4])
+            ->first();
+        //if not also create pref applicant sided
+        if ($preferenceApplicant === null) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+    
     public $primaryKey = 'prid';
     public $timestamps = false;
 }
