@@ -39,6 +39,7 @@ class MatchingController extends Controller
     public function findMatchings() {
         $Program = new Program;
         $Preference = new Preference;
+        $Matching = new Matching;
         
         //GuzzleHttp\Client
 		$client = new Client(); 
