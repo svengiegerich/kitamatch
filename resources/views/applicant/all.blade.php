@@ -32,7 +32,9 @@
             </tr>
         @endforeach
     </table>
-
+    
+    <hr class="mb-4">
+    <a href="/applicant/add"><button class="btn btn-primary btn-lg btn-block">Add appplicant</button></a>
 </div>
 
 @endsection

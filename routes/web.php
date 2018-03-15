@@ -41,7 +41,12 @@ Route::get('/preference/applicant/{aID}', 'PreferenceController@showByApplicant'
 Route::post('/preference/applicant/{aID}', 'PreferenceController@addByApplicant');
 Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByApplication');
 
+// By Program
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
+Route::post('/preference/program/{aID}', 'PreferenceController@showByProgram');
+Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgram');
+
+// All 
 Route::get('/preference/all', 'PreferenceController@all');
 
 
