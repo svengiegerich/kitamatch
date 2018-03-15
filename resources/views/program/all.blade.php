@@ -16,11 +16,11 @@
         </tr>
         @foreach($programs as $program)
             <tr>
-                <td>{{$applicant->pid}}</td>
-                <td>{{$applicant->name}}</td>
-                <td>{{$applicant->address}}</td>
+                <td>{{$program->pid}}</td>
+                <td>{{$program->name}}</td>
+                <td>{{$program->address}}</td>
                 <td>{{$applicant->kind}}</td>
-                <td>{{$applicant->status}}</td>
+                <td>{{$program->status}}</td>
                 <td>
                     <form action="/program/{{ $program->pid }}" method="POST">
                         {{ csrf_field() }}
