@@ -7,13 +7,13 @@
     <tr>
         <th>Applicant</th>
         <th>College</th>
-        <th>Active</th>
+        <th>Status</th>
     </tr>
     @foreach($matches as $match)
         <tr>
             <td>{{$match->aid}}</td>
             <td>{{$match->pid}}</td>
-            <td>{{$match->active}}</td>
+            <td>{{$match->status}}</td>
         </tr>
     @endforeach
 </table>

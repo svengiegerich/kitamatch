@@ -10,7 +10,7 @@ class Program extends Model
 	
     public function isCoordinated($pid) {
         return DB::table('programs')->select('coordination')
-            ->where('pid', '=', $pid);
+            ->where('pid', '=', $pid)
             ->get();
     }
     
