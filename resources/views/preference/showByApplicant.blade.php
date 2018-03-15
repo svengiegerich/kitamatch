@@ -8,7 +8,7 @@
     <h3>Preferences of Applicant <strong><?php echo $applicant->last_name; ?></strong></h3>
     
     <!-- New Preference Form -->
-    <form action="/preference/applicant/<?php echo $applicant->$aid; ?>" method="POST" class="form-horizontal">
+    <form action="/preference/applicant/<?php echo $applicant->aid; ?>" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
