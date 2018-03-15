@@ -70,14 +70,11 @@ class MatchingController extends Controller
             
             //tmp
             //check if program is uncoordinated
-            print_r((int)$match['college']);
             $coordination = $Program->isCoordinated((int)$match['college']);
-            print($coordination);
             if ($coordination == 0) {
-                echo "nun";
                 
                 // if then update prefs back to 1
-                $preferencesUncoordinated = $this->getPreferencesByProgram($match['college']);
+                $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
                 foreach ($preferencesUncoordinated as $preference) {
                     $Preference->updateStatus($preference->prid, 1);
                 }
