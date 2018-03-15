@@ -78,9 +78,9 @@ class PreferenceController extends Controller
                 foreach ($availableApplicants as $applicant) {
                     echo "hey";
                     if ($preference->id_to == $applicant->aid) {
-                        if ($preference->status = 1) {
+                        if ($preference->status == 1) {
                             $offers[$applicant->aid] = 1;
-                        } else if ($preference->status = -1) {
+                        } else if ($preference->status == -1) {
                             $offers[$applicant->aid] = -1;
                         }
                         
