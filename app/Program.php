@@ -14,7 +14,8 @@ class Program extends Model
         $res = DB::table('programs')->select('coordination')
             ->where('pid', '=', $pid)
             ->get();
-        return $res->coordination;
+        print_r($res);
+        return 1;
     }
     
     public $primaryKey = 'pid';
