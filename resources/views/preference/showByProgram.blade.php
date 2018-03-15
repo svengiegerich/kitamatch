@@ -5,7 +5,7 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Program <strong><?php pids = (Array)$prefences; echo $pids[0]['id_from']; ?></strong></h3>
+    <h3>Preferences of Program <strong><?php $pids = (Array)$prefences; echo $pids[0]['id_from']; ?></strong></h3>
     
     <!-- New Preference Form -->
     <form action="/preference/program/<?php echo $pids[0]['id_from']; ?>" method="POST" class="form-horizontal">
