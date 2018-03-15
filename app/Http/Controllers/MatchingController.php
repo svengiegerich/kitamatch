@@ -75,8 +75,13 @@ class MatchingController extends Controller
                 
                 // if then update prefs back to 1
                 $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
+                echo ";";
+                print($match['college']);
                 foreach ($preferencesUncoordinated as $preference) {
-                    //$Preference->updateStatus($preference->prid, 1);
+                    //only for this specific match
+                    if ((int)$preference->id_to == (int)$match['student']) {
+                        $Preference->updateStatus($preference->prid, 1);
+                    }
                 }
             }
         }
