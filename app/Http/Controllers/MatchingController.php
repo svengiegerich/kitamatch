@@ -42,7 +42,7 @@ class MatchingController extends Controller
         $Matching = new Matching;
         
         //GuzzleHttp\Client
-		$client = new Client(); 
+		/*$client = new Client(); 
 		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
@@ -76,7 +76,7 @@ class MatchingController extends Controller
                 }
             }
         }
-        
+        */
         print_r($this->createJson());
         
         //return redirect()->action('MatchingController@all');
