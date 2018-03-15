@@ -18,11 +18,13 @@ class ApplicantController extends Controller
         //Validation
         
         $applicant = new Applicant;
-        $applicant->first_name = $request->first_name;
-        $applicant->last_name = $request->last_name;
+        $applicant->first_name = $request->firstName;
+        $applicant->last_name = $request->lastName;
         $applicant->adress = $request->adress;
         
         $applicant->save();
+        
+        return redirect()->action('ApplicantController@all');
     }
     
     public function show($aid) {
