@@ -131,14 +131,14 @@ class PreferenceController extends Controller
         if ($preferenceApplicant === null) {
             $preferenceApplicant = new Preference;
 
-            $preference->id_from = $request->aid;
-            $preference->id_to = $pid;
-            $preference->pr_kind = 4;
+            $preferenceApplicant->id_from = $request->aid;
+            $preferenceApplicant->id_to = $pid;
+            $preferenceApplicant->pr_kind = 4;
             //temp: which rank? now by time order
-            $preference->rank = 1;
-            $preference->status = 1;
+            $preferenceApplicant->rank = 1;
+            $preferenceApplicant->status = 1;
 
-            $preference->save();
+            $preferenceApplicant->save();
         }
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
