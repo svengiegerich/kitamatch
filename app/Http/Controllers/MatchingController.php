@@ -98,7 +98,7 @@ class MatchingController extends Controller
 				$preferenceList[] = (string)$preference->id_to;
 			}
             //check if there are any preferences
-            if ($preferenceList.length > 0) {
+            if (count($preferenceList) > 0) {
                 $preferencesApplicants[$applicant->aid] = $preferenceList;
             }
         }
@@ -121,7 +121,7 @@ class MatchingController extends Controller
 				$preferenceList[] = (string)$preference->id_to;
 			}
             //check if there are any preferences
-            if ($preferenceList.length > 0) {
+            if (count($preferenceList) > 0) {
                 $preferencesPrograms[$program->pid] = $preferenceList;
             }
         }
@@ -140,7 +140,7 @@ class MatchingController extends Controller
 				$preferenceList[] = (string)$preference->id_to;
 			}
             //check if there are any preferences
-            if ($preferenceList.length > 0) {
+            if (count($preferenceList) > 0) {
                 $preferencesPrograms[$program->pid] = $preferenceList;
             }
         }
