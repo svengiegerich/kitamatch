@@ -71,9 +71,9 @@ class MatchingController extends Controller
             //tmp
             //check if program is uncoordinated
             print_r((int)$match['college']);
-            $coordination = $Program->isCoordinated((int)$match['college']);
+            $coordination = $Program->isCoordinated((int)$match['college'])->coordination;
             print_r($coordination);
-            if (1 == 0) {
+            if ($coordination == 0) {
                 echo "nun";
                 
                 // if then update prefs back to 1
