@@ -47,11 +47,12 @@ Route::get('/preference/single/{preference}', 'PreferenceController@show');
 Route::get('/preference/applicant/{aID}', 'PreferenceController@showByApplicant');
 Route::post('/preference/applicant/{aID}', 'PreferenceController@addByApplicant');
 Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByApplication');
-
-// -By Program
+// -By Program - coordinated
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
 Route::post('/preference/program/{pID}', 'PreferenceController@addByProgram');
 Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgram');
+// -By Program - uncoordinated
+Route::post('/preference/program/uncoordinated/{pID}', 'PreferenceController@addUncoordinatedProgram');
 
 // -All 
 Route::get('/preference/all', 'PreferenceController@all');

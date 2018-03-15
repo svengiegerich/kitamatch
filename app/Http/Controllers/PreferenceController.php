@@ -55,7 +55,7 @@ class PreferenceController extends Controller
     }
     
     
-    // by program
+    // by program - coordinated
     public function showByProgram($pid) {
         $preferences = $this->getPreferencesByProgram($pid);
         
@@ -89,6 +89,22 @@ class PreferenceController extends Controller
         $pid = $preference->id_from;
         //temp: set active=0 instead of deleting
         $preference->delete();
+        return redirect()->action('PreferenceController@showByProgram', $pid);
+    }
+    
+    // by program - uncoordinated
+    public function addUncoordinatedProgram(Request $request, $pid) {
+        $preference = new Preference;
+        
+        $preference->id_from = $pid;
+        $preference->id_to = $request->to;
+        $preference->pr_kind = 3;
+        //temp: which rank?
+        $preference->rank = -1;
+        $preference->active = 1;
+        
+        $preference->save();
+        
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
 }
