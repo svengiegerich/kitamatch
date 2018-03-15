@@ -32,7 +32,8 @@
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->address}}</td>
                 <td>
-                    @if (!(array_key_exists($applicant->aid, $activeOffers)))
+                    <!-- show button, if no -1 or 1 set -->
+                    @if (!(array_key_exists($applicant->aid, $offers))
                     <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST"> 
                         {{ csrf_field() }}
                         <input type="hidden" name="aid" value="{{$applicant->aid}}">
