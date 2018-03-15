@@ -19,17 +19,17 @@
         <tbody>
             @foreach($program->freeApplicants as $applicant)
             <tr>
+                <form action="/preference/program/uncoordinated/{{$applicant->aid}}" method="POST">
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->address}}</td>
                 <td>
-                    <form action="/preference/program/uncoordinated/{{$applicant->aid}}" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="aid" value="{{$applicant->aid}}">
                         <button>Offer</button>
-                    </form>
                 </td>
+                </form>
             </tr>
             @endforeach
         </tbody>

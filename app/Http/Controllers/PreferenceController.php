@@ -97,7 +97,7 @@ class PreferenceController extends Controller
         $preference = new Preference;
         
         $preference->id_from = $pid;
-        $preference->id_to = $request->to;
+        $preference->id_to = $request->aid;
         $preference->pr_kind = 3;
         //temp: which rank?
         $preference->rank = -1;
