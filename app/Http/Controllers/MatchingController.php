@@ -161,9 +161,11 @@ class MatchingController extends Controller
 			    $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
             }
 		}
+        echo "break";
         //uncoordinated
         foreach ($programsU as $program) {
-			if ($Preference->hasPreferencesByProgram($program->pid)) {
+			echo "un";
+            if ($Preference->hasPreferencesByProgram($program->pid)) {
                 $pid = (string)$program->pid;
                 $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
             }
