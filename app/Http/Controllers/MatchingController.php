@@ -70,8 +70,8 @@ class MatchingController extends Controller
             
             //tmp
             //check if program is uncoordinated
-            print((int)$match['college']));
-            print($Program->isCoordinated((int)$match['college']));
+            print_r((int)$match['college']);
+            print_r($Program->isCoordinated((int)$match['college']));
             if (!($Program->isCoordinated((int)$match['college']))) {
                 echo "nun";
                 
