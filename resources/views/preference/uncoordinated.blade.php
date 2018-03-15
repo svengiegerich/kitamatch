@@ -24,7 +24,7 @@
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->address}}</td>
                 <td>
-                    <form action="/preference/program/uncoordinated/{{ $program->aid }}" method="POST">
+                    <form action="/preference/program/uncoordinated/{{$applicant->aid}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('SUBMIT') }}
 
