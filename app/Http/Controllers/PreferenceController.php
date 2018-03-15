@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Preference;
+use App\Program;
 use App\Traits\GetPreferences;
 
 class PreferenceController extends Controller
@@ -56,7 +57,16 @@ class PreferenceController extends Controller
     // by program
     public function showByProgram($pid) {
         $preferences = $this->getPreferencesByProgram($pid);
-        return view('preference.showByProgram', array('preferences' => $preferences));
+        
+        //check if coordinated or not
+        $program = Program::find($pid);
+        if ($program->coordinated = 1) {
+            
+            
+            return view('preference.showByProgram', array('preferences' => $preferences));
+        } else {
+            return view('preference.uncoordinated', array('preferences' => $preferences));
+        }
     }
     
     public function addByProgram(Request $request, $pid) {

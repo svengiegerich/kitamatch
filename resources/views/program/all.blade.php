@@ -18,7 +18,6 @@
         </tr>
         @foreach($programs as $program)
             <tr>
-                <?php print_r($program); ?>
                 <td>{{$program->pid}}</td>
                 <td>{{$program->name}}</td>
                 <td>{{$program->capacity}}</td>
