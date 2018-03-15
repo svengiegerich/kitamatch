@@ -24,7 +24,7 @@ class ApplicantController extends Controller
         $applicant = new Applicant;
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
-        $applicant->adress = $request->address;
+        $applicant->address = $request->address;
         //status: 1->active, 0->inactive, ...
         $applicant->status = $request->status;
         
