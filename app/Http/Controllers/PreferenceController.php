@@ -62,24 +62,34 @@ class PreferenceController extends Controller
         //check if coordinated or not
         $program = Program::find($pid);
         if ($program->coordination == 1) {
+            //coordination: true
             return view('preference.showByProgram', array('preferences' => $preferences));
         } else {
+            //coordination: false
+            
             //temp: get all open and reassonable applicants
             $availableApplicants = Applicant::all();
-            //mark every active offer
+            
+            //mark every active or cloased offer
+            //1: active, -1: no match
             //temp: easier?
             $activeOffers = array();
             foreach ($preferences as $preference) {
                 foreach ($availableApplicants as $applicant) {
                     if ($preference->id_to == $applicant->aid) {
-                        $activeOffers[$applicant->aid] = 1;
+                        if ($preference->status = 1) {
+                            $offers[$applicant->aid] = 1;
+                        } else if ($preference->status = -1) {
+                            $offers[$applicant->aid] = -1;
+                        }
+                        
                     }
                 }
             }
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 
                                                           'preferences' => $preferences,
-                                                          'activeOffers' => $activeOffers)
+                                                          'offers' => $offers)
                        );
         }
     }
