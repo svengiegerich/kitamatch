@@ -57,7 +57,7 @@ class PreferenceController extends Controller
     
     // by program - coordinated
     public function showByProgram($pid) {
-        $preferences = $this->getPreferencesByProgram($pid);
+        $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
         
         //check if coordinated or not
         $program = Program::find($pid);
@@ -65,8 +65,22 @@ class PreferenceController extends Controller
         if ($program->coordination == 1) {
             return view('preference.showByProgram', array('preferences' => $preferences));
         } else {
-            $program->freeApplicants = Applicant::all();;
-            return view('preference.uncoordinated', array('program' => $program));
+            //temp: get all open and reassonable applicants
+            $availableApplicants = Applicant::all();
+            //mark every active offer
+            $activeOffers = array();
+            foreach ($preferences as $preference) {
+                foreach ($availableApplicants as $applicant) {
+                    if (strpos($preference->id_to, $applicant->aid) !== FALSE) {
+                        $activeOffers[$applicant->aid] = 1;
+                    }
+                }
+            }
+            return view('preference.uncoordinated', array('program' => $program, 
+                                                          'freeApplicants' => $availableApplicants, 
+                                                          'preferences' => $preferences,
+                                                          'activeOffers' => $activeOffers)
+                       );
         }
     }
     

@@ -23,4 +23,13 @@ trait GetPreferences
                             ->get();
         return $preferences;
     }
+    
+    public function getPreferencesUncoordinatedByProgram($pid) {
+        $preferences = DB::table('preferences')->where('id_from', '=', $pid)
+                            ->where('active', '=', 1)
+                            ->where('pr_kind', '=', 3)
+                            ->orderBy('rank', 'asc')
+                            ->get();
+        return $preferences;
+    }
 }

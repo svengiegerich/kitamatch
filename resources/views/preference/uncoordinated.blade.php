@@ -17,8 +17,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($program->freeApplicants as $applicant)
-            <tr>
+            @foreach($availableApplicants as $applicant)
+            <tr
+                <?php if (array_key_exists($applicant->aid, $active_offers)) { echo 'class="table-info"'; } ?>
+                >
                 <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>
