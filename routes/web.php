@@ -50,7 +50,7 @@ Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByAppl
 
 // -By Program
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
-Route::post('/preference/program/{pID}', 'PreferenceController@showByProgram');
+Route::post('/preference/program/{pID}', 'PreferenceController@addByProgram');
 Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgram');
 
 // -All 
