@@ -10,7 +10,7 @@
             <th>Id to</th>
             <th>Preference kind</th>
             <th>Rank</th>
-            <th>Active</th>
+            <th>Status</th>
         </tr>
         @foreach($preferences as $preference)
             <tr>
@@ -18,7 +18,7 @@
                 <td>{{$preference->id_to}}</td>
                 <td>{{$preference->pr_kind}}</td>
                 <td>{{$preference->rank}}</td>
-                <td>{{$preference->active}}</td>
+                <td>{{$preference->status}}</td>
             </tr>
         @endforeach
     </table>

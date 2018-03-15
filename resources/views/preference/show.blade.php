@@ -11,7 +11,7 @@
         <li>ID to: {{ $preference->id_to }}</li>
         <li>Preference kind: {{ $preference->pr_kind }}</li>
         <li>Rank: {{ $preference->rank }}</li>
-        <li>Active: {{ $preference->active }}</li>
+        <li>Status: {{ $preference->status }}</li>
     </ul>
   </body>
 </html>
