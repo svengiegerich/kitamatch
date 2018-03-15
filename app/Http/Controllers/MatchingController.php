@@ -84,6 +84,8 @@ class MatchingController extends Controller
     
     public function createJson() {
         //https://matchingtools.com/#operation/hri_demo
+        $Preference = new Preference;
+        
         $json = [];
 		$preferencesApplicants = [];
         
