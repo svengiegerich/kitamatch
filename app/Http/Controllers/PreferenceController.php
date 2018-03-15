@@ -91,6 +91,8 @@ class PreferenceController extends Controller
                     }
                 }
             }
+            print_r($offers);
+            
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 
                                                           'preferences' => $preferences,
