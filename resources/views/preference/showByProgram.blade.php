@@ -5,17 +5,17 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Program <strong><?php echo $preferences{0}->prid; ?></strong></h3>
+    <h3>Preferences of Program <strong><?php pids = (Array)$prefences; echo $pids[0]['id_from']; ?></strong></h3>
     
     <!-- New Preference Form -->
-    <form action="/preference/program/<?php echo $preferences{0}->prid; ?>" method="POST" class="form-horizontal">
+    <form action="/preference/program/<?php echo $pids[0]['id_from']; ?>" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
         <div class="form-group">
             <label for="task" class="col-sm-3 control-label"><h5>Add Preferences</h5></label>
             <div class="col-sm-6">
-                Program
+                Applicant
                 <input type="text" name="to" id="preference-id-to" class="form-control">
                 <br />
                 Rank
