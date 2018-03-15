@@ -38,7 +38,6 @@
                     <option value="1">Public</option>
                     <option value="2">Private</option>
                 </select>
-                <input type="text" class="form-control" name="kind" id="kind" placeholder="" required="">
                 <div class="invalid-feedback">
                   Program kind required
                 </div>

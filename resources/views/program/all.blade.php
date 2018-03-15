@@ -19,7 +19,7 @@
                 <td>{{$program->pid}}</td>
                 <td>{{$program->name}}</td>
                 <td>{{$program->address}}</td>
-                <td>{{$applicant->kind}}</td>
+                <td>{{$program->kind}}</td>
                 <td>{{$program->status}}</td>
                 <td>
                     <form action="/program/{{ $program->pid }}" method="POST">
