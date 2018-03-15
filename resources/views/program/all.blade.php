@@ -11,6 +11,7 @@
             <th>Name</th>
             <th>Address</th>
             <th>Kind</th>
+            <th>Coordination</th>
             <th>Status</th>
             <th>&nbsp;</th>
         </tr>
@@ -20,6 +21,7 @@
                 <td>{{$program->name}}</td>
                 <td>{{$program->address}}</td>
                 <td>{{$program->kind}}</td>
+                <td>{{$program->coordination}}</td>
                 <td>{{$program->status}}</td>
                 <td>
                     <form action="/program/{{ $program->pid }}" method="POST">

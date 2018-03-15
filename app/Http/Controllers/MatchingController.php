@@ -68,7 +68,7 @@ class MatchingController extends Controller
 		$preferencesApplicants = [];
 
 		//by applicant
-        $applicants = Applicant::all();
+        $applicants = DB::table('applicants')->where('status', '=', 1)->get();
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
@@ -81,7 +81,10 @@ class MatchingController extends Controller
 		$json["student_prefs"] = $preferencesApplicants;
         
         //by program
-		$programs = Program::all();
+        //first: only where program takes part in the coordinated way
+        $programs = DB::table('programs')->where('status', '=', 1)
+            ->where('coordination', '=', 1)
+            ->get();
         foreach ($programs as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
 			

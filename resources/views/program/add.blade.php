@@ -25,18 +25,28 @@
         </div>
         
         <div class="row">
-            <div class="col-md-3 mb-3">
+            <div class="col-md-2 mb-2">
                 <label for="status">Status</label>
                 <input type="text" class="form-control" name="status" id="status" placeholder="" required="">
                 <div class="invalid-feedback">
                   Program status required
                 </div>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-2 mb-2">
                 <label for="kind">Kind</label>
-                <select>
+                <select name="kind">
                     <option value="1">Public</option>
                     <option value="2">Private</option>
+                </select>
+                <div class="invalid-feedback">
+                  Program kind required
+                </div>
+            </div>
+            <div class="col-md-2 mb-2">
+                <label for="kind">Coordinated?</label>
+                <select name="coordinated">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
                 </select>
                 <div class="invalid-feedback">
                   Program kind required
