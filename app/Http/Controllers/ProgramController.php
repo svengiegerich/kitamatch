@@ -14,6 +14,10 @@ class ProgramController extends Controller
         return redirect()->action('ProgramController@all');
     }
     
+    public function add() {
+        return view('program.add');
+    }
+    
     public function store(Request $request) {
         //Validation
         
