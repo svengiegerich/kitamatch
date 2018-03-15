@@ -44,7 +44,7 @@
         </div>
         
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Add appplicant</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Add applicant</button>
     </form>
 </div>
 

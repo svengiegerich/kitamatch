@@ -3,26 +3,24 @@
 @section('content')
 
 <div class="col-md-8 order-md-1" >
-    <h4>List of Applicants</h4>
+    <h4>List of Program</h4>
     
     <table>
         <tr>
             <th>ID</th>
-            <th>First name</th>
-            <th>Last name</th>
+            <th>Name</th>
             <th>Address</th>
             <th>Status</th>
             <th>&nbsp;</th>
         </tr>
-        @foreach($applicants as $applicant)
+        @foreach($programs as $program)
             <tr>
-                <td>{{$applicant->aid}}</td>
-                <td>{{$applicant->first_name}}</td>
-                <td>{{$applicant->last_name}}</td>
+                <td>{{$applicant->pid}}</td>
+                <td>{{$applicant->name}}</td>
                 <td>{{$applicant->address}}</td>
                 <td>{{$applicant->status}}</td>
                 <td>
-                    <form action="/applicant/{{ $applicant->aid }}" method="POST">
+                    <form action="/program/{{ $program->pid }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
@@ -34,7 +32,7 @@
     </table>
     
     <hr class="mb-4">
-    <a href="/applicant/add"><button class="btn btn-primary btn-lg btn-block">Add applicant</button></a>
+    <a href="/program/add"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
 </div>
 
 @endsection

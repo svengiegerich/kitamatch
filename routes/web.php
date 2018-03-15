@@ -33,20 +33,27 @@ Route::get('/applicant/{applicant}/edit', 'ApplicantController@edit');
 Route::put('/applicant/{applicant}', 'ApplicantController@update');
 
 //Program
+Route::get('/program', 'ProgramController@all');
+
+Route::get('/program/all', 'ProgramController@all');
+Route::delete('/program/{program}', 'ProgramController@delete');
+
+Route::get('/program/add', 'ProgramController@add');
+Route::post('/program/add', 'ProgramController@store');
 
 //Preference
 Route::get('/preference/single/{preference}', 'PreferenceController@show');
-// By Applicant
+// -By Applicant
 Route::get('/preference/applicant/{aID}', 'PreferenceController@showByApplicant');
 Route::post('/preference/applicant/{aID}', 'PreferenceController@addByApplicant');
 Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByApplication');
 
-// By Program
+// -By Program
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
 Route::post('/preference/program/{aID}', 'PreferenceController@showByProgram');
 Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgram');
 
-// All 
+// -All 
 Route::get('/preference/all', 'PreferenceController@all');
 
 

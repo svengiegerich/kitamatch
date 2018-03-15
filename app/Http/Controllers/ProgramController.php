@@ -11,7 +11,7 @@ use App\Program;
 class ProgramController extends Controller
 {
     public function index() {
-        //return view('program.index');
+        return redirect()->action('ProgramController@all');
     }
     
     public function store(Request $request) {
@@ -20,8 +20,11 @@ class ProgramController extends Controller
         $program = new Program;
         $program->name = $request->name;
         $program->adress = $request->adress;
+        $program->status = $request->status;
         
         $program->save();
+        
+        return redirect()->action('ProgramController@all');
     }
     
     public function show($aid) {
@@ -31,11 +34,18 @@ class ProgramController extends Controller
     
     public function all() {
         $programs = Program::all();
-        //return view('program.all', array('programs' => $programs));
+        return view('program.all', array('programs' => $programs));
     }
     
     public function edit($aid) {
         //
+    }
+    
+    public function delete(Request $request, $pid) {
+        $program = program::find($pid);
+        //temp: set active=0 instead of deleting
+        $program->delete();
+        return redirect()->action('ProgramController@all');
     }
     
     public function update($request) {
