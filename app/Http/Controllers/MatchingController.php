@@ -41,7 +41,7 @@ class MatchingController extends Controller
         $Preference = new Preference;
         
         //GuzzleHttp\Client
-		$client = new Client(); 
+		/*$client = new Client(); 
 		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
@@ -74,7 +74,7 @@ class MatchingController extends Controller
                     $Preference->updateStatus($preference->prid, 1);
                 }
             }
-        }
+        }*/
         
         print_r($this->createJson());
         
