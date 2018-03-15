@@ -7,8 +7,9 @@ trait GetPreferences
     //get all preferences of an applicant
     public function getPreferencesByApplicant($aid) {
         $preferences = DB::table('preferences')->where('id_from', '=', $aid)
+                            ->whereIn('pr_kind', [1, 4])
                             ->where('status', '=', 1)
-                            ->where('pr_kind', '=', 1)
+                            ->orderBy('pr_kind', 'asc')
                             ->orderBy('rank', 'asc')
                             ->get();
         return $preferences;
