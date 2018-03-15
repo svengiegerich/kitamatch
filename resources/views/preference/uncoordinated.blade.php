@@ -19,7 +19,7 @@
         <tbody>
             @foreach($availableApplicants as $applicant)
             <tr
-                <?php if (array_key_exists($applicant->aid, $active_offers)) { echo 'class="table-info"'; } ?>
+                <?php if (array_key_exists($applicant->aid, $activeOffers)) { echo 'class="table-info"'; } ?>
                 >
                 <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
                 <th scope="row">{{$applicant->aid}}</th>
