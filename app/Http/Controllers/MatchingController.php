@@ -109,7 +109,8 @@ class MatchingController extends Controller
             ->get();
         foreach ($programsU as $program) {
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
-			print_r($preferencesByProgram);
+			echo "print by program u";
+            print_r($preferencesByProgram);
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
