@@ -67,7 +67,8 @@ class PreferenceController extends Controller
         $program = Program::find($pid);
         if ($program->coordination == 1) {
             //coordination: true
-            return view('preference.showByProgram', array('preferences' => $preferences));
+            return view('preference.showByProgram', array('preferences' => $preferences,
+                                                         'program' => $program));
         } else {
             //coordination: false
             
