@@ -75,7 +75,7 @@ class PreferenceController extends Controller
                     echo "b";
                     echo $applicant->aid;
                     echo "break";
-                    if (strpos($preference->id_to, $applicant->aid) !== FALSE) {
+                    if ($preference->id_to == $applicant->aid) {
                         $activeOffers[$applicant->aid] = 1;
                         echo "i";
                     }
