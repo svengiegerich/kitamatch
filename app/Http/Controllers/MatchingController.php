@@ -31,13 +31,16 @@ class MatchingController extends Controller
     }
     
     public function all() {
-        $matches = DB::table('matching')->where('status', '=', 1)->get();
+        $matches = DB::table('matches')->where('status', '=', 1)->get();
         return view('matching.all', array('matches' => $matches));
     }
     
     public function findMatchings() {
+        $Program = new Program;
+        $Preference = new Preference;
+        
         //GuzzleHttp\Client
-		/*$client = new Client(); 
+		$client = new Client(); 
 		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
@@ -52,12 +55,25 @@ class MatchingController extends Controller
         //write the matches 
         $result = json_decode($response->getBody(), true);
         $matchingResult = $result['hri_matching'];
+        
         //temp: set active = 0 for all previous entries
-        $Matching = new Matching;
         $Matching->resetMatches();
+        $Preference->resetUncoordinated();
+        
+        //store the positiv matches
         foreach ($matchingResult as $match) {
             $this->store($match, 1);
-        }*/
+            
+            //tmp
+            //check if program is uncoordinated
+            if (!($Program->isCoordinated($match['college']))) {
+                // if then update prefs to 1
+                $preferencesUncoordinated = $this->getPreferencesByProgram($match['college']);
+                foreach ($preferencesUncoordinated as $preference) {
+                    $Preference->updateStatus($preference->prid, 1);
+                }
+            }
+        }
         
         print_r($this->createJson());
         
@@ -68,7 +84,8 @@ class MatchingController extends Controller
         //https://matchingtools.com/#operation/hri_demo
         $json = [];
 		$preferencesApplicants = [];
-
+        
+        //--------------------
 		//by applicant
         $applicants = DB::table('applicants')->where('status', '=', 1)->get();
         foreach ($applicants as $applicant) {

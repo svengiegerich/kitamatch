@@ -18,7 +18,10 @@
         <tbody>
             @foreach($availableApplicants as $applicant)
             <tr
-                <?php if (array_key_exists($applicant->aid, $activeOffers)) { echo 'class="table-info"'; } ?>
+                <?php if (array_key_exists($applicant->aid, $activeOffers)) { 
+                        echo 'class="table-info"'; 
+                    } 
+                ?>
                 >
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>

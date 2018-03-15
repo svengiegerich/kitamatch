@@ -13,7 +13,7 @@ class Matching extends Model
         //temp: set all current matchings on active=0 before the new results
         //future: only update "new" or "different" matches and not all
         
-        $nonactive = DB::table('matchings')->update(array('active' => 0));
+        $nonactive = DB::table('matchings')->update(array('status' => 0));
     }
     
     public $primaryKey = 'mid';

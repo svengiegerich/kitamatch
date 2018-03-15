@@ -30,8 +30,6 @@ trait GetPreferences
                             ->where('pr_kind', '=', 3)
                             ->orderBy('rank', 'asc')
                             ->get();
-        print_r($pid);
-        print_r($preferences);
         return $preferences;
     }
 }

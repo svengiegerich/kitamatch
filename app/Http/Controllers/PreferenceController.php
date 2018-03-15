@@ -108,17 +108,38 @@ class PreferenceController extends Controller
     
     // by program - uncoordinated
     public function addUncoordinatedProgram(Request $request, $pid) {
+        
+        //for the program
         $preference = new Preference;
         
         $preference->id_from = $pid;
         $preference->id_to = $request->aid;
         $preference->pr_kind = 3;
-        //temp: which rank?
-        $preference->rank = -1;
+        //temp: which rank? now by time order
+        $preference->rank = 1;
         $preference->status = 1;
         
         $preference->save();
         
+        //temp?!
+        //for the applicant
+        //check if a hight ranking from applicant side exists
+        $preferenceApplicant = Preference::where('id_from', '=', $request->aid)
+            ->where('id_to', '=', $pid)
+            ->first();
+        //if not also create pref applicant sided
+        if ($user === null) {
+            $preferenceApplicant = new Preference;
+
+            $preference->id_from = $request->aid;
+            $preference->id_to = $pid;
+            $preference->pr_kind = 4;
+            //temp: which rank? now by time order
+            $preference->rank = 1;
+            $preference->status = 1;
+
+            $preference->save();
+        }
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
 }
