@@ -31,7 +31,7 @@ class MatchingController extends Controller
     }
     
     public function all() {
-        $matches = Matching::all();
+        $matches = DB::table('matching')->where('status', '=', 1)->get();
         return view('matching.all', array('matches' => $matches));
     }
     
@@ -81,9 +81,11 @@ class MatchingController extends Controller
 		$json["student_prefs"] = $preferencesApplicants;
         
         //by program
-        //first: only where program takes part in the coordinated way
-        $programs = DB::table('programs')->where('status', '=', 1)
-            ->where('coordination', '=', 1)
+        //first: only program that take part in the coordinated way
+        $programs = DB::table('programs')->where([
+                ['status', '=', 1],
+                ['coordination', '=', 1]
+            ])
             ->get();
         foreach ($programs as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);

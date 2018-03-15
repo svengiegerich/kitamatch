@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-md-8 order-md-1" >
-    <h4>List of Program</h4>
+    <h4>List of Programs</h4>
     
     <table>
         <tr>

@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-2 mb-2">
                 <label for="kind">Coordinated?</label>
-                <select name="coordinated">
+                <select name="coordination">
                     <option value="1">yes</option>
                     <option value="0">no</option>
                 </select>
