@@ -5,7 +5,7 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Applicant <strong><?php echo $applicant->$last_name; ?></strong></h3>
+    <h3>Preferences of Applicant <strong><?php echo $applicant->last_name; ?></strong></h3>
     
     <!-- New Preference Form -->
     <form action="/preference/applicant/<?php echo $applicant->$aid; ?>" method="POST" class="form-horizontal">
