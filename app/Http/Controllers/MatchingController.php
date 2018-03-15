@@ -23,7 +23,7 @@ class MatchingController extends Controller
 {
     use GetPreferences;
     
-    public function store($request, $active) {
+    public function store($request, $status) {
         $match = new Matching;
         $match->aid = $request['student'];
         $match->pid = $request['college'];
