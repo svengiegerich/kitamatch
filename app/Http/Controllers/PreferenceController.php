@@ -19,6 +19,12 @@ class PreferenceController extends Controller
         return view('preference.show', array('preference' => $preference));
     }
     
+    public function all() {
+        $preferences = Preference::all();
+        return view('preference.all', array('preferences' => $preferences));
+    }
+    
+    // by applicant
     public function showByApplicant($aid) {
         $preferences = $this->getPreferencesByApplicant($aid);
         return view('preference.showByApplicant', array('preferences' => $preferences));
@@ -46,13 +52,32 @@ class PreferenceController extends Controller
         return redirect()->action('PreferenceController@showByApplicant', $aid);
     }
     
+    
+    // by program
     public function showByProgram($pid) {
         $preferences = $this->getPreferencesByProgram($pid);
-        return view('preference.showByApplicant', array('preferences' => $preferences));
+        return view('preference.showByProgram', array('preferences' => $preferences));
     }
     
-    public function all() {
-        $preferences = Preference::all();
-        return view('preference.all', array('preferences' => $preferences));
+    public function addByProgram(Request $request, $pid) {
+        $preference = new Preference;
+        
+        $preference->id_from = $pid;
+        $preference->id_to = $request->to;
+        $preference->pr_kind = 1;
+        $preference->rank = $request->rank;
+        $preference->active = 1;
+        
+        $preference->save();
+        
+        return redirect()->action('PreferenceController@showByProgram', $pid);
+    }
+    
+    public function deleteByProgram(Request $request, $prid) {
+        $preference = Preference::find($prid);
+        $pid = $preference->id_from;
+        //temp: set active=0 instead of deleting
+        $preference->delete();
+        return redirect()->action('PreferenceController@showByProgram', $pid);
     }
 }

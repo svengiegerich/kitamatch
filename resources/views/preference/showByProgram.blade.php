@@ -48,7 +48,7 @@
                     <!-- Table Headings -->
                     <thead>
                         <th>PrID</th>
-                        <th>Program</th>
+                        <th>Applicant</th>
                         <th>Rank</th>
                         <th>&nbsp;</th>
                     </thead>
@@ -66,7 +66,6 @@
                                 <td class="table-text">
                                     <div>{{ $preference->rank }}</div>
                                 </td>
-                                //delete
                                 <td>
                                     <form action="/preference/program/{{ $preference->prid }}" method="POST">
                                         {{ csrf_field() }}
