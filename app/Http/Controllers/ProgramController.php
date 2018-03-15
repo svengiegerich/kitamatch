@@ -26,6 +26,7 @@ class ProgramController extends Controller
         $program->adress = $request->address;
         $program->capacity = $request->capacity;
         $program->status = $request->status;
+        $program->p_kind = $request->kind;
         $program->coordination = $request->coordination;
         
         $program->save();
