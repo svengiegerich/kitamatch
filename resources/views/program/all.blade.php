@@ -18,7 +18,7 @@
         </tr>
         @foreach($programs as $program)
             <tr>
-                <td>{{$program->pid}}</td>
+                <td><a href="/preference/program/{{$program->pid}}">{{$program->pid}}</a></td>
                 <td>{{$program->name}}</td>
                 <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>

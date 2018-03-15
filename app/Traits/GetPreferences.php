@@ -19,7 +19,7 @@ trait GetPreferences
     public function getPreferencesByProgram($pid) {
         $preferences = DB::table('preferences')->where('id_from', '=', $pid)
                             ->where('status', '=', 1)
-                            ->where('pr_kind', '=', 2)
+                            ->whereIn('pr_kind', [2,3])
                             ->orderBy('rank', 'asc')
                             ->get();
         return $preferences;
