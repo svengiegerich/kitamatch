@@ -60,6 +60,7 @@ class PreferenceController extends Controller
         
         //check if coordinated or not
         $program = Program::find($pid);
+        print_r($program);
         if ($program->coordinated = 1) {
             
             
