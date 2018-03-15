@@ -5,7 +5,7 @@
 
 <div class="panel-body">
     
-    <h3>Preferences of Program <strong><?php $pids = (Array)$preferences; print(current($pids)); ?></strong></h3>
+    <h3>Preferences of Program <strong><?php $pids = (Array)$preferences; print_r(current($pids)); ?></strong></h3>
     
     <!-- New Preference Form -->
     <form action="/preference/program/<?php print_r($pids); ?>" method="POST" class="form-horizontal">
