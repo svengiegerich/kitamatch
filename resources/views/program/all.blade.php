@@ -10,6 +10,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Address</th>
+            <th>Kind</th>
             <th>Status</th>
             <th>&nbsp;</th>
         </tr>
@@ -18,6 +19,7 @@
                 <td>{{$applicant->pid}}</td>
                 <td>{{$applicant->name}}</td>
                 <td>{{$applicant->address}}</td>
+                <td>{{$applicant->kind}}</td>
                 <td>{{$applicant->status}}</td>
                 <td>
                     <form action="/program/{{ $program->pid }}" method="POST">
