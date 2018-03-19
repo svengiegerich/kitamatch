@@ -62,3 +62,6 @@ Route::get('/preference/all', 'PreferenceController@all');
 Route::get('/matching/all', 'MatchingController@all');
 Route::get('/matching/json', 'MatchingController@createJson');
 Route::get('/matching/get', 'MatchingController@findMatchings');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
