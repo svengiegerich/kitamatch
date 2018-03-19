@@ -75,33 +75,23 @@
                         
                         <div class="mb-3">
                           <label for="address">Address</label>
-                          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                          <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" required="">
                           <div class="invalid-feedback">
                             Please enter your address.
                           </div>
                         </div>
                         
                         <div class="row">
-                          <div class="col-md-5 mb-3">
-                            <label for="country">Country</label>
-                            <select class="custom-select d-block w-100" id="country" required="">
-                              <option value="">Choose...</option>
-                              <option>Germany</option>
-                            </select>
-                            <div class="invalid-feedback">
-                              Please select a valid country.
-                            </div>
-                          </div>
                           <div class="col-md-4 mb-3">
                             <label for="city">City</label>
-                            <input class="custom-select d-block w-100" id="city" required="">
+                            <input class="custom-select d-block w-100" id="city" name="city" required="">
                             <div class="invalid-feedback">
                               Please provide a valid city.
                             </div>
                           </div>
                           <div class="col-md-3 mb-3">
                             <label for="plz">PLZ</label>
-                            <input type="text" class="form-control" id="plz" placeholder="" required="">
+                            <input type="text" class="form-control" id="plz" placeholder="" name="plz" required="">
                             <div class="invalid-feedback">
                               PLZ code required.
                             </div>
@@ -110,7 +100,7 @@
 
                         <div class="mb-3">
                             <label for="parental-status">Parental Status</label>
-                            <select type="text" class="form-control" id="parental-status" placeholder="1234 Main St" required="">
+                            <select type="text" class="form-control" id="parental-status" name="parentalStatus" required="">
                                 <option value="Ein(e) Erziehungsberechtigte(r) ist beschäftigt*">Ein(e) Erziehungsberechtigte(r) ist beschäftigt*</option>
                                 <option value="Beide Erziehungsberechtigten sind beschäftigt*">Beide Erziehungsberechtigten sind beschäftigt*</option>
                                 <option value="Alleinerziehend und beschäftigt*">Alleinerziehend und beschäftigt*</option>
@@ -123,8 +113,8 @@
                         </div>
                         
                         <div class="mb-3">
-                          <label for="telefon">Telefon</label>
-                          <input type="text" class="form-control" id="telefon" placeholder="">
+                          <label for="phone">Telefon</label>
+                          <input type="text" class="form-control" id="phone" name="phone" placeholder="">
                           <div class="invalid-feedback">
                             Please enter your telefon number.
                           </div>
@@ -132,8 +122,9 @@
                         
                         <div class="mb-3">
                             <label for="volume-of-employment">Volume of employment</label>
-                            <select type="text" class="form-control" id="volume-of-employment" placeholder="1234 Main St" required="">
+                            <select type="text" class="form-control" id="volume-of-employment" name="volumeOfEmployment" required="">
                                 <option value="ohne Beschäftigung*">ohne Beschäftigung*</option>
+                                    <option value=""></option>
                                     <option value="8-15 Stunden/Woche">8-15 Stunden/Woche</option>
                                     <option value="16-27 Stunden/Woche">16-27 Stunden/Woche</option>
                                     <option value="ab 28 Stunden/Woche">ab 28 Stunden/Woche</option>
