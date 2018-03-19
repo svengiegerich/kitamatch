@@ -15,6 +15,10 @@
                     @endif
 
                     You are logged in!
+                    
+                    Applicant: Check <a href="/applicant">applicant</a> or <a href="/preference/applicant">preferences</a>.
+                    Program: Check <a href="/program">program</a> or <a href="/preference/program/">preferences</a>.
+                    
                 </div>
             </div>
         </div>

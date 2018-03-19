@@ -60,6 +60,18 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="account-type" class="col-md-4 col-form-label text-md-right">Choose account type</label>
+
+                            <div class="col-md-6">
+                                <select id="account-type" class="form-control" name="accountType" required>
+                                    <option value="1">Parent</option>
+                                    <option value="2">Public</option>
+                                    <option value="3">Private</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

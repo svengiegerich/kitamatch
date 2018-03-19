@@ -18,6 +18,14 @@ Route::get('foo', function () {
 
 //Root
 Route::get('/', 'ApplicantController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Auth
+Route::auth();
+Route::get('/logout', function () {
+   Auth::logout();
+   return redirect('/');
+});
 
 //Applicant
 Route::get('/applicant', 'ApplicantController@all');
@@ -63,5 +71,3 @@ Route::get('/matching/all', 'MatchingController@all');
 Route::get('/matching/json', 'MatchingController@createJson');
 Route::get('/matching/get', 'MatchingController@findMatchings');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
