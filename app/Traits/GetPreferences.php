@@ -9,7 +9,6 @@ trait GetPreferences
         $preferences = DB::table('preferences')->where('id_from', '=', $aid)
                             ->whereIn('pr_kind', [1, 4])
                             ->where('status', '=', 1)
-                            ->orderBy('pr_kind', 'asc')
                             ->orderBy('rank', 'asc')
                             ->get();
         return $preferences;
