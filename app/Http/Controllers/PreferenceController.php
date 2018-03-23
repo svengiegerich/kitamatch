@@ -87,7 +87,7 @@ class PreferenceController extends Controller
                     if ($preference->id_to == $applicant->aid) {
                         print_r($preference);
                         if ($preference->status == 1) {
-                            $offers[$applicant->aid] = $preference->pr_id;
+                            $offers[$applicant->aid] = $preference->prid;
                             $openOffers++;
                         } else if ($preference->status == -1) {
                             $offers[$applicant->aid] = -1;
