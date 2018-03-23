@@ -96,7 +96,7 @@ class PreferenceController extends Controller
                     }
                 }
             }
-            $program->openOffers = 
+            $program->openOffers = $openOffers;
             print_r($offers);
             
             return view('preference.uncoordinated', array('program' => $program, 
