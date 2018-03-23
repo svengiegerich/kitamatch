@@ -33,7 +33,7 @@ class PreferenceController extends Controller
         $preferences = $this->getPreferencesByApplicant($aid);
         return view('preference.showByApplicant', array('preferences' => $preferences,
                                                        'applicant' => $applicant
-                                                       ));
+        ));
     }
     
     public function addByApplicant(Request $request, $aid) {
@@ -74,8 +74,8 @@ class PreferenceController extends Controller
             
             $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
             
-            //temp: get all open and reassonable applicants
-            $availableApplicants = Preference::getAvailableApplicants($pid);
+            $Preference = new Preference;
+            $availableApplicants = $Preference->getAvailableApplicants($pid);
             
             //mark every active or cloased offer
             //1: active, -1: no match
