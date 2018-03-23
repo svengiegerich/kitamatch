@@ -45,7 +45,7 @@
                 </td>
                 <td>
                     @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid] == 1)
-                    <form action="/preference/program/{{ $preference->prid }}" method="POST">
+                    <form action="/preference/program/uncoordinated/{{$applicant->aid}}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                       <button>Delete</button>

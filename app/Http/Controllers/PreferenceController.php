@@ -165,4 +165,8 @@ class PreferenceController extends Controller
         }*/
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
+    
+    public function delteOffer(Request $request, $aid) {
+        
+    }
 }
