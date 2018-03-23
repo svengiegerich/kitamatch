@@ -54,6 +54,7 @@ class Preference extends Model
             ->where('preferences.id_to', '=', $pid)
             ->whereIn('preferences.pr_kind', [1,4])
             ->select('applicants.*')
+            ->orderBy('preferences.status', 'desc')
             ->get();
         return $applicants;
     }

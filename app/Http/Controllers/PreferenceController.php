@@ -81,12 +81,14 @@ class PreferenceController extends Controller
             //1: active, -1: no match
             //temp: easier?
             $offers = array();
+            $openOffers = 0;
             foreach ($preferences as $preference) {
                 foreach ($availableApplicants as $applicant) {
                     if ($preference->id_to == $applicant->aid) {
                         print_r($preference);
                         if ($preference->status == 1) {
                             $offers[$applicant->aid] = 1;
+                            $openOffers++;
                         } else if ($preference->status == -1) {
                             $offers[$applicant->aid] = -1;
                         }
@@ -94,6 +96,7 @@ class PreferenceController extends Controller
                     }
                 }
             }
+            $program->openOffers = 
             print_r($offers);
             
             return view('preference.uncoordinated', array('program' => $program, 
@@ -144,7 +147,7 @@ class PreferenceController extends Controller
         //temp?!
         //for the applicant
         //check if a hight ranking from applicant side exists
-        $preferenceApplicant = Preference::where('id_from', '=', $request->aid)
+        /*$preferenceApplicant = Preference::where('id_from', '=', $request->aid)
             ->where('id_to', '=', $pid)
             ->first();
         //if not also create pref applicant sided

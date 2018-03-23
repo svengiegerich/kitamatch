@@ -4,7 +4,9 @@
 
 <div class="panel-body">
     <h4>Program {{$program->pid}} - uncoordinated process</h4>
-
+    
+    <p>Capacity: {{$program->openOffers}}/{{$program->capacity}}</p>
+    
     <table class="table">
         <thead>
             <tr>
@@ -27,7 +29,7 @@
                     }
                 ?>
                 >
-                <th scope="row">{{$applicant->aid}}</th>
+                <th scope="row"><a target="_blank"  href="/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->address}}</td>
