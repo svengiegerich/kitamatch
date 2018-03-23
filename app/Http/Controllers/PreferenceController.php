@@ -87,7 +87,7 @@ class PreferenceController extends Controller
                     if ($preference->id_to == $applicant->aid) {
                         print_r($preference);
                         if ($preference->status == 1) {
-                            $offers[$applicant->aid] = 1;
+                            $offers[$applicant->aid] = $preference->pr_id;
                             $openOffers++;
                         } else if ($preference->status == -1) {
                             $offers[$applicant->aid] = -1;
@@ -164,9 +164,5 @@ class PreferenceController extends Controller
             $preferenceApplicant->save();
         }*/
         return redirect()->action('PreferenceController@showByProgram', $pid);
-    }
-    
-    public function delteOffer(Request $request, $aid) {
-        
     }
 }

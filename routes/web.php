@@ -61,7 +61,7 @@ Route::post('/preference/program/{pID}', 'PreferenceController@addByProgram');
 Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgram');
 // -By Program - uncoordinated
 Route::post('/preference/program/uncoordinated/{pID}', 'PreferenceController@addUncoordinatedProgram');
-Route::delete('/preference/program/uncoordinated/{aID}', 'PreferenceController@deleteOffer');
+Route::delete('/preference/program/uncoordinated/{aID}', 'PreferenceController@deleteByProgram');
 
 // -All 
 Route::get('/preference/all', 'PreferenceController@all');

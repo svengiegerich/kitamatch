@@ -15,13 +15,14 @@
                 <th>Last name</th>
                 <th>Address</th>
                 <th>&nbsp;</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
             @foreach($availableApplicants as $applicant)
             <tr
                 <?php if (array_key_exists($applicant->aid, $offers)) { 
-                        if ($offers[$applicant->aid] == 1) {
+                        if ($offers[$applicant->aid] > 0) {
                             echo 'class="table-info"';
                         } else if ($offers[$applicant->aid] == -1) {
                             echo 'class="table-danger"';
@@ -44,8 +45,8 @@
                     @endif
                 </td>
                 <td>
-                    @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid] == 1)
-                    <form action="/preference/program/uncoordinated/{{$applicant->aid}}" method="POST">
+                    @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid] > 0)
+                    <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]}}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                       <button>Delete</button>
