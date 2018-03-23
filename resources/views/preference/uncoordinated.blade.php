@@ -50,6 +50,7 @@
                       {{ method_field('DELETE') }}
                       <button>Delete</button>
                     </form>
+                    @endif
                 </td>
             </tr>
             @endforeach
