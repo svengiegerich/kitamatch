@@ -162,7 +162,7 @@ class PreferenceController extends Controller
             $preferenceApplicant->status = 1;
 
             $preferenceApplicant->save();
-        }
+        }*/
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
 }
