@@ -43,35 +43,37 @@
             </div>
 
             <div class="panel-body">
-                <table class="table table-striped task-table">
+                <table  class="table">
 
                     <!-- Table Headings -->
                     <thead>
-                        <th>PrID</th>
-                        <th>Applicant</th>
-                        <th>Rank</th>
-                        <th>&nbsp;</th>
+                        <tr>
+                            <th>PrID</th>
+                            <th>Applicant</th>
+                            <th>Rank</th>
+                            <th>&nbsp;</th>
+                        </tr>
                     </thead>
 
                     <!-- Table Body -->
                     <tbody>
                         @foreach ($preferences as $preference)
                             <tr>
-                                <td class="table-text">
-                                    <div>{{ $preference->prid }}</div>
+                                <th>
+                                    {{ $preference->prid }}
+                                </th>
+                                <td>
+                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->id_to }}</a> 
                                 </td>
-                                <td class="table-text">
-                                    <div>{{ $preference->id_to }}</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>{{ $preference->rank }}</div>
+                                <td>
+                                    {{ $preference->rank }}
                                 </td>
                                 <td>
                                     <form action="/preference/program/{{ $preference->prid }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
-                                        <button>Delete Task</button>
+                                        <button>Delete</button>
                                     </form>
                                 </td>
                             </tr>

@@ -3,19 +3,25 @@
 
 @section('content')
 
-<table>
-    <tr>
-        <th>Applicant</th>
-        <th>College</th>
-        <th>Status</th>
-    </tr>
-    @foreach($matches as $match)
+<h4>Current Matches</h4>
+
+<table class="table">
+    <thead>
         <tr>
-            <td>{{$match->aid}}</td>
-            <td>{{$match->pid}}</td>
-            <td>{{$match->status}}</td>
+            <th>Applicant</th>
+            <th>College</th>
+            <th>Status</th>
         </tr>
-    @endforeach
+    </thead>
+    <tbody>
+        @foreach($matches as $match)
+            <tr>
+                <td><a target="_blank" href="/preference/applicant/{{$match->aid}}">{{$match->aid}}</a></td>
+                <td><a target="_blank" href="/preference/program/{{$match->pid}}">{{$match->pid}}</a></td>
+                <td>{{$match->status}}</td>
+            </tr>
+        @endforeach
+    </tbody>
 </table>
 
 @endsection
