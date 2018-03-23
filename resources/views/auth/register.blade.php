@@ -84,7 +84,7 @@
                         <div class="row">
                           <div class="col-md-4 mb-3">
                             <label for="city">City</label>
-                            <input class="custom-select d-block w-100" id="city" name="city" required="">
+                            <input type="text" class="custom-select d-block w-100" id="city" name="city" required>
                             <div class="invalid-feedback">
                               Please provide a valid city.
                             </div>
@@ -113,10 +113,10 @@
                         </div>
                         
                         <div class="mb-3">
-                          <label for="phone">Telefon</label>
+                          <label for="phone">Phone</label>
                           <input type="text" class="form-control" id="phone" name="phone" placeholder="">
                           <div class="invalid-feedback">
-                            Please enter your telefon number.
+                            Please enter your Phone number.
                           </div>
                         </div>
                         

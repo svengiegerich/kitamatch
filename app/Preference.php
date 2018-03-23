@@ -18,7 +18,7 @@ class Preference extends Model
     
     public function resetUncoordinated() {
         $nonactive = DB::table('preferences')
-            ->whereIn('pr_kind', [3,4])
+            ->whereIn('pr_kind', [3])
             ->update(array('status' => -1));
     }
     
@@ -46,6 +46,15 @@ class Preference extends Model
         } else {
             return 1;
         }
+    }
+    
+    public function getAvailableApplicants($pid) {
+        $applicants = League::select('preferences')
+            ->join('applicants', 'applicant.aid', '=', 'preferences.id_from')
+            ->where('preferences.id_to', '=', $pid)
+            ->whereIn('preferences.pr_kind', [1,4])
+            ->get();
+        return $applicants;
     }
     
     public $primaryKey = 'prid';

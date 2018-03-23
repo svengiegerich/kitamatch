@@ -24,6 +24,7 @@ trait GetPreferences
         return $preferences;
     }
     
+    //get all preferences of an uncoordinated program
     public function getPreferencesUncoordinatedByProgram($pid) {
         $preferences = DB::table('preferences')->where('id_from', '=', $pid)
                             ->whereIn('status', [1, -1])
