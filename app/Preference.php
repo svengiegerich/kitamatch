@@ -49,10 +49,11 @@ class Preference extends Model
     }
     
     public function getAvailableApplicants($pid) {
-        $applicants = DB::select('preferences')
+        $applicants = DB::table('preferences')
             ->join('applicants', 'applicants.aid', '=', 'preferences.id_from')
             ->where('preferences.id_to', '=', $pid)
             ->whereIn('preferences.pr_kind', [1,4])
+            ->select('applicants.*')
             ->get();
         return $applicants;
     }
