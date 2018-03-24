@@ -36,7 +36,7 @@ class GuardianController extends Controller
     public function edit(Request $request, $gid) {
         $request->request->add(['gid' => $gid]);
         $this->update($request);
-        
+        $guardian = Guardian::find($gid);
         return view('guardian.edit', array('guardian' => $guardian));
     }
     
