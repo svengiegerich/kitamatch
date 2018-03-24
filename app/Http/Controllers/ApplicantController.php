@@ -44,7 +44,7 @@ class ApplicantController extends Controller
     
     public function show($aid) {
         $applicant = Applicant::find($aid);
-        print_r("eh");
+        print_r($applicant);
         return view('applicant.edit', array('applicant' => $applicant));
     }
     
@@ -54,7 +54,6 @@ class ApplicantController extends Controller
     }
     
     public function edit(Request $request, $aid) {
-        print_r("huh");
         $request->request->add(['aid' => $aid]);
         $applicant = $this->update($request);
         return view('applicant.edit', array('applicant' => $applicant));
