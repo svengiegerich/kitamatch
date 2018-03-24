@@ -71,22 +71,17 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password'])
         ]);
         
-        
-        //if account-type is guardian
         if ($data['accountType'] == 1) {
+            //account-type is guardian
             $request = new Request();
             $request->setMethod('POST');
-            $request->request->add(['lastName' => $data['lastName'],
-                                    'firstName' => $data['firstName'],
-                                    'uid' => $user->id,
-                                    'address' => $data['address'],
-                                    'city' => $data['city'],
-                                    'plz' => $data['plz'],
-                                    'phone' => $data['phone'],
-                                    'volumeOfEmployment' => $data['volumeOfEmployment'],
-                                    'parentalStatus' => $data['parentalStatus']
-                                   ]);
+            $request->request->add(['uid' => $user->id]);
             app('App\Http\Controllers\GuardianController')->store($request);
+        } else if ($data['accountType'] == 2 || $data['accountType'] == 3) {
+            //account-type private or public
+            
+        } else {
+            //error
         }
         
         return $user;

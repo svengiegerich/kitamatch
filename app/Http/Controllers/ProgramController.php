@@ -36,7 +36,7 @@ class ProgramController extends Controller
     
     public function show($aid) {
         $program = Program::find($pid);
-        //return view('program.show', array('program' => $program));
+        return view('program.edit', array('program' => $program));
     }
     
     public function all() {
@@ -44,8 +44,11 @@ class ProgramController extends Controller
         return view('program.all', array('programs' => $programs));
     }
     
-    public function edit($aid) {
-        //
+    public function edit(Request $request, $pid) {
+        $request->request->add(['pid' => $pid]);
+        $this->update($request);
+        $program = Program::find($gid);
+        return view('program.edit', array('program' => $program));
     }
     
     public function delete(Request $request, $pid) {
@@ -56,10 +59,12 @@ class ProgramController extends Controller
     }
     
     public function update($request) {
-        $program = App\Program::find($request->pid);
-        
-        //...
-        
+        $program = Program::find($request->pid);
+        $program->name = $request->name;
+        $program->address = $request->address;
+        $program->plz = $request->plz;
+        $program->city = $request->city;
+        $program->phone = $request->phone;
         $program->save();
     }
 	

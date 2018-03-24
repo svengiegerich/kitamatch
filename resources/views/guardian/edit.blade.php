@@ -60,7 +60,7 @@
                 <label for="volumeOfEmployment" class="col-sm-2 col-form-label">Volume of employment</label>
                 <div class="col-sm-10">
                     {!! Form::select('volumeOfEmployment', array('' => '',
-                                                                        'ohne Beschäftigung' => 'ohne Beschäftigung*',
+                                                                        'ohne Beschäftigung' => 'ohne Beschäftigung',
                                                                         '8-15 Stunden/Woche' => '8-15 Stunden/Woche',
                                                                         '16-27 Stunden/Woche' => '16-27 Stunden/Woche',
                                                                         'ab 28 Stunden/Woche' => 'ab 28 Stunden/Woche'),

@@ -45,6 +45,8 @@ Route::put('/applicant/{applicant}', 'ApplicantController@update');
 Route::get('/program', 'ProgramController@all');
 
 Route::get('/program/all', 'ProgramController@all');
+Route::get('/program/{pID}', 'ProgramController@show')
+Route::post('/program/{pID}', 'ProgramController@edi')
 Route::delete('/program/{program}', 'ProgramController@delete');
 
 Route::get('/program/add', 'ProgramController@add');
@@ -68,8 +70,8 @@ Route::delete('/preference/program/uncoordinated/{aID}', 'PreferenceController@d
 Route::get('/preference/all', 'PreferenceController@all');
 
 //Guardian
-Route::get('/guardian/edit/{gID}', 'GuardianController@show');
-Route::post('/guardian/edit/{gID}', 'GuardianController@edit');
+Route::get('/guardian/{gID}', 'GuardianController@show');
+Route::post('/guardian/{gID}', 'GuardianController@edit');
 
 //Matchings
 Route::get('/matching/all', 'MatchingController@all');

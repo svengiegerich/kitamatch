@@ -15,6 +15,11 @@ class Program extends Model
         return $res->coordination;
     }
     
+    public function getProgramByUid($pid) {
+        $program = Program::where('uid', '=', $uid)->firstOrFail();
+        return $program;
+    }
+    
     public $primaryKey = 'pid';
     public $timestamps = false;
 }
