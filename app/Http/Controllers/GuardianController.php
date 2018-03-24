@@ -13,7 +13,7 @@ class GuardianController extends Controller
     public function store(Request $request) {
         //Validation
         
-        $guardian = new Applicant;
+        $guardian = new Guardian;
         $guardian->uid = $request->uid;
         $guardian->first_name = $request->firstName;
         $guardian->last_name = $request->lastName;
