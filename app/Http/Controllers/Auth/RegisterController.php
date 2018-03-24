@@ -76,15 +76,15 @@ class RegisterController extends Controller
         if ($data['accountType'] == 1) {
             $request = new Request();
             $request->setMethod('POST');
-            $request->request->add(['last_name' => $data['lastName'],
-                                    'first_name' => $data['firstName'],
+            $request->request->add(['lastName' => $data['lastName'],
+                                    'firstName' => $data['firstName'],
                                     'uid' => $user->id,
                                     'address' => $data['address'],
                                     'city' => $data['city'],
                                     'plz' => $data['plz'],
                                     'phone' => $data['phone'],
-                                    'volume_of_employment' => $data['volumeOfEmployment'],
-                                    'parental_status' => $data['parentalStatus']
+                                    'volumeOfEmployment' => $data['volumeOfEmployment'],
+                                    'parentalStatus' => $data['parentalStatus']
                                    ]);
             app('App\Http\Controllers\GuardianController')->store($request);
         }
