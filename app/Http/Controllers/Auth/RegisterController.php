@@ -73,8 +73,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password'])
         ]);
         
-        print_r($user);
-        
         
         //if account-type is guardian
         if ($data['accountType'] == 1) {
@@ -88,6 +86,6 @@ class RegisterController extends Controller
             app('App\Http\Controllers\ProgramController')->store($request);
         }
         
-        //return $user;
+        return $user;
     }
 }
