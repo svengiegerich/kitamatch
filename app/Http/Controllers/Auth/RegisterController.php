@@ -79,7 +79,9 @@ class RegisterController extends Controller
             //account-type private or public
             $request = new Request();
             $request->setMethod('POST');
-            $request->request->add(['uid' => $user->id]);
+            $request->request->add(['uid' => $user->id,
+                                    //coordination: 1 true / 2 false
+                                   'coordination' => $data['accountType']-2]);
             app('App\Http\Controllers\ProgramController')->store($request);
         } else {
             //error

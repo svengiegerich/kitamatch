@@ -53,8 +53,8 @@
                             <div class="col-md-6">
                                 <select id="account-type" class="form-control" name="accountType" required>
                                     <option value="1">Guardian</option>
-                                    <option value="2">Public</option>
-                                    <option value="3">Private</option>
+                                    <option value="3">Public</option>
+                                    <option value="2">Private</option>
                                 </select>
                             </div>
                         </div>

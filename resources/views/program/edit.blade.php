@@ -23,6 +23,12 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="capcity" class="col-sm-2 col-form-label">Capacity</label>
+                <div class="col-sm-10">
+                  <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}">
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="phone" class="col-sm-2 col-form-label">Phone</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$program->phone}}">

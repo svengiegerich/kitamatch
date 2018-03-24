@@ -26,8 +26,12 @@ class ProgramController extends Controller
         $program->address = $request->address;
         $program->capacity = $request->capacity;
         $program->status = $request->status;
-        $program->p_kind = $request->kind;
+        $program->p_kind = 1;
         $program->coordination = $request->coordination;
+        $program->address = $request->address;
+        $program->plz = $request->plz;
+        $program->city = $request->city;
+        $program->phone = $request->phone;
         
         $program->save();
         
@@ -61,6 +65,7 @@ class ProgramController extends Controller
     public function update($request) {
         $program = Program::find($request->pid);
         $program->name = $request->name;
+        $program->capacity = $program->capacity;
         $program->address = $request->address;
         $program->plz = $request->plz;
         $program->city = $request->city;
