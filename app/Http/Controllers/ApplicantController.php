@@ -14,23 +14,30 @@ class ApplicantController extends Controller
         return view('applicant.index');
     }
     
-    public function add() {
-        return view('applicant.add');
+    public function add($gid) {
+        return view('applicant.edit', ['gid' -> $gid]);
+    }
+    
+    public function create(Request $request, $gid) {
+        $request->request->add(['gid' => $gid]);
+        $this->store($request);
+        return redirect()->action('Guardian@edit', [$gid]);
     }
     
     public function store(Request $request) {
         //Validation
         
         $applicant = new Applicant;
+        $applicant->gid = $request->gid;
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
-        $applicant->address = $request->address;
+        $applicant->birthday = $request->birthday;
+        $applicant->gender = $request->gender;
         //status: 1->active, 0->inactive, ...
-        $applicant->status = $request->status;
+        //tmp
+        $applicant->status = 1;
         
         $applicant->save();
-        
-        return redirect()->action('ApplicantController@all');
     }
     
     public function show($aid) {
@@ -56,9 +63,10 @@ class ApplicantController extends Controller
     
     public function update($request) {
         $applicant = App\Applicant::find($request->aid);
-        
-        //...
-        
+        $applicant->first_name = $request->firstName;
+        $applicant->last_name = $request->lastName;
+        $applicant->gender = $request->gender;
+        $applicant->birthday = $request->birthday;
         $applicant->save();
     }
 }

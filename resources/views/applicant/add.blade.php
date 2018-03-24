@@ -5,41 +5,48 @@
 <div class="col-md-8 order-md-1" >
     <h4>Add Applicant</h4>
     
-    <form action="/applicant/add" method="POST" class="">
+    <form action="/applicant/add/{{$gid}}" method="POST" class="">
         {{ csrf_field() }}
         
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
+        <div class="form-group row">
+            <label for="firstName" class="col-sm-2 col-form-label">First name</label>
+            <div class="col-sm-10">
                 <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
-            </div>
-        </div>
-        
-        <div class="mb-3">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required="">
             <div class="invalid-feedback">
-                Please enter your home address.
+                Valid first name is required.
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Status</label>
-                <input type="text" class="form-control" name="status" id="status" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Application status required
-                </div>
+        <div class="form-group row">
+            <label for="lastName"  class="col-sm-2 col-form-label">Last name</label>
+            <div class="col-sm-10">    
+                <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="">
+            </div>
+            <div class="invalid-feedback">
+                  Valid last name is required.
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="birthday"  class="col-sm-2 col-form-label">Birthday</label>
+            <div class="col-sm-10">    
+                <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="" required="">
+            </div>
+            <div class="invalid-feedback">
+                  Valid birthday is required.
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="gender"  class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-10">    
+                 {!! Form::select('gender', array('M' => 'M',
+                                                  'W' => 'W',
+                                                  'Other' => 'Other'),
+                                            $guardian->parental_status,
+                    array('id' => 'gender', 'class' => 'form-control') )  !!}
+                <input type="date" class="form-control" name="gender" id="gender" placeholder="" value="" required="">
+            </div>
+            <div class="invalid-feedback">
+                  Valid gender is required.
             </div>
         </div>
         

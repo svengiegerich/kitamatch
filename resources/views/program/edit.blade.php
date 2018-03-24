@@ -46,9 +46,12 @@
             </div>
             @if ($program->p_kind == 2)
             <div class="form-group row">
-                <label for="coordination" class="col-sm-2 col-form-label">Coordination</label>
-                <div class="col-sm-10">
-                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-control', 'id' => 'coordination']) }}
+                <div class="col-sm-2 col-form-label"></div>
+                <div class="col-sm-8">
+                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-check-input', 'id' => 'coordination']) }}
+                    <label class="form-check-label" for="coordination">
+                        Coordination
+                    </label>
                 </div>
             </div>
             @endif
