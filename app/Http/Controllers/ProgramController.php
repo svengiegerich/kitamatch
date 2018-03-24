@@ -22,6 +22,7 @@ class ProgramController extends Controller
         //Validation
         
         $program = new Program;
+        $program->uid = $request->uid;
         $program->name = $request->name;
         $program->address = $request->address;
         $program->capacity = $request->capacity;

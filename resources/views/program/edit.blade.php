@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Edit your Profil</h4>
+        <h4>Edit your Program information</h4>
         <br />
         
         <form action="/program/edit/{{$program->pid}}" method="POST">
