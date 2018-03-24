@@ -91,7 +91,9 @@ class RegisterController extends Controller
             
             $request->request->add(['uid' => $user->id,
                                    'coordination' => $coordination,
-                                   'p_kind' => $p_kind]);
+                                   'p_kind' => $p_kind,
+                                   //tmp
+                                   'status' => 1]);
             app('App\Http\Controllers\ProgramController')->store($request);
         } else {
             //error
