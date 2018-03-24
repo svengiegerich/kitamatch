@@ -15,7 +15,7 @@ class Program extends Model
         return $res->coordination;
     }
     
-    public function getProgramByUid($pid) {
+    public function getProgramByUid($uid) {
         $program = Program::where('uid', '=', $uid)->firstOrFail();
         return $program;
     }
