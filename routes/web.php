@@ -38,8 +38,8 @@ Route::get('/applicant/add/{gid}', 'ApplicantController@add');
 //Route::get('/applicant/add', 'ApplicantController@add');
 Route::post('/applicant/add/{gid}', 'ApplicantController@store');
 
-Route::get('/applicant/{applicant}', 'ApplicantController@edit');
-Route::post('/applicant/{applicant}', 'ApplicantController@update');
+Route::get('/applicant/{applicant}', 'ApplicantController@show');
+Route::post('/applicant/{applicant}', 'ApplicantController@edit');
 
 //Program
 Route::get('/program', 'ProgramController@all');
