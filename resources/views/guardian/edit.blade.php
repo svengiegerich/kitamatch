@@ -12,13 +12,13 @@
             <div class="form-group row">
                 <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="lastName" name="lastName" value="{{$guardian->last_name}}">
+                  <input type="text" class="form-control" id="lastName" name="lastName" value="{{$guardian->last_name}}" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="firstName" class="col-sm-2 col-form-label">First name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="firstName" name="firstName" value="{{$guardian->first_name}}">
+                  <input type="text" class="form-control" id="firstName" name="firstName" value="{{$guardian->first_name}}" required>
                 </div>
             </div>
             <!-- Email but with user-table! -->
@@ -81,6 +81,7 @@
         @endforeach
         
         <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-primary btn-lg btn-block">Add applicant</button></a>
+        <br>
     </div>
 </div>
     

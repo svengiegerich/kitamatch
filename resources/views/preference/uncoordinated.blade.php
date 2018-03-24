@@ -13,7 +13,8 @@
                 <th>ID</th>
                 <th>First name</th>
                 <th>Last name</th>
-                <th>Address</th>
+                <th>Birthday</th>
+                <th>Gender</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -33,7 +34,8 @@
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
-                <td>{{$applicant->address}}</td>
+                <td>{{$applicant->birthday}}</td>
+                <td>{{$applicant->gender}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set -->
                     @if (!(array_key_exists($applicant->aid, $offers)))
