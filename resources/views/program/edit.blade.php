@@ -17,12 +17,6 @@
             </div>
             <!-- Email but with user-table! -->
             <div class="form-group row">
-                <label for="coordination" class="col-sm-2 col-form-label">Coordination</label>
-                <div class="col-sm-10">
-                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-control', 'id' => 'coordination']) }}
-                </div>
-            </div>
-            <div class="form-group row">
                 <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
                 <div class="col-sm-10">
                   <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}">
@@ -48,6 +42,12 @@
                 <label for="city" class="col-sm-2 col-form-label">City</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$program->city}}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="coordination" class="col-sm-2 col-form-label">Coordination</label>
+                <div class="col-sm-10">
+                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-control', 'id' => 'coordination']) }}
                 </div>
             </div>
             

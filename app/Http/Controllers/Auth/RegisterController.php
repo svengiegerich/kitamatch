@@ -77,11 +77,16 @@ class RegisterController extends Controller
             app('App\Http\Controllers\GuardianController')->store($request);
         } else if ($data['accountType'] == 2 || $data['accountType'] == 3) {
             //account-type private or public
+            //2: public, 3:private
+            
             $request = new Request();
             $request->setMethod('POST');
+            if ($data['accountType'] == 2) { $p_kind = 1; coordination = 1; } else if ($p_kind == 3) { $p_kind = 2; coordination = 0; }
+            
             $request->request->add(['uid' => $user->id,
                                     //coordination: 1 true / 2 false
-                                   'coordination' => $data['accountType']-2]);
+                                   'coordination' => $coordination,
+                                   'p_kind' => $p_kind]);
             app('App\Http\Controllers\ProgramController')->store($request);
         } else {
             //error
