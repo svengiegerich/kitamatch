@@ -38,7 +38,7 @@ class ProgramController extends Controller
         return redirect()->action('ProgramController@all');
     }
     
-    public function show($aid) {
+    public function show($pid) {
         $program = Program::find($pid);
         return view('program.edit', array('program' => $program));
     }
