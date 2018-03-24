@@ -44,7 +44,7 @@ class ApplicantController extends Controller
     
     public function show($aid) {
         $applicant = Applicant::find($aid);
-        print_r($applicant);
+        print_r($aid);
         return view('applicant.edit', array('applicant' => $applicant));
     }
     
