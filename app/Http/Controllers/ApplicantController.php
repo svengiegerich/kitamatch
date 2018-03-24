@@ -23,7 +23,7 @@ class ApplicantController extends Controller
     public function create(Request $request, $gid) {
         $request->request->add(['gid' => $gid]);
         $this->store($request);
-        return redirect()->action('Guardian@edit', [$gid]);
+        return redirect()->action('Guardian@show', [$gid]);
     }
     
     public function store(Request $request) {
@@ -44,7 +44,7 @@ class ApplicantController extends Controller
     
     public function show($aid) {
         $applicant = Applicant::find($aid);
-        return view('applicant.show', array('applicant' => $applicant));
+        return view('applicant.edit', array('applicant' => $applicant));
     }
     
     public function all() {
@@ -52,8 +52,10 @@ class ApplicantController extends Controller
         return view('applicant.all', array('applicants' => $applicants));
     }
     
-    public function edit($aid) {
-        //
+    public function edit(Request $request, $aid) {
+        $request->request->add(['aid' => $aid]);
+        $applicant = $this->update($request);
+        return view('applicant.edit', array('applicant' => $applicant));
     }
     
     public function delete(Request $request, $aid) {
@@ -70,5 +72,6 @@ class ApplicantController extends Controller
         $applicant->gender = $request->gender;
         $applicant->birthday = $request->birthday;
         $applicant->save();
+        return $applicant;
     }
 }
