@@ -17,7 +17,7 @@ Route::get('foo', function () {
 });
 
 //Root
-Route::get('/', 'ApplicantController@index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth

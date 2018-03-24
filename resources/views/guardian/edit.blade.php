@@ -47,8 +47,6 @@
             <div class="form-group row">
                 <label for="parentalStatus" class="col-sm-2 col-form-label">Parental status</label>
                 <div class="col-sm-10">
-                    {{$guardian->parental_status}}
-                    
                     {!! Form::select('parentalStatus', array('' => '',
                                                                         'Ein(e) Erziehungsberechtigte(r) ist beschäftigt' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
                                                                         'Beide Erziehungsberechtigten sind beschäftigt' => 'Beide Erziehungsberechtigten sind beschäftigt',
