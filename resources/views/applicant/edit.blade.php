@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-md-8 order-md-1" >
-    <h4>Add Applicant</h4>
+    <h4>Edit Applicant</h4>
     
     <form action="/applicant/{{$applicant->aid}}" method="POST" class="">
         {{ csrf_field() }}
@@ -50,7 +50,7 @@
         </div>
         
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Add applicant</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
     </form>
 </div>
 
