@@ -21,8 +21,8 @@ class ApplicantController extends Controller
     }
     
     public function create(Request $request, $gid) {
-        $request->request->add(['gid' => $gid]);
-        $this->store($request);
+        //$request->request->add(['gid' => $gid]);
+        //$this->store($request);
         return redirect()->action('GuardianController@show', $gid);
     }
     
