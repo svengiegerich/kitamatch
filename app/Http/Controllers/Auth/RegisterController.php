@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\GuardianController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed'
         ]);
     }
 
@@ -63,17 +64,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'account_type' => $data['accountType'],
-            'password' => Hash::make($data['password']),
-            'address' => $data['adress'],
-            'city' => $data['city'],
-            'plz' => $data['plz'],                        
-            'phone' => $data['phone'],
-            'volume_of_employment' => $data['volumeOfEmployment'],
-            'parental_status' => $data['parentalStatus'],
-        ]);
+            'password' => Hash::make($data['password'])
+        ])
+        
+        //if account-type is guardian
+        if ($data['accountType'] == 1) {
+            $request->uid = $user->id;
+            $request->address = $data['adress'],
+            $request->city = $data['city'],
+            $request->plz = $data['plz'],                        
+            $request->phone = $data['phone'],
+            $request->volume_of_employment = $data['volumeOfEmployment'],
+            $request->parental_status = $data['parentalStatus'],
+            app('App\Http\Controllers\ProgramController')->store($request);
+        }
+        
+        return $user;
     }
 }

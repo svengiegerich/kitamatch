@@ -26,6 +26,7 @@ Route::get('/logout', function () {
    Auth::logout();
    return redirect('/');
 });
+Auth::routes();
 
 //Applicant
 Route::get('/applicant', 'ApplicantController@all');
@@ -71,4 +72,3 @@ Route::get('/preference/all', 'PreferenceController@all');
 Route::get('/matching/all', 'MatchingController@all');
 Route::get('/matching/json', 'MatchingController@createJson');
 Route::get('/matching/get', 'MatchingController@findMatchings');
-Auth::routes();
