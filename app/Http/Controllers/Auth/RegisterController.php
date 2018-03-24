@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\GuardianController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -87,7 +86,7 @@ class RegisterController extends Controller
             //$request->phone = $data['phone'];
             //$request->volume_of_employment = $data['volumeOfEmployment'];
             //$request->parental_status = $data['parentalStatus'];
-            app('App\Http\Controllers\ProgramController')->store($request);
+            app('App\Http\Controllers\GuardianController')->store($request);
         }
         
         return $user;
