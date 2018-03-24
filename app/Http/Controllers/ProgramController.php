@@ -63,8 +63,7 @@ class ProgramController extends Controller
         return redirect()->action('ProgramController@all');
     }
     
-    public function update($request) {
-        print_r($request);
+    public function update(Request $request) {
         $program = Program::find($request->pid);
         $program->name = $request->name;
         $program->capacity = $program->capacity;
