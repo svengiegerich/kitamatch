@@ -12,7 +12,7 @@ class Guardian extends Model
     public $primaryKey = 'gid';
     
     public function getGuardianByUid($uid) {
-        $guardian = Guardians::where('uid', '=', $uid)->firstOrFail();
+        $guardian = Guardian::where('uid', '=', $uid)->firstOrFail();
         return $guardian;
     }
 }
