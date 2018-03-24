@@ -69,6 +69,7 @@ Route::get('/preference/all', 'PreferenceController@all');
 
 //Guardian
 Route::get('/guardian/edit/{gID}', 'GuardianController@show');
+Route::post('/guardian/edit/{gID}', 'GuardianController@edit');
 
 //Matchings
 Route::get('/matching/all', 'MatchingController@all');

@@ -33,7 +33,23 @@ class GuardianController extends Controller
         return view('guardian.edit', array('guardian' => $guardian));
     }
     
-    public function edit(Request $request) {
+    public function edit(Request $request, $gid) {
+        $request->request->add(['gid' => $gid]);
+        $this->update($request);
         
+        return view('guardian.edit', array('guardian' => $guardian));
+    }
+    
+    public function update(Request $request) {
+        $guardian = App\Guardian::find($requets->gid);
+        $guardian->first_name = $request->firstName;
+        $guardian->last_name = $request->lastName;
+        $guardian->address = $request->address;
+        $guardian->city = $request->city;
+        $guardian->plz = $request->plz;
+        $guardian->phone = $request->phone;
+        $guardian->parental_status = $request->parentalStatus;
+        $guardian->volume_of_employment = $request->volumeOfEmployment;
+        $guardian->save();
     }
 }
