@@ -72,10 +72,9 @@ class RegisterController extends Controller
             'account_type' => $data['accountType'],
             'password' => Hash::make($data['password'])
         ]);
-        print($user->id);
-        
+
         //if account-type is guardian
-        /*if ($data['accountType'] == 1) {
+        if ($data['accountType'] == 1) {
             $request->uid = $user->id;
             $request->address = $data['adress'];
             $request->city = $data['city'];
@@ -84,7 +83,7 @@ class RegisterController extends Controller
             $request->volume_of_employment = $data['volumeOfEmployment'];
             $request->parental_status = $data['parentalStatus'];
             app('App\Http\Controllers\ProgramController')->store($request);
-        }*/
+        }
         
         return $user;
     }
