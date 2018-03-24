@@ -39,9 +39,8 @@ class GuardianController extends Controller
     
     public function edit(Request $request, $gid) {
         $request->request->add(['gid' => $gid]);
-        $this->update($request);
-        $guardian = Guardian::find($gid);
-        return view('guardian.edit', array('guardian' => $guardian));
+        $guardian = $this->update($request);
+        return redirect()->action('GuardianController@show', $guardian->gid);
     }
     
     public function update(Request $request) {
@@ -55,5 +54,6 @@ class GuardianController extends Controller
         $guardian->parental_status = $request->parentalStatus;
         $guardian->volume_of_employment = $request->volumeOfEmployment;
         $guardian->save();
+        return $guardian;
     }
 }
