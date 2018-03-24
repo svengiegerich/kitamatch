@@ -15,8 +15,7 @@ class ApplicantController extends Controller
     }
     
     public function add($gid) {
-        var_dump($gid);
-        //return view('applicant.add', array('gid' -> $gid));
+        return view('applicant.add');
     }
     
     public function create(Request $request, $gid) {
