@@ -64,7 +64,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <hr class="mb-4">
-        <a href="/preference/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Back to program</button></a>
+        <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Back to program</button></a>
     </div>
 </div>
 
