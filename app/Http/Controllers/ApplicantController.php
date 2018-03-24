@@ -17,7 +17,7 @@ class ApplicantController extends Controller
     
     public function add($gid) {
         $guardian = Guardian::find($gid);
-        return view('applicant.add', array('guardian', $guardian));
+        return view('applicant.add', array('guardian' => $guardian));
     }
     
     public function create(Request $request, $gid) {
