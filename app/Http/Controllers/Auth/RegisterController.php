@@ -50,8 +50,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'lastName' => 'required|string|max:255',
-            'firstName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed'
         ]);
@@ -79,7 +77,10 @@ class RegisterController extends Controller
             app('App\Http\Controllers\GuardianController')->store($request);
         } else if ($data['accountType'] == 2 || $data['accountType'] == 3) {
             //account-type private or public
-            
+            $request = new Request();
+            $request->setMethod('POST');
+            $request->request->add(['uid' => $user->id]);
+            app('App\Http\Controllers\ProgramController')->store($request);
         } else {
             //error
         }
