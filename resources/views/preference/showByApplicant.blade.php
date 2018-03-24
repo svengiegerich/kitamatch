@@ -17,7 +17,9 @@
             </div>
             <div class="form-group row">
                 <label for="rank" class="col-sm-2 col-form-label">Rank</label>
-                <input type="text" name="rank" id="rank" class="form-control" required>
+                <div class="col-sm-6">
+                    <input type="text" name="rank" id="rank" class="form-control" required>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
         </form>
