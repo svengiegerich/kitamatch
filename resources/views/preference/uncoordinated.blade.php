@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel-body">
-    <h4>Program {{$program->pid}} - uncoordinated process</h4>
+    <h4>Program {{$program->name}} - uncoordinated process</h4>
     
     <p>Capacity: {{$program->openOffers}}/{{$program->capacity}}</p>
     
