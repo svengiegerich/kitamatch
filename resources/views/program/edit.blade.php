@@ -6,7 +6,7 @@
         <h4>Edit your Profil</h4>
         <br />
         
-        <form action="/program/edit/{{$guardian->gid}}" method="POST">
+        <form action="/program/edit/{{$program->pid}}" method="POST">
             {{ csrf_field() }}
             
             <div class="form-group row">
