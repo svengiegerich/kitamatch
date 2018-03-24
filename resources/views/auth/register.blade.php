@@ -116,11 +116,11 @@
                         <div class="mb-3">
                             <label for="parental-status">Parental Status</label>
                             <select type="text" class="form-control" id="parental-status" name="parentalStatus" required="">
-                                <option value="Ein(e) Erziehungsberechtigte(r) ist beschäftigt*">Ein(e) Erziehungsberechtigte(r) ist beschäftigt*</option>
-                                <option value="Beide Erziehungsberechtigten sind beschäftigt*">Beide Erziehungsberechtigten sind beschäftigt*</option>
-                                <option value="Alleinerziehend und beschäftigt*">Alleinerziehend und beschäftigt*</option>
-                                <option value="Beide Erziehungsberechtigte ohne Beschäftigung*">Beide Erziehungsberechtigte ohne Beschäftigung*</option>
-                                <option value="Alleinerziehend ohne Beschäftigung*">Alleinerziehend ohne Beschäftigung*</option>
+                                <option value="Ein(e) Erziehungsberechtigte(r) ist beschäftigt*">Ein(e) Erziehungsberechtigte(r) ist beschäftigt</option>
+                                <option value="Beide Erziehungsberechtigten sind beschäftigt*">Beide Erziehungsberechtigten sind beschäftigt</option>
+                                <option value="Alleinerziehend und beschäftigt*">Alleinerziehend und beschäftigt</option>
+                                <option value="Beide Erziehungsberechtigte ohne Beschäftigung*">Beide Erziehungsberechtigte ohne Beschäftigung</option>
+                                <option value="Alleinerziehend ohne Beschäftigung*">Alleinerziehend ohne Beschäftigung</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please enter your parental status.
@@ -139,7 +139,7 @@
                             <label for="volume-of-employment">Volume of employment</label>
                             <select type="text" class="form-control" id="volume-of-employment" name="volumeOfEmployment" required>
                                     <option value=""></option>
-                                    <option value="ohne Beschäftigung*">ohne Beschäftigung*</option> 
+                                    <option value="ohne Beschäftigung*">ohne Beschäftigung</option> 
                                     <option value="8-15 Stunden/Woche">8-15 Stunden/Woche</option>
                                     <option value="16-27 Stunden/Woche">16-27 Stunden/Woche</option>
                                     <option value="ab 28 Stunden/Woche">ab 28 Stunden/Woche</option>
