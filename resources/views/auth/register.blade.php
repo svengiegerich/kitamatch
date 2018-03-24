@@ -12,34 +12,6 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __('Last name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="lastName" type="text" class="form-control{{ $errors->has('lastName') ? ' is-invalid' : '' }}" name="lastName" value="{{ old('lastName') }}" required autofocus>
-
-                                @if ($errors->has('lastName'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('lastName') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('First name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="firstName" type="text" class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" name="firstName" value="{{ old('firstName') }}" required autofocus>
-
-                                @if ($errors->has('firstName'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('firstName') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -80,12 +52,41 @@
 
                             <div class="col-md-6">
                                 <select id="account-type" class="form-control" name="accountType" required>
-                                    <option value="1">Parent</option>
+                                    <option value="1">Guardian</option>
                                     <option value="2">Public</option>
                                     <option value="3">Private</option>
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __('Last name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="lastName" type="text" class="form-control{{ $errors->has('lastName') ? ' is-invalid' : '' }}" name="lastName" value="{{ old('lastName') }}" required autofocus>
+
+                                @if ($errors->has('lastName'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('lastName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('First name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="firstName" type="text" class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" name="firstName" value="{{ old('firstName') }}" required autofocus>
+
+                                @if ($errors->has('firstName'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('firstName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         
                         <div class="mb-3">
                           <label for="address">Address</label>
@@ -136,7 +137,7 @@
                         
                         <div class="mb-3">
                             <label for="volume-of-employment">Volume of employment</label>
-                            <select type="text" class="form-control" id="volume-of-employment" name="volumeOfEmployment" required="">
+                            <select type="text" class="form-control" id="volume-of-employment" name="volumeOfEmployment" required>
                                     <option value=""></option>
                                     <option value="ohne Beschäftigung*">ohne Beschäftigung*</option> 
                                     <option value="8-15 Stunden/Woche">8-15 Stunden/Woche</option>

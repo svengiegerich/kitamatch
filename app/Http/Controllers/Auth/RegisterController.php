@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'lastName' => 'required|string|max:255',
             'firstName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -66,11 +66,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'last_name' => $data['lastName'],
-            'first_name' => $data['firstName'],
             'email' => $data['email'],
             'account_type' => $data['accountType'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password'],)
         ]);
         
         
@@ -78,13 +76,15 @@ class RegisterController extends Controller
         if ($data['accountType'] == 1) {
             $request = new Request();
             $request->setMethod('POST');
-            $request->request->add(['uid' => $user->id,
+            $request->request->add(['last_name' => $data['lastName'],
+                                    'first_name' => $data['firstName'],
+                                    'uid' => $user->id,
                                     'address' => $data['address'],
                                     'city' => $data['city'],
                                     'plz' => $data['plz'],
                                     'phone' => $data['phone'],
                                     'volume_of_employment' => $data['volumeOfEmployment'],
-                                    'parental_status' => $data['parentalStatus']
+                                    'parental_status' => $data['parentalStatus'],
                                    ]);
             app('App\Http\Controllers\GuardianController')->store($request);
         }
