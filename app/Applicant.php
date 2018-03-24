@@ -10,8 +10,7 @@ class Applicant extends Model
     //
     
     public function getAppliantsByGid($gid) {
-        $applicants = Applicant::where('gid', '=', $gid);
-        print_r($applicants);
+        $applicants = Applicant::where('gid', '=', $gid)->get();
         return $applicants;
     }
     
