@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Applicant;
+use App\Guardian;
 
 class ApplicantController extends Controller
 {
@@ -15,7 +16,8 @@ class ApplicantController extends Controller
     }
     
     public function add($gid) {
-        return view('applicant.add', array('gid', "test"));
+        $guardian = Guardian::find($gid);
+        return view('applicant.add', array('guardian', $guardian));
     }
     
     public function create(Request $request, $gid) {

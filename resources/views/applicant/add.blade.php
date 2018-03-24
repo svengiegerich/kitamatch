@@ -5,7 +5,7 @@
 <div class="col-md-8 order-md-1" >
     <h4>Add Applicant</h4>
     
-    <form action="/applicant/add/{{$gid}}" method="POST" class="">
+    <form action="/applicant/add/{{$guardian->gid}}" method="POST" class="">
         {{ csrf_field() }}
         
         <div class="form-group row">
