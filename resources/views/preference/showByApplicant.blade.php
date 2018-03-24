@@ -5,10 +5,10 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
     
-    <h3>Preferences of Applicant <strong><?php echo $applicant->last_name . ' ' . $applicant->first_name; ?></strong></h3>
+    <h4>Preferences of Applicant <strong>{{$applicant->last_name}} {{$applicant->first_name}}</strong></h4>
     
     <!-- New Preference Form -->
-    <form action="/preference/applicant/<?php echo $applicant->aid; ?>" method="POST" class="form-horizontal">
+    <form action="/preference/applicant/{{$applicant->aid}}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- Preference ID -->
@@ -87,5 +87,11 @@
 </div>
 @endif
 
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <hr class="mb-4">
+        <a href="/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Back to applicant</button></a>
+    </div>
+</div>
 
 @endsection
