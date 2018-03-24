@@ -4,6 +4,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Edit your Profil</h4>
+        <br />
         
         <form action="/guardian/edit/{{$guardian->gid}}" method="POST">
             {{ csrf_field() }}
@@ -11,19 +12,19 @@
             <div class="form-group row">
                 <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
                 <div class="col-sm-10">
-                  <input type="text" readonly class="form-control" id="lastName" name="lastName" value="{{$guardian->last_name}}">
+                  <input type="text" class="form-control" id="lastName" name="lastName" value="{{$guardian->last_name}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="firstName" class="col-sm-2 col-form-label">First name</label>
                 <div class="col-sm-10">
-                  <input type="text" readonly class="form-control" id="firstName" name="firstName" value="{{$guardian->last_name}}">
+                  <input type="text" class="form-control" id="firstName" name="firstName" value="{{$guardian->last_name}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="text" readonly class="form-control-plaintext" id="email" name="email" value="{{$guardian->email}}">
+                  <input type="text" class="form-control" id="email" name="email" value="{{$guardian->email}}">
                 </div>
             </div>
             <div class="form-group row">

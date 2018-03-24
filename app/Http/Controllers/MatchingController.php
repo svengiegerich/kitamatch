@@ -86,7 +86,7 @@ class MatchingController extends Controller
             }
         }
         
-        //return redirect()->action('MatchingController@all');
+        return redirect()->action('MatchingController@all');
     }
     
     public function createJson() {
