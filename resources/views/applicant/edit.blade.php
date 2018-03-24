@@ -58,8 +58,8 @@
     </div>
 </div>
 
-<div>
-    <div>
+<div class="row justify-content-center">
+    <div class="col-md-8">
         <h4>Preferences</h4>
         <a href="/preference/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Go to preferences</button></a>
         <br>
