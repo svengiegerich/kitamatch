@@ -75,6 +75,10 @@
         </form>
         
         <hr class="mb-4">
+        @foreach ($applicants as $applicant)
+            <a href="/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">{{$applicant->last_name}} {{$applicant->first_name}}</button></a>
+        @endif
+        
         <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-primary btn-lg btn-block">Add applicant</button></a>
     </div>
 </div>

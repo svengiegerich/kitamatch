@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Guardian;
+use App\Applicant;
 
 class GuardianController extends Controller
 {    
@@ -30,7 +31,10 @@ class GuardianController extends Controller
     
     public function show($gid) {
         $guardian = Guardian::find($gid);
-        return view('guardian.edit', array('guardian' => $guardian));
+        $Applicant = new Applicant;
+        $applicants = $Applicant->getAppliantsByGid($gid);
+        return view('guardian.edit', array('guardian' => $guardian,
+                                          'applicants' => $applicants));
     }
     
     public function edit(Request $request, $gid) {
