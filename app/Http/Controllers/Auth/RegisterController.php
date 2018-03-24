@@ -76,7 +76,8 @@ class RegisterController extends Controller
         
         //if account-type is guardian
         if ($data['accountType'] == 1) {
-            $request->uid = 1;
+            $request = new stdClass;
+            $request->uid = $user->id;
             $request->address = $data['adress'];
             $request->city = $data['city'];
             $request->plz = $data['plz'];                        
