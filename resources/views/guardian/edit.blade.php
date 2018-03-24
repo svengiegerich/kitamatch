@@ -58,12 +58,13 @@
     <div class="form-group row">
         <label for="volumeOfEmployment" class="col-sm-2 col-form-label">Volume of employment</label>
         <div class="col-sm-10">
-            <?php echo Form::select('volumeOfEmployment', array('' => '',
+            {!! Form::select('volumeOfEmployment', array('' => '',
                                                                 'ohne Beschäftigung*' => 'ohne Beschäftigung*',
                                                                 '8-15 Stunden/Woche' => '8-15 Stunden/Woche',
                                                                 '16-27 Stunden/Woche' => '16-27 Stunden/Woche',
                                                                 'ab 28 Stunden/Woche' => 'ab 28 Stunden/Woche'),
-                                    $guardian->volume_of_employment); ?>
+                                    $guardian->volume_of_employment,
+            array('id' => 'status'), array('class' => 'form-control'), array('title' => ' 1: pending') )  !!}
             
             <!--<select type="text" class="form-control" id="volume-of-employment" name="volumeOfEmployment" required="">
                 <option value=""></option>
