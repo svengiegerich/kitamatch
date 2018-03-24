@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'lastName' => 'required|string|max:255',
             'firstName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed'
         ]);
     }
 
@@ -68,7 +68,7 @@ class RegisterController extends Controller
         $user = User::create([
             'email' => $data['email'],
             'account_type' => $data['accountType'],
-            'password' => Hash::make($data['password'],)
+            'password' => Hash::make($data['password'])
         ]);
         
         
@@ -84,7 +84,7 @@ class RegisterController extends Controller
                                     'plz' => $data['plz'],
                                     'phone' => $data['phone'],
                                     'volume_of_employment' => $data['volumeOfEmployment'],
-                                    'parental_status' => $data['parentalStatus'],
+                                    'parental_status' => $data['parentalStatus']
                                    ]);
             app('App\Http\Controllers\GuardianController')->store($request);
         }
