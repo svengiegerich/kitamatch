@@ -43,7 +43,6 @@
                                                   'Other' => 'Other'),
                                             $guardian->parental_status,
                     array('id' => 'gender', 'class' => 'form-control') )  !!}
-                <input type="date" class="form-control" name="gender" id="gender" placeholder="" value="" required="">
             </div>
             <div class="invalid-feedback">
                   Valid gender is required.
