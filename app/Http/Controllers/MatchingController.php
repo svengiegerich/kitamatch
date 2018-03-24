@@ -122,10 +122,13 @@ class MatchingController extends Controller
                 ['coordination', '=', 1]
             ])
             ->get();
-        print_r($programsC);
         foreach ($programsC as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
-			
+			echo "break:";
+            print_r($program);
+            echo "b";
+            print_r($preferencesByProgram);
+            
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
