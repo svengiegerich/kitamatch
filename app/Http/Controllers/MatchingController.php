@@ -124,10 +124,6 @@ class MatchingController extends Controller
             ->get();
         foreach ($programsC as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
-			echo "break:";
-            print_r($program);
-            echo "b";
-            print_r($preferencesByProgram);
             
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
