@@ -22,10 +22,9 @@ class ApplicantController extends Controller
     
     //controller & view function
     public function create(Request $request, $gid) {
-        //$request->request->add(['gid' => $gid]);
-        //$this->store($request);
+        $request->request->add(['gid' => $gid]);
+        $this->store($request);
         return redirect()->action('GuardianController@show', $gid);
-        //return redirect()->action('GuardianController@show', $gid);
     }
     
     //DB function
