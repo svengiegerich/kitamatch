@@ -145,7 +145,10 @@ class MatchingController extends Controller
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
-				$preferenceList[] = (string)$preference->id_to;
+				//list only active preferences
+                if ($preference->status == 1) {
+                    $preferenceList[] = (string)$preference->id_to;
+                }
 			}
             //check if there are any preferences
             if (count($preferenceList) > 0) {
