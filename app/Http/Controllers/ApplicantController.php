@@ -66,7 +66,7 @@ class ApplicantController extends Controller
     }
     
     public function update($request) {
-        $applicant = App\Applicant::find($request->aid);
+        $applicant = Applicant::find($request->aid);
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
         $applicant->gender = $request->gender;
