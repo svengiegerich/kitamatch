@@ -5,9 +5,9 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
     
-        <h3>Preferences of Program <strong><?php echo $program->name; ?></strong></h3>
-
-        <!-- New Preference Form -->
+        <h4>Preferences of Program <strong><?php echo $program->name; ?></strong></h4>
+        <br>
+        
         <form action="/preference/program/<?php echo $program->pid; ?>" method="POST">
             {{ csrf_field() }}
 
@@ -24,16 +24,14 @@
                     <input type="text" name="rank" id="rank" class="form-control" required>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
-                        <i class="fa fa-plus"></i> Add
-                    </button>
-                </div>
-            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Add</button>
         </form>
     </div>
 </div>
+
+<br>
+<br>
 
 <!-- Current Preferences -->
 @if (count($preferences) > 0)
