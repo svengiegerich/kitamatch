@@ -51,8 +51,7 @@ class ProgramController extends Controller
     
     public function edit(Request $request, $pid) {
         $request->request->add(['pid' => $pid]);
-        $this->update($request);
-        $program = Program::find($pid);
+        $program = $this->update($request);
         return view('program.edit', array('program' => $program));
     }
     
@@ -73,6 +72,7 @@ class ProgramController extends Controller
         $program->city = $request->city;
         $program->phone = $request->phone;
         $program->save();
+        return $program;
     }
 	
 	public function getCapacity($pid) {
