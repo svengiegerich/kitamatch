@@ -62,7 +62,7 @@
     <div class="col-md-8">
         <h4>Preferences</h4>
         <a href="/preference/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Go to preferences</button></a>
-        <br>
+        <hr class="mb-4">
         <a href="/guardian/{{$applicant->gid}}"><button class="btn btn-primary btn-lg btn-block">Back to guardian</button></a>
     </div>
 </div>
