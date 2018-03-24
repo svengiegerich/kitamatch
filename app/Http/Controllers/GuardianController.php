@@ -30,7 +30,7 @@ class GuardianController extends Controller
     }
     
     public function show($gid) {
-        $guardian = Guardian::find($gid);
+        $guardian = Guardian::findOrFail($gid);
         $Applicant = new Applicant;
         $applicants = $Applicant->getAppliantsByGid($gid);
         return view('guardian.edit', array('guardian' => $guardian,
@@ -44,7 +44,7 @@ class GuardianController extends Controller
     }
     
     public function update(Request $request) {
-        $guardian = Guardian::find($request->gid);
+        $guardian = Guardian::findOrFail($request->gid);
         $guardian->first_name = $request->firstName;
         $guardian->last_name = $request->lastName;
         $guardian->address = $request->address;

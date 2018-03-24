@@ -2,8 +2,8 @@
 
 @section('content')
 
-
-<div class="panel-body">
+<div class="row justify-content-center">
+    <div class="col-md-8">
     
     <h3>Preferences of Applicant <strong><?php echo $applicant->last_name . ' ' . $applicant->first_name; ?></strong></h3>
     
@@ -32,11 +32,14 @@
             </div>
         </div>
     </form>
+    </div>
 </div>
 
 
 <!-- Current Preferences -->
-    @if (count($preferences) > 0)
+@if (count($preferences) > 0)
+<div class="row justify-content-center">
+    <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h5>Current Preferences</h5>
@@ -80,6 +83,9 @@
                 </table>
             </div>
         </div>
-    @endif
+    </div>
+</div>
+@endif
+
 
 @endsection

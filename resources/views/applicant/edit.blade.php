@@ -5,7 +5,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Edit Applicant</h4>
-
+        <br>
         <form action="/applicant/{{$applicant->aid}}" method="POST" class="">
             {{ csrf_field() }}
 

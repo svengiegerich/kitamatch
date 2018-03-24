@@ -16,7 +16,7 @@ class ApplicantController extends Controller
     }
     
     public function add($gid) {
-        $guardian = Guardian::find($gid);
+        $guardian = Guardian::findOrFail($gid);
         return view('applicant.add', array('guardian' => $guardian));
     }
     
@@ -44,7 +44,7 @@ class ApplicantController extends Controller
     }
     
     public function show($aid) {
-        $applicant = Applicant::find($aid);
+        $applicant = Applicant::findOrFail($aid);
         return view('applicant.edit', array('applicant' => $applicant));
     }
     
@@ -60,14 +60,14 @@ class ApplicantController extends Controller
     }
     
     public function delete(Request $request, $aid) {
-        $applicant = applicant::find($aid);
+        $applicant = applicant::findOrFail($aid);
         //temp: set active=0 instead of deleting
         $applicant->delete();
         return redirect()->action('ApplicantController@all');
     }
     
     public function update($request) {
-        $applicant = Applicant::find($request->aid);
+        $applicant = Applicant::findOrFail($request->aid);
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
         $applicant->gender = $request->gender;

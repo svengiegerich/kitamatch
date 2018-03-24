@@ -2,41 +2,45 @@
 
 @section('content')
 
-
-<div class="panel-body">
+<div class="row justify-content-center">
+    <div class="col-md-8">
     
-    <h3>Preferences of Program <strong><?php echo $program->name; ?></strong></h3>
-    
-    <!-- New Preference Form -->
-    <form action="/preference/program/<?php echo $program->pid; ?>" method="POST" class="form-horizontal">
-        {{ csrf_field() }}
+        <h3>Preferences of Program <strong><?php echo $program->name; ?></strong></h3>
 
-        <!-- Preference ID -->
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label"><h5>Add Preferences</h5></label>
-            <div class="col-sm-6">
-                Applicant
-                <input type="text" name="to" id="preference-id-to" class="form-control">
-                <br />
-                Rank
-                <input type="text" name="rank" id="preference-rank" class="form-control">
-            </div>
-        </div>
+        <!-- New Preference Form -->
+        <form action="/preference/program/<?php echo $program->pid; ?>" method="POST" class="form-horizontal">
+            {{ csrf_field() }}
 
-        <!-- Add Preference Button -->
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Add
-                </button>
+            <!-- Preference ID -->
+            <div class="form-group">
+                <label for="task" class="col-sm-3 control-label"><h5>Add Preferences</h5></label>
+                <div class="col-sm-6">
+                    Applicant
+                    <input type="text" name="to" id="preference-id-to" class="form-control">
+                    <br />
+                    Rank
+                    <input type="text" name="rank" id="preference-rank" class="form-control">
+                </div>
             </div>
-        </div>
-    </form>
+
+            <!-- Add Preference Button -->
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <button type="submit" class="btn btn-default">
+                        <i class="fa fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 
+
 <!-- Current Preferences -->
-    @if (count($preferences) > 0)
+@if (count($preferences) > 0)
+<div class="row justify-content-center">
+    <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h5>Current Preferences</h5>
@@ -82,6 +86,8 @@
                 </table>
             </div>
         </div>
-    @endif
+    </div>        
+</div>        
+@endif
 
 @endsection
