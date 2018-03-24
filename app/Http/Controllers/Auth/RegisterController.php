@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GuardianController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -76,14 +77,16 @@ class RegisterController extends Controller
         
         //if account-type is guardian
         if ($data['accountType'] == 1) {
-            $request = new stdClass;
-            $request->uid = $user->id;
-            $request->address = $data['adress'];
-            $request->city = $data['city'];
-            $request->plz = $data['plz'];                        
-            $request->phone = $data['phone'];
-            $request->volume_of_employment = $data['volumeOfEmployment'];
-            $request->parental_status = $data['parentalStatus'];
+            $request = new Request();
+            $request->setMethod('POST');
+            $request->request->add(['uid' => $user->id]);
+            //$request->uid = $user->id;
+            //$request->address = $data['adress'];
+            //$request->city = $data['city'];
+            //$request->plz = $data['plz'];                        
+            //$request->phone = $data['phone'];
+            //$request->volume_of_employment = $data['volumeOfEmployment'];
+            //$request->parental_status = $data['parentalStatus'];
             app('App\Http\Controllers\ProgramController')->store($request);
         }
         
