@@ -68,7 +68,7 @@ Route::delete('/preference/program/uncoordinated/{aID}', 'PreferenceController@d
 Route::get('/preference/all', 'PreferenceController@all');
 
 //Guardian
-Route::get('/guardian/edit/{gID}', 'GuardianController@edit');
+Route::get('/guardian/edit/{gID}', 'GuardianController@show');
 
 //Matchings
 Route::get('/matching/all', 'MatchingController@all');
