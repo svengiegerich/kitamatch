@@ -41,7 +41,7 @@ class GuardianController extends Controller
     }
     
     public function update(Request $request) {
-        $guardian = App\Guardian::find($requets->gid);
+        $guardian = App\Guardian::find($request->gid);
         $guardian->first_name = $request->firstName;
         $guardian->last_name = $request->lastName;
         $guardian->address = $request->address;
