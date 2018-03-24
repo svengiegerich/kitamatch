@@ -84,7 +84,7 @@ class RegisterController extends Controller
             if ($data['accountType'] == 2) { 
                 $p_kind = 1; 
                 $coordination = 1; 
-            } else if ($data['accountType']d == 3) { 
+            } else if ($data['accountType'] == 3) { 
                 $p_kind = 2; 
                 $coordination = 0; 
             }
