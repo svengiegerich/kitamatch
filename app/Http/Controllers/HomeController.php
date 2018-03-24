@@ -35,6 +35,7 @@ class HomeController extends Controller
             $guardian = $Guardian->getGuardianByUid($user->id);
             return redirect()->action('GuardianController@show', [$guardian->gid]);
         } else if ($user->account_type == 2 || $user->account_type == 3) {
+            print_r("hey");
             $Program = new Program;
             $program = $Program->getProgramByUid($user->id);
             return redirect()->action('ProgramController@show', [$program->pid]);
