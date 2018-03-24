@@ -74,12 +74,12 @@ class RegisterController extends Controller
         //if account-type is guardian
         if ($data['accountType'] == 1) {
             $request->uid = $user->id;
-            $request->address = $data['adress'],
-            $request->city = $data['city'],
-            $request->plz = $data['plz'],                        
-            $request->phone = $data['phone'],
-            $request->volume_of_employment = $data['volumeOfEmployment'],
-            $request->parental_status = $data['parentalStatus'],
+            $request->address = $data['adress'];
+            $request->city = $data['city'];
+            $request->plz = $data['plz'];                        
+            $request->phone = $data['phone'];
+            $request->volume_of_employment = $data['volumeOfEmployment'];
+            $request->parental_status = $data['parentalStatus'];
             app('App\Http\Controllers\ProgramController')->store($request);
         }
         
