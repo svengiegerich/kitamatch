@@ -75,6 +75,14 @@
         </form>
         
         <hr class="mb-4">
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h4>My applicants</h4>
+        <br>
+        
         @foreach ($applicants as $applicant)
             <a href="/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">{{$applicant->last_name}} {{$applicant->first_name}}</button></a>
             <br>
