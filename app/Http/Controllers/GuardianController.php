@@ -33,7 +33,6 @@ class GuardianController extends Controller
         $guardian = Guardian::find($gid);
         $Applicant = new Applicant;
         $applicants = $Applicant->getAppliantsByGid($gid);
-        print_r($applicants);
         return view('guardian.edit', array('guardian' => $guardian,
                                           'applicants' => $applicants));
     }
