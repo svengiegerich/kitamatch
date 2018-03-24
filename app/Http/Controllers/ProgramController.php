@@ -65,9 +65,9 @@ class ProgramController extends Controller
     public function update(Request $request) {
         $program = Program::find($request->pid);
         $program->name = $request->name;
+        $program->coordination = $request->coordination;
         //p_kind = 1, so coordination needs to be 1
         if ($program->pr_kind == 1) { $request->coordination = 1; }
-        $program->coordination = $request->coordination;
         $program->capacity = $request->capacity;
         $program->address = $request->address;
         $program->plz = $request->plz;
