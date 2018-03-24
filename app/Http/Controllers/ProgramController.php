@@ -52,7 +52,7 @@ class ProgramController extends Controller
     public function edit(Request $request, $pid) {
         $request->request->add(['pid' => $pid]);
         $this->update($request);
-        $program = Program::find($gid);
+        $program = Program::find($pid);
         return view('program.edit', array('program' => $program));
     }
     
