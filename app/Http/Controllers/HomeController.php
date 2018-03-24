@@ -32,7 +32,7 @@ class HomeController extends Controller
             $Guardian = new Guardian;
             $guardian = $Guardian->getGuardianByUid($user->id);
             print_r($guardian);
-            //redirect()->action('GuardianController@show', $guardian->gid);
+            redirect()->action('GuardianController@show', ['gid', $guardian->gid]);
         } else {
             return view('home');
         }
