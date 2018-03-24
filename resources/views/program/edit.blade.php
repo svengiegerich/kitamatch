@@ -44,12 +44,14 @@
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$program->city}}">
                 </div>
             </div>
+            @if ($program->p_kind == 3)
             <div class="form-group row">
                 <label for="coordination" class="col-sm-2 col-form-label">Coordination</label>
                 <div class="col-sm-10">
                     {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-control', 'id' => 'coordination']) }}
                 </div>
             </div>
+            @endif
             
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
