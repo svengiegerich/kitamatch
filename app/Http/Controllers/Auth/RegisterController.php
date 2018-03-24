@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'account_type' => $data['accountType'],
             'password' => Hash::make($data['password'])
-        ])
+        ]);
         
         //if account-type is guardian
         if ($data['accountType'] == 1) {
