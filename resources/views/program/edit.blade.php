@@ -44,7 +44,7 @@
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$program->city}}">
                 </div>
             </div>
-            @if ($program->p_kind == 3)
+            @if ($program->p_kind == 2)
             <div class="form-group row">
                 <label for="coordination" class="col-sm-2 col-form-label">Coordination</label>
                 <div class="col-sm-10">
