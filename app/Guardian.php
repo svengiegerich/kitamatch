@@ -13,6 +13,6 @@ class Guardian extends Model
     
     public function getGuardianByUid($uid) {
         $guardian = Guardians::where('uid', '=', $uid)->firstOrFail();
-        return $guardian:
+        return $guardian;
     }
 }
