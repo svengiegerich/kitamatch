@@ -46,7 +46,7 @@ Route::get('/program', 'ProgramController@all');
 
 Route::get('/program/all', 'ProgramController@all');
 Route::get('/program/{pID}', 'ProgramController@show')
-Route::post('/program/{pID}', 'ProgramController@edi')
+Route::post('/program/{pID}', 'ProgramController@edit')
 Route::delete('/program/{program}', 'ProgramController@delete');
 
 Route::get('/program/add', 'ProgramController@add');
