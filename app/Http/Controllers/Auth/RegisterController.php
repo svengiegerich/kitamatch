@@ -79,7 +79,7 @@ class RegisterController extends Controller
             $request = new Request();
             $request->setMethod('POST');
             $request->request->add(['uid' => $user->id,
-                                    'address' => $data['adress'],
+                                    'address' => $data['address'],
                                     'city' => $data['city'],
                                     'plz' => $data['plz'],
                                     'phone' => $data['phone'],
