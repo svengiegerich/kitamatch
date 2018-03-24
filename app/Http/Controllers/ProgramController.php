@@ -68,7 +68,7 @@ class ProgramController extends Controller
         $program->coordination = $request->coordination;
         //p_kind = 1, so coordination needs to be 1
         print_r($program);
-        if ($program->pr_kind == 1) { $request->coordination = 1; }
+        if ($program->p_kind == 1) { $request->coordination = 1; }
         $program->capacity = $request->capacity;
         $program->address = $request->address;
         $program->plz = $request->plz;
