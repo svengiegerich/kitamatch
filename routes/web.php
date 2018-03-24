@@ -36,7 +36,7 @@ Route::delete('/applicant/{applicant}', 'ApplicantController@delete');
 
 Route::get('/applicant/add/{gid}', 'ApplicantController@add');
 //Route::get('/applicant/add', 'ApplicantController@add');
-Route::post('/applicant/add/{gid}', 'ApplicantController@store');
+Route::post('/applicant/add/{gid}', 'ApplicantController@create');
 
 Route::get('/applicant/{applicant}', 'ApplicantController@show');
 Route::post('/applicant/{applicant}', 'ApplicantController@edit');

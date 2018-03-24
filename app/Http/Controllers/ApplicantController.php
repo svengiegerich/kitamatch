@@ -20,6 +20,7 @@ class ApplicantController extends Controller
         return view('applicant.add', array('guardian' => $guardian));
     }
     
+    //controller & view function
     public function create(Request $request, $gid) {
         //$request->request->add(['gid' => $gid]);
         //$this->store($request);
@@ -27,9 +28,9 @@ class ApplicantController extends Controller
         //return redirect()->action('GuardianController@show', $gid);
     }
     
+    //DB function
     public function store(Request $request) {
         //Validation
-        
         $applicant = new Applicant;
         $applicant->gid = $request->gid;
         $applicant->first_name = $request->firstName;
@@ -39,8 +40,8 @@ class ApplicantController extends Controller
         //status: 1->active, 0->inactive, ...
         //tmp
         $applicant->status = 1;
-        
         $applicant->save();
+        return $applicant;
     }
     
     public function show($aid) {
