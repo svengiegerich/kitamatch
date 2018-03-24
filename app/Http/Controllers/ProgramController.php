@@ -64,6 +64,7 @@ class ProgramController extends Controller
     }
     
     public function update($request) {
+        print_r($request);
         $program = Program::find($request->pid);
         $program->name = $request->name;
         $program->capacity = $program->capacity;
