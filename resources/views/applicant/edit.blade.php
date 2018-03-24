@@ -55,9 +55,15 @@
         </form>
         
         <hr class="mb-4">
-        <a href="/guardian/{{$applicant->gid}}"><button class="btn btn-primary btn-lg btn-block">Back to guardian</button></a>
-        
+    </div>
+</div>
+
+<div>
+    <div>
+        <h4>Preferences</h4>
+        <a href="/preference/applicant/{{$applicant->aid}}">Go to preferences</a>
         <br>
+        <a href="/guardian/{{$applicant->gid}}"><button class="btn btn-primary btn-lg btn-block">Back to guardian</button></a>
     </div>
 </div>
     
