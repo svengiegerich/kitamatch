@@ -6,7 +6,7 @@
         <h4>Edit your Program information</h4>
         <br />
         
-        <form action="/program/edit/{{$program->pid}}" method="POST">
+        <form action="/program/{{$program->pid}}" method="POST">
             {{ csrf_field() }}
             
             <div class="form-group row">
