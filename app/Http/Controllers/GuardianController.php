@@ -27,4 +27,13 @@ class GuardianController extends Controller
         $guardian->save();
         
     }
+    
+    public function show($gid) {
+        $guardian = Guardian::find($gid);
+        return view('guardian.edit', array('guardian' => $guardian));
+    }
+    
+    public function edit(Request $request) {
+        
+    }
 }
