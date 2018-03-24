@@ -19,11 +19,11 @@
             <div class="form-group row">
                 <label for="coordination" class="col-sm-2 col-form-label">Coordination</label>
                 <div class="col-sm-10">
-                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-control', 'id' => 'coorination']) }}
+                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-control', 'id' => 'coordination']) }}
                 </div>
             </div>
             <div class="form-group row">
-                <label for="capcity" class="col-sm-2 col-form-label">Capacity</label>
+                <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
                 <div class="col-sm-10">
                   <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}">
                 </div>
