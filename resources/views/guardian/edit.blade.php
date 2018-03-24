@@ -5,7 +5,7 @@
     <div class="col-md-8">
         <h4>Edit your Profil</h4>
         
-        <form action="/guardian/edit/{{guardian->gid}}" method="POST">
+        <form action="/guardian/edit/{{$guardian->gid}}" method="POST">
             {{ csrf_field() }}
             
             <div class="form-group row">
