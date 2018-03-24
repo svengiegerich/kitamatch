@@ -11,7 +11,6 @@
         <form action="/preference/program/<?php echo $program->pid; ?>" method="POST">
             {{ csrf_field() }}
 
-            <!-- Preference ID -->
             <div class="form-group row">
                 <label for="to" class="col-sm-2 col-form-label">Applicant-Id</label>
                 <div class="col-sm-6">
@@ -25,7 +24,7 @@
                 </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Add</button>
+            <button class="btn btn-primary" type="submit">Add</button>
         </form>
     </div>
 </div>

@@ -4,69 +4,50 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-    
-    <h4>Preferences of Applicant <strong>{{$applicant->last_name}} {{$applicant->first_name}}</strong></h4>
-    
-    <!-- New Preference Form -->
-    <form action="/preference/applicant/{{$applicant->aid}}" method="POST" class="form-horizontal">
-        {{ csrf_field() }}
+        <h4>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h4>
+        <br>
+        <form action="/preference/applicant/{{$applicant->aid}}" method="POST" class="form-horizontal">
+            {{ csrf_field() }}
 
-        <!-- Preference ID -->
-        <div class="form-group">
-            <label for="task" class="col-sm-3 control-label"><h5>Add Preferences</h5></label>
-            <div class="col-sm-6">
-                Program
-                <input type="text" name="to" id="preference-id-to" class="form-control">
-                <br />
-                Rank
-                <input type="text" name="rank" id="preference-rank" class="form-control">
+            <div class="form-group row">
+                <label for="to" class="col-sm-2 col-form-label">Program</label>
+                <div class="col-sm-6">
+                    <input type="text" name="to" id="preference-id-to" class="form-control" required>
+                </div>  
             </div>
-        </div>
-
-        <!-- Add Preference Button -->
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Add
-                </button>
+            <div class="form-group row">
+                <label for="rank" class="col-sm-2 col-form-label">Rank</label>
+                <input type="text" name="rank" id="rank" class="form-control" required>
             </div>
-        </div>
-    </form>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
     </div>
 </div>
 
+<br>
+<br>
 
-<!-- Current Preferences -->
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h5>Current Preferences</h5>
-            </div>
-
-            <div class="panel-body">
-                <table class="table table-striped task-table">
-
-                    <!-- Table Headings -->
-                    <thead>
-                        <th>PrID</th>
-                        <th>Program</th>
-                        <th>Rank</th>
-                        <th>&nbsp;</th>
-                    </thead>
-
-                    <!-- Table Body -->
-                    <tbody>
-                        @foreach ($preferences as $preference)
-                            <tr>
-                                <td class="table-text">
-                                    <div>{{ $preference->prid }}</div>
-                                </td>
-                                <td class="table-text">
+        <h4>List of Preferences</h4>
+        <table class="table table-hover">
+            <thead>
+                  <th>PrID</th>
+                  <th>Program</th>
+                  <th>Rank</th>
+                  <th>&nbsp;</th>
+            </thead>
+            <tbody>
+                @foreach ($preferences as $preference)
+                    <tr>
+                        <th>
+                            <div>{{ $preference->prid }}</div>
+                        </th>
+                                <td>
                                     <div>{{ $preference->id_to }}</div>
                                 </td>
-                                <td class="table-text">
+                                <td>
                                     <div>{{ $preference->rank }}</div>
                                 </td>
                                 <td>
@@ -79,10 +60,8 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                </tbody>
+        </table>
     </div>
 </div>
 @endif
