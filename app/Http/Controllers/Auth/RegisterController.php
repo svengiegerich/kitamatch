@@ -81,7 +81,13 @@ class RegisterController extends Controller
             
             $request = new Request();
             $request->setMethod('POST');
-            if ($data['accountType'] == 2) { $p_kind = 1; coordination = 1; } else if ($p_kind == 3) { $p_kind = 2; coordination = 0; }
+            if ($data['accountType'] == 2) { 
+                $p_kind = 1; 
+                $coordination = 1; 
+            } else if ($p_kind == 3) { 
+                $p_kind = 2; 
+                $coordination = 0; 
+            }
             
             $request->request->add(['uid' => $user->id,
                                     //coordination: 1 true / 2 false
