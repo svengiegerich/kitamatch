@@ -37,8 +37,8 @@
                 <td>{{$applicant->birthday}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>
-                    <!-- show button, if no -1 or 1 set -->
-                    @if (!(array_key_exists($applicant->aid, $offers)))
+                    <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
+                    @if (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
                     <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST"> 
                         {{ csrf_field() }}
                         <input type="hidden" name="aid" value="{{$applicant->aid}}">
