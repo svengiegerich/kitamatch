@@ -11,9 +11,7 @@ trait GetPreferences
                             ->where('status', '=', 1)
                             ->orderBy('rank', 'asc')
                             ->get();*/
-        $sql = "SELECT * FROM preferences
-                WHERE (`id_from` = " . $aid . " AND `status` = 1 AND (`pr_kind` = 1 OR `pr_kind` = 4))
-                GROUP BY rank asc, RAND();";
+        $sql = "SELECT * FROM preferences WHERE (`id_from` = " . $aid . " AND `status` = 1 AND (`pr_kind` = 1 OR `pr_kind` = 4)) GROUP BY rank asc, RAND();";
         $preferences = DB::select($sql);
         return $preferences;
     }
