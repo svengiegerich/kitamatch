@@ -105,6 +105,9 @@ class MatchingController extends Controller
             //shuffle 
             $preferencesByApplicant = $this->shufflePreferences($preferencesByApplicant);
             
+            print_r($preferencesByApplicant);
+            print_r("beak");
+            
 			$preferenceList = array();
 			foreach ($preferencesByApplicant as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
