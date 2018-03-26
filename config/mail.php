@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'info@matchingtools.de'),
-        'name' => env('MAIL_FROM_NAME', 'KitaMatch'),
+        'name' => env('MAIL_FROM_NAME', 'KitaMatch - App'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('matchingtools-de-0001'),
+    'username' => env('MAIL_USERNAME'),
 
-    'password' => env('Ind1cator'),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
