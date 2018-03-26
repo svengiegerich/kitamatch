@@ -85,7 +85,6 @@ class PreferenceController extends Controller
             foreach ($preferences as $preference) {
                 foreach ($availableApplicants as $applicant) {
                     if ($preference->id_to == $applicant->aid) {
-                        print_r($preference);
                         if ($preference->status == 1) {
                             $applicant->rank = 1;
                             $offers[$applicant->aid] = $preference->prid;
@@ -101,6 +100,8 @@ class PreferenceController extends Controller
             }
             $program->openOffers = $openOffers;
             $availableApplicants = $availableApplicants->sortBy('rank'); 
+            
+            print_r($availableApplicants)
             
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 
