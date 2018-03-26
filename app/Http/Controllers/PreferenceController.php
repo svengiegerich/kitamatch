@@ -100,7 +100,7 @@ class PreferenceController extends Controller
                     if ($offers[$applicant->aid] > 0) {
                         $applicant->rank = 1;
                     } else if ($offers[$applicant->aid] == -1) {
-                        $applicant->rank = -1
+                        $applicant->rank = -1;
                     } else {
                         $applicant->rank = 0;
                     }
