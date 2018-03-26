@@ -102,22 +102,16 @@ class MatchingController extends Controller
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
-            //shuffle 
-            $preferencesByApplicant = $this->shufflePreferences($preferencesByApplicant);
-            
-            print_r($preferencesByApplicant);
-            print_r("beak");
-            
-			/*$preferenceList = array();
+			$preferenceList = array();
 			foreach ($preferencesByApplicant as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
 			}
             //check if there are any preferences
             if (count($preferenceList) > 0) {
                 $preferencesApplicants[$applicant->aid] = $preferenceList;
-            }*/
+            }
         }
-		/*$json["student_prefs"] = $preferencesApplicants;
+		$json["student_prefs"] = $preferencesApplicants;
         
         //--------------------
         //by program
@@ -185,35 +179,6 @@ class MatchingController extends Controller
             }
 		}
 		$json["college_capacity"] = $capacityList;
-		return (json_encode($json));*/
-    }
-    
-    private function shufflePreferences($preferences) {
-        $arrayPrefs = array();
-        foreach ($preferences as $preference) {
-            $arrayPrefs[$preference->prid] = $preference->rank;
-        }
-        $this->shuffle_assoc($arrayPrefs);
-        asort($arrayPrefs);
-        $i = 0;
-        while ($rank = current($arrayPrefs)) {
-            $pref = $preferences->where('prid', key($arrayPrefs))->first();
-            $pref->rank = $i;
-            $i++;
-            next($arrayPrefs);
-        }
-        $preferences = $preferences->sortBy('rank'); 
-        $preferences = $preferences->reverse();
-    }
-    
-    //https://stackoverflow.com/questions/17158952/shuffle-array-by-group-of-values
-    private function shuffle_assoc(&$array) {
-        $keys = array_keys($array);
-        shuffle($keys);
-        foreach($keys as $key) {
-            $new[$key] = $array[$key];
-        }
-        $array = $new;
-        return true;
+		return (json_encode($json));
     }
 }
