@@ -194,7 +194,7 @@ class MatchingController extends Controller
         asort($arrayPrefs);
         $i = 0;
         foreach ($arrayPrefs as $apreference) {
-            $pref = $preferences->where('prid', (int)key($apreference))->first();
+            $pref = $preferences->where('prid', intval(key($apreference)))->first();
             $pref->rank = $i;
             $i++;
         }
