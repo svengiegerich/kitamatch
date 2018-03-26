@@ -77,7 +77,7 @@ class PreferenceController extends Controller
             $Preference = new Preference;
             $availableApplicants = $Preference->getAvailableApplicants($pid);
             
-            //mark every active or cloased offer
+            //mark every active or closed offer
             //1: active, -1: no match
             //temp: easier?
             $offers = array();
@@ -87,17 +87,19 @@ class PreferenceController extends Controller
                     if ($preference->id_to == $applicant->aid) {
                         print_r($preference);
                         if ($preference->status == 1) {
+                            $applicant->rank = 1;
                             $offers[$applicant->aid] = $preference->prid;
                             $openOffers++;
                         } else if ($preference->status == -1) {
-                            $offers[$applicant->aid] = -1;
-                        }
-                        
+                            $applicant->rank = -1;
+                            $offers[$applicant->aid] = -1;                    
+                    } else {
+                        $applicant->rank = 0; 
                     }
                 }
             }
             $program->openOffers = $openOffers;
-            print_r($offers);
+            $availableApplicants = $availableApplicants->sortBy('rank'); 
             
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 

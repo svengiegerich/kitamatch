@@ -49,12 +49,21 @@ class Preference extends Model
     }
     
     public function getAvailableApplicants($pid) {
+        /*
+        SELECT applicants.* FROM preferences 
+        INNER JOIN applicants ON applicants.aid = preferences.id_from
+        WHERE preferences.id_to = 6
+        WHERE IN preferences.pr_kind = (1,4)
+        ORDER BY preferences.status
+        */
+        
         $applicants = DB::table('preferences')
             ->join('applicants', 'applicants.aid', '=', 'preferences.id_from')
             ->where('preferences.id_to', '=', $pid)
+            //tmp: status?
+            //tmp: 4 can be removed
             ->whereIn('preferences.pr_kind', [1,4])
             ->select('applicants.*')
-            ->orderBy('preferences.status', 'desc')
             ->get();
         return $applicants;
     }
