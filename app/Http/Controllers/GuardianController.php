@@ -22,6 +22,7 @@ class GuardianController extends Controller
         $guardian->city = $request->city;
         $guardian->plz = $request->plz;
         $guardian->phone = $request->phone;
+        $guardian->siblings = $request->siblings;
         $guardian->parental_status = $request->parentalStatus;
         $guardian->volume_of_employment = $request->volumeOfEmployment;
         
@@ -51,6 +52,7 @@ class GuardianController extends Controller
         $guardian->city = $request->city;
         $guardian->plz = $request->plz;
         $guardian->phone = $request->phone;
+        $guardian->siblings = $request->siblings;
         $guardian->parental_status = $request->parentalStatus;
         $guardian->volume_of_employment = $request->volumeOfEmployment;
         $guardian->save();

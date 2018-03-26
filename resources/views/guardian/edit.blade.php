@@ -45,6 +45,17 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Siblings?</label>
+                <div class="col-sm-10">
+                    <div class="col-sm-8">
+                    {!! Form::select('siblings', array('0' => 'No',
+                                                                        '1' => 'Yes'),
+                                            $guardian->siblings,
+                    array('id' => 'siblings', 'class' => 'form-control') )  !!}
+                </div>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="parentalStatus" class="col-sm-2 col-form-label">Parental status</label>
                 <div class="col-sm-10">
                     {!! Form::select('parentalStatus', array('' => '',
