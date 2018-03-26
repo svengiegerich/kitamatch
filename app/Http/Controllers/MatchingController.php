@@ -190,7 +190,7 @@ class MatchingController extends Controller
         foreach ($preferences as $preference) {
             $arrayPrefs[$preference->prid] = $preference->rank;
         }
-        shuffle_assoc($arrayPrefs);
+        $this->shuffle_assoc($arrayPrefs);
         asort($arrayPrefs);
         $i = 0;
         foreach ($arrayPrefs as $apreference) {
