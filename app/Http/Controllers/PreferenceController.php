@@ -100,9 +100,9 @@ class PreferenceController extends Controller
             foreach ($availableApplicants as $applicant) {
                 if (array_key_exists($applicant->aid, $offers)) {
                     if ($offers[$applicant->aid] > 0) {
-                        $applicant->rank = -11;
+                        $applicant->rank = $applicant->aid - 1000000;
                     } else if ($offers[$applicant->aid] == -1) {
-                        $applicant->rank = 1;
+                        $applicant->rank = $applicant->aid + 1000000;
                     }
                 }  else {
                     $applicant->rank = 0;
