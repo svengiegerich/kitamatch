@@ -44,7 +44,7 @@ class MatchingController extends Controller
         print $this->createJson();
         
         //GuzzleHttp\Client
-		$client = new Client(); 
+		/*$client = new Client(); 
 		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
 			'auth' => [
 				'mannheim', 'Exc3llence!'
@@ -84,7 +84,7 @@ class MatchingController extends Controller
                     }
                 }
             }
-        }
+        }*/
         
         //return redirect()->action('MatchingController@all');
     }
@@ -102,6 +102,9 @@ class MatchingController extends Controller
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
+            //shuffle 
+            $preferencesByApplicant = shufflePreferences($preferencesByApplicant);
+            
 			$preferenceList = array();
 			foreach ($preferencesByApplicant as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
@@ -180,5 +183,33 @@ class MatchingController extends Controller
 		}
 		$json["college_capacity"] = $capacityList;
 		return (json_encode($json));
+    }
+    
+    private function shufflePreferences($preferences) {
+        $arrayPrefs = array();
+        foreach ($preferences as $preference) {
+            $arrayPrefs[$preference->prid] = $preference->rank;
+        }
+        shuffle_assoc($arrayPrefs);
+        asort($arrayPrefs);
+        i = 0;
+        foreach ($arrayPrefs as $apreference) {
+            $pref = $preferences->where('prid', key($apreference))->first();
+            $pref->rank = i;
+            i++;
+        }
+        $preferences = $preferences->sortBy('rank'); 
+        $preferences = $preferences->reverse();
+    }
+    
+    //https://stackoverflow.com/questions/17158952/shuffle-array-by-group-of-values
+    private function function shuffle_assoc(&$array) {
+        $keys = array_keys($array);
+        shuffle($keys);
+        foreach($keys as $key) {
+            $new[$key] = $array[$key];
+        }
+        $array = $new;
+        return true;
     }
 }
