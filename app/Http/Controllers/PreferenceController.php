@@ -101,14 +101,14 @@ class PreferenceController extends Controller
                         $applicant->rank = 1;
                     } else if ($offers[$applicant->aid] == -1) {
                         $applicant->rank = -1;
-                    } else {
-                        $applicant->rank = 0;
                     }
+                }  else {
+                    $applicant->rank = 0;
                 }
             }
             
             $program->openOffers = $openOffers;
-            $availableApplicants = $availableApplicants->sortBy('rank'); 
+            $availableApplicants = $availableApplicants->sortBy('rank', $use= 'dsc'); 
             
             print_r($availableApplicants);
             
