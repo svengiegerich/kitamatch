@@ -65,6 +65,7 @@ class Preference extends Model
             ->whereIn('preferences.pr_kind', [1,4])
             ->select('applicants.*')
             ->get();
+        print_r($applicants);
         return $applicants;
     }
     

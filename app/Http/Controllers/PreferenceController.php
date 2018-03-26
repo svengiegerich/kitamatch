@@ -94,7 +94,9 @@ class PreferenceController extends Controller
                     }
                 }
             }
+            $program->openOffers = $openOffers;
             
+            //create display rank
             foreach ($availableApplicants as $applicant) {
                 if (array_key_exists($applicant->aid, $offers)) {
                     if ($offers[$applicant->aid] > 0) {
@@ -106,11 +108,7 @@ class PreferenceController extends Controller
                     $applicant->rank = 0;
                 }
             }
-            
-            $program->openOffers = $openOffers;
             $availableApplicants = $availableApplicants->sortBy('rank'); 
-            
-            print_r($availableApplicants);
             
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 
