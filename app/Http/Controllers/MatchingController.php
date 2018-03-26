@@ -108,16 +108,16 @@ class MatchingController extends Controller
             print_r($preferencesByApplicant);
             print_r("beak");
             
-			$preferenceList = array();
+			/*$preferenceList = array();
 			foreach ($preferencesByApplicant as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
 			}
             //check if there are any preferences
             if (count($preferenceList) > 0) {
                 $preferencesApplicants[$applicant->aid] = $preferenceList;
-            }
+            }*/
         }
-		$json["student_prefs"] = $preferencesApplicants;
+		/*$json["student_prefs"] = $preferencesApplicants;
         
         //--------------------
         //by program
@@ -185,7 +185,7 @@ class MatchingController extends Controller
             }
 		}
 		$json["college_capacity"] = $capacityList;
-		return (json_encode($json));
+		return (json_encode($json));*/
     }
     
     private function shufflePreferences($preferences) {
