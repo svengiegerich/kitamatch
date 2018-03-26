@@ -103,7 +103,7 @@ class MatchingController extends Controller
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			
             //shuffle 
-            $preferencesByApplicant = shufflePreferences($preferencesByApplicant);
+            $preferencesByApplicant = $this->shufflePreferences($preferencesByApplicant);
             
 			$preferenceList = array();
 			foreach ($preferencesByApplicant as $preference) {
