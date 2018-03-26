@@ -203,7 +203,7 @@ class MatchingController extends Controller
     }
     
     //https://stackoverflow.com/questions/17158952/shuffle-array-by-group-of-values
-    private function function shuffle_assoc(&$array) {
+    private function shuffle_assoc(&$array) {
         $keys = array_keys($array);
         shuffle($keys);
         foreach($keys as $key) {
