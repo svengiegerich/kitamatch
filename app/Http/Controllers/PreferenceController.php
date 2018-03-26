@@ -101,7 +101,7 @@ class PreferenceController extends Controller
             $program->openOffers = $openOffers;
             $availableApplicants = $availableApplicants->sortBy('rank'); 
             
-            print_r($availableApplicants)
+            print_r($availableApplicants);
             
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 
