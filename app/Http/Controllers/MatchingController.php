@@ -192,11 +192,11 @@ class MatchingController extends Controller
         }
         shuffle_assoc($arrayPrefs);
         asort($arrayPrefs);
-        i = 0;
+        $i = 0;
         foreach ($arrayPrefs as $apreference) {
             $pref = $preferences->where('prid', key($apreference))->first();
-            $pref->rank = i;
-            i++;
+            $pref->rank = $i;
+            $i++;
         }
         $preferences = $preferences->sortBy('rank'); 
         $preferences = $preferences->reverse();
