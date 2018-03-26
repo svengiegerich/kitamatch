@@ -92,7 +92,8 @@ class PreferenceController extends Controller
                             $openOffers++;
                         } else if ($preference->status == -1) {
                             $applicant->rank = -1;
-                            $offers[$applicant->aid] = -1;                    
+                            $offers[$applicant->aid] = -1;
+                        }
                     } else {
                         $applicant->rank = 0; 
                     }
