@@ -108,7 +108,7 @@ class PreferenceController extends Controller
             }
             
             $program->openOffers = $openOffers;
-            $availableApplicants = $availableApplicants->sortBy('rank', $use= 'dsc'); 
+            $availableApplicants = $availableApplicants->sortBy('rank', 'arsort'); 
             
             print_r($availableApplicants);
             
