@@ -86,18 +86,27 @@ class PreferenceController extends Controller
                 foreach ($availableApplicants as $applicant) {
                     if ($preference->id_to == $applicant->aid) {
                         if ($preference->status == 1) {
-                            $applicant->rank = 1;
                             $offers[$applicant->aid] = $preference->prid;
                             $openOffers++;
                         } else if ($preference->status == -1) {
-                            $applicant->rank = -1;
                             $offers[$applicant->aid] = -1;
                         }
-                    } else {
-                        $applicant->rank = 0; 
                     }
                 }
             }
+            
+            foreach ($availableApplicants as $applicant) {
+                if (array_key_exists($applicant->aid, $offers)) {
+                    if ($offers[$applicant->aid] > 0) {
+                        $applicant->rank = 1;
+                    } else if ($offers[$applicant->aid] == -1) {
+                        $applicant->rank = -1
+                    } else {
+                        $applicant->rank = 0;
+                    }
+                }
+            }
+            
             $program->openOffers = $openOffers;
             $availableApplicants = $availableApplicants->sortBy('rank'); 
             
