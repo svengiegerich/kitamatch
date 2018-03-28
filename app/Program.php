@@ -21,8 +21,8 @@ class Program extends Model
     }
     
     public function getProgramsByProid($proid) {
-        $program = Program::where('proid', '=', $proid)->firstOrFail();
-        return $program;
+        $programs = Program::where('proid', '=', $proid)->get()();
+        return $programs;
     }
     
     public $primaryKey = 'pid';
