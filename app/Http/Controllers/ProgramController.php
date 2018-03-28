@@ -33,8 +33,9 @@ class ProgramController extends Controller
             'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
             'account_type' => $accountType
         ]);
-        $uid = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser)->uid;
-        print_r($uid);
+        $user = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser);
+        echo "hey";
+        print_r($user->uid);
         /*$request->request->add([
             'proid' => $proid,
             'uid' => $uid
