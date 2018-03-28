@@ -35,7 +35,7 @@ class ProgramController extends Controller
         ]);
         $user = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser);
         echo "hey";
-        print_r($user->uid);
+        print_r($user->id);
         /*$request->request->add([
             'proid' => $proid,
             'uid' => $uid
