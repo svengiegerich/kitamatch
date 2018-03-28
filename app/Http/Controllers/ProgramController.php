@@ -30,10 +30,10 @@ class ProgramController extends Controller
         $requestUser->request->add([
             'email' => $request->email,
             //tmp: password
-            'password' => app('App\Http\Controllers\RegisterController')->generateStrongPassword(),
+            'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
             'account_type' => $accountType
         ]);
-        $uid = app('App\Http\Controllers\RegisterController')->store($requestUser)->uid;
+        $uid = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser)->uid;
         $request->request->add([
             'proid' => $proid,
             'uid' => $uid
