@@ -34,15 +34,13 @@ class ProgramController extends Controller
             'account_type' => $accountType
         ]);
         $user = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser);
-        echo "hey";
-        print_r($user->id);
-        /*$request->request->add([
+        $request->request->add([
             'proid' => $proid,
-            'uid' => $uid
+            'uid' => $user->id
         ]);
         $this->store($request);
         
-        return redirect()->action('ProviderController@show', $proid);*/
+        return redirect()->action('ProviderController@show', $proid);
     }
     
     public function store(Request $request) {
