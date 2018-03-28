@@ -21,7 +21,7 @@ class Program extends Model
     }
     
     public function getProgramsByProid($proid) {
-        $programs = Program::where('proid', '=', $proid)->get()();
+        $programs = Program::where('proid', '=', $proid)->get();
         return $programs;
     }
     
