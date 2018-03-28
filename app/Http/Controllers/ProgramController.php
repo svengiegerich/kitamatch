@@ -22,8 +22,12 @@ class ProgramController extends Controller
     
     //controller & view function
     public function create(Request $request, $proid) {
-        $request->request->add(['proid' => $proid]);
+        //tmp: create a uid for the program
+        $uid = -1;
+        $request->request->add(['proid' => $proid],
+                               ['uid'] => $uid);
         $this->store($request);
+        
         return redirect()->action('ProviderController@show', $proid);
     }
     
@@ -32,12 +36,13 @@ class ProgramController extends Controller
         
         $program = new Program;
         $program->uid = $request->uid;
+        $program->proid = $request->proid;
         $program->name = $request->name;
         $program->address = $request->address;
         $program->capacity = $request->capacity;
         //tmp
         $program->status = 1;
-        $program->p_kind = $request->p_kind;
+        $program->p_kind = $request->kind;
         $program->coordination = $request->coordination;
         $program->address = $request->address;
         $program->plz = $request->plz;
