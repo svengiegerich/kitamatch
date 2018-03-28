@@ -55,7 +55,7 @@
             <div class="form-group row">
                 <div class="col-sm-2 col-form-label"></div>
                 <div class="col-sm-8">
-                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-check-input', 'id' => 'coordination']) }}
+                    {{ Form::checkbox('coordination', 1, ['class' => 'form-check-input', 'id' => 'coordination']) }}
                     <label class="form-check-label" for="coordination">
                         Coordination
                     </label>
