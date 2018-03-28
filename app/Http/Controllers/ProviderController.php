@@ -29,6 +29,7 @@ class ProviderController extends Controller
         $provider = new Provider;
         $provider->proid = $request->proid;
         $provider->name = $request->name;
+        $provider->uid = $request->uid;
         //$provider->address = $request->address;
         //$provider->city = $request->city;
         //$provider->plz = $request->plz;
