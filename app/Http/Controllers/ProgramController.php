@@ -23,9 +23,21 @@ class ProgramController extends Controller
     //controller & view function
     public function create(Request $request, $proid) {
         //tmp: create a uid for the program
-        $uid = -1;
-        $request->request->add(['proid' => $proid,
-                               'uid' => $uid]);
+        $requestUser = new Request();
+        $requestUser->setMethod('POST');
+        //public: 1 -> account_type = 2, private: 2 -> account_type = 3
+        if ($request->kind == 1) { $accountType = 2; } else if ($request->kind == 2) { $accountType = 3; }
+        $requestUser->request->add([
+            'email' => $request->email,
+            //tmp: password
+            'password' => app('App\Http\Controllers\RegisterController')->generateStrongPassword(),
+            'account_type' => $accountType
+        ]);
+        $uid = app('App\Http\Controllers\RegisterController')->store($requestUser)->uid;
+        $request->request->add([
+            'proid' => $proid,
+            'uid' => $uid
+        ]);
         $this->store($request);
         
         return redirect()->action('ProviderController@show', $proid);

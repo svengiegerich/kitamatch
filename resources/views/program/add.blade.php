@@ -20,6 +20,16 @@
             </div>
             
             <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="" value="" required>
+                    <div class="invalid-feedback">
+                        Valid email is required.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group row">
                 <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
                 <div class="col-sm-10">
                     <input type="numeric" class="form-control" name="capacity" id="capacity" placeholder="" required>
