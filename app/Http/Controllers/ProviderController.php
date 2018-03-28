@@ -43,7 +43,7 @@ class ProviderController extends Controller
         $Program = new Program;
         $programs = $Program->getProgramsByProid($proid);
         return view('provider.edit', array('provider' => $provider,
-                                          'programs' => $programs));*/
+                                          'programs' => $programs));
     }
     
     public function edit(Request $request, $proid) {
