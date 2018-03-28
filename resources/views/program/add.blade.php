@@ -12,7 +12,7 @@
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="" value="" required="">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="" value="" required>
                     <div class="invalid-feedback">
                         Valid name is required.
                     </div>
@@ -32,14 +32,14 @@
             <div class="form-group row">
                 <label for="phone" class="col-sm-2 col-form-label">Phone</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$program->phone}}">
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="">
                 </div>
             </div>
             
             <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required="">
+                    <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St">
                     <div class="invalid-feedback">
                         Please enter your home address.
                     </div>
