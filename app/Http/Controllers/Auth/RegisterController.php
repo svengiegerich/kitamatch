@@ -116,6 +116,7 @@ class RegisterController extends Controller
             'account_type' => $request->account_type,
             'password' => Hash::make($request->password)
         ]);
+        return $user;
     }
     
     //https://gist.github.com/tylerhall/521810
