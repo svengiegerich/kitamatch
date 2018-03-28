@@ -20,6 +20,11 @@ class Program extends Model
         return $program;
     }
     
+    public function getProgramByProid($proid) {
+        $program = Program::where('proid', '=', $proid)->firstOrFail();
+        return $program;
+    }
+    
     public $primaryKey = 'pid';
     public $timestamps = false;
 }

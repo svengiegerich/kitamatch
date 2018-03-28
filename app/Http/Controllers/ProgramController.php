@@ -14,8 +14,16 @@ class ProgramController extends Controller
         return redirect()->action('ProgramController@all');
     }
     
-    public function add() {
-        return view('program.add');
+    public function add($proid) {
+        $provider = Provider::findOrFail($proid);
+        return view('program.add', array('provider' => $provider));
+    }
+    
+    //controller & view function
+    public function create(Request $request, $proid) {
+        $request->request->add(['proid' => $proid]);
+        $this->store($request);
+        return redirect()->action('ProviderController@show', $proid);
     }
     
     public function store(Request $request) {
@@ -35,8 +43,7 @@ class ProgramController extends Controller
         $program->phone = $request->phone;
         
         $program->save();
-        
-        return redirect()->action('ProgramController@all');
+        return $program;
     }
     
     public function show($pid) {

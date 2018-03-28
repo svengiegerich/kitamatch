@@ -55,6 +55,7 @@
                                     <option value="1">Guardian</option>
                                     <option value="2">Public</option>
                                     <option value="3">Private</option>
+                                    <option value="4">Provider</option>
                                 </select>
                             </div>
                         </div>

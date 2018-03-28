@@ -30,7 +30,6 @@ Auth::routes();
 
 //Applicant
 Route::get('/applicant', 'ApplicantController@all');
-
 Route::get('/applicant/all', 'ApplicantController@all');
 Route::delete('/applicant/{applicant}', 'ApplicantController@delete');
 
@@ -43,14 +42,14 @@ Route::post('/applicant/{applicant}', 'ApplicantController@edit');
 
 //Program
 Route::get('/program', 'ProgramController@all');
-
 Route::get('/program/all', 'ProgramController@all');
-Route::get('/program/{pID}', 'ProgramController@show');
-Route::post('/program/{pID}', 'ProgramController@edit');
 Route::delete('/program/{program}', 'ProgramController@delete');
 
-Route::get('/program/add', 'ProgramController@add');
-Route::post('/program/add', 'ProgramController@store');
+Route::get('/program/add/{proid}', 'ProgramController@add');
+Route::post('/program/add/{proid}', 'ProgramController@create');
+
+Route:get('/program/{pID}', 'ProgramController@show')
+Route:post('/applicant/{pID}', 'ProgramController@edit')
 
 //Preference
 Route::get('/preference/single/{preference}', 'PreferenceController@show');
