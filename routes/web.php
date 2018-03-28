@@ -73,8 +73,8 @@ Route::get('/guardian/{gID}', 'GuardianController@show');
 Route::post('/guardian/{gID}', 'GuardianController@edit');
 
 //Provider
-Route::get('/provider/{gID}', 'ProviderController@show');
-Route::post('/provdier/{gID}', 'ProviderController@edit');
+Route::get('/provider/{proID}', 'ProviderController@show');
+Route::post('/provdier/{proID}', 'ProviderController@edit');
 
 //Matchings
 Route::get('/matching/all', 'MatchingController@all');
