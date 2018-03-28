@@ -72,6 +72,10 @@ Route::get('/preference/all', 'PreferenceController@all');
 Route::get('/guardian/{gID}', 'GuardianController@show');
 Route::post('/guardian/{gID}', 'GuardianController@edit');
 
+//Provider
+Route::get('/provider/{gID}', 'ProviderController@show');
+Route::post('/provdier/{gID}', 'ProviderController@edit');
+
 //Matchings
 Route::get('/matching/all', 'MatchingController@all');
 Route::get('/matching/json', 'MatchingController@createJson');
