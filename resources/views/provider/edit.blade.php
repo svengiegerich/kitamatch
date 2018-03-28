@@ -33,7 +33,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>My applicants</h4>
+        <h4>My programs</h4>
         <br>
         
         @foreach ($programs as $program)
@@ -41,7 +41,7 @@
             <br>
         @endforeach
         
-        <a href="/program/add/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Add applicant</button></a>
+        <a href="/program/add/{{$provider->proid}}"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
         <br>
     </div>
 </div>
