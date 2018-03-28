@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
 use App\Guardian;
+use App\Provider;
 use App\Program;
 
 class HomeController extends Controller
