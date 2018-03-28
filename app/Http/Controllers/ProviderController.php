@@ -39,7 +39,7 @@ class ProviderController extends Controller
     }
     
     public function show($gid) {
-        $provider = Guardian::findOrFail($gid);
+        $provider = Provider::findOrFail($gid);
         $Program = new Program;
         $programs = $Program->getProgramsByProid($proid);
         return view('provider.edit', array('provider' => $provider,
