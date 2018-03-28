@@ -10,6 +10,6 @@ class Provider extends Model
     //
     
     
-    public $primaryKey = 'cid';
+    public $primaryKey = 'proid';
     protected $table = 'provider';
 }
