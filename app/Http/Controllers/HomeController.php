@@ -37,8 +37,11 @@ class HomeController extends Controller
         } else if ($user->account_type == 2 || $user->account_type == 3) {
             $Program = new Program;
             $program = $Program->getProgramByUid($user->id);
-            print_r($program);
             return redirect()->action('ProgramController@show', [$program->pid]);
+        } else if ($user->account_type == 4) {
+            $Provider = new Provider;
+            $provider = $Provider->getProviderByUid($user->id);
+            return redirect()->action('ProviderController@show', [$provider->proid]);
         } else {
             return view('home');
         }
