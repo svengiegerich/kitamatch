@@ -49,7 +49,7 @@ Route::get('/program/add/{proid}', 'ProgramController@add');
 Route::post('/program/add/{proid}', 'ProgramController@create');
 
 Route:get('/program/{pID}', 'ProgramController@show')
-Route:post('/applicant/{pID}', 'ProgramController@edit')
+Route:post('/program/{pID}', 'ProgramController@edit')
 
 //Preference
 Route::get('/preference/single/{preference}', 'PreferenceController@show');
