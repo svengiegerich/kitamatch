@@ -39,13 +39,10 @@ class ProviderController extends Controller
     }
     
     public function show($proid) {
-        echo $proid;
         $provider = Provider::findOrFail($proid);
-        print_r($provider);
         $Program = new Program;
         $programs = $Program->getProgramsByProid($proid);
-        print_r($programs);
-        /*return view('provider.edit', array('provider' => $provider,
+        return view('provider.edit', array('provider' => $provider,
                                           'programs' => $programs));*/
     }
     
