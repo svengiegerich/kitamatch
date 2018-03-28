@@ -38,7 +38,7 @@ class ProgramController extends Controller
             'proid' => $proid,
             'uid' => $uid
         ]);
-        print_r($request);
+        var_dump($request);
         //$this->store($request);
         
         return redirect()->action('ProviderController@show', $proid);
