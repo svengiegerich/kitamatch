@@ -20,7 +20,7 @@ class Program extends Model
         return $program;
     }
     
-    public function getProgramByProid($proid) {
+    public function getProgramsByProid($proid) {
         $program = Program::where('proid', '=', $proid)->firstOrFail();
         return $program;
     }
