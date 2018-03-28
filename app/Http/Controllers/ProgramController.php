@@ -24,8 +24,8 @@ class ProgramController extends Controller
     public function create(Request $request, $proid) {
         //tmp: create a uid for the program
         $uid = -1;
-        $request->request->add(['proid' => $proid],
-                               ['uid'] => $uid);
+        $request->request->add(['proid' => $proid,
+                               'uid' => $uid]);
         $this->store($request);
         
         return redirect()->action('ProviderController@show', $proid);
