@@ -59,17 +59,16 @@
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
         </form>
+    </div>
+</div>
         
-        <hr class="mb-4">
-        
+<div class="row justify-content-center">
+    <div class="col-md-8">
         @if ($program->coordination == 1)
             <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Add preferences</button></a>
         @else
             <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Make offers</button></a>
         @endif
-        
-        <br/>
-        
     </div>
 </div>
     
