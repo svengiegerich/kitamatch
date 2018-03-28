@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Program;
+use App\Provider;
 
 class ProgramController extends Controller
 {
