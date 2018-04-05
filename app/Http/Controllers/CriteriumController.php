@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 use App\Criterium;
 
 class CriteriumController extends Controller
@@ -25,7 +27,7 @@ class CriteriumController extends Controller
         if (!($criteria->first())) {
             $request = new Request();
             $request->request->add(['store_type' => 1]);
-            $this->store($proid);
+            $this->store($request);
         }
         
         //criteria found
