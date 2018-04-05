@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\DB;
 
 use App\Criterium;
-use App\Applicant;
+use App\Guardian;
 
 
 trait GetPreferences
@@ -53,6 +53,8 @@ trait GetPreferences
     }
     
     private function orderByCriteria($preferences, $providerId) {
+        $Applicant = new Applicant();
+        
         $criteria = Criterium::where('provider_id', '=', $providerId)
             ->orderBy('rank', 'asc')
             ->get();
@@ -61,11 +63,12 @@ trait GetPreferences
             echo $preference->prid;
             echo " t ";
             
-            $applicant = Applicant::findOrFail($preference->id_to)->first();
+            $gid = $Applicant->getGuardianIdByApplicant($preference->id_to);
+            $guardian = Guardian::find($gid)->first();
             $preference->points = 0;
             foreach($criteria as $criterium) {
                 $criterium_name = $criterium->criterium_name;
-                if ($criterium->criterium_value == $applicant->{$criterium_name}) {
+                if ($criterium->criterium_value == $guardian->{$criterium_name}) {
                     $preference->points = $preference->points + $criterium->multiplier;
                 }
             }

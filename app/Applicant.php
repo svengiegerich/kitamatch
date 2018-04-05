@@ -14,6 +14,12 @@ class Applicant extends Model
         return $applicants;
     }
     
+        
+    public function getGuardianIdByApplicant($aid) {
+        $guardian = Applicant::where('aid', '=', $aid)->get();
+        return ($guardian->gid);
+    }
+    
     public $primaryKey = 'aid';
     public $timestamps = false;
 }
