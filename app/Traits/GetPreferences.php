@@ -58,6 +58,9 @@ trait GetPreferences
             ->get();
         
         foreach($preferences as $preference) {
+            echo $preference->prid;
+            echo " t ";
+            
             $applicant = Applicant::findOrFail($preference->id_to)->first();
             $preference->points = 0;
             foreach($criteria as $criterium) {
