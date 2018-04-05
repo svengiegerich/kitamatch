@@ -26,6 +26,7 @@ class CriteriumController extends Controller
         //no criteria found
         if (!($criteria->first())) {
             $request = new Request();
+            $request->setMethod('POST');
             $request->request->add(['store_type' => 1,
                                    'provider_id' => $proid]);
             $this->store($request);
