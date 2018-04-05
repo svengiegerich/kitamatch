@@ -21,13 +21,13 @@
                         <div>{{ $criterium->criterium_name }}</div>
                     </th>
                         <td>
-                            <div>{{ $preference->criterium_value }}</div>
+                            <div>{{ $criterium->criterium_value }}</div>
                         </td>
                         <td>
-                            <div>{{ $preference->rank }}</div>
+                            <div>{{ $criterium->rank }}</div>
                         </td>
                         <td>
-                            <div>{{ $preference->multiplier }}</div>
+                            <div>{{ $criterium->multiplier }}</div>
                         </td>    
                 </tr>
                 
