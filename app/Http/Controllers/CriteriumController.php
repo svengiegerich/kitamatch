@@ -21,9 +21,11 @@ class CriteriumController extends Controller
             ->orderBy('rank', 'asc')
             ->get();
         //no criteria found
-        /*if (length($criteria)<1) {
-            $this->add($proid);
-        }*/
+        if (!($criteria->first())) {
+            $request = new Request();
+            $request->request->add(['store_type' => 1]);
+            $this->store($proid);
+        }
         
         //criteria found
         return view('criterium.edit', array('criteria' => $criteria));
@@ -31,6 +33,22 @@ class CriteriumController extends Controller
     
     public function add($proid) {
         
+    }
+    
+    public function store(Request $request) {
+        //
+        if ($request->store_type = 1) {
+            $defaultCriteria = Criterium::where('provider_id', '=', -1);
+            foreach ($defaultCriteria as $defaultCriterium) {
+                $criterium = new Criterium();
+                $criterium->criterium_name = $defaultCriterium->;
+                $criterium->criterium_value = $defaultCriterium->;
+                $criterium->rank = $defaultCriterium->rank;
+                $criterium->multiplier = $defaultCriterium->multiplier;
+                $criterium->provider_id = $request->proid;
+                $criterium->save();
+            }
+        }
     }
     
     public function edit($proid) {

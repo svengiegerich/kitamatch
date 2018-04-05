@@ -15,7 +15,6 @@
             </thead>
             <tbody>
                 @foreach ($criteria as $criterium)
-                
                 <tr>
                     <th>
                         <div>{{ $criterium->criterium_name }}</div>
@@ -30,7 +29,6 @@
                             <div>{{ $criterium->multiplier }}</div>
                         </td>    
                 </tr>
-                
                 @endforeach
             </tbody>
         </table>
