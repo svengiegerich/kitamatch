@@ -15,7 +15,7 @@ class CriteriumController extends Controller
     }
     
     public function show($proid) {
-        $criteria = Criterium::where('proid', '=', $proid)
+        $criteria = Criterium::where('provider_id', '=', $proid)
             ->orderBy('rank', 'asc')
             ->get();
         //no criteria found
