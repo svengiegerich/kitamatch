@@ -32,7 +32,7 @@ class MatchingController extends Controller
     }
     
     public function all() {
-        $matches = DB::table('matches')->where('status', '=', 1)->get();
+        $matches = DB::table('matches')->whereIn('status', [31, 32])->get();
         return view('matching.all', array('matches' => $matches));
     }
     
@@ -64,14 +64,18 @@ class MatchingController extends Controller
         
         print_r($result);
         
-        /*
         //temp: set active = 0 for all previous entries
         $Matching->resetMatches();
         $Preference->resetUncoordinated();
         
         //store the positiv matches
         foreach ($matchingResult as $match) {
-            $this->store($match, 31);
+            //check if it's the final match
+            if ($match->pid == $input['student_prefs'][$match->aid][0]) {
+                $this->store($match, 31);
+            } else {
+                $this->store($match, 32);
+            }
             
             //tmp
             //check if program is uncoordinated
@@ -90,7 +94,6 @@ class MatchingController extends Controller
                 }
             }
         }
-        */
         //return redirect()->action('MatchingController@all');
     }
     
