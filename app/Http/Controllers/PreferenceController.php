@@ -108,7 +108,8 @@ class PreferenceController extends Controller
                         $applicant->rank = $applicant->aid + 1000000;
                     }
                 }  else {
-                    $applicant->rank = $applicant->points;
+                    //!!!!!!!!!!! to points
+                    $applicant->rank = $applicant->aid;
                 }
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); 
