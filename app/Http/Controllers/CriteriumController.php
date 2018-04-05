@@ -21,9 +21,9 @@ class CriteriumController extends Controller
             ->orderBy('rank', 'asc')
             ->get();
         //no criteria found
-        if (length($criteria)<1) {
+        /*if (length($criteria)<1) {
             $this->add($proid);
-        }
+        }*/
         
         //criteria found
         return view('criterium.edit', array('criteria' => $criteria));
