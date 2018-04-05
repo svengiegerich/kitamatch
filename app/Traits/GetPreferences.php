@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\DB;
 
 use App\Criterium;
+use App\Applicant;
+
 
 trait GetPreferences
 {
@@ -56,10 +58,11 @@ trait GetPreferences
             ->get();
         
         foreach($preferences as $preference) {
+            $applicant = Applicant::findOrFail($aid)->first();
             $preference->points = 0;
             foreach($criteria as $criterium) {
-                $criterium_name = (string)$criterium->criterium_name;
-                echo $preference->{$criterium_name};
+                $criterium_name = $criterium->criterium_name;
+                echo $applicant->{$criterium_name};
                 echo " ";
                 /*if ($criterium->criterium_value == $preference->{$criterium_name}) {
                     $preference->points = $preference->points + $criterium->multiplier;
