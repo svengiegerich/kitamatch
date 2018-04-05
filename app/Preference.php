@@ -91,7 +91,7 @@ class Preference extends Model
         
         //tmp: add geocoordinated way
         
-        $applicants = $applicants->sortBy('points', 'desc');
+        $applicants = $applicants->sortBy('points', true, true);
         return $applicants; 
     }
     
