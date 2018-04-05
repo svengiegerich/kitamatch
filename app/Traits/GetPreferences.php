@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Criterium;
 use App\Guardian;
-
+use App\Applicant;
 
 trait GetPreferences
 {
