@@ -26,7 +26,8 @@ class CriteriumController extends Controller
         //no criteria found
         if (!($criteria->first())) {
             $request = new Request();
-            $request->request->add(['store_type' => 1]);
+            $request->request->add(['store_type' => 1,
+                                   'provider_id' => $porid]);
             $this->store($request);
         }
         
@@ -50,7 +51,7 @@ class CriteriumController extends Controller
                 $criterium->criterium_value = $defaultCriterium->criterium_value;
                 $criterium->rank = $defaultCriterium->rank;
                 $criterium->multiplier = $defaultCriterium->multiplier;
-                $criterium->provider_id = $request->proid;
+                $criterium->provider_id = $request->provider_id;
                 $criterium->save();
             }
         }
