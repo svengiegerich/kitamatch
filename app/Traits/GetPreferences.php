@@ -64,7 +64,7 @@ trait GetPreferences
             echo " t ";
             
             $gid = $Applicant->getGuardianIdByApplicant($preference->id_to);
-            $guardian = Guardian::find($gid)->first();
+            /*$guardian = Guardian::find($gid)->first();
             $preference->points = 0;
             foreach($criteria as $criterium) {
                 $criterium_name = $criterium->criterium_name;
@@ -73,7 +73,7 @@ trait GetPreferences
                 }
             }
             echo "<br>new: ";
-            echo $preference->points;
+            echo $preference->points;*/
         }
     }
 }
