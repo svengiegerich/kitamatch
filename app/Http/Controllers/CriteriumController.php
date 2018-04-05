@@ -15,8 +15,7 @@ class CriteriumController extends Controller
     }
     
     public function show($proid) {
-        echo "hes";
-        /*$criteria = Criterium::where('provider_id', '=', $proid)
+        $criteria = Criterium::where('provider_id', '=', $proid)
             ->orderBy('rank', 'asc')
             ->get();
         //no criteria found
@@ -25,7 +24,7 @@ class CriteriumController extends Controller
         }
         
         //criteria found
-        return view('criterium.edit', array('criteria' => $criteria));*/
+        return view('criterium.edit', array('criteria' => $criteria));
     }
     
     public function add($proid) {
