@@ -30,6 +30,10 @@ class CriteriumController extends Controller
             $request->request->add(['store_type' => 1,
                                    'provider_id' => $proid]);
             $this->store($request);
+            
+            $criteria = Criterium::where('provider_id', '=', $proid)
+            ->orderBy('rank', 'asc')
+            ->get();
         }
         
         //criteria found
