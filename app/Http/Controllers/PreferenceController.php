@@ -71,11 +71,14 @@ class PreferenceController extends Controller
                                                          'program' => $program));
         } else {
             //coordination: false
+            $Program = new Program();
             
             $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
+            $providerId = $Program->getProviderId($pid);
             
             $Preference = new Preference;
             $availableApplicants = $Preference->getAvailableApplicants($pid);
+            $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId);
             
             //mark every active or closed offer
             //1: active, -1: no match
