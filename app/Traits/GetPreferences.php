@@ -62,11 +62,9 @@ trait GetPreferences
             $preference->points = 0;
             foreach($criteria as $criterium) {
                 $criterium_name = $criterium->criterium_name;
-                echo $applicant->{$criterium_name};
-                echo " ";
-                /*if ($criterium->criterium_value == $preference->{$criterium_name}) {
+                if ($criterium->criterium_value == $applicant->{$criterium_name}) {
                     $preference->points = $preference->points + $criterium->multiplier;
-                }*/
+                }
             }
             echo "<br>new: ";
             echo $preference->points;
