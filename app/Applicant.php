@@ -16,7 +16,7 @@ class Applicant extends Model
     
         
     public function getGuardianIdByApplicant($aid) {
-        $applicant = Applicant::where('aid', '=', $aid)->get();
+        $applicant = Applicant::where('aid', '=', $aid)->first();
         return $applicant->gid;
     }
     
