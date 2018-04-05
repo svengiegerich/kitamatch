@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Traits\GetPreferences;
 
 use App\Program;
 use App\Provider;
@@ -52,16 +53,17 @@ class ProgramController extends Controller
         $program->name = $request->name;
         $program->address = $request->address;
         $program->capacity = $request->capacity;
-        //tmp
-        $program->status = 1;
+        $program->status = 11;
         $program->p_kind = $request->kind;
         $program->coordination = $request->coordination;
         $program->address = $request->address;
         $program->plz = $request->plz;
         $program->city = $request->city;
         $program->phone = $request->phone;
-        
         $program->save();
+        //tmp
+        $this->setValid($program-id);
+        
         return $program;
     }
     
@@ -99,6 +101,7 @@ class ProgramController extends Controller
         $program->plz = $request->plz;
         $program->city = $request->city;
         $program->phone = $request->phone;
+        $program->status = $request->status;
         $program->save();
         return $program;
     }
@@ -107,4 +110,29 @@ class ProgramController extends Controller
 		$program = Program::find($pid);
 		return $program->capacity;
 	}
+    
+    public function setValid($pid) {
+        $request = new Request();
+        $request->setMethod('POST');
+        $request->request->add(['pid' => $pid,
+                               'status' => 12]);
+        $this->update($request);
+    }
+    
+    public function setNonActive($pid) {
+        $request = new Request();
+        $request->setMethod('POST');
+        $request->request->add(['pid' => $pid,
+                               'status' => 13]);
+        $this->update($request);
+    }
+    
+    public function activityCheck() {
+        $nonActivePreferences = $this->getNonActivePreferencesByProgram(); 
+        foreach ($nonActivePreferences as $preference) {
+            $this->setNonActive($preference->ANY_VALUE(`id_from`));
+            //check if capacity is not fullfilled
+            //...
+        }
+    }
 }

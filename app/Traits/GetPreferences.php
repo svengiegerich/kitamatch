@@ -40,4 +40,10 @@ trait GetPreferences
         $preferences = DB::select($sql);
         return $preferences;
     }
+    
+    public function getNonActivePreferencesByProgram() {
+        $sql = "SELECT ANY_VALUE(`id_from`),ANY_VALUE(`pr_kind`),ANY_VALUE(`updated_at`),ANY_VALUE(`updated_at`),ANY_VALUE(`status`) FROM preferences WHERE (pr_kind = 2 OR OR pr_kind = 3) AND DATE(updated_at) < DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY id_from";
+        $preferences = DB::select($sql);
+        return $preferences;
+    }
 }

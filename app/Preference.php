@@ -69,5 +69,4 @@ class Preference extends Model
     }
     
     public $primaryKey = 'prid';
-    public $timestamps = false;
 }
