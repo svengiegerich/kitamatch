@@ -71,7 +71,7 @@ class MatchingController extends Controller
         //store the positiv matches
         foreach ($matchingResult as $match) {
             //check if it's the final match
-            if ($match->pid == $input['student_prefs'][$match->aid][0]) {
+            if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
                 $this->store($match, 31);
             } else {
                 $this->store($match, 32);
