@@ -73,9 +73,9 @@ class Preference extends Model
             ->orderBy('rank', 'asc')
             ->get();
         
-        foreach($applicants as &$applicant) {
+        foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
-            $applicants->points = 0;
+            $applicant->setAttribute('points', 0);
             if ($guardian != null) {
                 foreach($criteria as $criterium) {
                     $criterium_name = $criterium->criterium_name;
