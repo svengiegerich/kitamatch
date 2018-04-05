@@ -25,7 +25,6 @@ class CriteriumController extends Controller
             ->get();
         //no criteria found
         if (!($criteria->first())) {
-            echo "hey";
             $request = new Request();
             $request->request->add(['store_type' => 1]);
             $this->store($request);
@@ -42,8 +41,10 @@ class CriteriumController extends Controller
     public function store(Request $request) {
         //
         if ($request->store_type = 1) {
+            echo "hs";
             $defaultCriteria = Criterium::where('provider_id', '=', -1);
             foreach ($defaultCriteria as $defaultCriterium) {
+                echo "tio";
                 $criterium = new Criterium();
                 $criterium->criterium_name = $defaultCriterium->criterium_name;
                 $criterium->criterium_value = $defaultCriterium->criterium_value;
