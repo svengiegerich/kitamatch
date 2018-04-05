@@ -22,6 +22,22 @@
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$provider->phone}}">
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="plz" class="col-sm-2 col-form-label">PLZ</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="">
+                </div>
+                <label for="city" class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City" value="">
+                </div>
+            </div>
             
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
@@ -42,6 +58,15 @@
         @endforeach
         
         <a href="/program/add/{{$provider->proid}}"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
+        <br>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h4>My criteria</h4>
+        <br>
+        <a href="/criteria/{{$provider->proid}}"><button class="btn btn-primary btn-lg btn-block">Criteria</button></a>
         <br>
     </div>
 </div>

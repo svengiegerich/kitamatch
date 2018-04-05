@@ -30,9 +30,9 @@ class ProviderController extends Controller
         $provider->proid = $request->proid;
         $provider->name = $request->name;
         $provider->uid = $request->uid;
-        //$provider->address = $request->address;
-        //$provider->city = $request->city;
-        //$provider->plz = $request->plz;
+        $provider->address = $request->address;
+        $provider->city = $request->city;
+        $provider->plz = $request->plz;
         $provider->phone = $request->phone;
         $provider->save();
         
@@ -55,9 +55,9 @@ class ProviderController extends Controller
     public function update(Request $request) {
         $provider = Provider::findOrFail($request->proid);
         $provider->name = $request->name;
-        //$provider->address = $request->address;
-        //$provider->city = $request->city;
-        //$provider->plz = $request->plz;
+        $provider->address = $request->address;
+        $provider->city = $request->city;
+        $provider->plz = $request->plz;
         $provider->phone = $request->phone;
         $provider->save();
         return $provider;
