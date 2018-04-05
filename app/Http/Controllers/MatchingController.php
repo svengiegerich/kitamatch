@@ -42,6 +42,9 @@ class MatchingController extends Controller
         $Preference = new Preference;
         $Matching = new Matching;
         
+        //tmp
+        //app('App\Http\Controllers\ProgramController')->activityCheck();
+        
         $input = $this->prepareMatching();
         
         print_r($input);

@@ -15,15 +15,17 @@ class CriteriumController extends Controller
     }
     
     public function show($proid) {
-        $provider = Criterium::where('proid', '=', $proid)->get();
+        $criteria = Criterium::where('proid', '=', $proid)
+            ->orderBy('rank', 'asc')
+            ->get();
         //no criteria found
-        if (length($provider)<1) {
+        if (length($criteria)<1) {
             $this->add($proid);
             return();
         }
         
         //criteria found
-        //->edit
+        return view('criterium.edit', array('criteria' => $criteria));
     }
     
     public function add($proid) {
