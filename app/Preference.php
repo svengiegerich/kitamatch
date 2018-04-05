@@ -68,7 +68,7 @@ class Preference extends Model
         return $applicants;
     }
     
-    private function orderByCriteria($applicants, $providerId) {
+    public function orderByCriteria($applicants, $providerId) {
         $criteria = Criterium::where('provider_id', '=', $providerId)
             ->orderBy('rank', 'asc')
             ->get();
