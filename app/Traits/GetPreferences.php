@@ -30,13 +30,13 @@ trait GetPreferences
     
     //get all preferences of an uncoordinated program
     public function getPreferencesUncoordinatedByProgram($pid) {
-        $preferences = DB::table('preferences')->where('id_from', '=', $pid)
+        /*$preferences = DB::table('preferences')->where('id_from', '=', $pid)
                             ->whereIn('status', [1, -1])
                             ->where('pr_kind', '=', 3)
                             ->orderBy('rank', 'asc')
-                            ->get();
+                            ->get();*/
         //tmp: issue if all offers with rank = 1 and so ordered by time 
-        /*$sql = "SELECT * FROM preferences WHERE (`id_from` = " . $pid . " AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";*/
+        $sql = "SELECT * FROM preferences WHERE (`id_from` = " . $pid . " AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
         $preferences = DB::select($sql);
         return $preferences;
     }
