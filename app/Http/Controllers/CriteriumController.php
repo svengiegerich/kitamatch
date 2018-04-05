@@ -41,8 +41,8 @@ class CriteriumController extends Controller
     public function store(Request $request) {
         //
         if ($request->store_type = 1) {
-            echo "hs";
             $defaultCriteria = Criterium::where('provider_id', '=', -1);
+            print_r($defaultCriteria);
             foreach ($defaultCriteria as $defaultCriterium) {
                 echo "tio";
                 $criterium = new Criterium();
