@@ -39,10 +39,11 @@ class CriteriumController extends Controller
     }
     
     public function store(Request $request) {
-        //
+        
+        //duplicate default criteria
         if ($request->store_type = 1) {
             $defaultCriteria = Criterium::where('provider_id', '=', -1);
-            print_r($defaultCriteria);
+            dd($defaultCriteria);
             foreach ($defaultCriteria as $defaultCriterium) {
                 echo "tio";
                 $criterium = new Criterium();
