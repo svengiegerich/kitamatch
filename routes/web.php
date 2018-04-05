@@ -81,6 +81,6 @@ Route::get('/matching/all', 'MatchingController@all');
 Route::get('/matching/json', 'MatchingController@createJson');
 Route::get('/matching/get', 'MatchingController@findMatchings');
 
-//Certiera
+//Criteria
 Route::get('/criteria/{proid}', 'CriteriumController@show');
-Route::get('/criteria/{proid}', 'CriteriumController@add');
+//Route::get('/criteria/{proid}', 'CriteriumController@add');
