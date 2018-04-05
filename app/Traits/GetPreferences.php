@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\DB;
 
+use App\Criterium;
+
 trait GetPreferences
 {
     //get all preferences of an applicant
@@ -38,6 +40,7 @@ trait GetPreferences
         //tmp: issue if all offers with rank = 1 and so ordered by time 
         $sql = "SELECT * FROM preferences WHERE (`id_from` = " . $pid . " AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
         $preferences = DB::select($sql);
+        $this->orderByCriteria($preferences, 1);
         return $preferences;
     }
     
@@ -45,5 +48,23 @@ trait GetPreferences
         $sql = "SELECT ANY_VALUE(`id_from`),ANY_VALUE(`pr_kind`),ANY_VALUE(`updated_at`),ANY_VALUE(`updated_at`),ANY_VALUE(`status`) FROM preferences WHERE (pr_kind = 2 OR OR pr_kind = 3) AND DATE(updated_at) < DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY id_from";
         $preferences = DB::select($sql);
         return $preferences;
+    }
+    
+    private function orderByCriteria($preferences, $providerID) {
+        $Criteria = Criterium::where('provider_id', '=', $providerId)
+            ->orderBy('rank', 'asc')
+            ->get();
+        
+        foreach($preferences as $preference) {
+            $preference->points = 0;
+            foreach($criteria as $criterium) {
+                $criterium_name = $criterium->criterium_name;
+                if ($criterium->criterium_value == $preference->$criterium_name) {
+                    $preference->points = $preference->points + $criterium->multiplier;
+                }
+            }
+            echo "<br>new: ";
+            echo $preference->points;
+        }
     }
 }

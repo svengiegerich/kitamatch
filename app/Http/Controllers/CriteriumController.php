@@ -23,7 +23,8 @@ class CriteriumController extends Controller
         $criteria = Criterium::where('provider_id', '=', $proid)
             ->orderBy('rank', 'asc')
             ->get();
-        //no criteria found
+        
+        //no criteria found, duplicate default criteria
         if (!($criteria->first())) {
             $request = new Request();
             $request->setMethod('POST');
@@ -36,7 +37,6 @@ class CriteriumController extends Controller
             ->get();
         }
         
-        //criteria found
         return view('criterium.edit', array('criteria' => $criteria));
     }
     
@@ -50,7 +50,6 @@ class CriteriumController extends Controller
         if ($request->store_type == 1) {
             $defaultCriteria = Criterium::where('provider_id', '=', -1)->get();
             foreach ($defaultCriteria as $defaultCriterium) {
-                echo "tio";
                 $criterium = new Criterium();
                 $criterium->criterium_name = $defaultCriterium->criterium_name;
                 $criterium->criterium_value = $defaultCriterium->criterium_value;
