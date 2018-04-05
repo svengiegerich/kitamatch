@@ -68,5 +68,32 @@ class Preference extends Model
         return $applicants;
     }
     
+    private function orderByCriteria($applicants, $providerId) {
+        $criteria = Criterium::where('provider_id', '=', $providerId)
+            ->orderBy('rank', 'asc')
+            ->get();
+        
+        foreach($applicants as $applicant) {
+            $guardian = Guardian::find($applicant->gid);
+            $applicants->points = 0;
+            if ($guardian != null) {
+                foreach($criteria as $criterium) {
+                    $criterium_name = $criterium->criterium_name;
+                    if ($criterium->criterium_value == $guardian->{$criterium_name}) {
+                        $applicant->points = $applicant->points + $criterium->multiplier;
+                    }
+                }
+                echo "<br>" . $applicant->points . "<br>";
+            } else {
+                echo "<br> no guardian <br>";
+            }
+        }
+        
+        //tmp: add geocoordinated way
+        
+        $applicants = $applicants->sortBy('points', 'desc');
+        return $applicants; 
+    }
+    
     public $primaryKey = 'prid';
 }
