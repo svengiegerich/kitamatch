@@ -22,7 +22,6 @@ class CriteriumController extends Controller
         //no criteria found
         if (length($criteria)<1) {
             $this->add($proid);
-            return;
         }
         
         //criteria found
