@@ -66,11 +66,15 @@ trait GetPreferences
             $gid = $Applicant->getGuardianIdByApplicant($preference->id_to);
             $guardian = Guardian::find($gid);
             $preference->points = 0;
-            foreach($criteria as $criterium) {
-                $criterium_name = $criterium->criterium_name;
-                if ($criterium->criterium_value == $guardian->{$criterium_name}) {
-                    $preference->points = $preference->points + $criterium->multiplier;
+            if ($guardian->first()) {
+                foreach($criteria as $criterium) {
+                    $criterium_name = $criterium->criterium_name;
+                    if ($criterium->criterium_value == $guardian->{$criterium_name}) {
+                        $preference->points = $preference->points + $criterium->multiplier;
+                    }
                 }
+            } else {
+                echo "no guardian <br>";
             }
             echo "<br>new: ";
             echo $preference->points;
