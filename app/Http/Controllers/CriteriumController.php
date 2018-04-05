@@ -25,6 +25,7 @@ class CriteriumController extends Controller
             ->get();
         //no criteria found
         if (!($criteria->first())) {
+            echo "hey";
             $request = new Request();
             $request->request->add(['store_type' => 1]);
             $this->store($request);
