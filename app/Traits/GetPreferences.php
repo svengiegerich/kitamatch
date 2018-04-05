@@ -50,7 +50,7 @@ trait GetPreferences
         return $preferences;
     }
     
-    private function orderByCriteria($preferences, $providerID) {
+    private function orderByCriteria($preferences, $providerId) {
         $Criteria = Criterium::where('provider_id', '=', $providerId)
             ->orderBy('rank', 'asc')
             ->get();
