@@ -27,7 +27,7 @@ class CriteriumController extends Controller
         if (!($criteria->first())) {
             $request = new Request();
             $request->request->add(['store_type' => 1,
-                                   'provider_id' => $porid]);
+                                   'provider_id' => $proid]);
             $this->store($request);
         }
         
