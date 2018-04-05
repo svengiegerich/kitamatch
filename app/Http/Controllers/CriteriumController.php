@@ -41,8 +41,8 @@ class CriteriumController extends Controller
             $defaultCriteria = Criterium::where('provider_id', '=', -1);
             foreach ($defaultCriteria as $defaultCriterium) {
                 $criterium = new Criterium();
-                $criterium->criterium_name = $defaultCriterium->;
-                $criterium->criterium_value = $defaultCriterium->;
+                $criterium->criterium_name = $defaultCriterium->criterium_name;
+                $criterium->criterium_value = $defaultCriterium->criterium_value;
                 $criterium->rank = $defaultCriterium->rank;
                 $criterium->multiplier = $defaultCriterium->multiplier;
                 $criterium->provider_id = $request->proid;
