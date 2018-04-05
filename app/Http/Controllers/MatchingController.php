@@ -38,6 +38,7 @@ class MatchingController extends Controller
     
     public function findMatchings() {
         $Program = new Program;
+        $Applicant = new Applicant;
         $Preference = new Preference;
         $Matching = new Matching;
         
@@ -72,9 +73,11 @@ class MatchingController extends Controller
         foreach ($matchingResult as $match) {
             //check if it's the final match
             if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
-                $this->store($match, 31);
-            } else {
                 $this->store($match, 32);
+                //set applicant status to matched
+                app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student']);
+            } else {
+                $this->store($match, 31);
             }
             
             //tmp

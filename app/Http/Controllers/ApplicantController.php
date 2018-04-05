@@ -36,10 +36,12 @@ class ApplicantController extends Controller
         $applicant->last_name = $request->lastName;
         $applicant->birthday = $request->birthday;
         $applicant->gender = $request->gender;
-        //status: 1->active, 0->inactive, ...
-        //tmp
-        $applicant->status = 1;
+        $applicant->status = 21; 
         $applicant->save();
+        
+        //tmp: set all valid
+        $this->setValid($applicant->id);
+        
         return $applicant;
     }
     
@@ -66,13 +68,30 @@ class ApplicantController extends Controller
         return redirect()->action('ApplicantController@all');
     }
     
-    public function update($request) {
+    public function update(Request $request) {
         $applicant = Applicant::findOrFail($request->aid);
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
         $applicant->gender = $request->gender;
         $applicant->birthday = $request->birthday;
+        $applicant->status = $request->status;
         $applicant->save();
         return $applicant;
     }
-}
+    
+    public function setFinalMatch($aid) {
+        $request = new Request();
+        $request->setMethod('POST');
+        $request->request->add(['aid' => $aid,
+                               'status' => 26]);
+        $this->update($request);
+    }
+    
+    public function setValid($aid) {
+        $request = new Request();
+        $request->setMethod('POST');
+        $request->request->add(['aid' => $aid,
+                               'status' => 22]);
+        $this->update($request);
+    }
+} 
