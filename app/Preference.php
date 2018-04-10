@@ -73,8 +73,6 @@ class Preference extends Model
             ->orderBy('rank', 'asc')
             ->get();
         
-        echo $providerId;
-        
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
             //problem: set the attribute points for the applicants collection & fullfill it
@@ -88,17 +86,18 @@ class Preference extends Model
                     echo "<br> Value";
                     echo $criterium->criterium_value;
                     if ($criterium->criterium_value == $guardian->{$criterium_name}) {
-                        $applicant->points = $applicant->points + $criterium->multiplier;
+                        $applicant->points = $applicant->points + $criterium->rank * $criterium->multiplier;
                     }
                 }
                 echo "<br>" . $applicant->points . "<br>";
             } else {
-                echo "<br> no guardian <br>";
+                //no guardian -> points = 10000
+                $applicant->points = 1000;
             }
         }
         
         //tmp: add geocoordinated way
-        $applicants = $applicants->sortBy('points', true, true);
+        $applicants = $applicants->sortBy('points');
         return $applicants; 
     }
     
