@@ -100,7 +100,7 @@ class PreferenceController extends Controller
             $program->openOffers = $openOffers;
             
             //create display rank
-            foreach ($availableApplicants as $applicant) {
+            /*foreach ($availableApplicants as $applicant) {
                 if (array_key_exists($applicant->aid, $offers)) {
                     if ($offers[$applicant->aid] > 0) {
                         $applicant->rank = $applicant->aid - 1000000;
@@ -112,7 +112,7 @@ class PreferenceController extends Controller
                     $applicant->rank = $applicant->aid;
                 }
             }
-            $availableApplicants = $availableApplicants->sortBy('rank'); 
+            $availableApplicants = $availableApplicants->sortBy('rank'); */
 
             return view('preference.uncoordinated', array('program' => $program, 
                                                           'availableApplicants' => $availableApplicants, 

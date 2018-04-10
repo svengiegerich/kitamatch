@@ -75,7 +75,9 @@ class Preference extends Model
         
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
-            $applicant->setAttribute('points', 0);
+            //problem: set the attribute points for the applicants collection & fullfill it
+            
+            $applicant->points = 0;
             if ($guardian != null) {
                 foreach($criteria as $criterium) {
                     $criterium_name = $criterium->criterium_name;

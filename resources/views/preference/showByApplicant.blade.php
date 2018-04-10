@@ -60,8 +60,8 @@
                                         <button>Delete</button>
                                     </form>
                                 </td>
-                            </tr>
-                        @endforeach
+                        </tr>
+                    @endforeach
                 </tbody>
         </table>
     </div>
