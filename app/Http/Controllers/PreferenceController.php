@@ -78,6 +78,7 @@ class PreferenceController extends Controller
             
             $Preference = new Preference;
             $availableApplicants = $Preference->getAvailableApplicants($pid);
+            echo $providerId;
             $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId);
             
             //mark every active or closed offer
