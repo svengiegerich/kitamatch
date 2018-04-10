@@ -73,6 +73,13 @@ class Preference extends Model
             ->orderBy('rank', 'asc')
             ->get();
         
+        //tmp: if criteria is null, use the default order (indicated by providerId = -1)
+        if ($criteria === null) {
+            $criteria = Criterium::where('provider_id', '=', -1)
+            ->orderBy('rank', 'asc')
+            ->get();
+        }
+        
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
             
