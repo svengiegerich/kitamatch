@@ -47,20 +47,22 @@
             <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Siblings?</label>
                 <div class="col-sm-10">
-                    {!! Form::select('siblings', array('0' => 'No',
-                                                                        '1' => 'Yes'),
-                                            $guardian->siblings,
-                    array('id' => 'siblings', 'class' => 'form-control') )  !!}
+                    {!! Form::select('siblings', array('840' => 'No',
+                                                       '841' => 'Yes'),
+                        $guardian->siblings,
+                        array('id' => 'siblings', 
+                              'class' => 'form-control') 
+                    )  !!}
                 </div>
             </div>
             <div class="form-group row">
                 <label for="parentalStatus" class="col-sm-2 col-form-label">Parental status</label>
                 <div class="col-sm-10">
                     {!! Form::select('parentalStatus', array('' => '',
-                                                                        'Ein(e) Erziehungsberechtigte(r) ist beschäftigt' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
-                                                                        'Beide Erziehungsberechtigten sind beschäftigt' => 'Beide Erziehungsberechtigten sind beschäftigt',
-                                                                        'Alleinerziehend und beschäftigt' => 'Alleinerziehend und beschäftigt',
-                                                                        'Alleinerziehend ohne Beschäftigung' => 'Alleinerziehend ohne Beschäftigung'),
+                                                                        '822' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
+                                                                        '821' => 'Beide Erziehungsberechtigten sind beschäftigt',
+                                                                        '820' => 'Alleinerziehend und beschäftigt',
+                                                                        '823' => 'Alleinerziehend ohne Beschäftigung'),
                                             $guardian->parental_status,
                     array('id' => 'parentalStatus', 'class' => 'form-control') )  !!}
                 </div>
@@ -69,10 +71,10 @@
                 <label for="volumeOfEmployment" class="col-sm-2 col-form-label">Volume of employment</label>
                 <div class="col-sm-10">
                     {!! Form::select('volumeOfEmployment', array('' => '',
-                                                                        'ohne Beschäftigung' => 'ohne Beschäftigung',
-                                                                        '8-15 Stunden/Woche' => '8-15 Stunden/Woche',
-                                                                        '16-27 Stunden/Woche' => '16-27 Stunden/Woche',
-                                                                        'ab 28 Stunden/Woche' => 'ab 28 Stunden/Woche'),
+                                                                        '833' => 'ohne Beschäftigung',
+                                                                        '832 Stunden/Woche' => '8-15 Stunden/Woche',
+                                                                        '831' => '16-27 Stunden/Woche',
+                                                                        '830' => 'ab 28 Stunden/Woche'),
                                             $guardian->volume_of_employment,
                     array('id' => 'volumeOfEmployment', 'class' => 'form-control') )  !!}
 

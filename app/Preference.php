@@ -75,29 +75,24 @@ class Preference extends Model
         
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
-            //problem: set the attribute points for the applicants collection & fullfill it
             
-            $applicant->points = 0;
+            $applicant->order = 0;
             if ($guardian != null) {
                 
                 foreach($criteria as $criterium) {
                     $criterium_name = $criterium->criterium_name;
-                    echo $criterium_name;
-                    echo "<br> Value";
-                    echo $criterium->criterium_value;
                     if ($criterium->criterium_value == $guardian->{$criterium_name}) {
-                        $applicant->points = $applicant->points + $criterium->rank * $criterium->multiplier;
+                        $applicant->order = $applicant->order + $criterium->rank * $criterium->multiplier;
                     }
                 }
-                echo "<br>" . $applicant->points . "<br>";
             } else {
-                //no guardian -> points = 10000
-                $applicant->points = 1000;
+                //no guardian -> order = 10000, to order asc
+                $applicant->order = 1000;
             }
         }
         
         //tmp: add geocoordinated way
-        $applicants = $applicants->sortBy('points');
+        $applicants = $applicants->sortBy('order');
         return $applicants; 
     }
     
