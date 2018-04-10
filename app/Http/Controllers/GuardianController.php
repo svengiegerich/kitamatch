@@ -18,6 +18,7 @@ class GuardianController extends Controller
         $guardian->uid = $request->uid;
         $guardian->first_name = $request->firstName;
         $guardian->last_name = $request->lastName;
+        $guardian->status = 51;
         $guardian->address = $request->address;
         $guardian->city = $request->city;
         $guardian->plz = $request->plz;
@@ -31,8 +32,9 @@ class GuardianController extends Controller
     }
     
     public function show($gid) {
-        $guardian = Guardian::findOrFail($gid);
         $Applicant = new Applicant;
+        
+        $guardian = Guardian::findOrFail($gid);
         $applicants = $Applicant->getAppliantsByGid($gid);
         return view('guardian.edit', array('guardian' => $guardian,
                                           'applicants' => $applicants));
@@ -48,6 +50,7 @@ class GuardianController extends Controller
         $guardian = Guardian::findOrFail($request->gid);
         $guardian->first_name = $request->firstName;
         $guardian->last_name = $request->lastName;
+        $guardian->status = $request->status;
         $guardian->address = $request->address;
         $guardian->city = $request->city;
         $guardian->plz = $request->plz;
@@ -57,5 +60,35 @@ class GuardianController extends Controller
         $guardian->volume_of_employment = $request->volumeOfEmployment;
         $guardian->save();
         return $guardian;
+    }
+    
+    public function all() {
+        $guardians = Guardian::all();
+        //add mail 
+        foreach ($guardians as $guardian) {
+            $user = Guardian::where('uid', '=', $guardian->uid)->first();
+            $guardian->email = $user->email;
+        }
+        return view('guardian.all', array('guardians' => $guardians));
+    }
+    
+    public function verify($gid) {
+        $Applicant = new Applicant;
+        
+        //verify guardian
+        $requestG = new Request();
+        $requestG->setMethod('POST');
+        $requestG->request->add(['gid' => $gid,
+                                'status' => 52
+                                ]);
+        $this->update($requestG);
+        
+        //verfiy applicant(s)
+        $applicants = getAppliantsByGid($gid);
+        foreach ($applicants as $applicant) {
+            app('App\Http\Controllers\ApplicantController')->setValid($applicant->aid);
+        }
+        
+        return redirect()->action('GuardianController@all');
     }
 }

@@ -106,17 +106,14 @@ class MatchingController extends Controller
     public function prepareMatching() {
         //https://matchingtools.com/#operation/hri_demo
         $Preference = new Preference;
+        $Applicant = new Applicant;
         
         $json = [];
 		$preferencesApplicants = [];
         
         //--------------------
 		//by applicant
-        $applicants = DB::table('applicants')
-            //tmpc to 
-            //only valid applicants, no applicants holding their top ranked-program (code: 26)
-            ->whereIn('status', [1, 22])
-            ->get();
+        $applicants = $Applicants->getAll();
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 			

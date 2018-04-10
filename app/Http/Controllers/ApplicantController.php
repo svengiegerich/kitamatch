@@ -20,14 +20,12 @@ class ApplicantController extends Controller
         return view('applicant.add', array('guardian' => $guardian));
     }
     
-    //controller & view function
     public function create(Request $request, $gid) {
         $request->request->add(['gid' => $gid]);
         $this->store($request);
         return redirect()->action('GuardianController@show', $gid);
     }
     
-    //DB function
     public function store(Request $request) {
         //Validation
         $applicant = new Applicant;
@@ -92,6 +90,14 @@ class ApplicantController extends Controller
         $request->setMethod('POST');
         $request->request->add(['aid' => $aid,
                                'status' => 22]);
+        $this->update($request);
+    }
+    
+    public function setPriority($aid) {
+        $request = new Request();
+        $request->setMethod('POST');
+        $request->request->add(['aid' => $aid,
+                               'status' => 25]);
         $this->update($request);
     }
 } 

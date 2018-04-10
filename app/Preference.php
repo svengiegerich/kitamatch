@@ -68,10 +68,19 @@ class Preference extends Model
         return $applicants;
     }
     
-    public function orderByCriteria($applicants, $providerId) {
-        $criteria = Criterium::where('provider_id', '=', $providerId)
-            ->orderBy('rank', 'asc')
-            ->get();
+    //$provider = true -> criteria from a provider level
+    public function orderByCriteria($applicants, $providerId, $provider) {
+        if ($provider) {
+            $criteria = Criterium::where('provider_id', '=', $providerId)
+                ->orderBy('rank', 'asc')
+                ->get();
+        } else {
+            //singel program
+            $criteria = Criterium::where('provider_id', '=', $providerId)
+                ->where('program', '=', 1)
+                ->orderBy('rank', 'asc')
+                ->get();
+        }
         
         //tmp: if criteria is null, use the default order (indicated by providerId = -1)
         if ($criteria === null) {
@@ -96,6 +105,10 @@ class Preference extends Model
                 //no guardian -> order = 10000, to order asc
                 $applicant->order = 1000;
             }
+            
+            if ($applicant->status == 25) {
+                $applicant->order = 0;
+            } 
         }
         
         //tmp: add geocoordinated way

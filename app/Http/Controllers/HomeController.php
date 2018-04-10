@@ -43,6 +43,9 @@ class HomeController extends Controller
             $Provider = new Provider;
             $provider = $Provider->getProviderByUid($user->id);
             return redirect()->action('ProviderController@show', [$provider->proid]);
+        } else if ($user->account_type == 5) {
+            //admin
+            return redirect()->action('GuardianController@all');
         } else {
             return view('home');
         }

@@ -26,6 +26,32 @@ class PreferenceController extends Controller
         return view('preference.all', array('preferences' => $preferences));
     }
     
+    private function store(Request $request) {
+        $preference =  = new Preference;
+        
+        $preference->id_from = $request->from;
+        $preference->id_to = $request->to;
+        $preference->pr_kind = 1;
+        $preference->rank = $request->rank;
+        $preference->status = $request->status;
+        
+        $preference->save();
+        return $preference;
+    }
+    
+    private function update(Request $request) {
+        $preference = Preference::findOrFail($request->pid);
+        
+        $preference->id_from = $request->from;
+        $preference->id_to = $request->to;
+        $preference->pr_kind = 1;
+        $preference->rank = $request->rank;
+        $preference->status = $request->status;
+        
+        $preference->save();
+        return $preference;
+    }
+    
     // by applicant
     public function showByApplicant($aid) {
         $Applicant = new Applicant;
@@ -75,11 +101,15 @@ class PreferenceController extends Controller
             
             $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
             $providerId = $Program->getProviderId($pid);
+            if ($providerId) {
+                $provider = true; 
+            } else {
+                $provider = false;
+            }
             
             $Preference = new Preference;
             $availableApplicants = $Preference->getAvailableApplicants($pid);
-            echo $providerId;
-            $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId);
+            $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
             
             //mark every active or closed offer
             //1: active, -1: no match
@@ -180,5 +210,56 @@ class PreferenceController extends Controller
             $preferenceApplicant->save();
         }*/
         return redirect()->action('PreferenceController@showByProgram', $pid);
+    }
+    
+    public function createCoordinatedPreferences() {
+        $Program = new Program;
+        $Preference = new Preference;
+        $Applicant = new Applicant;
+        
+        //get all programs with coordination = true
+        $programs = $Program->getCoordinated();
+        $applicants = $Applicant->getAll();
+        
+        foreach ($programs as $program) {
+            $providerId = $Program->getProviderId($program->pid);
+            if ($providerId) {
+                $provider = true; 
+            } else {
+                $provider = false;
+            }
+            $applicantsByProgram = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
+            
+            $rank = 1;
+            foreach ($applicantsByProgram as $applicant) {
+                //look if preference exists and if it must be updated
+                //tmp
+                $preference = Preference:where('id_from', '=', $program-pid)
+                    ->where('id_to', '=', $applicant->aid)
+                    ->where('pr_kind', '=', 2)
+                    ->where('status', '=', 1);
+                
+                $request = new Request();
+                $request->setMethod('POST');
+                $request->request->add(['from' => $program-pid,
+                                        'to' => $applicant->aid,
+                                        'pr_kind' => 2,
+                                        'rank' => $rank,
+                                        'status' => 1
+                                      ]);
+                
+                if ($preference != null) {
+                    //update
+                    $request->request->add(['pid' => $preference-pid,
+                                        'rank' => $rank
+                                      ]);
+                    $this->update($request);
+                } else {
+                    //generate preference
+                    $this->store($request);
+                }
+                $rank = $rank + 1;
+            }
+        }
     }
 }

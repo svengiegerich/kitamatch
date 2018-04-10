@@ -65,6 +65,8 @@
     <div class="col-md-8">
         <hr class="mb-4">
         <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Back to program</button></a>
+        <hr class="mb-4">
+        <a href="/criterium/uncoordinated/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Edit criteria</button></a>
     </div>
 </div>
 

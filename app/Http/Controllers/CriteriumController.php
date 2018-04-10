@@ -29,19 +29,46 @@ class CriteriumController extends Controller
             $request = new Request();
             $request->setMethod('POST');
             $request->request->add(['store_type' => 1,
-                                   'provider_id' => $proid]);
+                                   'provider_id' => $proid,
+                                   'program' => 0]);
             $this->store($request);
             
             $criteria = Criterium::where('provider_id', '=', $proid)
-            ->orderBy('rank', 'asc')
-            ->get();
+                ->orderBy('rank', 'asc')
+                ->get();
         }
         
         return view('criterium.edit', array('criteria' => $criteria));
     }
     
-    public function add($proid) {
+    public function showByProgram($programId) {
+        $criteria = Criterium::where('provider_id', '=', $programId)
+            ->where('program', '=', 1)
+            ->orderBy('rank', 'asc')
+            ->get(); 
         
+        //no criteria found, duplicate default criteria
+        if (!($criteria->first())) {
+            $request = new Request();
+            $request->setMethod('POST');
+            $request->request->add(['store_type' => 1,
+                                   'provider_id' => $programId,
+                                   'program' => 1]);
+            $this->storeByProgram($request);
+            
+            $criteria = Criterium::where('provider_id', '=', $programId)
+                ->where('program', '=', 1)
+                ->orderBy('rank', 'asc')
+                ->get();
+        }
+        
+        return view('criterium.edit', array('criteria' => $criteria));
+    }
+    
+    public function edit($Request, $proid) {
+        //tmp: edit
+        
+        return redirect()->action('CriteriumController@show', $proid);
     }
     
     public function store(Request $request) {
@@ -56,12 +83,14 @@ class CriteriumController extends Controller
                 $criterium->rank = $defaultCriterium->rank;
                 $criterium->multiplier = $defaultCriterium->multiplier;
                 $criterium->provider_id = $request->provider_id;
+                $criterium->program = $request->program;
                 $criterium->save();
             }
         }
     }
     
-    public function edit($proid) {
-        
+    private function storeByProgram(Request $request) {
+        $request->request->add(['program' => 1]);
+        $this->store($request);
     }
 }

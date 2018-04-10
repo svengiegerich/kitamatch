@@ -15,6 +15,11 @@ class Program extends Model
         return $res->coordination;
     }
     
+    public function getCoordinated() {
+        $programs = Program:where('coordination', '=', 1)->get();
+        return $programs;
+    }
+    
     public function getProviderId($pid) {
         $program = Program::where('pid', '=', $pid)->first();
         return $program->proid;

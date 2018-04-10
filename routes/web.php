@@ -69,8 +69,11 @@ Route::delete('/preference/program/uncoordinated/{aID}', 'PreferenceController@d
 Route::get('/preference/all', 'PreferenceController@all');
 
 //Guardian
+Route::get('/guardian/all', 'GuardianController@all');
 Route::get('/guardian/{gID}', 'GuardianController@show');
 Route::post('/guardian/{gID}', 'GuardianController@edit');
+//tmp: post or get?! CSR in email?!
+Route::get('/provider/verify/{gID}', 'GuardianController@verify');
 
 //Provider
 Route::get('/provider/{proid}', 'ProviderController@show');
@@ -83,4 +86,10 @@ Route::get('/matching/get', 'MatchingController@findMatchings');
 
 //Criteria
 Route::get('/criteria/{proid}', 'CriteriumController@show');
-//Route::get('/criteria/{proid}', 'CriteriumController@add');
+Route::post('/criteria/{proid}', 'CriteriumController@edit');
+//for uncoordinated progams with no provider, create fake provider
+Route::get('/criterium/program/{programId}', 'CriteriumControlle@showByProgram'};
+
+//Admin
+Route::get('/admin/', 'AdminController@index');
+Route::get('/admin/dashboard', 'AdminController@index');
