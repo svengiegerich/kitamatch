@@ -74,7 +74,6 @@ class Preference extends Model
             ->get();
         
         echo $providerId;
-        dd($criteria);
         
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
