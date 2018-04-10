@@ -17,6 +17,8 @@ class Program extends Model
     
     public function getProviderId($pid) {
         $program = Program::where('pid', '=', $pid)->first();
+        echo "hey";
+        echo $program->proid;
         return $program->proid;
     }
     
