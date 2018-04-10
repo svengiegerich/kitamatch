@@ -81,6 +81,9 @@ class Preference extends Model
             if ($guardian != null) {
                 foreach($criteria as $criterium) {
                     $criterium_name = $criterium->criterium_name;
+                    echo $criterium_name;
+                    echo "<br> Value";
+                    echo $criterium->criterium_value;
                     if ($criterium->criterium_value == $guardian->{$criterium_name}) {
                         $applicant->points = $applicant->points + $criterium->multiplier;
                     }
