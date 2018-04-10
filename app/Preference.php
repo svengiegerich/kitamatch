@@ -73,6 +73,7 @@ class Preference extends Model
             ->orderBy('rank', 'asc')
             ->get();
         
+        echo $providerID;
         dd($criteria);
         
         foreach($applicants as $applicant) {
