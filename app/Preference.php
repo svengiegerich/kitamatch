@@ -73,12 +73,15 @@ class Preference extends Model
             ->orderBy('rank', 'asc')
             ->get();
         
+        dd($criteria);
+        
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
             //problem: set the attribute points for the applicants collection & fullfill it
             
             $applicant->points = 0;
             if ($guardian != null) {
+                
                 foreach($criteria as $criterium) {
                     $criterium_name = $criterium->criterium_name;
                     echo $criterium_name;
@@ -96,8 +99,6 @@ class Preference extends Model
         
         //tmp: add geocoordinated way
         $applicants = $applicants->sortBy('points', true, true);
-        
-        dd($applicants);
         return $applicants; 
     }
     
