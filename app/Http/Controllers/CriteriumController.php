@@ -107,12 +107,12 @@ class CriteriumController extends Controller
     
     public function edit(Request $request) {
         $criterium = Criterium::find($request->cid);
-        if ($request->criterium_name) { $criterium->criterium_name = $request->criterium_name;
-        if ($request->criterium_value) { $criterium->criterium_value = $request->criterium_value;
-        if ($request->rank) { $criterium->rank = $request->rank;
-        if ($request->multiplier) { $criterium->multiplier = $request->multiplier;
-        if ($request->p_id) { $criterium->p_id = $request->p_id;
-        if ($request->program) { $criterium->program = $request->program;
+        if ($request->criterium_name) { $criterium->criterium_name = $request->criterium_name; }
+        if ($request->criterium_value) { $criterium->criterium_value = $request->criterium_value; }
+        if ($request->rank) { $criterium->rank = $request->rank; }
+        if ($request->multiplier) { $criterium->multiplier = $request->multiplier; }
+        if ($request->p_id) { $criterium->p_id = $request->p_id; }
+        if ($request->program) { $criterium->program = $request->program; }
         $criterium->save();
         return $criterium;
     }
