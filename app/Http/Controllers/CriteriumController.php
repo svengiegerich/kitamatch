@@ -67,8 +67,8 @@ class CriteriumController extends Controller
     
     public function edit($Request, $p_id) {
         //tmp: edit
-        
-        return redirect()->action('CriteriumController@show', $p_id);
+        redirect()->action('GuardianController@all');
+        //return redirect()->action('CriteriumController@show', $p_id);
     }
     
     public function store(Request $request) {
