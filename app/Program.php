@@ -16,7 +16,7 @@ class Program extends Model
     }
     
     public function getCoordinated() {
-        $programs = Program:where('coordination', '=', 1)->get();
+        $programs = Program::where('coordination', '=', 1)->get();
         return $programs;
     }
     
