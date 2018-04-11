@@ -48,16 +48,16 @@ class GuardianController extends Controller
     
     public function update(Request $request) {
         $guardian = Guardian::findOrFail($request->gid);
-        if ($guardian->first_name) { $guardian->first_name = $request->firstName; }
-        if ($guardian->last_name) { $guardian->last_name = $request->lastName; }
-        if ($guardian->status) { $guardian->status = $request->status; }
-        if ($guardian->address) { $guardian->address = $request->address; }
-        if ($guardian->city) { $guardian->city = $request->city; }
-        if ($guardian->plz) { $guardian->plz = $request->plz; }
-        if ($guardian->phone) { $guardian->phone = $request->phone; }
-        if ($guardian->siblings) { $guardian->siblings = $request->siblings; }
-        if ($guardian->parental_status) { $guardian->parental_status = $request->parentalStatus; }
-        if ($guardian->volume_of_employment) { $guardian->volume_of_employment = $request->volumeOfEmployment; }
+        if ($request->first_name) { $guardian->first_name = $request->firstName; }
+        if ($request->last_name) { $guardian->last_name = $request->lastName; }
+        if ($request->status) { $guardian->status = $request->status; }
+        if ($request->address) { $guardian->address = $request->address; }
+        if ($request->city) { $guardian->city = $request->city; }
+        if ($request->plz) { $guardian->plz = $request->plz; }
+        if ($request->phone) { $guardian->phone = $request->phone; }
+        if ($request->siblings) { $guardian->siblings = $request->siblings; }
+        if ($request->parental_status) { $guardian->parental_status = $request->parentalStatus; }
+        if ($request->volume_of_employment) { $guardian->volume_of_employment = $request->volumeOfEmployment; }
         $guardian->save();
         return $guardian;
     }
