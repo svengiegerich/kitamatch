@@ -21,7 +21,7 @@
                 axis: 'y',
                 update: function (event, ui) {
                     //var data = $(this).sortable('serialize');
-                    var data = $('#item').serialize();
+                    var data = $(this).serialize();
                     alert(data);
                     // POST to server using $.post or $.ajax
                     /*$.ajax({
