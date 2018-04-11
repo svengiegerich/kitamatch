@@ -27,14 +27,14 @@
                     
                     alert(data);
                     // POST to server using $.post or $.ajax
-                    /*$.ajax({
+                    $.ajax({
                         data: data,
                         type: 'POST',
                         url: '/criteria/{{{$criteria->first()->p_id}}}',
                         success: function(data) {
                             console.log(data);
                         }
-                    });*/
+                    });
                 }
             });
             $( "tbody" ).disableSelection();
