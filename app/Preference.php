@@ -69,14 +69,14 @@ class Preference extends Model
     }
     
     //$provider = true -> criteria from a provider level
-    public function orderByCriteria($applicants, $providerId, $provider) {
+    public function orderByCriteria($applicants, $p_Id, $provider) {
         if ($provider) {
-            $criteria = Criterium::where('provider_id', '=', $providerId)
+            $criteria = Criterium::where('p_id', '=', $p_Id)
                 ->orderBy('rank', 'asc')
                 ->get();
         } else {
             //singel program
-            $criteria = Criterium::where('provider_id', '=', $providerId)
+            $criteria = Criterium::where('p_id', '=', $p_Id)
                 ->where('program', '=', 1)
                 ->orderBy('rank', 'asc')
                 ->get();
@@ -84,7 +84,7 @@ class Preference extends Model
         
         //tmp: if criteria is null, use the default order (indicated by providerId = -1)
         if ($criteria === null) {
-            $criteria = Criterium::where('provider_id', '=', -1)
+            $criteria = Criterium::where('p_id', '=', -1)
             ->orderBy('rank', 'asc')
             ->get();
         }
