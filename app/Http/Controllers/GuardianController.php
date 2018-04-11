@@ -56,8 +56,8 @@ class GuardianController extends Controller
         if ($request->plz) { $guardian->plz = $request->plz; }
         if ($request->phone) { $guardian->phone = $request->phone; }
         if ($request->siblings) { $guardian->siblings = $request->siblings; }
-        if ($request->parental_status) { $guardian->parental_status = $request->parentalStatus; }
-        if ($request->volume_of_employment) { $guardian->volume_of_employment = $request->volumeOfEmployment; }
+        if ($request->parentalStatus) { $guardian->parental_status = $request->parentalStatus; }
+        if ($request->volumeOfEmployment) { $guardian->volume_of_employment = $request->volumeOfEmployment; }
         $guardian->save();
         return $guardian;
     }
