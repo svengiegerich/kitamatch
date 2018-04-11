@@ -56,7 +56,7 @@
                 {{ csrf_field() }}
                 @foreach ($criteria as $criterium)
                 <tr>
-                    <input type="hidden" name="item-{{$criterium->cid}}" value="{{$criterium->cid}}" class="position">
+                    <input type="hidden" name="item-{{$criterium->cid}}" id="item-{{$criterium->cid}}" value="{{$criterium->cid}}" class="position">
                     <th>
                         <div>{{$criterium->criterium_name}}</div>
                     </th>
