@@ -69,10 +69,16 @@ class CriteriumController extends Controller
         $criteriaIds = $request->all();
         $orderList = [];
         $i = 1;
-        foreach ($criteriaIds as $certiumId) {
-            $orderList[$certiumId] = $i;
-            $i = $i + 1;
+        //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
+        
+        foreach ($request-item as $order => $criteriumId) {
+            Criterium::find($criteriumId)->update(['rank' => $order]);
         }
+        
+        /*foreach ($criteriaIds as $certiumId) {
+            $orderList[$certiumId->va] = $i;
+            $i = $i + 1;
+        }*/
         /*
         $oldOrderCriteria = Criterium::where('p_id', '=', $p_id)->get();
         foreach ($oldOrderCriteria as $criterium) {
