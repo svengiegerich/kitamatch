@@ -71,7 +71,10 @@ class CriteriumController extends Controller
         $i = 1;*/
         //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
         
-        parse_str($request->order, $output);
+        parse_str($request->order, $criteria);
+        foreach ($criteria as $order => $criteriumId) {
+            
+        }
         
         /*foreach ($criteriaIds as $certiumId) {
             $orderList[$certiumId->va] = $i;
@@ -90,7 +93,7 @@ class CriteriumController extends Controller
         
         return response()->json([
                     'success' => true,
-                    'data'   => $output
+                    'data'   => $criteria
             ]); 
         
         //return redirect()->action('CriteriumController@show', $p_id);
