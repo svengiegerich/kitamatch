@@ -21,6 +21,11 @@
                 axis: 'y',
                 update: function (event, ui) {
                     //var data = $(this).sortable('serialize');
+                     $('input.position').each(function() {           
+                        var parentID = $(this).parent().parent().attr('ID');
+                        $(this).val( parentID );
+                    });
+                    
                     var data = $('#criteraForm').serialize();
                     alert(data);
                     // POST to server using $.post or $.ajax
@@ -35,6 +40,7 @@
                     });
                 }
             });
+            $( "tbody" ).disableSelection();
         });
         </script>
         
@@ -48,10 +54,9 @@
             </thead>
             <tbody>
                 {{ csrf_field() }}
-                <?php $i = 1; ?>
                 @foreach ($criteria as $criterium)
                 <tr>
-                    <input type="hidden" name="{{$criterium->cid}}" value="<?php echo $i; $i = $i + 1; ?>">
+                    <input type="hidden" name="{{$criterium->cid}}[position]" value="{{$criterium->cid}}" class="position">
                     <th>
                         <div>{{$criterium->criterium_name}}</div>
                     </th>
