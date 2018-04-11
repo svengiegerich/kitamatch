@@ -21,7 +21,11 @@
             <th>Message</th>
         </tr>
         @foreach($guardians as $guardian)
-            <tr>
+            <tr 
+                @if ($guardian->status == 52)
+                    class="table-success"
+                @endif
+                >
                 <td><a href="/guardian/{{$guardian->gid}}">{{$guardian->gid}}</a></td>
                 <td>{{$guardian->first_name}}</td>
                 <td>{{$guardian->last_name}}</td>
