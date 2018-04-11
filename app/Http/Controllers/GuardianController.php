@@ -81,13 +81,13 @@ class GuardianController extends Controller
         $requestG->request->add(['gid' => $gid,
                                 'status' => 52
                                 ]);
-        /*$this->update($requestG);
+        $this->update($requestG);
         
         //verfiy applicant(s)
         $applicants = $Applicant->getAppliantsByGid($gid);
         foreach ($applicants as $applicant) {
             app('App\Http\Controllers\ApplicantController')->setValid($applicant->aid);
-        }*/
+        }
         
         return redirect()->action('GuardianController@all');
     }
