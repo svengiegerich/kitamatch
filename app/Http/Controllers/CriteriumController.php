@@ -84,10 +84,10 @@ class CriteriumController extends Controller
             
         }*/
         
-        return Response::json(array(
+        return response()->json([
                     'success' => true,
                     'data'   => "hey"
-        )); 
+            ]); 
         
         //return redirect()->action('CriteriumController@show', $p_id);
     }
