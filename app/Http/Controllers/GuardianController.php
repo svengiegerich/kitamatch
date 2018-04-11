@@ -74,14 +74,14 @@ class GuardianController extends Controller
     
     public function verify($gid) {
         $Applicant = new Applicant;
-        /*
+        
         //verify guardian
         $requestG = new Request();
         $requestG->setMethod('POST');
         $requestG->request->add(['gid' => $gid,
                                 'status' => 52
                                 ]);
-        $this->update($requestG);
+        /*$this->update($requestG);
         
         //verfiy applicant(s)
         $applicants = $Applicant->getAppliantsByGid($gid);
