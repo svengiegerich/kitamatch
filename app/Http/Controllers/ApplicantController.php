@@ -72,7 +72,9 @@ class ApplicantController extends Controller
         $applicant->last_name = $request->lastName;
         $applicant->gender = $request->gender;
         $applicant->birthday = $request->birthday;
-        $applicant->status = $request->status;
+        if ($request->status) {
+            $applicant->status = $request->status;
+        }
         $applicant->save();
         return $applicant;
     }
