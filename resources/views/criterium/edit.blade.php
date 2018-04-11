@@ -30,6 +30,7 @@
                         url: '/criteria/{{{$criteria->first()->p_id}}}',
                         success: function(data) {
    alert(data); // apple
+                            console.log(data);
 }
                     });
                 }
