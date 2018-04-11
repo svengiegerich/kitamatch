@@ -74,7 +74,7 @@ class CriteriumController extends Controller
         parse_str($request->order, $criteria);
         $test = [];
         $i = 1;
-        foreach ($criteria->item as $index => $criteriumId) {
+        foreach ($criteria as $index => $criteriumId) {
             $criterium = Criterium::find(50);
             $criterium->rank = $i;
             $criterium->save();
@@ -99,7 +99,7 @@ class CriteriumController extends Controller
         
         return response()->json([
                     'success' => true,
-                    'data'   => $test
+                    'data'   => $criteria
             ]); 
         
         //return redirect()->action('CriteriumController@show', $p_id);
