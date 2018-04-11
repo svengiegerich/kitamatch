@@ -94,7 +94,6 @@ class Preference extends Model
             
             $applicant->order = 0;
             if ($guardian != null) {
-                
                 foreach($criteria as $criterium) {
                     $criterium_name = $criterium->criterium_name;
                     if ($criterium->criterium_value == $guardian->{$criterium_name}) {
@@ -106,13 +105,16 @@ class Preference extends Model
                 $applicant->order = 1000;
             }
             
+            //highly important applicants
             if ($applicant->status == 25) {
                 $applicant->order = 0;
             } 
         }
         
         //tmp: add geocoordinated way
-        $applicants = $applicants->sortBy('order');
+        //sort by birthday on the same level
+        //https://github.com/laravel/ideas/issues/11
+        $applicants = $applicants->sortByDesc('brithday')->sortBy('order');
         return $applicants; 
     }
     
