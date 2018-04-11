@@ -50,14 +50,14 @@ class GuardianController extends Controller
         $guardian = Guardian::findOrFail($request->gid);
         if ($request->firstName) { $guardian->first_name = $request->firstName; }
         if ($request->lastName) { $guardian->last_name = $request->lastName; }
-        $guardian->status = $request->status;
-        $guardian->address = $request->address;
-        $guardian->city = $request->city;
-        $guardian->plz = $request->plz;
-        $guardian->phone = $request->phone;
-        $guardian->siblings = $request->siblings;
-        $guardian->parental_status = $request->parentalStatus;
-        $guardian->volume_of_employment = $request->volumeOfEmployment;
+        if ($request->status) { $guardian->status = $request->status; }
+        if ($request->address) { $guardian->address = $request->address; }
+        if ($request->city) { $guardian->city = $request->city; }
+        if ($request->plz) { $guardian->plz = $request->plz; }
+        if ($request->phone) { $guardian->phone = $request->phone; }
+        if ($request->siblings) { $guardian->siblings = $request->siblings; }
+        if ($request->parental_status) { $guardian->parental_status = $request->parentalStatus; }
+        if ($request->volume_of_employment) { $guardian->volume_of_employment = $request->volumeOfEmployment; }
         $guardian->save();
         return $guardian;
     }
