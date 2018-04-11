@@ -21,12 +21,7 @@
                 axis: 'y',
                 update: function (event, ui) {
                     //var data = $(this).sortable('serialize');
-                     $('input.position').each(function() {           
-                        var parentID = $(this).parent().parent().attr('ID');
-                        $(this).val( parentID );
-                    });
-                    
-                    var data = $('#criteraForm').serialize();
+                    var data = $('.items').serialize();
                     alert(data);
                     // POST to server using $.post or $.ajax
                     $.ajax({
@@ -34,9 +29,8 @@
                         type: 'POST',
                         url: '/criteria/{{{$criteria->first()->p_id}}}',
                         success: function(data) {
-   alert(data); // apple
                             console.log(data);
-}
+                        }
                     });
                 }
             });
@@ -56,7 +50,7 @@
                 {{ csrf_field() }}
                 @foreach ($criteria as $criterium)
                 <tr>
-                    <input type="hidden" name="item-{{$criterium->cid}}" id="item-{{$criterium->cid}}" value="{{$criterium->cid}}" class="position">
+                    <li type="hidden" id="item-{{$criterium->cid}}" class="items">{{$criterium->cid}}</li>
                     <th>
                         <div>{{$criterium->criterium_name}}</div>
                     </th>

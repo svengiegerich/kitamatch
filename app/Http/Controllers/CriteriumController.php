@@ -67,13 +67,13 @@ class CriteriumController extends Controller
     
     public function editAjax(Request $request, $p_id) {
         $criteriaIds = $request->all();
-        /*$orderList = [];
+        $orderList = [];
         $i = 1;
         foreach ($criteriaIds as $certiumId) {
             $orderList[$certiumId] = $i;
             $i = $i + 1;
         }
-        
+        /*
         $oldOrderCriteria = Criterium::where('p_id', '=', $p_id)->get();
         foreach ($oldOrderCriteria as $criterium) {
             $requestC = new Request();
