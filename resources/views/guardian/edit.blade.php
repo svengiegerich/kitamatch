@@ -72,7 +72,7 @@
                 <div class="col-sm-10">
                     {!! Form::select('volumeOfEmployment', array('' => '',
                                                                         '833' => 'ohne Beschäftigung',
-                                                                        '832 Stunden/Woche' => '8-15 Stunden/Woche',
+                                                                        '832' => '8-15 Stunden/Woche',
                                                                         '831' => '16-27 Stunden/Woche',
                                                                         '830' => 'ab 28 Stunden/Woche'),
                                             $guardian->volume_of_employment,
