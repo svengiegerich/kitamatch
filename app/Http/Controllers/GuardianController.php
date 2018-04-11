@@ -48,8 +48,8 @@ class GuardianController extends Controller
     
     public function update(Request $request) {
         $guardian = Guardian::findOrFail($request->gid);
-        $guardian->first_name = $request->firstName;
-        $guardian->last_name = $request->lastName;
+        if ($request->firstName) { $guardian->first_name = $request->firstName; }
+        if ($request->lastName) { $guardian->last_name = $request->lastName; }
         $guardian->status = $request->status;
         $guardian->address = $request->address;
         $guardian->city = $request->city;
