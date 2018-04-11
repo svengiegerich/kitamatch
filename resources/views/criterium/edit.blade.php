@@ -17,26 +17,33 @@
 });
             
         $(function() {
-            $('.times').sortable({
+            $('#sortable').sortable({
                 axis: 'y',
                 update: function (event, ui) {
                     //var data = $(this).sortable('serialize');
                     var data = $('.items').serialize();
                     alert(data);
                     // POST to server using $.post or $.ajax
-                    $.ajax({
+                    /*$.ajax({
                         data: data,
                         type: 'POST',
                         url: '/criteria/{{{$criteria->first()->p_id}}}',
                         success: function(data) {
                             console.log(data);
                         }
-                    });
+                    });*/
                 }
             });
             $( "tbody" ).disableSelection();
         });
         </script>
+        
+        <div id="sortable">
+        {{ csrf_field() }}
+        @foreach ($criteria as $criterium)
+        <li id="item-{{$criterium->cid}}" class="items">{{$criterium->cid}}</li>
+         @endforeach
+            </div>
         
         <form action='/criteria/{{{$criteria->first()->p_id}}}' method="POST" id="criteraForm">
         <table class="table table-hover">
