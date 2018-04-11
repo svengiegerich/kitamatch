@@ -234,7 +234,7 @@ class PreferenceController extends Controller
             foreach ($applicantsByProgram as $applicant) {
                 //look if preference exists and if it must be updated
                 //tmp
-                $preference = Preference:where('id_from', '=', $program-pid)
+                $preference = Preference::where('id_from', '=', $program-pid)
                     ->where('id_to', '=', $applicant->aid)
                     ->where('pr_kind', '=', 2)
                     ->where('status', '=', 1);
