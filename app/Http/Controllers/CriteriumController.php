@@ -99,7 +99,7 @@ class CriteriumController extends Controller
         
         return response()->json([
                     'success' => true,
-                    'data'   => $criteria
+                    'data'   => $criteria->item
             ]); 
         
         //return redirect()->action('CriteriumController@show', $p_id);
