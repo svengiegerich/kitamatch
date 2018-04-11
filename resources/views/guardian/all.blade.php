@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-md-10" >
+<div class="col-md-12" >
     <h4>List of Guardians</h4>
     
     <table>
