@@ -27,7 +27,7 @@ class PreferenceController extends Controller
     }
     
     private function store(Request $request) {
-        $preference =  = new Preference;
+        $preference = new Preference;
         
         $preference->id_from = $request->from;
         $preference->id_to = $request->to;
