@@ -115,7 +115,7 @@ class Preference extends Model
         //sort by birthday on the same level
         //https://github.com/laravel/ideas/issues/11
         //$applicants = $applicants->sortBy('birthday')->sortBy('order');
-        $applicants = $applicants->orderBy('birthday', 'DESC')->orderBy('order', 'ASC');
+        $applicants = $applicants->sortBy('birthday');
         return $applicants; 
     }
     
