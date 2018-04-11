@@ -75,7 +75,7 @@ class CriteriumController extends Controller
         foreach ($criteria as $index => $criteriumId) {
             $criterium = Criterium::find($criteriumId);
             $criterium->rank = $index;
-            //$criterium->save();
+            $criterium->save();
         }
         
         /*foreach ($criteriaIds as $certiumId) {
