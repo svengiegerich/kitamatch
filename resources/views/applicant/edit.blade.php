@@ -30,7 +30,7 @@
             <div class="form-group row">
                 <label for="birthday"  class="col-sm-2 col-form-label">Birthday</label>
                 <div class="col-sm-10">    
-                    <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="{{$applicant->birthday->format('d.m.Y')}}">
+                    <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="?php if ($$applicant->birthday) { echo $applicant->birthday->format('d.m.Y'); } ?>">
                 </div>
                 <div class="invalid-feedback">
                       Valid birthday is required.
