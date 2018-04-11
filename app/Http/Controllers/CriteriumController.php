@@ -66,12 +66,12 @@ class CriteriumController extends Controller
     }
     
     public function editAjax(Request $request, $p_id) {
-        $criteriaIds = $request->all();
+        /*$criteriaIds = $request->all();
         $orderList = [];
-        $i = 1;
+        $i = 1;*/
         //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
         
-        foreach ($request-item as $order => $criteriumId) {
+        foreach ($request->item as $order => $criteriumId) {
             //Criterium::find($criteriumId)->update(['rank' => $order]);
         }
         
