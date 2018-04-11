@@ -23,10 +23,6 @@
                     var order = $(this).sortable('serialize');
                     var _token = $("input[name=_token]").val();
                     var data = {"order": order, "_token": _token};
-                    //var data = $(this).serialize();
-                    
-                    alert(data);
-                    // POST to server using $.post or $.ajax
                     $.ajax({
                         data: data,
                         type: 'POST',
@@ -44,39 +40,9 @@
         <ul id="sortable">
         {{ csrf_field() }}
         @foreach ($criteria as $criterium)
-        <li id="item-{{$criterium->cid}}">{{$criterium->cid}}</li>
+        <li id="item-{{$criterium->cid}}">{{$criterium->criterium_name}}: {{$criterium->criterium_value}}</li>
          @endforeach
         </ul>
-        
-        <form action='/criteria/{{{$criteria->first()->p_id}}}' method="POST" id="criteraForm">
-        <table class="table table-hover">
-            <thead>
-                  <th>Name</th>
-                  <th>Value</th>
-                  <th>Rank</th>
-                  <th>Multiplier</th>
-            </thead>
-            <tbody>
-                {{ csrf_field() }}
-                @foreach ($criteria as $criterium)
-                <tr>
-                    <th>
-                        <div>{{$criterium->criterium_name}}</div>
-                    </th>
-                        <td>
-                            <div>{{$criterium->criterium_value}}</div>
-                        </td>
-                        <td>
-                            <div>{{$criterium->rank}}</div>
-                        </td>
-                        <td>
-                            <div>{{$criterium->multiplier}}</div>
-                        </td>    
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        </form>
     </div>
 </div>
 
