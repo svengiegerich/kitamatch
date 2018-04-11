@@ -21,7 +21,7 @@
                 axis: 'y',
                 update: function (event, ui) {
                     //var data = $(this).sortable('serialize');
-                    var data = $('.items').serialize();
+                    var data = $('#item').serialize();
                     alert(data);
                     // POST to server using $.post or $.ajax
                     /*$.ajax({
@@ -43,7 +43,7 @@
         @foreach ($criteria as $criterium)
         <li id="item-{{$criterium->cid}}" class="items">{{$criterium->cid}}</li>
          @endforeach
-            </div>
+        </div>
         
         <form action='/criteria/{{{$criteria->first()->p_id}}}' method="POST" id="criteraForm">
         <table class="table table-hover">
@@ -57,7 +57,6 @@
                 {{ csrf_field() }}
                 @foreach ($criteria as $criterium)
                 <tr>
-                    <li type="hidden" id="item-{{$criterium->cid}}" class="items">{{$criterium->cid}}</li>
                     <th>
                         <div>{{$criterium->criterium_name}}</div>
                     </th>
