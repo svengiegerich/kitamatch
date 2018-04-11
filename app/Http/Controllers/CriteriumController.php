@@ -73,10 +73,11 @@ class CriteriumController extends Controller
         
         parse_str($request->order, $criteria);
         $test = [];
+        $i = 1;
         foreach ($criteria as $index => $criteriumId) {
-            $test[1] = $index;
-            /*$criterium = Criterium::find($criteriumId);
-            $criterium->save();*/
+            $criterium = Criterium::find($criteriumId);
+            $criterium->save();
+            $i = $i + 1;
         }
         
         /*foreach ($criteriaIds as $certiumId) {
