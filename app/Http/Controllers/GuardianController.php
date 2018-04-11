@@ -84,7 +84,7 @@ class GuardianController extends Controller
         $this->update($requestG);
         
         //verfiy applicant(s)
-        $applicants = getAppliantsByGid($gid);
+        $applicants = $Applicant->getAppliantsByGid($gid);
         foreach ($applicants as $applicant) {
             app('App\Http\Controllers\ApplicantController')->setValid($applicant->aid);
         }
