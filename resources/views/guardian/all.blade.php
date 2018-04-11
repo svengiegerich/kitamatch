@@ -26,7 +26,7 @@
                     class="table-success"
                 @endif
                 >
-                <td><a href="/guardian/{{$guardian->gid}}">{{$guardian->gid}}</a></td>
+                <th><a href="/guardian/{{$guardian->gid}}">{{$guardian->gid}}</a></th>
                 <td>{{$guardian->first_name}}</td>
                 <td>{{$guardian->last_name}}</td>
                 <td>{{$guardian->status}}</td>
@@ -40,11 +40,11 @@
                     @if ($guardian->status == 50 OR $guardian->status == 51)
                     <form action="/guardian/verify/{{ $guardian->gid }}" method="POST">
                         {{ csrf_field() }}
-                        <button class="btn btn-primary btn-lg btn-block">Verify</button>
+                        <button class="">Verify</button>
                     </form>
                     @endif
                 </td>
-                <td><a href="mailto:{{$guardian->email}}"><button class="btn btn-primary btn-lg btn-block">Send Message</button></a></td>
+                <td><a href="mailto:{{$guardian->email}}"><button class="">Send Message</button></a></td>
             </tr>
         @endforeach
     </table>

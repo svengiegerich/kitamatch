@@ -38,9 +38,9 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         @if ($criterium->program == 1)
-        <a href="/preference/program/{{$criterium->provider_id}}"><button class="btn btn-primary btn-lg btn-block">Back to Preferences</button></a>
+        <a href="/preference/program/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Back to Preferences</button></a>
         @else
-        <a href="/provider/{{$criterium->provider_id}}"><button class="btn btn-primary btn-lg btn-block">Back to provider</button></a>
+        <a href="/provider/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Back to provider</button></a>
         @endif
     </div>
 </div>
