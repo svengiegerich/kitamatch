@@ -20,7 +20,7 @@
                     $.ajax({
                         data: data,
                         type: 'POST',
-                        url: '/criteria/{{{$criteria->first()->p_Id}}}'
+                        url: '/criteria/{{{$criteria->first()->p_id}}}'
                     });
                 }
             });
