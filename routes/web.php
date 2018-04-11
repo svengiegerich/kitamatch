@@ -73,7 +73,7 @@ Route::get('/guardian/all', 'GuardianController@all');
 Route::get('/guardian/{gID}', 'GuardianController@show');
 Route::post('/guardian/{gID}', 'GuardianController@edit');
 //tmp: post or get?! CSR in email?!
-Route::post('/guardian/verify/{gID}', 'GuardianController@verify');
+Route::get('/guardian/verify/{gID}', 'GuardianController@verify');
 
 //Provider
 Route::get('/provider/{proid}', 'ProviderController@show');
