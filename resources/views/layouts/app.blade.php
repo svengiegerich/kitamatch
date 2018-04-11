@@ -5,6 +5,9 @@
 
         <!-- CSS And JavaScript -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('js/app.js' ) }}" rel="">
+        <link href="{{ asset('js/bootstrap.js' ) }}" rel="">
+        <script type="text/javascript" src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/minified/i18n/jquery-ui-i18n.min.js"></script>
     </head>
 
     <body class=".bg-light">
