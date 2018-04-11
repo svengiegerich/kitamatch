@@ -9,6 +9,13 @@
         <h4>Your Criteria</h4>
         <br />
         
+        <script>
+        $(function() {
+            $( "tbody" ).sortable();
+            $( "tbody" ).disableSelection();
+        });
+        </script>
+        
         <table class="table table-hover">
             <thead>
                   <th>Name</th>
@@ -35,28 +42,6 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
-</div>
-
-<script>
-$(function() {
-    $( "#sortable" ).sortable();
-    $( "#sortable" ).disableSelection();
-});
-</script>
-
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <h4>Edit your criteria</h4>
-        <br />
-        
-        <ul id="sortable">
-        @foreach ($criteria as $criterium)
-            <li data-id="{{$criterium->cid}}" class="ui-state-default">
-                {{$criterium->criterium_name}} {{$criterium->criterium_value}}
-            </li>
-        @endforeach
-        </ul>
     </div>
 </div>
 
