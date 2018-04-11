@@ -17,7 +17,7 @@
 });
             
         $(function() {
-            $('tbody').sortable({
+            $('.times').sortable({
                 axis: 'y',
                 update: function (event, ui) {
                     //var data = $(this).sortable('serialize');
