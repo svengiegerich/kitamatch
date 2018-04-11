@@ -5,6 +5,14 @@
 
         <!-- CSS And JavaScript -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
+        
+<script>
+$(function() {
+$( "#sortable" ).sortable();
+$( "#sortable" ).disableSelection();
+});
+</script>
     </head>
 
     <body class=".bg-light">

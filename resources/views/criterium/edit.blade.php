@@ -35,14 +35,6 @@
     </div>
 </div>
 
-
-<script>
-$(function() {
-$( "#sortable" ).sortable();
-$( "#sortable" ).disableSelection();
-});
-</script>
-
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Edit your criteria</h4>
@@ -51,7 +43,7 @@ $( "#sortable" ).disableSelection();
         <ul id="sortable">
         @foreach ($criteria as $criterium)
             <li data-id="{{$criterium->cid}}" class="ui-state-default">
-                {{$criterium->name}} {{$criterium->criterium_value}}
+                {{$criterium->criterium_name}} {{$criterium->criterium_value}}
             </li>
         @endforeach
         </ul>
