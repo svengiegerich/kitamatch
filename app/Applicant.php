@@ -24,5 +24,13 @@ class Applicant extends Model
     }
     
     public $primaryKey = 'aid';
-    public $timestamps = false;
+    
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        //
+        'birthday'
+    ];
+    
 }
