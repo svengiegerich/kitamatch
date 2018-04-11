@@ -48,9 +48,10 @@
             </thead>
             <tbody>
                 {{ csrf_field() }}
+                <?php $i = 1; ?>
                 @foreach ($criteria as $criterium)
                 <tr>
-                    <input type="hidden" name="{{$criterium->cid}}" value="{{$criterium->cid}}">
+                    <input type="hidden" name="{{$criterium->cid}}" value="<?php echo $i; $i = $i + 1; ?>">
                     <th>
                         <div>{{$criterium->criterium_name}}</div>
                     </th>
