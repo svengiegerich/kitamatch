@@ -27,7 +27,10 @@
                     $.ajax({
                         data: data,
                         type: 'POST',
-                        url: '/criteria/{{{$criteria->first()->p_id}}}'
+                        url: '/criteria/{{{$criteria->first()->p_id}}}',
+                        success: function(data) {
+   alert(data); // apple
+}
                     });
                 }
             });

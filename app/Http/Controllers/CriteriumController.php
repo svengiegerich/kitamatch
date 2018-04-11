@@ -66,8 +66,8 @@ class CriteriumController extends Controller
     }
     
     public function editAjax(Request $request, $p_id) {
-        /*$criteriaIds = $request->all();
-        $orderList = [];
+        $criteriaIds = $request->all();
+        /*$orderList = [];
         $i = 1;
         foreach ($criteriaIds as $certiumId) {
             $orderList[$certiumId] = $i;
@@ -83,6 +83,11 @@ class CriteriumController extends Controller
             $this->edit($requestC);
             
         }*/
+        
+        return Response::json(array(
+                    'success' => true,
+                    'data'   => $criteriaIds
+        )); 
         
         //return redirect()->action('CriteriumController@show', $p_id);
     }
