@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-md-8 order-md-1" >
+<div class="col-md-10" >
     <h4>List of Guardians</h4>
     
     <table>
@@ -33,10 +33,12 @@
                 <td>{{$guardian->parental_status}}</td>
                 <td>{{$guardian->volume_of_employment}}</td>
                 <td>
+                    @if ($guardian->status == 50 OR $guardian->status == 51)
                     <form action="/guardian/verify/{{ $guardian->gid }}" method="POST">
                         {{ csrf_field() }}
-                        <button>Verify</button>
+                        <button class="btn btn-primary btn-lg btn-block">Verify</button>
                     </form>
+                    @endif
                 </td>
                 <td><a href="mailto:{{$guardian->email}}"><button class="btn btn-primary btn-lg btn-block">Send Message</button></a></td>
             </tr>
