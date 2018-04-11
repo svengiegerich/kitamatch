@@ -34,7 +34,6 @@
         </script>
         
         <form action='/criteria/{{{$criteria->first()->p_id}}}' method="POST">
-        {{ csrf_field() }}
         <table class="table table-hover">
             <thead>
                   <th>Name</th>
@@ -43,6 +42,7 @@
                   <th>Multiplier</th>
             </thead>
             <tbody>
+                {{ csrf_field() }}
                 @foreach ($criteria as $criterium)
                 <tr>
                     <th>
