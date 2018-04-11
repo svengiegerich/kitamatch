@@ -69,13 +69,11 @@ class ApplicantController extends Controller
     
     public function update(Request $request) {
         $applicant = Applicant::findOrFail($request->aid);
-        $applicant->first_name = $request->firstName;
-        $applicant->last_name = $request->lastName;
-        $applicant->gender = $request->gender;
-        $applicant->birthday = strtotime($request->birthday);
-        if ($request->status) {
-            $applicant->status = $request->status;
-        }
+        if ($request->first_name) { $applicant->first_name = $request->firstName; }
+        if ($request->last_name) { $applicant->last_name = $request->lastName; }
+        if ($request->gender) { $applicant->gender = $request->gender; }
+        if ($request->birthday) { $applicant->birthday = strtotime($request->birthday); }
+        if ($request->status) { $applicant->status = $request->status; }
         $applicant->save();
         return $applicant;
     }
