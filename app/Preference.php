@@ -114,7 +114,7 @@ class Preference extends Model
         //tmp: add geocoordinated way
         //sort by birthday on the same level
         //https://github.com/laravel/ideas/issues/11
-        $applicants = $applicants->sortBy('birthday')->sortBy('order');
+        $applicants = $applicants->sortByDesc('birthday')->sortBy('order');
         return $applicants; 
     }
     
