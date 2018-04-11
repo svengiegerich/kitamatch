@@ -46,6 +46,7 @@
                 {{ csrf_field() }}
                 @foreach ($criteria as $criterium)
                 <tr>
+                    <input type="hidden" name="{{$criteriun->cid}}" value="{{$criteriun->cid}}">
                     <th>
                         <div>{{$criterium->criterium_name}}</div>
                     </th>
