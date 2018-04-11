@@ -20,8 +20,11 @@
             $('#sortable').sortable({
                 axis: 'y',
                 update: function (event, ui) {
-                    var data = $(this).sortable('serialize');
+                    var order = $(this).sortable('serialize');
+                    var _token = $("input[name=_token]").val();
+                    var data = {order: $order, _token: $_token};
                     //var data = $(this).serialize();
+                    
                     alert(data);
                     // POST to server using $.post or $.ajax
                     /*$.ajax({
@@ -43,7 +46,7 @@
         @foreach ($criteria as $criterium)
         <li id="item-{{$criterium->cid}}">{{$criterium->cid}}</li>
          @endforeach
-        </div>
+        </ul>
         
         <form action='/criteria/{{{$criteria->first()->p_id}}}' method="POST" id="criteraForm">
         <table class="table table-hover">
