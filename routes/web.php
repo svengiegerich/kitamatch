@@ -88,7 +88,7 @@ Route::get('/matching/get', 'MatchingController@findMatchings');
 Route::get('/criteria/{proid}', 'CriteriumController@show');
 Route::post('/criteria/{proid}', 'CriteriumController@edit');
 //for uncoordinated progams with no provider, create fake provider
-Route::get('/criterium/program/{programId}', 'CriteriumControlle@showByProgram'};
+Route::get('/criterium/program/{programId}', 'CriteriumControlle@showByProgram');
 
 //Admin
 Route::get('/admin/', 'AdminController@index');
