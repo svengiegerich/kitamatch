@@ -73,7 +73,7 @@ class CriteriumController extends Controller
         
         parse_str($request->order, $criteria);
         foreach ($criteria as $order => $criteriumId) {
-            Criterium::find($criteriumId)->update(['rank' => $order]);
+            Criterium::find($criteriumId);
         }
         
         /*foreach ($criteriaIds as $certiumId) {
