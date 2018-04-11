@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -71,7 +72,7 @@ class ApplicantController extends Controller
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
         $applicant->gender = $request->gender;
-        $applicant->birthday = $request->birthday;
+        $applicant->birthday = strtotime($request->birthday);
         if ($request->status) {
             $applicant->status = $request->status;
         }
