@@ -72,8 +72,10 @@ class CriteriumController extends Controller
         //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
         
         parse_str($request->order, $criteria);
-        foreach ($criteria as $order => $criteriumId) {
-            Criterium::find($criteriumId);
+        foreach ($criteria as $index => $criteriumId) {
+            $criterium = Criterium::find($criteriumId);
+            $criterium->rank = $index;
+            $criterium->save();
         }
         
         /*foreach ($criteriaIds as $certiumId) {
