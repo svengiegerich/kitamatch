@@ -20,8 +20,8 @@
             $('#sortable').sortable({
                 axis: 'y',
                 update: function (event, ui) {
-                    //var data = $(this).sortable('serialize');
-                    var data = $(this).serialize();
+                    var data = $(this).sortable('serialize');
+                    //var data = $(this).serialize();
                     alert(data);
                     // POST to server using $.post or $.ajax
                     /*$.ajax({
@@ -38,10 +38,10 @@
         });
         </script>
         
-        <div id="sortable">
+        <ul id="sortable">
         {{ csrf_field() }}
         @foreach ($criteria as $criterium)
-        <li id="item-{{$criterium->cid}}" class="items">{{$criterium->cid}}</li>
+        <li id="item-{{$criterium->cid}}">{{$criterium->cid}}</li>
          @endforeach
         </div>
         
