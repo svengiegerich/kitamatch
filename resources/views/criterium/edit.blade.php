@@ -53,7 +53,7 @@ $( "#sortable" ).disableSelection();
             <li data-id="{{$criterium->cid}}" class="ui-state-default">
                 {{$criterium->name}} {{$criterium->criterium_value}}
             </li>
-        @enforeach
+        @endforeach
         </ul>
     </div>
 </div>
