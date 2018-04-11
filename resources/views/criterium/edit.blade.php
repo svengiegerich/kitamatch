@@ -35,6 +35,13 @@
     </div>
 </div>
 
+<script>
+$(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+});
+</script>
+
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Edit your criteria</h4>
