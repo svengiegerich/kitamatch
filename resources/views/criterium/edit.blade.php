@@ -20,7 +20,8 @@
             $('tbody').sortable({
                 axis: 'y',
                 update: function (event, ui) {
-                    var data = $(this).sortable('serialize');
+                    //var data = $(this).sortable('serialize');
+                    var data = $('#criteraForm').serialize();
                     alert(data);
                     // POST to server using $.post or $.ajax
                     $.ajax({
@@ -33,7 +34,7 @@
         });
         </script>
         
-        <form action='/criteria/{{{$criteria->first()->p_id}}}' method="POST">
+        <form action='/criteria/{{{$criteria->first()->p_id}}}' method="POST" id="criteraForm">
         <table class="table table-hover">
             <thead>
                   <th>Name</th>
