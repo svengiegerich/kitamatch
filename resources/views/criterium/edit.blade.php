@@ -22,7 +22,7 @@
                 update: function (event, ui) {
                     var order = $(this).sortable('serialize');
                     var _token = $("input[name=_token]").val();
-                    var data = {order: $order, _token: $_token};
+                    var data = {"order": order, "_token": _token};
                     //var data = $(this).serialize();
                     
                     alert(data);
