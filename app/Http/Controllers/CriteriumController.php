@@ -79,7 +79,7 @@ class CriteriumController extends Controller
             $requestC = new Request();
             $requestC->setMethod('POST');
             $requestC->request->add(['cid' => $criterum->cid,
-                                   'rank' => $orderList[$criterum->cid]);
+                                   'rank' => $orderList[$criterum->cid]]);
             $this->edit($requestC);
             
         }
