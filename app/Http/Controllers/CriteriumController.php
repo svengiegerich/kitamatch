@@ -65,9 +65,25 @@ class CriteriumController extends Controller
         return view('criterium.edit', array('criteria' => $criteria));
     }
     
-    public function edit($Request, $p_id) {
-        //tmp: edit
-        redirect()->action('GuardianController@all');
+    public function editAjax(Request $request, $p_id) {
+        $criteriaIds = $request->all();
+        $orderList = [];
+        $i = 1;
+        foreach ($criteriaIds as $certiumId) {
+            $orderList[$certiumId] = $i;
+            $i = $i + 1;
+        }
+        
+        $oldOrderCriteria = Criterium::where('p_id', '=', $p_id)->get();
+        foreach ($oldOrderCriteria as $criterium) {
+            $requestC = new Request();
+            $requestC->setMethod('POST');
+            $requestC->request->add(['cid' => $criterum->cid,
+                                   'rank' => $orderList[$criterum->cid]);
+            $this->edit($requestC);
+            
+        }
+        
         //return redirect()->action('CriteriumController@show', $p_id);
     }
     
@@ -89,6 +105,18 @@ class CriteriumController extends Controller
         }
     }
     
+    public function edit(Request $request) {
+        $criterium = Criterium::find($request->cid);
+        if ($request->criterium_name) { $criterium->criterium_name = $request->criterium_name;
+        if ($request->criterium_value) { $criterium->criterium_value = $request->criterium_value;
+        if ($request->rank) { $criterium->rank = $request->rank;
+        if ($request->multiplier) { $criterium->multiplier = $request->multiplier;
+        if ($request->p_id) { $criterium->p_id = $request->p_id;
+        if ($request->program) { $criterium->program = $request->program;
+        $criterium->save();
+        return $criterium;
+    }
+                                    
     private function storeByProgram(Request $request) {
         $request->request->add(['program' => 1]);
         $this->store($request);
