@@ -38,11 +38,5 @@ class Program extends Model
     public $primaryKey = 'pid';
     public $timestamps = false;
     
-            protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        //
-        'birthday'
-    ];
+    
 }
