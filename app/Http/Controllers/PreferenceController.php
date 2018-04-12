@@ -57,10 +57,17 @@ class PreferenceController extends Controller
     // by applicant
     public function showByApplicant($aid) {
         $Applicant = new Applicant;
+        $Program = new Program;
         $applicant = $Applicant::find($aid);
         $preferences = $this->getPreferencesByApplicant($aid);
+        $programs = $Program->getAll();
+        $select = array();
+        foreach ($programs as $program) {
+            $select[$program->pid] = $program->name;
+        }
         return view('preference.showByApplicant', array('preferences' => $preferences,
-                                                       'applicant' => $applicant
+                                                       'applicant' => $applicant,
+                                                        'programs' => $select
         ));
     }
     

@@ -34,7 +34,7 @@
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
-                <td><?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?></td>
+                <td>{{$applicant->birthday}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->

@@ -12,6 +12,10 @@
             <div class="form-group row">
                 <label for="to" class="col-sm-2 col-form-label">Program</label>
                 <div class="col-sm-6">
+                    {!! Form::select('to', $programs,
+                        array('id' => 'preference-id-to', 
+                              'class' => 'form-control') 
+                    )  !!}
                     <input type="text" name="to" id="preference-id-to" class="form-control" required>
                 </div>  
             </div>

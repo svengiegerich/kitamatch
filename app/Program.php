@@ -10,6 +10,10 @@ class Program extends Model
 {
     //
 	
+    public function getAll() {
+        return (Program::whereIn('status', [12, 13])->get());
+    }
+    
     public function isCoordinated($pid) {
         $res = Program::find($pid);
         return $res->coordination;
