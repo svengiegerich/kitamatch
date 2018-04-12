@@ -37,12 +37,12 @@
         });
         </script>
         
-        <ul id="sortable">
-        {{ csrf_field() }}
-        @foreach ($criteria as $criterium)
-        <li id="item-{{$criterium->cid}}">{{$criterium->criterium_name}}: ({{$criterium->criterium_value}})</li>
-         @endforeach
-        </ul>
+        <ol id="sortable">
+            {{ csrf_field() }}
+            @foreach ($criteria as $criterium)
+                <li id="item-{{$criterium->cid}}"><button class="btn btn-primary btn-lg btn-block">{{$criterium->criterium_name}}: ({{$criterium->criterium_value}})</button></li>
+             @endforeach
+        </ol>
     </div>
 </div>
 
