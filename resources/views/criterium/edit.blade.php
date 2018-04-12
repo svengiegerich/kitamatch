@@ -40,7 +40,7 @@
         <ul id="sortable">
         {{ csrf_field() }}
         @foreach ($criteria as $criterium)
-        <li id="item-{{$criterium->cid}}">{{$criterium->criterium_name}}: {{$criterium->criterium_value}}</li>
+        <li id="item-{{$criterium->cid}}">{{$criterium->criterium_name}}: ({{$criterium->criterium_value}})</li>
          @endforeach
         </ul>
     </div>
