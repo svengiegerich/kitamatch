@@ -12,7 +12,7 @@
             <div class="form-group row">
                 <label for="to" class="col-sm-2 col-form-label">Program</label>
                 <div class="col-sm-6">
-                    {!! Form::select('to', $programs,
+                    {!! Form::select('to', $programs,false,
                         array('id' => 'preference-id-to', 
                               'class' => 'form-control') 
                     )  !!}
