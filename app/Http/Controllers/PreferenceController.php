@@ -88,6 +88,21 @@ class PreferenceController extends Controller
         return redirect()->action('PreferenceController@showByApplicant', $aid);
     }
     
+    public function reorderApplicantAjax(Request $request, $aid) {
+        $programIds = $request->all();
+        //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
+        parse_str($request->order, $programs);
+        foreach ($programs['item'] as $index => $preferenceId) {
+            $preference = Preference::find($preferenceId);
+            $preference->rank = $index+1;
+            $preference->save();
+        }
+        
+        return response()->json([
+            'success' => true
+        ]); 
+    }
+    
     public function deleteByApplication(Request $request, $prid) {
         $preference = Preference::find($prid);
         $aid = $preference->id_from;
