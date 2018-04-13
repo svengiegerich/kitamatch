@@ -73,11 +73,12 @@ class PreferenceController extends Controller
     
     public function addByApplicant(Request $request, $aid) {
         $preference = new Preference;
+        $rank = $preference->getLowestRankApplicant($aid)+1;
         
         $preference->id_from = $aid;
         $preference->id_to = $request->to;
         $preference->pr_kind = 1;
-        $preference->rank = $preference->getLowestRankApplicant($aid)+1;
+        $preference->rank = $rank;
         $preference->status = 1;
         
         $preference->save();
