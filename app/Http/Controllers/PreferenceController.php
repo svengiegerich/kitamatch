@@ -112,7 +112,7 @@ class PreferenceController extends Controller
         
         return response()->json([
             'success' => true,
-            'data' => $request->itemId
+            'data' => substr($request->itemId, strpos($request->itemId, "-") + 1) 
         ]); 
     }
     
