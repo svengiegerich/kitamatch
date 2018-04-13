@@ -54,7 +54,7 @@
                         }
                     });
                 }
-            });
+            })
             .on('click', '.delete', function() {
                 $(this).closest('li').remove();
             });
