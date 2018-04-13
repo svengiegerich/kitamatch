@@ -56,6 +56,7 @@
                     }
                 })
                 .on('click', '.delete', function() {
+                    $(this).closest('li').remove();
                     var data = $(this).closest('li').attr('id');
                     $.ajax({
                             data: data,
@@ -63,7 +64,6 @@
                             url: '/preference/applicant/delete/{{$preferences->first()->id_from}}',
                             success: function(data) {
                                 console.log(data);
-                                $(this).closest('li').remove();
                             }
                         });
                 });
