@@ -112,7 +112,7 @@ class PreferenceController extends Controller
         
         return response()->json([
             'success' => true,
-            'data' => $request->all()
+            'data' => $request->itemId
         ]); 
     }
     

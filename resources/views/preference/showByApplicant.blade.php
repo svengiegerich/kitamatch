@@ -57,7 +57,7 @@
                 })
                 .on('click', '.delete', function() {
                     $(this).closest('li').remove();
-                    var data = $(this).closest('li').attr('id');
+                    var data = {'itemId': $(this).closest('li').attr('id')};
                     $.ajax({
                             data: data,
                             type: 'POST',
