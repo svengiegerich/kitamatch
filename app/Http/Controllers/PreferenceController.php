@@ -107,18 +107,16 @@ class PreferenceController extends Controller
     }
     
     public function deleteByApplicantAjax(Request $request, $aid) {
-        //$prid = substr($request->, strpos($data, "_") + 1);    ;
-        //$this->deleteByApplicant($prid);*/
+        $prid = substr($request->itemId, strpos($request->itemId, "-") + 1);
+        $this->deleteByApplicant($request, $prid);
         
         return response()->json([
-            'success' => true,
-            'data' => substr($request->itemId, strpos($request->itemId, "-") + 1) 
+            'success' => true
         ]); 
     }
     
     public function deleteByApplicant(Request $request, $prid) {
         $preference = Preference::find($prid);
-        $aid = $preference->id_from;
         //temp: set status=0 instead of deleting
         $preference->delete();
         //return redirect()->action('PreferenceController@showByApplicant', $aid);
