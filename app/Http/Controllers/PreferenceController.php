@@ -116,7 +116,7 @@ class PreferenceController extends Controller
         ]); 
     }
     
-    public function deleteByApplicant($prid) {
+    public function deleteByApplicant(Request $request, $prid) {
         $preference = Preference::find($prid);
         $aid = $preference->id_from;
         //temp: set status=0 instead of deleting
