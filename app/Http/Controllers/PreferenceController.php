@@ -62,7 +62,7 @@ class PreferenceController extends Controller
         $preferences = $this->getPreferencesByApplicant($aid);
         $programs = $Program->getAll();
         foreach ($preferences as $preference) {
-            $preference->programName = $programs->find($preference->id_to);
+            $preference->programName = $programs->find($preference->id_to)->name;
         }
         $select = array();
         foreach ($programs as $program) {
