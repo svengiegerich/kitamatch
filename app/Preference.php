@@ -116,18 +116,28 @@ class Preference extends Model
         //https://github.com/laravel/ideas/issues/11
         //$applicants = $applicants->sortBy('birthday')->sortBy('order');
         $applicants = $applicants->sort(function($a, $b) {
-   if($a->order === $b->order) {
-     if($a->birthday === $b->birthday) {
-       return 0;
-     }
-     return $a->birthday < $b->birthday ? -1 : 1;
-   } 
-   return $a->order < $b->order ? -1 : 1;
-});
+            if($a->order === $b->order) {
+                if($a->birthday === $b->birthday) {
+                   return 0;
+                 }
+                return $a->birthday < $b->birthday ? -1 : 1;
+            } 
+            return $a->order < $b->order ? -1 : 1;
+        });
         return $applicants; 
     }
     
+    public function getLowestRankApplicant($aid) {
+        //tmp: pr_kind = 4
+        $sql = "SELECT rank FROM preferences WHERE id_from = " . $aid . " AND (pr_kind = 1 OR pr_kind = 4) ORDER BY rank DESC LIMIT 1";
+        $lowestRank = DB::select($sql);
+        if ($rank) {
+            $rank = $lowestRank;
+        } else {
+            $rank = 1;
+        }
+        return $rank;
+    }
+    
     public $primaryKey = 'prid';
-    
-    
 }
