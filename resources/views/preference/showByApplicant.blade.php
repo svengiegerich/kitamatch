@@ -31,44 +31,44 @@
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
     <div class="col-md-8">
-            <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-            
-        $(function() {
-            $('#sortable').sortable({
-                axis: 'y',
-                update: function (event, ui) {
-                    var order = $(this).sortable('serialize');
-                    var _token = $("input[name=_token]").val();
-                    var data = {"order": order, "_token": _token};
-                    $.ajax({
-                        data: data,
-                        type: 'POST',
-                        url: '/preference/applicant/reorder/{{$preferences->first()->id_from}}',
-                        success: function(data) {
-                            console.log(data);
-                        }
-                    });
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('value')
                 }
-            })
-            .on('click', '.delete', function() {
-                var data = $(this).closest('li').attr('id');
-                $.ajax({
-                        data: data,
-                        type: 'POST',
-                        url: '/preference/applicant/delete/{{$preferences->first()->id_from}}',
-                        success: function(data) {
-                            console.log(data);
-                            $(this).closest('li').remove();
-                        }
-                    });
             });
-            $( "#sortable" ).disableSelection();
-        });
+
+            $(function() {
+                $('#sortable').sortable({
+                    axis: 'y',
+                    update: function (event, ui) {
+                        var order = $(this).sortable('serialize');
+                        var _token = $("input[name=_token]").val();
+                        var data = {"order": order, "_token": _token};
+                        $.ajax({
+                            data: data,
+                            type: 'POST',
+                            url: '/preference/applicant/reorder/{{$preferences->first()->id_from}}',
+                            success: function(data) {
+                                console.log(data);
+                            }
+                        });
+                    }
+                })
+                .on('click', '.delete', function() {
+                    var data = $(this).closest('li').attr('id');
+                    $.ajax({
+                            data: data,
+                            type: 'POST',
+                            url: '/preference/applicant/delete/{{$preferences->first()->id_from}}',
+                            success: function(data) {
+                                console.log(data);
+                                $(this).closest('li').remove();
+                            }
+                        });
+                });
+                $( "#sortable" ).disableSelection();
+            });
         </script>
         
         <ul id="sortable">
