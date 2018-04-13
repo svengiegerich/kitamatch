@@ -277,11 +277,13 @@ class PreferenceController extends Controller
         //tmp: pr_kind = 4
         $sql = "SELECT rank FROM preferences WHERE id_from = " . $aid . " AND (pr_kind = 1 OR pr_kind = 4) ORDER BY rank DESC LIMIT 1";
         $lowestRank = DB::select($sql);
-        if ($lowestRank['0']) {
+        var_dump($lowestRank);
+        /*if ($lowestRank['0']) {
             $rank = $lowestRank['0'];
         } else {
             $rank = 1;
-        }
+        }*/
+        $rank = 10;
         return $rank;
     }
 }
