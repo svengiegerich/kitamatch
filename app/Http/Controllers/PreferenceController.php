@@ -276,7 +276,7 @@ class PreferenceController extends Controller
     public function getLowestRankApplicant($aid) {
         //tmp: pr_kind = 4
         $sql = "SELECT rank FROM preferences WHERE id_from = " . $aid . " AND (pr_kind = 1 OR pr_kind = 4) ORDER BY rank DESC LIMIT 1";
-        $lowestRank = DB::select($sql)->get();
+        $lowestRank = DB::select($sql)->first();
         if ($lowestRank) {
             $rank = $lowestRank;
         } else {
