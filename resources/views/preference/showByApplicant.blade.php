@@ -29,6 +29,53 @@
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
     <div class="col-md-8">
+            <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+            
+        $(function() {
+            $('#sortable').sortable({
+                axis: 'y',
+                update: function (event, ui) {
+                    var order = $(this).sortable('serialize');
+                    var _token = $("input[name=_token]").val();
+                    var data = {"order": order, "_token": _token};
+                    $.ajax({
+                        data: data,
+                        type: 'POST',
+                        url: '/criteria/{{{$criteria->first()->p_id}}}',
+                        success: function(data) {
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+            .on('click', '.delete', function() {
+                $(this).closest('li').remove();
+            });
+            $( "#sortable" ).disableSelection();
+        });
+        </script>
+        
+        <ul id="sortable">
+            {{ csrf_field() }}
+            @foreach ($preferences as $preference)
+                <li id="item-{{$preference->prid}}">
+                    {{$preference->id_to}}
+                    <a class="delete" href="#">X</a>
+                </li>
+             @endforeach
+        </ul>
+    </div>
+</div>
+@endif
+
+@if (count($preferences) > 0)
+<div class="row justify-content-center">
+    <div class="col-md-8">
         <h4>List of Preferences</h4>
         <table class="table table-hover">
             <thead>
