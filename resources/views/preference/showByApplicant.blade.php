@@ -48,7 +48,7 @@
                     $.ajax({
                         data: data,
                         type: 'POST',
-                        url: '/preference/applicant/reorder/{{{$preferences->first()->id_from}}}',
+                        url: '/preference/applicant/reorder/{{$preferences->first()->id_from}}',
                         success: function(data) {
                             console.log(data);
                         }
@@ -57,11 +57,10 @@
             })
             .on('click', '.delete', function() {
                 var data = $(this).closest('li').attr('id');
-                alert(data);
                 $.ajax({
                         data: data,
                         type: 'POST',
-                        url: '/preference/applicant/delete/{{{$preferences->first()->id_from}}}',
+                        url: '/preference/applicant/delete/{{$preferences->first()->id_from}}',
                         success: function(data) {
                             console.log(data);
                             $(this).closest('li').remove();

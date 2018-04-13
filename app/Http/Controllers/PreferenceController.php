@@ -110,10 +110,10 @@ class PreferenceController extends Controller
         /*$prid = substr($request->, strpos($data, "_") + 1);    ;
         $this->deleteByApplicant($prid);*/
         
-        return response()->json([
+        /*return response()->json([
             'success' => true,
             'data' => $request
-        ]); 
+        ]); */
     }
     
     public function deleteByApplicant(Request $request, $prid) {
