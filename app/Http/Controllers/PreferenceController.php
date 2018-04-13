@@ -60,10 +60,12 @@ class PreferenceController extends Controller
         $Program = new Program;
         $applicant = $Applicant::find($aid);
         $preferences = $this->getPreferencesByApplicant($aid);
-        $programs = $Program->getAll();
+        $programs = $Program->getAll();        
         $select = array();
         foreach ($programs as $program) {
-            $select[$program->pid] = $program->name;
+            if (!($preferences->contains('id_to', $program->pid))) {
+                $select[$program->pid] = $program->name;
+            }
         }
         return view('preference.showByApplicant', array('preferences' => $preferences,
                                                        'applicant' => $applicant,
