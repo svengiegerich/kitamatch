@@ -118,7 +118,8 @@ class PreferenceController extends Controller
     public function deleteByApplicant(Request $request, $prid) {
         $preference = Preference::find($prid);
         //temp: set status=0 instead of deleting
-        $preference->delete();
+        $preference->status = 0;
+        $preference->save();
         //return redirect()->action('PreferenceController@showByApplicant', $aid);
     }
     
