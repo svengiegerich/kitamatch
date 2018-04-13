@@ -72,7 +72,7 @@ class PreferenceController extends Controller
     }
     
     public function addByApplicant(Request $request, $aid) {
-        $rank = $this->getLowestRankApplicant($aid)+1;
+        $rank = $this->getLowestRankApplicant($aid);
         
         $preference = new Preference;
         $preference->id_from = $aid;
