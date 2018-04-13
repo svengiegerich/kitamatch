@@ -46,7 +46,7 @@
                     $.ajax({
                         data: data,
                         type: 'POST',
-                        url: '/criteria/{{{$criteria->first()->p_id}}}',
+                        url: '/preference/applicant/reorder/{{{preference->first()->id_from}}}',
                         success: function(data) {
                             console.log(data);
                         }
