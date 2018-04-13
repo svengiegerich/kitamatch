@@ -72,7 +72,7 @@ class PreferenceController extends Controller
     }
     
     public function addByApplicant(Request $request, $aid) {
-        $rank = $this->getLowestRankApplicant($aid);
+        $rank = $this->getLowestRankApplicant($aid) + 1;
         
         $preference = new Preference;
         $preference->id_from = $aid;
@@ -278,8 +278,8 @@ class PreferenceController extends Controller
         $sql = "SELECT rank FROM preferences WHERE id_from = " . $aid . " AND (pr_kind = 1 OR pr_kind = 4) ORDER BY rank DESC LIMIT 1";
         $lowestRank = DB::select($sql);
         dd($lowestRank);
-        if ($lowestRank) {
-            $rank = $lowestRank;
+        if ($lowestRank['0']) {
+            $rank = $lowestRank['0'];
         } else {
             $rank = 1;
         }
