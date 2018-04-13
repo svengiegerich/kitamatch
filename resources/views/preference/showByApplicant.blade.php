@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h4>
