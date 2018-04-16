@@ -31,7 +31,6 @@ Auth::routes();
 //Applicant
 Route::get('/applicant', 'ApplicantController@all');
 Route::get('/applicant/all', 'ApplicantController@all');
-Route::delete('/applicant/{applicant}', 'ApplicantController@delete');
 
 Route::get('/applicant/add/{gid}', 'ApplicantController@add');
 //Route::get('/applicant/add', 'ApplicantController@add');
@@ -39,6 +38,7 @@ Route::post('/applicant/add/{gid}', 'ApplicantController@create');
 
 Route::get('/applicant/{applicant}', 'ApplicantController@show');
 Route::post('/applicant/{applicant}', 'ApplicantController@edit');
+Route::delete('/applicant/{applicant}', 'ApplicantController@delete');
 
 //Program
 Route::get('/program', 'ProgramController@all');
@@ -67,7 +67,7 @@ Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgra
 Route::post('/preference/program/uncoordinated/{pID}', 'PreferenceController@addUncoordinatedProgram');
 Route::delete('/preference/program/uncoordinated/{aID}', 'PreferenceController@deleteByProgram');
 
-// -All 
+// -All
 Route::get('/preference/all', 'PreferenceController@all');
 
 //Guardian
