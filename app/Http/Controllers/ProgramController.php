@@ -102,7 +102,6 @@ class ProgramController extends Controller
         $program->plz = $request->plz;
         $program->city = $request->city;
         $program->phone = $request->phone;
-        $program->status = $request->status;
         $program->save();
         return $program;
     }
@@ -113,7 +112,7 @@ class ProgramController extends Controller
 	}
 
     public function setValid($pid) {
-        Program::where('pid', $pid)->update(array('status' => '12'));
+        Program::where('pid', '=', $pid)->update(array('status' => '12'));
     }
 
     public function setNonActive($pid) {

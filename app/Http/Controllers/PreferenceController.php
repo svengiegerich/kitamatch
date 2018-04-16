@@ -164,6 +164,9 @@ class PreferenceController extends Controller
                         } else if ($preference->status == -1) {
                             $offers[$applicant->aid] = -1;
                         }
+
+                        //formate birhday-date
+                        $applicant->birthday = $applicant->birthday->format('d.m.Y');
                     }
                 }
             }
