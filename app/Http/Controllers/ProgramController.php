@@ -15,12 +15,12 @@ class ProgramController extends Controller
     public function index() {
         return redirect()->action('ProgramController@all');
     }
-    
+
     public function add($proid) {
         $provider = Provider::findOrFail($proid);
         return view('program.add', array('provider' => $provider));
     }
-    
+
     //controller & view function
     public function create(Request $request, $proid) {
         //tmp: create a uid for the program
@@ -40,13 +40,13 @@ class ProgramController extends Controller
             'uid' => $user->id
         ]);
         $this->store($request);
-        
+
         return redirect()->action('ProviderController@show', $proid);
     }
-    
+
     public function store(Request $request) {
         //Validation
-        
+
         $program = new Program;
         $program->uid = $request->uid;
         $program->proid = $request->proid;
@@ -62,34 +62,34 @@ class ProgramController extends Controller
         $program->phone = $request->phone;
         $program->save();
         //tmp
-        $this->setValid($program-id);
-        
+        $this->setValid($program->id);
+
         return $program;
     }
-    
+
     public function show($pid) {
         $program = Program::find($pid);
         return view('program.edit', array('program' => $program));
     }
-    
+
     public function all() {
         $programs = Program::all();
         return view('program.all', array('programs' => $programs));
     }
-    
+
     public function edit(Request $request, $pid) {
         $request->request->add(['pid' => $pid]);
         $program = $this->update($request);
         return view('program.edit', array('program' => $program));
     }
-    
+
     public function delete(Request $request, $pid) {
         $program = program::find($pid);
         //temp: set active=0 instead of deleting
         $program->delete();
         return redirect()->action('ProgramController@all');
     }
-    
+
     public function update(Request $request) {
         $program = Program::find($request->pid);
         $program->name = $request->name;
@@ -105,12 +105,12 @@ class ProgramController extends Controller
         $program->save();
         return $program;
     }
-	
+
 	public function getCapacity($pid) {
 		$program = Program::find($pid);
 		return $program->capacity;
 	}
-    
+
     public function setValid($pid) {
         $request = new Request();
         $request->setMethod('POST');
@@ -118,7 +118,7 @@ class ProgramController extends Controller
                                'status' => 12]);
         $this->update($request);
     }
-    
+
     public function setNonActive($pid) {
         $request = new Request();
         $request->setMethod('POST');
@@ -126,9 +126,9 @@ class ProgramController extends Controller
                                'status' => 13]);
         $this->update($request);
     }
-    
+
     public function activityCheck() {
-        $nonActivePreferences = $this->getNonActivePreferencesByProgram(); 
+        $nonActivePreferences = $this->getNonActivePreferencesByProgram();
         foreach ($nonActivePreferences as $preference) {
             $this->setNonActive($preference->ANY_VALUE(`id_from`));
             //check if capacity is not fullfilled
