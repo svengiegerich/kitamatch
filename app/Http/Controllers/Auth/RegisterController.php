@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'account_type' => $data['accountType'],
             'password' => Hash::make($data['password'])
         ]);
-        
+
         if ($data['accountType'] == 1) {
             //account-type is guardian
             $request = new Request();
@@ -84,31 +84,34 @@ class RegisterController extends Controller
         } else if ($data['accountType'] == 2 || $data['accountType'] == 3) {
             //account-type private or public
             //2: public, 3: private
-            
+
             $request = new Request();
             $request->setMethod('POST');
-            if ($data['accountType'] == 2) { 
-                $p_kind = 1; 
-                $coordination = 1; 
-            } else if ($data['accountType'] == 3) { 
-                $p_kind = 2; 
-                $coordination = 0; 
+            if ($data['accountType'] == 2) {
+                echo "ho";
+                $p_kind = 1;
+                $coordination = 1;
+            } else if ($data['accountType'] == 3) {
+                echo "ha";
+                $p_kind = 2;
+                $coordination = 0;
             }
-    
             $request->request->add(['uid' => $user->id,
                                    'coordination' => $coordination,
                                    'p_kind' => $p_kind,
                                    //tmp
                                    'status' => 1]);
-            
+
+                                   dd($request);
+
             app('App\Http\Controllers\ProgramController')->store($request);
         } else {
             //error
         }
-        
+
         return $user;
     }
-    
+
     //
     public function store(Request $request) {
         $user = User::create([
@@ -118,7 +121,7 @@ class RegisterController extends Controller
         ]);
         return $user;
     }
-    
+
     //https://gist.github.com/tylerhall/521810
     public function generateStrongPassword($length = 9, $add_dashes = false, $available_sets = 'luds') {
         $sets = array();

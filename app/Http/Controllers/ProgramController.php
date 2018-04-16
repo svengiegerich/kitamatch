@@ -55,16 +55,8 @@ class ProgramController extends Controller
         $program->address = $request->address;
         $program->capacity = $request->capacity;
         $program->status = 11;
-        $user = User::where('id', '=', $program->uid)->first();
-        if ($user->account_type == 2) {
-          //public -> 1
-          $program->p_kind = 1;
-          $program->coordination = 1;
-        } else {
-          //private -> 2
-          $program->p_kind = 2;
-          $program->coordination = 0;
-        }
+        $program->p_kind = $request->p_kind;
+        $program->coordination = $request->coordination;
         $program->address = $request->address;
         $program->plz = $request->plz;
         $program->city = $request->city;
