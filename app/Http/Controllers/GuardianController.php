@@ -66,8 +66,8 @@ class GuardianController extends Controller
         $guardians = Guardian::all();
         //add mail
         foreach ($guardians as $guardian) {
-            echo $guardian->uid;
             $user = Guardian::where('uid', '=', $guardian->uid)->first();
+            dd($user);
             $guardian->email = $user->email;
         }
         return view('guardian.all', array('guardians' => $guardians));
