@@ -127,7 +127,5 @@ class Preference extends Model
         return $applicants;
     }
 
-    protected $dates = ['birthday'];
-
     public $primaryKey = 'prid';
 }

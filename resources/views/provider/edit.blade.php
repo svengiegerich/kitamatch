@@ -5,10 +5,10 @@
     <div class="col-md-8">
         <h4>Edit your Information - Provider</h4>
         <br />
-        
+
         <form action="/provider/{{$provider->proid}}" method="POST">
             {{ csrf_field() }}
-            
+
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
@@ -25,24 +25,24 @@
             <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="">
+                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="{{$provider->address}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="plz" class="col-sm-2 col-form-label">PLZ</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="">
+                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$provider->plz}}">
                 </div>
                 <label for="city" class="col-sm-2 col-form-label">City</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="city" name="city" placeholder="City" value="">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$provider->city}}">
                 </div>
             </div>
-            
+
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
         </form>
-        
+
         <hr class="mb-4">
     </div>
 </div>
@@ -51,12 +51,12 @@
     <div class="col-md-8">
         <h4>My programs</h4>
         <br>
-        
+
         @foreach ($programs as $program)
             <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">{{$program->name}}</button></a>
             <br>
         @endforeach
-        
+
         <a href="/program/add/{{$provider->proid}}"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
         <br>
     </div>
@@ -70,5 +70,5 @@
         <br>
     </div>
 </div>
-    
+
 @endsection

@@ -21,11 +21,11 @@ class ProviderController extends Controller
     {
         $this->middleware('auth');
     }
-    
-    
+
+
     public function store(Request $request) {
         //Validation
-        
+
         $provider = new Provider;
         $provider->proid = $request->proid;
         $provider->name = $request->name;
@@ -35,9 +35,9 @@ class ProviderController extends Controller
         $provider->plz = $request->plz;
         $provider->phone = $request->phone;
         $provider->save();
-        
+
     }
-    
+
     public function show($proid) {
         $provider = Provider::findOrFail($proid);
         $Program = new Program;
@@ -45,13 +45,13 @@ class ProviderController extends Controller
         return view('provider.edit', array('provider' => $provider,
                                           'programs' => $programs));
     }
-    
+
     public function edit(Request $request, $proid) {
         $request->request->add(['proid' => $proid]);
         $provider = $this->update($request);
         return redirect()->action('ProviderController@show', $provider->proid);
     }
-    
+
     public function update(Request $request) {
         $provider = Provider::findOrFail($request->proid);
         $provider->name = $request->name;
