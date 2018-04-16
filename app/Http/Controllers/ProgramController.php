@@ -9,6 +9,7 @@ use App\Traits\GetPreferences;
 
 use App\Program;
 use App\Provider;
+use App\User;
 
 class ProgramController extends Controller
 {
@@ -54,8 +55,16 @@ class ProgramController extends Controller
         $program->address = $request->address;
         $program->capacity = $request->capacity;
         $program->status = 11;
-        $program->p_kind = $request->kind;
-        $program->coordination = $request->coordination;
+        $user = User::where('id', '=', $program->uid)->first();
+        if ($user->account_type == 2) {
+          //public -> 1
+          $program->p_kind = 1;
+          $program->coordination = 1;
+        } else {
+          //private -> 2
+          $program->p_kind = 2;
+          $program->coordination = 0;
+        }
         $program->address = $request->address;
         $program->plz = $request->plz;
         $program->city = $request->city;
@@ -93,6 +102,7 @@ class ProgramController extends Controller
     public function update(Request $request) {
         $program = Program::find($request->pid);
         $program->name = $request->name;
+        $user = User::where('id', '=', $program->uid)->first();
         $program->coordination = $request->coordination;
         //p_kind = 1, so coordination needs to be 1
         if ($program->p_kind == 1) { $program->coordination = 1; }
