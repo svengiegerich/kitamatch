@@ -17,43 +17,43 @@ use App\Traits\GetPreferences;
 class PreferenceController extends Controller
 {
     use GetPreferences;
-    
+
     public function show($prid) {
         $preference = Preference::find($prid);
         return view('preference.show', array('preference' => $preference));
     }
-    
+
     public function all() {
         $preferences = Preference::all();
         return view('preference.all', array('preferences' => $preferences));
     }
-    
+
     private function store(Request $request) {
         $preference = new Preference;
-        
+
         $preference->id_from = $request->from;
         $preference->id_to = $request->to;
         $preference->pr_kind = 1;
         $preference->rank = $request->rank;
         $preference->status = $request->status;
-        
+
         $preference->save();
         return $preference;
     }
-    
+
     private function update(Request $request) {
         $preference = Preference::findOrFail($request->pid);
-        
+
         $preference->id_from = $request->from;
         $preference->id_to = $request->to;
         $preference->pr_kind = 1;
         $preference->rank = $request->rank;
         $preference->status = $request->status;
-        
+
         $preference->save();
         return $preference;
     }
-    
+
     // by applicant
     public function showByApplicant($aid) {
         $Applicant = new Applicant;
@@ -75,22 +75,22 @@ class PreferenceController extends Controller
                                                         'programs' => $select
         ));
     }
-    
+
     public function addByApplicant(Request $request, $aid) {
         $rank = $this->getLowestRankApplicant($aid) + 1;
-        
+
         $preference = new Preference;
         $preference->id_from = $aid;
         $preference->id_to = $request->to;
         $preference->pr_kind = 1;
         $preference->rank = $rank;
         $preference->status = 1;
-        
+
         $preference->save();
-        
+
         return redirect()->action('PreferenceController@showByApplicant', $aid);
     }
-    
+
     public function reorderByApplicantAjax(Request $request, $aid) {
         $programIds = $request->all();
         //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
@@ -100,21 +100,21 @@ class PreferenceController extends Controller
             $preference->rank = $index+1;
             $preference->save();
         }
-        
+
         return response()->json([
             'success' => true
-        ]); 
+        ]);
     }
-    
+
     public function deleteByApplicantAjax(Request $request, $aid) {
         $prid = substr($request->itemId, strpos($request->itemId, "-") + 1);
         $this->deleteByApplicant($request, $prid);
-        
+
         return response()->json([
             'success' => true
-        ]); 
+        ]);
     }
-    
+
     public function deleteByApplicant(Request $request, $prid) {
         $preference = Preference::find($prid);
         //temp: set status=0 instead of deleting
@@ -122,8 +122,8 @@ class PreferenceController extends Controller
         $preference->save();
         //return redirect()->action('PreferenceController@showByApplicant', $aid);
     }
-    
-    
+
+
     // by program - coordinated
     public function showByProgram($pid) {
         //check if coordinated or not
@@ -131,25 +131,25 @@ class PreferenceController extends Controller
         if ($program->coordination == 1) {
             //coordination: true
             $preferences = $this->getPreferencesByProgram($pid);
-            
+
             return view('preference.showByProgram', array('preferences' => $preferences,
                                                          'program' => $program));
         } else {
             //coordination: false
             $Program = new Program();
-            
+
             $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
             $providerId = $Program->getProviderId($pid);
             if ($providerId) {
-                $provider = true; 
+                $provider = true;
             } else {
                 $provider = false;
             }
-            
+
             $Preference = new Preference;
             $availableApplicants = $Preference->getAvailableApplicants($pid);
             $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
-            
+
             //mark every active or closed offer
             //1: active, -1: no match
             //temp: easier?
@@ -168,7 +168,7 @@ class PreferenceController extends Controller
                 }
             }
             $program->openOffers = $openOffers;
-            
+
             //create display rank
             /*foreach ($availableApplicants as $applicant) {
                 if (array_key_exists($applicant->aid, $offers)) {
@@ -184,28 +184,28 @@ class PreferenceController extends Controller
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-            return view('preference.uncoordinated', array('program' => $program, 
-                                                          'availableApplicants' => $availableApplicants, 
+            return view('preference.uncoordinated', array('program' => $program,
+                                                          'availableApplicants' => $availableApplicants,
                                                           'preferences' => $preferences,
                                                           'offers' => $offers)
                        );
         }
     }
-    
+
     public function addByProgram(Request $request, $pid) {
         $preference = new Preference;
-        
+
         $preference->id_from = $pid;
         $preference->id_to = $request->to;
         $preference->pr_kind = 2;
         $preference->rank = $request->rank;
         $preference->status = 1;
-        
+
         $preference->save();
-        
+
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
-    
+
     public function deleteByProgram(Request $request, $prid) {
         $preference = Preference::find($prid);
         $pid = $preference->id_from;
@@ -213,22 +213,22 @@ class PreferenceController extends Controller
         $preference->delete();
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
-    
+
     // by program - uncoordinated
     public function addUncoordinatedProgram(Request $request, $pid) {
-        
+
         //for the program
         $preference = new Preference;
-        
+
         $preference->id_from = $pid;
         $preference->id_to = $request->aid;
         $preference->pr_kind = 3;
         //temp: which rank? now by time order
         $preference->rank = 1;
         $preference->status = 1;
-        
+
         $preference->save();
-        
+
         //temp?!
         //for the applicant
         //check if a hight ranking from applicant side exists
@@ -250,25 +250,25 @@ class PreferenceController extends Controller
         }*/
         return redirect()->action('PreferenceController@showByProgram', $pid);
     }
-    
+
     public function createCoordinatedPreferences() {
         $Program = new Program;
         $Preference = new Preference;
         $Applicant = new Applicant;
-        
+
         //get all programs with coordination = true
         $programs = $Program->getCoordinated();
         $applicants = $Applicant->getAll();
-        
+
         foreach ($programs as $program) {
             $providerId = $Program->getProviderId($program->pid);
             if ($providerId) {
-                $provider = true; 
+                $provider = true;
             } else {
                 $provider = false;
             }
             $applicantsByProgram = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
-            
+
             $rank = 1;
             foreach ($applicantsByProgram as $applicant) {
                 //look if preference exists and if it must be updated
@@ -277,7 +277,7 @@ class PreferenceController extends Controller
                     ->where('id_to', '=', $applicant->aid)
                     ->where('pr_kind', '=', 2)
                     ->where('status', '=', 1);
-                
+
                 $request = new Request();
                 $request->setMethod('POST');
                 $request->request->add(['from' => $program-pid,
@@ -286,7 +286,7 @@ class PreferenceController extends Controller
                                         'rank' => $rank,
                                         'status' => 1
                                       ]);
-                
+
                 if ($preference != null) {
                     //update
                     $request->request->add(['pid' => $preference-pid,
@@ -301,12 +301,11 @@ class PreferenceController extends Controller
             }
         }
     }
-    
+
     public function getLowestRankApplicant($aid) {
         //tmp: pr_kind = 4
         $sql = "SELECT rank FROM preferences WHERE id_from = " . $aid . " AND (pr_kind = 1 OR pr_kind = 4) ORDER BY rank DESC LIMIT 1";
         $lowestRank = DB::select($sql);
-        echo $lowestRank['0']->rank;
         if ($lowestRank['0']->rank) {
             $rank = $lowestRank['0']->rank;
         } else {
