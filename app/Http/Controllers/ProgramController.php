@@ -61,8 +61,6 @@ class ProgramController extends Controller
         $program->city = $request->city;
         $program->phone = $request->phone;
         $program->save();
-
-        dd($request);
         //tmp
         $this->setValid($program->id);
 
@@ -115,11 +113,7 @@ class ProgramController extends Controller
 	}
 
     public function setValid($pid) {
-        $request = new Request();
-        $request->setMethod('POST');
-        $request->request->add(['pid' => $pid,
-                               'status' => 12]);
-        $this->update($request);
+        Program::where('pid', $pid)->update(array('status' => '12'));
     }
 
     public function setNonActive($pid) {
