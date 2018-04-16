@@ -39,6 +39,14 @@ class Program extends Model
         return $programs;
     }
 
+		protected $dates = [
+				'created_at',
+				'updated_at',
+				'deleted_at',
+				//
+				'birthday'
+		];
+
     public $primaryKey = 'pid';
     public $timestamps = false;
 

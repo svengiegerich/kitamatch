@@ -4,9 +4,9 @@
 
 <div class="panel-body">
     <h4>Program {{$program->name}} - uncoordinated process</h4>
-    
+
     <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
-    
+
     <table class="table">
         <thead>
             <tr>
@@ -22,7 +22,7 @@
         <tbody>
             @foreach($availableApplicants as $applicant)
             <tr
-                <?php if (array_key_exists($applicant->aid, $offers)) { 
+                <?php if (array_key_exists($applicant->aid, $offers)) {
                         if ($offers[$applicant->aid] > 0) {
                             echo 'class="table-info"';
                         } else if ($offers[$applicant->aid] == -1) {
@@ -34,12 +34,12 @@
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
-                <td>{{$applicant->birthday}}</td>
+                <td>{{$applicant->birthday->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
-                    <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST"> 
+                    <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="aid" value="{{$applicant->aid}}">
                         <button>Offer</button>
