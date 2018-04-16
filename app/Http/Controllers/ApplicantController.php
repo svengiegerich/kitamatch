@@ -38,9 +38,6 @@ class ApplicantController extends Controller
         $applicant->status = 21;
         $applicant->save();
 
-        //tmp: set all valid
-        $this->setValid($applicant->id);
-
         return $applicant;
     }
 
