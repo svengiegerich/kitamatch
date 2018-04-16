@@ -88,21 +88,15 @@ class RegisterController extends Controller
             $request = new Request();
             $request->setMethod('POST');
             if ($data['accountType'] == 2) {
-                echo "ho";
                 $p_kind = 1;
                 $coordination = 1;
             } else if ($data['accountType'] == 3) {
-                echo "ha";
                 $p_kind = 2;
                 $coordination = 0;
             }
             $request->request->add(['uid' => $user->id,
                                    'coordination' => $coordination,
-                                   'p_kind' => $p_kind,
-                                   //tmp
-                                   'status' => 1]);
-
-                                   dd($request);
+                                   'p_kind' => $p_kind]);
 
             app('App\Http\Controllers\ProgramController')->store($request);
         } else {

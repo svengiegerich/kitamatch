@@ -47,7 +47,6 @@ class ProgramController extends Controller
 
     public function store(Request $request) {
         //Validation
-
         $program = new Program;
         $program->uid = $request->uid;
         $program->proid = $request->proid;
@@ -62,6 +61,8 @@ class ProgramController extends Controller
         $program->city = $request->city;
         $program->phone = $request->phone;
         $program->save();
+
+        dd($request);
         //tmp
         $this->setValid($program->id);
 
