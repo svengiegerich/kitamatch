@@ -18,12 +18,12 @@ class CriteriumController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function show($p_id) {
         $criteria = Criterium::where('p_id', '=', $p_id)
             ->orderBy('rank', 'asc')
             ->get();
-        
+
         //no criteria found, duplicate default criteria
         if (!($criteria->first())) {
             $request = new Request();
@@ -32,21 +32,21 @@ class CriteriumController extends Controller
                                    'p_id' => $p_id,
                                    'program' => 0]);
             $this->store($request);
-            
+
             $criteria = Criterium::where('p_id', '=', $p_id)
                 ->orderBy('rank', 'asc')
                 ->get();
         }
-        
+
         return view('criterium.edit', array('criteria' => $criteria));
     }
-    
+
     public function showByProgram($programId) {
         $criteria = Criterium::where('p_id', '=', $programId)
             ->where('program', '=', 1)
             ->orderBy('rank', 'asc')
-            ->get(); 
-        
+            ->get();
+
         //no criteria found, duplicate default criteria
         if (!($criteria->first())) {
             $request = new Request();
@@ -55,36 +55,40 @@ class CriteriumController extends Controller
                                    'p_id' => $programId,
                                    'program' => 1]);
             $this->storeByProgram($request);
-            
+
             $criteria = Criterium::where('p_id', '=', $programId)
                 ->where('program', '=', 1)
                 ->orderBy('rank', 'asc')
                 ->get();
         }
-        
+
+        foreach ($criteria as $criterium) {
+          $criterium->code_description = Code::where('code', '=', $criterium->criterium_value)->first()->value;
+        }
+
         return view('criterium.edit', array('criteria' => $criteria));
     }
-    
+
     public function editAjax(Request $request, $p_id) {
         $criteriaIds = $request->all();
         /*$orderList = [];
         $i = 1;*/
         //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
-        
+
         parse_str($request->order, $criteria);
         foreach ($criteria['item'] as $index => $criteriumId) {
             $criterium = Criterium::find($criteriumId);
             $criterium->rank = $index+1;
             $criterium->save();
         }
-        
+
         return response()->json([
             'success' => true
-        ]); 
+        ]);
     }
-    
+
     public function store(Request $request) {
-        
+
         //duplicate default criteria
         if ($request->store_type == 1) {
             $defaultCriteria = Criterium::where('p_id', '=', -1)->get();
@@ -100,7 +104,7 @@ class CriteriumController extends Controller
             }
         }
     }
-    
+
     public function edit(Request $request) {
         $criterium = Criterium::find($request->cid);
         if ($request->criterium_name) { $criterium->criterium_name = $request->criterium_name; }
@@ -112,7 +116,7 @@ class CriteriumController extends Controller
         $criterium->save();
         return $criterium;
     }
-                                    
+
     private function storeByProgram(Request $request) {
         $request->request->add(['program' => 1]);
         $this->store($request);

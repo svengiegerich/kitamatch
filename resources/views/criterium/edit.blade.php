@@ -8,14 +8,14 @@
     <div class="col-md-8">
         <h4>Your Criteria</h4>
         <br />
-        
+
         <script>
         $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-            
+
         $(function() {
             $('#sortable').sortable({
                 axis: 'y',
@@ -36,11 +36,11 @@
             $( "tbody" ).disableSelection();
         });
         </script>
-        
+
         <ul id="sortable">
             {{ csrf_field() }}
             @foreach ($criteria as $criterium)
-                <li id="item-{{$criterium->cid}}">{{$criterium->criterium_name}}: ({{$criterium->criterium_value}})</li>
+                <li id="item-{{$criterium->cid}}">({{$criterium->code_description}})</li>
              @endforeach
         </ul>
     </div>
@@ -56,6 +56,6 @@
         @endif
     </div>
 </div>
-    
+
 
 @endsection
