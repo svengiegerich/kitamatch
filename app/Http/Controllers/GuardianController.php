@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Guardian;
 use App\Applicant;
+use App\User;
 
 class GuardianController extends Controller
 {
