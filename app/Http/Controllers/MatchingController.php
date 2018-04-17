@@ -47,7 +47,7 @@ class MatchingController extends Controller
 
         $input = $this->prepareMatching();
 
-        print_r($input);
+        print_r(json_encode($input));
 
         echo "<br><br><br><br><br><br>";
 
