@@ -22,7 +22,7 @@ use App\Traits\GetPreferences;
 class MatchingController extends Controller
 {
     use GetPreferences;
-    
+
     public function store($request, $status) {
         $match = new Matching;
         $match->aid = $request['student'];
@@ -30,48 +30,51 @@ class MatchingController extends Controller
         $match->status = $status;
         $match->save();
     }
-    
+
     public function all() {
         $matches = DB::table('matches')->whereIn('status', [31, 32])->get();
         return view('matching.all', array('matches' => $matches));
     }
-    
+
     public function findMatchings() {
         $Program = new Program;
         $Applicant = new Applicant;
         $Preference = new Preference;
         $Matching = new Matching;
-        
+
         //tmp
         //app('App\Http\Controllers\ProgramController')->activityCheck();
-        
+
         $input = $this->prepareMatching();
-        
+
         print_r($input);
-        
+
+        echo "<br><br><br><br><br><br>";
+
         //GuzzleHttp\Client
-		$client = new Client(); 
-		$response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal', [
-			'auth' => [
-				'mannheim', 'Exc3llence!'
-			],
-			'body' =>
-				json_encode($input),
-            'headers' => ['Accept' => 'application/json']
-		]);
-        
-        //status code: $response->getStatusCode(); 
-        
-        //write the matches 
+		      $client = new Client();
+		        $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
+            [
+			           'auth' => [
+				               'mannheim', 'Exc3llence!'
+			                  ],
+			           'body' =>
+				             json_encode($input),
+                 'headers' => ['Accept' => 'application/json']
+		        ]);
+
+        //status code: $response->getStatusCode();
+
+        //write the matches
         $result = json_decode($response->getBody(), true);
         $matchingResult = $result['hri_matching'];
-        
+
         print_r($result);
-        
+        /*
         //temp: set active = 0 for all previous entries
         $Matching->resetMatches();
         $Preference->resetUncoordinated();
-        
+
         //store the positiv matches
         foreach ($matchingResult as $match) {
             //check if it's the final match
@@ -82,12 +85,12 @@ class MatchingController extends Controller
             } else {
                 $this->store($match, 31);
             }
-            
+
             //tmp
             //check if program is uncoordinated
             $coordination = $Program->isCoordinated((int)$match['college']);
             if ($coordination == 0) {
-                
+
                 // if then update prefs back to 1
                 $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
                 echo ";";
@@ -99,24 +102,24 @@ class MatchingController extends Controller
                     }
                 }
             }
-        }
+        }*/
         //return redirect()->action('MatchingController@all');
     }
-    
+
     public function prepareMatching() {
         //https://matchingtools.com/#operation/hri_demo
         $Preference = new Preference;
         $Applicant = new Applicant;
-        
+
         $json = [];
 		$preferencesApplicants = [];
-        
+
         //--------------------
 		//by applicant
         $applicants = $Applicants->getAll();
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
-			
+
 			$preferenceList = array();
 			foreach ($preferencesByApplicant as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
@@ -127,20 +130,20 @@ class MatchingController extends Controller
             }
         }
 		$json["student_prefs"] = $preferencesApplicants;
-        
+
         //--------------------
         //by program
-        
+
         //-first: only program that take part in the coordinated way
         $programsC = DB::table('programs')
-            //tmpc 
+            //tmpc
             //exclude status code 13: inactive for 7 days
             ->whereIn('status', [1, 12])
             ->where('coordination', '=', 1)
             ->get();
         foreach ($programsC as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
-            
+
 			$preferenceList = array();
 			foreach ($preferencesByProgram as $preference) {
 				$preferenceList[] = (string)$preference->id_to;
@@ -150,7 +153,7 @@ class MatchingController extends Controller
                 $preferencesPrograms[$program->pid] = $preferenceList;
             }
         }
-		
+
         //-second: add the programs that take the uncoordinated way
         $programsU = DB::table('programs')
             ->whereIn('status', [1, 12])
@@ -172,9 +175,9 @@ class MatchingController extends Controller
         }
 
         $json["college_prefs"] = $preferencesPrograms;
-        
+
         //--------------------
-        
+
         //by capacity
 		$capacityList = array();
 		$Program = new program;
@@ -185,7 +188,7 @@ class MatchingController extends Controller
 			    $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
             }
 		}
-        
+
         //uncoordinated
         foreach ($programsU as $program) {
             if ($Preference->hasPreferencesByProgram($program->pid)) {
