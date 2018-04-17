@@ -97,6 +97,7 @@ class ProgramController extends Controller
         $program->coordination = $request->coordination;
         //p_kind = 1, so coordination needs to be 1
         if ($program->p_kind == 1) { $program->coordination = 1; }
+        if (!$request->coordination) { $program->coordiantion = 0; }
         $program->capacity = $request->capacity;
         $program->address = $request->address;
         $program->plz = $request->plz;
