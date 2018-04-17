@@ -116,7 +116,7 @@ class MatchingController extends Controller
 
         //--------------------
 		//by applicant
-        $applicants = $Applicants->getAll();
+        $applicants = $Applicant->getAll();
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 
