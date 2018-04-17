@@ -138,7 +138,7 @@ class MatchingController extends Controller
         $programsC = DB::table('programs')
             //tmpc
             //exclude status code 13: inactive for 7 days
-            ->whereIn('status', [1, 12])
+            ->where('status', '=',12)
             ->where('coordination', '=', 1)
             ->get();
         foreach ($programsC as $program) {
@@ -156,8 +156,8 @@ class MatchingController extends Controller
 
         //-second: add the programs that take the uncoordinated way
         $programsU = DB::table('programs')
-            ->whereIn('status', [1, 12])
-            ->where('coordination', '=', 1)
+            ->where('status', '=', 12)
+            ->where('coordination', '=', 0)
             ->get();
         foreach ($programsU as $program) {
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
