@@ -4,6 +4,12 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+<style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 80%; }
+  #sortable li { margin: 30px; padding: 0px 0px 30px 30px; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; margin-top: 6px; }
+</style>
+
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h4>
@@ -15,10 +21,10 @@
                 <label for="to" class="col-sm-2 col-form-label">Program</label>
                 <div class="col-sm-6">
                     {!! Form::select('to', $programs,false,
-                        array('id' => 'preference-id-to', 
-                              'class' => 'form-control') 
+                        array('id' => 'preference-id-to',
+                              'class' => 'form-control')
                     )  !!}
-                </div>  
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
         </form>
@@ -70,55 +76,16 @@
                 $( "#sortable" ).disableSelection();
             });
         </script>
-        
+
         <ul id="sortable">
             {{ csrf_field() }}
             @foreach ($preferences as $preference)
-                <li id="item-{{$preference->prid}}">
+                <li id="item-{{$preference->prid}}" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                     {{$preference->prid}}: {{$preference->programName}}
                     <a class="delete" href="#">X</a>
                 </li>
              @endforeach
         </ul>
-    </div>
-</div>
-@endif
-
-@if (count($preferences) > 0)
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <h4>List of Preferences</h4>
-        <table class="table table-hover">
-            <thead>
-                  <th>PrID</th>
-                  <th>Program</th>
-                  <th>Rank</th>
-                  <th>&nbsp;</th>
-            </thead>
-            <tbody>
-                @foreach ($preferences as $preference)
-                    <tr>
-                        <th>
-                            <div>{{ $preference->prid }}</div>
-                        </th>
-                                <td>
-                                    <div>{{ $preference->id_to }}</div>
-                                </td>
-                                <td>
-                                    <div>{{ $preference->rank }}</div>
-                                </td>
-                                <td>
-                                    <form action="/preference/applicant/{{ $preference->prid }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-
-                                        <button>Delete</button>
-                                    </form>
-                                </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-        </table>
     </div>
 </div>
 @endif

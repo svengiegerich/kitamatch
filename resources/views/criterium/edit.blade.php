@@ -6,7 +6,7 @@
 
 <style>
   #sortable { list-style-type: none; margin: 0; padding: 0; width: 80%; }
-  #sortable li { margin: 40px; padding: 0px 0px 30px 30px; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li { margin: 30px; padding: 0px 0px 30px 30px; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
   #sortable li span { position: absolute; margin-left: -1.3em; margin-top: 6px; }
 </style>
 
