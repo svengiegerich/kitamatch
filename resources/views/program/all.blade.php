@@ -4,7 +4,7 @@
 
 <div class="col-md-8 order-md-1" >
     <h4>List of Programs</h4>
-    
+
     <table>
         <tr>
             <th>ID</th>
@@ -36,9 +36,6 @@
             </tr>
         @endforeach
     </table>
-    
-    <hr class="mb-4">
-    <a href="/program/add"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
 </div>
 
 @endsection

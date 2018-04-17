@@ -2,6 +2,12 @@
 
 @section('content')
 
+<script>
+  $(document).ready( function () {
+    $('#matches').DataTable();
+  } );
+</script>
+
 <div class="row justify-content-center">
     <div class="col-md-8">
 
@@ -12,10 +18,14 @@
         <br>
         See all programs: <a href="/program/all"><button>Programs</button></a>
 
+        <br><br>
+
         <h5>13/xx (Final/Open) Applicants</h5>
 
-        All Matches:
-        <table class="table">
+        <br><br>
+
+        <h5>All Matches:</h5>
+        <table class="table" id="matches">
             <thead>
                 <tr>
                     <th>Program</th>
