@@ -33,6 +33,12 @@ class MatchingController extends Controller
 
     public function all() {
         $matches = DB::table('matches')->whereIn('status', [31, 32])->get();
+        foreach ($matches as $match) {
+          $applicant = Applicant::where('aid', '=', $match->aid)->first();
+          $match->applicant_name = $applicant->last_name . " " . $applicant->first_name;
+          $program = Program::where('pid', '=', $match->pid)->first();
+          $match->program_name = $program->name;
+        }
         return view('matching.all', array('matches' => $matches));
     }
 

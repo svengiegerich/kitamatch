@@ -8,17 +8,17 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Program</th>
             <th>Applicant</th>
-            <th>College</th>
             <th>Status</th>
         </tr>
     </thead>
     <tbody>
         @foreach($matches as $match)
             <tr>
-                <td><a target="_blank" href="/preference/applicant/{{$match->aid}}">{{$match->aid}}</a></td>
-                <td><a target="_blank" href="/preference/program/{{$match->pid}}">{{$match->pid}}</a></td>
-                <td>{{$match->status}}</td>
+              <td><a target="_blank" href="/preference/program/{{$match->pid}}">{{$match->program_name}}</a></td>
+              <td><a target="_blank" href="/preference/applicant/{{$match->aid}}">{{$match->applicant_name}}</a></td>
+              <td>{{$match->status}}</td>
             </tr>
         @endforeach
     </tbody>
