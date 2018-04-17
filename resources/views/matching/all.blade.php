@@ -2,7 +2,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <h4>Current Matches</h4>
 
 <table class="table">
@@ -23,5 +22,4 @@
         @endforeach
     </tbody>
 </table>
-
 @endsection
