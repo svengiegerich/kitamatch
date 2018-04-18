@@ -104,7 +104,7 @@ class Preference extends Model
                 //no guardian -> order = 10000, to order asc
                 $applicant->order = 1000;
             }
-
+            echo "ho";
             //highly important applicants
             if ($applicant->status == 25) {
                 echo "hey";
