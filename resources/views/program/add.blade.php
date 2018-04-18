@@ -5,7 +5,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Add Program</h4>
-    
+
         <form action="/program/add/{{$provider->proid}}" method="POST" class="">
             {{ csrf_field() }}
 
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
                 <div class="col-sm-10">
@@ -38,14 +38,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <label for="phone" class="col-sm-2 col-form-label">Phone</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="">
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <label for="plz" class="col-sm-2 col-form-label">PLZ</label>
                 <div class="col-sm-3">
@@ -66,7 +66,7 @@
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="">
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <label for="kind" class="col-sm-2 col-form-label">Kind</label>
                 <div class="col-sm-10">
@@ -77,16 +77,6 @@
                     <div class="invalid-feedback">
                         Please enter a valid kind.
                     </div>
-                </div>
-            </div>
-            
-            <div class="form-group row">
-                <div class="col-sm-2 col-form-label"></div>
-                <div class="col-sm-8">
-                    {{ Form::checkbox('coordination', 1, ['class' => 'form-check-input', 'id' => 'coordination']) }}
-                    <label class="form-check-label" for="coordination">
-                        Coordination
-                    </label>
                 </div>
             </div>
 
