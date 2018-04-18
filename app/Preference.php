@@ -89,8 +89,6 @@ class Preference extends Model
             ->get();
         }
 
-        dd($criteria);
-
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
 
@@ -113,6 +111,8 @@ class Preference extends Model
             }
         }
 
+        dd($applicants);
+        echo "test<br><br>";
         //tmp: add geocoordinated way
         //sort by birthday on the same level
         //https://github.com/laravel/ideas/issues/11
@@ -126,6 +126,7 @@ class Preference extends Model
             }
             return $a->order < $b->order ? -1 : 1;
         });
+        dd($applicants);
         return $applicants;
     }
 
