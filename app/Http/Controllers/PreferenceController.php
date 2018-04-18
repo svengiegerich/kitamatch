@@ -289,17 +289,15 @@ class PreferenceController extends Controller
                                         'rank' => $rank,
                                         'status' => 1
                                       ]);
-                dd($request);
-                /*if ($preference != null) {
+                if ($preference != null) {
                     //update
-                    $request->request->add(['pid' => $preference->pid,
-                                        'rank' => $rank
+                    $request->request->add(['pid' => $preference->id
                                       ]);
                     $this->update($request);
                 } else {
                     //generate preference
                     $this->store($request);
-                }*/
+                }
                 $rank = $rank + 1;
             }
         }
