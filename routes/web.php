@@ -31,14 +31,12 @@ Auth::routes();
 //Applicant
 Route::get('/applicant', 'ApplicantController@all');
 Route::get('/applicant/all', 'ApplicantController@all');
-
 Route::get('/applicant/add/{gid}', 'ApplicantController@add');
-//Route::get('/applicant/add', 'ApplicantController@add');
 Route::post('/applicant/add/{gid}', 'ApplicantController@create');
-
 Route::get('/applicant/{applicant}', 'ApplicantController@show');
 Route::post('/applicant/{applicant}', 'ApplicantController@edit');
 Route::delete('/applicant/{applicant}', 'ApplicantController@delete');
+Route::get('applicant/setPriority/{aID}', 'ApplicantController@setPriority'):
 
 //Program
 Route::get('/program', 'ProgramController@all');

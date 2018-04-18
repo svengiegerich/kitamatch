@@ -2,10 +2,21 @@
 
 @section('content')
 
+<script>
+  $(document).ready( function () {
+    $('#programs').DataTable( {
+            "language": {
+                "url": "dataTables.german.lang"
+            }
+        } );
+  } );
+</script>
+
 <div class="col-md-8 order-md-1" >
     <h4>List of Programs</h4>
 
-    <table>
+    <table class="table" id="programs">
+      <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -16,10 +27,12 @@
             <th>Status</th>
             <th>&nbsp;</th>
         </tr>
+      </thead>
+      <tbody>
         @foreach($programs as $program)
             <tr>
-                <td><a href="/preference/program/{{$program->pid}}">{{$program->pid}}</a></td>
-                <td>{{$program->name}}</td>
+                <td>{{$program->pid}}</td>
+                <td><a href="/preference/program/{{$program->pid}}">{{$program->name}}</a></td>
                 <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>
                 <td>{{$program->p_kind}}</td>
@@ -35,6 +48,7 @@
                 </td>
             </tr>
         @endforeach
+      </tbody>
     </table>
 </div>
 

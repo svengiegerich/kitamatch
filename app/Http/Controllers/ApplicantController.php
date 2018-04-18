@@ -84,18 +84,10 @@ class ApplicantController extends Controller
     }
 
     public function setValid($aid) {
-        $request = new Request();
-        $request->setMethod('POST');
-        $request->request->add(['aid' => $aid,
-                               'status' => 22]);
-        $this->update($request);
+        Applicant::where('aid', '=', $aid)->update(array('status' => '22'));
     }
 
     public function setPriority($aid) {
-        $request = new Request();
-        $request->setMethod('POST');
-        $request->request->add(['aid' => $aid,
-                               'status' => 25]);
-        $this->update($request);
+        Applicant::where('aid', '=', $aid)->update(array('status' => '25'));
     }
 }
