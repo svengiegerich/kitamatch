@@ -274,9 +274,10 @@ class PreferenceController extends Controller
             } else {
                 $provider = false;
             }
+            echo ($provider);
             $applicantsByProgram = $Preference->orderByCriteria($applicants, $providerId, $provider);
 
-            dd($applicantsByProgram);
+            //dd($applicantsByProgram);
 
             $rank = 1;
             foreach ($applicantsByProgram as $applicant) {
