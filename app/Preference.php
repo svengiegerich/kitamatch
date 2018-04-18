@@ -80,7 +80,6 @@ class Preference extends Model
                 ->where('program', '=', 1)
                 ->orderBy('rank', 'asc')
                 ->get();
-                echo "single";
         }
 
         //tmp: if criteria is null, use the default order (indicated by providerId = -1)
@@ -88,10 +87,7 @@ class Preference extends Model
             $criteria = Criterium::where('p_id', '=', -1)
             ->orderBy('rank', 'asc')
             ->get();
-            echo "default";
         }
-
-        dd($criteria);
 
         foreach($applicants as $applicant) {
             $guardian = Guardian::find($applicant->gid);
