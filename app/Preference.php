@@ -107,6 +107,7 @@ class Preference extends Model
 
             //highly important applicants
             if ($applicant->status == 25) {
+                echo "hey";
                 $applicant->order = 0;
             }
         }

@@ -5,10 +5,10 @@
     <div class="col-md-8">
         <h4>Edit your Profil</h4>
         <br />
-        
+
         <form action="/guardian/{{$guardian->gid}}" method="POST">
             {{ csrf_field() }}
-            
+
             <div class="form-group row">
                 <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
                 <div class="col-sm-10">
@@ -39,8 +39,8 @@
                 <div class="col-sm-3">
                   <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$guardian->plz}}">
                 </div>
-                <label for="city" class="col-sm-2 col-form-label">City</label>
-                <div class="col-sm-5">
+                <label for="city" class="col-sm-1 col-form-label">City</label>
+                <div class="col-sm-6">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$guardian->city}}">
                 </div>
             </div>
@@ -50,41 +50,39 @@
                     {!! Form::select('siblings', array('840' => 'No',
                                                        '841' => 'Yes'),
                         $guardian->siblings,
-                        array('id' => 'siblings', 
-                              'class' => 'form-control') 
+                        array('id' => 'siblings',
+                              'class' => 'form-control')
                     )  !!}
                 </div>
             </div>
             <div class="form-group row">
                 <label for="parentalStatus" class="col-sm-2 col-form-label">Parental status</label>
                 <div class="col-sm-10">
-                    {!! Form::select('parentalStatus', array('' => '',
-                                                                        '822' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
-                                                                        '821' => 'Beide Erziehungsberechtigten sind beschäftigt',
-                                                                        '820' => 'Alleinerziehend und beschäftigt',
-                                                                        '823' => 'Alleinerziehend ohne Beschäftigung'),
-                                            $guardian->parental_status,
+                    {!! Form::select('parentalStatus', array('822' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
+                                                            '821' => 'Beide Erziehungsberechtigten sind beschäftigt',
+                                                            '820' => 'Alleinerziehend und beschäftigt',
+                                                            '823' => 'Alleinerziehend ohne Beschäftigung'),
+                                                            $guardian->parental_status,
                     array('id' => 'parentalStatus', 'class' => 'form-control') )  !!}
                 </div>
             </div>
             <div class="form-group row">
                 <label for="volumeOfEmployment" class="col-sm-2 col-form-label">Volume of employment</label>
                 <div class="col-sm-10">
-                    {!! Form::select('volumeOfEmployment', array('' => '',
-                                                                        '833' => 'ohne Beschäftigung',
+                    {!! Form::select('volumeOfEmployment', array('833' => 'ohne Beschäftigung',
                                                                         '832' => '8-15 Stunden/Woche',
                                                                         '831' => '16-27 Stunden/Woche',
                                                                         '830' => 'ab 28 Stunden/Woche'),
-                                            $guardian->volume_of_employment,
+                                                                        $guardian->volume_of_employment,
                     array('id' => 'volumeOfEmployment', 'class' => 'form-control') )  !!}
 
                 </div>
             </div>
-            
+
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
         </form>
-        
+
         <hr class="mb-4">
     </div>
 </div>
@@ -93,15 +91,15 @@
     <div class="col-md-8">
         <h4>My applicants</h4>
         <br>
-        
+
         @foreach ($applicants as $applicant)
             <a href="/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">{{$applicant->last_name}} {{$applicant->first_name}}</button></a>
             <br>
         @endforeach
-        
-        <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-primary btn-lg btn-block">Add applicant</button></a>
+
+        <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block">Add applicant</button></a>
         <br>
     </div>
 </div>
-    
+
 @endsection
