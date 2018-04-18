@@ -60,8 +60,14 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
+      @if ($applicant->status == 25)
+      <button class="btn btn-success btn-lg btn-block">Priority set</button>
+      <hr class="mb-4">
+      @endif
+      @if ($applicant->status != 25)
       <a href="/applicant/setPriority/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Set priority</button></a>
       <hr class="mb-4">
+      @endif
 
       <h4>Preferences</h4>
       <a href="/preference/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Go to preferences</button></a>
