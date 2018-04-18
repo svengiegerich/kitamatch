@@ -122,8 +122,8 @@ class Preference extends Model
             }
             return $a->order < $b->order ? 1 : -1;
         });
+        dd($applicants);
         return $applicants;
     }
-    dd($applicants);
     public $primaryKey = 'prid';
 }
