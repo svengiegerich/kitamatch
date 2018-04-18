@@ -149,7 +149,6 @@ class PreferenceController extends Controller
             $Preference = new Preference;
             $availableApplicants = $Preference->getAvailableApplicants($pid);
             $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
-            dd($availableApplicants);
             //mark every active or closed offer
             //1: active, -1: no match
             //temp: easier?
