@@ -26,7 +26,7 @@
         </ul>
         <br><br>
 
-        <h5>{{$data['applicantsFinal']}} / {{$data['applicantsCount']}} (Final/All) Applicants</h5>
+        <h5>{{count($matches)}} / {{$data['applicantsCount']}} (Final/All) Applicants</h5>
 
         <br><br>
 
