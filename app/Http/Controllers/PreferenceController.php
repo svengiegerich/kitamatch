@@ -46,7 +46,7 @@ class PreferenceController extends Controller
     }
 
     private function update(Request $request) {
-        $preference = Preference::findOrFail($request->pid);
+        $preference = Preference::findOrFail($request->prid);
 
         $preference->id_from = $request->from;
         $preference->id_to = $request->to;
@@ -291,9 +291,8 @@ class PreferenceController extends Controller
                                       ]);
                 if ($preference != null) {
                     //update
-                    dd($preference);
-                    //$request->request->add(['pid' => $preference->id]);
-                    //$this->update($request);
+                    $request->request->add(['prid' => $preference->prid]);
+                    $this->update($request);
                 } else {
                     //generate preference
                     $this->store($request);
