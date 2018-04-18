@@ -285,7 +285,7 @@ class PreferenceController extends Controller
                                         'rank' => $rank,
                                         'status' => 1
                                       ]);
-
+                dd($request);
                 /*if ($preference != null) {
                     //update
                     $request->request->add(['pid' => $preference->pid,
