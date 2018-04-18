@@ -21,19 +21,22 @@ class AdminController extends Controller
         $program = Program::where('pid', '=', $match->pid)->first();
         $match->program_name = $program->name;
       }
+      $data = $this->generateDashboard();
 
-
-      return view('admin.dashboard', array('matches' => $matches));
+      return view('admin.dashboard', array('matches' => $matches,
+    'data' => $data));
     }
 
     private function generateDashboard() {
         $Applicant = new Applicant;
         $Program = new Program;
-        $data = [];
-
-        $applicants = $Applicant->getAll();
+        $data = new array();
+        $applicants = Applicant::all()->get();
+        $data['applicantsCount'] = count($applicants);
+        $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
         //
         //$countFinalMatches = "applicant-code-26";
         //$countOpen = all - $countFinalMatches;
+        return $data;
     }
 }

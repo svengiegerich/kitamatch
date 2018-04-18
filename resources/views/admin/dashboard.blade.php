@@ -4,7 +4,11 @@
 
 <script>
   $(document).ready( function () {
-    $('#matches').DataTable();
+    $('#matches').DataTable( {
+            "language": {
+                "url": "dataTables.german.lang"
+            }
+        } );
   } );
 </script>
 
@@ -13,14 +17,16 @@
 
         <h4>Dashboard</h4>
         <br>
-
-        Verify applicants: <a href="/guardian/all"><button>Applicants</button></a>
-        <br>
-        See all programs: <a href="/program/all"><button>Programs</button></a>
-
+        <ul>
+          <li>Verify applicants: <a href="/guardian/all"><button>Applicants</button></a>
+          </li>
+          <li>
+            See all programs: <a href="/program/all"><button>Programs</button></a>
+          </li>
+        </ul>
         <br><br>
 
-        <h5>13/xx (Final/Open) Applicants</h5>
+        <h5>{{$data['applicantFinal']}} / {{$data['applicantCount']}} (Final/All) Applicants</h5>
 
         <br><br>
 
