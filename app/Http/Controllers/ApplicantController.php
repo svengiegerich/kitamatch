@@ -89,5 +89,6 @@ class ApplicantController extends Controller
 
     public function setPriority($aid) {
         Applicant::where('aid', '=', $aid)->update(array('status' => '25'));
+        return redirect()->action('ApplicantController@show', $aid);;
     }
 }
