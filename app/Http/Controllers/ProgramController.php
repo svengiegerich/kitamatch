@@ -57,8 +57,8 @@ class ProgramController extends Controller
         $program->status = 12;
         $program->p_kind = $request->p_kind;
         $program->coordination = $request->coordination;
-        if ($program->p_kind == 1) { $program->coordination = 1; }
         if (!$request->coordination) { $program->coordination = 0; }
+        if ($program->p_kind == 1) { $program->coordination = 1; }
         $program->address = $request->address;
         $program->plz = $request->plz;
         $program->city = $request->city;
@@ -99,8 +99,8 @@ class ProgramController extends Controller
         $user = User::where('id', '=', $program->uid)->first();
         $program->coordination = $request->coordination;
         //p_kind = 1, so coordination needs to be 1
-        if ($program->p_kind == 1) { $program->coordination = 1; }
         if (!$request->coordination) { $program->coordination = 0; }
+        if ($program->p_kind == 1) { $program->coordination = 1; }
         $program->capacity = $request->capacity;
         $program->address = $request->address;
         $program->plz = $request->plz;
