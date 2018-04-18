@@ -2,12 +2,22 @@
 
 @section('content')
 
+<script>
+  $(document).ready( function () {
+    $('#offers').DataTable( {
+            "language": {
+                "url": "dataTables.german.lang"
+            }
+        } );
+  } );
+</script>
+
 <div class="panel-body">
     <h4>Program {{$program->name}} - uncoordinated process</h4>
 
     <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
 
-    <table class="table">
+    <table class="table" id="offers">
         <thead>
             <tr>
                 <th>ID</th>
