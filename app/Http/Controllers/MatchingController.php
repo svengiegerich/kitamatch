@@ -119,6 +119,8 @@ class MatchingController extends Controller
         $json = [];
         $preferencesApplicants = [];
 
+        app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
+
         //--------------------
         //by applicant
         $applicants = $Applicant->getAll();
@@ -188,18 +190,18 @@ class MatchingController extends Controller
         //--------------------
 
         //by capacity
-		$capacityList = array();
-		$Program = new program;
-        //coordinated
-		foreach ($programsC as $program) {
-			if ($Preference->hasPreferencesByProgram($program->pid)) {
-                $pid = (string)$program->pid;
-			    $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
-            }
-		}
+      $capacityList = array();
+      $Program = new program;
+      //coordinated
+      foreach ($programsC as $program) {
+        if ($Preference->hasPreferencesByProgram($program->pid)) {
+          $pid = (string)$program->pid;
+          $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+        }
+      }
 
-        //uncoordinated
-        foreach ($programsU as $program) {
+      //uncoordinated
+      foreach ($programsU as $program) {
             if ($Preference->hasPreferencesByProgram($program->pid)) {
                 $pid = (string)$program->pid;
                 $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
