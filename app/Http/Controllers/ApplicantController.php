@@ -23,8 +23,8 @@ class ApplicantController extends Controller
 
     public function create(Request $request, $gid) {
         $request->request->add(['gid' => $gid]);
-        $this->store($request);
-        return redirect()->action('GuardianController@show', ['gid' => $gid]);
+        $applicant = $this->store($request);
+        return redirect()->action('PreferenceController@showByApplicant', ['aid' => $applicant->aid]);
     }
 
     public function store(Request $request) {
