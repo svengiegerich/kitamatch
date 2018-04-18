@@ -82,7 +82,7 @@
             {{ csrf_field() }}
             @foreach ($preferences as $preference)
                 <li id="item-{{$preference->prid}}" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                    {{$preference->prid}}: {{$preference->programName}}
+                    {{$preference->programName}}
                     <a class="delete" href="#">X</a>
                 </li>
              @endforeach

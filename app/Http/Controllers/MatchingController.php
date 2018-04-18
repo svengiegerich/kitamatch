@@ -56,7 +56,7 @@ class MatchingController extends Controller
         print_r(json_encode($input));
 
         echo "<br><br><br><br><br><br>";
-
+/*
         //GuzzleHttp\Client
 		      $client = new Client();
 		        $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
@@ -75,7 +75,7 @@ class MatchingController extends Controller
         $result = json_decode($response->getBody(), true);
         $matchingResult = $result['hri_matching'];
 
-        print_r($result);
+        print_r($result);*/
         /*
         //temp: set active = 0 for all previous entries
         $Matching->resetMatches();
@@ -116,44 +116,44 @@ class MatchingController extends Controller
         //https://matchingtools.com/#operation/hri_demo
         $Preference = new Preference;
         $Applicant = new Applicant;
-
         $json = [];
-		$preferencesApplicants = [];
+        $preferencesApplicants = [];
 
         //--------------------
-		//by applicant
+        //by applicant
         $applicants = $Applicant->getAll();
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 
-			$preferenceList = array();
-			foreach ($preferencesByApplicant as $preference) {
-				$preferenceList[] = (string)$preference->id_to;
-			}
+            $preferenceList = array();
+            foreach ($preferencesByApplicant as $preference) {
+              $preferenceList[] = (string)$preference->id_to;
+            }
             //check if there are any preferences
             if (count($preferenceList) > 0) {
                 $preferencesApplicants[$applicant->aid] = $preferenceList;
             }
         }
-		$json["student_prefs"] = $preferencesApplicants;
+        if (count($preferencesApplicants)>0) {
+          $json["student_prefs"] = $preferencesApplicants;
+        } else {
+          return;
+        }
 
         //--------------------
         //by program
-
         //-first: only program that take part in the coordinated way
         $programsC = DB::table('programs')
-            //tmpc
             //exclude status code 13: inactive for 7 days
-            ->where('status', '=',12)
+            ->where('status', '=', 12)
             ->where('coordination', '=', 1)
             ->get();
         foreach ($programsC as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
-
-			$preferenceList = array();
-			foreach ($preferencesByProgram as $preference) {
-				$preferenceList[] = (string)$preference->id_to;
-			}
+            $preferenceList = array();
+            foreach ($preferencesByProgram as $preference) {
+              $preferenceList[] = (string)$preference->id_to;
+            }
             //check if there are any preferences
             if (count($preferenceList) > 0) {
                 $preferencesPrograms[$program->pid] = $preferenceList;
@@ -166,21 +166,24 @@ class MatchingController extends Controller
             ->where('coordination', '=', 0)
             ->get();
         foreach ($programsU as $program) {
-            $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
-			$preferenceList = array();
-			foreach ($preferencesByProgram as $preference) {
-				//list only active preferences
-                if ($preference->status == 1) {
-                    $preferenceList[] = (string)$preference->id_to;
-                }
-			}
-            //check if there are any preferences
-            if (count($preferenceList) > 0) {
-                $preferencesPrograms[$program->pid] = $preferenceList;
+          $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
+          $preferenceList = array();
+			    foreach ($preferencesByProgram as $preference) {
+				  //list only active preferences
+            if ($preference->status == 1) {
+              $preferenceList[] = (string)$preference->id_to;
             }
+			    }
+        //check if there are any preferences
+        if (count($preferenceList) > 0) {
+          $preferencesPrograms[$program->pid] = $preferenceList;
         }
-
+      }
+      if (count($preferencesPrograms) > 0) {
         $json["college_prefs"] = $preferencesPrograms;
+      } else {
+        return;
+      }
 
         //--------------------
 
