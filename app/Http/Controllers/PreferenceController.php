@@ -291,9 +291,9 @@ class PreferenceController extends Controller
                                       ]);
                 if ($preference != null) {
                     //update
-                    $request->request->add(['pid' => $preference->id
-                                      ]);
-                    $this->update($request);
+                    echo $preference->id;
+                    //$request->request->add(['pid' => $preference->id]);
+                    //$this->update($request);
                 } else {
                     //generate preference
                     $this->store($request);
