@@ -30,7 +30,7 @@ class AdminController extends Controller
     private function generateDashboard() {
         $Applicant = new Applicant;
         $Program = new Program;
-        $data = new array();
+        $data = array();
         $applicants = Applicant::all()->get();
         $data['applicantsCount'] = count($applicants);
         $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
