@@ -42,10 +42,8 @@ Route::get('applicant/setPriority/{aID}', 'ApplicantController@setPriority');
 Route::get('/program', 'ProgramController@all');
 Route::get('/program/all', 'ProgramController@all');
 Route::delete('/program/{program}', 'ProgramController@delete');
-
 Route::get('/program/add/{proid}', 'ProgramController@add');
 Route::post('/program/add/{proid}', 'ProgramController@create');
-
 Route::get('/program/{pID}', 'ProgramController@show');
 Route::post('/program/{pID}', 'ProgramController@edit');
 

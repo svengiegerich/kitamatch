@@ -40,6 +40,7 @@ class ProgramController extends Controller
             'proid' => $proid,
             'uid' => $user->id
         ]);
+        echo "Ho";
         $this->store($request);
 
         return redirect()->action('ProviderController@show', $proid);
@@ -62,6 +63,7 @@ class ProgramController extends Controller
         $program->phone = $request->phone;
         $program->save();
         //tmp
+        echo "ta";
         $this->setValid($program->id);
 
         return $program;
@@ -107,12 +109,13 @@ class ProgramController extends Controller
         return $program;
     }
 
-	public function getCapacity($pid) {
-		$program = Program::find($pid);
-		return $program->capacity;
-	}
+	  public function getCapacity($pid) {
+		    $program = Program::find($pid);
+		    return $program->capacity;
+	  }
 
     public function setValid($pid) {
+        echo "hey";
         Program::where('pid', '=', $pid)->update(array('status' => '12'));
     }
 
