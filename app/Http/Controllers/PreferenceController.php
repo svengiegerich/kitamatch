@@ -275,7 +275,7 @@ class PreferenceController extends Controller
                 $preference = Preference::where('id_from', '=', $program->pid)
                     ->where('id_to', '=', $applicant->aid)
                     ->where('pr_kind', '=', 2)
-                    ->where('status', '=', 1);
+                    ->where('status', '=', 1)->first();
 
                 $request = new Request();
                 $request->setMethod('POST');
