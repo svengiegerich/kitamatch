@@ -270,7 +270,7 @@ class PreferenceController extends Controller
 
             $rank = 1;
             foreach ($applicantsByProgram as $applicant) {
-                //look if preference exists and if it must be updated
+                //look if preference exists and if it has to be updated
                 //tmp
                 $preference = Preference::where('id_from', '=', $program->pid)
                     ->where('id_to', '=', $applicant->aid)
@@ -286,7 +286,7 @@ class PreferenceController extends Controller
                                         'status' => 1
                                       ]);
 
-                if ($preference != null) {
+                /*if ($preference != null) {
                     //update
                     $request->request->add(['pid' => $preference->pid,
                                         'rank' => $rank
@@ -295,7 +295,7 @@ class PreferenceController extends Controller
                 } else {
                     //generate preference
                     $this->store($request);
-                }
+                }*/
                 $rank = $rank + 1;
             }
         }
