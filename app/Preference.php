@@ -102,12 +102,12 @@ class Preference extends Model
                 }
             } else {
                 //no guardian -> order = 10000, to order asc
-                $applicant->order = 1000;
+                $applicant->order = 0;
             }
 
             //highly important applicants
             if ($applicant->status == 25) {
-                $applicant->order = 0;
+                $applicant->order = 100000;
             }
         }
         //tmp: add geocoordinated way
