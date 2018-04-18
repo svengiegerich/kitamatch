@@ -291,7 +291,7 @@ class PreferenceController extends Controller
                                       ]);
                 if ($preference != null) {
                     //update
-                    echo $preference->id;
+                    dd($preference);
                     //$request->request->add(['pid' => $preference->id]);
                     //$this->update($request);
                 } else {
