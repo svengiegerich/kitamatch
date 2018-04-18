@@ -31,7 +31,7 @@ class AdminController extends Controller
         $Applicant = new Applicant;
         $Program = new Program;
         $data = array();
-        $applicants = Applicant::all()->get();
+        $applicants = Applicant::all();
         $data['applicantsCount'] = count($applicants);
         $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
         //
