@@ -270,11 +270,13 @@ class PreferenceController extends Controller
         foreach ($programs as $program) {
             $providerId = $Program->getProviderId($program->pid);
             if ($providerId) {
+              echo "ho";
                 $provider = true;
             } else {
                 $provider = false;
+                echo "hey";
             }
-            echo ($provider);
+
             $applicantsByProgram = $Preference->orderByCriteria($applicants, $providerId, $provider);
 
             //dd($applicantsByProgram);
