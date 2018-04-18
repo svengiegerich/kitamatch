@@ -276,6 +276,8 @@ class PreferenceController extends Controller
             }
             $applicantsByProgram = $Preference->orderByCriteria($applicants, $providerId, $provider);
 
+            dd($applicantsByProgram);
+
             $rank = 1;
             foreach ($applicantsByProgram as $applicant) {
                 //look if preference exists and if it has to be updated
