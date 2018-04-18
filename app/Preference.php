@@ -107,7 +107,7 @@ class Preference extends Model
 
             //highly important applicants
             if ($applicant->status == 25) {
-                $applicant->order = 100000;
+                $applicant->order = 1000;
             }
         }
         //tmp: add geocoordinated way
