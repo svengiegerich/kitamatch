@@ -28,9 +28,10 @@ class ProgramController extends Controller
         $requestUser = new Request();
         $requestUser->setMethod('POST');
         //public: 1 -> account_type = 2, private: 2 -> account_type = 3
-        if ($request->kind == 1) { $accountType = 2; } else if ($request->kind == 2) { $accountType = 3; }
+        if ($request->p_kind == 1) { $accountType = 2; } else if ($request->p_kind == 2) { $accountType = 3; }
         $requestUser->request->add([
             'email' => $request->email,
+            //tmp: password
             'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
             'account_type' => $accountType
         ]);
@@ -55,15 +56,12 @@ class ProgramController extends Controller
         $program->status = 11;
         $program->p_kind = $request->p_kind;
         $program->coordination = $request->coordination;
-        if ($program->p_kind == 1) { $program->coordination = 1; }
-        if (!$request->coordination) { $program->coordiantion = 0; }
         $program->address = $request->address;
         $program->plz = $request->plz;
         $program->city = $request->city;
         $program->phone = $request->phone;
         $program->save();
         //tmp
-        dd($program);
         $this->setValid($program->id);
 
         return $program;
