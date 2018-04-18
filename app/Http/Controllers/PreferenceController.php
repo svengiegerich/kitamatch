@@ -280,7 +280,7 @@ class PreferenceController extends Controller
                     ->where('id_to', '=', $applicant->aid)
                     ->where('pr_kind', '=', 2)
                     ->where('status', '=', 1)->first();
-                dd($applicant->aid);
+                dd($program->pid);
                 $request = new Request();
                 $request->setMethod('POST');
                 $request->request->add(['from' => $program->pid,
