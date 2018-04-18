@@ -5,10 +5,8 @@
 <script>
   $(document).ready( function () {
     $('#offers').DataTable( {
-            "language": {
-                "url": "dataTables.german.lang"
-            }
-        } );
+      "aaSorting": []
+    } );
   } );
 </script>
 
