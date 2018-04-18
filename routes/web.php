@@ -36,7 +36,7 @@ Route::post('/applicant/add/{gid}', 'ApplicantController@create');
 Route::get('/applicant/{applicant}', 'ApplicantController@show');
 Route::post('/applicant/{applicant}', 'ApplicantController@edit');
 Route::delete('/applicant/{applicant}', 'ApplicantController@delete');
-Route::get('applicant/setPriority/{aID}', 'ApplicantController@setPriority'):
+Route::get('applicant/setPriority/{aID}', 'ApplicantController@setPriority');
 
 //Program
 Route::get('/program', 'ProgramController@all');
