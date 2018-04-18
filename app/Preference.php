@@ -74,9 +74,8 @@ class Preference extends Model
             $criteria = Criterium::where('p_id', '=', $p_Id)
                 ->orderBy('rank', 'asc')
                 ->get();
-                echo "provider";
         } else {
-            //singel program
+            //single program
             $criteria = Criterium::where('p_id', '=', $p_Id)
                 ->where('program', '=', 1)
                 ->orderBy('rank', 'asc')
@@ -85,7 +84,7 @@ class Preference extends Model
         }
 
         //tmp: if criteria is null, use the default order (indicated by providerId = -1)
-        if ($criteria === null) {
+        if ($criteria) {
             $criteria = Criterium::where('p_id', '=', -1)
             ->orderBy('rank', 'asc')
             ->get();
