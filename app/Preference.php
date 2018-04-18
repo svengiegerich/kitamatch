@@ -110,9 +110,6 @@ class Preference extends Model
                 $applicant->order = 0;
             }
         }
-
-        dd($applicants);
-        echo "test<br><br>";
         //tmp: add geocoordinated way
         //sort by birthday on the same level
         //https://github.com/laravel/ideas/issues/11
