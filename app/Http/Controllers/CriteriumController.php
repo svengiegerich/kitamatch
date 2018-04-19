@@ -39,6 +39,10 @@ class CriteriumController extends Controller
                 ->get();
         }
 
+        foreach ($criteria as $criterium) {
+          $criterium->code_description = Code::where('code', '=', $criterium->criterium_value)->first()->value;
+        }
+
         return view('criterium.edit', array('criteria' => $criteria));
     }
 
