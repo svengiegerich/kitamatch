@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Applicant;
 use App\Program;
+use App\Code;
 
 class AdminController extends Controller
 {
@@ -21,7 +22,6 @@ class AdminController extends Controller
         $program = Program::where('pid', '=', $match->pid)->first();
         $match->program_name = $program->name;
         $match->status_text = Code::where('code', '=', $match->status)->first()->value;
-        }
       }
       $data = $this->generateDashboard();
 
