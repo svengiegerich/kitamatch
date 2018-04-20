@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
+use App\Http\Requests\UpdateProgramRequest;
 use App\Http\Controllers\Controller;
 use App\Traits\GetPreferences;
 
@@ -82,7 +83,7 @@ class ProgramController extends Controller
         return view('program.all', array('programs' => $programs));
     }
 
-    public function edit(Request $request, $pid) {
+    public function edit(UpdateProgramRequest $request, $pid) {
         $request->request->add(['pid' => $pid]);
         $program = $this->update($request);
         return view('program.edit', array('program' => $program));
@@ -95,7 +96,7 @@ class ProgramController extends Controller
         return redirect()->action('ProgramController@all');
     }
 
-    public function update(Request $request) {
+    public function update(UpdateProgramRequest $request) {
         $program = Program::find($request->pid);
         $program->name = $request->name;
         $user = User::where('id', '=', $program->uid)->first();

@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\UpdateGuardianRequest;
 use App\Http\Requests;
-use Illuminate\Routing\Router;
 use App\Http\Controllers\Controller;
 use App\Guardian;
 use App\Applicant;

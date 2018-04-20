@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 use App\Http\Requests;
+use App\Http\Requests\UpdateApplicantRequest;
 use App\Http\Controllers\Controller;
 
 use App\Applicant;
@@ -51,13 +52,13 @@ class ApplicantController extends Controller
         return view('applicant.all', array('applicants' => $applicants));
     }
 
-    public function edit(Request $request, $aid) {
+    public function edit(UpdateApplicantRequest $request, $aid) {
         $request->request->add(['aid' => $aid]);
         $applicant = $this->update($request);
         return view('applicant.edit', array('applicant' => $applicant));
     }
 
-    public function delete(Request $request, $aid) {
+    public function delete(UpdateApplicantRequest $request, $aid) {
         $applicant = applicant::findOrFail($aid);
         //temp: set active=0 instead of deleting
         $applicant->delete();
