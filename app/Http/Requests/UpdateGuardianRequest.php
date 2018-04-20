@@ -33,8 +33,8 @@ class UpdateGuardianRequest extends FormRequest
     public function rules()
     {
         return [
-          'first_name' => 'required|string|min:2',
-          'last_name' => 'required|string|min:2',
+          'firstName' => 'required|string|min:2',
+          'lastName' => 'required|string|min:2',
         ];
     }
 }
