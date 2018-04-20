@@ -36,6 +36,13 @@ class UpdateGuardianRequest extends FormRequest
         return [
           'firstName' => 'required|string|min:2',
           'lastName' => 'required|string|min:2',
+          'phone' => 'nullable|string|min:6',
+          'address' => 'nullable|string|min:4',
+          'plz' => 'nullable|numeric|min:5',
+          'city' => 'nullable|string|min:2',
+          'parentalStatus' => 'nullable|numeric|min:3|max:3',
+          'volumeOfEmployment' => 'nullable|numeric|min:3|max:3',
+          'siblings' => 'nullable|numeric|min:3|max:3' 
         ];
     }
 }

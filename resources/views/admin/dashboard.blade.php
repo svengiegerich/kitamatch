@@ -52,7 +52,7 @@
             <ul class="list-unstyled mt-3 mb-4">
               <li>applicants are finally matched</li>
             </ul>
-            <a href="/#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">See matches</button></a>
+            <a href="#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">See matches</button></a>
           </div>
         </div>
       </div>
