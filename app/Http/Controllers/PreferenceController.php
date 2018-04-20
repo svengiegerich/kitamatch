@@ -166,10 +166,16 @@ class PreferenceController extends Controller
                 foreach ($availableApplicants as $applicant) {
                     if ($preference->id_to == $applicant->aid) {
                         if ($preference->status == 1) {
-                            $offers[$applicant->aid] = $preference->prid;
+                            $offers[$applicant->aid]['id'] = $preference->prid;
+                            //you can remove your offer for a window of 10h
+                            if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
+                              $offers[$applicant->aid]['delete'] = true;
+                            } else {
+                              $offers[$applicant->aid]['display'] = false;
+                            }
                             $openOffers++;
                         } else if ($preference->status == -1) {
-                            $offers[$applicant->aid] = -1;
+                            $offers[$applicant->aid]['id'] = -1;
                         }
                     }
                 }
