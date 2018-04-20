@@ -53,6 +53,10 @@ class MatchingController extends Controller
 
         $input = $this->prepareMatching();
 
+        if (strlen(json_encode($input))) {
+          return;
+        }
+
         print_r(json_encode($input));
 
         echo "<br><br><br><br><br><br>";
