@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\UpdateGuardianRequest;
 use App\Http\Requests;
+use App\Http\Route;
 use App\Http\Controllers\Controller;
 use App\Guardian;
 use App\Applicant;
@@ -39,7 +40,7 @@ class GuardianController extends Controller
     public function show($gid) {
         $Applicant = new Applicant;
         echo "hey";
-        echo Route::current()->getParameter('gid');
+        echo $this->route('guardian');
         $guardian = Guardian::findOrFail($gid);
         $applicants = $Applicant->getAppliantsByGid($gid);
         return view('guardian.edit', array('guardian' => $guardian,
