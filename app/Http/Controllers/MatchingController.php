@@ -182,7 +182,7 @@ class MatchingController extends Controller
         //by program
         //-first: only program that take part in the coordinated way
         foreach ($programsC as $program) {
-          if ($capacityList[$pid] > 0) {
+          if ($capacityList[$program->pid] > 0) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
             $preferenceList = array();
             foreach ($preferencesByProgram as $preference) {
@@ -197,7 +197,7 @@ class MatchingController extends Controller
 
         //-second: add the programs that take the uncoordinated way
         foreach ($programsU as $program) {
-          if ($capacityList[$pid] > 0) {
+          if ($capacityList[$program->pid] > 0) {
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
             $preferenceList = array();
   			    foreach ($preferencesByProgram as $preference) {
