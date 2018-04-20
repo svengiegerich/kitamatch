@@ -4,13 +4,12 @@
 
 <script>
   $(document).ready( function () {
-    $('#guardians').DataTable( {
-      "aaSorting": []
-    } );
+    $('#guardians').DataTable({});
   } );
 </script>
 
-<div class="col-md-12" >
+<div class="row justify-content-center">
+<div class="col-md-12  my-3 p-3 bg-white rounded box-shadow">
     <h4>List of Guardians</h4>
 
     <table class="table" id="guardians">
@@ -56,6 +55,7 @@
             </tr>
         @endforeach
     </table>
+</div>
 </div>
 
 @endsection
