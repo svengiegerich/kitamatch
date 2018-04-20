@@ -39,8 +39,6 @@ class GuardianController extends Controller
 
     public function show($gid) {
         $Applicant = new Applicant;
-        echo "hey";
-        echo $this->route('guardian');
         $guardian = Guardian::findOrFail($gid);
         $applicants = $Applicant->getAppliantsByGid($gid);
         return view('guardian.edit', array('guardian' => $guardian,

@@ -15,6 +15,7 @@ class UpdateGuardianRequest extends FormRequest
      */
     public function authorize()
     {
+      $this->route('guardian');
       /*if ($guardian->uid == $this->user()->id) {
         return true;
       } else {
