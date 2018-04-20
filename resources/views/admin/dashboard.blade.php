@@ -33,8 +33,9 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-md-8">
-        <h5>All Matches:</h5>
+  <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
+        <h4>All Matches:</h4>
+        <br>
         <table class="table" id="matches">
             <thead>
                 <tr>
@@ -48,7 +49,7 @@
                     <tr>
                       <td><a target="_blank" href="/preference/program/{{$match->pid}}">{{$match->program_name}}</a></td>
                       <td><a target="_blank" href="/preference/applicant/{{$match->aid}}">{{$match->applicant_name}}</a></td>
-                      <td>{{$match->status}}</td>
+                      <td>{{$match->status_text}}</td>
                     </tr>
                 @endforeach
             </tbody>

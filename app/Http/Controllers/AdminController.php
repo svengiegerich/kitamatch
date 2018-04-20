@@ -20,6 +20,8 @@ class AdminController extends Controller
         $match->applicant_name = $applicant->last_name . " " . $applicant->first_name;
         $program = Program::where('pid', '=', $match->pid)->first();
         $match->program_name = $program->name;
+        $match->status_tets = Code::where('code', '=', $match->status)->first()->value;;
+        }
       }
       $data = $this->generateDashboard();
 
