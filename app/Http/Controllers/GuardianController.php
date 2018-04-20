@@ -51,7 +51,7 @@ class GuardianController extends Controller
         return redirect()->action('GuardianController@show', $guardian->gid);
     }
 
-    public function update(Request $request) {
+    public function update(UpdateGuardianRequest $request) {
         $validated = $request->validated();
 
         $guardian = Guardian::findOrFail($request->gid);
