@@ -15,9 +15,7 @@ class UpdateGuardianRequest extends FormRequest
      */
     public function authorize()
     {
-      $guardianID = $this->route('guardian');
-      $guardian = Guardian::find($guardianID);
-      dd($guardianID);
+      
       /*if ($guardian->uid == $this->user()->id) {
         return true;
       } else {
@@ -42,7 +40,7 @@ class UpdateGuardianRequest extends FormRequest
           'city' => 'nullable|string|min:2',
           'parentalStatus' => 'nullable|numeric|min:3|max:3',
           'volumeOfEmployment' => 'nullable|numeric|min:3|max:3',
-          'siblings' => 'nullable|numeric|min:3|max:3' 
+          'siblings' => 'nullable|numeric|min:3|max:3'
         ];
     }
 }
