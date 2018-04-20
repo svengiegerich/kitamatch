@@ -38,7 +38,8 @@ class GuardianController extends Controller
 
     public function show($gid) {
         $Applicant = new Applicant;
-
+        echo "hey";
+        echo $this->route('guardian');
         $guardian = Guardian::findOrFail($gid);
         $applicants = $Applicant->getAppliantsByGid($gid);
         return view('guardian.edit', array('guardian' => $guardian,
@@ -52,8 +53,6 @@ class GuardianController extends Controller
     }
 
     public function update(UpdateGuardianRequest $request) {
-        $validated = $request->validated();
-
         $guardian = Guardian::findOrFail($request->gid);
         if ($request->firstName) { $guardian->first_name = $request->firstName; }
         if ($request->lastName) { $guardian->last_name = $request->lastName; }
