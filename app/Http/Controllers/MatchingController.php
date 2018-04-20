@@ -166,7 +166,10 @@ class MatchingController extends Controller
         foreach ($programsC as $program) {
           if ($Preference->hasPreferencesByProgram($program->pid)) {
             $pid = (string)$program->pid;
-            $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+            $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+            if ($capacity > 0) {
+              $capacityList[$pid] = $capacity;
+            }
           }
         }
         //uncoordinated
