@@ -32,7 +32,7 @@
 
         </form>
         @else
-        <button class="btn btn-secondary">All programs selected</button>
+        <button type="submit" class="btn btn-secondary" disabled>All programs selected.</button>
         @endif
     </div>
 </div>
