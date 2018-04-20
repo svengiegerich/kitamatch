@@ -19,10 +19,11 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-md-2  my-3 p-3 bg-white rounded box-shadow">
-        <div class="col-md2">
-        {{count($matches)}} / {{$data['applicantsCount']}} (Final/All) applicants are matched
-        </div>
+    <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{count($matches)}} <small class="text-muted">/ {{$data['applicantsCount']}}</small></h1>
+            Applicants are finally matched
+      </div>
     </div>
 </div>
 
