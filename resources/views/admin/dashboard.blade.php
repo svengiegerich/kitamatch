@@ -15,26 +15,24 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
 
-        <h4>Dashboard</h4>
-        <br>
+        <h2>Dashboard</h2>
+        <br><br>
         <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Make matching</button></a>
-        <br>
-        <br>
-        <br>
 
-        <ul>
-          <li>Verify applicants: <a href="/guardian/all"><button>Applicants</button></a>
-          </li>
-          <li>
-            See all programs: <a href="/program/all"><button>Programs</button></a>
-          </li>
-        </ul>
-        <br><br>
+        {{count($matches)}} / {{$data['applicantsCount']}} (Final/All) applicants are matched
+    </div>
+</div>
 
-        <h5>{{count($matches)}} / {{$data['applicantsCount']}} (Final/All) applicants are matched</h5>
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        Verify applicants: <a href="/guardian/all"><button>Applicants</button></a>
+    </div>
+    <div class="col-md-4">
+        See all programs: <a href="/program/all"><button>Programs</button></a>
+    </div>
+</div>
 
-        <br><br>
-
+<div class="row justify-content-center">
         <h5>All Matches:</h5>
         <table class="table" id="matches">
             <thead>
