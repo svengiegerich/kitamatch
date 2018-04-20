@@ -19,6 +19,10 @@ class Preference extends Model
     public function resetUncoordinated() {
         $nonactive = DB::table('preferences')
             ->where('pr_kind', 3)
+            ->join('applicants', function ($join) {
+            $join->on('preferences.id_to', '=', 'applicants.aid')
+                 ->whereIn('applicants', [22, 25]);
+            })
             ->update(array('status' => -1));
     }
 
