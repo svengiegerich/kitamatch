@@ -2,14 +2,22 @@
 
 @section('content')
 
+<script>
+  $(document).ready( function () {
+    $('#guardians').DataTable( {
+      "aaSorting": []
+    } );
+  } );
+</script>
+
 <div class="col-md-12" >
     <h4>List of Guardians</h4>
-    
-    <table>
+
+    <table class="table" id="guardians">
         <tr>
             <th>ID</th>
-            <th>First name</th>
             <th>Last name</th>
+            <th>First name</th>
             <th>Status</th>
             <th>Address</th>
             <th>PLZ</th>
@@ -21,14 +29,14 @@
             <th>Message</th>
         </tr>
         @foreach($guardians as $guardian)
-            <tr 
+            <tr
                 @if ($guardian->status == 52)
                     class="table-success"
                 @endif
                 >
-                <th><a href="/guardian/{{$guardian->gid}}">{{$guardian->gid}}</a></th>
+                <th>{{$guardian->gid}}</a></th>
+                <td><a href="/guardian/{{$guardian->gid}}">{{$guardian->last_name}}</a></td>
                 <td>{{$guardian->first_name}}</td>
-                <td>{{$guardian->last_name}}</td>
                 <td>{{$guardian->status}}</td>
                 <td>{{$guardian->address}}</td>
                 <td>{{$guardian->plz}}</td>

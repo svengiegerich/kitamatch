@@ -27,7 +27,9 @@
                     )  !!}
                 </div>
             </div>
+            @if (!(count($programs)>0)
             <button type="submit" class="btn btn-primary">Add</button>
+            @endif
         </form>
     </div>
 </div>
