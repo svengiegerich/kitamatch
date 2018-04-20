@@ -23,7 +23,7 @@ class Preference extends Model
             $join->on('preferences.id_to', '=', 'applicants.aid')
                  ->whereIn('applicants', [22, 25]);
             })
-            ->update(array('status' => -1));
+            ->update(array('preference.status' => -1));
     }
 
     public function hasPreferencesByProgram($pid) {
