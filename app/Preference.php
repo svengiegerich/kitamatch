@@ -107,7 +107,7 @@ class Preference extends Model
 
             //highly important applicants
             if ($applicant->status == 25) {
-                $applicant->order = 1000;
+                $applicant->order = -10;
             }
         }
         //tmp: add geocoordinated way
@@ -118,9 +118,9 @@ class Preference extends Model
                 if($a->birthday === $b->birthday) {
                    return 0;
                  }
-                return $a->birthday < $b->birthday ? 1 : -1;
+                return $a->birthday < $b->birthday ? -1 : 1;
             }
-            return $a->order < $b->order ? 1 : -1;
+            return $a->order < $b->order ? -1 : 1;
         });
         return $applicants;
     }
