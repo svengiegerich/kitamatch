@@ -136,11 +136,10 @@ class MatchingController extends Controller
 
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
-            echo "hey,";
 
             $preferenceList = array();
             foreach ($preferencesByApplicant as $preference) {
-              echo $programsU->contains('id_from', $preference->id_to);
+              print_r($programsU->contains('pid', $preference->id_to));
               /*if ($programsC->contains('id_from', $preference->id_to) OR
                 $programsU->contains('id_from', $preference->id_to)) {
                   echo "hey";
