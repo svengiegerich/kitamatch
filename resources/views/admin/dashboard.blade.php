@@ -14,7 +14,7 @@
     <div class="col-md-8">
       <h2>Dashboard</h2>
 
-      @if ($data['totalCapacity'] == count($matches)) 
+      @if ($data['totalCapacity'] == count($matches))
       <div class="alert alert-success" role="alert">
         <strong>Coordination finished!</strong> All applicants are successfully matched to the programs.
       </div>
@@ -52,7 +52,7 @@
             <h4 class="my-0 font-weight-normal">Matching</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{$data['applicantsFinal']}} <small class="text-muted">/ {{count($matches)}} </small><small class="text-muted">/ {{$data['totalCapacity']}}</small></h1>
+            <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}} /</small> {{count($matches)}} <small class="text-muted">/ {{$data['totalCapacity']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>applicants are finally matched</li>
               <li>applicants with open offers</li>
