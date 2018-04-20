@@ -51,7 +51,7 @@
                 <td>{{$applicant->gender}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
-                    @elseif ($applicant->status == 26)
+                    @if ($applicant->status == 26)
                         <button disabled>Matched</button>
                     @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
                     <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
