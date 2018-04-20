@@ -16,9 +16,9 @@
     <div class="col-md-8">
 
         <h2>Dashboard</h2>
-        <br><br>
-        <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Make matching</button></a>
-
+        <br>
+        <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Match!</button></a>
+        <br><br><br>
         {{count($matches)}} / {{$data['applicantsCount']}} (Final/All) applicants are matched
     </div>
 </div>
@@ -33,6 +33,7 @@
 </div>
 
 <div class="row justify-content-center">
+  <div class="col-md-8">
         <h5>All Matches:</h5>
         <table class="table" id="matches">
             <thead>
