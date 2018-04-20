@@ -173,7 +173,10 @@ class MatchingController extends Controller
         foreach ($programsU as $program) {
               if ($Preference->hasPreferencesByProgram($program->pid)) {
                   $pid = (string)$program->pid;
-                  $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+                  $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+                  if ($capacity > 0) {
+                    $capacityList[$pid] = $capacity;
+                  }
               }
       }
       $json["college_capacity"] = $capacityList;
@@ -182,7 +185,7 @@ class MatchingController extends Controller
         //by program
         //-first: only program that take part in the coordinated way
         foreach ($programsC as $program) {
-          if ($capacityList[$program->pid] > 0) {
+          if (array_key_exists($program->pid, $capacityList)) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
             $preferenceList = array();
             foreach ($preferencesByProgram as $preference) {
@@ -197,7 +200,7 @@ class MatchingController extends Controller
 
         //-second: add the programs that take the uncoordinated way
         foreach ($programsU as $program) {
-          if ($capacityList[$program->pid] > 0) {
+          if (array_key_exists($program->pid, $capacityList)) {
             $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
             $preferenceList = array();
   			    foreach ($preferencesByProgram as $preference) {
