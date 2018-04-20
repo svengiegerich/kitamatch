@@ -62,7 +62,7 @@ Route::get('/preference/all', 'PreferenceController@all');
 
 //Guardian
 Route::get('/guardian/all', 'GuardianController@all');
-Route::get('/guardian/{gID}', 'GuardianController@show')->name('guardian');
+Route::get('/guardian/{gID}', 'GuardianController@show');
 Route::post('/guardian/{gID}', 'GuardianController@edit')->name('guardian');
 //tmp: post or get?! CSR in email?!
 Route::post('/guardian/verify/{gID}', 'GuardianController@verify');
