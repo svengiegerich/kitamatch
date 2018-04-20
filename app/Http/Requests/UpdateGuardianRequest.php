@@ -17,7 +17,7 @@ class UpdateGuardianRequest extends FormRequest
     {
       $guardianID = $this->route('guardian');
       $guardian = Guardian::find($guardianID);
-      dd("hey");
+      dd($guardianID);
       /*if ($guardian->uid == $this->user()->id) {
         return true;
       } else {
