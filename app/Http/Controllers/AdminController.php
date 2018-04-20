@@ -41,7 +41,7 @@ class AdminController extends Controller
         $data['programsCount'] = count($programs);
         $data['programsInactive'] = count(Program::where('status', '=', 13)->get());
         $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
-        $data['totalCapacity'] = DB::select($capacitySql)['0']]['0'];
+        $data['totalCapacity'] = DB::select($capacitySql)['0']]->totalCapacity;
         //
         //$countFinalMatches = "applicant-code-26";
         //$countOpen = all - $countFinalMatches;
