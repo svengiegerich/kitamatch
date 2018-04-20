@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\UpdateGuardianRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Guardian;
@@ -44,7 +45,7 @@ class GuardianController extends Controller
                                           'applicants' => $applicants));
     }
 
-    public function edit(UpdateGuardian $request, $gid) {
+    public function edit(Request $request, $gid) {
         $request->request->add(['gid' => $gid]);
         $guardian = $this->update($request);
         return redirect()->action('GuardianController@show', $guardian->gid);
@@ -90,5 +91,12 @@ class GuardianController extends Controller
         }
 
         return redirect()->action('GuardianController@all');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'first_name' => 'required|string|min:2',
+        ]);
     }
 }
