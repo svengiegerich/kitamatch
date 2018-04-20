@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
 
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
 
     <body class=".bg-light">

@@ -11,7 +11,9 @@
 |
 */
 //Root
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index', function(){
+   return View::make("welcome");
+});
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth
