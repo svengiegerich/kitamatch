@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReCaptchataRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,7 +52,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'g-recaptcha-response'=>'required|recaptcha'
         ]);
     }
 
@@ -107,7 +109,7 @@ class RegisterController extends Controller
     }
 
     //
-    public function store(Request $request) {
+    public function store(ReCaptchataRequest $request) {
         $user = User::create([
             'email' => $request->email,
             'account_type' => $request->account_type,
