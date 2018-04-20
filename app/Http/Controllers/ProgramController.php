@@ -116,16 +116,11 @@ class ProgramController extends Controller
 	  }
 
     public function setValid($pid) {
-        echo "hey";
         Program::where('pid', '=', $pid)->update(array('status' => '12'));
     }
 
     public function setNonActive($pid) {
-        $request = new Request();
-        $request->setMethod('POST');
-        $request->request->add(['pid' => $pid,
-                               'status' => 13]);
-        $this->update($request);
+        Program::where('pid', '=', $pid)->update(array('status' => '13'));
     }
 
     public function activityCheck() {

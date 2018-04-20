@@ -124,12 +124,24 @@ class MatchingController extends Controller
         //--------------------
         //by applicant
         $applicants = $Applicant->getAll();
+        $programsC = DB::table('programs')
+            //exclude status code 13: inactive for 7 days
+            ->where('status', '=', 12)
+            ->where('coordination', '=', 1)
+            ->get();
+        $programsU = DB::table('programs')
+            ->where('status', '=', 12)
+            ->where('coordination', '=', 0)
+            ->get();
+
         foreach ($applicants as $applicant) {
             $preferencesByApplicant = $this->getPreferencesByApplicant($applicant->aid);
 
             $preferenceList = array();
             foreach ($preferencesByApplicant as $preference) {
-              $preferenceList[] = (string)$preference->id_to;
+              if ($programsC->contains('id_to', $preference->id_to) OR $programsU->contains('id_to', $preference->id_to)) {
+                $preferenceList[] = (string)$preference->id_to;
+              }
             }
             //check if there are any preferences
             if (count($preferenceList) > 0) {
@@ -145,11 +157,6 @@ class MatchingController extends Controller
         //--------------------
         //by program
         //-first: only program that take part in the coordinated way
-        $programsC = DB::table('programs')
-            //exclude status code 13: inactive for 7 days
-            ->where('status', '=', 12)
-            ->where('coordination', '=', 1)
-            ->get();
         foreach ($programsC as $program) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
             $preferenceList = array();
@@ -163,10 +170,6 @@ class MatchingController extends Controller
         }
 
         //-second: add the programs that take the uncoordinated way
-        $programsU = DB::table('programs')
-            ->where('status', '=', 12)
-            ->where('coordination', '=', 0)
-            ->get();
         foreach ($programsU as $program) {
           $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
           $preferenceList = array();
