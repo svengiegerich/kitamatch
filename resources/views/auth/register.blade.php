@@ -62,12 +62,14 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                                <div class="g-recaptcha" data-sitekey="6LcTdlQUAAAAAKkpWIEQ0aGkp07sjPohzIyN4Lpc"></div>
+                                <br>
+
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LcTdlQUAAAAAKkpWIEQ0aGkp07sjPohzIyN4Lpc"></div>
                     </form>
                 </div>
             </div>
