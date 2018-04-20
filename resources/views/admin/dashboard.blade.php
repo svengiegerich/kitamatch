@@ -5,10 +5,10 @@
 <script>
   $(document).ready( function () {
     $('#matches').DataTable( {
-            
-            {
-  "pageLength": 50
-}
+      
+"pageLength": 50
+
+
         } );
   } );
 </script>
