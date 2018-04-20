@@ -3,12 +3,18 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
+      @if ($program->status == 13)
+      <div class="alert alert-danger" role="alert">
+        You are inactive for at least 7 days.
+      </div>
+      @endif
+
         <h4>Edit your Program information</h4>
         <br />
-        
+
         <form action="/program/{{$program->pid}}" method="POST">
             {{ csrf_field() }}
-            
+
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
@@ -55,13 +61,13 @@
                 </div>
             </div>
             @endif
-            
+
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
         </form>
     </div>
 </div>
-        
+
 <br>
 
 <div class="row justify-content-center">
@@ -71,7 +77,7 @@
         @else
             <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Make offers</button></a>
         @endif
-        
+
         <!-- to do: add provider button if it has a provider-->
         @if ($program->proid)
         <hr class="mb-4">
@@ -79,5 +85,5 @@
         @endif
     </div>
 </div>
-    
+
 @endsection
