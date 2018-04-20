@@ -52,6 +52,8 @@ class GuardianController extends Controller
     }
 
     public function update(UpdateGuardian $request) {
+        $validated = $request->validated();
+
         $guardian = Guardian::findOrFail($request->gid);
         if ($request->firstName) { $guardian->first_name = $request->firstName; }
         if ($request->lastName) { $guardian->last_name = $request->lastName; }
