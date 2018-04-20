@@ -60,7 +60,7 @@
                     @endif
                 </td>
                 <td>
-                    @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid] > 0)
+                    @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid] > 0 && $applicant->status != 26)
                     <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]}}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
