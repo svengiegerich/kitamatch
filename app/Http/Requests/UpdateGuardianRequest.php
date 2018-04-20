@@ -15,7 +15,7 @@ class UpdateGuardianRequest extends FormRequest
      */
     public function authorize()
     {
-      
+
       /*if ($guardian->uid == $this->user()->id) {
         return true;
       } else {
@@ -38,9 +38,9 @@ class UpdateGuardianRequest extends FormRequest
           'address' => 'nullable|string|min:4',
           'plz' => 'nullable|numeric|min:5',
           'city' => 'nullable|string|min:2',
-          'parentalStatus' => 'nullable|numeric|min:3|max:3',
-          'volumeOfEmployment' => 'nullable|numeric|min:3|max:3',
-          'siblings' => 'nullable|numeric|min:3|max:3'
+          'parentalStatus' => 'nullable|numeric|min:100|max:1000',
+          'volumeOfEmployment' => 'nullable|numeric|min:100|max:1000',
+          'siblings' => 'nullable|numeric|min:100|max:1000'
         ];
     }
 }
