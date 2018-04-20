@@ -21,7 +21,7 @@ class Preference extends Model
             ->where('pr_kind', 3)
             ->join('applicants', function ($join) {
             $join->on('preferences.id_to', '=', 'applicants.aid')
-                 ->whereIn('applicants', [22, 25]);
+                 ->whereIn('applicants.status', [22, 25]);
             })
             ->update(array('preferences.status' => -1));
     }
