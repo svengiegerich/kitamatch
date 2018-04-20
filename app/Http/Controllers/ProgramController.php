@@ -121,7 +121,7 @@ class ProgramController extends Controller
         Program::where('pid', '=', $pid)->update(array('status' => '12'));
     }
 
-    public function setNonActive($pid) {
+    public function setNonActive() {
       $Program = new Program();
       $preferences =  DB::table('preferences')
                 ->whereRaw('updated_at >= DATE_ADD(CURDATE(),INTERVAL -7 DAY)')
