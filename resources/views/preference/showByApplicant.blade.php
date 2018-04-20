@@ -17,7 +17,7 @@
         <br>
         <form action="/preference/applicant/{{$applicant->aid}}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
-
+            @if (count($programs)>0)
             <div class="form-group row">
                 <label for="to" class="col-sm-2 col-form-label">Program</label>
                 <div class="col-sm-6">
@@ -27,8 +27,9 @@
                     )  !!}
                 </div>
             </div>
-            @if (count($programs)>0)
             <button type="submit" class="btn btn-primary">Add</button>
+            @else
+            <button class="btn btn-secondary">All programs selected</button>
             @endif
         </form>
     </div>
