@@ -24,11 +24,12 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-md-4">
-        Verify applicants: <a href="/guardian/all"><button>Applicants</button></a>
+    <div class="col-md-4 my-3 p-3 bg-white rounded box-shadow">
+        Verify applicants: <a href="/guardian/all"><button class="btn btn-primary">Applicants</button></a>
     </div>
-    <div class="col-md-4">
-        See all programs: <a href="/program/all"><button>Programs</button></a>
+    <div class="col-md-2"></div>
+    <div class="col-md-4 my-3 p-3 bg-white rounded box-shadow">
+        See all programs: <a href="/program/all"><button class="btn btn-primary">Programs</button></a>
     </div>
 </div>
 
