@@ -140,11 +140,11 @@ class MatchingController extends Controller
             $preferenceList = array();
             foreach ($preferencesByApplicant as $preference) {
               print_r($programsU->contains('pid', $preference->id_to));
-              /*if ($programsC->contains('id_from', $preference->id_to) OR
-                $programsU->contains('id_from', $preference->id_to)) {
+              if ($programsC->contains('pid', $preference->id_to) OR
+                $programsU->contains('pid', $preference->id_to)) {
                   echo "hey";
                 $preferenceList[] = (string)$preference->id_to;
-              }*/
+              }
             }
             //check if there are any preferences
             if (count($preferenceList) > 0) {
