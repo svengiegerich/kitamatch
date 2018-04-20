@@ -4,6 +4,12 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
+      @if ($applicant->status == 26)
+      <div class="alert alert-success" role="alert">
+        You are successfully matched.
+      </div>
+      @endif
+
         <h4>Edit Applicant</h4>
         <br>
         <form action="/applicant/{{$applicant->aid}}" method="POST" class="">
