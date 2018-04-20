@@ -77,10 +77,7 @@ class MatchingController extends Controller
 
         print_r($result);
 
-        //new
-
-        /*
-        //temp: set active = 0 for all previous entries
+        //temp: set active = 0 for all previous entries != final
         $Matching->resetMatches();
         $Preference->resetUncoordinated();
 
@@ -99,11 +96,8 @@ class MatchingController extends Controller
             //check if program is uncoordinated
             $coordination = $Program->isCoordinated((int)$match['college']);
             if ($coordination == 0) {
-
                 // if then update prefs back to 1
                 $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
-                echo ";";
-                print($match['college']);
                 foreach ($preferencesUncoordinated as $preference) {
                     //only for this specific match
                     if ((int)$preference->id_to == (int)$match['student']) {
@@ -111,7 +105,7 @@ class MatchingController extends Controller
                     }
                 }
             }
-        }*/
+        }
         //return redirect()->action('MatchingController@all');
     }
 
