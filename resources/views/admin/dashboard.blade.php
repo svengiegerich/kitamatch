@@ -13,12 +13,13 @@
 </script>
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-8 d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+      <h2>Dashboard</h2>
+    </div>
+</div>
 
-        <h2>Dashboard</h2>
-        <br>
-        <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Match!</button></a>
-        <br><br><br>
+<div class="row justify-content-center">
+    <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
         {{count($matches)}} / {{$data['applicantsCount']}} (Final/All) applicants are matched
     </div>
 </div>
@@ -27,9 +28,15 @@
     <div class="col-md-4 my-3 p-3 bg-white rounded box-shadow">
         Verify applicants: <a href="/guardian/all"><button class="btn btn-primary">Applicants</button></a>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
     <div class="col-md-4 my-3 p-3 bg-white rounded box-shadow">
         See all programs: <a href="/program/all"><button class="btn btn-primary">Programs</button></a>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+      <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Match!</button></a>
     </div>
 </div>
 
