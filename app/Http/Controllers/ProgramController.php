@@ -133,6 +133,7 @@ class ProgramController extends Controller
       foreach ($programs as $program) {
         if ($preferences->contains('id_from', $program->pid)) {
           echo "neu";
+          Program::where('pid', '=', $pid)->update(array('status' => '13'));
         } else {
           echo "alt";
           Program::where('pid', '=', $pid)->update(array('status' => '13'));
