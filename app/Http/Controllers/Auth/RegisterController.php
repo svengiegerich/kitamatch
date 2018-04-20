@@ -109,7 +109,7 @@ class RegisterController extends Controller
     }
 
     //
-    public function store(ReCaptchataRequest $request) {
+    public function store(Request $request) {
         $user = User::create([
             'email' => $request->email,
             'account_type' => $request->account_type,
