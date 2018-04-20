@@ -71,6 +71,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password'])
         ]);
 
+        dd($user);
+
         if ($data['accountType'] == 1) {
             //account-type is guardian
             $request = new Request();
