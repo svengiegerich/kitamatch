@@ -38,7 +38,7 @@ class UpdateGuardianRequest extends FormRequest
           'address' => 'nullable|string|min:4',
           'plz' => 'nullable|numeric|min:5',
           'city' => 'nullable|string|min:2',
-          'parentalStatus' => 'nullable|numeric|min:820|max:823',
+          'parentalStatus' => 'nullable|numeric|min:820|max:824',
           'volumeOfEmployment' => 'nullable|numeric|min:830|max:833',
           'siblings' => 'nullable|numeric|min:840|max:841'
         ];

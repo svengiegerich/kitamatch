@@ -15,9 +15,10 @@
     <div class="col-md-8">
         <h4>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h4>
         <br>
+        @if (count($programs)>0)
         <form action="/preference/applicant/{{$applicant->aid}}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
-            @if (count($programs)>0)
+
             <div class="form-group row">
                 <label for="to" class="col-sm-2 col-form-label">Program</label>
                 <div class="col-sm-6">
@@ -28,10 +29,11 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
-            @else
-            <button class="btn btn-secondary">All programs selected</button>
-            @endif
+
         </form>
+        @else
+        <button class="btn btn-secondary">All programs selected</button>
+        @endif
     </div>
 </div>
 
