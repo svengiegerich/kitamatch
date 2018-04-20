@@ -13,12 +13,6 @@ use App\User;
 class GuardianController extends Controller
 {
     public function store(Request $request) {
-        //validation
-        $validatedData = $request->validate([
-          'first_name' => 'required|string',
-          'last_name' => 'required|string',
-        ]);
-
         $guardian = new Guardian;
         $guardian->uid = $request->uid;
         $guardian->first_name = $request->firstName;
