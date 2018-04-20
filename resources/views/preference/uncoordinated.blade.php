@@ -31,7 +31,7 @@
             @foreach($availableApplicants as $applicant)
             <tr
                 <?php
-                  if ( ($applicant->status == 26) && ($offers[$applicant->aid] > 0) ) {
+                  if ( ($applicant->status == 26) && (if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid] > 0) ) {
                     echo 'class="table-success"';
                   } else  if (array_key_exists($applicant->aid, $offers)) {
                     if ($offers[$applicant->aid] > 0) {
