@@ -51,14 +51,14 @@
                 <td>{{$applicant->gender}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
-                    @if (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
+                    @elseif ($applicant->status == 26)
+                        <button disabled>Matched</button>
+                    @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
                     <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="aid" value="{{$applicant->aid}}">
                         <button>Offer</button>
                     </form>
-                    @elseif ($applicant->status == 26)
-                        <button disabled>Matched</button>
                     @endif
                 </td>
                 <td>
