@@ -57,6 +57,8 @@
                         <input type="hidden" name="aid" value="{{$applicant->aid}}">
                         <button>Offer</button>
                     </form>
+                    @else if ($applicant->status == 26)
+                        <button disabled>Matched</button>
                     @endif
                 </td>
                 <td>
