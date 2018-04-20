@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Traits\GetPreferences;
 
 use App\Program;
+use App\Matching;
 use App\Provider;
 use App\User;
 
