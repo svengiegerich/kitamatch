@@ -6,6 +6,16 @@
         <h4>Edit your Profil</h4>
         <br />
 
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         <form action="/guardian/{{$guardian->gid}}" method="POST">
             {{ csrf_field() }}
 

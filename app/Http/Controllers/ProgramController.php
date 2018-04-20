@@ -132,6 +132,9 @@ class ProgramController extends Controller
       $programs = $Program->getAll();
       foreach ($programs as $program) {
         if ($preferences->contains('id_from', $program->pid)) {
+          echo "neu";
+        } else {
+          echo "alt";
           Program::where('pid', '=', $pid)->update(array('status' => '13'));
           //!Mail
         }
