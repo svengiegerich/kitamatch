@@ -13,7 +13,7 @@ class UpdateProgramRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,8 @@ class UpdateProgramRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+      return [
+        'name' => 'required|string|min:5'
+      ];
     }
 }

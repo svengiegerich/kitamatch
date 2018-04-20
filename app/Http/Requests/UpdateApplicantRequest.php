@@ -13,7 +13,7 @@ class UpdateApplicantRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,11 @@ class UpdateApplicantRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+      return [
+        'firstName' => 'required|string|min:2',
+        'lastName' => 'required|string|min:2',
+        'birthday' => 'required|date',
+        'gender' => 'required|string'
+      ];
     }
 }
