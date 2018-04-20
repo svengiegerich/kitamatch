@@ -50,9 +50,9 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{count($matches)}} <small class="text-muted">/ {{$data['applicantsCount']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>useres are finally matched</li>
+              <li>applicants are finally matched</li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Contact us</button>
+            <a href="/#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">See matches</button></a>
           </div>
         </div>
       </div>

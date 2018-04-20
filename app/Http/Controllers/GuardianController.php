@@ -51,7 +51,7 @@ class GuardianController extends Controller
         return redirect()->action('GuardianController@show', $guardian->gid);
     }
 
-    public function update(Request $request) {
+    public function update(UpdateGuardian $request) {
         $guardian = Guardian::findOrFail($request->gid);
         if ($request->firstName) { $guardian->first_name = $request->firstName; }
         if ($request->lastName) { $guardian->last_name = $request->lastName; }
