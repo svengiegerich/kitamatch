@@ -131,7 +131,7 @@ class ProgramController extends Controller
     public function setNonActive() {
       //set not inactive, if is not 1 week after coordiantion starts
       //strtotime($preference->updated_at) > strtotime('-10 hours')
-      if (strtotime(config('constants.coordination_start_date')) <
+      if (strtotime(config('constants.coordination_start_date'))
          < strtotime('+7 days')) {
         echo "hwy";
         return;
