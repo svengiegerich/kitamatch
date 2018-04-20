@@ -17,9 +17,9 @@
 
         <h4>Dashboard</h4>
         <br>
-
-        <a href="/matching/get">Make matching</a>
-
+        <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Make matching</button></a>
+        <br>
+        <br>
         <br>
 
         <ul>
