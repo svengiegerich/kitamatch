@@ -17,6 +17,11 @@
 
         <h4>Dashboard</h4>
         <br>
+
+        <a href="/matching/get">Make matching</a>
+
+        <br>
+
         <ul>
           <li>Verify applicants: <a href="/guardian/all"><button>Applicants</button></a>
           </li>
