@@ -3,6 +3,16 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+      @endif
+
       @if ($program->status == 13)
       <div class="alert alert-danger" role="alert">
         You are inactive for at least 7 days.

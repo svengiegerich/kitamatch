@@ -4,6 +4,16 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+      @endif
+
       @if ($applicant->status == 26)
       <div class="alert alert-success" role="alert">
         You are successfully matched.
