@@ -171,7 +171,7 @@ class PreferenceController extends Controller
                             if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
                               $offers[$applicant->aid]['delete'] = true;
                             } else {
-                              $offers[$applicant->aid]['display'] = false;
+                              $offers[$applicant->aid]['delete'] = false;
                             }
                             $openOffers++;
                         } else if ($preference->status == -1) {
