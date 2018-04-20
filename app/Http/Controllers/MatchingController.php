@@ -76,6 +76,9 @@ class MatchingController extends Controller
         $matchingResult = $result['hri_matching'];
 
         print_r($result);
+
+        //new
+
         /*
         //temp: set active = 0 for all previous entries
         $Matching->resetMatches();
@@ -119,7 +122,10 @@ class MatchingController extends Controller
         $json = [];
         $preferencesApplicants = [];
 
+        //create coordinated prefs
         app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
+        //set programs non activityCheck
+        app('App\Http\Controllers\ProgramController')->setNonActive();
 
         //--------------------
         //by applicant

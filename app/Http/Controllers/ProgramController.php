@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Traits\GetPreferences;
@@ -120,7 +122,20 @@ class ProgramController extends Controller
     }
 
     public function setNonActive($pid) {
-        Program::where('pid', '=', $pid)->update(array('status' => '13'));
+      $Program = new Program();
+      $preferences =  DB::table('preferences')
+                ->whereRaw('updated_at >= DATE_ADD(CURDATE(),INTERVAL -7 DAY)')
+                ->whereIn('pr_kind',[2,3])
+                ->get();
+      //$sql = "SELECT * FROM preferences WHERE updated_at >= DATE_ADD(CURDATE(),INTERVAL -7 DAY);";
+      //$preferences = DB::select($sql);;
+      $programs = $Program->getAll();
+      foreach ($programs as $program) {
+        if ($preferences->contains('id_from', $program->pid)) {
+          Program::where('pid', '=', $pid)->update(array('status' => '13'));
+          //!Mail
+        }
+      }
     }
 
     public function activityCheck() {
