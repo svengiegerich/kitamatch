@@ -37,6 +37,10 @@
                             echo 'class="table-danger"';
                         }
                     }
+
+                    if ($applicant->status == 26) {
+                      echo 'class="table-success"';
+                    }
                 ?>
                 >
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
