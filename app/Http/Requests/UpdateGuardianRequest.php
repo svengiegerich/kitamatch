@@ -17,11 +17,13 @@ class UpdateGuardianRequest extends FormRequest
     {
       $guardianId = $this->route('guardian');
       $guardian = Guardian::find($guardianId);
-      if ($guardian->uid == $this->user()->id) {
+      dd($guardian);
+      /*if ($guardian->uid == $this->user()->id) {
         return true;
       } else {
         return false;
-      }
+      }*/
+      return true;
     }
 
     /**
