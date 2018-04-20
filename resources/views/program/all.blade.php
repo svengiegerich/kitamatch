@@ -11,11 +11,14 @@
         } );
   } );
 </script>
+<div class="row justify-content-center">
+<div class="col-md-8">
+<h2>List of Programs</h2>
+</div>
+</div>
 
 <div class="row justify-content-center">
 <div class="col-md-12  my-3 p-3 bg-white rounded box-shadow">
-    <h4>List of Programs</h4>
-
     <table class="table" id="programs">
       <thead>
         <tr>
