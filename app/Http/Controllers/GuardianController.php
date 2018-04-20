@@ -45,7 +45,7 @@ class GuardianController extends Controller
                                           'applicants' => $applicants));
     }
 
-    public function edit(Request $request, $gid) {
+    public function edit(UpdateGuardianRequest $request, $gid) {
         $request->request->add(['gid' => $gid]);
         $guardian = $this->update($request);
         return redirect()->action('GuardianController@show', $guardian->gid);
