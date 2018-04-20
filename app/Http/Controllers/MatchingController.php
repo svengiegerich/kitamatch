@@ -58,7 +58,7 @@ class MatchingController extends Controller
         echo "<br><br><br><br><br><br>";
 
         //GuzzleHttp\Client
-		     /* $client = new Client();
+		    $client = new Client();
 		        $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
             [
 			           'auth' => [
@@ -75,7 +75,7 @@ class MatchingController extends Controller
         $result = json_decode($response->getBody(), true);
         $matchingResult = $result['hri_matching'];
 
-        print_r($result);*/
+        print_r($result);
         /*
         //temp: set active = 0 for all previous entries
         $Matching->resetMatches();
@@ -139,10 +139,8 @@ class MatchingController extends Controller
 
             $preferenceList = array();
             foreach ($preferencesByApplicant as $preference) {
-              print_r($programsU->contains('pid', $preference->id_to));
               if ($programsC->contains('pid', $preference->id_to) OR
                 $programsU->contains('pid', $preference->id_to)) {
-                  echo "hey";
                 $preferenceList[] = (string)$preference->id_to;
               }
             }
