@@ -114,8 +114,13 @@ class ProgramController extends Controller
     }
 
 	  public function getCapacity($pid) {
-		    $program = Program::find($pid);
-		    return $program->capacity;
+      $program = Program::find($pid);
+      //minus final matches
+      $Matching = new Matching();
+      $countFinalsMatches = count(Matching::where('pid', '=', $pid)
+        ->where('status', '=', 32)
+        ->get());
+		  return ($program->capacity - $countFinalsMatches);
 	  }
 
     public function setValid($pid) {

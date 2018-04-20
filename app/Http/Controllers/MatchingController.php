@@ -159,10 +159,30 @@ class MatchingController extends Controller
           return;
         }
 
+        //by capacity
+        $capacityList = array();
+        $Program = new program;
+        //coordinated
+        foreach ($programsC as $program) {
+          if ($Preference->hasPreferencesByProgram($program->pid)) {
+            $pid = (string)$program->pid;
+            $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+          }
+        }
+        //uncoordinated
+        foreach ($programsU as $program) {
+              if ($Preference->hasPreferencesByProgram($program->pid)) {
+                  $pid = (string)$program->pid;
+                  $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+              }
+      }
+      $json["college_capacity"] = $capacityList;
+
         //--------------------
         //by program
         //-first: only program that take part in the coordinated way
         foreach ($programsC as $program) {
+          if ($capacityList[$pid] > 0) {
             $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
             $preferenceList = array();
             foreach ($preferencesByProgram as $preference) {
@@ -172,22 +192,25 @@ class MatchingController extends Controller
             if (count($preferenceList) > 0) {
                 $preferencesPrograms[$program->pid] = $preferenceList;
             }
+          }
         }
 
         //-second: add the programs that take the uncoordinated way
         foreach ($programsU as $program) {
-          $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
-          $preferenceList = array();
-			    foreach ($preferencesByProgram as $preference) {
-				  //list only active preferences
-            if ($preference->status == 1) {
-              $preferenceList[] = (string)$preference->id_to;
+          if ($capacityList[$pid] > 0) {
+            $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
+            $preferenceList = array();
+  			    foreach ($preferencesByProgram as $preference) {
+  				  //list only active preferences
+              if ($preference->status == 1) {
+                $preferenceList[] = (string)$preference->id_to;
+              }
+  			    }
+            //check if there are any preferences
+            if (count($preferenceList) > 0) {
+              $preferencesPrograms[$program->pid] = $preferenceList;
             }
-			    }
-        //check if there are any preferences
-        if (count($preferenceList) > 0) {
-          $preferencesPrograms[$program->pid] = $preferenceList;
-        }
+          }
       }
       if (count($preferencesPrograms) > 0) {
         $json["college_prefs"] = $preferencesPrograms;
@@ -195,27 +218,7 @@ class MatchingController extends Controller
         return;
       }
 
-        //--------------------
-
-        //by capacity
-      $capacityList = array();
-      $Program = new program;
-      //coordinated
-      foreach ($programsC as $program) {
-        if ($Preference->hasPreferencesByProgram($program->pid)) {
-          $pid = (string)$program->pid;
-          $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
-        }
-      }
-
-      //uncoordinated
-      foreach ($programsU as $program) {
-            if ($Preference->hasPreferencesByProgram($program->pid)) {
-                $pid = (string)$program->pid;
-                $capacityList[$pid] = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
-            }
-		}
-		$json["college_capacity"] = $capacityList;
+      //--------------------
 		return ($json);
     }
 }
