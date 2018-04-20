@@ -30,17 +30,16 @@
         <tbody>
             @foreach($availableApplicants as $applicant)
             <tr
-                <?php if (array_key_exists($applicant->aid, $offers)) {
-                        if ($offers[$applicant->aid] > 0) {
-                            echo 'class="table-info"';
-                        } else if ($offers[$applicant->aid] == -1) {
-                            echo 'class="table-danger"';
-                        }
+                <?php
+                  if ($applicant->status == 26) {
+                    echo 'class="table-success"';
+                  } else  if (array_key_exists($applicant->aid, $offers)) {
+                    if ($offers[$applicant->aid] > 0) {
+                      echo 'class="table-info"';
+                    } else if ($offers[$applicant->aid] == -1) {
+                      echo 'class="table-danger"';
                     }
-
-                    if ($applicant->status == 26) {
-                      echo 'class="table-success"';
-                    }
+                  }
                 ?>
                 >
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
