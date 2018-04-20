@@ -14,9 +14,11 @@
     <div class="col-md-8">
       <h2>Dashboard</h2>
 
+      @if ($data['totalCapacity'] == count($matches)) 
       <div class="alert alert-success" role="alert">
         <strong>Coordination finished!</strong> All applicants are successfully matched to the programs.
       </div>
+      @endif
     </div>
 </div>
 
