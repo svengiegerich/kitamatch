@@ -21,10 +21,10 @@
 <div class="card-deck mb-3 text-center">
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Verified Applicants</h4>
+            <h4 class="my-0 font-weight-normal">Applicants</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">x <small class="text-muted">{{$data['applicantsVerified']}} / {{$data['applicantsCount']}}</small></h1>
+            <h1 class="card-title pricing-card-title">{{$data['applicantsVerified']}} <small class="text-muted">/ {{$data['applicantsCount']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>applicants are verified</li>
             </ul>
@@ -36,9 +36,9 @@
             <h4 class="my-0 font-weight-normal">Programs</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">x <small class="text-muted">/ all</small></h1>
+            <h1 class="card-title pricing-card-title">{{$data['programsInactive']}} <small class="text-muted">/ {{$data['programsCount']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
+              <li>programs are inactive</li>
             </ul>
             <a href="/program/all"><button type="button" class="btn btn-lg btn-block btn-outline-primary">See programs</button></a>
           </div>

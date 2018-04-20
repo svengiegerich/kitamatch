@@ -37,6 +37,8 @@ class AdminController extends Controller
         $data['applicantsCount'] = count($applicants);
         $data['applicantsVerified'] = count(Applicant::whereIn('status', [22, 25, 26])->get());
         $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
+        $data['programsCount'] = count($programs);
+        $data['programsInactive'] = count(Program::where('status', '=', 13)->get());
         //
         //$countFinalMatches = "applicant-code-26";
         //$countOpen = all - $countFinalMatches;
