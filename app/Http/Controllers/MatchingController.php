@@ -139,7 +139,9 @@ class MatchingController extends Controller
 
             $preferenceList = array();
             foreach ($preferencesByApplicant as $preference) {
-              if ($programsC->contains('if_from', $preference->id_to) OR $programsU->contains('if_from', $preference->id_to)) {
+              if ($programsC->contains('if_from', $preference->id_to) OR
+                $programsU->contains('if_from', $preference->id_to)) {
+                  echo "hey";
                 $preferenceList[] = (string)$preference->id_to;
               }
             }
