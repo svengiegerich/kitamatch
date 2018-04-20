@@ -28,7 +28,6 @@
             </tr>
         </thead>
         <tbody>
-          <?php dd($availableApplicants); ?>
             @foreach($availableApplicants as $applicant)
             <tr
                 <?php
