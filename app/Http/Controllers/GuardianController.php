@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\UpdateGuardian;
 use App\Guardian;
 use App\Applicant;
 use App\User;
@@ -45,13 +44,13 @@ class GuardianController extends Controller
                                           'applicants' => $applicants));
     }
 
-    public function edit(Request $request, $gid) {
+    public function edit(UpdateGuardian $request, $gid) {
         $request->request->add(['gid' => $gid]);
         $guardian = $this->update($request);
         return redirect()->action('GuardianController@show', $guardian->gid);
     }
 
-    public function update(UpdateGuardian $request) {
+    public function update(Request $request) {
         $validated = $request->validated();
 
         $guardian = Guardian::findOrFail($request->gid);
