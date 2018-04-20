@@ -5,9 +5,10 @@
 <script>
   $(document).ready( function () {
     $('#matches').DataTable( {
-            "language": {
-                "url": "dataTables.german.lang"
-            }
+            
+            {
+  "pageLength": 50
+}
         } );
   } );
 </script>
