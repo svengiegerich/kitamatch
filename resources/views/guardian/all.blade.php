@@ -4,7 +4,9 @@
 
 <script>
   $(document).ready( function () {
-    $('#guardians').DataTable({});
+    $('#guardians').DataTable({
+      "pageLength": 50
+    });
   } );
 </script>
 
@@ -16,8 +18,6 @@
 
 <div class="row justify-content-center">
 <div class="col-md-12  my-3 p-3 bg-white rounded box-shadow">
-
-
     <table class="table" id="guardians">
         <tr>
             <th>ID</th>

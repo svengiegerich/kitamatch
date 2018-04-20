@@ -5,10 +5,9 @@
 <script>
   $(document).ready( function () {
     $('#programs').DataTable( {
-            "language": {
-                "url": "dataTables.german.lang"
-            }
-        } );
+      "pageLength": 50
+    }
+         );
   } );
 </script>
 <div class="row justify-content-center">
@@ -26,6 +25,7 @@
             <th>Name</th>
             <th>Capacity</th>
             <th>Address</th>
+            <th>PLZ</th>
             <th>Kind</th>
             <th>Coordination</th>
             <th>Status</th>
@@ -39,6 +39,7 @@
                 <td><a href="/preference/program/{{$program->pid}}">{{$program->name}}</a></td>
                 <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>
+                <td>{{$program->plz}}</td>
                 <td>{{$program->p_kind}}</td>
                 <td>{{$program->coordination}}</td>
                 <td>{{$program->status}}</td>

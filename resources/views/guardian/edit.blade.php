@@ -90,7 +90,13 @@
             </div>
 
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">
+              @if (strlen($guardian->last_name)>0)
+                Update
+              @else
+                Save
+              @endif
+            </button>
         </form>
 
         <hr class="mb-4">

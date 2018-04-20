@@ -42,6 +42,15 @@ class PreferenceController extends Controller
         $preference->status = $request->status;
 
         $preference->save();
+
+        //set active if pr_kind = 3 & program is status = 13
+        if ($preference->pr_kind == 3) {
+          $program = Program::find($preference->id_from);
+          if ($program->status == 13) {
+            $program->update(array('status' => '12'));
+          }
+        }
+
         return $preference;
     }
 
