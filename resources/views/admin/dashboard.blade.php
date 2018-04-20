@@ -13,14 +13,16 @@
 </script>
 
 <div class="row justify-content-center">
-    <div class="col-md-8 d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+    <div class="col-md-8">
       <h2>Dashboard</h2>
     </div>
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
+    <div class="col-md-2  my-3 p-3 bg-white rounded box-shadow">
+        <div class="col-md2">
         {{count($matches)}} / {{$data['applicantsCount']}} (Final/All) applicants are matched
+        </div>
     </div>
 </div>
 
@@ -36,7 +38,9 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
+      <br>
       <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Match!</button></a>
+      <br>
     </div>
 </div>
 
