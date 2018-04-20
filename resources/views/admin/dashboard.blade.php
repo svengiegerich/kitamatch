@@ -5,17 +5,18 @@
 <script>
   $(document).ready( function () {
     $('#matches').DataTable( {
-      
-"pageLength": 50
-
-
-        } );
+      "pageLength": 50
+    } );
   } );
 </script>
 
 <div class="row justify-content-center">
     <div class="col-md-8">
       <h2>Dashboard</h2>
+
+      <div class="alert alert-success" role="alert">
+        <strong>Coordination finished!</strong> All applicants are successfully matched to the programs.
+      </div>
     </div>
 </div>
 
