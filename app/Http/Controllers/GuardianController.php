@@ -83,6 +83,7 @@ class GuardianController extends Controller
         }
 
         //mail
+        dd($guardian);
         $user = User::find($guardian->uid);
         Mail::to($user->email)->send(new GuardianVerified($guardian));
 
