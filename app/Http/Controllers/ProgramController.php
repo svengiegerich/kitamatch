@@ -14,7 +14,7 @@ use App\Program;
 use App\Matching;
 use App\Provider;
 use App\User;
-use App\Codes;
+use App\Code;
 
 class ProgramController extends Controller
 {
