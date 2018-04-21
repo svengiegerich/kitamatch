@@ -22,6 +22,7 @@
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
+                                        <?php dd($errors);?>
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
