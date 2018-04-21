@@ -60,7 +60,7 @@
                                     <option value="3">Private</option>
                                     <option value="4">Provider</option>
                                 </select>
-
+                                <br>
                                 <div class="g-recaptcha"
                data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
     </div>
