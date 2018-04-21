@@ -64,7 +64,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(ReCaptchataRequest $data)
+    protected function create(array $data)
     {
         $user = User::create([
             'email' => $data['email'],
