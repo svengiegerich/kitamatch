@@ -24,7 +24,6 @@
             <th>Last name</th>
             <th>First name</th>
             <th>Status</th>
-            <th>Address</th>
             <th>PLZ</th>
             <th>Phone</th>
             <th>Siblings</th>
@@ -43,7 +42,6 @@
                 <td><a href="/guardian/{{$guardian->gid}}">{{$guardian->last_name}}</a></td>
                 <td>{{$guardian->first_name}}</td>
                 <td>{{$guardian->status}}</td>
-                <td>{{$guardian->address}}</td>
                 <td>{{$guardian->plz}}</td>
                 <td>{{$guardian->phone}}</td>
                 <td>{{$guardian->siblings_description}}</td>
