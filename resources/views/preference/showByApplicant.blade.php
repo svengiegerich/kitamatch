@@ -4,17 +4,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-<style>
-  #sortable { list-style-type: none; margin: 0; padding: 0; width: 80%; }
-  #sortable li { margin: 30px; padding: 0px 0px 30px 30px; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-  #sortable li span { position: absolute; margin-left: -1.3em; margin-top: 6px; }
-  #sortable .delete { float: right; padding-right: 5px; }
-</style>
+
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h4>
-
+        <h2>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h2>
       </div>
     </div>
 
