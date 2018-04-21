@@ -61,6 +61,9 @@
                                     <option value="4">Provider</option>
                                 </select>
                             </div>
+                            <div class="g-recaptcha"
+           data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+</div>
                         </div>
 
                         <div class="form-group row mb-0">
