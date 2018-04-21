@@ -14,6 +14,7 @@ use App\Program;
 use App\Matching;
 use App\Provider;
 use App\User;
+use App\Codes;
 
 class ProgramController extends Controller
 {
@@ -81,6 +82,11 @@ class ProgramController extends Controller
 
     public function all() {
         $programs = Program::all();
+        foreach ($programs as $program) {
+          $program->status_description = Code::where('code', '=', $program->status)->first()->value;;
+          $program->coordination_description = ($program->coordination == 1) ? "true" : "false";
+          $program->p_kind_description = ($program->p_kind == 1) ? "public" : "private";
+        }
         return view('program.all', array('programs' => $programs));
     }
 

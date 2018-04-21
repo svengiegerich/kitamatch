@@ -40,9 +40,9 @@
                 <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>
                 <td>{{$program->plz}}</td>
-                <td>{{$program->p_kind}}</td>
-                <td>{{$program->coordination}}</td>
-                <td>{{$program->status}}</td>
+                <td>{{$program->p_kind_description}}</td>
+                <td>{{$program->coordination_description}}</td>
+                <td>{{$program->status_description}}</td>
                 <td>
                     <form action="/program/{{ $program->pid }}" method="POST">
                         {{ csrf_field() }}
