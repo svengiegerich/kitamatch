@@ -5,7 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <div class="row justify-content-center">
-    @if (count($prefernces) < 3)
+    @if (count($preferences) < 3)
     <div class="alert alert-warning" role="alert">
       It's recommended to add at least three programs.
     </div>
