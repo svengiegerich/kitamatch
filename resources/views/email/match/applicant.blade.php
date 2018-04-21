@@ -1,5 +1,5 @@
 @component('mail::message')
-# Final match
+# It's a match!
 
 ...
 

@@ -11,7 +11,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ApplicantFinalMatch extends Mailable
+class ApplicantMatchMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -34,6 +34,6 @@ class ApplicantFinalMatch extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.match.final');
+        return $this->markdown('email.match.applicant');
     }
 }

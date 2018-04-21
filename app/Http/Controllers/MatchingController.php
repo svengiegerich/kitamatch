@@ -19,6 +19,10 @@ use App\Program;
 use App\Preference;
 use App\Traits\GetPreferences;
 
+use App\Mail\ApplicantMatch;
+use App\Mail\ProgramMatch;
+use Illuminate\Support\Facades\Mail;
+
 class MatchingController extends Controller
 {
     use GetPreferences;
@@ -226,5 +230,19 @@ class MatchingController extends Controller
 
       //--------------------
 		return ($json);
+    }
+
+    public function sendMailsAllMatches() {
+      $matches = Matching::whereIn('status', [31, 32])->get();
+      //to guardian
+      foreach($matches as $match) {
+        //to guardian
+        $applicant = Guardian::where('aid', '=', $match->aid)->first();
+        $guardian = Applicant::where('gid', '=', $applicant->aid)->first();
+        $user = User::where('id', '=', $guardian->uid);
+        Mail::to($user->email)->send(new ApplicantMatchMail($guardian));
+
+      }
+      //to programs
     }
 }
