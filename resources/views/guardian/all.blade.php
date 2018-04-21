@@ -12,13 +12,14 @@
 
 <div class="row justify-content-center">
 <div class="col-md-8">
-<h2>List of Guardians</h2>
+<h2>List of all Guardians</h2>
 </div>
 </div>
 
 <div class="row justify-content-center">
-<div class="col-md-12  my-3 p-3 bg-white rounded box-shadow">
+<div class="col-md-13  my-3 p-3 bg-white rounded box-shadow">
     <table class="table" id="guardians">
+        <thead>
         <tr>
             <th>ID</th>
             <th>Last name</th>
@@ -32,6 +33,8 @@
             <th>Verification</th>
             <th>Message</th>
         </tr>
+      </thead>
+        <tbody>
         @foreach($guardians as $guardian)
             <tr
                 @if ($guardian->status == 52)
@@ -41,7 +44,7 @@
                 <th>{{$guardian->gid}}</a></th>
                 <td><a href="/guardian/{{$guardian->gid}}">{{$guardian->last_name}}</a></td>
                 <td>{{$guardian->first_name}}</td>
-                <td>{{$guardian->status}}</td>
+                <td>{{$guardian->status_description}}</td>
                 <td>{{$guardian->plz}}</td>
                 <td>{{$guardian->phone}}</td>
                 <td>{{$guardian->siblings_description}}</td>
@@ -58,6 +61,7 @@
                 <td><a href="mailto:{{$guardian->email}}"><button class="">Send Message</button></a></td>
             </tr>
         @endforeach
+      </tbody>
     </table>
 </div>
 </div>
