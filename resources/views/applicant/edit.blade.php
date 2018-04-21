@@ -20,8 +20,27 @@
       </div>
       @endif
 
-        <h4>Edit Applicant</h4>
-        <br>
+        <h2>Edit Applicant</h2>
+
+        <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+</div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
+
         <form action="/applicant/{{$applicant->aid}}" method="POST" class="">
             {{ csrf_field() }}
 
