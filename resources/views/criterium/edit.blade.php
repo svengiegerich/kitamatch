@@ -41,12 +41,12 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-md-4">
+            <div class="col-md-6">
 
         <ul id="sortable" class="list-group">
             {{ csrf_field() }}
             @foreach ($criteria as $criterium)
-                <li id="item-{{$criterium->cid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center">{{$criterium->code_description}}</li>
+                <li id="item-{{$criterium->cid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{{$criterium->code_description}}</li>
              @endforeach
         </ul>
 </div>
@@ -54,6 +54,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
+        <hr class="mb-4">
         @if ($criterium->program == 1)
         <a href="/preference/program/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Back to Preferences</button></a>
         @else
