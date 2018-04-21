@@ -68,6 +68,9 @@ class GuardianController extends Controller
         foreach ($guardians as $guardian) {
             $user = User::where('id', '=', $guardian->uid)->first();
             $guardian->email = $user->email;
+            $guardian->siblings_description = Code::where('code', '=', $guardian->siblings)->first()->value;
+            $guardian->parental_status_description = Code::where('code', '=', $guardian->parental_status)->first()->value;
+            $guardian->volume_of_employment_description = Code::where('code', '=', $guardian->volume_of_employment)->first()->value;
         }
         return view('guardian.all', array('guardians' => $guardians));
     }
@@ -83,9 +86,9 @@ class GuardianController extends Controller
         }
 
         //mail
-        $guardian = Guardian::where('gid', '=', $gid)->first();
-        $user = User::where('id', '=', $guardian->uid)->first();
-        Mail::to($user->email)->send(new GuardianVerified($guardian));
+        //$guardian = Guardian::where('gid', '=', $gid)->first();
+        //$user = User::where('id', '=', $guardian->uid)->first();
+        //Mail::to($user->email)->send(new GuardianVerified($guardian));
 
         return redirect()->action('GuardianController@all');
     }

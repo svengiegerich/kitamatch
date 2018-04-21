@@ -4,12 +4,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-<style>
-  #sortable { list-style-type: none; margin: 0; padding: 0; width: 80%; }
-  #sortable li { margin: 30px; padding: 0px 0px 30px 30px; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-  #sortable li span { position: absolute; margin-left: -1.3em; margin-top: 6px; }
-</style>
-
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Your Criteria</h4>
@@ -43,10 +37,10 @@
         });
         </script>
 
-        <ul id="sortable">
+        <ul id="sortable" class="list-group">
             {{ csrf_field() }}
             @foreach ($criteria as $criterium)
-                <li id="item-{{$criterium->cid}}" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{{$criterium->code_description}}</li>
+                <li id="item-{{$criterium->cid}}" class="ui-state-default"><span class="ui-state-default list-group-item d-flex justify-content-between align-items-center"></span>{{$criterium->code_description}}</li>
              @endforeach
         </ul>
     </div>

@@ -46,9 +46,9 @@
                 <td>{{$guardian->address}}</td>
                 <td>{{$guardian->plz}}</td>
                 <td>{{$guardian->phone}}</td>
-                <td>{{$guardian->siblings}}</td>
-                <td>{{$guardian->parental_status}}</td>
-                <td>{{$guardian->volume_of_employment}}</td>
+                <td>{{$guardian->siblings_description}}</td>
+                <td>{{$guardian->parental_status_description}}</td>
+                <td>{{$guardian->volume_of_employment_description}}</td>
                 <td>
                     @if ($guardian->status == 50 OR $guardian->status == 51)
                     <form action="/guardian/verify/{{ $guardian->gid }}" method="POST">
