@@ -10,6 +10,7 @@ use App\Guardian;
 use App\Applicant;
 use App\User;
 use App\Mail\GuardianVerified;
+use Illuminate\Support\Facades\Mail;
 
 class GuardianController extends Controller
 {
