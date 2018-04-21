@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
-
 class ReCaptchataRequest extends FormRequest
 {
     /**
@@ -15,7 +12,6 @@ class ReCaptchataRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,8 +19,8 @@ class ReCaptchataRequest extends FormRequest
      */
     public function rules()
     {
-      return [
-        'g-recaptcha-response'=>'required|recaptcha'
-      ];
+        return [
+            'g-recaptcha-response'=>'required|recaptcha'
+        ];
     }
 }
