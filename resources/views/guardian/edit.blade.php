@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Edit your Profil</h4>
+        <h2>Edit your Profil</h2>
         <br />
 
         @if ($errors->any())
@@ -16,6 +16,15 @@
         </div>
         @endif
 
+        @if (count($applicants) == 0)
+        <div class="alert alert-warning" role="alert">
+          <strong>No applicant.</strong> You also need to add an applicant.
+        </div>
+        @endif
+      </div>
+    </div>
+<div class="row justify-content-center">
+    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
         <form action="/guardian/{{$guardian->gid}}" method="POST">
             {{ csrf_field() }}
 
