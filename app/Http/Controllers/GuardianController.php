@@ -84,7 +84,7 @@ class GuardianController extends Controller
 
         //mail
         $guardian = Guardian::where('gid', '=', $gid)->first();
-        $user = User::where('id', '=', $guardian->uid);
+        $user = User::where('id', '=', $guardian->uid)->first();
         Mail::to($user->email)->send(new GuardianVerified($guardian));
 
         return redirect()->action('GuardianController@all');
