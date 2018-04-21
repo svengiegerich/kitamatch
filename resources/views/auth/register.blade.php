@@ -22,7 +22,6 @@
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
-                                        <?php dd($errors);?>
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -67,9 +66,9 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                               <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
-                              @if ($errors->has('recaptcha'))
+                              @if ($errors->has('g-recaptcha-response'))
                                   <span class="invalid-feedback">
-                                      <strong>dd(@errors)</strong>
+                                      <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                   </span>
                               @endif
                               <br>

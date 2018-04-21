@@ -54,7 +54,6 @@ class RegisterController extends Controller
           'g-recaptcha-response'=>'required|recaptcha',
           'email' => 'required|string|email|max:255|unique:users',
           'password' => 'required|string|min:6|confirmed'
-            //'g-recaptcha-response'=>'required|recaptcha'
         ]);
     }
 
@@ -74,7 +73,6 @@ class RegisterController extends Controller
 
         if ($data['accountType'] == 1) {
             //account-type is guardian
-            echo "hey";
             $request = new Request();
             $request->setMethod('POST');
             $request->request->add(['uid' => $user->id]);
