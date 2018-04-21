@@ -67,7 +67,7 @@
                             <div class="col-md-6 offset-md-4">
                               <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
                               @if ($errors->has('g-recaptcha-response'))
-                                  <span class="invalid-feedback">
+                                  <span class="invalid-feedback" style="display: contents;">
                                       <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                   </span>
                               @endif
