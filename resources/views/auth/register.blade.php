@@ -66,7 +66,8 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                               <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
-                              @if ($errors->has('email'))
+                              <?php dd($errors);?>
+                              @if ($errors->has('recaptcha'))
                                   <span class="invalid-feedback">
                                       <strong>dd(@errors)</strong>
                                   </span>
