@@ -7,6 +7,12 @@
 
 
 <div class="row justify-content-center">
+    @if (count($prefernces) < 3)
+    <div class="alert alert-warning" role="alert">
+      It's recommended to add at least three programs.
+    </div>
+    @endif
+
     <div class="col-md-8">
         <h2>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h2>
       </div>
@@ -37,9 +43,10 @@
     </div>
 </div>
 
-@if (count($preferences) > 0)
 <div class="row justify-content-center">
+      @if (count($preferences) > 0)
     <div class="col-md-8">
+
         <script>
             $.ajaxSetup({
                 headers: {
@@ -85,13 +92,18 @@
             @foreach ($preferences as $preference)
                 <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                     {{$preference->programName}}
-                    <a class="delete" href="#"><span class="badge badge-primary badge-pill">X</span></a>
+                    <a class="delete" href="#"><span class="badge badge-primary badge-pill">x</span></a>
                 </li>
              @endforeach
         </ul>
-    </div>
+        </div>
+        @else
+          <div class="col-md-8">
+            Please add preferences.
+          </div>
+        @endif
 </div>
-@endif
+
 
 <div class="row justify-content-center">
     <div class="col-md-8">
