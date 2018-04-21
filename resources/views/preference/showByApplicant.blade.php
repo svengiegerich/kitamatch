@@ -14,7 +14,12 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h4>
-        <br>
+
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
         @if (count($programs)>0)
         <form action="/preference/applicant/{{$applicant->aid}}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
@@ -27,18 +32,16 @@
                               'class' => 'form-control')
                     )  !!}
                 </div>
+                <div class="col-sm-2">
+                  <button type="submit" class="btn btn-primary">Add</button>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Add</button>
-
         </form>
         @else
         <button type="submit" class="btn btn-secondary" disabled>All programs selected.</button>
         @endif
     </div>
 </div>
-
-<br>
-<br>
 
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
@@ -83,12 +86,12 @@
             });
         </script>
 
-        <ul id="sortable">
+        <ul id="sortable" class="list-group">
             {{ csrf_field() }}
             @foreach ($preferences as $preference)
-                <li id="item-{{$preference->prid}}" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                     {{$preference->programName}}
-                    <a class="delete" href="#">X</a>
+                    <a class="delete" href="#"><span class="badge badge-primary badge-pill">X</span></a>
                 </li>
              @endforeach
         </ul>

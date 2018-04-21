@@ -3,8 +3,18 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-6">
         <h2>Add Applicant</h2>
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </div>
 </div>
 <div class="row justify-content-center">
@@ -14,8 +24,8 @@
 
             <div class="form-group row">
                 <label for="firstName" class="col-sm-2 col-form-label">First name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required="">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="{{old('firstName')}}" required="">
                 </div>
                 <div class="invalid-feedback">
                     Valid first name is required.
@@ -23,8 +33,8 @@
             </div>
             <div class="form-group row">
                 <label for="lastName"  class="col-sm-2 col-form-label">Last name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{old('lastName')}}" required="">
                 </div>
                 <div class="invalid-feedback">
                       Valid last name is required.
@@ -32,8 +42,8 @@
             </div>
             <div class="form-group row">
                 <label for="birthday"  class="col-sm-2 col-form-label">Birthday</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="" required="">
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="{{old('birthday')}}" required="">
                 </div>
                 <div class="invalid-feedback">
                       Valid birthday is required.
@@ -41,11 +51,11 @@
             </div>
             <div class="form-group row">
                 <label for="gender"  class="col-sm-2 col-form-label">Gender</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
                                                       'Other' => 'Other'),
-                                                'M',
+                                                M,
                         array('id' => 'gender', 'class' => 'form-control') )  !!}
                 </div>
                 <div class="invalid-feedback">
