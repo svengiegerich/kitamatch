@@ -48,14 +48,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    /*protected function validator(array $data)
     {
         return Validator::make($data, [
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed'
             //'g-recaptcha-response'=>'required|recaptcha'
         ]);
-    }
+    }*/
 
     /**
      * Create a new user instance after a valid registration.
@@ -63,7 +63,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(ReCaptchataRequest $data)
     {
         $user = User::create([
             'email' => $data['email'],
