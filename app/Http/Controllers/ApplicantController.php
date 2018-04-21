@@ -34,7 +34,7 @@ class ApplicantController extends Controller
         $applicant->gid = $request->gid;
         $applicant->first_name = $request->firstName;
         $applicant->last_name = $request->lastName;
-        $applicant->birthday = $request->birthday;
+        $applicant->birthday = strtotime($request->birthday);
         $applicant->gender = $request->gender;
         $applicant->status = 21;
         $applicant->save();

@@ -4,8 +4,11 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Add Applicant</h4>
-        <br>
+        <h2>Add Applicant</h2>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-6  my-3 p-3 bg-white rounded box-shadow">
         <form action="/applicant/add/{{$guardian->gid}}" method="POST" class="">
             {{ csrf_field() }}
 
@@ -20,7 +23,7 @@
             </div>
             <div class="form-group row">
                 <label for="lastName"  class="col-sm-2 col-form-label">Last name</label>
-                <div class="col-sm-10">    
+                <div class="col-sm-10">
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required="">
                 </div>
                 <div class="invalid-feedback">
@@ -29,7 +32,7 @@
             </div>
             <div class="form-group row">
                 <label for="birthday"  class="col-sm-2 col-form-label">Birthday</label>
-                <div class="col-sm-10">    
+                <div class="col-sm-10">
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="" required="">
                 </div>
                 <div class="invalid-feedback">
@@ -38,7 +41,7 @@
             </div>
             <div class="form-group row">
                 <label for="gender"  class="col-sm-2 col-form-label">Gender</label>
-                <div class="col-sm-10">    
+                <div class="col-sm-10">
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
                                                       'Other' => 'Other'),
