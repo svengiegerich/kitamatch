@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Guardian;
 use App\Applicant;
 use App\User;
+use App\Code;
 use App\Mail\GuardianVerified;
 use Illuminate\Support\Facades\Mail;
 
