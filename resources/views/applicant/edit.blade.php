@@ -22,7 +22,7 @@
 
         <h2>Edit Applicant</h2>
 
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills gap-nav">
           <li class="nav-item">
             <a class="nav-link" href="/guardian/{{$applicant->gid}}">{{$applicant->guardianName}}</a>
           </li>
