@@ -19,9 +19,11 @@
       </div>
       @endif
 
-        <h4>Edit your Program information</h4>
-        <br />
-
+        <h2>Edit your Program information</h2>
+</div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
         <form action="/program/{{$program->pid}}" method="POST">
             {{ csrf_field() }}
 
@@ -83,7 +85,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         @if ($program->coordination == 1)
-            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Add preferences</button></a>
+            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">See preferences</button></a>
         @else
             <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Make offers</button></a>
         @endif

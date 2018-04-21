@@ -27,7 +27,7 @@
             <a class="nav-link" href="/guardian/{{$applicant->gid}}">{{$applicant->guardianName}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">{{$applicant->first_name}}</a>
+            <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/preference/applicant/{{$applicant->aid}}">Preferences</a>
@@ -94,18 +94,10 @@
     <div class="col-md-8">
       @if ($applicant->status == 25)
       <button class="btn btn-success btn-lg btn-block">Priority set</button>
-      <hr class="mb-4">
       @endif
       @if ($applicant->status != 25)
       <a href="/applicant/setPriority/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Set priority</button></a>
-      <hr class="mb-4">
       @endif
-
-      <h4>Preferences</h4>
-      <a href="/preference/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Go to preferences</button></a>
-      <hr class="mb-4">
-      <a href="/guardian/{{$applicant->gid}}"><button class="btn btn-primary btn-lg btn-block">Back to guardian</button></a>
-    </div>
 </div>
 
 @endsection

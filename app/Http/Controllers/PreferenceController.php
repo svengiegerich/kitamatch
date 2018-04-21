@@ -148,7 +148,11 @@ class PreferenceController extends Controller
         if ($program->coordination == 1) {
             //coordination: true
             $preferences = $this->getPreferencesByProgram($pid);
-
+            foreach ($preferences as $preference) {
+              $applicant = Applicant::find($preference->id_to);
+              $preference->applicantLastName = $applicant->last_name;
+              $preference->applicantFirstName = $applicant->first_name;
+            }
             return view('preference.showByProgram', array('preferences' => $preferences,
                                                          'program' => $program));
         } else {
