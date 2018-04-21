@@ -22,8 +22,6 @@
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
-                                        {{ $errors->first('g-recaptcha-response') }}
-                                        <?php dd($errors); ?>
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
