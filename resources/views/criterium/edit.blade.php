@@ -39,13 +39,18 @@
         });
         </script>
 
+        <div class="row justify-content-center">
+
+            <div class="col-md-4">
+
         <ul id="sortable" class="list-group">
             {{ csrf_field() }}
             @foreach ($criteria as $criterium)
                 <li id="item-{{$criterium->cid}}" class="ui-state-default"><span class="ui-state-default list-group-item d-flex justify-content-between align-items-center"></span>{{$criterium->code_description}}</li>
              @endforeach
         </ul>
-
+</div>
+</div>
 
 <div class="row justify-content-center">
     <div class="col-md-8">
