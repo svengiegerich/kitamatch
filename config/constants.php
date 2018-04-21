@@ -3,7 +3,7 @@
 return [
   //options
 
-  'mail' => TRUE;
+  'mail' => TRUE,
 
   //general, register, coordination, finished
   'stage' => 'general',
