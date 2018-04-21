@@ -22,21 +22,18 @@
 
         <h2>Edit Applicant</h2>
 
-        <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
-</ul>
-</div>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="/guardian/{{$applicant->gid}}">{{$applicant->guardianName}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">{{$applicant->first_name}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/preference/applicant/{{$applicant->aid}}">Preferences</a>
+          </li>
+        </ul>
+      </div>
 </div>
 <div class="row justify-content-center">
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
