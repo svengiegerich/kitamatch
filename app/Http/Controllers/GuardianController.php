@@ -73,8 +73,7 @@ class GuardianController extends Controller
 
     public function verify($gid) {
         $Applicant = new Applicant;
-        $guardian = Guardian::where('gid', '=', $gid);
-        $guardian->update(array('status' => '52'));
+        Guardian::where('gid', '=', $gid)->update(array('status' => '52'));
 
         //verfiy applicant(s)
         $applicants = $Applicant->getAppliantsByGid($gid);
@@ -83,8 +82,8 @@ class GuardianController extends Controller
         }
 
         //mail
-        dd($guardian);
-        $user = User::find($guardian->uid);
+        $guardian = Guardian::where('gid', '=', $gid)->first();
+        $user = User::where('id', '=', $guardian->uid);
         Mail::to($user->email)->send(new GuardianVerified($guardian));
 
         return redirect()->action('GuardianController@all');
