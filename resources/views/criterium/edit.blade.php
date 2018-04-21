@@ -6,8 +6,10 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Your Criteria</h4>
-        <br />
+        <h4>Criteria</h4>
+
+      </div>
+  </div>
 
         <script>
         $.ajaxSetup({
@@ -43,8 +45,6 @@
                 <li id="item-{{$criterium->cid}}" class="ui-state-default"><span class="ui-state-default list-group-item d-flex justify-content-between align-items-center"></span>{{$criterium->code_description}}</li>
              @endforeach
         </ul>
-    </div>
-</div>
 
 
 <div class="row justify-content-center">

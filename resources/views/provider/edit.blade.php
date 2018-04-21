@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Edit your Information - Provider</h4>
+        <h4>Edit Provider</h4>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -44,8 +44,6 @@
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
         </form>
-
-        <hr class="mb-4">
     </div>
 </div>
 
