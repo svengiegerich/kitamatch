@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Guardian;
 use App\Applicant;
 use App\User;
+use App\Mail\GuardianVerified;
 
 class GuardianController extends Controller
 {
@@ -72,14 +73,18 @@ class GuardianController extends Controller
 
     public function verify($gid) {
         $Applicant = new Applicant;
-
-        Guardian::where('gid', '=', $gid)->update(array('status' => '52'));
+        $guardian = Guardian::where('gid', '=', $gid);
+        $guardian->update(array('status' => '52'));
 
         //verfiy applicant(s)
         $applicants = $Applicant->getAppliantsByGid($gid);
         foreach ($applicants as $applicant) {
             app('App\Http\Controllers\ApplicantController')->setValid($applicant->aid);
         }
+
+        //mail
+        $user = User::find($guardian->uid);
+        Mail::to($user->email)->send(new GuardianVerified($guardian));
 
         return redirect()->action('GuardianController@all');
     }

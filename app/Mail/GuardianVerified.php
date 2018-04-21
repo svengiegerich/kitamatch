@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Guardian;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -11,14 +13,16 @@ class GuardianVerified extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $guardian;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guardian $guardian)
     {
-        //
+        $this->guardian = $guardian;
     }
 
     /**
@@ -28,6 +32,6 @@ class GuardianVerified extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('email.guardian.verified');
     }
 }
