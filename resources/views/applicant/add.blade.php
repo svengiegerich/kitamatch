@@ -23,26 +23,26 @@
             {{ csrf_field() }}
 
             <div class="form-group row">
-                <label for="firstName" class="col-sm-2 col-form-label">First name</label>
-                <div class="col-sm-4">
+                <label for="firstName" class="col-sm-3 col-form-label">First name</label>
+                <div class="col-sm-8">
                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="{{old('firstName')}}" required="">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="lastName"  class="col-sm-2 col-form-label">Last name</label>
-                <div class="col-sm-4">
+                <label for="lastName"  class="col-sm-3 col-form-label">Last name</label>
+                <div class="col-sm-8">
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{old('lastName')}}" required="">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="birthday"  class="col-sm-2 col-form-label">Birthday</label>
-                <div class="col-sm-4">
+                <label for="birthday"  class="col-sm-3 col-form-label">Birthday</label>
+                <div class="col-sm-8">
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="{{old('birthday')}}" required="">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="gender"  class="col-sm-2 col-form-label">Gender</label>
-                <div class="col-sm-4">
+                <label for="gender"  class="col-sm-3 col-form-label">Gender</label>
+                <div class="col-sm-8">
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
                                                       'Other' => 'Other'),
