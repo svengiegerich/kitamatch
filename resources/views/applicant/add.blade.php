@@ -27,26 +27,17 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="{{old('firstName')}}" required="">
                 </div>
-                <div class="invalid-feedback">
-                    Valid first name is required.
-                </div>
             </div>
             <div class="form-group row">
                 <label for="lastName"  class="col-sm-2 col-form-label">Last name</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{old('lastName')}}" required="">
                 </div>
-                <div class="invalid-feedback">
-                      Valid last name is required.
-                </div>
             </div>
             <div class="form-group row">
                 <label for="birthday"  class="col-sm-2 col-form-label">Birthday</label>
                 <div class="col-sm-4">
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="{{old('birthday')}}" required="">
-                </div>
-                <div class="invalid-feedback">
-                      Valid birthday is required.
                 </div>
             </div>
             <div class="form-group row">
@@ -57,9 +48,6 @@
                                                       'Other' => 'Other'),
                                                 M,
                         array('id' => 'gender', 'class' => 'form-control') )  !!}
-                </div>
-                <div class="invalid-feedback">
-                      Valid gender is required.
                 </div>
             </div>
 
