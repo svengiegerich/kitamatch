@@ -5,13 +5,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <div class="row justify-content-center">
-    @if (count($preferences) < 3)
-    <div class="alert alert-warning" role="alert">
-      It's recommended to add at least three programs.
-    </div>
-    @endif
-
     <div class="col-md-8">
+        @if (count($preferences) < 3)
+        <div class="alert alert-warning" role="alert">
+          It's recommended to add at least three programs.
+        </div>
+        @endif
+
         <h2>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}}</h2>
       </div>
     </div>
