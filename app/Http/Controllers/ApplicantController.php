@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 use App\Http\Requests;
-use App\Http\Requests\UpdateApplicantRequest;
+use App\Http\Requests\ApplicantRequest;
 use App\Http\Controllers\Controller;
 
 use App\Applicant;
@@ -22,13 +22,13 @@ class ApplicantController extends Controller
         return view('applicant.add', array('guardian' => $guardian));
     }
 
-    public function create(Request $request, $gid) {
+    public function create(ApplicantRequest $request, $gid) {
         $request->request->add(['gid' => $gid]);
         $applicant = $this->store($request);
         return redirect()->action('PreferenceController@showByApplicant', ['aid' => $applicant->aid]);
     }
 
-    public function store(Request $request) {
+    public function store(ApplicantRequest $request) {
         //Validation
         $applicant = new Applicant;
         $applicant->gid = $request->gid;
@@ -54,13 +54,13 @@ class ApplicantController extends Controller
         return view('applicant.all', array('applicants' => $applicants));
     }
 
-    public function edit(UpdateApplicantRequest $request, $aid) {
+    public function edit(ApplicantRequest $request, $aid) {
         $request->request->add(['aid' => $aid]);
         $applicant = $this->update($request);
         return view('applicant.edit', array('applicant' => $applicant));
     }
 
-    public function delete(UpdateApplicantRequest $request, $aid) {
+    public function delete(ApplicantRequest $request, $aid) {
         $applicant = applicant::findOrFail($aid);
         //temp: set active=0 instead of deleting
         $applicant->delete();
