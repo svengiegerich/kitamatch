@@ -46,7 +46,7 @@
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
                                                       'Other' => 'Other'),
-                                                M,
+                                              
                         array('id' => 'gender', 'class' => 'form-control') )  !!}
                 </div>
             </div>
