@@ -19,7 +19,7 @@ class __TwigTemplate_04b24b66a77c242b31c3a55b09354d4b1530e13dfa4295f8506a70e3ee7
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        $context["__internal_d35e24f8d9b36cb32e1fce65234e85021c36624f3c0c0670ba7e4187488ed2c1"] = $this;
+        $context["__internal_eac0a899fa33fc1aabcc0c1c72b846e1c548ab16f65cd1cec01dd9e12d42548e"] = $this;
         // line 2
         echo "
 window.projectVersion = '";
@@ -33,7 +33,7 @@ window.projectVersion = '";
     var rootPath = '';
     var treeHtml = '";
         // line 9
-        echo twig_replace_filter($context["__internal_d35e24f8d9b36cb32e1fce65234e85021c36624f3c0c0670ba7e4187488ed2c1"]->macro_element((isset($context["tree"]) || array_key_exists("tree", $context) ? $context["tree"] : (function () { throw new Twig_Error_Runtime('Variable "tree" does not exist.', 9, $this->getSourceContext()); })()), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 9, $this->getSourceContext()); })()), "config", array(0 => "default_opened_level"), "method"), 0), array("'" => "\\'", "
+        echo twig_replace_filter($context["__internal_eac0a899fa33fc1aabcc0c1c72b846e1c548ab16f65cd1cec01dd9e12d42548e"]->macro_element((isset($context["tree"]) || array_key_exists("tree", $context) ? $context["tree"] : (function () { throw new Twig_Error_Runtime('Variable "tree" does not exist.', 9, $this->getSourceContext()); })()), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["project"]) || array_key_exists("project", $context) ? $context["project"] : (function () { throw new Twig_Error_Runtime('Variable "project" does not exist.', 9, $this->getSourceContext()); })()), "config", array(0 => "default_opened_level"), "method"), 0), array("'" => "\\'", "
 " => ""));
         echo "';
 
@@ -217,7 +217,7 @@ window.projectVersion = '";
     {
         // line 22
         echo "            ";
-        $context["__internal_b866366ab773074b7a8821d3e7c37420da23e488ec721747d9a55aa14405ffe7"] = $this;
+        $context["__internal_9190e0575ba2615603cf59c4c73d5bcfd76819986c2c54b4804b7780c1f4f23a"] = $this;
         // line 23
         echo "
             ";
@@ -262,7 +262,7 @@ window.projectVersion = '";
             echo "\"},
                 ";
             // line 30
-            echo $context["__internal_b866366ab773074b7a8821d3e7c37420da23e488ec721747d9a55aa14405ffe7"]->macro_add_class_methods_index($context["class"]);
+            echo $context["__internal_9190e0575ba2615603cf59c4c73d5bcfd76819986c2c54b4804b7780c1f4f23a"]->macro_add_class_methods_index($context["class"]);
             echo "
             ";
         }
@@ -300,7 +300,7 @@ window.projectVersion = '";
             echo "\"},
                 ";
             // line 35
-            echo $context["__internal_b866366ab773074b7a8821d3e7c37420da23e488ec721747d9a55aa14405ffe7"]->macro_add_class_methods_index($context["class"]);
+            echo $context["__internal_9190e0575ba2615603cf59c4c73d5bcfd76819986c2c54b4804b7780c1f4f23a"]->macro_add_class_methods_index($context["class"]);
             echo "
             ";
         }
@@ -423,7 +423,7 @@ window.projectVersion = '";
         try {
             // line 226
             echo "    ";
-            $context["__internal_8ae3168eeaa6fc29ce83ec628356df618cd71e2c2ab30d05762c374187cb9ce9"] = $this;
+            $context["__internal_44fd69d6129d8d0b1248e62df4dbb5de181a08fd77601228d9060413583de49a"] = $this;
             // line 227
             echo "
     <ul>";
@@ -461,7 +461,7 @@ window.projectVersion = '";
                     <div class=\"bd\">
                         ";
                     // line 236
-                    echo $context["__internal_8ae3168eeaa6fc29ce83ec628356df618cd71e2c2ab30d05762c374187cb9ce9"]->macro_element(twig_get_attribute($this->env, $this->getSourceContext(), $context["element"], 2, array(), "array"), (isset($context["opened"]) || array_key_exists("opened", $context) ? $context["opened"] : (function () { throw new Twig_Error_Runtime('Variable "opened" does not exist.', 236, $this->getSourceContext()); })()), ((isset($context["depth"]) || array_key_exists("depth", $context) ? $context["depth"] : (function () { throw new Twig_Error_Runtime('Variable "depth" does not exist.', 236, $this->getSourceContext()); })()) + 1));
+                    echo $context["__internal_44fd69d6129d8d0b1248e62df4dbb5de181a08fd77601228d9060413583de49a"]->macro_element(twig_get_attribute($this->env, $this->getSourceContext(), $context["element"], 2, array(), "array"), (isset($context["opened"]) || array_key_exists("opened", $context) ? $context["opened"] : (function () { throw new Twig_Error_Runtime('Variable "opened" does not exist.', 236, $this->getSourceContext()); })()), ((isset($context["depth"]) || array_key_exists("depth", $context) ? $context["depth"] : (function () { throw new Twig_Error_Runtime('Variable "depth" does not exist.', 236, $this->getSourceContext()); })()) + 1));
                     // line 237
                     echo "</div>
                 </li>

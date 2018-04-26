@@ -18,6 +18,6 @@ $iterator = Finder::create()
 return new Sami($iterator,[
  'theme' => 'default',
  'title' => 'KitaMatch',
- 'build_dir' => '/var/www/html/kitamatch/build',
- 'cache_dir' => '/var/www/html/kitamatch/cache',
+ 'build_dir' => '/var/www/html/kitamatch/public/docs/build',
+ 'cache_dir' => '/var/www/html/kitamatch/public/docs/cache',
 ]);

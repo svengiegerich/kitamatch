@@ -24,7 +24,7 @@ class __TwigTemplate_3ba77bb8ccbe6fecd5eb6762b991e16a716206ee6faf9f06191af6cd150
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 2
-        $context["__internal_702623b783d7e021307872f39c8d940a38cdfeee89af845e3159aba2d5da459b"] = $this->loadTemplate("macros.twig", "interfaces.twig", 2);
+        $context["__internal_ecafd77080fa48b974224419cb4c5bee1a05276057ff5f4a5059e98af3c494c1"] = $this->loadTemplate("macros.twig", "interfaces.twig", 2);
         // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
@@ -52,7 +52,7 @@ class __TwigTemplate_3ba77bb8ccbe6fecd5eb6762b991e16a716206ee6faf9f06191af6cd150
 
     ";
         // line 11
-        echo $context["__internal_702623b783d7e021307872f39c8d940a38cdfeee89af845e3159aba2d5da459b"]->macro_render_classes((isset($context["interfaces"]) || array_key_exists("interfaces", $context) ? $context["interfaces"] : (function () { throw new Twig_Error_Runtime('Variable "interfaces" does not exist.', 11, $this->getSourceContext()); })()));
+        echo $context["__internal_ecafd77080fa48b974224419cb4c5bee1a05276057ff5f4a5059e98af3c494c1"]->macro_render_classes((isset($context["interfaces"]) || array_key_exists("interfaces", $context) ? $context["interfaces"] : (function () { throw new Twig_Error_Runtime('Variable "interfaces" does not exist.', 11, $this->getSourceContext()); })()));
         echo "
 ";
     }
