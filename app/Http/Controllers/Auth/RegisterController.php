@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the KitaMatch app.
+ *
+ * (c) Sven Giegerich <sven.giegerich@mailbox.org>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace App\Http\Controllers\Auth;
 
@@ -10,6 +18,16 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+/**
+*--------------------------------------------------------------------------
+* Register Controller
+*--------------------------------------------------------------------------
+*
+* This controller handles the registration of new users as well as their
+* validation and creation. By default this controller uses a trait to
+* provide this functionality without requiring any additional code.
+*
+*/
 class RegisterController extends Controller
 {
     /*
