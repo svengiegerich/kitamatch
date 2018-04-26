@@ -14,7 +14,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 /**
-*--------------------------------------------------------------------------
 * Login Controller
 *--------------------------------------------------------------------------
 * This controller handles authenticating users for the application and
