@@ -5,7 +5,11 @@ KiTaMatch is a web application **in development** for innovative childcare assig
 
 ## Architecture
 - Laravel 5.6 (PHP 7.2)
-- Matching algorithm (deferred acceptance, API): https://matchingtools.com/
+  - Plugins
+    - Laravel Migrations Generator, https://github.com/Xethron/migrations-generator
+- Matching algorithm (deferred acceptance, API), https://matchingtools.com/
+- Sami, an API documentation generator, https://github.com/FriendsOfPHP/Sami
+  - Update doc: php sami.phar update sami.config.php 
 
 ## Documentation
 - Code: /docs/build/index.html
