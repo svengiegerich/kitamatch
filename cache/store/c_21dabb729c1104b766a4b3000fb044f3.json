@@ -1,0 +1,118 @@
+{
+    "name": "App\\Providers\\EventServiceProvider",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Providers",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Providers\/EventServiceProvider.php",
+    "relative_file": null,
+    "hash": "94b2d414825acea8b99de301e864a232bbecfe96",
+    "parent": "Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Event": "Illuminate\\Support\\Facades\\Event",
+        "ServiceProvider": "Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "listen": {
+            "name": "listen",
+            "line": 15,
+            "short_desc": "The event listener mappings for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Scalar_String",
+                            "value": "App\\Events\\Event",
+                            "attributes": {
+                                "startLine": 16,
+                                "endLine": 16,
+                                "kind": 1
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Expr_Array",
+                            "items": [
+                                {
+                                    "nodeType": "Expr_ArrayItem",
+                                    "key": null,
+                                    "value": {
+                                        "nodeType": "Scalar_String",
+                                        "value": "App\\Listeners\\EventListener",
+                                        "attributes": {
+                                            "startLine": 17,
+                                            "endLine": 17,
+                                            "kind": 1
+                                        }
+                                    },
+                                    "byRef": false,
+                                    "attributes": {
+                                        "startLine": 17,
+                                        "endLine": 17
+                                    }
+                                }
+                            ],
+                            "attributes": {
+                                "startLine": 16,
+                                "endLine": 18,
+                                "kind": 2
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 16,
+                            "endLine": 18
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 19,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 26,
+            "short_desc": "Register any events for your application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

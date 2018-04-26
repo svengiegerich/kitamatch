@@ -5,10 +5,15 @@
 
     RewriteEngine On
 
-    # Redirect Trailing Slashes If Not A Folder...
- 
+# Exclude directory from rewriting
+    RewriteRule ^(build) - [L]
+# Exclude directory from rewriting
+    RewriteCond $1 !^(kitamatch/docs)
+
+    # Redirect Trailing Slashes If Not A Folder... 
 	RewriteRule ^(.*)/$ /$1 [L,R=301]
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+

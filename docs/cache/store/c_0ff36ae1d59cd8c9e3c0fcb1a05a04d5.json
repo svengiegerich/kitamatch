@@ -1,0 +1,80 @@
+{
+    "name": "App\\Http\\Middleware\\TrustProxies",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Middleware",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Middleware\/TrustProxies.php",
+    "relative_file": null,
+    "hash": "558521f9f0b376b302c2088675f4d59adad1a962",
+    "parent": "Fideloper\\Proxy\\TrustProxies",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "Middleware": "Fideloper\\Proxy\\TrustProxies"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "proxies": {
+            "name": "proxies",
+            "line": 15,
+            "short_desc": "The trusted proxies for this application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": null,
+            "errors": []
+        },
+        "headers": {
+            "name": "headers",
+            "line": 22,
+            "short_desc": "The headers that should be used to detect proxies.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ClassConstFetch",
+                "class": {
+                    "nodeType": "Name_FullyQualified",
+                    "parts": [
+                        "Illuminate",
+                        "Http",
+                        "Request"
+                    ],
+                    "attributes": {
+                        "startLine": 22,
+                        "endLine": 22
+                    }
+                },
+                "name": "HEADER_X_FORWARDED_ALL",
+                "attributes": {
+                    "startLine": 22,
+                    "endLine": 22
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}

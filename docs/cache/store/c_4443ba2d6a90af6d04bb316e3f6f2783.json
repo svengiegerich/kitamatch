@@ -1,0 +1,121 @@
+{
+    "name": "App\\Console\\Kernel",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Console",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Console\/Kernel.php",
+    "relative_file": null,
+    "hash": "cd91585cead4e037d4b0d4fcc5ee3605b0c5bb7c",
+    "parent": "Illuminate\\Foundation\\Console\\Kernel",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Schedule": "Illuminate\\Console\\Scheduling\\Schedule",
+        "ConsoleKernel": "Illuminate\\Foundation\\Console\\Kernel"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "commands": {
+            "name": "commands",
+            "line": 15,
+            "short_desc": "The Artisan commands provided by your application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [],
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 17,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "schedule": {
+            "name": "schedule",
+            "line": 25,
+            "short_desc": "Define the application's command schedule.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "schedule": {
+                    "name": "schedule",
+                    "line": 25,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Console\\Scheduling\\Schedule",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Console",
+                            "Scheduling",
+                            "Schedule"
+                        ],
+                        "attributes": {
+                            "startLine": 25,
+                            "endLine": 25
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "commands": {
+            "name": "commands",
+            "line": 36,
+            "short_desc": "Register the commands for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

@@ -1,0 +1,225 @@
+{
+    "name": "App\\Applicant",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Applicant.php",
+    "relative_file": null,
+    "hash": "c5aef12d5335a69915cbdeee4e04a8bd49d4b01a",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model",
+        "DB": "Illuminate\\Support\\Facades\\DB"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "primaryKey": {
+            "name": "primaryKey",
+            "line": 26,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "aid",
+                "attributes": {
+                    "startLine": 26,
+                    "endLine": 26,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "dates": {
+            "name": "dates",
+            "line": 28,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "created_at",
+                            "attributes": {
+                                "startLine": 29,
+                                "endLine": 29,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 29,
+                            "endLine": 29
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "updated_at",
+                            "attributes": {
+                                "startLine": 30,
+                                "endLine": 30,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 30,
+                            "endLine": 30
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "deleted_at",
+                            "attributes": {
+                                "startLine": 31,
+                                "endLine": 31,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 31,
+                            "endLine": 31
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "birthday",
+                            "attributes": {
+                                "startLine": 33,
+                                "comments": [
+                                    {
+                                        "nodeType": "Comment",
+                                        "text": "\/\/\n",
+                                        "line": 32,
+                                        "filePos": 721
+                                    }
+                                ],
+                                "endLine": 33,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 33,
+                            "comments": [
+                                {
+                                    "nodeType": "Comment",
+                                    "text": "\/\/\n",
+                                    "line": 32,
+                                    "filePos": 721
+                                }
+                            ],
+                            "endLine": 33
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 28,
+                    "endLine": 34,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "getAppliantsByGid": {
+            "name": "getAppliantsByGid",
+            "line": 11,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "gid": {
+                    "name": "gid",
+                    "line": 11,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getGuardianIdByApplicant": {
+            "name": "getGuardianIdByApplicant",
+            "line": 16,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "aid": {
+                    "name": "aid",
+                    "line": 16,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getAll": {
+            "name": "getAll",
+            "line": 21,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

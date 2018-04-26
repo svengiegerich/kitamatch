@@ -1,0 +1,129 @@
+{
+    "name": "App\\Providers\\RouteServiceProvider",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Providers",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Providers\/RouteServiceProvider.php",
+    "relative_file": null,
+    "hash": "f63ca296b61e5db05dfb09cd363884a0673cd06b",
+    "parent": "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Route": "Illuminate\\Support\\Facades\\Route",
+        "ServiceProvider": "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "namespace": {
+            "name": "namespace",
+            "line": 17,
+            "short_desc": "This namespace is applied to your controller routes.",
+            "long_desc": "In addition, it is set as the URL generator's root namespace.",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "App\\Http\\Controllers",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 24,
+            "short_desc": "Define your route model bindings, pattern filters, etc.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "map": {
+            "name": "map",
+            "line": 36,
+            "short_desc": "Define the routes for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mapWebRoutes": {
+            "name": "mapWebRoutes",
+            "line": 52,
+            "short_desc": "Define the \"web\" routes for the application.",
+            "long_desc": "These routes all receive session state, CSRF protection, etc.",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mapApiRoutes": {
+            "name": "mapApiRoutes",
+            "line": 66,
+            "short_desc": "Define the \"api\" routes for the application.",
+            "long_desc": "These routes are typically stateless.",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

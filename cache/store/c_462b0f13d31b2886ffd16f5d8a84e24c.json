@@ -1,0 +1,114 @@
+{
+    "name": "App\\Mail\\ApplicantMatchMail",
+    "line": 14,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Mail",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Mail\/ApplicantMatchMail.php",
+    "relative_file": null,
+    "hash": "22e0cf78be84f126ae34054972a56814fe295aca",
+    "parent": "Illuminate\\Mail\\Mailable",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Guardian": "App\\Guardian",
+        "Applicant": "App\\Applicant",
+        "Match": "App\\Match",
+        "Queueable": "Illuminate\\Bus\\Queueable",
+        "Mailable": "Illuminate\\Mail\\Mailable",
+        "SerializesModels": "Illuminate\\Queue\\SerializesModels",
+        "ShouldQueue": "Illuminate\\Contracts\\Queue\\ShouldQueue"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Bus\\Queueable": "Illuminate\\Bus\\Queueable",
+        "Illuminate\\Queue\\SerializesModels": "Illuminate\\Queue\\SerializesModels"
+    },
+    "properties": {
+        "match": {
+            "name": "match",
+            "line": 18,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": null,
+            "errors": []
+        }
+    },
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 25,
+            "short_desc": "Create a new message instance.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "guardian": {
+                    "name": "guardian",
+                    "line": 25,
+                    "short_desc": null,
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Match",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "App",
+                            "Match"
+                        ],
+                        "attributes": {
+                            "startLine": 25,
+                            "endLine": 25
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "build": {
+            "name": "build",
+            "line": 35,
+            "short_desc": "Build the message.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "App\\Mail\\$this",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

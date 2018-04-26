@@ -1,0 +1,99 @@
+{
+    "name": "App\\Providers\\AuthServiceProvider",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Providers",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Providers\/AuthServiceProvider.php",
+    "relative_file": null,
+    "hash": "74d85939b3f1a304613420f5be681e10e8de2465",
+    "parent": "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Gate": "Illuminate\\Support\\Facades\\Gate",
+        "ServiceProvider": "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "policies": {
+            "name": "policies",
+            "line": 15,
+            "short_desc": "The policy mappings for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": {
+                            "nodeType": "Scalar_String",
+                            "value": "App\\Model",
+                            "attributes": {
+                                "startLine": 16,
+                                "endLine": 16,
+                                "kind": 1
+                            }
+                        },
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "App\\Policies\\ModelPolicy",
+                            "attributes": {
+                                "startLine": 16,
+                                "endLine": 16,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 16,
+                            "endLine": 16
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 17,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 24,
+            "short_desc": "Register any authentication \/ authorization services.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}
