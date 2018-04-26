@@ -11,7 +11,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ApplicantMatchMail extends Mailable
+class ProgramMatchMail extends Mailable
 {
     use Queueable, SerializesModels;
 

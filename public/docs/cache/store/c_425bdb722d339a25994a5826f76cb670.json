@@ -1,0 +1,48 @@
+{
+    "name": "App\\Http\\Controllers\\Auth\\ForgotPasswordController",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers\\Auth",
+    "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/Auth\/ForgotPasswordController.php",
+    "relative_file": null,
+    "hash": "6cfb39d8c4a13296df0b8a02c15db3df24d1a9d8",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "SendsPasswordResetEmails": "Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails": "Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails"
+    },
+    "properties": [],
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 28,
+            "short_desc": "Create a new controller instance.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}
