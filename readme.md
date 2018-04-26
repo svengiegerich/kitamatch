@@ -4,11 +4,11 @@
 KiTaMatch is a web application **in development** for innovative childcare assignment.
 
 ## Architecture
-- Laravel 5.6, PHP 7.2
-- API-Call: https://matchingtools.com/
+- Laravel 5.6 (PHP 7.2)
+- Matching algorithm (deferred acceptance, API): https://matchingtools.com/
 
 ## Documentation
-- Code: domain.de/docs/build/index.html
+- Code: /docs/build/index.html
 - Database and Status-Codes: https://github.com/svengiegerich/kitamatch/blob/master/documents/db_kitamatch_manual.md
 
 ## More
