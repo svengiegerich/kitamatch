@@ -121,8 +121,8 @@ class RegisterController extends Controller
 
     /**
     * A user friendly, strong password generator PHP function. Adopted from Tyler Hall, //https://gist.github.com/tylerhall/521810.
-    * @param string length
-    * @return string 
+    * @param string $length
+    * @return string $password
     */
     public function generateStrongPassword($length = 9, $add_dashes = false, $available_sets = 'luds') {
         $sets = array();
