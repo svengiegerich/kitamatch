@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 /**
-* ### RegisterConroller ###
+* RegisterConroller
+* ========
 * This controller handles the registration of new users as well as their
 * validation and creation.
 */
