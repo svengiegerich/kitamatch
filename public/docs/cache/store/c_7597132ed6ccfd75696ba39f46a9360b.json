@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\RegisterController",
-    "line": 13,
-    "short_desc": "",
+    "line": 29,
+    "short_desc": "--------------------------------------------\nRegisterConroller\n========\n--------------------------------------------\nThis controller handles the registration of new users as well as their\nvalidation and creation.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/Auth\/RegisterController.php",
     "relative_file": null,
-    "hash": "ed30f496118da399e2b47234caad9ce12d7945a1",
+    "hash": "5205e145827eccd6c6cce9b373e0af44947b5bad",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -30,7 +30,7 @@
     "properties": {
         "redirectTo": {
             "name": "redirectTo",
-            "line": 33,
+            "line": 38,
             "short_desc": "Where to redirect users after registration.",
             "long_desc": "",
             "hint": [
@@ -46,8 +46,8 @@
                 "nodeType": "Scalar_String",
                 "value": "\/home",
                 "attributes": {
-                    "startLine": 33,
-                    "endLine": 33,
+                    "startLine": 38,
+                    "endLine": 38,
                     "kind": 1
                 }
             },
@@ -57,7 +57,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 40,
+            "line": 45,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [
@@ -76,7 +76,7 @@
         },
         "validator": {
             "name": "validator",
-            "line": 51,
+            "line": 56,
             "short_desc": "Get a validator for an incoming registration request.",
             "long_desc": "",
             "hint": [
@@ -94,7 +94,7 @@
             "parameters": {
                 "data": {
                     "name": "data",
-                    "line": 51,
+                    "line": 56,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -113,7 +113,7 @@
         },
         "create": {
             "name": "create",
-            "line": 66,
+            "line": 71,
             "short_desc": "Create a new user instance after a valid registration.",
             "long_desc": "",
             "hint": [
@@ -131,7 +131,7 @@
             "parameters": {
                 "data": {
                     "name": "data",
-                    "line": 66,
+                    "line": 71,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -150,7 +150,7 @@
         },
         "store": {
             "name": "store",
-            "line": 112,
+            "line": 117,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -163,7 +163,7 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 112,
+                    "line": 117,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -182,8 +182,8 @@
                             "ReCaptchataRequest"
                         ],
                         "attributes": {
-                            "startLine": 112,
-                            "endLine": 112
+                            "startLine": 117,
+                            "endLine": 117
                         }
                     },
                     "default": null,
@@ -194,20 +194,27 @@
         },
         "generateStrongPassword": {
             "name": "generateStrongPassword",
-            "line": 122,
-            "short_desc": "",
+            "line": 131,
+            "short_desc": "A user friendly, strong password generator PHP function. Adopted from Tyler Hall, \/\/https:\/\/gist.github.com\/tylerhall\/521810.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "$password",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
-            "errors": [],
+            "errors": [
+                "\"3\" @param tags are expected but only \"1\" found"
+            ],
             "parameters": {
                 "length": {
                     "name": "length",
-                    "line": 122,
+                    "line": 131,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -219,7 +226,7 @@
                 },
                 "add_dashes": {
                     "name": "add_dashes",
-                    "line": 122,
+                    "line": 131,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -231,7 +238,7 @@
                 },
                 "available_sets": {
                     "name": "available_sets",
-                    "line": 122,
+                    "line": 131,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,

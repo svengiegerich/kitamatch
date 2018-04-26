@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\ResetPasswordController",
-    "line": 8,
+    "line": 16,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/Auth\/ResetPasswordController.php",
     "relative_file": null,
-    "hash": "92fc4d9265b3294778e91cd5c42eaa97a3a0e65d",
+    "hash": "3b223decc9fec26c97aa719eb274bcded1673576",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -25,7 +25,7 @@
     "properties": {
         "redirectTo": {
             "name": "redirectTo",
-            "line": 28,
+            "line": 36,
             "short_desc": "Where to redirect users after resetting their password.",
             "long_desc": "",
             "hint": [
@@ -41,8 +41,8 @@
                 "nodeType": "Scalar_String",
                 "value": "\/home",
                 "attributes": {
-                    "startLine": 28,
-                    "endLine": 28,
+                    "startLine": 36,
+                    "endLine": 36,
                     "kind": 1
                 }
             },
@@ -52,7 +52,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 35,
+            "line": 43,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [

@@ -1,6 +1,6 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\ForgotPasswordController",
-    "line": 8,
+    "line": 16,
     "short_desc": "",
     "long_desc": "",
     "hint": null,
@@ -8,7 +8,7 @@
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/Auth\/ForgotPasswordController.php",
     "relative_file": null,
-    "hash": "6cfb39d8c4a13296df0b8a02c15db3df24d1a9d8",
+    "hash": "d11efc74d7ada4e71799c9fe818f88e57cb60a68",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -26,7 +26,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 28,
+            "line": 36,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [
