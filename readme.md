@@ -3,6 +3,9 @@
 ## About
 KiTaMatch is a web application **in development** for innovative childcare assignment.
 
+![alt text](kitamatch_dashboard.png "KitaMatch Dashboard")
+
+
 ## Architecture
 - Laravel 5.6 (PHP 7.2)
   - Plugins
