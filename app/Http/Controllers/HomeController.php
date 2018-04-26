@@ -1,4 +1,17 @@
 <?php
+/*
+ * This file is part of the KitaMatch app.
+ *
+ * (c) Sven Giegerich <sven.giegerich@mailbox.org>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+ /*
+ |--------------------------------------------------------------------------
+ | Home Controller
+ |--------------------------------------------------------------------------
+ */
 
 namespace App\Http\Controllers;
 
@@ -30,7 +43,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        
+
         if ($user->account_type == 1) {
             $Guardian = new Guardian;
             $guardian = $Guardian->getGuardianByUid($user->id);
