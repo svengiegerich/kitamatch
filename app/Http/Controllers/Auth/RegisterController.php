@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 /**
-* Register Controller ------------
 * This controller handles the registration of new users as well as their
 * validation and creation.
 */
@@ -120,7 +119,11 @@ class RegisterController extends Controller
         return $user;
     }
 
-    //https://gist.github.com/tylerhall/521810
+    /**
+    * A user friendly, strong password generator PHP function. Adopted from Tyler Hall, //https://gist.github.com/tylerhall/521810.
+    * @param string length
+    * @return string 
+    */
     public function generateStrongPassword($length = 9, $add_dashes = false, $available_sets = 'luds') {
         $sets = array();
         if(strpos($available_sets, 'l') !== false)
