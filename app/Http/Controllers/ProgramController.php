@@ -243,7 +243,7 @@ class ProgramController extends Controller
     $Program = new Program();
     $preferences = DB::table('preferences')
               ->whereRaw('updated_at >= DATE_ADD(CURDATE(),INTERVAL -7 DAY)')
-              ->where('pr_kind', '=', 3])
+              ->where('pr_kind', '=', 3)
               ->get();
     $programs = $Program->getAll();
     foreach ($programs as $program) {
