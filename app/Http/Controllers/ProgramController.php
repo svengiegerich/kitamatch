@@ -230,7 +230,7 @@ class ProgramController extends Controller
 
   /**
   * Find all inactive programs, no activity for at least 7 days, and update status to inactive (incl. mail). Inactive programs don't take part in the matching procedure, see MatchingController@prepareMatching().
-  * (Programs with current capacity equal to zero, can also be set inactive).
+  * (Programs with current capacity equal to zero, will also be set inactive).
   *
   * @return void
   */
