@@ -18,6 +18,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\UpdateProviderRequest;
 use App\Provider;
 use App\Program;
 
@@ -60,13 +61,13 @@ class ProviderController extends Controller
                                           'programs' => $programs));
     }
 
-    public function edit(Request $request, $proid) {
+    public function edit(UpdateProviderRequest $request, $proid) {
         $request->request->add(['proid' => $proid]);
         $provider = $this->update($request);
         return redirect()->action('ProviderController@show', $provider->proid);
     }
 
-    public function update(Request $request) {
+    public function update(UpdateProviderRequest $request) {
         $provider = Provider::findOrFail($request->proid);
         $provider->name = $request->name;
         $provider->address = $request->address;

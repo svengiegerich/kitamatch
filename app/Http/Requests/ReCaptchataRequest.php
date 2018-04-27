@@ -1,6 +1,22 @@
 <?php
+/*
+ * This file is part of the KitaMatch app.
+ *
+ * (c) Sven Giegerich <sven.giegerich@mailbox.org>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+ /*
+ |--------------------------------------------------------------------------
+ | ReChapta Request
+ |--------------------------------------------------------------------------
+ */
+
 namespace App\Http\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
+
 class ReCaptchataRequest extends FormRequest
 {
     /**
@@ -13,7 +29,7 @@ class ReCaptchataRequest extends FormRequest
         return true;
     }
     /**
-     * Get the validation rules that apply to the request.
+     * Validation rules that apply to the request.
      *
      * @return array
      */
