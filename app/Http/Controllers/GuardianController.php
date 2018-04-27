@@ -27,6 +27,9 @@ use App\Code;
 use App\Mail\GuardianVerified;
 use Illuminate\Support\Facades\Mail;
 
+/**
+* This controller handles with guardians: the creation of new and update of existing ones, as well as status changes (e.g. validation).
+*/
 class GuardianController extends Controller
 {
     public function store(Request $request) {

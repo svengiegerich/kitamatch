@@ -25,8 +25,17 @@ use App\Applicant;
 use App\Program;
 use App\Code;
 
+/**
+* This controller handles the admin side. It creats the dashboard and routes to various tasks.
+*/
 class AdminController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+  
     public function index() {
       $matches = DB::table('matches')->whereIn('status', [31, 32])->get();
       foreach ($matches as $match) {

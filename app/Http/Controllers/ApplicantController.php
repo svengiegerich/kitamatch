@@ -17,14 +17,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
 use App\Http\Requests;
 use App\Http\Requests\ApplicantRequest;
 use App\Http\Controllers\Controller;
-
 use App\Applicant;
 use App\Guardian;
 
+
+/**
+* This controller handles with applicants: the creation of new and update of existing ones, as well as status changes (e.g. priority match).
+*/
 class ApplicantController extends Controller
 {
     public function index() {
