@@ -23,7 +23,7 @@ use App\Provider;
 use App\Program;
 
 /**
-* This controller handles with programs: the creation of new and update of existing ones, status changes and activity check for uncoordinated.
+* This controller handles programs: the creation of new and update of existing ones, status changes and activity check for uncoordinated.
 */
 class ProviderController extends Controller
 {

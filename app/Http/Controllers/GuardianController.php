@@ -14,6 +14,7 @@
  */
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateGuardianRequest;
 use App\Http\Requests;
@@ -26,7 +27,7 @@ use App\Mail\GuardianVerified;
 use Illuminate\Support\Facades\Mail;
 
 /**
-* This controller handles with guardians: the creation of new and update of existing ones, as well as status changes (e.g. validation).
+* This controller handles guardians: the creation of new and update of existing ones, as well as status changes (e.g. validation).
 */
 class GuardianController extends Controller
 {
@@ -104,6 +105,7 @@ class GuardianController extends Controller
 
     public function verify($gid) {
         $Applicant = new Applicant;
+
         Guardian::where('gid', '=', $gid)->update(array('status' => '52'));
 
         //verfiy applicant(s)

@@ -23,7 +23,7 @@ use App\Provider;
 use App\Program;
 
 /**
-* This controller handles the home site, mainly redirecting to different account types.
+* This controller is responsible for the home site, mainly redirecting to different account types.
 */
 class HomeController extends Controller
 {

@@ -33,7 +33,7 @@ use App\Mail\ApplicantMatch;
 use App\Mail\ProgramMatch;
 
 /**
-* This controller handles the matching: preperation, call and handling the Matchingtools API.
+* This controller is responsible for the matching process: preperation, call and handling of the Matchingtools API.
 */
 class MatchingController extends Controller
 {
