@@ -17,7 +17,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProgramRequest extends FormRequest
+class ProgramRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

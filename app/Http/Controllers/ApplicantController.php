@@ -120,11 +120,11 @@ class ApplicantController extends Controller
   /**
   * Delete an applicant
   *
-  * @param App\Http\Requests\ApplicantRequest $request
+  * @param Illuminate\Http\Request $request
   * @param integer $aid Applicant-ID
   * @return action ApplicantController@all
   */
-  public function delete(ApplicantRequest $request, $aid) {
+  public function delete(Request $request, $aid) {
     $applicant = applicant::findOrFail($aid);
     $applicant->delete();
     return redirect()->action('ApplicantController@all');

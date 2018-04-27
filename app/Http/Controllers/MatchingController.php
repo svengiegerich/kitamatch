@@ -74,9 +74,6 @@ class MatchingController extends Controller
         $Preference = new Preference;
         $Matching = new Matching;
 
-        //tmp
-        //app('App\Http\Controllers\ProgramController')->activityCheck();
-
         $input = $this->prepareMatching();
 
         if (!(strlen(json_encode($input))>0)) {
@@ -148,7 +145,7 @@ class MatchingController extends Controller
 
         //create coordinated prefs
         app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
-        //set programs non activityCheck
+        //look for non active programs
         app('App\Http\Controllers\ProgramController')->setNonActive();
 
         //--------------------
