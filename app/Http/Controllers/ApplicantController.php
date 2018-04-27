@@ -30,7 +30,7 @@ use App\Guardian;
 class ApplicantController extends Controller
 {
   /**
-   * Create a new controller instance, handles auth.
+   * Create a new controller instance, handle authentication
    *
    * @return void
    */
@@ -95,7 +95,7 @@ class ApplicantController extends Controller
   }
 
   /**
-  * Show a all applicants
+  * Show all applicants
   *
   * @return view applicant.all
   */
@@ -105,7 +105,7 @@ class ApplicantController extends Controller
   }
 
   /**
-  * Call the 'add applicant' view
+  * Call the 'edit applicant' view
   *
   * @param App\Http\Requests\ApplicantRequest $request
   * @param integer $aid Applicant-ID
@@ -148,7 +148,7 @@ class ApplicantController extends Controller
   }
 
   /**
-  * Update status of an applicant to the final successfull matching status
+  * Update status of an applicant to the final successfull matching status (applicant got first preference and is out of the matching process)
   *
   * @param integer $aid Applicant-ID
   */
