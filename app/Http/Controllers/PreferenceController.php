@@ -17,20 +17,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use Carbon\Carbon;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use App\Preference;
 use App\Program;
 use App\Applicant;
 use App\Traits\GetPreferences;
 
+/**
+* This controller handles the preferences of applicants & programs: add/edit, arrange preferences, distinguish betwenn coordinated & uncoordinated programs.
+*/
 class PreferenceController extends Controller
 {
     use GetPreferences;
+
+    /**
+     * Create a new controller instance. Handles auth.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function show($prid) {
         $preference = Preference::find($prid);

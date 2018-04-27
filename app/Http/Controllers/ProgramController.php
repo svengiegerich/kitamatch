@@ -16,22 +16,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
-
 use App\Http\Requests;
 use App\Http\Requests\UpdateProgramRequest;
 use App\Http\Controllers\Controller;
 use App\Traits\GetPreferences;
-
 use App\Program;
 use App\Matching;
 use App\Provider;
 use App\User;
 use App\Code;
 
+/**
+* This controller handles with programs: the creation of new and update of existing ones, status changes and activity check for uncoordinated.
+*/
 class ProgramController extends Controller
 {
+  /**
+   * Create a new controller instance. Handles auth.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
     public function index() {
         return redirect()->action('ProgramController@all');
     }

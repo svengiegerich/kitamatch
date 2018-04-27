@@ -18,15 +18,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-
 use App\Guardian;
 use App\Provider;
 use App\Program;
 
+/**
+* This controller handles the home site, mainly redirecting to different account types.
+*/
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Create a new controller instance. Handles auth
      *
      * @return void
      */

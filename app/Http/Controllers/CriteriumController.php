@@ -18,16 +18,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use App\Criterium;
 use App\Code;
 
+/**
+* This controller handles the criteria catalogue: creation, update.
+*/
 class CriteriumController extends Controller
 {
-
+  /**
+   * Create a new controller instance. Handles auth.
+   *
+   * @return void
+   */
     public function __construct()
     {
         $this->middleware('auth');

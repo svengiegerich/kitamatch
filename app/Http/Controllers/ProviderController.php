@@ -18,15 +18,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-
 use App\Provider;
 use App\Program;
 
-
+/**
+* This controller handles with programs: the creation of new and update of existing ones, status changes and activity check for uncoordinated.
+*/
 class ProviderController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Create a new controller instance. Handles auth.
      *
      * @return void
      */

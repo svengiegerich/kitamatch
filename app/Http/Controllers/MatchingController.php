@@ -18,28 +18,36 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProgramController;
-
-//Guzzle
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
-
 use App\Matching;
 use App\Applicant;
 use App\Program;
 use App\Preference;
 use App\Traits\GetPreferences;
-
 use App\Mail\ApplicantMatch;
 use App\Mail\ProgramMatch;
-use Illuminate\Support\Facades\Mail;
 
+/**
+* This controller handles the matching: preperation, call and handling the Matchingtools API.
+*/
 class MatchingController extends Controller
 {
     use GetPreferences;
+
+    /**
+     * Create a new controller instance. Handles auth.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function store($request, $status) {
         $match = new Matching;

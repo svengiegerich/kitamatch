@@ -14,7 +14,6 @@
  */
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
@@ -29,6 +28,16 @@ use App\Guardian;
 */
 class ApplicantController extends Controller
 {
+  /**
+   * Create a new controller instance. Handles auth.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
     public function index() {
         return view('applicant.index');
     }
