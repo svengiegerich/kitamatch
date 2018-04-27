@@ -30,7 +30,7 @@ use App\Guardian;
 class ApplicantController extends Controller
 {
   /**
-   * Create a new controller instance. Handles auth.
+   * Create a new controller instance, handles auth.
    *
    * @return void
    */
@@ -41,7 +41,7 @@ class ApplicantController extends Controller
   /**
   * Calls the add applicant view
   *
-  * @param integer $gid 
+  * @param integer $gid Guardian-ID
   * @return view
   */
   public function add($gid) {
