@@ -33,46 +33,53 @@ use App\Code;
 class ProgramController extends Controller
 {
   /**
-   * Create a new controller instance. Handles auth.
-   *
-   * @return void
-   */
-  public function __construct()
-  {
-      $this->middleware('auth');
+  * Create a new controller instance. Handles auth.
+  *
+  * @return void
+  */
+  public function __construct() {
+    $this->middleware('auth');
   }
 
-    public function index() {
-        return redirect()->action('ProgramController@all');
-    }
+  /**
+  * Call the 'add program' view. The function is called when providers add their programs. For private programs the entry was already created over the register controller.
+  *
+  * @param integer $proid Provider-ID
+  * @return view program.add
+  */
+  public function addByProvider($proid) {
+    $provider = Provider::findOrFail($proid);
+    return view('program.add', array('provider' => $provider));
+  }
 
-    public function add($proid) {
-        $provider = Provider::findOrFail($proid);
-        return view('program.add', array('provider' => $provider));
-    }
+  /**
+  * Create program by a provider. While doing so, create a user entry for the new program with a automatic password. 
+  *
+  * @param Illuminate\Http\Request $request request
+  * @param integer $proid Provider-ID
+  * @return action ProviderController@show
+  */
+  public function createByProvider(Request $request, $proid) {
+    //create a new user for the program
+    $requestUser = new Request();
+    $requestUser->setMethod('POST');
+    //public: 1 -> account_type = 2, private: 2 -> account_type = 3
+    if ($request->p_kind == 1) { $accountType = 2; } else if ($request->p_kind == 2) { $accountType = 3; }
+    $requestUser->request->add([
+      'email' => $request->email,
+      'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
+      'account_type' => $accountType
+    ]);
+    $user = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser);
+    $request->request->add([
+      'proid' => $proid,
+      'uid' => $user->id
+    ]);
 
-    //controller & view function
-    public function create(Request $request, $proid) {
-        //tmp: create a uid for the program
-        $requestUser = new Request();
-        $requestUser->setMethod('POST');
-        //public: 1 -> account_type = 2, private: 2 -> account_type = 3
-        if ($request->p_kind == 1) { $accountType = 2; } else if ($request->p_kind == 2) { $accountType = 3; }
-        $requestUser->request->add([
-            'email' => $request->email,
-            //tmp: password
-            'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
-            'account_type' => $accountType
-        ]);
-        $user = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser);
-        $request->request->add([
-            'proid' => $proid,
-            'uid' => $user->id
-        ]);
-        $this->store($request);
-
-        return redirect()->action('ProviderController@show', $proid);
-    }
+    //store the program
+    $this->store($request);
+    return redirect()->action('ProviderController@show', $proid);
+  }
 
     public function store(Request $request) {
         //Validation

@@ -18,29 +18,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\UpdateProviderRequest;
+use App\Http\Requests\ProviderRequest;
 use App\Provider;
 use App\Program;
 
 /**
-* This controller handles programs: the creation of new and update of existing ones, status changes and activity check for uncoordinated.
+* This controller handles programs: the creation of new programs and update of existing ones, status changes and activity check for uncoordinated programs.
 */
 class ProviderController extends Controller
 {
-    /**
-     * Create a new controller instance. Handles auth.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  /**
+  * Create a new controller instance. Handles auth.
+  *
+  * @return void
+  */
+  public function __construct() {
+    $this->middleware('auth');
+  }
 
-
-    public function store(Request $request) {
-        //Validation
-
+  /**
+  * Store a new provider
+  *
+  * @param App\Http\Requests\ProviderRequest $request
+  * @return App\Provider
+  */
+  public function store(ProviderRequest $request) {
         $provider = new Provider;
         $provider->proid = $request->proid;
         $provider->name = $request->name;
@@ -50,31 +52,49 @@ class ProviderController extends Controller
         $provider->plz = $request->plz;
         $provider->phone = $request->phone;
         $provider->save();
-
-    }
-
-    public function show($proid) {
-        $provider = Provider::findOrFail($proid);
-        $Program = new Program;
-        $programs = $Program->getProgramsByProid($proid);
-        return view('provider.edit', array('provider' => $provider,
-                                          'programs' => $programs));
-    }
-
-    public function edit(UpdateProviderRequest $request, $proid) {
-        $request->request->add(['proid' => $proid]);
-        $provider = $this->update($request);
-        return redirect()->action('ProviderController@show', $provider->proid);
-    }
-
-    public function update(UpdateProviderRequest $request) {
-        $provider = Provider::findOrFail($request->proid);
-        $provider->name = $request->name;
-        $provider->address = $request->address;
-        $provider->city = $request->city;
-        $provider->plz = $request->plz;
-        $provider->phone = $request->phone;
-        $provider->save();
         return $provider;
     }
+
+  /**
+  * Show a provider
+  *
+  * @param integer $proid Provider-ID
+  * @return view provider.edit
+  */
+  public function show($proid) {
+    $provider = Provider::findOrFail($proid);
+    $Program = new Program;
+    $programs = $Program->getProgramsByProid($proid);
+    return view('provider.edit', array('provider' => $provider,
+                                        'programs' => $programs));
+  }
+
+  /**
+  * Edit a provider
+  *
+  * @param App\Http\Requests\ProviderRequest $request
+  * @return action ProviderController@show
+  */
+  public function edit(ProviderRequest $request, $proid) {
+    $request->request->add(['proid' => $proid]);
+    $provider = $this->update($request);
+    return redirect()->action('ProviderController@show', $provider->proid);
+  }
+
+  /**
+  * Update a provider
+  *
+  * @param App\Http\Requests\ProviderRequest $request
+  * @return App\Provider
+  */
+  public function update(ProviderRequest $request) {
+    $provider = Provider::findOrFail($request->proid);
+    $provider->name = $request->name;
+    $provider->address = $request->address;
+    $provider->city = $request->city;
+    $provider->plz = $request->plz;
+    $provider->phone = $request->phone;
+    $provider->save();
+    return $provider;
+  }
 }
