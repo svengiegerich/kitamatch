@@ -14,6 +14,7 @@
  */
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
@@ -33,19 +34,20 @@ class ApplicantController extends Controller
    *
    * @return void
    */
-  public function __construct()
-  {
+  public function __construct() {
       $this->middleware('auth');
   }
 
-    public function index() {
-        return view('applicant.index');
-    }
-
-    public function add($gid) {
-        $guardian = Guardian::findOrFail($gid);
-        return view('applicant.add', array('guardian' => $guardian));
-    }
+  /**
+  * Calls the add applicant view
+  *
+  * @param integer $gid 
+  * @return view
+  */
+  public function add($gid) {
+    $guardian = Guardian::findOrFail($gid);
+    return view('applicant.add', array('guardian' => $guardian));
+  }
 
     public function create(ApplicantRequest $request, $gid) {
         $request->request->add(['gid' => $gid]);

@@ -53,7 +53,7 @@ class AdminController extends Controller
     'data' => $data));
     }
 
-    private function generateDashboard() {
+    public function generateDashboard() {
         $Applicant = new Applicant;
         $Program = new Program;
         $data = array();

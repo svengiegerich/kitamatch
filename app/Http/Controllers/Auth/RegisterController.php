@@ -92,7 +92,6 @@ class RegisterController extends Controller
         } else if ($data['accountType'] == 2 || $data['accountType'] == 3) {
             //account-type private or public
             //2: public, 3: private
-
             $request = new Request();
             $request->setMethod('POST');
             if ($data['accountType'] == 2) {
@@ -114,7 +113,12 @@ class RegisterController extends Controller
         return $user;
     }
 
-    //
+    /**
+    * Stores the created user, after test of ReCaptacha by request.
+    *
+    * @param  App\Http\Requests\ReCaptchataRequest;  $request
+    * @return \App\User
+    */
     public function store(ReCaptchataRequest $request) {
         $user = User::create([
             'email' => $request->email,
@@ -126,6 +130,7 @@ class RegisterController extends Controller
 
     /**
     * A user friendly, strong password generator PHP function. Adopted from Tyler Hall, see https://gist.github.com/tylerhall/521810.
+    *
     * @param string $length
     * @return string $password
     */
