@@ -3,9 +3,22 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
-        <h4>Add Program</h4>
+  <div class="col-md-8">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
+    <h4>Add Program</h4>
+  </div>
+</div>
+<div class="row justify-content-center">
+<div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
         <form action="/program/add/{{$provider->proid}}" method="POST" class="">
             {{ csrf_field() }}
 

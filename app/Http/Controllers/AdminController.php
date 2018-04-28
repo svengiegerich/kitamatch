@@ -24,7 +24,7 @@ use App\Program;
 use App\Code;
 
 /**
-* This controller handles the admin side. It creats the dashboard and routes to various tasks.
+* This controller handles the administration side. It creates the admin dashboard and routes to various tasks.
 */
 class AdminController extends Controller
 {

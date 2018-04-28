@@ -42,7 +42,7 @@ class ProgramController extends Controller
   }
 
   /**
-  * Call the 'add program' view. The function is called when providers add their programs. For private programs the entry was already created over the register controller.
+  * Call the 'add program' view. The function is called when providers add their programs. For private programs the entry was already created by the register controller.
   *
   * @param integer $proid Provider-ID
   * @return view program.add
@@ -53,7 +53,7 @@ class ProgramController extends Controller
   }
 
   /**
-  * Create program by a provider. While doing so, create a user entry for the new program with a automatic password.
+  * Create program on provider side. While doing so, create a user entry for the new program with a automatic set password.
   *
   * @param Illuminate\Http\Request $request request
   * @param integer $proid Provider-ID
@@ -111,7 +111,7 @@ class ProgramController extends Controller
   }
 
   /**
-  * Store a program by a user registration. Right now every program is set valid by default.
+  * Store a program on user registration side. Right now every program is set valid by default.
   *
   * @param App\Http\Requests\ProgramRequest $request request
   * @return App\Program
@@ -167,19 +167,6 @@ class ProgramController extends Controller
   }
 
   /**
-  * Delete a program
-  *
-  * @param App\Http\Requests\Request $request
-  * @param integer $pid Program-ID
-  * @return action ProgramController@all
-  */
-  public function delete(Request $request, $pid) {
-    $program = program::find($pid);
-    $program->delete();
-    return redirect()->action('ProgramController@all');
-  }
-
-  /**
   * Update a program
   *
   * @param App\Http\Requests\ProgramRequest $request
@@ -203,6 +190,19 @@ class ProgramController extends Controller
   }
 
   /**
+  * Delete a program
+  *
+  * @param App\Http\Requests\Request $request
+  * @param integer $pid Program-ID
+  * @return action ProgramController@all
+  */
+  public function delete(Request $request, $pid) {
+    $program = program::find($pid);
+    $program->delete();
+    return redirect()->action('ProgramController@all');
+  }
+
+  /**
   * Get the current capacity of a program. Note: the capacity is not the overall number of free places of the program, but rather an updated number since it takes the final matches into account (-).
   *
   * @param integer $pid Program-ID
@@ -219,7 +219,7 @@ class ProgramController extends Controller
 	 }
 
   /**
-  * Update status of a program to verified
+  * Update program status to verified
   *
   * @param integer $pid Program-ID
   * @return void
