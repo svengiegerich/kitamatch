@@ -1,7 +1,7 @@
 # KitaMatch - Database Manual
 
 ## EER Diagram
-![alt text](db_eer_diagram.png ’EER Diagram’)
+![alt text](db_eer_diagram.png "EER Diagram")
 
 ## Program
 Program class handles public and private programs.
@@ -32,7 +32,7 @@ Matching class mainly handles the API calls.
 * 30: no match
 * 31: current match
 * 32: final match
-* 33: historical match 
+* 33: historical match
 
 ## Preferences
 Preference class maintains preferences in two-directions, from applicant to program and from program to applicant.
@@ -47,7 +47,7 @@ Preference class maintains preferences in two-directions, from applicant to prog
 * 1: valid
 
 ## Guardians
-Guardians maintain the social master data required for the coordination and hols 
+Guardians maintain the social master data required for the coordination and hols
 ### Codes
 #### Status
 * 50: not valid (either no preferences or valid documents)
@@ -75,7 +75,7 @@ Guardians maintain the social master data required for the coordination and hols
 ### Codes
 #### account_type
 * 1: Guardian
-* 2: public Program 
+* 2: public Program
 * 3: private Program
 * 4: Provider
 * 5: Admin
