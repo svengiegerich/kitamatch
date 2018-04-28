@@ -34,22 +34,20 @@ class ProgramMatchMail extends Mailable
     public $match;
 
     /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct(Match $guardian)
-    {
+    * Create a new message instance.
+    *
+    * @return void
+    */
+    public function __construct(Match $guardian) {
         $this->match = $match;
     }
 
     /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
+    * Build the message.
+    *
+    * @return $this
+    */
+    public function build() {
         return $this->markdown('email.match.program');
     }
 }

@@ -32,22 +32,20 @@ class GuardianVerifiedMail extends Mailable
     public $guardian;
 
     /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct(Guardian $guardian)
-    {
+    * Create a new message instance.
+    *
+    * @return void
+    */
+    public function __construct(Guardian $guardian) {
         $this->guardian = $guardian;
     }
 
     /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
+    * Build the message.
+    *
+    * @return $this
+    */
+    public function build() {
         return $this->markdown('email.guardian.verified');
     }
 }

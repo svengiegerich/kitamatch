@@ -30,7 +30,8 @@ use App\Traits\GetPreferences;
 */
 class PreferenceController extends Controller
 {
-    use GetPreferences;
+  //include the trait 'GetPreferences'
+  use GetPreferences;
 
   /**
   * Create a new controller instance, handle authentication
@@ -47,7 +48,7 @@ class PreferenceController extends Controller
   * @param Illuminate\Http\Request $request request
   * @return App\Preference
   */
-  private function store(Request $request) {
+  public function store(Request $request) {
     $preference = new Preference;
     $preference->id_from = $request->from;
     $preference->id_to = $request->to;
@@ -76,7 +77,7 @@ class PreferenceController extends Controller
   * @param Illuminate\Http\Request $request request
   * @return App\Preference
   */
-  private function update(Request $request) {
+  public function update(Request $request) {
     $preference = Preference::findOrFail($request->prid);
     $preference->id_from = $request->from;
     $preference->id_to = $request->to;
