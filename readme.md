@@ -1,18 +1,15 @@
 # KiTaMatch
 
 ## About
-KiTaMatch is a web application **in development** for innovative childcare assignment.
+KitaMatch is a web application **in development** for innovative childcare assignment.
 
 ![alt text](https://github.com/svengiegerich/kitamatch/blob/master/documents/kitamatch_dashboard.png "KitaMatch Dashboard")
 
 
 ## Architecture
-- Laravel 5.6 (PHP 7.2)
-  - Plugins
-    - Laravel Migrations Generator, https://github.com/Xethron/migrations-generator
+- Laravel 5.6 (PHP 7.2, MVC)
 - Matching algorithm API (deferred acceptance algo), https://matchingtools.com/
-- Sami, an API documentation generator, https://github.com/FriendsOfPHP/Sami
-  - Update docs: `php sami.phar update sami.config.php`
+- Sami, API documentation generator, https://github.com/FriendsOfPHP/Sami
 
 ## Documentation
 - Code: /docs/build/index.html
@@ -22,4 +19,4 @@ KiTaMatch is a web application **in development** for innovative childcare assig
 For more information and contacts, please visit http://www.zew.de/en/forschung/marktdesign/.
 
 ## License
-KiTaMatch is open-sourced software licensed under the MIT license. We're happy about contribution.
+KitaMatch is open-sourced software licensed under the MIT license. We're happy about contribution.
