@@ -29,7 +29,7 @@ use App\Code;
 class AdminController extends Controller
 {
   /**
-   * Create a new controller instance, handles auth.
+   * Create a new controller instance, handle authentication
    *
    * @return void
    */

@@ -27,42 +27,39 @@ use App\Program;
 */
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance. Handles auth
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  /**
+  * Create a new controller instance, handle authentication
+  *
+  * @return void
+  */
+  public function __construct() {
+    $this->middleware('auth');
+  }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $user = Auth::user();
-
-        if ($user->account_type == 1) {
-            $Guardian = new Guardian;
-            $guardian = $Guardian->getGuardianByUid($user->id);
-            return redirect()->action('GuardianController@show', [$guardian->gid]);
-        } else if ($user->account_type == 2 || $user->account_type == 3) {
-            $Program = new Program;
-            $program = $Program->getProgramByUid($user->id);
-            return redirect()->action('ProgramController@show', [$program->pid]);
-        } else if ($user->account_type == 4) {
-            $Provider = new Provider;
-            $provider = $Provider->getProviderByUid($user->id);
-            return redirect()->action('ProviderController@show', [$provider->proid]);
-        } else if ($user->account_type == 5) {
-            //admin
-            return redirect()->action('GuardianController@all');
-        } else {
-            return view('home');
-        }
+  /**
+  * Detects authentication and redirect to the different user interfaces. If there is no auth, redirect to home view.
+  *
+  * @return \Illuminate\Http\Response Guaridan/Program/Provider/Admin
+  */
+  public function index() {
+    $user = Auth::user();
+    if ($user->account_type == 1) {
+      $Guardian = new Guardian;
+      $guardian = $Guardian->getGuardianByUid($user->id);
+      return redirect()->action('GuardianController@show', [$guardian->gid]);
+    } else if ($user->account_type == 2 || $user->account_type == 3) {
+      $Program = new Program;
+      $program = $Program->getProgramByUid($user->id);
+      return redirect()->action('ProgramController@show', [$program->pid]);
+    } else if ($user->account_type == 4) {
+      $Provider = new Provider;
+      $provider = $Provider->getProviderByUid($user->id);
+      return redirect()->action('ProviderController@show', [$provider->proid]);
+    } else if ($user->account_type == 5) {
+      return redirect()->action('AdminController@index');
+    } else {
+      return view('home');
     }
+  }
+
 }

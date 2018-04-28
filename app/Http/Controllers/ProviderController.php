@@ -28,7 +28,7 @@ use App\Program;
 class ProviderController extends Controller
 {
   /**
-  * Create a new controller instance. Handles auth.
+  * Create a new controller instance, handle authentication
   *
   * @return void
   */

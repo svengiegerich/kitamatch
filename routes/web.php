@@ -79,8 +79,8 @@ Route::get('/matching/json', 'MatchingController@createJson');
 Route::get('/matching/get', 'MatchingController@findMatchings');
 
 //Criteria
-Route::get('/criteria/{p_id}', 'CriteriumController@show');
-Route::post('/criteria/{p_id}', 'CriteriumController@editAjax');
+Route::get('/criteria/{p_id}', 'CriteriumController@showByProvider');
+Route::post('/criteria', 'CriteriumController@editAjax');
 //for uncoordinated progams with no provider, create fake provider
 Route::get('/criteria/program/{programId}', 'CriteriumController@showByProgram');
 

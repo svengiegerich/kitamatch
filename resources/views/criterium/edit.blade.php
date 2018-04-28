@@ -28,7 +28,7 @@
                     $.ajax({
                         data: data,
                         type: 'POST',
-                        url: '/criteria/{{{$criteria->first()->p_id}}}',
+                        url: '/criteria',
                         success: function(data) {
                             console.log(data);
                         }
