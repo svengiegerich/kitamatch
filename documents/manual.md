@@ -3,7 +3,7 @@
 - Code API: /docs/build/index.html
 - [Database manual](db_manual.md)
 
------
+---
 
 KitaMatch is an app that solves the allocation of day-care places in an innovative way. The application would like to offer a holistic implementation: from the registration of parents and kindergartens, the matching procedure to the municipal administration and communication of the matching results.
 It uses modern matching algorithms to design the allocation procedure in such a way that queues in front of kindergartens will be unnecessary and parents indicate their true preferences. This is possible because the implemented procedure is strategy proof, by the use of the deferred acceptance algorithm.
