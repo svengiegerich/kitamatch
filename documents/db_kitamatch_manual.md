@@ -1,5 +1,8 @@
 # KitaMatch - Database Manual
 
+## EER Diagram
+![alt text](db_eer_diagram.png ’EER Diagram’)
+
 ## Program
 Program class handles public and private programs.
 ### Codes
@@ -20,7 +23,7 @@ Applicant class handles the applicants and their information, here children.
 * 21: created, but not proofed; no participation
 * 22: valid; participates
 * 25: priority
-* 26: finished matching **?!**
+* 26: finished matching
 
 ## Matching
 Matching class mainly handles the API calls.
@@ -39,6 +42,7 @@ Preference class maintains preferences in two-directions, from applicant to prog
 * 2: coordinated program to applicant
 * 3: uncoordinated program to applicant
 #### Status Codes
+* -1: historic
 * 0: not valid
 * 1: valid
 
