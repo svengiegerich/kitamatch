@@ -159,6 +159,12 @@ class MatchingController extends Controller
     //return redirect()->action('AdminController@index');
   }
 
+
+  /**
+  * Create the structure necessary for the API-Call of MatchingTools.com, for more see code and https://matchingtools.com/#operation/hri_demo
+  *
+  * @return array
+  */
   public function prepareMatching() {
     //Format requirements: https://matchingtools.com/#operation/hri_demo
     $Preference = new Preference;

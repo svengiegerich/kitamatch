@@ -71,8 +71,8 @@ class CriteriumController extends Controller
   * @param integer $pid Program-ID
   * @return view criterium.edit
   */
-  public function showByProgram($programId) {
-    $criteria = Criterium::where('p_id', '=', $programId)
+  public function showByProgram($pid) {
+    $criteria = Criterium::where('p_id', '=', $pid)
       ->where('program', '=', 1)
       ->orderBy('rank', 'asc')
       ->get();
@@ -81,10 +81,10 @@ class CriteriumController extends Controller
       $request = new Request();
       $request->setMethod('POST');
       $request->request->add(['store_type' => 1,
-                             'p_id' => $programId,
+                             'p_id' => $pid,
                              'program' => 1]);
       $this->storeByProgram($request);
-      $criteria = Criterium::where('p_id', '=', $programId)
+      $criteria = Criterium::where('p_id', '=', $pid)
         ->where('program', '=', 1)
         ->orderBy('rank', 'asc')
         ->get();
@@ -96,7 +96,7 @@ class CriteriumController extends Controller
   }
 
   /**
-  * Edit the rank of the criteria of a program or provider
+  * Edit the rank of the criteria of a program or provider, ajax sided
   *
   * @param App\Http\Requests $request request
   * @return json

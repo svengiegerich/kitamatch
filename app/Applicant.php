@@ -39,7 +39,7 @@ class Applicant extends Model
   * Get the corresponding guardian id of an applicant
   *
   * @param integer $aid Applicant-ID
-  * @return interger
+  * @return integer
   */
   public function getGuardianIdByApplicant($aid) {
     $applicant = Applicant::where('aid', '=', $aid)->first();

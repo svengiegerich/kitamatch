@@ -81,6 +81,7 @@ class GuardianController extends Controller
   * Edit a single guardian
   *
   * @param App\Http\Requests\UpdateGuardianRequest $request request
+  * @param integer $gid Guardian-ID
   * @return action GuardianController@show
   */
   public function edit(UpdateGuardianRequest $request, $gid) {

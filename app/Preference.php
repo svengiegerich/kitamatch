@@ -74,7 +74,7 @@ class Preference extends Model
   /**
   * Does the applicant has any active (status = 1) preferences?
   *
-  * @param interger $aid Applicant-ID
+  * @param integer $aid Applicant-ID
   * @param boolean
   */
   public function hasPreferencesByApplicant($aid) {
@@ -181,7 +181,7 @@ class Preference extends Model
 
   /**
   * Get the lowest preference rank of an applicant.
-  * E.g. applicant 1 has ranked (1,2,3,4), the lowest rank would be 4.
+  * For example applicant 1 has ranked (1,2,3,4), the lowest rank would be 4.
   *
   * @param integer $aid Applicant-ID
   * @return integer
