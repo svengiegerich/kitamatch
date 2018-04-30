@@ -22,7 +22,7 @@ use App\Applicant;
 
 
 /**
-* Preference Trait for programs and applicants
+* Preference trait for programs and applicants
 */
 trait GetPreferences {
 
