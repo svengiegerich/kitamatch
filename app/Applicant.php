@@ -28,7 +28,7 @@ class Applicant extends Model
   * Get all programs with status 12 or 13 ordered by name
   *
   * @param integer $gid Guardian-ID
-  * @return App\Applicant
+  * @return Illuminate\Database\Eloquent\Collection Applicants
   */
   public function getAppliantsByGid($gid) {
     $applicants = Applicant::where('gid', '=', $gid)->get();
