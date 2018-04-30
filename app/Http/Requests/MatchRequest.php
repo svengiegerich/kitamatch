@@ -17,6 +17,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+* This class handles the requests of matches
+*/
 class MatchRequest extends FormRequest
 {
   /**

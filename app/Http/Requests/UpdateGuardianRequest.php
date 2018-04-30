@@ -18,6 +18,9 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Guardian;
 
+/**
+* This class handles the update request of guardians
+*/
 class UpdateGuardianRequest extends FormRequest
 {
   /**

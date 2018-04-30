@@ -1,36 +1,67 @@
 <?php
+/*
+ * This file is part of the KitaMatch app.
+ *
+ * (c) Sven Giegerich <sven.giegerich@mailbox.org>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+ /*
+ |--------------------------------------------------------------------------
+ | Applicant Model
+ |--------------------------------------------------------------------------
+ */
 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+* This model handles applicants
+*/
 class Applicant extends Model
 {
-    
-    public function getAppliantsByGid($gid) {
-        $applicants = Applicant::where('gid', '=', $gid)->get();
-        return $applicants;
-    }
-        
-    public function getGuardianIdByApplicant($aid) {
-        $applicant = Applicant::where('aid', '=', $aid)->first();
-        return $applicant->gid;
-    }
-    
-    public function getAll() {
-        //tmp: remove 1
-        return (Applicant::whereIn('status', [1, 22, 25])->get());
-    }
-    
-    public $primaryKey = 'aid';
-    
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        //
-        'birthday'
-    ];
-    
+
+  /**
+  * Get all programs with status 12 or 13 ordered by name
+  *
+  * @param integer $gid Guardian-ID
+  * @return App\Applicant
+  */
+  public function getAppliantsByGid($gid) {
+    $applicants = Applicant::where('gid', '=', $gid)->get();
+    return $applicants;
+  }
+
+  /**
+  * Get the corresponding guardian id of an applicant
+  *
+  * @param integer $aid Applicant-ID
+  * @return interger
+  */
+  public function getGuardianIdByApplicant($aid) {
+    $applicant = Applicant::where('aid', '=', $aid)->first();
+    return $applicant->gid;
+  }
+
+  /**
+  * Get all applicants with status 22 or 25
+  *
+  * @return App\Program
+  */
+  public function getAll() {
+    return (Applicant::whereIn('status', [22, 25])->get());
+  }
+
+  protected $dates = [
+    'created_at',
+    'updated_at',
+    'deleted_at',
+    'birthday'
+  ];
+
+  public $primaryKey = 'aid';
+
 }

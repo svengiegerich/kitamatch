@@ -13,7 +13,6 @@
  |--------------------------------------------------------------------------
  */
 
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -27,25 +26,25 @@ use App\Guardian;
 */
 class GuardianVerifiedMail extends Mailable
 {
-    use Queueable, SerializesModels;
+  use Queueable, SerializesModels;
 
-    public $guardian;
+  public $guardian;
 
-    /**
-    * Create a new message instance.
-    *
-    * @return void
-    */
-    public function __construct(Guardian $guardian) {
-        $this->guardian = $guardian;
-    }
+  /**
+  * Create a new message instance.
+  *
+  * @return void
+  */
+  public function __construct(Guardian $guardian) {
+    $this->guardian = $guardian;
+  }
 
-    /**
-    * Build the message.
-    *
-    * @return $this
-    */
-    public function build() {
-        return $this->markdown('email.guardian.verified');
-    }
+  /**
+  * Build the message.
+  *
+  * @return $this
+  */
+  public function build() {
+    return $this->markdown('email.guardian.verified');
+  }
 }

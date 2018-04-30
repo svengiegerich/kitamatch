@@ -13,7 +13,6 @@
  |--------------------------------------------------------------------------
  */
 
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -29,25 +28,25 @@ use App\Match;
 */
 class ProgramMatchMail extends Mailable
 {
-    use Queueable, SerializesModels;
+  use Queueable, SerializesModels;
 
-    public $match;
+  public $match;
 
-    /**
-    * Create a new message instance.
-    *
-    * @return void
-    */
-    public function __construct(Match $guardian) {
-        $this->match = $match;
-    }
+  /**
+  * Create a new message instance.
+  *
+  * @return void
+  */
+  public function __construct(Match $guardian) {
+    $this->match = $match;
+  }
 
-    /**
-    * Build the message.
-    *
-    * @return $this
-    */
-    public function build() {
-        return $this->markdown('email.match.program');
-    }
+  /**
+  * Build the message.
+  *
+  * @return $this
+  */
+  public function build() {
+    return $this->markdown('email.match.program');
+  }
 }
