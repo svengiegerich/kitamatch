@@ -28,7 +28,7 @@ class Guardian extends Model
   * Get a guardian by its user number
   *
   * @param integer $uid User-ID
-  * @return App\Guardian
+  * @return Illuminate\Database\Eloquent\Collection guardian
   */
   public function getGuardianByUid($uid) {
     $guardian = Guardian::where('uid', '=', $uid)->firstOrFail();

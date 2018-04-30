@@ -27,7 +27,7 @@ class Provider extends Model
   * Get the corresponding provider of an User by ID
   *
   * @param integer $uid User-ID
-  * @return App\Provider
+  * @return Illuminate\Database\Eloquent\Collection provider
   */
   public function getProviderByUid($uid) {
     $provider = Provider::where('uid', '=', $uid)->firstOrFail();

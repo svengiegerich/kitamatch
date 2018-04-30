@@ -26,7 +26,7 @@ class Program extends Model
   /**
   * Get all programs with status 12 or 13 ordered by name
   *
-  * @return App\Program
+  * @return Illuminate\Database\Eloquent\Collection programs
   */
   public function getAll() {
     return (Program::whereIn('status', [12, 13])->orderBy('name', 'asc')->get());
@@ -46,7 +46,7 @@ class Program extends Model
   /**
   * Get all coordinated programs regardless of status
   *
-  * @return App\Program
+  * @return Illuminate\Database\Eloquent\Collection programs
   */
   public function getCoordinated() {
     $programs = Program::where('coordination', '=', 1)->get();
@@ -68,7 +68,7 @@ class Program extends Model
   * Get a program by its corresponding user id
   *
   * @param integer $uid User-ID
-  * @return App\Program
+  * @return Illuminate\Database\Eloquent\Collection program
   */
   public function getProgramByUid($uid) {
     $program = Program::where('uid', '=', $uid)->firstOrFail();
@@ -79,7 +79,7 @@ class Program extends Model
   * Get all programs assosciated with a certain provider
   *
   * @param integer $proid Provider-ID
-  * @return App\Program
+  * @return Illuminate\Database\Eloquent\Collection programs
   */
   public function getProgramsByProid($proid) {
     $programs = Program::where('proid', '=', $proid)->get();

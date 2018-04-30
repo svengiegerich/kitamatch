@@ -25,12 +25,12 @@ class Applicant extends Model
 {
 
   /**
-  * Get all programs with status 12 or 13 ordered by name
+  * Get all applicants by a guardian
   *
   * @param integer $gid Guardian-ID
-  * @return Illuminate\Database\Eloquent\Collection $applicants
+  * @return Illuminate\Database\Eloquent\Collection applicants
   */
-  public function getAppliantsByGid($gid) {
+  public function getApplicantsByGid($gid) {
     $applicants = Applicant::where('gid', '=', $gid)->get();
     return $applicants;
   }
@@ -49,12 +49,17 @@ class Applicant extends Model
   /**
   * Get all applicants with status 22 or 25
   *
-  * @return App\Program
+  * @return Illuminate\Database\Eloquent\Collection applicants
   */
   public function getAll() {
     return (Applicant::whereIn('status', [22, 25])->get());
   }
 
+  /**
+  * The dates that should be available for Carbon
+  *
+  * @var array
+  */
   protected $dates = [
     'created_at',
     'updated_at',

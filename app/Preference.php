@@ -93,7 +93,7 @@ class Preference extends Model
   * Get all applicants that are available for a program (because the applicant has ranked this program)
   *
   * @param integer $pid Program-ID
-  * @return App\Applicant
+  * @return Illuminate\Database\Eloquent\Collection applicants
   */
   public function getAvailableApplicants($pid) {
     /*
@@ -121,7 +121,7 @@ class Preference extends Model
   * @param App\Applicant $applicants applicants
   * @param integer $p_ID Program/Provider-ID
   * @param boolean $provider IsProvider?
-  * @return App\Applicant ordered, and with order-attribute (correspoonding criteria-points)
+  * @return Illuminate\Database\Eloquent\Collection applicants ordered, and with order-attribute (correspoonding criteria-points)
   */
   public function orderByCriteria($applicants, $p_Id, $provider) {
     //$provider = true -> criteria from a provider level

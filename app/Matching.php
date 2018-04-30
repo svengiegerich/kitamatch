@@ -33,7 +33,6 @@ class Matching extends Model
   public function resetMatches() {
     //right now: set all current matches on status = 33 before the new results
     //alternative: only update "new" or "different" matches and not all, but through his the matching history is lost
-
     $nonactive = DB::table('matches')
       ->where('status', '!=', 32)
       ->update(array('status' => 33));
