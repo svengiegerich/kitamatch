@@ -20,6 +20,10 @@ use App\Criterium;
 use App\Guardian;
 use App\Applicant;
 
+
+/**
+* Preference Trait for programs and applicants
+*/
 trait GetPreferences {
 
   /**
