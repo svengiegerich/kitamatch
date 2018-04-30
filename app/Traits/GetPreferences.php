@@ -30,7 +30,7 @@ trait GetPreferences {
   * Get all active preferences of an applicant
   *
   * @param integer $aid Applicant-ID
-  * @return App\Preference
+  * @return Illuminate\Database\Eloquent\Collection preferences
   */
   public function getPreferencesByApplicant($aid) {
     $preferences = DB::table('preferences')->where('id_from', '=', $aid)
@@ -47,7 +47,7 @@ trait GetPreferences {
   * Get all active preferences of a coordinated program
   *
   * @param integer $pid Program-ID
-  * @return App\Preference
+  * @return Illuminate\Database\Eloquent\Collection preferences
   */
   public function getPreferencesByProgram($pid) {
     /*$preferences = DB::table('preferences')->where('id_from', '=', $pid)
@@ -64,7 +64,7 @@ trait GetPreferences {
   * Get all active preferences of an uncoordinated program
   *
   * @param integer $pid Program-ID
-  * @return App\Preference
+  * @return Illuminate\Database\Eloquent\Collection preferences
   */
   public function getPreferencesUncoordinatedByProgram($pid) {
     /*$preferences = DB::table('preferences')->where('id_from', '=', $pid)
@@ -81,7 +81,7 @@ trait GetPreferences {
   /**
   * Get all non-active preferences of a program (coord or uncoord)
   *
-  * @return App\Preference
+  * @return Illuminate\Database\Eloquent\Collection preferences
   */
   public function getNonActivePreferencesByProgram() {
     $sql = "SELECT ANY_VALUE(`id_from`),ANY_VALUE(`pr_kind`),ANY_VALUE(`updated_at`),ANY_VALUE(`updated_at`),ANY_VALUE(`status`) FROM preferences WHERE (pr_kind = 2 OR OR pr_kind = 3) AND DATE(updated_at) < DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY id_from";
