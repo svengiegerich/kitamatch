@@ -32,15 +32,6 @@ use Illuminate\Support\Facades\Mail;
 class GuardianController extends Controller
 {
   /**
-   * Create a new controller instance, handle authentication
-   *
-   * @return void
-   */
-  public function __construct() {
-      $this->middleware('auth');
-  }
-
-  /**
   * Create a new controller instance, handle authentication
   *
   * @return void
