@@ -16,11 +16,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\ProviderRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\ProviderRequest;
 use App\Provider;
 use App\Program;
 
