@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\ProviderController",
-    "line": 13,
-    "short_desc": "",
+    "line": 28,
+    "short_desc": "This controller handles programs: the creation of new programs and update of existing ones, status changes and activity check for uncoordinated programs.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/ProviderController.php",
     "relative_file": null,
-    "hash": "efa4e27fd97792703cd1778d2b01bea837267133",
+    "hash": "002f68a33dea7057985d44f2a673c01e8918a144",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -17,6 +17,7 @@
         "Request": "Illuminate\\Http\\Request",
         "Auth": "Illuminate\\Support\\Facades\\Auth",
         "RedirectResponse": "Illuminate\\Http\\RedirectResponse",
+        "ProviderRequest": "App\\Http\\Requests\\ProviderRequest",
         "Provider": "App\\Provider",
         "Program": "App\\Program"
     },
@@ -27,8 +28,8 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 20,
-            "short_desc": "Create a new controller instance.",
+            "line": 35,
+            "short_desc": "Create a new controller instance, handle authentication",
             "long_desc": "",
             "hint": [
                 [
@@ -46,11 +47,16 @@
         },
         "store": {
             "name": "store",
-            "line": 26,
-            "short_desc": "",
+            "line": 45,
+            "short_desc": "Store a new provider",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Provider",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -59,12 +65,12 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 26,
-                    "short_desc": null,
+                    "line": 45,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
+                            "\\App\\Http\\Requests\\ProviderRequest",
                             false
                         ]
                     ],
@@ -72,13 +78,14 @@
                     "modifiers": {
                         "nodeType": "Name_FullyQualified",
                         "parts": [
-                            "Illuminate",
+                            "App",
                             "Http",
-                            "Request"
+                            "Requests",
+                            "ProviderRequest"
                         ],
                         "attributes": {
-                            "startLine": 26,
-                            "endLine": 26
+                            "startLine": 45,
+                            "endLine": 45
                         }
                     },
                     "default": null,
@@ -89,11 +96,16 @@
         },
         "show": {
             "name": "show",
-            "line": 41,
-            "short_desc": "",
+            "line": 64,
+            "short_desc": "Show a provider",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "provider.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -102,10 +114,15 @@
             "parameters": {
                 "proid": {
                     "name": "proid",
-                    "line": 41,
-                    "short_desc": null,
+                    "line": 64,
+                    "short_desc": "Provider-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -116,25 +133,32 @@
         },
         "edit": {
             "name": "edit",
-            "line": 49,
-            "short_desc": "",
+            "line": 78,
+            "short_desc": "Edit a provider",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "ProviderController@show",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
-            "errors": [],
+            "errors": [
+                "\"2\" @param tags are expected but only \"1\" found"
+            ],
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 49,
+                    "line": 78,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
+                            "\\App\\Http\\Requests\\ProviderRequest",
                             false
                         ]
                     ],
@@ -142,13 +166,14 @@
                     "modifiers": {
                         "nodeType": "Name_FullyQualified",
                         "parts": [
-                            "Illuminate",
+                            "App",
                             "Http",
-                            "Request"
+                            "Requests",
+                            "ProviderRequest"
                         ],
                         "attributes": {
-                            "startLine": 49,
-                            "endLine": 49
+                            "startLine": 78,
+                            "endLine": 78
                         }
                     },
                     "default": null,
@@ -157,7 +182,7 @@
                 },
                 "proid": {
                     "name": "proid",
-                    "line": 49,
+                    "line": 78,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -171,11 +196,16 @@
         },
         "update": {
             "name": "update",
-            "line": 55,
-            "short_desc": "",
+            "line": 90,
+            "short_desc": "Update a provider",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Provider",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -184,12 +214,12 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 55,
-                    "short_desc": null,
+                    "line": 90,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
+                            "\\App\\Http\\Requests\\ProviderRequest",
                             false
                         ]
                     ],
@@ -197,13 +227,14 @@
                     "modifiers": {
                         "nodeType": "Name_FullyQualified",
                         "parts": [
-                            "Illuminate",
+                            "App",
                             "Http",
-                            "Request"
+                            "Requests",
+                            "ProviderRequest"
                         ],
                         "attributes": {
-                            "startLine": 55,
-                            "endLine": 55
+                            "startLine": 90,
+                            "endLine": 90
                         }
                     },
                     "default": null,

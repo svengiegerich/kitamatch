@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This model handles the preferences of programs and applicants</p>                                </div>
     
     
     
@@ -107,35 +109,32 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_updateStatus">updateStatus</a>($prid, $status)
+                    <a href="#method_updateStatus">updateStatus</a>(integer $prid, integer $status)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Update the status of a single preference</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_resetUncoordinated">resetUncoordinated</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Reset (status = -1) all preferences created  uncoordianted programs. This method is called during the findMatchings() process, to differ between successfull and denied offers</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    boolean
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_hasPreferencesByProgram">hasPreferencesByProgram</a>($pid)
+                    <a href="#method_hasPreferencesByProgram">hasPreferencesByProgram</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Does the program has any active (status = 1) preferences?</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -145,30 +144,37 @@
                 <div class="col-md-8 type">
                     <a href="#method_hasPreferencesByApplicant">hasPreferencesByApplicant</a>($aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Does the applicant has any active (status = 1) preferences?</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getAvailableApplicants">getAvailableApplicants</a>($pid)
+                    <a href="#method_getAvailableApplicants">getAvailableApplicants</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all applicants that are available for a program (because the applicant has ranked this program)</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_orderByCriteria">orderByCriteria</a>($applicants, $p_Id, $provider)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Takes an array of applicants and sorts them after the corresponding criteria catalogue of the provider or program.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    integer
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getLowestRankApplicant">getLowestRankApplicant</a>(integer $aid)
+        
+                                            <p>Get the lowest preference rank of an applicant.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -179,32 +185,43 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_updateStatus">
-        <div class="location">at         line 13</div>
-        <code>                    
-    <strong>updateStatus</strong>($prid, $status)
+        <div class="location">at         line 35</div>
+        <code>                    void
+    <strong>updateStatus</strong>(integer $prid, integer $status)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Update the status of a single preference</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$prid</td>
-                <td></td>
+                <td>Preference-ID</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$status</td>
-                <td></td>
+                <td>status</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -213,8 +230,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_resetUncoordinated">
-        <div class="location">at         line 19</div>
-        <code>                    
+        <div class="location">at         line 46</div>
+        <code>                    void
     <strong>resetUncoordinated</strong>()
         </code>
     </h3>
@@ -222,8 +239,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Reset (status = -1) all preferences created  uncoordianted programs. This method is called during the findMatchings() process, to differ between successfull and denied offers</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -232,27 +260,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_hasPreferencesByProgram">
-        <div class="location">at         line 29</div>
-        <code>                    
-    <strong>hasPreferencesByProgram</strong>($pid)
+        <div class="location">at         line 62</div>
+        <code>                    boolean
+    <strong>hasPreferencesByProgram</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Does the program has any active (status = 1) preferences?</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -261,7 +300,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_hasPreferencesByApplicant">
-        <div class="location">at         line 42</div>
+        <div class="location">at         line 80</div>
         <code>                    
     <strong>hasPreferencesByApplicant</strong>($aid)
         </code>
@@ -270,6 +309,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Does the applicant has any active (status = 1) preferences?</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -290,27 +331,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getAvailableApplicants">
-        <div class="location">at         line 55</div>
-        <code>                    
-    <strong>getAvailableApplicants</strong>($pid)
+        <div class="location">at         line 98</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getAvailableApplicants</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all applicants that are available for a program (because the applicant has ranked this program)</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>applicants</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -319,8 +371,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_orderByCriteria">
-        <div class="location">at         line 76</div>
-        <code>                    
+        <div class="location">at         line 126</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
     <strong>orderByCriteria</strong>($applicants, $p_Id, $provider)
         </code>
     </h3>
@@ -328,6 +380,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Takes an array of applicants and sorts them after the corresponding criteria catalogue of the provider or program.</p>                    <p>Adds an additional order attribute to every entry containing the criteria score</p>                            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -350,6 +404,55 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>applicants ordered, and with order-attribute (correspoonding criteria-points)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getLowestRankApplicant">
+        <div class="location">at         line 189</div>
+        <code>                    integer
+    <strong>getLowestRankApplicant</strong>(integer $aid)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the lowest preference rank of an applicant.</p>                    <p>For example applicant 1 has ranked (1,2,3,4), the lowest rank would be 4.</p>                            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>integer</td>
+                <td>$aid</td>
+                <td>Applicant-ID</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>

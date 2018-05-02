@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This controller is responsible for the home site, mainly redirecting to different account types.</p>                                </div>
     
             <h2>Traits</h2>
 
@@ -131,7 +133,7 @@
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>()
         
-                                            <p>Create a new controller instance.</p>                </div>
+                                            <p>Create a new controller instance, handle authentication</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -141,7 +143,7 @@
                 <div class="col-md-8 type">
                     <a href="#method_index">index</a>()
         
-                                            <p>Show the application dashboard.</p>                </div>
+                                            <p>Detects authentication and redirect to the different user interfaces. If there is no auth, redirect to home view.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -152,7 +154,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 20</div>
+        <div class="location">at         line 35</div>
         <code>                    void
     <strong>__construct</strong>()
         </code>
@@ -162,7 +164,7 @@
     
 
                     <div class="method-description">
-                                    <p>Create a new controller instance.</p>                                                </div>
+                                    <p>Create a new controller instance, handle authentication</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -182,7 +184,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_index">
-        <div class="location">at         line 30</div>
+        <div class="location">at         line 44</div>
         <code>                    <abbr title="Illuminate\Http\Response">Response</abbr>
     <strong>index</strong>()
         </code>
@@ -192,7 +194,7 @@
     
 
                     <div class="method-description">
-                                    <p>Show the application dashboard.</p>                                                </div>
+                                    <p>Detects authentication and redirect to the different user interfaces. If there is no auth, redirect to home view.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -200,7 +202,7 @@
                     <table class="table table-condensed">
         <tr>
             <td><abbr title="Illuminate\Http\Response">Response</abbr></td>
-            <td></td>
+            <td>Guaridan/Program/Provider/Admin</td>
         </tr>
     </table>
 

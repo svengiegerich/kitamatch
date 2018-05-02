@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>App\Http\Controllers\MailController | KitaMatch</title>
+    <title>App\Http\Requests\MatchRequest | KitaMatch</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:App_Http_Controllers_MailController" data-root-path="../../../">
+    <body id="class" data-name="class:App_Http_Requests_MatchRequest" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,61 +66,122 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../App.html">App</a></li><li class="backslash">\</li><li><a href="../../../App/Http.html">Http</a></li><li class="backslash">\</li><li><a href="../../../App/Http/Controllers.html">Controllers</a></li><li class="backslash">\</li><li>MailController</li>
+                        <li><a href="../../../App.html">App</a></li><li class="backslash">\</li><li><a href="../../../App/Http.html">Http</a></li><li class="backslash">\</li><li><a href="../../../App/Http/Requests.html">Requests</a></li><li class="backslash">\</li><li>MatchRequest</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            MailController
+            MatchRequest
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>MailController</strong>        extends <a href="../../../App/Http/Controllers/Controller.html"><abbr title="App\Http\Controllers\Controller">Controller</abbr></a>
+    <strong>MatchRequest</strong>        extends <abbr title="Illuminate\Foundation\Http\FormRequest">FormRequest</abbr>
 </p>
 
         
     
 
+            <div class="description">
+            <p>This class handles the requests of matches</p>                                </div>
     
-            <h2>Traits</h2>
+    
+    
+    
+            <h2>Methods</h2>
 
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_authorize">authorize</a>()
         
-    <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-6">
-                                            <abbr title="Illuminate\Foundation\Auth\Access\AuthorizesRequests">AuthorizesRequests</abbr>
-                                            
-                </div>
-                <div class="col-md-6">
-                    
-                </div>
+                                            <p>Determine if the user is authorized to make this request.</p>                </div>
+                <div class="col-md-2"></div>
             </div>
                     <div class="row">
-                <div class="col-md-6">
-                                            <abbr title="Illuminate\Foundation\Bus\DispatchesJobs">DispatchesJobs</abbr>
-                                            
+                <div class="col-md-2 type">
+                    array
                 </div>
-                <div class="col-md-6">
-                    
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <abbr title="Illuminate\Foundation\Validation\ValidatesRequests">ValidatesRequests</abbr>
-                                            
-                </div>
-                <div class="col-md-6">
-                    
-                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_rules">rules</a>()
+        
+                                            <p>Validation rules that apply to the request.</p>                </div>
+                <div class="col-md-2"></div>
             </div>
             </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_authorize">
+        <div class="location">at         line 30</div>
+        <code>                    bool
+    <strong>authorize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
     
+
+                    <div class="method-description">
+                                    <p>Determine if the user is authorized to make this request.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_rules">
+        <div class="location">at         line 39</div>
+        <code>                    array
+    <strong>rules</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
     
-    
+
+                    <div class="method-description">
+                                    <p>Validation rules that apply to the request.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
     
             </div>
                 <div id="footer">

@@ -1,22 +1,24 @@
 {
     "name": "App\\Http\\Controllers\\MatchingController",
-    "line": 26,
-    "short_desc": "",
+    "line": 39,
+    "short_desc": "This controller is responsible for the matching process: preperation, call and handling of the Matchingtools API.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/MatchingController.php",
     "relative_file": null,
-    "hash": "2cc0b46826c87f6cf04ed3b825c833a6655e30c3",
+    "hash": "b8c96a52352c330e276e40aa6bef2692269bed89",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
     "is_interface": false,
     "aliases": {
         "Request": "Illuminate\\Http\\Request",
+        "MatchRequest": "App\\Http\\Requests\\MatchRequest",
         "RedirectResponse": "Illuminate\\Http\\RedirectResponse",
         "DB": "Illuminate\\Support\\Facades\\DB",
+        "Mail": "Illuminate\\Support\\Facades\\Mail",
         "Requests": "App\\Http\\Requests",
         "Controller": "App\\Http\\Controllers\\Controller",
         "ProgramController": "App\\Http\\Controllers\\ProgramController",
@@ -28,8 +30,7 @@
         "Preference": "App\\Preference",
         "GetPreferences": "App\\Traits\\GetPreferences",
         "ApplicantMatch": "App\\Mail\\ApplicantMatch",
-        "ProgramMatch": "App\\Mail\\ProgramMatch",
-        "Mail": "Illuminate\\Support\\Facades\\Mail"
+        "ProgramMatch": "App\\Mail\\ProgramMatch"
     },
     "errors": [],
     "interfaces": [],
@@ -38,13 +39,37 @@
     },
     "properties": [],
     "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 49,
+            "short_desc": "Create a new controller instance, handle authentication",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
         "store": {
             "name": "store",
-            "line": 30,
-            "short_desc": "",
+            "line": 59,
+            "short_desc": "Store a single matching entry with the current match status",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Matching",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -53,24 +78,29 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 30,
-                    "short_desc": null,
+                    "line": 59,
+                    "short_desc": "request",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Requests\\MatchRequest",
+                            false
+                        ]
+                    ],
                     "tags": [],
-                    "modifiers": null,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                },
-                "status": {
-                    "name": "status",
-                    "line": 30,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": null,
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "App",
+                            "Http",
+                            "Requests",
+                            "MatchRequest"
+                        ],
+                        "attributes": {
+                            "startLine": 59,
+                            "endLine": 59
+                        }
+                    },
                     "default": null,
                     "variadic": false,
                     "is_by_ref": false
@@ -79,25 +109,37 @@
         },
         "all": {
             "name": "all",
-            "line": 38,
-            "short_desc": "",
+            "line": 74,
+            "short_desc": "List all matchings in a view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "matching.all",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
-            "errors": [],
+            "errors": [
+                "\"0\" @param tags are expected but only \"1\" found"
+            ],
             "parameters": []
         },
         "findMatchings": {
             "name": "findMatchings",
-            "line": 49,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "line": 91,
+            "short_desc": "Main matching method. Calls the MatchingTools.com-API after prepareMatching(), handles the response and writes matchings to the database.",
+            "long_desc": "At the moment there is no handling for invalid feedback from the API-call like Error 500.",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "AdminController@index",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -107,11 +149,16 @@
         },
         "prepareMatching": {
             "name": "prepareMatching",
-            "line": 120,
-            "short_desc": "",
+            "line": 168,
+            "short_desc": "Create the structure necessary for the API-Call of MatchingTools.com, for more see code and https:\/\/matchingtools.com\/#operation\/hri_demo",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -121,11 +168,16 @@
         },
         "sendMailsAllMatches": {
             "name": "sendMailsAllMatches",
-            "line": 235,
-            "short_desc": "",
+            "line": 288,
+            "short_desc": "At the end of the matching procedure send mails to all existing matches",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

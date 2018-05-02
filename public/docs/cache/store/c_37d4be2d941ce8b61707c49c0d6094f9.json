@@ -1,14 +1,14 @@
 {
     "name": "App\\Program",
-    "line": 9,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles programs",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Program.php",
     "relative_file": null,
-    "hash": "d4ba22794e8bc4a103720c29ec4a759eccb2f947",
+    "hash": "84f7de9105f1216f90f1ee086f6a191367c1c6a5",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -23,11 +23,16 @@
     "properties": {
         "dates": {
             "name": "dates",
-            "line": 42,
-            "short_desc": "",
+            "line": 94,
+            "short_desc": "The dates that should be available for Carbon",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 2,
             "default": {
@@ -40,15 +45,15 @@
                             "nodeType": "Scalar_String",
                             "value": "created_at",
                             "attributes": {
-                                "startLine": 43,
-                                "endLine": 43,
+                                "startLine": 95,
+                                "endLine": 95,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 43,
-                            "endLine": 43
+                            "startLine": 95,
+                            "endLine": 95
                         }
                     },
                     {
@@ -58,15 +63,15 @@
                             "nodeType": "Scalar_String",
                             "value": "updated_at",
                             "attributes": {
-                                "startLine": 44,
-                                "endLine": 44,
+                                "startLine": 96,
+                                "endLine": 96,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 44,
-                            "endLine": 44
+                            "startLine": 96,
+                            "endLine": 96
                         }
                     },
                     {
@@ -76,15 +81,15 @@
                             "nodeType": "Scalar_String",
                             "value": "deleted_at",
                             "attributes": {
-                                "startLine": 45,
-                                "endLine": 45,
+                                "startLine": 97,
+                                "endLine": 97,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 45,
-                            "endLine": 45
+                            "startLine": 97,
+                            "endLine": 97
                         }
                     },
                     {
@@ -94,37 +99,21 @@
                             "nodeType": "Scalar_String",
                             "value": "birthday",
                             "attributes": {
-                                "startLine": 47,
-                                "comments": [
-                                    {
-                                        "nodeType": "Comment",
-                                        "text": "\/\/\n",
-                                        "line": 46,
-                                        "filePos": 1036
-                                    }
-                                ],
-                                "endLine": 47,
+                                "startLine": 98,
+                                "endLine": 98,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 47,
-                            "comments": [
-                                {
-                                    "nodeType": "Comment",
-                                    "text": "\/\/\n",
-                                    "line": 46,
-                                    "filePos": 1036
-                                }
-                            ],
-                            "endLine": 47
+                            "startLine": 98,
+                            "endLine": 98
                         }
                     }
                 ],
                 "attributes": {
-                    "startLine": 42,
-                    "endLine": 48,
+                    "startLine": 94,
+                    "endLine": 99,
                     "kind": 2
                 }
             },
@@ -132,7 +121,7 @@
         },
         "primaryKey": {
             "name": "primaryKey",
-            "line": 50,
+            "line": 101,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -143,8 +132,8 @@
                 "nodeType": "Scalar_String",
                 "value": "pid",
                 "attributes": {
-                    "startLine": 50,
-                    "endLine": 50,
+                    "startLine": 101,
+                    "endLine": 101,
                     "kind": 1
                 }
             },
@@ -154,11 +143,16 @@
     "methods": {
         "getAll": {
             "name": "getAll",
-            "line": 13,
-            "short_desc": "",
+            "line": 31,
+            "short_desc": "Get all programs with status 12 or 13 ordered by name",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "programs",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -168,11 +162,16 @@
         },
         "isCoordinated": {
             "name": "isCoordinated",
-            "line": 17,
-            "short_desc": "",
+            "line": 41,
+            "short_desc": "Is a program coordinated?",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -181,10 +180,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 17,
-                    "short_desc": null,
+                    "line": 41,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -195,11 +199,16 @@
         },
         "getCoordinated": {
             "name": "getCoordinated",
-            "line": 22,
-            "short_desc": "",
+            "line": 51,
+            "short_desc": "Get all coordinated programs regardless of status",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "programs",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -209,11 +218,16 @@
         },
         "getProviderId": {
             "name": "getProviderId",
-            "line": 27,
-            "short_desc": "",
+            "line": 62,
+            "short_desc": "Get the provider id of a program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "integer",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -222,10 +236,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 27,
-                    "short_desc": null,
+                    "line": 62,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -236,11 +255,16 @@
         },
         "getProgramByUid": {
             "name": "getProgramByUid",
-            "line": 32,
-            "short_desc": "",
+            "line": 73,
+            "short_desc": "Get a program by its corresponding user id",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "program",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -249,10 +273,15 @@
             "parameters": {
                 "uid": {
                     "name": "uid",
-                    "line": 32,
-                    "short_desc": null,
+                    "line": 73,
+                    "short_desc": "User-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -263,11 +292,16 @@
         },
         "getProgramsByProid": {
             "name": "getProgramsByProid",
-            "line": 37,
-            "short_desc": "",
+            "line": 84,
+            "short_desc": "Get all programs assosciated with a certain provider",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "programs",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -276,10 +310,15 @@
             "parameters": {
                 "proid": {
                     "name": "proid",
-                    "line": 37,
-                    "short_desc": null,
+                    "line": 84,
+                    "short_desc": "Provider-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,

@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This controller handles the preferences of applicants &amp; programs: add/edit, arrange preferences, distinguish betwenn coordinated &amp; uncoordinated programs.</p>                                </div>
     
             <h2>Traits</h2>
 
@@ -96,7 +98,7 @@
                                             
                 </div>
                 <div class="col-md-6">
-                    
+                    Preference trait for programs and applicants
                 </div>
             </div>
                     <div class="row">
@@ -135,189 +137,192 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getPreferencesByApplicant">getPreferencesByApplicant</a>($aid)
+                    <a href="#method_getPreferencesByApplicant">getPreferencesByApplicant</a>(integer $aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all active preferences of an applicant</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/GetPreferences.html#method_getPreferencesByApplicant"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getPreferencesByProgram">getPreferencesByProgram</a>($pid)
+                    <a href="#method_getPreferencesByProgram">getPreferencesByProgram</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all active preferences of a coordinated program</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/GetPreferences.html#method_getPreferencesByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getPreferencesUncoordinatedByProgram">getPreferencesUncoordinatedByProgram</a>($pid)
+                    <a href="#method_getPreferencesUncoordinatedByProgram">getPreferencesUncoordinatedByProgram</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all active preferences of an uncoordinated program</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/GetPreferences.html#method_getPreferencesUncoordinatedByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getNonActivePreferencesByProgram">getNonActivePreferencesByProgram</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all non-active preferences of a program (coord or uncoord)</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="../../../App/Traits/GetPreferences.html#method_getNonActivePreferencesByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_show">show</a>($prid)
+                    <a href="#method___construct">__construct</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Create a new controller instance, handle authentication</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Preference">Preference</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_all">all</a>()
+                    <a href="#method_store">store</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Store a single preference</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Preference">Preference</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_showByApplicant">showByApplicant</a>($aid)
+                    <a href="#method_update">update</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Update a single preference</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_addByApplicant">addByApplicant</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $aid)
+                    <a href="#method_showByApplicant">showByApplicant</a>(integer $aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Show all preferences of an applicant on a view</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_reorderByApplicantAjax">reorderByApplicantAjax</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $aid)
+                    <a href="#method_addByApplicant">addByApplicant</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Add a preference of an applicant</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\json">json</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_deleteByApplicantAjax">deleteByApplicantAjax</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $aid)
+                    <a href="#method_reorderByApplicantAjax">reorderByApplicantAjax</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Change the preference orders of a single applicant, ajax sided</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\json">json</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_deleteByApplicant">deleteByApplicant</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $prid)
+                    <a href="#method_deleteByApplicantAjax">deleteByApplicantAjax</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Prepare the ajay sided deletion of a single preference by an applicant</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Preference">Preference</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_showByProgram">showByProgram</a>($pid)
+                    <a href="#method_deleteByApplicant">deleteByApplicant</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $prid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Delete a single preference by an applicant</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_addByProgram">addByProgram</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $pid)
+                    <a href="#method_showByProgram">showByProgram</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Show all preferences of a program on a view</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_deleteByProgram">deleteByProgram</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $prid)
+                    <a href="#method_addByProgram">addByProgram</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Add a preference by program</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_addUncoordinatedProgram">addUncoordinatedProgram</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $pid)
+                    <a href="#method_deleteByProgram">deleteByProgram</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $prid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Update a preference status to 0 by program</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addUncoordinatedProgram">addUncoordinatedProgram</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $pid)
+        
+                                            <p>Add a preference by uncoordinated program</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_createCoordinatedPreferences">createCoordinatedPreferences</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Create the preferences of all coordinated programs by their corresponding criteria catalogues.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getLowestRankApplicant">getLowestRankApplicant</a>($aid)
+                    <a href="#method_show">show</a>(integer $prid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Show a single preference in a view</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="App\Http\Controllers\view">view</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_all">all</a>()
+        
+                                            <p>Show a listed preferences</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -328,27 +333,38 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_getPreferencesByApplicant">
-        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getPreferencesByApplicant"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 12</div>
-        <code>                    
-    <strong>getPreferencesByApplicant</strong>($aid)
+        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getPreferencesByApplicant"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 35</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getPreferencesByApplicant</strong>(integer $aid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all active preferences of an applicant</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$aid</td>
-                <td></td>
+                <td>Applicant-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -357,27 +373,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPreferencesByProgram">
-        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getPreferencesByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 24</div>
-        <code>                    
-    <strong>getPreferencesByProgram</strong>($pid)
+        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getPreferencesByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 52</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getPreferencesByProgram</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all active preferences of a coordinated program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -386,27 +413,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPreferencesUncoordinatedByProgram">
-        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getPreferencesUncoordinatedByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 36</div>
-        <code>                    
-    <strong>getPreferencesUncoordinatedByProgram</strong>($pid)
+        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getPreferencesUncoordinatedByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 69</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getPreferencesUncoordinatedByProgram</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all active preferences of an uncoordinated program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -415,8 +453,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getNonActivePreferencesByProgram">
-        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getNonActivePreferencesByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 48</div>
-        <code>                    
+        <div class="location">in <a href="../../../App/Traits/GetPreferences.html#method_getNonActivePreferencesByProgram"><abbr title="App\Traits\GetPreferences">GetPreferences</abbr></a> at         line 86</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
     <strong>getNonActivePreferencesByProgram</strong>()
         </code>
     </h3>
@@ -424,8 +462,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Get all non-active preferences of a program (coord or uncoord)</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -433,28 +482,69 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_show">
-        <div class="location">at         line 21</div>
-        <code>                    
-    <strong>show</strong>($prid)
+                    <h3 id="method___construct">
+        <div class="location">at         line 41</div>
+        <code>                    void
+    <strong>__construct</strong>()
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Create a new controller instance, handle authentication</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_store">
+        <div class="location">at         line 51</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Preference">Preference</abbr>
+    <strong>store</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Store a single preference</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$prid</td>
-                <td></td>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td>request</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Preference">Preference</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -462,18 +552,39 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_all">
-        <div class="location">at         line 26</div>
-        <code>                    
-    <strong>all</strong>()
+                    <h3 id="method_update">
+        <div class="location">at         line 80</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Preference">Preference</abbr>
+    <strong>update</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Update a single preference</p>                                                </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td>request</td>
+            </tr>
+            </table>
+
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Preference">Preference</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -482,27 +593,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_showByApplicant">
-        <div class="location">at         line 75</div>
-        <code>                    
-    <strong>showByApplicant</strong>($aid)
+        <div class="location">at         line 101</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>showByApplicant</strong>(integer $aid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Show all preferences of an applicant on a view</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$aid</td>
-                <td></td>
+                <td>Applicant-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>preference.showByApplicant</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -511,15 +633,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addByApplicant">
-        <div class="location">at         line 96</div>
-        <code>                    
-    <strong>addByApplicant</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $aid)
+        <div class="location">at         line 129</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>addByApplicant</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $aid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Add a preference of an applicant</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -527,16 +651,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$aid</td>
-                <td></td>
+                <td>Applicant-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>PreferenceController@showByApplicant</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -545,15 +678,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_reorderByApplicantAjax">
-        <div class="location">at         line 111</div>
-        <code>                    
-    <strong>reorderByApplicantAjax</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $aid)
+        <div class="location">at         line 149</div>
+        <code>                    <abbr title="App\Http\Controllers\json">json</abbr>
+    <strong>reorderByApplicantAjax</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $aid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Change the preference orders of a single applicant, ajax sided</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -561,16 +696,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$aid</td>
-                <td></td>
+                <td>Applicant-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\json">json</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -579,15 +723,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_deleteByApplicantAjax">
-        <div class="location">at         line 126</div>
-        <code>                    
-    <strong>deleteByApplicantAjax</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $aid)
+        <div class="location">at         line 170</div>
+        <code>                    <abbr title="App\Http\Controllers\json">json</abbr>
+    <strong>deleteByApplicantAjax</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $aid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Prepare the ajay sided deletion of a single preference by an applicant</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -595,16 +741,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$aid</td>
-                <td></td>
+                <td>Applicant-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\json">json</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -613,15 +768,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_deleteByApplicant">
-        <div class="location">at         line 135</div>
-        <code>                    
-    <strong>deleteByApplicant</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $prid)
+        <div class="location">at         line 185</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Preference">Preference</abbr>
+    <strong>deleteByApplicant</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $prid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Delete a single preference by an applicant</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -629,16 +786,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$prid</td>
-                <td></td>
+                <td>Preference-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Preference">Preference</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -647,27 +813,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_showByProgram">
-        <div class="location">at         line 145</div>
-        <code>                    
-    <strong>showByProgram</strong>($pid)
+        <div class="location">at         line 199</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>showByProgram</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Show all preferences of a program on a view</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>preference.showByProgram</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -676,15 +853,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addByProgram">
-        <div class="location">at         line 221</div>
-        <code>                    
-    <strong>addByProgram</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $pid)
+        <div class="location">at         line 279</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>addByProgram</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Add a preference by program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -692,16 +871,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>PreferenceController@showByProgram</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -710,15 +898,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_deleteByProgram">
-        <div class="location">at         line 235</div>
-        <code>                    
-    <strong>deleteByProgram</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $prid)
+        <div class="location">at         line 297</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>deleteByProgram</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $prid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Update a preference status to 0 by program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -726,16 +916,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$prid</td>
-                <td></td>
+                <td>Prefernce-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>PreferenceController@showByProgram</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -744,15 +943,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_addUncoordinatedProgram">
-        <div class="location">at         line 244</div>
-        <code>                    
-    <strong>addUncoordinatedProgram</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $pid)
+        <div class="location">at         line 309</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>addUncoordinatedProgram</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Add a preference by uncoordinated program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -760,16 +961,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>PreferenceController@showByProgram</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -778,8 +988,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_createCoordinatedPreferences">
-        <div class="location">at         line 280</div>
-        <code>                    
+        <div class="location">at         line 347</div>
+        <code>                    void
     <strong>createCoordinatedPreferences</strong>()
         </code>
     </h3>
@@ -787,8 +997,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Create the preferences of all coordinated programs by their corresponding criteria catalogues.</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -796,28 +1017,69 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getLowestRankApplicant">
-        <div class="location">at         line 330</div>
-        <code>                    
-    <strong>getLowestRankApplicant</strong>($aid)
+                    <h3 id="method_show">
+        <div class="location">at         line 400</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>show</strong>(integer $prid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Show a single preference in a view</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$aid</td>
-                <td></td>
+                <td>integer</td>
+                <td>$prid</td>
+                <td>Preference-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>preference.edit</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_all">
+        <div class="location">at         line 410</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>all</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Show a listed preferences</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>preference.all</td>
+        </tr>
+    </table>
+
             
             
                     </div>

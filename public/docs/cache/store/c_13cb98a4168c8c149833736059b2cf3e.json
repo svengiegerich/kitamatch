@@ -1,24 +1,24 @@
 {
     "name": "App\\Mail\\GuardianVerifiedMail",
-    "line": 12,
-    "short_desc": "",
+    "line": 27,
+    "short_desc": "This mail class handles with the event of a successfull verification of a guardian and his applicants.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Mail",
     "file": "\/var\/www\/html\/kitamatch\/app\/Mail\/GuardianVerifiedMail.php",
     "relative_file": null,
-    "hash": "f3f0b63554b29cebdf9b70ad18a42647e9e917d8",
+    "hash": "ce234971cdeb9ca86c284191e8761d7ea4e15f2c",
     "parent": "Illuminate\\Mail\\Mailable",
     "modifiers": 0,
     "is_trait": false,
     "is_interface": false,
     "aliases": {
-        "Guardian": "App\\Guardian",
         "Queueable": "Illuminate\\Bus\\Queueable",
         "Mailable": "Illuminate\\Mail\\Mailable",
         "SerializesModels": "Illuminate\\Queue\\SerializesModels",
-        "ShouldQueue": "Illuminate\\Contracts\\Queue\\ShouldQueue"
+        "ShouldQueue": "Illuminate\\Contracts\\Queue\\ShouldQueue",
+        "Guardian": "App\\Guardian"
     },
     "errors": [],
     "interfaces": [],
@@ -29,7 +29,7 @@
     "properties": {
         "guardian": {
             "name": "guardian",
-            "line": 16,
+            "line": 31,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -43,7 +43,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 23,
+            "line": 38,
             "short_desc": "Create a new message instance.",
             "long_desc": "",
             "hint": [
@@ -61,7 +61,7 @@
             "parameters": {
                 "guardian": {
                     "name": "guardian",
-                    "line": 23,
+                    "line": 38,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -78,8 +78,8 @@
                             "Guardian"
                         ],
                         "attributes": {
-                            "startLine": 23,
-                            "endLine": 23
+                            "startLine": 38,
+                            "endLine": 38
                         }
                     },
                     "default": null,
@@ -90,7 +90,7 @@
         },
         "build": {
             "name": "build",
-            "line": 33,
+            "line": 47,
             "short_desc": "Build the message.",
             "long_desc": "",
             "hint": [

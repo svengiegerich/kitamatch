@@ -1,14 +1,14 @@
 {
     "name": "App\\User",
-    "line": 8,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles users",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/User.php",
     "relative_file": null,
-    "hash": "83a88958901d9b23917f6793791f9f0f20a4b61a",
+    "hash": "949f09c5e9ad74a7b0cb3c7c8165ca3cbb9ad56d",
     "parent": "Illuminate\\Foundation\\Auth\\User",
     "modifiers": 0,
     "is_trait": false,
@@ -25,7 +25,7 @@
     "properties": {
         "fillable": {
             "name": "fillable",
-            "line": 17,
+            "line": 33,
             "short_desc": "The attributes that are mass assignable.",
             "long_desc": "",
             "hint": [
@@ -47,15 +47,15 @@
                             "nodeType": "Scalar_String",
                             "value": "email",
                             "attributes": {
-                                "startLine": 18,
-                                "endLine": 18,
+                                "startLine": 34,
+                                "endLine": 34,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 18,
-                            "endLine": 18
+                            "startLine": 34,
+                            "endLine": 34
                         }
                     },
                     {
@@ -65,15 +65,15 @@
                             "nodeType": "Scalar_String",
                             "value": "password",
                             "attributes": {
-                                "startLine": 18,
-                                "endLine": 18,
+                                "startLine": 34,
+                                "endLine": 34,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 18,
-                            "endLine": 18
+                            "startLine": 34,
+                            "endLine": 34
                         }
                     },
                     {
@@ -83,21 +83,21 @@
                             "nodeType": "Scalar_String",
                             "value": "account_type",
                             "attributes": {
-                                "startLine": 18,
-                                "endLine": 18,
+                                "startLine": 34,
+                                "endLine": 34,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 18,
-                            "endLine": 18
+                            "startLine": 34,
+                            "endLine": 34
                         }
                     }
                 ],
                 "attributes": {
-                    "startLine": 17,
-                    "endLine": 19,
+                    "startLine": 33,
+                    "endLine": 35,
                     "kind": 2
                 }
             },
@@ -105,7 +105,7 @@
         },
         "hidden": {
             "name": "hidden",
-            "line": 26,
+            "line": 42,
             "short_desc": "The attributes that should be hidden for arrays.",
             "long_desc": "",
             "hint": [
@@ -127,15 +127,15 @@
                             "nodeType": "Scalar_String",
                             "value": "password",
                             "attributes": {
-                                "startLine": 27,
-                                "endLine": 27,
+                                "startLine": 43,
+                                "endLine": 43,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 27,
-                            "endLine": 27
+                            "startLine": 43,
+                            "endLine": 43
                         }
                     },
                     {
@@ -145,21 +145,21 @@
                             "nodeType": "Scalar_String",
                             "value": "remember_token",
                             "attributes": {
-                                "startLine": 27,
-                                "endLine": 27,
+                                "startLine": 43,
+                                "endLine": 43,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 27,
-                            "endLine": 27
+                            "startLine": 43,
+                            "endLine": 43
                         }
                     }
                 ],
                 "attributes": {
-                    "startLine": 26,
-                    "endLine": 28,
+                    "startLine": 42,
+                    "endLine": 44,
                     "kind": 2
                 }
             },

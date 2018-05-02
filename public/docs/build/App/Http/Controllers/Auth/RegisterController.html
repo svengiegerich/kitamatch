@@ -86,13 +86,7 @@
     
 
             <div class="description">
-            <p><hr />
-
-<h1>RegisterConroller</h1>
-
-<hr />
-
-<p>This controller handles the registration of new users as well as their
+            <p>This controller handles the registration of new users as well as their
 validation and creation.</p>                                </div>
     
             <h2>Traits</h2>
@@ -187,13 +181,12 @@ validation and creation.</p>                                </div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <a href="../../../../App/User.html"><abbr title="App\User">User</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_store">store</a>(<a href="../../../../App/Http/Requests/ReCaptchataRequest.html"><abbr title="App\Http\Requests\ReCaptchataRequest">ReCaptchataRequest</abbr></a> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Stores the created user, after test of ReCaptacha by request.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -203,7 +196,7 @@ validation and creation.</p>                                </div>
                 <div class="col-md-8 type">
                     <a href="#method_generateStrongPassword">generateStrongPassword</a>($length = 9, $add_dashes = false, $available_sets = &#039;luds&#039;)
         
-                                            <p>A user friendly, strong password generator PHP function. Adopted from Tyler Hall, //https://gist.github.com/tylerhall/521810.</p>                </div>
+                                            <p>A user friendly, strong password generator PHP function. Adopted from Tyler Hall, see https://gist.github.com/tylerhall/521810.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -214,7 +207,7 @@ validation and creation.</p>                                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 45</div>
+        <div class="location">at         line 46</div>
         <code>                    void
     <strong>__construct</strong>()
         </code>
@@ -244,7 +237,7 @@ validation and creation.</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_validator">
-        <div class="location">at         line 56</div>
+        <div class="location">at         line 57</div>
         <code>            protected        <abbr title="Illuminate\Contracts\Validation\Validator">Validator</abbr>
     <strong>validator</strong>(array $data)
         </code>
@@ -284,7 +277,7 @@ validation and creation.</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_create">
-        <div class="location">at         line 71</div>
+        <div class="location">at         line 72</div>
         <code>            protected        <a href="../../../../App/User.html"><abbr title="App\User">User</abbr></a>
     <strong>create</strong>(array $data)
         </code>
@@ -324,8 +317,8 @@ validation and creation.</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_store">
-        <div class="location">at         line 117</div>
-        <code>                    
+        <div class="location">at         line 122</div>
+        <code>                    <a href="../../../../App/User.html"><abbr title="App\User">User</abbr></a>
     <strong>store</strong>(<a href="../../../../App/Http/Requests/ReCaptchataRequest.html"><abbr title="App\Http\Requests\ReCaptchataRequest">ReCaptchataRequest</abbr></a> $request)
         </code>
     </h3>
@@ -333,6 +326,8 @@ validation and creation.</p>                                </div>
             
     
 
+                    <div class="method-description">
+                                    <p>Stores the created user, after test of ReCaptacha by request.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -345,6 +340,15 @@ validation and creation.</p>                                </div>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../../App/User.html"><abbr title="App\User">User</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -353,7 +357,7 @@ validation and creation.</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_generateStrongPassword">
-        <div class="location">at         line 131</div>
+        <div class="location">at         line 137</div>
         <code>                    string
     <strong>generateStrongPassword</strong>($length = 9, $add_dashes = false, $available_sets = &#039;luds&#039;)
         </code>
@@ -363,7 +367,7 @@ validation and creation.</p>                                </div>
     
 
                     <div class="method-description">
-                                    <p>A user friendly, strong password generator PHP function. Adopted from Tyler Hall, //https://gist.github.com/tylerhall/521810.</p>                                                </div>
+                                    <p>A user friendly, strong password generator PHP function. Adopted from Tyler Hall, see https://gist.github.com/tylerhall/521810.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 

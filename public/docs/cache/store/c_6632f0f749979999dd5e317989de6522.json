@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Requests\\UpdateGuardianRequest",
-    "line": 9,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This class handles the update request of guardians",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Requests",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Requests\/UpdateGuardianRequest.php",
     "relative_file": null,
-    "hash": "fcc2e80c25680eb8dcd100e4af15cbb13b09def9",
+    "hash": "8e9cb4941d5d901c76724110b401ec676279b710",
     "parent": "Illuminate\\Foundation\\Http\\FormRequest",
     "modifiers": 0,
     "is_trait": false,
@@ -24,7 +24,7 @@
     "methods": {
         "authorize": {
             "name": "authorize",
-            "line": 16,
+            "line": 31,
             "short_desc": "Determine if the user is authorized to make this request.",
             "long_desc": "",
             "hint": [
@@ -43,8 +43,8 @@
         },
         "rules": {
             "name": "rules",
-            "line": 32,
-            "short_desc": "Get the validation rules that apply to the request.",
+            "line": 45,
+            "short_desc": "Validation rules that apply to the request.",
             "long_desc": "",
             "hint": [
                 [

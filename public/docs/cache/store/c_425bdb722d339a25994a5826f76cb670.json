@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\ForgotPasswordController",
-    "line": 16,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This controller is responsible for handling password reset emails and includes a trait which assists in sending these notifications from your application to your users.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/Auth\/ForgotPasswordController.php",
     "relative_file": null,
-    "hash": "d11efc74d7ada4e71799c9fe818f88e57cb60a68",
+    "hash": "83f493971954b56e5aca862bc80178064950457f",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -26,7 +26,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 36,
+            "line": 33,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [

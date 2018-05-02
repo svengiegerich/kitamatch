@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\ApplicantController",
-    "line": 14,
-    "short_desc": "",
+    "line": 30,
+    "short_desc": "This controller handles applicants: the creation of new applicants, update of existing ones, as well as status changes (e.g. priority matching).",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/ApplicantController.php",
     "relative_file": null,
-    "hash": "9a7af6496293b3feb51089f99c15cad4615dc496",
+    "hash": "d45a13e2a5079fb9497f813d3208cad96c6c790d",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -27,13 +27,18 @@
     "traits": [],
     "properties": [],
     "methods": {
-        "index": {
-            "name": "index",
-            "line": 16,
-            "short_desc": "",
+        "__construct": {
+            "name": "__construct",
+            "line": 37,
+            "short_desc": "Create a new controller instance, handle authentication",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -43,11 +48,16 @@
         },
         "add": {
             "name": "add",
-            "line": 20,
-            "short_desc": "",
+            "line": 47,
+            "short_desc": "Call the 'add applicant' view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "applicant.add",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -56,10 +66,15 @@
             "parameters": {
                 "gid": {
                     "name": "gid",
-                    "line": 20,
-                    "short_desc": null,
+                    "line": 47,
+                    "short_desc": "Guardian-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -70,11 +85,16 @@
         },
         "create": {
             "name": "create",
-            "line": 25,
-            "short_desc": "",
+            "line": 59,
+            "short_desc": "Handle the creation of an applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "PreferenceController@showByApplicant",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -83,8 +103,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 25,
-                    "short_desc": null,
+                    "line": 59,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
@@ -102,8 +122,8 @@
                             "ApplicantRequest"
                         ],
                         "attributes": {
-                            "startLine": 25,
-                            "endLine": 25
+                            "startLine": 59,
+                            "endLine": 59
                         }
                     },
                     "default": null,
@@ -112,10 +132,15 @@
                 },
                 "gid": {
                     "name": "gid",
-                    "line": 25,
-                    "short_desc": null,
+                    "line": 59,
+                    "short_desc": "Guardian-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -126,20 +151,27 @@
         },
         "store": {
             "name": "store",
-            "line": 31,
-            "short_desc": "",
+            "line": 72,
+            "short_desc": "Store a new applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "PreferenceController@showByApplicant",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
-            "errors": [],
+            "errors": [
+                "\"1\" @param tags are expected but only \"2\" found"
+            ],
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 31,
+                    "line": 72,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": [
@@ -158,8 +190,8 @@
                             "ApplicantRequest"
                         ],
                         "attributes": {
-                            "startLine": 31,
-                            "endLine": 31
+                            "startLine": 72,
+                            "endLine": 72
                         }
                     },
                     "default": null,
@@ -170,11 +202,16 @@
         },
         "show": {
             "name": "show",
-            "line": 45,
-            "short_desc": "",
+            "line": 90,
+            "short_desc": "Show a single applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "applicant.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -183,10 +220,15 @@
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 45,
-                    "short_desc": null,
+                    "line": 90,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -197,11 +239,16 @@
         },
         "all": {
             "name": "all",
-            "line": 52,
-            "short_desc": "",
+            "line": 102,
+            "short_desc": "Show all applicants",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "applicant.all",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -211,11 +258,16 @@
         },
         "edit": {
             "name": "edit",
-            "line": 57,
-            "short_desc": "",
+            "line": 114,
+            "short_desc": "Call the 'edit applicant' view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "applicant.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -224,8 +276,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 57,
-                    "short_desc": null,
+                    "line": 114,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
@@ -243,8 +295,8 @@
                             "ApplicantRequest"
                         ],
                         "attributes": {
-                            "startLine": 57,
-                            "endLine": 57
+                            "startLine": 114,
+                            "endLine": 114
                         }
                     },
                     "default": null,
@@ -253,10 +305,15 @@
                 },
                 "aid": {
                     "name": "aid",
-                    "line": 57,
-                    "short_desc": null,
+                    "line": 114,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -267,11 +324,16 @@
         },
         "delete": {
             "name": "delete",
-            "line": 63,
-            "short_desc": "",
+            "line": 127,
+            "short_desc": "Delete an applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "ApplicantController@all",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -280,64 +342,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 63,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\App\\Http\\Requests\\ApplicantRequest",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": {
-                        "nodeType": "Name_FullyQualified",
-                        "parts": [
-                            "App",
-                            "Http",
-                            "Requests",
-                            "ApplicantRequest"
-                        ],
-                        "attributes": {
-                            "startLine": 63,
-                            "endLine": 63
-                        }
-                    },
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                },
-                "aid": {
-                    "name": "aid",
-                    "line": 63,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": null,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                }
-            }
-        },
-        "update": {
-            "name": "update",
-            "line": 70,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 70,
-                    "short_desc": null,
+                    "line": 127,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
@@ -354,8 +360,74 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 70,
-                            "endLine": 70
+                            "startLine": 127,
+                            "endLine": 127
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                },
+                "aid": {
+                    "name": "aid",
+                    "line": 127,
+                    "short_desc": "Applicant-ID",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "update": {
+            "name": "update",
+            "line": 139,
+            "short_desc": "Update an applicant",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Applicant",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 139,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Requests\\ApplicantRequest",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "App",
+                            "Http",
+                            "Requests",
+                            "ApplicantRequest"
+                        ],
+                        "attributes": {
+                            "startLine": 139,
+                            "endLine": 139
                         }
                     },
                     "default": null,
@@ -366,8 +438,8 @@
         },
         "setFinalMatch": {
             "name": "setFinalMatch",
-            "line": 81,
-            "short_desc": "",
+            "line": 155,
+            "short_desc": "Update status of an applicant to the final successfull matching status (applicant got first preference and is out of the matching process)",
             "long_desc": "",
             "hint": null,
             "hint_desc": null,
@@ -379,10 +451,15 @@
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 81,
-                    "short_desc": null,
+                    "line": 155,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -393,8 +470,8 @@
         },
         "setValid": {
             "name": "setValid",
-            "line": 89,
-            "short_desc": "",
+            "line": 164,
+            "short_desc": "Update status of an applicant to verified",
             "long_desc": "",
             "hint": null,
             "hint_desc": null,
@@ -406,10 +483,15 @@
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 89,
-                    "short_desc": null,
+                    "line": 164,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -420,8 +502,8 @@
         },
         "setPriority": {
             "name": "setPriority",
-            "line": 93,
-            "short_desc": "",
+            "line": 173,
+            "short_desc": "Update status of an applicant to priority for matching (first in line)",
             "long_desc": "",
             "hint": null,
             "hint_desc": null,
@@ -433,10 +515,15 @@
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 93,
-                    "short_desc": null,
+                    "line": 173,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,

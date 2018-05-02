@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\AdminController",
-    "line": 15,
-    "short_desc": "",
+    "line": 29,
+    "short_desc": "This controller handles the administration side. It creates the admin dashboard and routes to various tasks.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/AdminController.php",
     "relative_file": null,
-    "hash": "fff8910232b3d5357fd4bba2ac4758c130c04c78",
+    "hash": "db9a5931f707a8e83646052038f8dea4cf17ef57",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -27,9 +27,42 @@
     "traits": [],
     "properties": [],
     "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 36,
+            "short_desc": "Create a new controller instance, handle authentication",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
         "index": {
             "name": "index",
-            "line": 17,
+            "line": 41,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "generateDashboard": {
+            "name": "generateDashboard",
+            "line": 56,
             "short_desc": "",
             "long_desc": "",
             "hint": null,

@@ -1,14 +1,14 @@
 {
     "name": "App\\Applicant",
-    "line": 8,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles applicants",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Applicant.php",
     "relative_file": null,
-    "hash": "c5aef12d5335a69915cbdeee4e04a8bd49d4b01a",
+    "hash": "f07a96b3ab2a7ea5666bddeb4f0b3dcef7dab30c",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -21,33 +21,18 @@
     "interfaces": [],
     "traits": [],
     "properties": {
-        "primaryKey": {
-            "name": "primaryKey",
-            "line": 26,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "modifiers": 1,
-            "default": {
-                "nodeType": "Scalar_String",
-                "value": "aid",
-                "attributes": {
-                    "startLine": 26,
-                    "endLine": 26,
-                    "kind": 1
-                }
-            },
-            "errors": []
-        },
         "dates": {
             "name": "dates",
-            "line": 28,
-            "short_desc": "",
+            "line": 63,
+            "short_desc": "The dates that should be available for Carbon",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 2,
             "default": {
@@ -60,15 +45,15 @@
                             "nodeType": "Scalar_String",
                             "value": "created_at",
                             "attributes": {
-                                "startLine": 29,
-                                "endLine": 29,
+                                "startLine": 64,
+                                "endLine": 64,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 29,
-                            "endLine": 29
+                            "startLine": 64,
+                            "endLine": 64
                         }
                     },
                     {
@@ -78,15 +63,15 @@
                             "nodeType": "Scalar_String",
                             "value": "updated_at",
                             "attributes": {
-                                "startLine": 30,
-                                "endLine": 30,
+                                "startLine": 65,
+                                "endLine": 65,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 30,
-                            "endLine": 30
+                            "startLine": 65,
+                            "endLine": 65
                         }
                     },
                     {
@@ -96,15 +81,15 @@
                             "nodeType": "Scalar_String",
                             "value": "deleted_at",
                             "attributes": {
-                                "startLine": 31,
-                                "endLine": 31,
+                                "startLine": 66,
+                                "endLine": 66,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 31,
-                            "endLine": 31
+                            "startLine": 66,
+                            "endLine": 66
                         }
                     },
                     {
@@ -114,51 +99,60 @@
                             "nodeType": "Scalar_String",
                             "value": "birthday",
                             "attributes": {
-                                "startLine": 33,
-                                "comments": [
-                                    {
-                                        "nodeType": "Comment",
-                                        "text": "\/\/\n",
-                                        "line": 32,
-                                        "filePos": 721
-                                    }
-                                ],
-                                "endLine": 33,
+                                "startLine": 67,
+                                "endLine": 67,
                                 "kind": 1
                             }
                         },
                         "byRef": false,
                         "attributes": {
-                            "startLine": 33,
-                            "comments": [
-                                {
-                                    "nodeType": "Comment",
-                                    "text": "\/\/\n",
-                                    "line": 32,
-                                    "filePos": 721
-                                }
-                            ],
-                            "endLine": 33
+                            "startLine": 67,
+                            "endLine": 67
                         }
                     }
                 ],
                 "attributes": {
-                    "startLine": 28,
-                    "endLine": 34,
+                    "startLine": 63,
+                    "endLine": 68,
                     "kind": 2
+                }
+            },
+            "errors": []
+        },
+        "primaryKey": {
+            "name": "primaryKey",
+            "line": 70,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "aid",
+                "attributes": {
+                    "startLine": 70,
+                    "endLine": 70,
+                    "kind": 1
                 }
             },
             "errors": []
         }
     },
     "methods": {
-        "getAppliantsByGid": {
-            "name": "getAppliantsByGid",
-            "line": 11,
-            "short_desc": "",
+        "getApplicantsByGid": {
+            "name": "getApplicantsByGid",
+            "line": 33,
+            "short_desc": "Get all applicants by a guardian",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "applicants",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -167,10 +161,15 @@
             "parameters": {
                 "gid": {
                     "name": "gid",
-                    "line": 11,
-                    "short_desc": null,
+                    "line": 33,
+                    "short_desc": "Guardian-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -181,11 +180,16 @@
         },
         "getGuardianIdByApplicant": {
             "name": "getGuardianIdByApplicant",
-            "line": 16,
-            "short_desc": "",
+            "line": 44,
+            "short_desc": "Get the corresponding guardian id of an applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "integer",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -194,10 +198,15 @@
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 16,
-                    "short_desc": null,
+                    "line": 44,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -208,11 +217,16 @@
         },
         "getAll": {
             "name": "getAll",
-            "line": 21,
-            "short_desc": "",
+            "line": 54,
+            "short_desc": "Get all applicants with status 22 or 25",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "applicants",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

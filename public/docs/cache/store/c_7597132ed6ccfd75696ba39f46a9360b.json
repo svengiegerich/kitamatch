@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\RegisterController",
-    "line": 29,
-    "short_desc": "--------------------------------------------\nRegisterConroller\n========\n--------------------------------------------\nThis controller handles the registration of new users as well as their\nvalidation and creation.",
+    "line": 30,
+    "short_desc": "This controller handles the registration of new users as well as their\nvalidation and creation.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/Auth\/RegisterController.php",
     "relative_file": null,
-    "hash": "5205e145827eccd6c6cce9b373e0af44947b5bad",
+    "hash": "242fb34ea7a625f92a75b4a71f19f3c0d6d33d61",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -30,7 +30,7 @@
     "properties": {
         "redirectTo": {
             "name": "redirectTo",
-            "line": 38,
+            "line": 39,
             "short_desc": "Where to redirect users after registration.",
             "long_desc": "",
             "hint": [
@@ -46,8 +46,8 @@
                 "nodeType": "Scalar_String",
                 "value": "\/home",
                 "attributes": {
-                    "startLine": 38,
-                    "endLine": 38,
+                    "startLine": 39,
+                    "endLine": 39,
                     "kind": 1
                 }
             },
@@ -57,7 +57,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 45,
+            "line": 46,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [
@@ -76,7 +76,7 @@
         },
         "validator": {
             "name": "validator",
-            "line": 56,
+            "line": 57,
             "short_desc": "Get a validator for an incoming registration request.",
             "long_desc": "",
             "hint": [
@@ -94,7 +94,7 @@
             "parameters": {
                 "data": {
                     "name": "data",
-                    "line": 56,
+                    "line": 57,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -113,7 +113,7 @@
         },
         "create": {
             "name": "create",
-            "line": 71,
+            "line": 72,
             "short_desc": "Create a new user instance after a valid registration.",
             "long_desc": "",
             "hint": [
@@ -131,7 +131,7 @@
             "parameters": {
                 "data": {
                     "name": "data",
-                    "line": 71,
+                    "line": 72,
                     "short_desc": "",
                     "long_desc": null,
                     "hint": [
@@ -150,11 +150,16 @@
         },
         "store": {
             "name": "store",
-            "line": 117,
-            "short_desc": "",
+            "line": 122,
+            "short_desc": "Stores the created user, after test of ReCaptacha by request.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\User",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -163,8 +168,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 117,
-                    "short_desc": null,
+                    "line": 122,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
@@ -182,8 +187,8 @@
                             "ReCaptchataRequest"
                         ],
                         "attributes": {
-                            "startLine": 117,
-                            "endLine": 117
+                            "startLine": 122,
+                            "endLine": 122
                         }
                     },
                     "default": null,
@@ -194,8 +199,8 @@
         },
         "generateStrongPassword": {
             "name": "generateStrongPassword",
-            "line": 131,
-            "short_desc": "A user friendly, strong password generator PHP function. Adopted from Tyler Hall, \/\/https:\/\/gist.github.com\/tylerhall\/521810.",
+            "line": 137,
+            "short_desc": "A user friendly, strong password generator PHP function. Adopted from Tyler Hall, see https:\/\/gist.github.com\/tylerhall\/521810.",
             "long_desc": "",
             "hint": [
                 [
@@ -214,7 +219,7 @@
             "parameters": {
                 "length": {
                     "name": "length",
-                    "line": 131,
+                    "line": 137,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -226,7 +231,7 @@
                 },
                 "add_dashes": {
                     "name": "add_dashes",
-                    "line": 131,
+                    "line": 137,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -238,7 +243,7 @@
                 },
                 "available_sets": {
                     "name": "available_sets",
-                    "line": 131,
+                    "line": 137,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,

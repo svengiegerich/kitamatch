@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\Auth\\LoginController",
-    "line": 26,
-    "short_desc": "This controller handles authenticating users for the application and\nredirecting them to your home screen. The controller uses a trait\nto conveniently provide its functionality to your applications.",
+    "line": 23,
+    "short_desc": "This controller handles authenticating users for the application and redirecting them to the home screen.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers\\Auth",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/Auth\/LoginController.php",
     "relative_file": null,
-    "hash": "0c8272e4497ec2fbe309c4590255126db5ba304a",
+    "hash": "1a55f79be8bc6e99ccc206b1a28c819d0f048661",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -25,7 +25,7 @@
     "properties": {
         "redirectTo": {
             "name": "redirectTo",
-            "line": 35,
+            "line": 32,
             "short_desc": "Where to redirect users after login.",
             "long_desc": "",
             "hint": [
@@ -41,8 +41,8 @@
                 "nodeType": "Scalar_String",
                 "value": "\/home",
                 "attributes": {
-                    "startLine": 35,
-                    "endLine": 35,
+                    "startLine": 32,
+                    "endLine": 32,
                     "kind": 1
                 }
             },
@@ -52,7 +52,7 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 42,
+            "line": 39,
             "short_desc": "Create a new controller instance.",
             "long_desc": "",
             "hint": [

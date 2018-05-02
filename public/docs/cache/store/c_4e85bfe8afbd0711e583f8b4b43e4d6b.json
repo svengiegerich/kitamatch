@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\GuardianController",
-    "line": 16,
-    "short_desc": "",
+    "line": 32,
+    "short_desc": "This controller handles guardians: the creation of new and update of existing ones, as well as status changes (e.g. validation).",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/GuardianController.php",
     "relative_file": null,
-    "hash": "bf9ed831eaaa7486c860da3ac04373be59a72041",
+    "hash": "e08ff92537acb148ba92444375cc23365646cc37",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -30,13 +30,37 @@
     "traits": [],
     "properties": [],
     "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 39,
+            "short_desc": "Create a new controller instance, handle authentication",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
         "store": {
             "name": "store",
-            "line": 18,
-            "short_desc": "",
+            "line": 49,
+            "short_desc": "Store new guardian",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Guardian",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -45,8 +69,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 18,
-                    "short_desc": null,
+                    "line": 49,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
@@ -63,8 +87,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 18,
-                            "endLine": 18
+                            "startLine": 49,
+                            "endLine": 49
                         }
                     },
                     "default": null,
@@ -75,11 +99,16 @@
         },
         "show": {
             "name": "show",
-            "line": 36,
-            "short_desc": "",
+            "line": 72,
+            "short_desc": "Show a single guardian view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "guardian.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -88,10 +117,15 @@
             "parameters": {
                 "gid": {
                     "name": "gid",
-                    "line": 36,
-                    "short_desc": null,
+                    "line": 72,
+                    "short_desc": "Guardian-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -102,11 +136,16 @@
         },
         "edit": {
             "name": "edit",
-            "line": 44,
-            "short_desc": "",
+            "line": 87,
+            "short_desc": "Edit a single guardian",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "GuardianController@show",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -115,8 +154,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 44,
-                    "short_desc": null,
+                    "line": 87,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -134,8 +173,8 @@
                             "UpdateGuardianRequest"
                         ],
                         "attributes": {
-                            "startLine": 44,
-                            "endLine": 44
+                            "startLine": 87,
+                            "endLine": 87
                         }
                     },
                     "default": null,
@@ -144,10 +183,15 @@
                 },
                 "gid": {
                     "name": "gid",
-                    "line": 44,
-                    "short_desc": null,
+                    "line": 87,
+                    "short_desc": "Guardian-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -158,11 +202,16 @@
         },
         "update": {
             "name": "update",
-            "line": 50,
-            "short_desc": "",
+            "line": 99,
+            "short_desc": "Update a single guardian",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Guardian",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -171,8 +220,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 50,
-                    "short_desc": null,
+                    "line": 99,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -190,8 +239,8 @@
                             "UpdateGuardianRequest"
                         ],
                         "attributes": {
-                            "startLine": 50,
-                            "endLine": 50
+                            "startLine": 99,
+                            "endLine": 99
                         }
                     },
                     "default": null,
@@ -202,11 +251,16 @@
         },
         "all": {
             "name": "all",
-            "line": 66,
-            "short_desc": "",
+            "line": 120,
+            "short_desc": "Call 'all guardians' view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "guardian.all",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -216,11 +270,16 @@
         },
         "verify": {
             "name": "verify",
-            "line": 80,
-            "short_desc": "",
+            "line": 139,
+            "short_desc": "Verify a single guardian including all associated applicants. Optional: send notification mail (App\\Mail\\GuardianVerified).",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "GuardianController@all",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -229,44 +288,17 @@
             "parameters": {
                 "gid": {
                     "name": "gid",
-                    "line": 80,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": null,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                }
-            }
-        },
-        "validator": {
-            "name": "validator",
-            "line": 98,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "modifiers": 2,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "data": {
-                    "name": "data",
-                    "line": 98,
-                    "short_desc": null,
+                    "line": 139,
+                    "short_desc": "Guardian-ID",
                     "long_desc": null,
                     "hint": [
                         [
-                            "array",
+                            "integer",
                             false
                         ]
                     ],
                     "tags": [],
-                    "modifiers": "array",
+                    "modifiers": null,
                     "default": null,
                     "variadic": false,
                     "is_by_ref": false

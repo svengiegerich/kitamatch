@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This model handles programs</p>                                </div>
     
     
     
@@ -93,10 +95,10 @@
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_dates">
-                                        protected                                        
+                                        protected                                        array
                 </td>
                 <td>$dates</td>
-                <td class="last"></td>
+                <td class="last">The dates that should be available for Carbon</td>
                 <td></td>
             </tr>
                     <tr>
@@ -115,68 +117,62 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getAll">getAll</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all programs with status 12 or 13 ordered by name</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    boolean
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isCoordinated">isCoordinated</a>($pid)
+                    <a href="#method_isCoordinated">isCoordinated</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Is a program coordinated?</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getCoordinated">getCoordinated</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all coordinated programs regardless of status</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    integer
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getProviderId">getProviderId</a>($pid)
+                    <a href="#method_getProviderId">getProviderId</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get the provider id of a program</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getProgramByUid">getProgramByUid</a>($uid)
+                    <a href="#method_getProgramByUid">getProgramByUid</a>(integer $uid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get a program by its corresponding user id</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getProgramsByProid">getProgramsByProid</a>($proid)
+                    <a href="#method_getProgramsByProid">getProgramsByProid</a>(integer $proid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all programs assosciated with a certain provider</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -187,8 +183,8 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_getAll">
-        <div class="location">at         line 13</div>
-        <code>                    
+        <div class="location">at         line 31</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
     <strong>getAll</strong>()
         </code>
     </h3>
@@ -196,8 +192,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Get all programs with status 12 or 13 ordered by name</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>programs</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -206,27 +213,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_isCoordinated">
-        <div class="location">at         line 17</div>
-        <code>                    
-    <strong>isCoordinated</strong>($pid)
+        <div class="location">at         line 41</div>
+        <code>                    boolean
+    <strong>isCoordinated</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Is a program coordinated?</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -235,8 +253,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getCoordinated">
-        <div class="location">at         line 22</div>
-        <code>                    
+        <div class="location">at         line 51</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
     <strong>getCoordinated</strong>()
         </code>
     </h3>
@@ -244,8 +262,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Get all coordinated programs regardless of status</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>programs</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -254,27 +283,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getProviderId">
-        <div class="location">at         line 27</div>
-        <code>                    
-    <strong>getProviderId</strong>($pid)
+        <div class="location">at         line 62</div>
+        <code>                    integer
+    <strong>getProviderId</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get the provider id of a program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -283,27 +323,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getProgramByUid">
-        <div class="location">at         line 32</div>
-        <code>                    
-    <strong>getProgramByUid</strong>($uid)
+        <div class="location">at         line 73</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getProgramByUid</strong>(integer $uid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get a program by its corresponding user id</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$uid</td>
-                <td></td>
+                <td>User-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>program</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -312,27 +363,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getProgramsByProid">
-        <div class="location">at         line 37</div>
-        <code>                    
-    <strong>getProgramsByProid</strong>($proid)
+        <div class="location">at         line 84</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getProgramsByProid</strong>(integer $proid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all programs assosciated with a certain provider</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$proid</td>
-                <td></td>
+                <td>Provider-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>programs</td>
+        </tr>
+    </table>
+
             
             
                     </div>

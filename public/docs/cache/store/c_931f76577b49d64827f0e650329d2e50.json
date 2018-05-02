@@ -1,14 +1,14 @@
 {
     "name": "App\\Guardian",
-    "line": 8,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles guardians",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Guardian.php",
     "relative_file": null,
-    "hash": "f4d27b5a05e2cd390d38d407fb12d36311f9d65c",
+    "hash": "68d76d49c05749fba59f5afb27fa0c2d0909f13a",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,7 @@
     "properties": {
         "primaryKey": {
             "name": "primaryKey",
-            "line": 12,
+            "line": 38,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -34,8 +34,8 @@
                 "nodeType": "Scalar_String",
                 "value": "gid",
                 "attributes": {
-                    "startLine": 12,
-                    "endLine": 12,
+                    "startLine": 38,
+                    "endLine": 38,
                     "kind": 1
                 }
             },
@@ -45,11 +45,16 @@
     "methods": {
         "getGuardianByUid": {
             "name": "getGuardianByUid",
-            "line": 14,
-            "short_desc": "",
+            "line": 33,
+            "short_desc": "Get a guardian by its user number",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "guardian",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -58,10 +63,15 @@
             "parameters": {
                 "uid": {
                     "name": "uid",
-                    "line": 14,
-                    "short_desc": null,
+                    "line": 33,
+                    "short_desc": "User-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,

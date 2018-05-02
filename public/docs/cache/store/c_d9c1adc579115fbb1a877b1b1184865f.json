@@ -1,14 +1,14 @@
 {
     "name": "App\\Code",
-    "line": 8,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles the (status-)codes",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Code.php",
     "relative_file": null,
-    "hash": "3052240d2b92bc6182f6889ee76f1f787a20c30e",
+    "hash": "2d32bceab5fd2a2bc2ecf941d691a18d0c2c11fb",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,7 @@
     "properties": {
         "primaryKey": {
             "name": "primaryKey",
-            "line": 13,
+            "line": 27,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -34,8 +34,8 @@
                 "nodeType": "Scalar_String",
                 "value": "id",
                 "attributes": {
-                    "startLine": 13,
-                    "endLine": 13,
+                    "startLine": 27,
+                    "endLine": 27,
                     "kind": 1
                 }
             },
@@ -43,7 +43,7 @@
         },
         "table": {
             "name": "table",
-            "line": 14,
+            "line": 28,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -54,8 +54,8 @@
                 "nodeType": "Scalar_String",
                 "value": "codes",
                 "attributes": {
-                    "startLine": 14,
-                    "endLine": 14,
+                    "startLine": 28,
+                    "endLine": 28,
                     "kind": 1
                 }
             },

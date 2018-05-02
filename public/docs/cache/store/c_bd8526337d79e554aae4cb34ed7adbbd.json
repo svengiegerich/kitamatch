@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\PreferenceController",
-    "line": 17,
-    "short_desc": "",
+    "line": 31,
+    "short_desc": "This controller handles the preferences of applicants & programs: add\/edit, arrange preferences, distinguish betwenn coordinated & uncoordinated programs.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/PreferenceController.php",
     "relative_file": null,
-    "hash": "021ec16e2c3452013a38d2dd34939723ecb82dcb",
+    "hash": "9c88f3c1de157f8e600fe20158c7a54b3870ab04",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -31,40 +31,18 @@
     },
     "properties": [],
     "methods": {
-        "show": {
-            "name": "show",
-            "line": 21,
-            "short_desc": "",
+        "__construct": {
+            "name": "__construct",
+            "line": 41,
+            "short_desc": "Create a new controller instance, handle authentication",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "prid": {
-                    "name": "prid",
-                    "line": 21,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": null,
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                }
-            }
-        },
-        "all": {
-            "name": "all",
-            "line": 26,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -72,13 +50,114 @@
             "errors": [],
             "parameters": []
         },
+        "store": {
+            "name": "store",
+            "line": 51,
+            "short_desc": "Store a single preference",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Preference",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 51,
+                    "short_desc": "request",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 51,
+                            "endLine": 51
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "update": {
+            "name": "update",
+            "line": 80,
+            "short_desc": "Update a single preference",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Preference",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 80,
+                    "short_desc": "request",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 80,
+                            "endLine": 80
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
         "showByApplicant": {
             "name": "showByApplicant",
-            "line": 75,
-            "short_desc": "",
+            "line": 101,
+            "short_desc": "Show all preferences of an applicant on a view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "preference.showByApplicant",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -87,10 +166,15 @@
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 75,
-                    "short_desc": null,
+                    "line": 101,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -101,11 +185,16 @@
         },
         "addByApplicant": {
             "name": "addByApplicant",
-            "line": 96,
-            "short_desc": "",
+            "line": 129,
+            "short_desc": "Add a preference of an applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "PreferenceController@showByApplicant",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -114,8 +203,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 96,
-                    "short_desc": null,
+                    "line": 129,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -132,8 +221,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 96,
-                            "endLine": 96
+                            "startLine": 129,
+                            "endLine": 129
                         }
                     },
                     "default": null,
@@ -142,10 +231,15 @@
                 },
                 "aid": {
                     "name": "aid",
-                    "line": 96,
-                    "short_desc": null,
+                    "line": 129,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -156,11 +250,16 @@
         },
         "reorderByApplicantAjax": {
             "name": "reorderByApplicantAjax",
-            "line": 111,
-            "short_desc": "",
+            "line": 149,
+            "short_desc": "Change the preference orders of a single applicant, ajax sided",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\json",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -169,8 +268,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 111,
-                    "short_desc": null,
+                    "line": 149,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -187,8 +286,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 111,
-                            "endLine": 111
+                            "startLine": 149,
+                            "endLine": 149
                         }
                     },
                     "default": null,
@@ -197,10 +296,15 @@
                 },
                 "aid": {
                     "name": "aid",
-                    "line": 111,
-                    "short_desc": null,
+                    "line": 149,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -211,11 +315,16 @@
         },
         "deleteByApplicantAjax": {
             "name": "deleteByApplicantAjax",
-            "line": 126,
-            "short_desc": "",
+            "line": 170,
+            "short_desc": "Prepare the ajay sided deletion of a single preference by an applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\json",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -224,8 +333,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 126,
-                    "short_desc": null,
+                    "line": 170,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -242,8 +351,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 126,
-                            "endLine": 126
+                            "startLine": 170,
+                            "endLine": 170
                         }
                     },
                     "default": null,
@@ -252,10 +361,15 @@
                 },
                 "aid": {
                     "name": "aid",
-                    "line": 126,
-                    "short_desc": null,
+                    "line": 170,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -266,11 +380,16 @@
         },
         "deleteByApplicant": {
             "name": "deleteByApplicant",
-            "line": 135,
-            "short_desc": "",
+            "line": 185,
+            "short_desc": "Delete a single preference by an applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Preference",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -279,8 +398,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 135,
-                    "short_desc": null,
+                    "line": 185,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -297,8 +416,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 135,
-                            "endLine": 135
+                            "startLine": 185,
+                            "endLine": 185
                         }
                     },
                     "default": null,
@@ -307,10 +426,15 @@
                 },
                 "prid": {
                     "name": "prid",
-                    "line": 135,
-                    "short_desc": null,
+                    "line": 185,
+                    "short_desc": "Preference-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -321,11 +445,16 @@
         },
         "showByProgram": {
             "name": "showByProgram",
-            "line": 145,
-            "short_desc": "",
+            "line": 199,
+            "short_desc": "Show all preferences of a program on a view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "preference.showByProgram",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -334,10 +463,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 145,
-                    "short_desc": null,
+                    "line": 199,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -348,11 +482,16 @@
         },
         "addByProgram": {
             "name": "addByProgram",
-            "line": 221,
-            "short_desc": "",
+            "line": 279,
+            "short_desc": "Add a preference by program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "PreferenceController@showByProgram",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -361,8 +500,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 221,
-                    "short_desc": null,
+                    "line": 279,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -379,8 +518,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 221,
-                            "endLine": 221
+                            "startLine": 279,
+                            "endLine": 279
                         }
                     },
                     "default": null,
@@ -389,10 +528,15 @@
                 },
                 "pid": {
                     "name": "pid",
-                    "line": 221,
-                    "short_desc": null,
+                    "line": 279,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -403,11 +547,16 @@
         },
         "deleteByProgram": {
             "name": "deleteByProgram",
-            "line": 235,
-            "short_desc": "",
+            "line": 297,
+            "short_desc": "Update a preference status to 0 by program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "PreferenceController@showByProgram",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -416,8 +565,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 235,
-                    "short_desc": null,
+                    "line": 297,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -434,8 +583,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 235,
-                            "endLine": 235
+                            "startLine": 297,
+                            "endLine": 297
                         }
                     },
                     "default": null,
@@ -444,10 +593,15 @@
                 },
                 "prid": {
                     "name": "prid",
-                    "line": 235,
-                    "short_desc": null,
+                    "line": 297,
+                    "short_desc": "Prefernce-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -458,11 +612,16 @@
         },
         "addUncoordinatedProgram": {
             "name": "addUncoordinatedProgram",
-            "line": 244,
-            "short_desc": "",
+            "line": 309,
+            "short_desc": "Add a preference by uncoordinated program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "PreferenceController@showByProgram",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -471,8 +630,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 244,
-                    "short_desc": null,
+                    "line": 309,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -489,8 +648,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 244,
-                            "endLine": 244
+                            "startLine": 309,
+                            "endLine": 309
                         }
                     },
                     "default": null,
@@ -499,10 +658,15 @@
                 },
                 "pid": {
                     "name": "pid",
-                    "line": 244,
-                    "short_desc": null,
+                    "line": 309,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -513,11 +677,16 @@
         },
         "createCoordinatedPreferences": {
             "name": "createCoordinatedPreferences",
-            "line": 280,
-            "short_desc": "",
+            "line": 347,
+            "short_desc": "Create the preferences of all coordinated programs by their corresponding criteria catalogues.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -525,25 +694,35 @@
             "errors": [],
             "parameters": []
         },
-        "getLowestRankApplicant": {
-            "name": "getLowestRankApplicant",
-            "line": 330,
-            "short_desc": "",
+        "show": {
+            "name": "show",
+            "line": 400,
+            "short_desc": "Show a single preference in a view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "preference.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "aid": {
-                    "name": "aid",
-                    "line": 330,
-                    "short_desc": null,
+                "prid": {
+                    "name": "prid",
+                    "line": 400,
+                    "short_desc": "Preference-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -551,6 +730,25 @@
                     "is_by_ref": false
                 }
             }
+        },
+        "all": {
+            "name": "all",
+            "line": 410,
+            "short_desc": "Show a listed preferences",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "preference.all",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
         }
     },
     "constants": []

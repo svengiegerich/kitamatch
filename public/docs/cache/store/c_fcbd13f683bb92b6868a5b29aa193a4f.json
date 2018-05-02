@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\CriteriumController",
-    "line": 15,
-    "short_desc": "",
+    "line": 29,
+    "short_desc": "This controller handles the criteria catalogue: creation, update.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/CriteriumController.php",
     "relative_file": null,
-    "hash": "66880ce9d75d7cf53e71678ae4bfefa7e196ce33",
+    "hash": "0f7feb5a19f5c247e9bd7fc718000c5182863aa5",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -29,11 +29,16 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 18,
-            "short_desc": "",
+            "line": 36,
+            "short_desc": "Create a new controller instance, handle authentication",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -41,22 +46,29 @@
             "errors": [],
             "parameters": []
         },
-        "show": {
-            "name": "show",
-            "line": 23,
-            "short_desc": "",
+        "showByProvider": {
+            "name": "showByProvider",
+            "line": 46,
+            "short_desc": "Show criteria of a provider. If there are no previous entries for the provider, it duplicates the standard criteria catalogue (calls store() with store_type = 1, indicated by index = -1).",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "criterium.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
-            "errors": [],
+            "errors": [
+                "The \"pid\" @param tag variable name is wrong (should be \"p_id\")"
+            ],
             "parameters": {
                 "p_id": {
                     "name": "p_id",
-                    "line": 23,
+                    "line": 46,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -70,23 +82,33 @@
         },
         "showByProgram": {
             "name": "showByProgram",
-            "line": 49,
-            "short_desc": "",
+            "line": 74,
+            "short_desc": "Show criteria of a program. Same structure as showByProvider()",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "criterium.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
             "errors": [],
             "parameters": {
-                "programId": {
-                    "name": "programId",
-                    "line": 49,
-                    "short_desc": null,
+                "pid": {
+                    "name": "pid",
+                    "line": 74,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -97,11 +119,16 @@
         },
         "editAjax": {
             "name": "editAjax",
-            "line": 77,
-            "short_desc": "",
+            "line": 104,
+            "short_desc": "Edit the rank of the criteria of a program or provider, ajax sided",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\json",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -110,8 +137,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 77,
-                    "short_desc": null,
+                    "line": 104,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -128,22 +155,10 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 77,
-                            "endLine": 77
+                            "startLine": 104,
+                            "endLine": 104
                         }
                     },
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                },
-                "p_id": {
-                    "name": "p_id",
-                    "line": 77,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": null,
-                    "tags": [],
-                    "modifiers": null,
                     "default": null,
                     "variadic": false,
                     "is_by_ref": false
@@ -152,11 +167,16 @@
         },
         "store": {
             "name": "store",
-            "line": 95,
-            "short_desc": "",
+            "line": 124,
+            "short_desc": "Store criteria by a provider. Right now",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -165,8 +185,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 95,
-                    "short_desc": null,
+                    "line": 124,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -183,8 +203,56 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 95,
-                            "endLine": 95
+                            "startLine": 124,
+                            "endLine": 124
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "storeByProgram": {
+            "name": "storeByProgram",
+            "line": 147,
+            "short_desc": "Store criteria by a program. Adds 'program' = 1 to the store() method.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 147,
+                    "short_desc": "request",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\Illuminate\\Http\\Request",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "Illuminate",
+                            "Http",
+                            "Request"
+                        ],
+                        "attributes": {
+                            "startLine": 147,
+                            "endLine": 147
                         }
                     },
                     "default": null,
@@ -195,11 +263,16 @@
         },
         "edit": {
             "name": "edit",
-            "line": 113,
-            "short_desc": "",
+            "line": 158,
+            "short_desc": "Edit a single criterium",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Criterium",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -208,8 +281,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 113,
-                    "short_desc": null,
+                    "line": 158,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -226,8 +299,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 113,
-                            "endLine": 113
+                            "startLine": 158,
+                            "endLine": 158
                         }
                     },
                     "default": null,

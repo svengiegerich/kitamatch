@@ -8,7 +8,7 @@
     "namespace": "App\\Providers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Providers\/AppServiceProvider.php",
     "relative_file": null,
-    "hash": "94e35902ef054661f9fc5ed6bfec6fce41e42998",
+    "hash": "3d6cf5ef79f321ed2d310a622017e9aec214318d",
     "parent": "Illuminate\\Support\\ServiceProvider",
     "modifiers": 0,
     "is_trait": false,

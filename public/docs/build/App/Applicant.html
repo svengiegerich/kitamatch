@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This model handles applicants</p>                                </div>
     
     
     
@@ -92,18 +94,18 @@
 
             <table class="table table-condensed">
                     <tr>
+                <td class="type" id="property_dates">
+                                        protected                                        array
+                </td>
+                <td>$dates</td>
+                <td class="last">The dates that should be available for Carbon</td>
+                <td></td>
+            </tr>
+                    <tr>
                 <td class="type" id="property_primaryKey">
                                                                                 
                 </td>
                 <td>$primaryKey</td>
-                <td class="last"></td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type" id="property_dates">
-                                        protected                                        
-                </td>
-                <td>$dates</td>
                 <td class="last"></td>
                 <td></td>
             </tr>
@@ -115,35 +117,32 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getAppliantsByGid">getAppliantsByGid</a>($gid)
+                    <a href="#method_getApplicantsByGid">getApplicantsByGid</a>(integer $gid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all applicants by a guardian</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    integer
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getGuardianIdByApplicant">getGuardianIdByApplicant</a>($aid)
+                    <a href="#method_getGuardianIdByApplicant">getGuardianIdByApplicant</a>(integer $aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get the corresponding guardian id of an applicant</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getAll">getAll</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all applicants with status 22 or 25</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -153,28 +152,39 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_getAppliantsByGid">
-        <div class="location">at         line 11</div>
-        <code>                    
-    <strong>getAppliantsByGid</strong>($gid)
+                    <h3 id="method_getApplicantsByGid">
+        <div class="location">at         line 33</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getApplicantsByGid</strong>(integer $gid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all applicants by a guardian</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$gid</td>
-                <td></td>
+                <td>Guardian-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>applicants</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -183,27 +193,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getGuardianIdByApplicant">
-        <div class="location">at         line 16</div>
-        <code>                    
-    <strong>getGuardianIdByApplicant</strong>($aid)
+        <div class="location">at         line 44</div>
+        <code>                    integer
+    <strong>getGuardianIdByApplicant</strong>(integer $aid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get the corresponding guardian id of an applicant</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$aid</td>
-                <td></td>
+                <td>Applicant-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -212,8 +233,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getAll">
-        <div class="location">at         line 21</div>
-        <code>                    
+        <div class="location">at         line 54</div>
+        <code>                    <abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr>
     <strong>getAll</strong>()
         </code>
     </h3>
@@ -221,8 +242,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Get all applicants with status 22 or 25</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>applicants</td>
+        </tr>
+    </table>
+
             
             
                     </div>

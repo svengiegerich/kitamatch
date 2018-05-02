@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This controller handles programs: the creation of new programs and update of existing ones, status changes and activity check for uncoordinated programs.</p>                                </div>
     
             <h2>Traits</h2>
 
@@ -131,51 +133,47 @@
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>()
         
-                                            <p>Create a new controller instance.</p>                </div>
+                                            <p>Create a new controller instance, handle authentication</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Provider">Provider</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_store">store</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+                    <a href="#method_store">store</a>(<a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Store a new provider</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_show">show</a>($proid)
+                    <a href="#method_show">show</a>(integer $proid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Show a provider</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_edit">edit</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $proid)
+                    <a href="#method_edit">edit</a>(<a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a> $request, $proid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Edit a provider</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Provider">Provider</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_update">update</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+                    <a href="#method_update">update</a>(<a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Update a provider</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -186,7 +184,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 20</div>
+        <div class="location">at         line 35</div>
         <code>                    void
     <strong>__construct</strong>()
         </code>
@@ -196,7 +194,7 @@
     
 
                     <div class="method-description">
-                                    <p>Create a new controller instance.</p>                                                </div>
+                                    <p>Create a new controller instance, handle authentication</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -216,27 +214,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_store">
-        <div class="location">at         line 26</div>
-        <code>                    
-    <strong>store</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        <div class="location">at         line 45</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Provider">Provider</abbr>
+    <strong>store</strong>(<a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a> $request)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Store a new provider</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td><a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a></td>
                 <td>$request</td>
                 <td></td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Provider">Provider</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -245,27 +254,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_show">
-        <div class="location">at         line 41</div>
-        <code>                    
-    <strong>show</strong>($proid)
+        <div class="location">at         line 64</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>show</strong>(integer $proid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Show a provider</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$proid</td>
-                <td></td>
+                <td>Provider-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>provider.edit</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -274,21 +294,23 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_edit">
-        <div class="location">at         line 49</div>
-        <code>                    
-    <strong>edit</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $proid)
+        <div class="location">at         line 78</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>edit</strong>(<a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a> $request, $proid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Edit a provider</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td><a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a></td>
                 <td>$request</td>
                 <td></td>
             </tr>
@@ -300,6 +322,15 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>ProviderController@show</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -308,27 +339,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_update">
-        <div class="location">at         line 55</div>
-        <code>                    
-    <strong>update</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        <div class="location">at         line 90</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Provider">Provider</abbr>
+    <strong>update</strong>(<a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a> $request)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Update a provider</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td><a href="../../../App/Http/Requests/ProviderRequest.html"><abbr title="App\Http\Requests\ProviderRequest">ProviderRequest</abbr></a></td>
                 <td>$request</td>
                 <td></td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Provider">Provider</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>

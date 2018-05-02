@@ -1,14 +1,14 @@
 {
     "name": "App\\Matching",
-    "line": 9,
-    "short_desc": "",
+    "line": 25,
+    "short_desc": "This model handles matches",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Matching.php",
     "relative_file": null,
-    "hash": "611e45bc038f2de11fe75ffe9e34f06b4fe92493",
+    "hash": "fbb1b396beda45efce7769f9592728019e733ad0",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,7 @@
     "properties": {
         "primaryKey": {
             "name": "primaryKey",
-            "line": 21,
+            "line": 41,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -34,8 +34,8 @@
                 "nodeType": "Scalar_String",
                 "value": "mid",
                 "attributes": {
-                    "startLine": 21,
-                    "endLine": 21,
+                    "startLine": 41,
+                    "endLine": 41,
                     "kind": 1
                 }
             },
@@ -43,7 +43,7 @@
         },
         "table": {
             "name": "table",
-            "line": 22,
+            "line": 42,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -54,8 +54,8 @@
                 "nodeType": "Scalar_String",
                 "value": "matches",
                 "attributes": {
-                    "startLine": 22,
-                    "endLine": 22,
+                    "startLine": 42,
+                    "endLine": 42,
                     "kind": 1
                 }
             },
@@ -65,11 +65,16 @@
     "methods": {
         "resetMatches": {
             "name": "resetMatches",
-            "line": 12,
-            "short_desc": "",
+            "line": 33,
+            "short_desc": "Reset all  matches, except final ones, to historical status (before writing the new ones)",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>Preference trait for programs and applicants</p>                                </div>
     
     
     
@@ -94,46 +96,42 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getPreferencesByApplicant">getPreferencesByApplicant</a>($aid)
+                    <a href="#method_getPreferencesByApplicant">getPreferencesByApplicant</a>(integer $aid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all active preferences of an applicant</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getPreferencesByProgram">getPreferencesByProgram</a>($pid)
+                    <a href="#method_getPreferencesByProgram">getPreferencesByProgram</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all active preferences of a coordinated program</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getPreferencesUncoordinatedByProgram">getPreferencesUncoordinatedByProgram</a>($pid)
+                    <a href="#method_getPreferencesUncoordinatedByProgram">getPreferencesUncoordinatedByProgram</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all active preferences of an uncoordinated program</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getNonActivePreferencesByProgram">getNonActivePreferencesByProgram</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get all non-active preferences of a program (coord or uncoord)</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -144,27 +142,38 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_getPreferencesByApplicant">
-        <div class="location">at         line 12</div>
-        <code>                    
-    <strong>getPreferencesByApplicant</strong>($aid)
+        <div class="location">at         line 35</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getPreferencesByApplicant</strong>(integer $aid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all active preferences of an applicant</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$aid</td>
-                <td></td>
+                <td>Applicant-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -173,27 +182,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPreferencesByProgram">
-        <div class="location">at         line 24</div>
-        <code>                    
-    <strong>getPreferencesByProgram</strong>($pid)
+        <div class="location">at         line 52</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getPreferencesByProgram</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all active preferences of a coordinated program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -202,27 +222,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPreferencesUncoordinatedByProgram">
-        <div class="location">at         line 36</div>
-        <code>                    
-    <strong>getPreferencesUncoordinatedByProgram</strong>($pid)
+        <div class="location">at         line 69</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
+    <strong>getPreferencesUncoordinatedByProgram</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get all active preferences of an uncoordinated program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -231,8 +262,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getNonActivePreferencesByProgram">
-        <div class="location">at         line 48</div>
-        <code>                    
+        <div class="location">at         line 86</div>
+        <code>                    <abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr>
     <strong>getNonActivePreferencesByProgram</strong>()
         </code>
     </h3>
@@ -240,8 +271,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Get all non-active preferences of a program (coord or uncoord)</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Traits\Illuminate\Database\Eloquent\Collection">Collection</abbr></td>
+            <td>preferences</td>
+        </tr>
+    </table>
+
             
             
                     </div>

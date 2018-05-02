@@ -1,14 +1,14 @@
 {
     "name": "App\\Traits\\GetPreferences",
-    "line": 9,
-    "short_desc": "",
+    "line": 27,
+    "short_desc": "Preference trait for programs and applicants",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Traits",
     "file": "\/var\/www\/html\/kitamatch\/app\/Traits\/GetPreferences.php",
     "relative_file": null,
-    "hash": "a6c2b3b204ebcc527841a376885485eb4da4b022",
+    "hash": "b759066fcfdc9f3498057c634dea42add2573629",
     "parent": null,
     "modifiers": null,
     "is_trait": true,
@@ -26,11 +26,16 @@
     "methods": {
         "getPreferencesByApplicant": {
             "name": "getPreferencesByApplicant",
-            "line": 12,
-            "short_desc": "",
+            "line": 35,
+            "short_desc": "Get all active preferences of an applicant",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Traits\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "preferences",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -39,10 +44,15 @@
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 12,
-                    "short_desc": null,
+                    "line": 35,
+                    "short_desc": "Applicant-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -53,11 +63,16 @@
         },
         "getPreferencesByProgram": {
             "name": "getPreferencesByProgram",
-            "line": 24,
-            "short_desc": "",
+            "line": 52,
+            "short_desc": "Get all active preferences of a coordinated program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Traits\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "preferences",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -66,10 +81,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 24,
-                    "short_desc": null,
+                    "line": 52,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -80,11 +100,16 @@
         },
         "getPreferencesUncoordinatedByProgram": {
             "name": "getPreferencesUncoordinatedByProgram",
-            "line": 36,
-            "short_desc": "",
+            "line": 69,
+            "short_desc": "Get all active preferences of an uncoordinated program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Traits\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "preferences",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -93,10 +118,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 36,
-                    "short_desc": null,
+                    "line": 69,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -107,11 +137,16 @@
         },
         "getNonActivePreferencesByProgram": {
             "name": "getNonActivePreferencesByProgram",
-            "line": 48,
-            "short_desc": "",
+            "line": 86,
+            "short_desc": "Get all non-active preferences of a program (coord or uncoord)",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Traits\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "preferences",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

@@ -1,14 +1,14 @@
 {
     "name": "App\\Provider",
-    "line": 8,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles provider",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Provider.php",
     "relative_file": null,
-    "hash": "b07ffde0a0a306bce7666160906358284072df7f",
+    "hash": "239dcc254bc44eb32fc1fc4a20d2204850c4e71c",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,7 @@
     "properties": {
         "primaryKey": {
             "name": "primaryKey",
-            "line": 18,
+            "line": 37,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -34,8 +34,8 @@
                 "nodeType": "Scalar_String",
                 "value": "proid",
                 "attributes": {
-                    "startLine": 18,
-                    "endLine": 18,
+                    "startLine": 37,
+                    "endLine": 37,
                     "kind": 1
                 }
             },
@@ -43,7 +43,7 @@
         },
         "table": {
             "name": "table",
-            "line": 19,
+            "line": 38,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -54,8 +54,8 @@
                 "nodeType": "Scalar_String",
                 "value": "provider",
                 "attributes": {
-                    "startLine": 19,
-                    "endLine": 19,
+                    "startLine": 38,
+                    "endLine": 38,
                     "kind": 1
                 }
             },
@@ -65,11 +65,16 @@
     "methods": {
         "getProviderByUid": {
             "name": "getProviderByUid",
-            "line": 13,
-            "short_desc": "",
+            "line": 32,
+            "short_desc": "Get the corresponding provider of an User by ID",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "provider",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -78,10 +83,15 @@
             "parameters": {
                 "uid": {
                     "name": "uid",
-                    "line": 13,
-                    "short_desc": null,
+                    "line": 32,
+                    "short_desc": "User-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,

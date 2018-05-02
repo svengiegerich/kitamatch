@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\ProgramController",
-    "line": 19,
-    "short_desc": "",
+    "line": 33,
+    "short_desc": "This controller handles programs: the creation of new and update of existing ones, status changes and activity check for uncoordinated.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/ProgramController.php",
     "relative_file": null,
-    "hash": "8532147270e19ff8adf64a933e82220ec1620b66",
+    "hash": "f8c17896e97191926e69b57966dc94d611210ed9",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -17,7 +17,7 @@
         "Request": "Illuminate\\Http\\Request",
         "DB": "Illuminate\\Support\\Facades\\DB",
         "Requests": "App\\Http\\Requests",
-        "UpdateProgramRequest": "App\\Http\\Requests\\UpdateProgramRequest",
+        "ProgramRequest": "App\\Http\\Requests\\ProgramRequest",
         "Controller": "App\\Http\\Controllers\\Controller",
         "GetPreferences": "App\\Traits\\GetPreferences",
         "Program": "App\\Program",
@@ -31,13 +31,18 @@
     "traits": [],
     "properties": [],
     "methods": {
-        "index": {
-            "name": "index",
-            "line": 21,
-            "short_desc": "",
+        "__construct": {
+            "name": "__construct",
+            "line": 40,
+            "short_desc": "Create a new controller instance, handle authentication",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -45,13 +50,18 @@
             "errors": [],
             "parameters": []
         },
-        "add": {
-            "name": "add",
-            "line": 25,
-            "short_desc": "",
+        "addByProvider": {
+            "name": "addByProvider",
+            "line": 50,
+            "short_desc": "Call the 'add program' view. The function is called when providers add their programs. For private programs the entry was already created by the register controller.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "program.add",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -60,10 +70,15 @@
             "parameters": {
                 "proid": {
                     "name": "proid",
-                    "line": 25,
-                    "short_desc": null,
+                    "line": 50,
+                    "short_desc": "Provider-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -72,13 +87,18 @@
                 }
             }
         },
-        "create": {
-            "name": "create",
-            "line": 31,
-            "short_desc": "",
+        "createByProvider": {
+            "name": "createByProvider",
+            "line": 62,
+            "short_desc": "Create program on provider side. While doing so, create a user entry for the new program with a automatic set password.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "ProviderController@show",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -87,8 +107,8 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 31,
-                    "short_desc": null,
+                    "line": 62,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
@@ -105,8 +125,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 31,
-                            "endLine": 31
+                            "startLine": 62,
+                            "endLine": 62
                         }
                     },
                     "default": null,
@@ -115,10 +135,15 @@
                 },
                 "proid": {
                     "name": "proid",
-                    "line": 31,
-                    "short_desc": null,
+                    "line": 62,
+                    "short_desc": "Provider-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -129,11 +154,16 @@
         },
         "store": {
             "name": "store",
-            "line": 53,
-            "short_desc": "",
+            "line": 89,
+            "short_desc": "Store a program. Right now every program is set valid by default.",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Program",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -142,12 +172,12 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 53,
-                    "short_desc": null,
+                    "line": 89,
+                    "short_desc": "request",
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\Illuminate\\Http\\Request",
+                            "\\App\\Http\\Requests\\ProgramRequest",
                             false
                         ]
                     ],
@@ -155,13 +185,63 @@
                     "modifiers": {
                         "nodeType": "Name_FullyQualified",
                         "parts": [
-                            "Illuminate",
+                            "App",
                             "Http",
-                            "Request"
+                            "Requests",
+                            "ProgramRequest"
                         ],
                         "attributes": {
-                            "startLine": 53,
-                            "endLine": 53
+                            "startLine": 89,
+                            "endLine": 89
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "storeByUser": {
+            "name": "storeByUser",
+            "line": 119,
+            "short_desc": "Store a program on user registration side. Right now every program is set valid by default.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Program",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 119,
+                    "short_desc": "request",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Requests\\ProgramRequest",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "App",
+                            "Http",
+                            "Requests",
+                            "ProgramRequest"
+                        ],
+                        "attributes": {
+                            "startLine": 119,
+                            "endLine": 119
                         }
                     },
                     "default": null,
@@ -172,11 +252,16 @@
         },
         "show": {
             "name": "show",
-            "line": 78,
-            "short_desc": "",
+            "line": 136,
+            "short_desc": "Show a single program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "program.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -185,10 +270,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 78,
-                    "short_desc": null,
+                    "line": 136,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -199,11 +289,16 @@
         },
         "all": {
             "name": "all",
-            "line": 83,
-            "short_desc": "",
+            "line": 146,
+            "short_desc": "Show all programs",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "program.all",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -213,11 +308,16 @@
         },
         "edit": {
             "name": "edit",
-            "line": 93,
-            "short_desc": "",
+            "line": 163,
+            "short_desc": "Call the 'edit program' view",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\view",
+                    false
+                ]
+            ],
+            "hint_desc": "program.edit",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -226,12 +326,12 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 93,
-                    "short_desc": null,
+                    "line": 163,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
-                            "\\App\\Http\\Requests\\UpdateProgramRequest",
+                            "\\App\\Http\\Requests\\ProgramRequest",
                             false
                         ]
                     ],
@@ -242,11 +342,11 @@
                             "App",
                             "Http",
                             "Requests",
-                            "UpdateProgramRequest"
+                            "ProgramRequest"
                         ],
                         "attributes": {
-                            "startLine": 93,
-                            "endLine": 93
+                            "startLine": 163,
+                            "endLine": 163
                         }
                     },
                     "default": null,
@@ -255,10 +355,15 @@
                 },
                 "pid": {
                     "name": "pid",
-                    "line": 93,
-                    "short_desc": null,
+                    "line": 163,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -267,13 +372,18 @@
                 }
             }
         },
-        "delete": {
-            "name": "delete",
-            "line": 99,
-            "short_desc": "",
+        "update": {
+            "name": "update",
+            "line": 175,
+            "short_desc": "Update a program",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\App\\Program",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -282,8 +392,57 @@
             "parameters": {
                 "request": {
                     "name": "request",
-                    "line": 99,
-                    "short_desc": null,
+                    "line": 175,
+                    "short_desc": "",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "\\App\\Http\\Requests\\ProgramRequest",
+                            false
+                        ]
+                    ],
+                    "tags": [],
+                    "modifiers": {
+                        "nodeType": "Name_FullyQualified",
+                        "parts": [
+                            "App",
+                            "Http",
+                            "Requests",
+                            "ProgramRequest"
+                        ],
+                        "attributes": {
+                            "startLine": 175,
+                            "endLine": 175
+                        }
+                    },
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "delete": {
+            "name": "delete",
+            "line": 199,
+            "short_desc": "Delete a program",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\App\\Http\\Controllers\\action",
+                    false
+                ]
+            ],
+            "hint_desc": "ProgramController@all",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "request": {
+                    "name": "request",
+                    "line": 199,
+                    "short_desc": "",
                     "long_desc": null,
                     "hint": [
                         [
@@ -300,8 +459,8 @@
                             "Request"
                         ],
                         "attributes": {
-                            "startLine": 99,
-                            "endLine": 99
+                            "startLine": 199,
+                            "endLine": 199
                         }
                     },
                     "default": null,
@@ -310,10 +469,15 @@
                 },
                 "pid": {
                     "name": "pid",
-                    "line": 99,
-                    "short_desc": null,
+                    "line": 199,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -322,57 +486,18 @@
                 }
             }
         },
-        "update": {
-            "name": "update",
-            "line": 106,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": {
-                "request": {
-                    "name": "request",
-                    "line": 106,
-                    "short_desc": null,
-                    "long_desc": null,
-                    "hint": [
-                        [
-                            "\\App\\Http\\Requests\\UpdateProgramRequest",
-                            false
-                        ]
-                    ],
-                    "tags": [],
-                    "modifiers": {
-                        "nodeType": "Name_FullyQualified",
-                        "parts": [
-                            "App",
-                            "Http",
-                            "Requests",
-                            "UpdateProgramRequest"
-                        ],
-                        "attributes": {
-                            "startLine": 106,
-                            "endLine": 106
-                        }
-                    },
-                    "default": null,
-                    "variadic": false,
-                    "is_by_ref": false
-                }
-            }
-        },
         "getCapacity": {
             "name": "getCapacity",
-            "line": 123,
-            "short_desc": "",
+            "line": 211,
+            "short_desc": "Get the current capacity of a program. Note: the capacity is not the overall number of free places of the program, but rather an updated number since it takes the final matches into account (-).",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "integer",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -381,10 +506,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 123,
-                    "short_desc": null,
+                    "line": 211,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -395,11 +525,16 @@
         },
         "setValid": {
             "name": "setValid",
-            "line": 133,
-            "short_desc": "",
+            "line": 227,
+            "short_desc": "Update program status to verified",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -408,10 +543,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 133,
-                    "short_desc": null,
+                    "line": 227,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -422,25 +562,16 @@
         },
         "setNonActive": {
             "name": "setNonActive",
-            "line": 137,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
-            "tags": [],
-            "modifiers": 1,
-            "is_by_ref": "",
-            "exceptions": [],
-            "errors": [],
-            "parameters": []
-        },
-        "activityCheck": {
-            "name": "activityCheck",
-            "line": 161,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "line": 237,
+            "short_desc": "Find all inactive programs, no activity for at least 7 days, and update status to inactive (incl. mail). Inactive programs don't take part in the matching procedure, see MatchingController@prepareMatching().",
+            "long_desc": "(Programs with current capacity equal to zero, will also be set inactive).",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

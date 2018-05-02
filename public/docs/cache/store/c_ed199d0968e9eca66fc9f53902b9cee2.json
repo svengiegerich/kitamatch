@@ -1,14 +1,14 @@
 {
     "name": "App\\Criterium",
-    "line": 8,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles selection criteria for the preference order of coordinated programs",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Criterium.php",
     "relative_file": null,
-    "hash": "d377ab5cdec149553fd9ee78f002ddb126e076bd",
+    "hash": "9a3ebe90c07c26a3e7ee0e9300cafe0cdc4fea06",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,7 @@
     "properties": {
         "primaryKey": {
             "name": "primaryKey",
-            "line": 13,
+            "line": 27,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -34,8 +34,8 @@
                 "nodeType": "Scalar_String",
                 "value": "cid",
                 "attributes": {
-                    "startLine": 13,
-                    "endLine": 13,
+                    "startLine": 27,
+                    "endLine": 27,
                     "kind": 1
                 }
             },
@@ -43,7 +43,7 @@
         },
         "table": {
             "name": "table",
-            "line": 14,
+            "line": 28,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -54,8 +54,8 @@
                 "nodeType": "Scalar_String",
                 "value": "criteria",
                 "attributes": {
-                    "startLine": 14,
-                    "endLine": 14,
+                    "startLine": 28,
+                    "endLine": 28,
                     "kind": 1
                 }
             },

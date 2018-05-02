@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This controller handles programs: the creation of new and update of existing ones, status changes and activity check for uncoordinated.</p>                                </div>
     
             <h2>Traits</h2>
 
@@ -126,145 +128,132 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_index">index</a>()
+                    <a href="#method___construct">__construct</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Create a new controller instance, handle authentication</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_add">add</a>($proid)
+                    <a href="#method_addByProvider">addByProvider</a>(integer $proid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Call the 'add program' view. The function is called when providers add their programs. For private programs the entry was already created by the register controller.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_create">create</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $proid)
+                    <a href="#method_createByProvider">createByProvider</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $proid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Create program on provider side. While doing so, create a user entry for the new program with a automatic set password.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Program">Program</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_store">store</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+                    <a href="#method_store">store</a>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Store a program. Right now every program is set valid by default.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Program">Program</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_show">show</a>($pid)
+                    <a href="#method_storeByUser">storeByUser</a>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Store a program on user registration side. Right now every program is set valid by default.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_show">show</a>(integer $pid)
+        
+                                            <p>Show a single program</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_all">all</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Show all programs</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_edit">edit</a>(<a href="../../../App/Http/Requests/UpdateProgramRequest.html"><abbr title="App\Http\Requests\UpdateProgramRequest">UpdateProgramRequest</abbr></a> $request, $pid)
+                    <a href="#method_edit">edit</a>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request, integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Call the 'edit program' view</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Program">Program</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_delete">delete</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $pid)
+                    <a href="#method_update">update</a>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Update a program</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_update">update</a>(<a href="../../../App/Http/Requests/UpdateProgramRequest.html"><abbr title="App\Http\Requests\UpdateProgramRequest">UpdateProgramRequest</abbr></a> $request)
+                    <a href="#method_delete">delete</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Delete a program</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    integer
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getCapacity">getCapacity</a>($pid)
+                    <a href="#method_getCapacity">getCapacity</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get the current capacity of a program. Note: the capacity is not the overall number of free places of the program, but rather an updated number since it takes the final matches into account (-).</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_setValid">setValid</a>($pid)
+                    <a href="#method_setValid">setValid</a>(integer $pid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Update program status to verified</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_setNonActive">setNonActive</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_activityCheck">activityCheck</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Find all inactive programs, no activity for at least 7 days, and update status to inactive (incl. mail). Inactive programs don't take part in the matching procedure, see MatchingController@prepareMatching().</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -274,18 +263,29 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_index">
-        <div class="location">at         line 21</div>
-        <code>                    
-    <strong>index</strong>()
+                    <h3 id="method___construct">
+        <div class="location">at         line 40</div>
+        <code>                    void
+    <strong>__construct</strong>()
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Create a new controller instance, handle authentication</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -293,28 +293,39 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_add">
-        <div class="location">at         line 25</div>
-        <code>                    
-    <strong>add</strong>($proid)
+                    <h3 id="method_addByProvider">
+        <div class="location">at         line 50</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>addByProvider</strong>(integer $proid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Call the 'add program' view. The function is called when providers add their programs. For private programs the entry was already created by the register controller.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$proid</td>
-                <td></td>
+                <td>Provider-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>program.add</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -322,16 +333,18 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_create">
-        <div class="location">at         line 31</div>
-        <code>                    
-    <strong>create</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $proid)
+                    <h3 id="method_createByProvider">
+        <div class="location">at         line 62</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>createByProvider</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $proid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Create program on provider side. While doing so, create a user entry for the new program with a automatic set password.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -339,16 +352,25 @@
                     <tr>
                 <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$proid</td>
-                <td></td>
+                <td>Provider-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>ProviderController@show</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -357,27 +379,78 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_store">
-        <div class="location">at         line 53</div>
-        <code>                    
-    <strong>store</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        <div class="location">at         line 89</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Program">Program</abbr>
+    <strong>store</strong>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Store a program. Right now every program is set valid by default.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td><a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Program">Program</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_storeByUser">
+        <div class="location">at         line 119</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Program">Program</abbr>
+    <strong>storeByUser</strong>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Store a program on user registration side. Right now every program is set valid by default.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a></td>
+                <td>$request</td>
+                <td>request</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Program">Program</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -386,27 +459,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_show">
-        <div class="location">at         line 78</div>
-        <code>                    
-    <strong>show</strong>($pid)
+        <div class="location">at         line 136</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>show</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Show a single program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>program.edit</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -415,8 +499,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_all">
-        <div class="location">at         line 83</div>
-        <code>                    
+        <div class="location">at         line 146</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>all</strong>()
         </code>
     </h3>
@@ -424,8 +508,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Show all programs</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>program.all</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -434,32 +529,83 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_edit">
-        <div class="location">at         line 93</div>
-        <code>                    
-    <strong>edit</strong>(<a href="../../../App/Http/Requests/UpdateProgramRequest.html"><abbr title="App\Http\Requests\UpdateProgramRequest">UpdateProgramRequest</abbr></a> $request, $pid)
+        <div class="location">at         line 163</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>edit</strong>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request, integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Call the 'edit program' view</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../../App/Http/Requests/UpdateProgramRequest.html"><abbr title="App\Http\Requests\UpdateProgramRequest">UpdateProgramRequest</abbr></a></td>
+                <td><a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a></td>
                 <td>$request</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
+                <td>Program-ID</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>program.edit</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_update">
+        <div class="location">at         line 175</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Program">Program</abbr>
+    <strong>update</strong>(<a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a> $request)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Update a program</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../App/Http/Requests/ProgramRequest.html"><abbr title="App\Http\Requests\ProgramRequest">ProgramRequest</abbr></a></td>
+                <td>$request</td>
                 <td></td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Program">Program</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -468,15 +614,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_delete">
-        <div class="location">at         line 99</div>
-        <code>                    
-    <strong>delete</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, $pid)
+        <div class="location">at         line 199</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>delete</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Delete a program</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -487,42 +635,22 @@
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_update">
-        <div class="location">at         line 106</div>
-        <code>                    
-    <strong>update</strong>(<a href="../../../App/Http/Requests/UpdateProgramRequest.html"><abbr title="App\Http\Requests\UpdateProgramRequest">UpdateProgramRequest</abbr></a> $request)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../../App/Http/Requests/UpdateProgramRequest.html"><abbr title="App\Http\Requests\UpdateProgramRequest">UpdateProgramRequest</abbr></a></td>
-                <td>$request</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>ProgramController@all</td>
+        </tr>
+    </table>
 
-            
             
             
                     </div>
@@ -531,27 +659,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getCapacity">
-        <div class="location">at         line 123</div>
-        <code>                    
-    <strong>getCapacity</strong>($pid)
+        <div class="location">at         line 211</div>
+        <code>                    integer
+    <strong>getCapacity</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Get the current capacity of a program. Note: the capacity is not the overall number of free places of the program, but rather an updated number since it takes the final matches into account (-).</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>integer</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -560,27 +699,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setValid">
-        <div class="location">at         line 133</div>
-        <code>                    
-    <strong>setValid</strong>($pid)
+        <div class="location">at         line 227</div>
+        <code>                    void
+    <strong>setValid</strong>(integer $pid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Update program status to verified</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$pid</td>
-                <td></td>
+                <td>Program-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -589,8 +739,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setNonActive">
-        <div class="location">at         line 137</div>
-        <code>                    
+        <div class="location">at         line 237</div>
+        <code>                    void
     <strong>setNonActive</strong>()
         </code>
     </h3>
@@ -598,27 +748,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Find all inactive programs, no activity for at least 7 days, and update status to inactive (incl. mail). Inactive programs don't take part in the matching procedure, see MatchingController@prepareMatching().</p>                    <p>(Programs with current capacity equal to zero, will also be set inactive).</p>                            </div>
                 <div class="tags">
             
-            
-            
-                    </div>
-    </div>
+                            <h4>Return Value</h4>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_activityCheck">
-        <div class="location">at         line 161</div>
-        <code>                    
-    <strong>activityCheck</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
 
-                <div class="tags">
-            
             
             
                     </div>

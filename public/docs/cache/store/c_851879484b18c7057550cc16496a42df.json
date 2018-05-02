@@ -1,14 +1,14 @@
 {
     "name": "App\\Preference",
-    "line": 9,
-    "short_desc": "",
+    "line": 24,
+    "short_desc": "This model handles the preferences of programs and applicants",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App",
     "file": "\/var\/www\/html\/kitamatch\/app\/Preference.php",
     "relative_file": null,
-    "hash": "81c052d72787c2641c5cae6ec612025b19c91946",
+    "hash": "4d644d7f42a2258b1481b332eee8062f1219c9f0",
     "parent": "Illuminate\\Database\\Eloquent\\Model",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,7 @@
     "properties": {
         "primaryKey": {
             "name": "primaryKey",
-            "line": 131,
+            "line": 200,
             "short_desc": "",
             "long_desc": "",
             "hint": null,
@@ -34,8 +34,8 @@
                 "nodeType": "Scalar_String",
                 "value": "prid",
                 "attributes": {
-                    "startLine": 131,
-                    "endLine": 131,
+                    "startLine": 200,
+                    "endLine": 200,
                     "kind": 1
                 }
             },
@@ -45,11 +45,16 @@
     "methods": {
         "updateStatus": {
             "name": "updateStatus",
-            "line": 13,
-            "short_desc": "",
+            "line": 35,
+            "short_desc": "Update the status of a single preference",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -58,10 +63,15 @@
             "parameters": {
                 "prid": {
                     "name": "prid",
-                    "line": 13,
-                    "short_desc": null,
+                    "line": 35,
+                    "short_desc": "Preference-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -70,10 +80,15 @@
                 },
                 "status": {
                     "name": "status",
-                    "line": 13,
-                    "short_desc": null,
+                    "line": 35,
+                    "short_desc": "status",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -84,11 +99,16 @@
         },
         "resetUncoordinated": {
             "name": "resetUncoordinated",
-            "line": 19,
-            "short_desc": "",
+            "line": 46,
+            "short_desc": "Reset (status = -1) all preferences created  uncoordianted programs. This method is called during the findMatchings() process, to differ between successfull and denied offers",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -98,11 +118,16 @@
         },
         "hasPreferencesByProgram": {
             "name": "hasPreferencesByProgram",
-            "line": 29,
-            "short_desc": "",
+            "line": 62,
+            "short_desc": "Does the program has any active (status = 1) preferences?",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "boolean",
+                    false
+                ]
+            ],
+            "hint_desc": "",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -111,10 +136,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 29,
-                    "short_desc": null,
+                    "line": 62,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -125,8 +155,8 @@
         },
         "hasPreferencesByApplicant": {
             "name": "hasPreferencesByApplicant",
-            "line": 42,
-            "short_desc": "",
+            "line": 80,
+            "short_desc": "Does the applicant has any active (status = 1) preferences?",
             "long_desc": "",
             "hint": null,
             "hint_desc": null,
@@ -134,11 +164,13 @@
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
-            "errors": [],
+            "errors": [
+                "\"1\" @param tags are expected but only \"2\" found"
+            ],
             "parameters": {
                 "aid": {
                     "name": "aid",
-                    "line": 42,
+                    "line": 80,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -152,11 +184,16 @@
         },
         "getAvailableApplicants": {
             "name": "getAvailableApplicants",
-            "line": 55,
-            "short_desc": "",
+            "line": 98,
+            "short_desc": "Get all applicants that are available for a program (because the applicant has ranked this program)",
             "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "applicants",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
@@ -165,10 +202,15 @@
             "parameters": {
                 "pid": {
                     "name": "pid",
-                    "line": 55,
-                    "short_desc": null,
+                    "line": 98,
+                    "short_desc": "Program-ID",
                     "long_desc": null,
-                    "hint": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,
@@ -179,20 +221,27 @@
         },
         "orderByCriteria": {
             "name": "orderByCriteria",
-            "line": 76,
-            "short_desc": "",
-            "long_desc": "",
-            "hint": null,
-            "hint_desc": null,
+            "line": 126,
+            "short_desc": "Takes an array of applicants and sorts them after the corresponding criteria catalogue of the provider or program.",
+            "long_desc": "Adds an additional order attribute to every entry containing the criteria score",
+            "hint": [
+                [
+                    "\\App\\Illuminate\\Database\\Eloquent\\Collection",
+                    false
+                ]
+            ],
+            "hint_desc": "applicants ordered, and with order-attribute (correspoonding criteria-points)",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",
             "exceptions": [],
-            "errors": [],
+            "errors": [
+                "The \"p_ID\" @param tag variable name is wrong (should be \"p_Id\")"
+            ],
             "parameters": {
                 "applicants": {
                     "name": "applicants",
-                    "line": 76,
+                    "line": 126,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -204,7 +253,7 @@
                 },
                 "p_Id": {
                     "name": "p_Id",
-                    "line": 76,
+                    "line": 126,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
@@ -216,10 +265,47 @@
                 },
                 "provider": {
                     "name": "provider",
-                    "line": 76,
+                    "line": 126,
                     "short_desc": null,
                     "long_desc": null,
                     "hint": null,
+                    "tags": [],
+                    "modifiers": null,
+                    "default": null,
+                    "variadic": false,
+                    "is_by_ref": false
+                }
+            }
+        },
+        "getLowestRankApplicant": {
+            "name": "getLowestRankApplicant",
+            "line": 189,
+            "short_desc": "Get the lowest preference rank of an applicant.",
+            "long_desc": "For example applicant 1 has ranked (1,2,3,4), the lowest rank would be 4.",
+            "hint": [
+                [
+                    "integer",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": {
+                "aid": {
+                    "name": "aid",
+                    "line": 189,
+                    "short_desc": "Applicant-ID",
+                    "long_desc": null,
+                    "hint": [
+                        [
+                            "integer",
+                            false
+                        ]
+                    ],
                     "tags": [],
                     "modifiers": null,
                     "default": null,

@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Controllers\\HomeController",
-    "line": 13,
-    "short_desc": "",
+    "line": 28,
+    "short_desc": "This controller is responsible for the home site, mainly redirecting to different account types.",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Controllers",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Controllers\/HomeController.php",
     "relative_file": null,
-    "hash": "19feef561328436b5a28ec84aff4e9e640b3f7ef",
+    "hash": "7bdbaefb459d2221649c2cb1968736e59239e8d3",
     "parent": "App\\Http\\Controllers\\Controller",
     "modifiers": 0,
     "is_trait": false,
@@ -28,8 +28,8 @@
     "methods": {
         "__construct": {
             "name": "__construct",
-            "line": 20,
-            "short_desc": "Create a new controller instance.",
+            "line": 35,
+            "short_desc": "Create a new controller instance, handle authentication",
             "long_desc": "",
             "hint": [
                 [
@@ -47,8 +47,8 @@
         },
         "index": {
             "name": "index",
-            "line": 30,
-            "short_desc": "Show the application dashboard.",
+            "line": 44,
+            "short_desc": "Detects authentication and redirect to the different user interfaces. If there is no auth, redirect to home view.",
             "long_desc": "",
             "hint": [
                 [
@@ -56,7 +56,7 @@
                     false
                 ]
             ],
-            "hint_desc": "",
+            "hint_desc": "Guaridan\/Program\/Provider\/Admin",
             "tags": [],
             "modifiers": 1,
             "is_by_ref": "",

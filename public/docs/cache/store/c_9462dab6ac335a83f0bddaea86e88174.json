@@ -1,14 +1,14 @@
 {
     "name": "App\\Http\\Requests\\ReCaptchataRequest",
-    "line": 4,
-    "short_desc": "",
+    "line": 23,
+    "short_desc": "This class handles the requests of the ReCapatcha",
     "long_desc": "",
     "hint": null,
     "tags": [],
     "namespace": "App\\Http\\Requests",
     "file": "\/var\/www\/html\/kitamatch\/app\/Http\/Requests\/ReCaptchataRequest.php",
     "relative_file": null,
-    "hash": "a2103618b849766c50cd1f80b409a3941052eed4",
+    "hash": "e8133a873cf00cbccb36284901886af9afec90a1",
     "parent": "Illuminate\\Foundation\\Http\\FormRequest",
     "modifiers": 0,
     "is_trait": false,
@@ -23,7 +23,7 @@
     "methods": {
         "authorize": {
             "name": "authorize",
-            "line": 11,
+            "line": 30,
             "short_desc": "Determine if the user is authorized to make this request.",
             "long_desc": "",
             "hint": [
@@ -42,8 +42,8 @@
         },
         "rules": {
             "name": "rules",
-            "line": 20,
-            "short_desc": "Get the validation rules that apply to the request.",
+            "line": 39,
+            "short_desc": "Validation rules that apply to the request.",
             "long_desc": "",
             "hint": [
                 [

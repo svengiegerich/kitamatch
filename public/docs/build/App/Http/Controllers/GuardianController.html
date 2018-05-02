@@ -85,6 +85,8 @@
         
     
 
+            <div class="description">
+            <p>This controller handles guardians: the creation of new and update of existing ones, as well as status changes (e.g. validation).</p>                                </div>
     
             <h2>Traits</h2>
 
@@ -126,79 +128,72 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>()
+        
+                                            <p>Create a new controller instance, handle authentication</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="App\Http\Controllers\App\Guardian">Guardian</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_store">store</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Store new guardian</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_show">show</a>($gid)
+                    <a href="#method_show">show</a>(integer $gid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Show a single guardian view</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_edit">edit</a>(<a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a> $request, $gid)
+                    <a href="#method_edit">edit</a>(<a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a> $request, integer $gid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Edit a single guardian</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\App\Guardian">Guardian</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_update">update</a>(<a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a> $request)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Update a single guardian</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\view">view</abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_all">all</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Call 'all guardians' view</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    <abbr title="App\Http\Controllers\action">action</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_verify">verify</a>($gid)
+                    <a href="#method_verify">verify</a>(integer $gid)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_validator">validator</a>(array $data)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Verify a single guardian including all associated applicants. Optional: send notification mail (App\Mail\GuardianVerified).</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -208,9 +203,39 @@
 
             <div id="method-details">
                     <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         line 39</div>
+        <code>                    void
+    <strong>__construct</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Create a new controller instance, handle authentication</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_store">
-        <div class="location">at         line 18</div>
-        <code>                    
+        <div class="location">at         line 49</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Guardian">Guardian</abbr>
     <strong>store</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
     </h3>
@@ -218,6 +243,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Store new guardian</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -230,6 +257,15 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Guardian">Guardian</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -238,27 +274,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_show">
-        <div class="location">at         line 36</div>
-        <code>                    
-    <strong>show</strong>($gid)
+        <div class="location">at         line 72</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
+    <strong>show</strong>(integer $gid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Show a single guardian view</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$gid</td>
-                <td></td>
+                <td>Guardian-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>guardian.edit</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -267,15 +314,17 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_edit">
-        <div class="location">at         line 44</div>
-        <code>                    
-    <strong>edit</strong>(<a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a> $request, $gid)
+        <div class="location">at         line 87</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>edit</strong>(<a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a> $request, integer $gid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Edit a single guardian</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -283,16 +332,25 @@
                     <tr>
                 <td><a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$gid</td>
-                <td></td>
+                <td>Guardian-ID</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>GuardianController@show</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -301,8 +359,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_update">
-        <div class="location">at         line 50</div>
-        <code>                    
+        <div class="location">at         line 99</div>
+        <code>                    <abbr title="App\Http\Controllers\App\Guardian">Guardian</abbr>
     <strong>update</strong>(<a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a> $request)
         </code>
     </h3>
@@ -310,6 +368,8 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Update a single guardian</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -317,11 +377,20 @@
                     <tr>
                 <td><a href="../../../App/Http/Requests/UpdateGuardianRequest.html"><abbr title="App\Http\Requests\UpdateGuardianRequest">UpdateGuardianRequest</abbr></a></td>
                 <td>$request</td>
-                <td></td>
+                <td>request</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\App\Guardian">Guardian</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -330,8 +399,8 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_all">
-        <div class="location">at         line 66</div>
-        <code>                    
+        <div class="location">at         line 120</div>
+        <code>                    <abbr title="App\Http\Controllers\view">view</abbr>
     <strong>all</strong>()
         </code>
     </h3>
@@ -339,8 +408,19 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Call 'all guardians' view</p>                                                </div>
                 <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="App\Http\Controllers\view">view</abbr></td>
+            <td>guardian.all</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -349,56 +429,38 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_verify">
-        <div class="location">at         line 80</div>
-        <code>                    
-    <strong>verify</strong>($gid)
+        <div class="location">at         line 139</div>
+        <code>                    <abbr title="App\Http\Controllers\action">action</abbr>
+    <strong>verify</strong>(integer $gid)
         </code>
     </h3>
     <div class="details">
             
     
 
+                    <div class="method-description">
+                                    <p>Verify a single guardian including all associated applicants. Optional: send notification mail (App\Mail\GuardianVerified).</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>integer</td>
                 <td>$gid</td>
-                <td></td>
+                <td>Guardian-ID</td>
             </tr>
             </table>
 
             
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_validator">
-        <div class="location">at         line 98</div>
-        <code>            protected        
-    <strong>validator</strong>(array $data)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
+                            <h4>Return Value</h4>
 
                     <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$data</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td><abbr title="App\Http\Controllers\action">action</abbr></td>
+            <td>GuardianController@all</td>
+        </tr>
+    </table>
 
-            
             
             
                     </div>
