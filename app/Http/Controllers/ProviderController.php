@@ -76,10 +76,10 @@ class ProviderController extends Controller
   * @param App\Http\Requests\ProviderRequest $request
   * @return action ProviderController@show
   */
-  public function edit(ProviderRequest $request, $proid) {
-    $request->request->add(['proid' => $proid]);
+  public function edit(Request $request, $proid) {
+    /*$request->request->add(['proid' => $proid]);
     $provider = $this->update($request);
-    return redirect()->action('ProviderController@show', $provider->proid);
+    return redirect()->action('ProviderController@show', $provider->proid);*/
   }
 
   /**
@@ -88,7 +88,7 @@ class ProviderController extends Controller
   * @param App\Http\Requests\ProviderRequest $request
   * @return App\Provider
   */
-  public function update(ProviderRequest $request) {
+  public function update(Request $request) {
     $provider = Provider::findOrFail($request->proid);
     $provider->name = $request->name;
     $provider->address = $request->address;
