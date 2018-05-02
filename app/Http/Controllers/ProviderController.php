@@ -78,8 +78,8 @@ class ProviderController extends Controller
   */
   public function edit(Request $request, $proid) {
     $request->request->add(['proid' => $proid]);
-    /*$provider = $this->update($request);
-    return redirect()->action('ProviderController@show', $provider->proid);*/
+    $provider = $this->update($request);
+    return redirect()->action('ProviderController@show', $provider->proid);
   }
 
   /**
