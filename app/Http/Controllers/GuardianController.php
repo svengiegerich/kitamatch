@@ -84,7 +84,7 @@ class GuardianController extends Controller
   * @param integer $gid Guardian-ID
   * @return action GuardianController@show
   */
-  public function edit(Request $request, $gid) {
+  public function edit(UpdateGuardianRequest $request, $gid) {
     $request->request->add(['gid' => $gid]);
     $guardian = $this->update($request);
     return redirect()->action('GuardianController@show', $guardian->gid);
@@ -96,7 +96,7 @@ class GuardianController extends Controller
   * @param App\Http\Requests\UpdateGuardianRequest $request request
   * @return App\Guardian
   */
-  public function update(Request $request) {
+  public function update(UpdateGuardianRequest $request) {
     $guardian = Guardian::findOrFail($request->gid);
     if ($request->firstName) { $guardian->first_name = $request->firstName; }
     if ($request->lastName) { $guardian->last_name = $request->lastName; }

@@ -19,6 +19,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\ProviderRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use App\Provider;
 use App\Program;
 
@@ -42,7 +44,7 @@ class ProviderController extends Controller
   * @param App\Http\Requests\ProviderRequest $request
   * @return App\Provider
   */
-  public function store(ProviderRequest $request) {
+  public function store(Request $request) {
         $provider = new Provider;
         $provider->proid = $request->proid;
         $provider->name = $request->name;
