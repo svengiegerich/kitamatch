@@ -28,6 +28,15 @@ use App\Program;
 class HomeController extends Controller
 {
   /**
+   * Create a new controller instance, handle authentication
+   *
+   * @return void
+   */
+  public function __construct() {
+      $this->middleware('auth');
+  }
+
+  /**
   * Detects authentication and redirect to the different user interfaces. If there is no auth, redirect to home view.
   *
   * @return \Illuminate\Http\Response Guaridan/Program/Provider/Admin
