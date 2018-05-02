@@ -54,6 +54,12 @@ Guardians maintain the social master data required for the coordination and hols
 * 51: created, but not proofed; no participation
 * 52: valid
 
+## Providers
+### Codes
+#### Status
+* 60: not valid
+* 61: valid
+
 ## Criteria
 ### Codes
 #### parental_status
