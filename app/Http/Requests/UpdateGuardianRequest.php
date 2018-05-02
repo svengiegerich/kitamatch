@@ -52,7 +52,7 @@ class UpdateGuardianRequest extends FormRequest
       'city' => 'nullable|string|min:2',
       'parentalStatus' => 'nullable|numeric|min:820|max:824',
       'volumeOfEmployment' => 'nullable|numeric|min:830|max:833',
-      'siblings' => 'nullable|numeric|min:840|max:841'
+      'siblings' => 'nullable|numeric|min:840|max:841',
     ];
   }
 }

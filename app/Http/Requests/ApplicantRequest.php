@@ -17,6 +17,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+* This class handles the requests of applicants
+*/
 class ApplicantRequest extends FormRequest
 {
 /**
@@ -38,7 +41,7 @@ class ApplicantRequest extends FormRequest
       'firstName' => 'required|string|min:2',
       'lastName' => 'required|string|min:2',
       'birthday' => 'required|date|date_format:Y-m-d',
-      'gender' => 'required|string'
+      'gender' => 'required|string',
     ];
   }
 }
