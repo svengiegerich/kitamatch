@@ -72,7 +72,7 @@ class GuardianController extends Controller
   public function show($gid) {
     $Applicant = new Applicant;
     $guardian = Guardian::findOrFail($gid);
-    $applicants = $Applicant->getAppliantsByGid($gid);
+    $applicants = $Applicant->getApplicantsByGid($gid);
     return view('guardian.edit', array('guardian' => $guardian,
                                        'applicants' => $applicants));
   }
@@ -140,7 +140,7 @@ class GuardianController extends Controller
     $Applicant = new Applicant;
     Guardian::where('gid', '=', $gid)->update(array('status' => '52'));
     //verfiy applicant(s)
-    $applicants = $Applicant->getAppliantsByGid($gid);
+    $applicants = $Applicant->getApplicantsByGid($gid);
     foreach ($applicants as $applicant) {
       app('App\Http\Controllers\ApplicantController')->setValid($applicant->aid);
     }
