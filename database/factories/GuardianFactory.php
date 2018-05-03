@@ -12,7 +12,7 @@ $factory->define(App\Guardian::class, function (Faker $faker) {
     'city' => $faker->city,
     'status' => 52,
     'uid' => factory('App\User')->create()->id,
-    'capacity' => numberBetween($min = 3, $max = 20),
+    'capacity' => $faker->numberBetween($min = 3, $max = 20),
     'p_kind' => $p_kind,
     'coordination' => $coordination,
     'siblings' => $faker->numberBetween($min = 840, $max = 841),
