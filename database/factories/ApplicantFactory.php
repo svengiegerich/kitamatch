@@ -16,6 +16,6 @@ $factory->define(App\Applicant::class, function (Faker $faker) {
     'status' => 22,
     'gid' => factory('App\Guardian')->create()->id,
     'gender' => $gender,
-    'birthday' => date($format = '2014-01-01', $max = '2016-12-31'),
+    'birthday' => $faker->date($format = '2014-01-01', $max = '2016-12-31'),
   ];
 });
