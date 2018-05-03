@@ -29,5 +29,10 @@ Run: `php artisan migrate:generate`
 #### Database
 The database scheme and the EER-Diagram have been created with MySQLWorkbench (https://www.mysql.com/products/workbench/), to get a more detailed view about the scheme have a look at `db_eer_diagram.mwb` with MySQLWorkbench.
 
+#### Factories
+There are factories defined to sample test data for the app.
+To sample new ones: `php artisan db:seed`
+(After edits in `factories` or `seeds`, please run `composer dump-autoload` for changes to take place)
+
 #### Documentation API | Sami | v4.0.15, 2018-04-04
 KitaMatch's API is based on Sami (https://github.com/FriendsOfPHP/Sami). To update or rebuild the documentation, run 'php sami.phar update sami.config.php' in the root directory of the project. For a detailed look at the configuration look into `sami.config.php`.
