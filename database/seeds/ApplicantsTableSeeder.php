@@ -10,6 +10,6 @@ class ApplicantsTableSeeder extends Seeder
   * @return void
   */
   public function run() {
-    factory('App\Applicant', 1)->create();
+    factory('App\Applicant', 10)->create();
   }
 }

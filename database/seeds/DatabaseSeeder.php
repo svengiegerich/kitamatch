@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     // Disable all mass assignment restrictions
     Model::unguard();
 
-    //$this->call(ApplicantsTableSeeder::class);
-    $this->call(GuardiansTableSeeder::class);
+    $this->call(ApplicantsTableSeeder::class);
+    //$this->call(GuardiansTableSeeder::class);
 
     $this->call(ProgramsTableSeeder::class);
 
