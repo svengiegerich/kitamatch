@@ -126,11 +126,13 @@ class GuardianController extends Controller
       $siblings_description = Code::where('code', '=', $guardian->siblings)->first();
       $parental_status_description = Code::where('code', '=', $guardian->parental_status)->first();
       $volume_of_employment_description = Code::where('code', '=', $guardian->volume_of_employment)->first();
-      if ($siblings_description) { $guardian->siblings_description = $siblings_description->value; } else {
+      if ($siblings_description) {
+        $guardian->siblings_description = $siblings_description->value;
+       } else {
         $guardian->siblings_description = "not given";
       }
       if ($parental_status_description) {
-        $guardian->parental_status_description = $parental_status_description->value;
+        //$guardian->parental_status_description = $parental_status_description->value;
       } else {
         $guardian->$parental_status_description = "not given";
       }
