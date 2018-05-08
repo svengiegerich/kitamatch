@@ -65,7 +65,6 @@
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                              {{}}
                               <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"></div>
                               @if ($errors->has('g-recaptcha-response'))
                                   <span class="invalid-feedback" style="display: contents;">
