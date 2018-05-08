@@ -239,6 +239,7 @@ class MatchingController extends Controller
 
     //--------------------
     //by program
+    $preferencesPrograms = array();
     //1: only program that take part in the coordinated way
     foreach ($programsC as $program) {
       if (array_key_exists($program->pid, $capacityList)) {
