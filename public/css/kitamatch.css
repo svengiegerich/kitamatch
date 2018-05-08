@@ -5,3 +5,7 @@
 .gap-nav {
   float: right;
 }
+
+.table-valid {
+  color: green;
+}

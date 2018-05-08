@@ -38,7 +38,7 @@
         @foreach($guardians as $guardian)
             <tr
                 @if ($guardian->status == 52)
-                    class="table-success"
+                    class="table-valid"
                 @endif
                 >
                 <th>{{$guardian->gid}}</a></th>
