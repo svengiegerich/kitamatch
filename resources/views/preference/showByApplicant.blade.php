@@ -90,7 +90,7 @@
             @foreach ($preferences as $preference)
               <?php $i = 1; ?>
                 <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                    <span>{{$i}}</span
+                    <span>{{$i}}</span>
                     {{$preference->programName}}
                     <a class="delete" href="#"><span class="badge badge-primary badge-pill">x</span></a>
                 </li>
