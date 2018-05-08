@@ -121,7 +121,7 @@
         @endforeach
 
         @if (count($applicants) > 0)
-          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block-primary">Add sibling</button></a>
+          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn-primary btn-lg btn-block">Add sibling</button></a>
         @else
           <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block">Applicant</button></a>
         @endif
