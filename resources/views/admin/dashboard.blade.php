@@ -66,7 +66,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
       <br>
-      <a href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Match!</button></a>
+      <a target="_blank" href="/matching/get"><button class="btn btn-primary btn-lg btn-block">Match!</button></a>
       <br>
     </div>
 </div>
