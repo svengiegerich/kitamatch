@@ -120,7 +120,7 @@ try {
       echo 'Uh oh! ' . $e->getMessage();
       return;
   }
-    
+
     //status code: $response->getStatusCode();
 
     //write the matches
@@ -163,7 +163,7 @@ try {
           }
         }
       }
-    }*/
+    }
     //return redirect()->action('AdminController@index');
   }
 
