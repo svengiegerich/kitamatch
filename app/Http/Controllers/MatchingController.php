@@ -211,11 +211,36 @@ class MatchingController extends Controller
     }
 
     //--------------------
+    //capacity
+    $capacityPreList = array();
+    $Program = new program;
+    //1: coordinated
+    foreach ($programsC as $program) {
+      if ($Preference->hasPreferencesByProgram($program->pid)) {
+        $pid = (string)$program->pid;
+        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+        if ($capacity > 0) {
+          $capacityPreList[$pid] = $capacity;
+        }
+      }
+    }
+    //2: uncoordinated
+    foreach ($programsU as $program) {
+      if ($Preference->hasPreferencesByProgram($program->pid)) {
+        $pid = (string)$program->pid;
+        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+        if ($capacity > 0) {
+          $capacityPreList[$pid] = $capacity;
+        }
+      }
+    }
+
+    //--------------------
     //by program
     $preferencesPrograms = array();
     //1: only program that take part in the coordinated way
     foreach ($programsC as $program) {
-      if (array_key_exists($program->pid, $capacityList)) {
+      if (array_key_exists($program->pid, $capacityPreList)) {
         $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
         $preferenceList = array();
         foreach ($preferencesByProgram as $preference) {
@@ -232,7 +257,7 @@ class MatchingController extends Controller
     }
     //2: add the programs that take the uncoordinated way
     foreach ($programsU as $program) {
-      if (array_key_exists($program->pid, $capacityList)) {
+      if (array_key_exists($program->pid, $capacityPreList)) {
         $preferencesByProgram = $this->getPreferencesUncoordinatedByProgram($program->pid);
         $preferenceList = array();
         foreach ($preferencesByProgram as $preference) {
@@ -254,28 +279,11 @@ class MatchingController extends Controller
       return;
     }
 
-    //--------------------
-    //capacity
+    //check capacity for non existing programs again
     $capacityList = array();
-    $Program = new program;
-    //1: coordinated
-    foreach ($programsC as $program) {
-      if ($Preference->hasPreferencesByProgram($program->pid)) {
-        $pid = (string)$program->pid;
-        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
-        if ($capacity > 0 && array_key_exists($program->pid, $preferencesPrograms)) {
-          $capacityList[$pid] = $capacity;
-        }
-      }
-    }
-    //2: uncoordinated
-    foreach ($programsU as $program) {
-      if ($Preference->hasPreferencesByProgram($program->pid)) {
-        $pid = (string)$program->pid;
-        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
-        if ($capacity > 0) {
-          $capacityList[$pid] = $capacity;
-        }
+    foreach ($capacityPreList as $programID => $programCapacity) {
+      if (array_key_exists($programID, $preferencesByProgram)) {
+        $capacityList[$programID] = $programCapacity;
       }
     }
     $json["college_capacity"] = $capacityList;
