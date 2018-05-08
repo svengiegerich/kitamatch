@@ -118,10 +118,6 @@ try {
       $response = $client->get('/not_found.xml')->send();
   } catch (\GuzzleHttp\Exception\ServerException $e) {
       echo 'Uh oh! ' . $e->getMessage();
-      echo 'HTTP request URL: ' . $e->getRequest()->getUrl() . "\n";
-      echo 'HTTP request: ' . $e->getRequest() . "\n";
-      echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
-      echo 'HTTP response: ' . $e->getResponse() . "\n";
   }
     /*
     //status code: $response->getStatusCode();
