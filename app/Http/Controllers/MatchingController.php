@@ -100,7 +100,7 @@ class MatchingController extends Controller
     }
     print_r(json_encode($input));
     echo "<br><br><br><br><br><br>";
-/*
+
     //GuzzleHttp\Client
     $client = new Client();
     $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
@@ -112,6 +112,17 @@ class MatchingController extends Controller
           json_encode($input),
         'headers' => ['Accept' => 'application/json']
       ]);
+
+      try {
+      $response = $client->get('/not_found.xml')->send();
+  } catch (Guzzle\Http\Exception\BadResponseException $e) {
+      echo 'Uh oh! ' . $e->getMessage();
+      echo 'HTTP request URL: ' . $e->getRequest()->getUrl() . "\n";
+      echo 'HTTP request: ' . $e->getRequest() . "\n";
+      echo 'HTTP response status: ' . $e->getResponse()->getStatusCode() . "\n";
+      echo 'HTTP response: ' . $e->getResponse() . "\n";
+  }
+    /*
     //status code: $response->getStatusCode();
 
     //write the matches
