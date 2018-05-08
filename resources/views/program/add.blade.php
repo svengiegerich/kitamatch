@@ -101,7 +101,7 @@
             <div class="form-group row">
                 <label for="p_kind" class="col-sm-2 col-form-label">Kind</label>
                 <div class="col-sm-10">
-                    <select name="p_kind" required>
+                    <select name="p_kind" class="form-control" required>
                         <option value="1">Public</option>
                         <option value="2">Private</option>
                     </select>
