@@ -57,7 +57,7 @@
                     axis: 'y',
                     update: function (event, ui) {
                       $("span.rank").text(function() {
-                        return $(this).parent().index("li");
+                        return $(this).parent().index("li")+1;
                       });
 
                         var order = $(this).sortable('serialize');
