@@ -132,9 +132,9 @@ class GuardianController extends Controller
         $guardian->siblings_description = "not given";
       }
       if ($parental_status_description) {
-        //$guardian->parental_status_description = $parental_status_description->value;
+        $guardian->parental_status_description = $parental_status_description->value;
       } else {
-        $guardian->$parental_status_description = "not given";
+        $guardian->parental_status_description = "not given";
       }
       /*if ($volume_of_employment_description) {
         $guardian->volume_of_employment_description = $volume_of_employment_description->value;
