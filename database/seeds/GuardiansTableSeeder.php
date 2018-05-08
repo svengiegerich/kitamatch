@@ -11,6 +11,6 @@ class GuardiansTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Guardian', 1)->create();
+        factory('App\Guardian', 60)->create();
     }
 }

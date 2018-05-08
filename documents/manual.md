@@ -17,6 +17,9 @@ The API is based on the R-package matchingMarkets (https://github.com/thiloklein
 
 Basically KitaMatch is structured, like every MVC model, into three main parts: controllers `app/Http/Controllers/..`, models `app/..` and views `resources/views/..`. If you have some questions about the overall code structure or where you can find certain elements, the best starting point is the Laravel documentation (https://laravel.com/docs/5.6/), since KitaMatch's core is based on the framework.
 
+### Migration
+To migrate and seed the database with new test values, run `php artisan migrate:refresh --seed`. The corresponding factories and seeder can found under `/database/..`. Edit `/database/seeds/<x>TableSeeder.php` for various test data sizes.
+
 ### Code Helper
 
 #### Laravel Plugins
