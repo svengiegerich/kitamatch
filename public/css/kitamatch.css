@@ -6,6 +6,6 @@
   float: right;
 }
 
-.table-valid {
+.table-valid tr {
   color: green;
 }
