@@ -14,6 +14,6 @@ class CodesTableSeeder extends Seeder
       DB::table('codes')->insert([
             'code' => 10,
             'value' => 'not valid',
-      ]
+      ]);
     }
 }
