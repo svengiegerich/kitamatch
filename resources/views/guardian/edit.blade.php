@@ -120,7 +120,11 @@
             <br>
         @endforeach
 
-        <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block">Add applicant</button></a>
+        @if (count($applicants) > 0)
+          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block">Applicant</button></a>
+        @else
+          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block primary">Add sibling</button></a>
+        @endif
         <br>
     </div>
 </div>

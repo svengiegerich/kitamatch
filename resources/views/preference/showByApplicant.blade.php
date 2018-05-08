@@ -53,26 +53,25 @@
             });
 
             $(function() {
-                $('#sortable').sortable({
-                    axis: 'y',
-                    update: function (event, ui) {
-                      $("span.rank").text(function() {
-                        return $(this).parent().index("li")+1;
-                      });
-
-                        var order = $(this).sortable('serialize');
-                        var _token = $("input[name=_token]").val();
-                        var data = {"order": order, "_token": _token};
-                        $.ajax({
-                            data: data,
-                            type: 'POST',
-                            url: '/preference/applicant/reorder/{{$preferences->first()->id_from}}',
-                            success: function(data) {
-                                console.log(data);
-                            }
-                        });
+              $('#sortable').sortable({
+                axis: 'y',
+                update: function (event, ui) {
+                  $("span.rank").text(function() {
+                    return $(this).parent().index("li")+1;
+                  });
+                  var order = $(this).sortable('serialize');
+                  var _token = $("input[name=_token]").val();
+                  var data = {"order": order, "_token": _token};
+                  $.ajax({
+                    data: data,
+                    type: 'POST',
+                    url: '/preference/applicant/reorder/{{$preferences->first()->id_from}}',
+                    success: function(data) {
+                      console.log(data);
                     }
-                })
+                  });
+                }
+              })
                 .on('click', '.delete', function() {
                     $(this).closest('li').remove();
                     var data = {'itemId': $(this).closest('li').attr('id')};
