@@ -281,9 +281,9 @@ class MatchingController extends Controller
 
     //check capacity for non existing programs again
     $capacityList = array();
-    dd($preferencesByProgram);
+    dd($preferencesPrograms);
     foreach ($capacityPreList as $programID => $programCapacity) {
-      if (array_key_exists($programID, $preferencesByProgram)) {
+      if (array_key_exists($programID, $preferencesPrograms)) {
         $capacityList[$programID] = $programCapacity;
       }
     }
