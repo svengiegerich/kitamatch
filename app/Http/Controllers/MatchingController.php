@@ -56,7 +56,7 @@ class MatchingController extends Controller
   * @param App\Http\Requests\MatchRequest $request request
   * @return App\Matching
   */
-  public function store(MatchRequest $request) {
+  public function store(Request $request) {
     $match = new Matching;
     $match->aid = $request->student;
     $match->pid = $request->college;

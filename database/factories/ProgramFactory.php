@@ -23,7 +23,7 @@ $factory->define(App\Program::class, function (Faker $faker) {
     'city' => $faker->city,
     'status' => 12,
     'uid' => factory('App\User')->create()->id,
-    'capacity' => $faker->numberBetween($min = 3, $max = 20),
+    'capacity' => $faker->numberBetween($min = 3, $max = 10),
     'p_kind' => $p_kind,
     'coordination' => $coordination,
     //tmp: no provider
