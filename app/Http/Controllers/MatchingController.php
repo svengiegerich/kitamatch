@@ -118,8 +118,9 @@ try {
       $response = $client->get('/not_found.xml')->send();
   } catch (\GuzzleHttp\Exception\ServerException $e) {
       echo 'Uh oh! ' . $e->getMessage();
+      return;
   }
-    /*
+    
     //status code: $response->getStatusCode();
 
     //write the matches
