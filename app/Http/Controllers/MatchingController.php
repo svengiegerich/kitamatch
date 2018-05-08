@@ -116,7 +116,7 @@ try {
 
 
       $response = $client->get('/not_found.xml')->send();
-  } catch (Guzzle\Http\Exception\BadResponseException $e) {
+  } catch (\GuzzleHttp\Exception\ServerException $e) {
       echo 'Uh oh! ' . $e->getMessage();
       echo 'HTTP request URL: ' . $e->getRequest()->getUrl() . "\n";
       echo 'HTTP request: ' . $e->getRequest() . "\n";
