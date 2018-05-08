@@ -11,6 +11,12 @@
 </script>
 
 <div class="panel-body">
+  @if (count($availableApplicants) == 0)
+  <div class="alert alert-warning" role="alert">
+    Right now there are no available applicants for your program.
+  </div>
+  @endif
+
     <h4>Program {{$program->name}} - uncoordinated process</h4>
 
     <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
