@@ -129,18 +129,18 @@ class GuardianController extends Controller
       if ($siblings_description) {
         $guardian->siblings_description = $siblings_description->value;
        } else {
-        $guardian->siblings_description = "not given";
+        $guardian->siblings_description = "--";
       }
       if ($parental_status_description) {
         $guardian->parental_status_description = $parental_status_description->value;
       } else {
-        $guardian->parental_status_description = "not given";
+        $guardian->parental_status_description = "--";
       }
-      /*if ($volume_of_employment_description) {
+      if ($volume_of_employment_description) {
         $guardian->volume_of_employment_description = $volume_of_employment_description->value;
       } else {
-        $guardian->volume_of_employment_description = "not given";
-      }*/
+        $guardian->volume_of_employment_description = "--";
+      }
     }
     return view('guardian.all', array('guardians' => $guardians));
   }
