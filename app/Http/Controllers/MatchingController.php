@@ -103,7 +103,7 @@ class MatchingController extends Controller
 
     //GuzzleHttp\Client
     $client = new Client();
-try {
+    try {
     $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
       [
         'auth' => [
@@ -114,12 +114,10 @@ try {
         'headers' => ['Accept' => 'application/json']
       ]);
 
-
-      $response = $client->get('/not_found.xml')->send();
-  } catch (\GuzzleHttp\Exception\ServerException $e) {
+    } catch (\GuzzleHttp\Exception\ServerException $e) {
       echo 'Uh oh! ' . $e->getMessage();
       return;
-  }
+    }
 
     //status code: $response->getStatusCode();
 
