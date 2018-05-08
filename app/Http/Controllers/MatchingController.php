@@ -103,6 +103,7 @@ class MatchingController extends Controller
 
     //GuzzleHttp\Client
     $client = new Client();
+try {
     $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
       [
         'auth' => [
@@ -113,7 +114,7 @@ class MatchingController extends Controller
         'headers' => ['Accept' => 'application/json']
       ]);
 
-      try {
+
       $response = $client->get('/not_found.xml')->send();
   } catch (Guzzle\Http\Exception\BadResponseException $e) {
       echo 'Uh oh! ' . $e->getMessage();
