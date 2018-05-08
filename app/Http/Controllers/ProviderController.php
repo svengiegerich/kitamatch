@@ -52,6 +52,7 @@ class ProviderController extends Controller
         $provider->city = $request->city;
         $provider->plz = $request->plz;
         $provider->phone = $request->phone;
+        $provider->status = ;
         $provider->save();
         return $provider;
     }

@@ -107,8 +107,6 @@
               @endif
             </button>
         </form>
-
-        <hr class="mb-4">
     </div>
 </div>
 
