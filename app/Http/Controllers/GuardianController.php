@@ -123,9 +123,12 @@ class GuardianController extends Controller
       $user = User::where('id', '=', $guardian->uid)->first();
         $guardian->email = $user->email;
         $guardian->status_description = Code::where('code', '=', $guardian->status)->first()->value;
-        $guardian->siblings_description = Code::whereNull('code', '=', $guardian->siblings)->first()->value;
-        $guardian->parental_status_description = Code::whereNull('code', '=', $guardian->parental_status)->first()->value;
-        $guardian->volume_of_employment_description = Code::whereNull('code', '=', $guardian->volume_of_employment)->first()->value;
+        $siblings_description = Code::where('code', '=', $guardian->siblings)->first();
+        if ($siblings_description) { $guardian->siblings_description = $siblings_description->value; } else {
+          $guardian->siblings_description = "not given";
+        }
+        $guardian->parental_status_description = Code::where('code', '=', $guardian->parental_status)->first()->value;
+        $guardian->volume_of_employment_description = Code::where('code', '=', $guardian->volume_of_employment)->first()->value;
     }
     return view('guardian.all', array('guardians' => $guardians));
   }
