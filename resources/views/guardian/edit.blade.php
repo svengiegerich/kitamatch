@@ -16,7 +16,7 @@
         </div>
         @endif
 
-        @if (length($guardian->last_name)<1)
+        @if (strlen($guardian->last_name)<1)
         <div class="alert alert-warning" role="alert">
           <strong>Fullfill your profil.</strong> Please add your profil information.
         </div>
