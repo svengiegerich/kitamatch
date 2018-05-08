@@ -211,32 +211,6 @@ class MatchingController extends Controller
     }
 
     //--------------------
-    //capacity
-    $capacityList = array();
-    $Program = new program;
-    //1: coordinated
-    foreach ($programsC as $program) {
-      if ($Preference->hasPreferencesByProgram($program->pid)) {
-        $pid = (string)$program->pid;
-        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
-        if ($capacity > 0) {
-          $capacityList[$pid] = $capacity;
-        }
-      }
-    }
-    //2: uncoordinated
-    foreach ($programsU as $program) {
-      if ($Preference->hasPreferencesByProgram($program->pid)) {
-        $pid = (string)$program->pid;
-        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
-        if ($capacity > 0) {
-          $capacityList[$pid] = $capacity;
-        }
-      }
-    }
-    $json["college_capacity"] = $capacityList;
-
-    //--------------------
     //by program
     $preferencesPrograms = array();
     //1: only program that take part in the coordinated way
@@ -279,6 +253,32 @@ class MatchingController extends Controller
       //there are no valid programs listed, so abort
       return;
     }
+
+    //--------------------
+    //capacity
+    $capacityList = array();
+    $Program = new program;
+    //1: coordinated
+    foreach ($programsC as $program) {
+      if ($Preference->hasPreferencesByProgram($program->pid)) {
+        $pid = (string)$program->pid;
+        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+        if ($capacity > 0 && array_key_exists($program->pid, $preferencesPrograms)) {
+          $capacityList[$pid] = $capacity;
+        }
+      }
+    }
+    //2: uncoordinated
+    foreach ($programsU as $program) {
+      if ($Preference->hasPreferencesByProgram($program->pid)) {
+        $pid = (string)$program->pid;
+        $capacity = app('App\Http\Controllers\ProgramController')->getCapacity($program->pid);
+        if ($capacity > 0) {
+          $capacityList[$pid] = $capacity;
+        }
+      }
+    }
+    $json["college_capacity"] = $capacityList;
 
     return ($json);
   }
