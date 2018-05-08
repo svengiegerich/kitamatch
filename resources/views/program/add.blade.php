@@ -27,9 +27,10 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="name" id="name" placeholder="" value="" required>
                     @if ($errors->has('name'))
-                    <div class="invalid-feedback">
-                        Valid name is required.
-                    </div>
+                      <div class="invalid-feedback">
+                          Valid name is required.
+                      </div>
+                    @endif
                 </div>
             </div>
 
