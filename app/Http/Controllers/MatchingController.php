@@ -1,4 +1,4 @@
-<?php
+e<?php
 /*
  * This file is part of the KitaMatch app.
  *
@@ -53,7 +53,7 @@ class MatchingController extends Controller
   /**
   * Store a single matching entry with the current match status
   *
-  * @param App\Http\Requests\MatchRequest $request request
+  * @param Illuminate\Http\Request $request request
   * @return App\Matching
   */
   public function store(Request $request) {
@@ -68,7 +68,6 @@ class MatchingController extends Controller
   /**
   * List all matchings in a view
   *
-  * @param App\Http\Requests\MatchRequest $request request
   * @return view matching.all
   */
   public function all() {
@@ -246,8 +245,8 @@ class MatchingController extends Controller
         $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
         $preferenceList = array();
         foreach ($preferencesByProgram as $preference) {
-          $prefsApp = collect($preferencesApplicants);
-          if ( $prefsApp->contains('id_to', $preference->id_from)  ) {
+          if ( array_key_exists($preference->id_to, $preferencesApplicants) && in_array(program->pid, $preferencesApplicants[$preference->id_to]) ) { 
+          //if ( applicant hat das program auch eingetragen ) ) {
             $preferenceList[] = (string)$preference->id_to;
           }
         }
