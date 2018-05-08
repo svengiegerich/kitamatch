@@ -1,4 +1,4 @@
-.box-siojohadow {
+.box-shadow {
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
 }
 
@@ -6,6 +6,6 @@
   float: right;
 }
 
-.table-valid tr {
+.table-valid {
   color: green;
 }
