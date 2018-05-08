@@ -44,18 +44,18 @@ class ProviderController extends Controller
   * @return App\Provider
   */
   public function store(Request $request) {
-        $provider = new Provider;
-        $provider->proid = $request->proid;
-        $provider->name = $request->name;
-        $provider->uid = $request->uid;
-        $provider->address = $request->address;
-        $provider->city = $request->city;
-        $provider->plz = $request->plz;
-        $provider->phone = $request->phone;
-        $provider->status = 61;
-        $provider->save();
-        return $provider;
-    }
+    $provider = new Provider;
+    $provider->proid = $request->proid;
+    $provider->name = $request->name;
+    $provider->uid = $request->uid;
+    $provider->address = $request->address;
+    $provider->city = $request->city;
+    $provider->plz = $request->plz;
+    $provider->phone = $request->phone;
+    $provider->status = 61;
+    $provider->save();
+    return $provider;
+  }
 
   /**
   * Show a provider
@@ -68,7 +68,7 @@ class ProviderController extends Controller
     $Program = new Program;
     $programs = $Program->getProgramsByProid($proid);
     return view('provider.edit', array('provider' => $provider,
-                                        'programs' => $programs));
+                                       'programs' => $programs));
   }
 
   /**
