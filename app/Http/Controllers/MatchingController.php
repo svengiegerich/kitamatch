@@ -119,7 +119,7 @@ class MatchingController extends Controller
     $matchingResult = $result['hri_matching'];
 
     print_r($result);
-
+/*
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
     $Preference->resetUncoordinated();
@@ -154,7 +154,7 @@ class MatchingController extends Controller
           }
         }
       }
-    }
+    }*/
     //return redirect()->action('AdminController@index');
   }
 
