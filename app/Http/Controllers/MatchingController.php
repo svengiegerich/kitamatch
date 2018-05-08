@@ -100,7 +100,7 @@ class MatchingController extends Controller
     }
     print_r(json_encode($input));
     echo "<br><br><br><br><br><br>";
-
+/*
     //GuzzleHttp\Client
     $client = new Client();
     $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
@@ -119,7 +119,7 @@ class MatchingController extends Controller
     $matchingResult = $result['hri_matching'];
 
     print_r($result);
-/*
+
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
     $Preference->resetUncoordinated();
