@@ -87,14 +87,14 @@
 
         <ul id="sortable" class="list-group">
             {{ csrf_field() }}
+            <?php $i = 1; ?>
             @foreach ($preferences as $preference)
-              <?php $i = 1; ?>
                 <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                     <span>{{$i}}</span>
                     {{$preference->programName}}
                     <a class="delete" href="#"><span class="badge badge-primary badge-pill">x</span></a>
                 </li>
-                <?php $i = $i + 1; ?>
+                <?php $i++; ?>
              @endforeach
         </ul>
         </div>
