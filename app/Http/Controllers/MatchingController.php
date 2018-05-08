@@ -245,7 +245,9 @@ class MatchingController extends Controller
         $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
         $preferenceList = array();
         foreach ($preferencesByProgram as $preference) {
-          $preferenceList[] = (string)$preference->id_to;
+          if ( $preferencesApplicants->contains('id_to', $preference->id_from)  ) {
+            $preferenceList[] = (string)$preference->id_to;
+          }
         }
         //check if there are any preferences
         if (count($preferenceList) > 0) {
