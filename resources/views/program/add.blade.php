@@ -38,9 +38,11 @@
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="email" id="email" placeholder="" value="" required>
+                    @if ($errors->has('email'))
                     <div class="invalid-feedback">
                         Valid email is required.
                     </div>
+                    @endif
                 </div>
             </div>
 
@@ -48,9 +50,11 @@
                 <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
                 <div class="col-sm-10">
                     <input type="numeric" class="form-control" name="capacity" id="capacity" placeholder="" required>
+                    @if ($errors->has('capacity'))
                     <div class="invalid-feedback">
                         Please enter a capacity.
                     </div>
+                    @endif
                 </div>
             </div>
 
@@ -65,9 +69,11 @@
                 <label for="address" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St">
+                    @if ($errors->has('address'))
                     <div class="invalid-feedback">
                         Please enter your home address.
                     </div>
+                    @endif
                 </div>
             </div>
 
@@ -75,10 +81,20 @@
                 <label for="plz" class="col-sm-2 col-form-label">PLZ</label>
                 <div class="col-sm-3">
                   <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="">
+                  @if ($errors->has('plz'))
+                  <div class="invalid-feedback">
+                      Please enter a valid plz.
+                  </div>
+                  @endif
                 </div>
                 <label for="city" class="col-sm-2 col-form-label">City</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="">
+                  @if ($errors->has('city'))
+                  <div class="invalid-feedback">
+                      Please enter a valid city.
+                  </div>
+                  @endif
                 </div>
             </div>
 
@@ -89,9 +105,11 @@
                         <option value="1">Public</option>
                         <option value="2">Private</option>
                     </select>
+                    @if ($errors->has('p_kind'))
                     <div class="invalid-feedback">
                         Please enter a valid kind.
                     </div>
+                    @endif
                 </div>
             </div>
 
