@@ -56,6 +56,10 @@
                 $('#sortable').sortable({
                     axis: 'y',
                     update: function (event, ui) {
+                      $("span.rank").text(function() {
+                        return $(this).parent().index("span.rank");
+                      });
+
                         var order = $(this).sortable('serialize');
                         var _token = $("input[name=_token]").val();
                         var data = {"order": order, "_token": _token};
@@ -90,7 +94,7 @@
             <?php $i = 1; ?>
             @foreach ($preferences as $preference)
                 <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                    <span>{{$i}}</span>
+                    <span class="rank">{{$i}}</span>
                     {{$preference->programName}}
                     <a class="delete" href="#"><span class="badge badge-primary badge-pill">x</span></a>
                 </li>
