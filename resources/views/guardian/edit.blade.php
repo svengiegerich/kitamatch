@@ -16,6 +16,12 @@
         </div>
         @endif
 
+        @if (length($guardian->last_name)<1)
+        <div class="alert alert-warning" role="alert">
+          <strong>Fullfill your profil.</strong> Please add your profil information.
+        </div>
+        @endif
+
         @if (count($applicants) == 0)
         <div class="alert alert-warning" role="alert">
           <strong>No applicant.</strong> You also need to add an applicant.
@@ -112,7 +118,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>My applicants</h4>
+        <h4>Applicant</h4>
         <br>
 
         @foreach ($applicants as $applicant)
@@ -121,9 +127,9 @@
         @endforeach
 
         @if (count($applicants) > 0)
-          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn-primary btn-lg btn-block">Add sibling</button></a>
+          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block">Add sibling</button></a>
         @else
-          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block">Applicant</button></a>
+          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn-primary btn-lg btn-block">Applicant</button></a>
         @endif
         <br>
     </div>
