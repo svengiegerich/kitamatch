@@ -51,7 +51,7 @@
                 <td>{{$guardian->parental_status_description}}</td>
                 <td>{{$guardian->volume_of_employment_description}}</td>
                 <td>
-                    @if ($guardian->status == 50 OR $guardian->status == 51)
+                    @if ( ($guardian->status == 50 OR $guardian->status == 51) && ($guardian->siblings_description != "--" && $guardian->parental_status_description != "--" && $guardian->volume_of_employment_description != "--"))
                     <form action="/guardian/verify/{{ $guardian->gid }}" method="POST">
                         {{ csrf_field() }}
                         <button class="">Verify</button>
