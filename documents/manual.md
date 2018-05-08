@@ -38,5 +38,11 @@ There are factories defined to sample test data for the app.
 To sample new ones: `php artisan db:seed`
 (After edits in `factories` or `seeds`, please run `composer dump-autoload` for changes to take place)
 
+#### Changes in .env
+After changes in .env run:
+`php artisan config:clear
+php artisan cache:clear
+composer dump-autoload` 
+
 #### Documentation API | Sami | v4.0.15, 2018-04-04
 KitaMatch's API is based on Sami (https://github.com/FriendsOfPHP/Sami). To update or rebuild the documentation, run 'php sami.phar update sami.config.php' in the root directory of the project. For a detailed look at the configuration look into `sami.config.php`.

@@ -245,7 +245,7 @@ class MatchingController extends Controller
         $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
         $preferenceList = array();
         foreach ($preferencesByProgram as $preference) {
-          if ( array_key_exists($preference->id_to, $preferencesApplicants) && in_array(program->pid, $preferencesApplicants[$preference->id_to]) ) { 
+          if ( array_key_exists($preference->id_to, $preferencesApplicants) && in_array($program->pid, $preferencesApplicants[$preference->id_to]) ) { 
           //if ( applicant hat das program auch eingetragen ) ) {
             $preferenceList[] = (string)$preference->id_to;
           }
