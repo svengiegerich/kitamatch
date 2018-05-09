@@ -95,7 +95,7 @@ class MatchingController extends Controller
 
     $input = $this->prepareMatching();
 
-    if (!(strlen(json_encode($input))>0)) {
+    if (!(strlen($input)>0)) {
       return redirect()->action('AdminController@index');
     }
     print_r(json_encode($input));
