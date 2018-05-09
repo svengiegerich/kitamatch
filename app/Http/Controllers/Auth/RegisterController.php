@@ -82,13 +82,13 @@ class RegisterController extends Controller
             $request = new Request();
             $request->setMethod('POST');
             $request->request->add(['uid' => $user->id]);
-            app('App\Http\Controllers\GuardianController')->store($request);
+            app('App\Http\Controllers\GuardianController')->storeByUser($request);
         } else if ($data['accountType'] == 4) {
             //account-type is provider
             $request = new Request();
             $request->setMethod('POST');
             $request->request->add(['uid' => $user->id]);
-            app('App\Http\Controllers\ProviderController')->store($request);
+            app('App\Http\Controllers\ProviderController')->storeByUser($request);
         } else if ($data['accountType'] == 2 || $data['accountType'] == 3) {
             //account-type private or public
             //2: public, 3: private
