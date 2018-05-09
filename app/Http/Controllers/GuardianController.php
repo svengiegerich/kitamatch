@@ -74,7 +74,7 @@ class GuardianController extends Controller
     $guardian->uid = $request->uid;
     $guardian->status = 51;
     $guardian->save();
-    return $program;
+    return $guardian;
   }
 
   /**
