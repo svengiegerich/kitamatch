@@ -78,7 +78,7 @@ class PreferenceController extends Controller
   * @param Illuminate\Http\Request $request request
   * @return App\Preference
   */
-  public function update(PreferenceRequest $request) {
+  public function update(Request $request) {
     $preference = Preference::findOrFail($request->prid);
     $preference->id_from = $request->from;
     $preference->id_to = $request->to;
