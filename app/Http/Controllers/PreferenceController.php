@@ -132,7 +132,7 @@ class PreferenceController extends Controller
     $rank = $Preference->getLowestRankApplicant($aid) + 1;
     $preference = new Preference;
     $preference->id_from = $aid;
-    $preference->id_to = $request->id_to;
+    $preference->id_to = $request->to;
     $preference->pr_kind = 1;
     $preference->rank = $rank;
     $preference->status = 1;
