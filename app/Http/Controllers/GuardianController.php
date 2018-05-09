@@ -16,7 +16,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateGuardianRequest;
+use App\Http\Requests\GuardianRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Guardian;
@@ -46,7 +46,7 @@ class GuardianController extends Controller
   * @param App\Http\Requests\Request $request
   * @return App\Guardian
   */
-  public function store(Request $request) {
+  public function store(GuardianRequest $request) {
     $guardian = new Guardian;
     $guardian->uid = $request->uid;
     $guardian->first_name = $request->firstName;
@@ -94,11 +94,11 @@ class GuardianController extends Controller
   /**
   * Edit a single guardian
   *
-  * @param App\Http\Requests\UpdateGuardianRequest $request request
+  * @param App\Http\Requests\GuardianRequest $request request
   * @param integer $gid Guardian-ID
   * @return action GuardianController@show
   */
-  public function edit(UpdateGuardianRequest $request, $gid) {
+  public function edit(GuardianRequest $request, $gid) {
     $request->request->add(['gid' => $gid]);
     $guardian = $this->update($request);
     return redirect()->action('GuardianController@show', $guardian->gid);
@@ -107,10 +107,10 @@ class GuardianController extends Controller
   /**
   * Update a single guardian
   *
-  * @param App\Http\Requests\UpdateGuardianRequest $request request
+  * @param App\Http\Requests\GuardianRequest $request request
   * @return App\Guardian
   */
-  public function update(UpdateGuardianRequest $request) {
+  public function update(GuardianRequest $request) {
     $guardian = Guardian::findOrFail($request->gid);
     if ($request->firstName) { $guardian->first_name = $request->firstName; }
     if ($request->lastName) { $guardian->last_name = $request->lastName; }

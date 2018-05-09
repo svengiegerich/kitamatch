@@ -105,7 +105,7 @@ class RegisterController extends Controller
                                    'coordination' => $coordination,
                                    'p_kind' => $p_kind]);
 
-            app('App\Http\Controllers\ProgramController')->storeByUser($request);
+            app('App\Http\Controllers\ProgramController')->storeByUserOrProvider($request);
         } else {
             //error
         }

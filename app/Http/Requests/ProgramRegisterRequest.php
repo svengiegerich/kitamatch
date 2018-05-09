@@ -9,7 +9,7 @@
  */
  /*
  |--------------------------------------------------------------------------
- | Match Request
+ | Program Request
  |--------------------------------------------------------------------------
  */
 
@@ -18,9 +18,9 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
-* This class handles the requests of matches
+* This class handles the requests of programs
 */
-class MatchRequest extends FormRequest
+class ProgramRequest extends FormRequest
 {
   /**
   * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class MatchRequest extends FormRequest
   * @return bool
   */
   public function authorize() {
-    return true;
+      return true;
   }
 
   /**
@@ -38,9 +38,9 @@ class MatchRequest extends FormRequest
   */
   public function rules() {
     return [
-      'student' => 'required|numeric|min:1',
-      'college' => 'required|numeric|min:1',
-      'status' => 'required|numeric|min:1',
+      'name' => 'required|string|min:5',
+      'capacity' => 'required|numeric|min:1|max:200',
+      'phone' => 'nullable|string|min:6',
     ];
   }
 }

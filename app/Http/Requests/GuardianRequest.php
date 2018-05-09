@@ -21,7 +21,7 @@ use App\Guardian;
 /**
 * This class handles the update request of guardians
 */
-class UpdateGuardianRequest extends FormRequest
+class GuardianRequest extends FormRequest
 {
   /**
   * Determine if the user is authorized to make this request.

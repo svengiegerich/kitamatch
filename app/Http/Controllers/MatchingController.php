@@ -53,10 +53,10 @@ class MatchingController extends Controller
   /**
   * Store a single matching entry with the current match status
   *
-  * @param Illuminate\Http\Request $request request
+  * @param App\Http\Requests\MatchRequest $request request
   * @return App\Matching
   */
-  public function store(Request $request) {
+  public function store(MatchRequest $request) {
     $match = new Matching;
     $match->aid = $request->student;
     $match->pid = $request->college;
@@ -133,7 +133,7 @@ class MatchingController extends Controller
 
     //store the positiv matches
     foreach ($matchingResult as $match) {
-      $matchRequest = new Request();
+      $matchRequest = app('App\Http\Requests\MatchRequest');
       $matchRequest->setMethod('POST');
       $matchRequest->request->add(['college' => (int)$match['college'],
                                    'student' => (int)$match['student']

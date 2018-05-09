@@ -71,12 +71,12 @@ class ProgramController extends Controller
       'account_type' => $accountType
     ]);
     $user = app('App\Http\Controllers\Auth\RegisterController')->store($requestUser);
+    //store the program
     $request->request->add([
       'proid' => $proid,
       'uid' => $user->id
     ]);
-    //store the program
-    $this->store($request);
+    $this->storeByUserOrProvider($request);
     return redirect()->action('ProviderController@show', $proid);
   }
 
@@ -102,12 +102,7 @@ class ProgramController extends Controller
     $program->plz = $request->plz;
     $program->city = $request->city;
     $program->phone = $request->phone;
-    if (strln($program->name) > 1) {
-      $program->status = 12;
-    } else {
-      //by provider registration
-      $program->status = 10;
-    }
+    $program->status = 12;
     $program->save();
     //tmp
     $this->setValid($program->id);
@@ -115,15 +110,16 @@ class ProgramController extends Controller
   }
 
   /**
-  * Store a program on user registration side. Right now every program is set valid by default.
+  * Store a program on user registration or provider side. Right now every program is set valid by default.
   *
   * @param Illuminate\Http\Request $request request
   * @return App\Program
   */
-  public function storeByUser(Request $request) {
+  public function storeByUserOrProvider(Request $request) {
     $program = new Program;
     $program->uid = $request->uid;
     $program->p_kind = $request->p_kind;
+    $program->proid = $request->proid;
     $program->status = 12;
     $program->coordination = $request->coordination;
     $program->save();
