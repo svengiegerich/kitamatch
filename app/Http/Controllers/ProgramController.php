@@ -105,7 +105,7 @@ class ProgramController extends Controller
     if (strln($program->name) > 1) {
       $program->status = 12;
     } else {
-      //by program registration
+      //by provider registration
       $program->status = 10;
     }
     $program->save();
@@ -124,10 +124,9 @@ class ProgramController extends Controller
     $program = new Program;
     $program->uid = $request->uid;
     $program->p_kind = $request->p_kind;
+    $program->status = 12;
     $program->coordination = $request->coordination;
     $program->save();
-    //tmp
-    $this->setValid($program->id);
     return $program;
   }
 
