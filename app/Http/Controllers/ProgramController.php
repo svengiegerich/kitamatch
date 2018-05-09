@@ -55,11 +55,11 @@ class ProgramController extends Controller
   /**
   * Create program on provider side. While doing so, create a user entry for the new program with a automatic set password.
   *
-  * @param Illuminate\Http\Request $request request
+  * @param App\Http\Requests\ProgramRequest $request request
   * @param integer $proid Provider-ID
   * @return action ProviderController@show
   */
-  public function createByProvider(Request $request, $proid) {
+  public function createByProvider(ProgramRequest $request, $proid) {
     //create a new user for the program
     $requestUser = new Request();
     $requestUser->setMethod('POST');
@@ -76,7 +76,7 @@ class ProgramController extends Controller
       'proid' => $proid,
       'uid' => $user->id
     ]);
-    $this->storeByUserOrProvider($request);
+    $this->store($request);
     return redirect()->action('ProviderController@show', $proid);
   }
 
@@ -115,7 +115,7 @@ class ProgramController extends Controller
   * @param Illuminate\Http\Request $request request
   * @return App\Program
   */
-  public function storeByUserOrProvider(Request $request) {
+  public function storeByUser(Request $request) {
     $program = new Program;
     $program->uid = $request->uid;
     $program->p_kind = $request->p_kind;
