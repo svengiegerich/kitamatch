@@ -16,6 +16,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PreferenceRequest;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Requests;
@@ -48,7 +49,7 @@ class PreferenceController extends Controller
   * @param Illuminate\Http\Request $request request
   * @return App\Preference
   */
-  public function store(Request $request) {
+  public function store(PreferenceRequest $request) {
     $preference = new Preference;
     $preference->id_from = $request->from;
     $preference->id_to = $request->to;
@@ -77,7 +78,7 @@ class PreferenceController extends Controller
   * @param Illuminate\Http\Request $request request
   * @return App\Preference
   */
-  public function update(Request $request) {
+  public function update(PreferenceRequest $request) {
     $preference = Preference::findOrFail($request->prid);
     $preference->id_from = $request->from;
     $preference->id_to = $request->to;
@@ -131,7 +132,7 @@ class PreferenceController extends Controller
     $rank = $Preference->getLowestRankApplicant($aid) + 1;
     $preference = new Preference;
     $preference->id_from = $aid;
-    $preference->id_to = $request->to;
+    $preference->id_to = $request->id_to;
     $preference->pr_kind = 1;
     $preference->rank = $rank;
     $preference->status = 1;
