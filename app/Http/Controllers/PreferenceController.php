@@ -49,7 +49,7 @@ class PreferenceController extends Controller
   * @param Illuminate\Http\Request $request request
   * @return App\Preference
   */
-  public function store(PreferenceRequest $request) {
+  public function store(Request $request) {
     $preference = new Preference;
     $preference->id_from = $request->from;
     $preference->id_to = $request->to;
