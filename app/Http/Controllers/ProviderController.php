@@ -53,6 +53,8 @@ class ProviderController extends Controller
     $provider->plz = $request->plz;
     $provider->phone = $request->phone;
     $provider->status = 61;
+    //public providers are added by hand; so the default are private provider
+    $provider->kind = 2;
     $provider->save();
     return $provider;
   }
@@ -69,6 +71,8 @@ class ProviderController extends Controller
     $provider->save();
     //tmp
     $provider->status = 61;
+    //public providers are added by hand; so the default are private provider
+    $provider->kind = 2;
     return $provider;
   }
 

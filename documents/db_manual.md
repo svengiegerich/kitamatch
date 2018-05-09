@@ -60,6 +60,10 @@ Guardians maintain the social master data required for the coordination and hols
 * 60: not valid
 * 61: valid
 
+#### Kind
+* 1: public (add manually in db)
+* 2: private
+
 ## Criteria
 ### Codes
 #### parental_status

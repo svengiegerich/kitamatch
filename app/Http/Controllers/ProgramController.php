@@ -60,11 +60,12 @@ class ProgramController extends Controller
   * @return action ProviderController@show
   */
   public function createByProvider(ProgramRequest $request, $proid) {
+    $provider = Provider::findOrFail($proid);
     //create a new user for the program
     $requestUser = new Request();
     $requestUser->setMethod('POST');
     //public: 1 -> account_type = 2, private: 2 -> account_type = 3
-    if ($request->p_kind == 1) { $accountType = 2; } else if ($request->p_kind == 2) { $accountType = 3; }
+    if ($provider->kind == 1) { $accountType = 2; } else if ($provider->kind == 2) { $accountType = 3; }
     $requestUser->request->add([
       'email' => $request->email,
       'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
