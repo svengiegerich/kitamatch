@@ -116,10 +116,25 @@ class RegisterController extends Controller
     /**
     * Stores the created user, after test of ReCaptacha by request.
     *
-    * @param  App\Http\Requests\ReCaptchataRequest;  $request
+    * @param  App\Http\Requests\ReCaptchataRequest $request request
     * @return \App\User
     */
     public function store(ReCaptchataRequest $request) {
+        $user = User::create([
+            'email' => $request->email,
+            'account_type' => $request->account_type,
+            'password' => Hash::make($request->password)
+        ]);
+        return $user;
+    }
+
+    /**
+    * Stores a user created by provider.
+    *
+    * @param Illuminate\Http\Request $request request
+    * @return \App\User
+    */
+    public function storeByProvider(Request $request) {
         $user = User::create([
             'email' => $request->email,
             'account_type' => $request->account_type,
