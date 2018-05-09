@@ -43,9 +43,9 @@ class ProviderController extends Controller
   * @param App\Http\Requests\ProviderRequest $request
   * @return App\Provider
   */
-  public function store(Request $request) {
+  public function store(ProviderRequest $request) {
     $provider = new Provider;
-    $provider->proid = $request->proid;
+    //$provider->proid = $request->proid;
     $provider->name = $request->name;
     $provider->uid = $request->uid;
     $provider->address = $request->address;
@@ -54,6 +54,21 @@ class ProviderController extends Controller
     $provider->phone = $request->phone;
     $provider->status = 61;
     $provider->save();
+    return $provider;
+  }
+
+  /**
+  * Store a program on user registration side. Right now every program is set valid by default.
+  *
+  * @param Illuminate\Http\Request $request request
+  * @return App\Provider
+  */
+  public function storeByUser(Request $request) {
+    $provider = new Provider;
+    $provider->uid = $request->uid;
+    $provider->save();
+    //tmp
+    $provider->status = 61;
     return $provider;
   }
 

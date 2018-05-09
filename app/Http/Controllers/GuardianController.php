@@ -64,6 +64,20 @@ class GuardianController extends Controller
   }
 
   /**
+  * Store a program on user registration side. Right now every program is set valid by default.
+  *
+  * @param Illuminate\Http\Request $request request
+  * @return App\Guardian
+  */
+  public function storeByUser(Request $request) {
+    $guardian = new Guardian;
+    $guardian->uid = $request->uid;
+    $guardian->status = 51;
+    $guardian->save();
+    return $program;
+  }
+
+  /**
   * Show a single guardian view
   *
   * @param integer $gid Guardian-ID

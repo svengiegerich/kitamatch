@@ -13,6 +13,12 @@
       </div>
       @endif
 
+      @if ($program->status == 10)
+      <div class="alert alert-danger" role="alert">
+        Required information missing. Please fullfill your profil.
+      </div>
+      @endif
+
       @if ($program->status == 13)
       <div class="alert alert-danger" role="alert">
         You are inactive for at least 7 days.

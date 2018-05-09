@@ -10,7 +10,7 @@ Program class handles public and private programs.
 * 1: Public
 * 2: Private
 #### Status
-* 10: not valid
+* 10: not valid / no information
 * 11: created, but not proofed; no participation
 * 12: valid; participates
 * 13: did not send offers for at least seven days; no participation

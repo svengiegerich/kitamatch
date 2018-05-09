@@ -33,7 +33,7 @@ use App\Code;
 class ProgramController extends Controller
 {
   /**
-  * Create a new controller instance, handle authentication 
+  * Create a new controller instance, handle authentication
   *
   * @return void
   */
@@ -94,8 +94,6 @@ class ProgramController extends Controller
     $program->name = $request->name;
     $program->address = $request->address;
     $program->capacity = $request->capacity;
-    //set all valid as default
-    $program->status = 12;
     $program->p_kind = $request->p_kind;
     $program->coordination = $request->coordination;
     if (!$request->coordination) { $program->coordination = 0; }
@@ -104,6 +102,12 @@ class ProgramController extends Controller
     $program->plz = $request->plz;
     $program->city = $request->city;
     $program->phone = $request->phone;
+    if (strln($program->name) > 1) {
+      $program->status = 12;
+    } else {
+      //by program registration
+      $program->status = 10;
+    }
     $program->save();
     //tmp
     $this->setValid($program->id);
@@ -113,10 +117,10 @@ class ProgramController extends Controller
   /**
   * Store a program on user registration side. Right now every program is set valid by default.
   *
-  * @param App\Http\Requests\ProgramRequest $request request
+  * @param Illuminate\Http\Request $request request
   * @return App\Program
   */
-  public function storeByUser(ProgramRequest $request) {
+  public function storeByUser(Request $request) {
     $program = new Program;
     $program->uid = $request->uid;
     $program->p_kind = $request->p_kind;

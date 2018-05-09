@@ -109,12 +109,12 @@ class ApplicantController extends Controller
   *
   * @param App\Http\Requests\ApplicantRequest $request
   * @param integer $aid Applicant-ID
-  * @return view applicant.edit
+  * @return action ApplicantController@show
   */
   public function edit(ApplicantRequest $request, $aid) {
     $request->request->add(['aid' => $aid]);
     $applicant = $this->update($request);
-    return view('applicant.edit', array('applicant' => $applicant));
+    return redirect()->action('ApplicantController@show', $applicant->aid);
   }
 
   /**
