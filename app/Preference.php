@@ -197,5 +197,22 @@ class Preference extends Model
     return $rank;
   }
 
+  /**
+  * Get the lowest preference rank of a program.
+  *
+  * @param integer $pid Program-ID
+  * @return integer
+  */
+  public function getLowestRankUncoordinatedProgram($pid) {
+    $sql = "SELECT rank FROM preferences WHERE id_from = " . $pid . " AND (pr_kind = 3) ORDER BY rank DESC LIMIT 1";
+    $lowestRank = DB::select($sql);
+    if (count($lowestRank) > 0) {
+      $rank = $lowestRank['0']->rank;
+    } else {
+      $rank = 1;
+    }
+    return $rank;
+  }
+
   public $primaryKey = 'prid';
 }

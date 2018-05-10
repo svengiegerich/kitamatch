@@ -65,7 +65,7 @@ class ProgramController extends Controller
     $requestUser = new Request();
     $requestUser->setMethod('POST');
     //public: 1 -> account_type = 2, private: 2 -> account_type = 3
-    if ($provider->kind == 1) { $accountType = 2; } else if ($provider->kind == 2) { $accountType = 3; }
+    if ($provider->kind == 1) { $accountType = 2; $p_kind = 1; } else if ($provider->kind == 2) { $accountType = 3; $p_kind = 2; }
     $requestUser->request->add([
       'email' => $request->email,
       'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
@@ -74,8 +74,9 @@ class ProgramController extends Controller
     $user = app('App\Http\Controllers\Auth\RegisterController')->storeByProvider($requestUser);
     //store the program
     $request->request->add([
+      'p_kind' =>
       'proid' => $proid,
-      'uid' => $user->id
+      'uid' => $user->id,
     ]);
     $this->store($request);
     return redirect()->action('ProviderController@show', $proid);
@@ -236,7 +237,7 @@ class ProgramController extends Controller
   */
   public function setNonActive() {
     //set not inactive, if is no  1 week after coordiantion starts
-    if (strtotime(config('constants.coordination_start_date'))
+    if (strtotime(config('kitamatch_config.coordination_start_date'))
          < strtotime('+7 days')) {
       return;
     }

@@ -11,6 +11,6 @@ class ProvidersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Provider', 10)->create();
+        factory('App\Provider', config('kitamatch_config.count_providers'))->create();
     }
 }

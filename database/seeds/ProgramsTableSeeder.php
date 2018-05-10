@@ -11,6 +11,6 @@ class ProgramsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Program', 10)->create();
+        factory('App\Program', config('kitamatch_config.count_programs'))->create();
     }
 }

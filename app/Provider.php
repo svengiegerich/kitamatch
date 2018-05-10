@@ -35,5 +35,5 @@ class Provider extends Model
   }
 
   public $primaryKey = 'proid';
-  protected $table = 'provider';
+  protected $table = 'providers';
 }

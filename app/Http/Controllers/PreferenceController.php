@@ -308,35 +308,20 @@ class PreferenceController extends Controller
   * @return action PreferenceController@showByProgram
   */
   public function addUncoordinatedProgram(Request $request, $pid) {
-    //for the program
     $preference = new Preference;
+    $lowestRank = $Preference->getLowestRankUncoordinatedProgram($pid);
+
     $preference->id_from = $pid;
     $preference->id_to = $request->aid;
     $preference->pr_kind = 3;
-    //temp: which rank? now by time order
-    $preference->rank = 1;
+    if ($lowestRank > 0) {
+      $preference->rank = $lowestRank;
+    } else {
+      $preference->rank = 1;
+    }
     $preference->status = 1;
     $preference->save();
 
-        //temp?!
-        //for the applicant
-        //check if a hight ranking from applicant side exists
-        /*$preferenceApplicant = Preference::where('id_from', '=', $request->aid)
-            ->where('id_to', '=', $pid)
-            ->first();
-        //if not also create pref applicant sided
-        if ($preferenceApplicant === null) {
-            $preferenceApplicant = new Preference;
-
-            $preferenceApplicant->id_from = $request->aid;
-            $preferenceApplicant->id_to = $pid;
-            $preferenceApplicant->pr_kind = 4;
-            //temp: which rank? now by time order
-            $preferenceApplicant->rank = 1;
-            $preferenceApplicant->status = 1;
-
-            $preferenceApplicant->save();
-        }*/
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
 

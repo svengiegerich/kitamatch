@@ -11,6 +11,6 @@ class GuardiansTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Guardian', 60)->create();
+        factory('App\Guardian', config('kitamatch_config.count_guardians'))->create();
     }
 }
