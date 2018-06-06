@@ -8,21 +8,18 @@ $factory->define(App\Preference::class, function (Faker $faker) {
 
   $idFrom = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_applicants'));
 
+  $idFrom = 1;
+
   $i = -1;
   while($i = -1) {
     $programId = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_programs'));
-    $preference = App\Preference::where('id_from', $idFrom)
-      ->get();
-    print_r($preference);
-    if (count($preference) == 0) {
+    $preferenceCount = App\Preference::where('id_from', $idFrom)->count();
+    if ($preferenceCount == 0) {
       $i = 1;
       break;
     }
   }
   echo "hey";
-
-  $idFrom = 1;
-  $programId = 2;
 
   return [
     //sample from the count sample applicants
