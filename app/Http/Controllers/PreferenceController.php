@@ -330,6 +330,7 @@ class PreferenceController extends Controller
   */
   public function updateOfferUncoordinatedProgram(Request $request, $prid) {
     $preference = Preference::find($prid);
+    dd($preference);
     $preference->rank = 1;
     $preference->save();
 
