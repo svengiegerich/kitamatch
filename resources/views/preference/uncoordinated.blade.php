@@ -24,7 +24,7 @@
 
     <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
 
-    <br><br><br>
+    <br>
 
     <h3>Offers</h3>
 
