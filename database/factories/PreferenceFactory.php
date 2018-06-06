@@ -13,11 +13,12 @@ $factory->define(App\Preference::class, function (Faker $faker) {
     $programId = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_programs'));
     $preference = App\Preference::where('id_from', $idFrom )
       ->where('id_to', $programId)->get();
-    /*if (count($preference) == 0) {
+    if (count($preference) == 0) {
       $i = 1;
-    }*/
+    }
     echo count($preference);
   }
+  echo "hey";
 
   return [
     //sample from the count sample applicants
