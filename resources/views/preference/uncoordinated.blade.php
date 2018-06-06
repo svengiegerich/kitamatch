@@ -77,7 +77,6 @@
           </tr>
       </thead>
       <tbody>
-        <?php dd($offers); ?>
         @foreach($availableApplicants as $applicant)
           @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] > 0 and $offers[$applicant->aid]['rank'] > 1 and $applicant->status != 26)
           <tr>
