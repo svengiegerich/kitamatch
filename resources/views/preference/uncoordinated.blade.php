@@ -67,7 +67,7 @@
     <hr class="mb-4">
 
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
 
     <h3>Waitlist</h3>
 
@@ -187,7 +187,7 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <hr class="mb-4">
         <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Back to program</button></a>
         <hr class="mb-4">
