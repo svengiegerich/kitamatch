@@ -21,6 +21,10 @@
 
     <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
 
+    <br><br><br>
+
+    <h6>Offers</h6>
+
     <table class="table" id="offers">
       <thead>
           <tr>
@@ -29,31 +33,27 @@
               <th>Last name</th>
               <th>Birthday</th>
               <th>Gender</th>
-              <th>&nbsp;</th>
-              <th>&nbsp;</th>
           </tr>
       </thead>
       <tbody>
         @foreach($availableApplicants as $applicant)
-            @if (array_key_exists($applicant->aid, $offers))
-              @if ($offers[$applicant->aid]['id'] > 0)
-                @if ($applicant->status == 26)
-                  <tr class="table-success">
-                    <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
-                    <td>{{$applicant->first_name}}</td>
-                    <td>{{$applicant->last_name}}</td>
-                    <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
-                    <td>{{$applicant->gender}}</td>
-                  </tr>
-                @else
-                <tr class="table-info">
-                  <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+            @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] > 0)
+              @if ($applicant->status == 26)
+                <tr class="table-success">
+                  <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
                 </tr>
-                @endif
+              @elseif ($offers[$applicant->aid]['rank'] == 1)
+              <tr class="table-info">
+                <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+                <td>{{$applicant->first_name}}</td>
+                <td>{{$applicant->last_name}}</td>
+                <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                <td>{{$applicant->gender}}</td>
+              </tr>
               @endif
             @endif
         @endforeach
@@ -61,6 +61,8 @@
     </table>
 
     <hr class="mb-4">
+
+    <h6>Waitlist</h6>
 
     <table class="table" id="waitlist">
       <thead>
@@ -75,11 +77,43 @@
           </tr>
       </thead>
       <tbody>
-
+        @foreach($availableApplicants as $applicant)
+          @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->$aid]['['rank'] > 1 and $applicant->status != 26)
+          <tr>
+            <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+            <td>{{$applicant->first_name}}</td>
+            <td>{{$applicant->last_name}}</td>
+            <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+            <td>{{$applicant->gender}}</td>
+            <td>
+                @if ($program->openOffers != $program->capacity)
+                <form action="/preference/program/uncoordinated/{{$program->pid}}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                    <button>Offer</button>
+                </form>
+                @endif
+            </td>
+            <td>
+                @if ($offers[$applicant->aid]['id'] > 0
+                  && $applicant->status != 26
+                  && $offers[$applicant->aid]['delete'])
+                <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <button>Delete</button>
+                </form>
+                @endif
+            </td>
+          </tr>
+          @endif
+        @endforeach
       </tbody>
     </table>
 
     <hr class="mb-4">
+
+    <h6>Available Applicants</h6>
 
     <table class="table" id="availableApplicantsTable">
         <thead>
@@ -98,13 +132,7 @@
             <tr
                 <?php
                   if (array_key_exists($applicant->aid, $offers)) {
-                    if ($offers[$applicant->aid]['id'] > 0) {
-                      if ($applicant->status == 26) {
-                        echo 'class="table-success"';
-                      } else {
-                        echo 'class="table-info"';
-                      }
-                    } else if ($offers[$applicant->aid]['id'] == -1) {
+                    if ($offers[$applicant->aid]['id'] == -1) {
                       echo 'class="table-danger"';
                     }
                   }
@@ -128,14 +156,11 @@
                     @endif
                 </td>
                 <td>
-                    @if (array_key_exists($applicant->aid, $offers)
-                      && $offers[$applicant->aid]['id'] > 0
-                      && $applicant->status != 26
-                      && $offers[$applicant->aid]['delete'])
-                    <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
+                    @if ($applicant->status != 26)
+                    <form action="/preference/program/uncoordinated/waitlist/{{$offers[$applicant->aid]['id']}}" method="POST">
                       {{ csrf_field() }}
-                      {{ method_field('DELETE') }}
-                      <button>Delete</button>
+                      <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                      <button>Waitlist</button>
                     </form>
                     @endif
                 </td>

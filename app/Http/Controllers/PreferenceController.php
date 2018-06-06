@@ -233,6 +233,7 @@ class PreferenceController extends Controller
           if ($preference->id_to == $applicant->aid) {
             if ($preference->status == 1) {
               $offers[$applicant->aid]['id'] = $preference->prid;
+              $offers[$applicant->aid]['rank'] = $preference->rank;
                 //you can remove your offer for a window of 10h
                 if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
                   $offers[$applicant->aid]['delete'] = true;
@@ -301,13 +302,13 @@ class PreferenceController extends Controller
   }
 
   /**
-  * Add a preference by uncoordinated program
+  * Add a offer preference by uncoordinated program
   *
   * @param App\Http\Requests $request request
   * @param integer $pid Program-ID
   * @return action PreferenceController@showByProgram
   */
-  public function addUncoordinatedProgram(Request $request, $pid) {
+  public function addOffersUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
     $lowestRank = $Preference->getLowestRankUncoordinatedProgram($pid);
 
@@ -318,6 +319,31 @@ class PreferenceController extends Controller
       $preference->rank = $lowestRank;
     } else {
       $preference->rank = 1;
+    }
+    $preference->status = 1;
+    $preference->save();
+
+    return redirect()->action('PreferenceController@showByProgram', $pid);
+  }
+
+  /**
+  * Add a waitlist preference by uncoordinated program
+  *
+  * @param App\Http\Requests $request request
+  * @param integer $pid Program-ID
+  * @return action PreferenceController@showByProgram
+  */
+  public function addWaitlistUncoordinatedProgram(Request $request, $pid) {
+    $preference = new Preference;
+    $lowestRank = $Preference->getLowestRankUncoordinatedProgram($pid);
+
+    $preference->id_from = $pid;
+    $preference->id_to = $request->aid;
+    $preference->pr_kind = 3;
+    if ($lowestRank > 1) {
+      $preference->rank = $lowestRank + 1;
+    } else {
+      $preference->rank = 2;
     }
     $preference->status = 1;
     $preference->save();
