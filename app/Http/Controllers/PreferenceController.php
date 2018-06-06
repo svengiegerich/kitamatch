@@ -328,7 +328,7 @@ class PreferenceController extends Controller
   * @param integer $prid Preference-ID
   * @return action PreferenceController@showByProgram
   */
-  public function addOfferUncoordinatedProgram(Request $request, $prid) {
+  public function updateOfferUncoordinatedProgram(Request $request, $prid) {
     $preference = Preference::find($prid);
     $preference->rank = 1;
     $preference->save();
