@@ -157,7 +157,7 @@
                 </td>
                 <td>
                     @if ($applicant->status != 26)
-                    <form action="/preference/program/uncoordinated/waitlist/{{$applicant->aid}}" method="POST">
+                    <form action="/preference/program/uncoordinated/waitlist/{{$program->pid}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
                       <button>Waitlist</button>
