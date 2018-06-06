@@ -310,7 +310,7 @@ class PreferenceController extends Controller
   */
   public function addOffersUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
-    $lowestRank = $Preference->getLowestRankUncoordinatedProgram($pid);
+    $lowestRank = $preference->getLowestRankUncoordinatedProgram($pid);
 
     $preference->id_from = $pid;
     $preference->id_to = $request->aid;
@@ -335,7 +335,7 @@ class PreferenceController extends Controller
   */
   public function addWaitlistUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
-    $lowestRank = $Preference->getLowestRankUncoordinatedProgram($pid);
+    $lowestRank = $preference->getLowestRankUncoordinatedProgram($pid);
 
     $preference->id_from = $pid;
     $preference->id_to = $request->aid;
