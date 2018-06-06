@@ -152,6 +152,7 @@ class MatchingController extends Controller
         ->where('status', '=', 1)
         ->where('pr_kind', "=", 3)
         ->get();
+        dd(DB::getQueryLog());
       print_r($preference);
       /*if ($preference->count() != 0) {
         echo "ranked";
