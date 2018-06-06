@@ -74,7 +74,7 @@ class ProgramController extends Controller
     $user = app('App\Http\Controllers\Auth\RegisterController')->storeByProvider($requestUser);
     //store the program
     $request->request->add([
-      'p_kind' =>
+      'p_kind' => $p_kind,
       'proid' => $proid,
       'uid' => $user->id,
     ]);
