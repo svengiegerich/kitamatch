@@ -8,7 +8,7 @@ $factory->define(App\Preference::class, function (Faker $faker) {
 
   $idFrom = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_applicants'));
 
-  $idFrom = 1;
+  //$idFrom = 1;
 
   $i = -1;
   while($i = -1) {
