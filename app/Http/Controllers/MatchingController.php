@@ -145,8 +145,9 @@ class MatchingController extends Controller
         ->where('id_to', (int)$match['student'])
         ->where('status', 1)
         ->where('rank', '>', 1)
-        ->first();
+        ->get();
       if ($preference->count() != 0) {
+        $preference = $preference->first();
         $preference->rank = 1;
         $preference->save();
       }
