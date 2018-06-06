@@ -16,7 +16,7 @@ $factory->define(App\Preference::class, function (Faker $faker) {
     $sql = "SELECT count(prid) FROM `preferences` WHERE id_from = " .  $idFrom . " AND id_to = " . $programId;
     $preferenceCount = DB::select($sql);
     //print_r($preferenceCount);
-    echo $preferenceCount{0}{0};
+    print_r( $preferenceCount{0});
     if ($preferenceCount == 0) {
       $i = 1;
       break;
