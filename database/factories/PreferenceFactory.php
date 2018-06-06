@@ -12,6 +12,6 @@ $factory->define(App\Preference::class, function (Faker $faker) {
     'status' => 1,
     'pr_kind' => 1,
     //could compute identical ranks for one applicant, are not sorted like 1,2,3,..; but still works with through the perference order
-    'rank' => $faker->numberBetween($min = 1, $max = 20),
+    'rank' => $faker->unique()->numberBetween($min = 1, $max = 20),
   ];
 });

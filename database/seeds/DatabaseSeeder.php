@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 
     $this->call(ProvidersTableSeeder::class);
 
+    //Applicant Preferences
     $this->call(PreferencesTableSeeder::class);
 
     // Re enable all mass assignment restrictions
