@@ -20,7 +20,7 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
 * This class handles the requests of programs
 */
-class ProgramRequest extends FormRequest
+class ProgramReqisterRequest extends FormRequest
 {
   /**
   * Determine if the user is authorized to make this request.
