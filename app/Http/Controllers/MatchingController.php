@@ -147,10 +147,10 @@ class MatchingController extends Controller
       echo (int)$match['student'];
       echo "<br>";
 
-      /*$preference = Preference::where('id_from', '=', (int)$match['college'])
-        ->where('id_to', '=', (int)$match['student'])
+      $preference = Preference::where('id_from', '=', 9)
+        ->where('id_to', '=', 54)
         ->where('status', '=', 1)
-        ->where('')
+        ->where('pr_kind', "=", 3)
         ->get();
       print_r($preference);
       /*if ($preference->count() != 0) {
