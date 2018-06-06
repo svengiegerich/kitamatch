@@ -14,7 +14,7 @@ class AddForeignKeysToProgramsTable extends Migration {
 	{
 		Schema::table('programs', function(Blueprint $table)
 		{
-			$table->foreign('proid', 'programs_ibfk_1')->references('proid')->on('provider')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('proid', 'programs_ibfk_1')->references('proid')->on('providers')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 			$table->foreign('uid', 'programs_ibfk_2')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 			$table->foreign('status', 'programs_ibfk_3')->references('code')->on('codes')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
