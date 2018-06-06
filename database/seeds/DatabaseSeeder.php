@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
     $this->call(ProgramsTableSeeder::class);
 
     $this->call(ProvidersTableSeeder::class);
+
+    $this->call(PreferencesTableSeeder::class);
+
     // Re enable all mass assignment restrictions
     Model::reguard();
 
