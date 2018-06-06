@@ -129,6 +129,7 @@
         </thead>
         <tbody>
             @foreach($availableApplicants as $applicant)
+            @if ( !(array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] != -1) )
             <tr
                 <?php
                   if (array_key_exists($applicant->aid, $offers)) {
@@ -165,6 +166,7 @@
                     @endif
                 </td>
             </tr>
+            @endif
             @endforeach
         </tbody>
     </table>
