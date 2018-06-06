@@ -310,7 +310,6 @@ class PreferenceController extends Controller
   */
   public function addOfferUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
-    $lowestRank = $preference->getLowestRankUncoordinatedProgram($pid);
 
     $preference->id_from = $pid;
     $preference->id_to = $request->aid;
@@ -318,7 +317,7 @@ class PreferenceController extends Controller
     $preference->rank = 1;
     $preference->status = 1;
     $preference->save();
-
+    
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
 
