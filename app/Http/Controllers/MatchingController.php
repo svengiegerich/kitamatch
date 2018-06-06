@@ -151,16 +151,14 @@ class MatchingController extends Controller
         ->where('id_to', '=', 54)
         ->where('status', '=', 1)
         ->where('pr_kind', "=", 3)
+        ->where('rank', '>', 1)
         ->get();
-        DB::enableQueryLog();
-        dd(DB::getQueryLog());
-      print_r($preference);
-      /*if ($preference->count() != 0) {
+      if ($preference->count() != 0) {
         echo "ranked";
         $preference = $preference->first();
         $preference->rank = 1;
         $preference->save();
-      }*/
+      }
 
       //check if it's the final match
       if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
