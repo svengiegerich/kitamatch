@@ -22,7 +22,7 @@ $factory->define(App\Preference::class, function (Faker $faker) {
   ];
 });
 
-//create 5 preferences for each
+//create 5 preferences
 function autoIncrement()
 {
     for ($i = 0; $i < 5; $i++) {
