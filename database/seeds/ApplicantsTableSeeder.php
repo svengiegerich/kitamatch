@@ -10,6 +10,6 @@ class ApplicantsTableSeeder extends Seeder
   * @return void
   */
   public function run() {
-    factory('App\Applicant', config('kitamatch_configs.count_applicants'))->create();
+    factory('App\Applicant', config('kitamatch_config.count_applicants'))->create();
   }
 }
