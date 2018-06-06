@@ -18,7 +18,7 @@
   @endif
 
   <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-12">
 
     <h4>Program {{$program->name}} - uncoordinated process</h4>
 
@@ -67,7 +67,7 @@
     <hr class="mb-4">
 
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
 
     <h3>Waitlist</h3>
 
@@ -123,7 +123,7 @@
 </div></div>
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-12">
 
     <h3>Available Applicants</h3>
 
@@ -187,7 +187,7 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <hr class="mb-4">
         <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Back to program</button></a>
         <hr class="mb-4">
