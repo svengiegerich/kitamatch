@@ -152,6 +152,7 @@ class MatchingController extends Controller
         ->where('status', '=', 1)
         ->where('pr_kind', "=", 3)
         ->get();
+        DB::enableQueryLog();
         dd(DB::getQueryLog());
       print_r($preference);
       /*if ($preference->count() != 0) {
