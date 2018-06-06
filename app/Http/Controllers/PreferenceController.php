@@ -302,7 +302,7 @@ class PreferenceController extends Controller
   }
 
   /**
-  * Add a offer preference by uncoordinated program
+  * Add an offer preference by uncoordinated program
   *
   * @param App\Http\Requests $request request
   * @param integer $pid Program-ID
@@ -317,7 +317,22 @@ class PreferenceController extends Controller
     $preference->rank = 1;
     $preference->status = 1;
     $preference->save();
-    
+
+    return redirect()->action('PreferenceController@showByProgram', $pid);
+  }
+
+  /**
+  * Update an waitinglist preference to an definite offer by uncoordinated program
+  *
+  * @param App\Http\Requests $request request
+  * @param integer $prid Preference-ID
+  * @return action PreferenceController@showByProgram
+  */
+  public function addOfferUncoordinatedProgram(Request $request, $prid) {
+    $preference = Preference::find($prid);
+    $preference->rank = 1;
+    $preference->save();
+
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
 
