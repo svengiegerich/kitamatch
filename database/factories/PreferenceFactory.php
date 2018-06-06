@@ -14,6 +14,7 @@ $factory->define(App\Preference::class, function (Faker $faker) {
   while($i = -1) {
     $programId = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_programs'));
     $preferenceCount = App\Preference::where('id_from', $idFrom)->count();
+    echo $preferenceCount;
     if ($preferenceCount == 0) {
       $i = 1;
       break;
