@@ -141,14 +141,14 @@ class MatchingController extends Controller
                                  ]);
 
       //check if it's a match on the waitlist, if update preference to rank = 1
-      $preferenceC = Preference::where('id_from', (int)$match['college'])
+      $preference = Preference::where('id_from', (int)$match['college'])
         ->where('id_to', (int)$match['student'])
         ->where('status', 1)
         ->where('rank', '>', 1)
-        ->count();
-      if ($preferenceC != 0) {
-        $preferenceC->rank = 1;
-        $preferenceC->save();
+        ->first();
+      if ($preference->count() != 0) {
+        $preference->rank = 1;
+        $preference->save();
       }
 
       //check if it's the final match
