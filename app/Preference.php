@@ -39,13 +39,14 @@ class Preference extends Model
   }
 
   /**
-  * Reset (status = -1) all preferences created  uncoordianted programs. This method is called during the findMatchings() process, to differ between successfull and denied offers
+  * Reset (status = -1) all offers (rank = 1) created by uncoordianted programs. This method is called during the findMatchings() process, to differ between successfull and denied offers
   *
   * @return void
   */
   public function resetUncoordinated() {
     $nonactive = DB::table('preferences')
       ->where('pr_kind', 3)
+      ->where('rank', '=', 1)
       ->join('applicants', function ($join) {
         $join->on('preferences.id_to', '=', 'applicants.aid')
         ->whereIn('applicants.status', [22, 25]);
