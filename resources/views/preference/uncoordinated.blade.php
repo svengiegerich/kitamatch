@@ -17,13 +17,16 @@
   </div>
   @endif
 
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+
     <h4>Program {{$program->name}} - uncoordinated process</h4>
 
     <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
 
     <br><br><br>
 
-    <h6>Offers</h6>
+    <h3>Offers</h3>
 
     <table class="table" id="offers">
       <thead>
@@ -60,9 +63,13 @@
       </tbody>
     </table>
 
+</div></div>
     <hr class="mb-4">
 
-    <h6>Waitlist</h6>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+    <h3>Waitlist</h3>
 
     <table class="table" id="waitlist">
       <thead>
@@ -113,7 +120,12 @@
 
     <hr class="mb-4">
 
-    <h6>Available Applicants</h6>
+</div></div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+    <h3>Available Applicants</h3>
 
     <table class="table" id="availableApplicantsTable">
         <thead>
@@ -170,6 +182,8 @@
             @endforeach
         </tbody>
     </table>
+</div>
+
 </div>
 
 <div class="row justify-content-center">
