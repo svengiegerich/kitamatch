@@ -5,7 +5,8 @@
 <script>
   $(document).ready( function () {
     $('#availableApplicantsTable').DataTable( {
-      "aaSorting": []
+      /*"aaSorting": []*/
+      "pageLength": 100
     } );
   } );
 </script>
