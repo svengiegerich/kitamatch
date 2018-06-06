@@ -148,6 +148,7 @@ class MatchingController extends Controller
         ->where('pr_kind', 3)
         ->get();
       if ($preference->count() != 0) {
+        echo "ranked";
         $preference = $preference->first();
         $preference->rank = 1;
         $preference->save();
