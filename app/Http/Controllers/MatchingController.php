@@ -147,8 +147,8 @@ class MatchingController extends Controller
         ->where('rank', '>', 1)
         ->count();
       if ($preferenceC != 0) {
-        $preference->rank = 1;
-        $preference->save();
+        $preferenceC->rank = 1;
+        $preferenceC->save();
       }
 
       //check if it's the final match
