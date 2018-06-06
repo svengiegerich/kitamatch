@@ -8,12 +8,11 @@ $factory->define(App\Preference::class, function (Faker $faker) {
 
   $idFrom = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_applicants'));
 
-  $i = 0;
-  while(count($preference) > 0 or $i = 0) {
+  $preference = -1;
+  while(count($preference) > 0 or $i = -1) {
     $programId = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_programs'));
     $preference = Preference::where('id_from', $idFrom )
       ->where('id_to', $programId);
-    $i=1;
   }
 
   return [
