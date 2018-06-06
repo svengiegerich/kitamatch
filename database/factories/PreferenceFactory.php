@@ -17,11 +17,10 @@ $factory->define(App\Preference::class, function (Faker $faker) {
     $preferenceCount = DB::select($sql);
     //print_r($preferenceCount);
     print_r( $preferenceCount{0}->count);
-    if ($preferenceCount == 0) {
+    if ($preferenceCount{0}->count == 0) {
       $i = 1;
       break;
     }
-    break;
   }
   echo "hey";
 
