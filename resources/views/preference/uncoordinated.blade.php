@@ -78,7 +78,7 @@
       </thead>
       <tbody>
         @foreach($availableApplicants as $applicant)
-          @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->$aid]['rank'] > 1 and $applicant->status != 26)
+          @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['rank'] > 1 and $applicant->status != 26)
           <tr>
             <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
             <td>{{$applicant->first_name}}</td>
