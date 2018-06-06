@@ -7,22 +7,16 @@ use Faker\Generator as Faker;
 $factory->define(App\Preference::class, function (Faker $faker) {
 
   $idFrom = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_applicants'));
-
-  //$idFrom = 1;
-
   $i = -1;
   while($i = -1) {
     $programId = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_programs'));
     $sql = "SELECT count(prid) AS count FROM `preferences` WHERE id_from = " .  $idFrom . " AND id_to = " . $programId;
     $preferenceCount = DB::select($sql);
-    //print_r($preferenceCount);
-    print_r( $preferenceCount{0}->count);
     if ($preferenceCount{0}->count == 0) {
       $i = 1;
       break;
     }
   }
-  echo "hey";
 
   return [
     //sample from the count sample applicants
