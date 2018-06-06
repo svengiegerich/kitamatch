@@ -139,6 +139,18 @@ class MatchingController extends Controller
       $matchRequest->request->add(['college' => (int)$match['college'],
                                    'student' => (int)$match['student']
                                  ]);
+
+      //check if it's a match on the waitlist, if update preference to rank = 1
+      $preference = Preference::where('id_from', (int)$match['college'])
+        ->where('id_to', (int)$match['student'])
+        ->where('status', 1)
+        ->where('rank', '>', 1)
+        ->first();
+      if (count($preference) != 0) {
+        $preference->rank = 1;
+        $preference->save();
+      }
+
       //check if it's the final match
       if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
         $matchRequest->request->add(['status' => 32]);
