@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateProviderTable extends Migration {
+class CreateProvidersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateProviderTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('provider', function(Blueprint $table)
+		Schema::create('providers', function(Blueprint $table)
 		{
 			$table->increments('proid');
 			$table->timestamps();
@@ -34,7 +34,7 @@ class CreateProviderTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('provider');
+		Schema::drop('providers');
 	}
 
 }
