@@ -315,11 +315,7 @@ class PreferenceController extends Controller
     $preference->id_from = $pid;
     $preference->id_to = $request->aid;
     $preference->pr_kind = 3;
-    if ($lowestRank > 0) {
-      $preference->rank = $lowestRank;
-    } else {
-      $preference->rank = 1;
-    }
+    $preference->rank = 1;
     $preference->status = 1;
     $preference->save();
 
