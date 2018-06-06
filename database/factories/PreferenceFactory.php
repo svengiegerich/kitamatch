@@ -12,7 +12,7 @@ $factory->define(App\Preference::class, function (Faker $faker) {
   while($i = -1) {
     $programId = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_programs'));
     $preference = App\Preference::where('id_from', $idFrom)
-      ->where('id_to', $programId)->get();
+      ->get();
     print_r($preference);
     if (count($preference) == 0) {
       $i = 1;
