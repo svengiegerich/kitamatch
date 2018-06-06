@@ -89,7 +89,7 @@
                 @if ($program->openOffers != $program->capacity)
                 <form action="/preference/program/uncoordinated/upoffer/{{$program->pid}}" method="POST">
                     {{ csrf_field() }}
-                    <input type="hidden" name="prid" value="{{$offer[$applicant->aid]['id']}}">
+                    <input type="hidden" name="prid" value="{{$offers[$applicant->aid]['id']}}">
                     <button>Offer</button>
                 </form>
                 @endif
