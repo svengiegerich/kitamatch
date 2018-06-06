@@ -13,7 +13,8 @@ $factory->define(App\Preference::class, function (Faker $faker) {
   $i = -1;
   while($i = -1) {
     $programId = $faker->numberBetween($min = 1, $max = config('kitamatch_config.count_programs'));
-    $preferenceCount = App\Preference::all();
+    $sql = "SELECT COUNT(prid) FROM preferences";
+    $preferenceCount = DB::select($sql);
     print_r($preferenceCount);
     /*if ($preferenceCount == 0) {
       $i = 1;
