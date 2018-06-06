@@ -21,6 +21,9 @@ $factory->define(App\Preference::class, function (Faker $faker) {
   }
   echo "hey";
 
+  $idFrom = 1;
+  $programId = 2;
+
   return [
     //sample from the count sample applicants
     'id_from' => $idFrom,
