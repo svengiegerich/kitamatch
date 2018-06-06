@@ -228,6 +228,7 @@ class PreferenceController extends Controller
       //temp: easier?
       $offers = array();
       $openOffers = 0;
+      $countWaitlist = 0;
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
           if ($preference->id_to == $applicant->aid) {
@@ -240,7 +241,13 @@ class PreferenceController extends Controller
                 } else {
                   $offers[$applicant->aid]['delete'] = false;
                 }
-              $openOffers++;
+
+              if ($preference->rank == 1) {
+                $openOffers++;
+              } else {
+                $countWaitlist++;
+              }
+
               } else if ($preference->status == -1) {
                 $offers[$applicant->aid]['id'] = -1;
               }
