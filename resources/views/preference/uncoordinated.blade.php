@@ -169,7 +169,7 @@
                     @endif
                 </td>
                 <td>
-                    @if ($applicant->status != 26)
+                    @if ($applicant->status != 26 && !((array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] == -1)) )
                     <form action="/preference/program/uncoordinated/waitlist/{{$program->pid}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
