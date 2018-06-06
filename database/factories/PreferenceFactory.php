@@ -15,6 +15,7 @@ $factory->define(App\Preference::class, function (Faker $faker) {
       ->where('id_to', $programId)->get();
     if (count($preference) == 0) {
       $i = 1;
+      break;
     }
     echo count($preference);
   }
