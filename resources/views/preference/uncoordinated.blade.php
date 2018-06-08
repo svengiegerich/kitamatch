@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 <script>
   $(document).ready( function () {
     $('#availableApplicantsTable').DataTable( {
@@ -100,11 +102,9 @@
               });
             }
           })
-            $( "#sortable" ).disableSelection();
+          $( "#sortable" ).disableSelection();
         });
     </script>
-
-    /preference/program/uncoordinated/reorder/{pID}
 
     <table class="table" id="waitlist">
       <thead>
@@ -119,6 +119,7 @@
           </tr>
       </thead>
       <tbody id="sortable">
+        {{ csrf_field() }}
         @foreach($availableApplicants as $applicant)
           @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] > 0 and $offers[$applicant->aid]['rank'] > 1 and $applicant->status != 26)
           <tr id="item-<?php
