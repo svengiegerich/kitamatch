@@ -214,7 +214,6 @@ class PreferenceController extends Controller
       //coordination: false
       $Program = new Program();
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
-      dd($preferences);
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
         $provider = true;
