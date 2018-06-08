@@ -333,6 +333,27 @@ class PreferenceController extends Controller
   }
 
   /**
+  * Change the preference order in a waitlist by an uncoordinated program, ajax sided
+  *
+  * @param App\Http\Requests $request request
+  * @param integer $pid Program-ID
+  * @return json
+  */
+  public function reorderWaitlistByProgramAjax(Request $request, $pid) {
+    $applicantIds = $request->all();
+    //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
+    parse_str($request->order, $applicants);
+    foreach ($applicants['item'] as $index => $preferenceId) {
+      $preference = Preference::find($preferenceId);
+      $preference->rank = $index+1;
+      $preference->save();
+    }
+    return response()->json([
+      'success' => true
+    ]);
+  }
+
+  /**
   * Update an waitinglist preference to an definite offer by uncoordinated program
   *
   * @param App\Http\Requests $request request

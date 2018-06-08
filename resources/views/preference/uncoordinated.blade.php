@@ -72,6 +72,39 @@
 
     <h3>Waitlist</h3>
 
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $("input[name=_token]").val()
+            }
+        });
+
+        $(function() {
+          $('#sortable').sortable({
+            axis: 'y',
+            update: function (event, ui) {
+              $("span.rank").text(function() {
+                return $(this).parent().index("tr")+1;
+              });
+              var order = $(this).sortable('serialize');
+              var _token = $("input[name=_token]").val();
+              var data = {"order": order, "_token": _token};
+              $.ajax({
+                data: data,
+                type: 'POST',
+                url: '/preference/program/uncoordinated/reorder/{{$preferences->first()->id_from}}',
+                success: function(data) {
+                  console.log(data);
+                }
+              });
+            }
+          })
+            $( "#sortable" ).disableSelection();
+        });
+    </script>
+
+    /preference/program/uncoordinated/reorder/{pID}
+
     <table class="table" id="waitlist">
       <thead>
           <tr>
@@ -84,10 +117,10 @@
               <th>&nbsp;</th>
           </tr>
       </thead>
-      <tbody>
+      <tbody id="sortable">
         @foreach($availableApplicants as $applicant)
           @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] > 0 and $offers[$applicant->aid]['rank'] > 1 and $applicant->status != 26)
-          <tr>
+          <tr id="item-<?php echo $preferences->where('id_to', '=', $applicant->aid)->first()->prid; ?>">
             <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
             <td>{{$applicant->first_name}}</td>
             <td>{{$applicant->last_name}}</td>
