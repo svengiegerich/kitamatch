@@ -27,6 +27,7 @@
 
     <br>
 
+@if (count($offers) > 0)
     <h3>Offers</h3>
 
     <table class="table" id="offers">
@@ -92,7 +93,7 @@
               $.ajax({
                 data: data,
                 type: 'POST',
-                url: '/preference/program/uncoordinated/reorder/pid}}',
+                url: '/preference/program/uncoordinated/reorder/{{$preferences[0]->id_from}}',
                 success: function(data) {
                   console.log(data);
                 }
@@ -123,7 +124,7 @@
           <tr id="item-<?php
 
             $key = array_search($applicant->aid, array_column($preferences, 'id_to'));
-            echo $preferences[$key]['prid'];
+            echo $preferences[$key]->prid;
             ?>">
             <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
             <td>{{$applicant->first_name}}</td>
@@ -155,6 +156,8 @@
         @endforeach
       </tbody>
     </table>
+
+@endif
 
     <hr class="mb-4">
 
