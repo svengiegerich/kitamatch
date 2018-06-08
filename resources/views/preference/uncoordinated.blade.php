@@ -123,7 +123,7 @@
           <tr id="item-<?php
 
             $key = array_search($applicant->aid, array_column($preferences, 'id_to'));
-            //echo $preferences[$key]['prid'];
+            echo $preferences[$key]['prid'];
             ?>">
             <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
             <td>{{$applicant->first_name}}</td>
