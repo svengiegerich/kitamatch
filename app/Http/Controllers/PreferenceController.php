@@ -191,6 +191,15 @@ class PreferenceController extends Controller
     return $preference;
   }
 
+  private function sortByRank($a, $b)
+    {
+        $a = $a['rank'];
+        $b = $b['rank'];
+
+        if ($a == $b) return 0;
+        return ($a < $b) ? -1 : 1;
+  }
+
   /**
   * Show all preferences of a program on a view
   *
@@ -273,9 +282,7 @@ class PreferenceController extends Controller
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
       //sort offers: https://stackoverflow.com/questions/2699086/sort-multi-dimensional-array-by-value
-      usort($offers, function($a, $b) {
-        return $a['rank'] <=> $b['rank'];
-      });
+      usort($offers, 'sortByRank');
 
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
@@ -284,6 +291,7 @@ class PreferenceController extends Controller
                   );
     }
   }
+
 
   /**
   * Add a preference by program
