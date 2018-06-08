@@ -121,8 +121,9 @@
         @foreach($availableApplicants as $applicant)
           @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] > 0 and $offers[$applicant->aid]['rank'] > 1 and $applicant->status != 26)
           <tr id="item-<?php
-            $key = array_search($applicant->aid, $preferences);
-            echo $preferences[$key]['prid'];
+
+            $key = array_search($applicant->aid, array_column($preferences, 'id_to'));
+            //echo $preferences[$key]['prid'];
             ?>">
             <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
             <td>{{$applicant->first_name}}</td>
