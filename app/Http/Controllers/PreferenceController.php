@@ -191,7 +191,7 @@ class PreferenceController extends Controller
     return $preference;
   }
 
-  private function sortByRank($a, $b)
+  public function sortByRank($a, $b)
     {
         $a = $a['rank'];
         $b = $b['rank'];
