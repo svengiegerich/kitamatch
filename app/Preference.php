@@ -45,7 +45,7 @@ class Preference extends Model
   * @param integer $rank rank
   * @return void
   */
-  public function updateStatus($prid, $rank) {
+  public function updateRank($prid, $rank) {
     $exec = DB::table('preferences')
       ->where('prid', '=', $prid)
       ->update(array('rank' => $rank));
