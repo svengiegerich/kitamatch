@@ -272,14 +272,6 @@ class PreferenceController extends Controller
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-      //sort offers: https://stackoverflow.com/questions/2699086/sort-multi-dimensional-array-by-value
-      function compare_lastname($a, $b)
-  {
-    return strnatcmp($a['rank'], $b['rank']);
-  }
-
-  // sort alphabetically by name
-  usort($offers, 'compare_lastname');
 
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
