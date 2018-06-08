@@ -345,7 +345,8 @@ class PreferenceController extends Controller
     parse_str($request->order, $applicants);
     foreach ($applicants['item'] as $index => $preferenceId) {
       $preference = Preference::find($preferenceId);
-      $preference->rank = $index+1;
+      //waitlist prefs start with rank >= 2 and not 0
+      $preference->rank = $index+2;
       $preference->save();
     }
     return response()->json([
