@@ -272,6 +272,11 @@ class PreferenceController extends Controller
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
+      //sort offers: https://stackoverflow.com/questions/2699086/sort-multi-dimensional-array-by-value
+      usort($offers, function($a, $b) {
+        return $a['order'] <=> $b['order'];
+      });
+
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
                                                     'preferences' => $preferences,
@@ -346,7 +351,7 @@ class PreferenceController extends Controller
     foreach ($applicants['item'] as $index => $preferenceId) {
       $preference = Preference::find($preferenceId);
       //waitlist prefs start with rank >= 2 and not 0
-      $preference->rank = $index + 10;
+      $preference->rank = $index + 2;
       $preference->save();
     }
     return response()->json([

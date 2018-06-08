@@ -120,10 +120,10 @@
       </thead>
       <tbody id="sortable">
         {{ csrf_field() }}
-        @foreach($availableApplicants as $applicant)
-          @if (array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] > 0 and $offers[$applicant->aid]['rank'] > 1 and $applicant->status != 26)
+        @foreach($offers as $offer)
+          @if ($offer['id'] > 0 && $offer['rank'] > 1 && $availableApplicants->where('aid', '=', $offer['id_to'])->first()->status != 26)
           <tr id="item-<?php
-
+            $applicant = $availableApplicants->where('aid', '=', $offer['id_to'])->first();
             $key = array_search($applicant->aid, array_column($preferences, 'id_to'));
             echo $preferences[$key]->prid;
             ?>">
