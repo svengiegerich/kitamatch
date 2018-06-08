@@ -130,8 +130,8 @@
             $key = array_search($applicant->aid, array_column($preferences, 'id_to'));
             echo $preferences[$key]->prid;
             ?>">
-            <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></th>
-            <td>{{$applicant->first_name}}</td>
+            <th scope="row"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></th>
+            <td>{{$applicant->first_name}} (<a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a>)</td>
             <td>{{$applicant->last_name}}</td>
             <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
             <td>{{$applicant->gender}}</td>
