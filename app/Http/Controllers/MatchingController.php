@@ -130,6 +130,49 @@ class MatchingController extends Controller
 
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
+
+    $uncoordinatedMatches = new array;
+
+    foreach ($matchingResult as $match) {
+      $college = (int)$match['college'];
+      $student = (int)$match['student'];
+      $matchRequest = new Request();
+      $matchRequest->setMethod('POST');
+      $matchRequest->request->add(['college' => $college,
+                                   'student' => $student
+                                 ]);
+
+      //check if it's the final match
+      if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
+        $matchRequest->request->add(['status' => 32]);
+        $this->store($matchRequest);
+        //set applicant status to matched
+        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student']);
+      } else {
+        $matchRequest->request->add(['status' => 31]);
+        $this->store($matchRequest);
+      }
+
+      //check if program is uncoordinated
+      $coordination = $Program->isCoordinated((int)$match['college']);
+      if ($coordination == 0) {
+        $uncoordinatedMatches[] = array($college, $student);
+
+        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
+        foreach ($preferencesUncoordinated as $preference) {
+          if ($preference->id_to == (int)$match['student']) {
+            $Preference->updateStatus($preference->prid, 1);
+            $Preference->updateRank($preference->prid, 1);
+          }
+        }
+      }
+    }
+
+    /*
+
+
+
+
     $Preference->resetUncoordinated();
 
     //store the positiv matches
@@ -141,11 +184,6 @@ class MatchingController extends Controller
                                  ]);
 
       //check if it's a match on the waitlist, if update preference to rank = 1
-
-      echo (int)$match['college'];
-      echo " ";
-      echo (int)$match['student'];
-      echo "<br>";
 
       $preference = Preference::where('id_from', '=', 9)
         ->where('id_to', '=', (int)$match['college'])
@@ -182,7 +220,7 @@ class MatchingController extends Controller
           }
         }
       }
-    }
+    }*/
     //return redirect()->action('AdminController@index');
   }
 

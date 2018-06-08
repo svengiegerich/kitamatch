@@ -235,6 +235,8 @@ class PreferenceController extends Controller
             if ($preference->status == 1) {
               $offers[$applicant->aid]['id'] = $preference->prid;
               $offers[$applicant->aid]['rank'] = $preference->rank;
+              $offers[$applicant->aid]['id_to'] = $preference->id_to;
+              $offers[$applicant->aid]['id_from'] = $preference->id_from;
                 //you can remove your offer for a window of 10h
                 if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
                   $offers[$applicant->aid]['delete'] = true;

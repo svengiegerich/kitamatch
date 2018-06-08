@@ -39,11 +39,24 @@ class Preference extends Model
   }
 
   /**
+  * Update the rank of a single preference
+  *
+  * @param integer $prid Preference-ID
+  * @param integer $rank rank
+  * @return void
+  */
+  public function updateStatus($prid, $rank) {
+    $exec = DB::table('preferences')
+      ->where('prid', '=', $prid)
+      ->update(array('rank' => $rank));
+  }
+
+  /**
   * Reset (status = -1) all offers (rank = 1) created by uncoordianted programs. This method is called during the findMatchings() process, to differ between successfull and denied offers
   *
   * @return void
   */
-  public function resetUncoordinated() {
+  public function resetUncoordinatedOffers() {
     $nonactive = DB::table('preferences')
       ->where('pr_kind', 3)
       ->where('rank', '=', 1)
