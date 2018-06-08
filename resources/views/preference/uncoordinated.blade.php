@@ -29,7 +29,7 @@
 
     <br>
 
-@if (count($offers) > 0)
+
     <h3>Offers</h3>
 
     <table class="table" id="offers">
@@ -43,6 +43,7 @@
           </tr>
       </thead>
       <tbody>
+        @if (count($offers) > 0)
         @foreach($availableApplicants as $applicant)
             @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] > 0 && $offers[$applicant->aid]['rank'] == 1)
               @if ($applicant->status == 26)
@@ -64,6 +65,7 @@
               @endif
             @endif
         @endforeach
+        @endif
       </tbody>
     </table>
 
@@ -74,37 +76,6 @@
         <div class="col-md-12">
 
     <h3>Waitlist</h3>
-
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $("input[name=_token]").val()
-            }
-        });
-
-        $(function() {
-          $('#sortable').sortable({
-            axis: 'y',
-            update: function (event, ui) {
-              $("span.rank").text(function() {
-                return $(this).parent().index("tr")+1;
-              });
-              var order = $(this).sortable('serialize');
-              var _token = $("input[name=_token]").val();
-              var data = {"order": order, "_token": _token};
-              $.ajax({
-                data: data,
-                type: 'POST',
-                url: '/preference/program/uncoordinated/reorder/{{$preferences[0]->id_from}}',
-                success: function(data) {
-                  console.log(data);
-                }
-              });
-            }
-          })
-          $( "#sortable" ).disableSelection();
-        });
-    </script>
 
     <table class="table" id="waitlist">
       <thead>
@@ -119,6 +90,38 @@
           </tr>
       </thead>
       <tbody id="sortable">
+        @if (count($offers) > 0)
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $("input[name=_token]").val()
+                }
+            });
+
+            $(function() {
+              $('#sortable').sortable({
+                axis: 'y',
+                update: function (event, ui) {
+                  $("span.rank").text(function() {
+                    return $(this).parent().index("tr")+1;
+                  });
+                  var order = $(this).sortable('serialize');
+                  var _token = $("input[name=_token]").val();
+                  var data = {"order": order, "_token": _token};
+                  $.ajax({
+                    data: data,
+                    type: 'POST',
+                    url: '/preference/program/uncoordinated/reorder/{{$preferences[0]->id_from}}',
+                    success: function(data) {
+                      console.log(data);
+                    }
+                  });
+                }
+              })
+              $( "#sortable" ).disableSelection();
+            });
+        </script>
+
         {{ csrf_field() }}
         @foreach($offers as $offer)
           @if ($offer['id'] > 0 && $offer['rank'] > 1 && $availableApplicants->where('aid', '=', $offer['id_to'])->first()->status != 26)
@@ -155,10 +158,9 @@
           </tr>
           @endif
         @endforeach
+        @endif
       </tbody>
     </table>
-
-@endif
 
     <hr class="mb-4">
 
