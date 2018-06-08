@@ -274,7 +274,7 @@ class PreferenceController extends Controller
 
       //sort offers: https://stackoverflow.com/questions/2699086/sort-multi-dimensional-array-by-value
       usort($offers, function($a, $b) {
-        return $a['order'] <=> $b['order'];
+        return $a['rank'] <=> $b['rank'];
       });
 
       return view('preference.uncoordinated', array('program' => $program,
