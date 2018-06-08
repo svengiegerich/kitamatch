@@ -141,17 +141,6 @@ class MatchingController extends Controller
                                    'student' => $student
                                  ]);
 
-      //check if it's the final match
-      if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
-        $matchRequest->request->add(['status' => 32]);
-        $this->store($matchRequest);
-        //set applicant status to matched
-        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student']);
-      } else {
-        $matchRequest->request->add(['status' => 31]);
-        $this->store($matchRequest);
-      }
-
       //check if program is uncoordinated
       $coordination = $Program->isCoordinated((int)$match['college']);
       if ($coordination == 0) {
@@ -162,6 +151,17 @@ class MatchingController extends Controller
             $Preference->updateRank($preference->prid, 1);
           }
         }
+      }
+
+      //check if it's the final match
+      if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
+        $matchRequest->request->add(['status' => 32]);
+        $this->store($matchRequest);
+        //set applicant status to matched
+        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student']);
+      } else {
+        $matchRequest->request->add(['status' => 31]);
+        $this->store($matchRequest);
       }
     }
 
