@@ -144,13 +144,14 @@
             @foreach($availableApplicants as $applicant)
             @if ( !(array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] != -1) )
             <tr
-                <?php
-                  if (array_key_exists($applicant->aid, $offers)) {
-                    if ($offers[$applicant->aid]['id'] == -1) {
-                      echo 'class="table-danger"';
-                    }
-                  }
-                ?>
+                  @if (array_key_exists($applicant->aid, $offers))
+                    @if ($offers[$applicant->aid]['id'] == -1)
+                      class="table-danger"
+                    @endif
+                  @endif
+                  @if ($applicant->status == 26)
+                    class="table-danger"
+                  @endif
                 >
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                 <td>{{$applicant->first_name}}</td>
