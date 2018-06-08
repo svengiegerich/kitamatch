@@ -155,7 +155,6 @@ class MatchingController extends Controller
       //check if program is uncoordinated
       $coordination = $Program->isCoordinated((int)$match['college']);
       if ($coordination == 0) {
-
         $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
         foreach ($preferencesUncoordinated as $preference) {
           if ($preference->id_to == (int)$match['student']) {
