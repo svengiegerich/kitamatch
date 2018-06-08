@@ -92,7 +92,7 @@
               $.ajax({
                 data: data,
                 type: 'POST',
-                url: '/preference/program/uncoordinated/reorder/{{$preferences->first()->id_from}}',
+                url: '/preference/program/uncoordinated/reorder/pid}}',
                 success: function(data) {
                   console.log(data);
                 }
