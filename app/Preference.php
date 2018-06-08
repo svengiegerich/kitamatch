@@ -62,9 +62,9 @@ class Preference extends Model
       ->where('rank', '=', 1)
       ->join('applicants', function ($join) {
         $join->on('preferences.id_to', '=', 'applicants.aid')
-        ->whereIn('applicants.status', [22, 25, 26]);
+        ->whereIn('applicants.status', [22, 25]);
       })
-    ->update(array('preferences.status' => -1));
+      ->update(array('preferences.status' => -1));
   }
 
   /**
