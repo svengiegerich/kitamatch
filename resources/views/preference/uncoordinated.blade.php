@@ -92,7 +92,6 @@
               var order = $(this).sortable('serialize');
               var _token = $("input[name=_token]").val();
               var data = {"order": order, "_token": _token};
-              console.log(data);
               $.ajax({
                 data: data,
                 type: 'POST',

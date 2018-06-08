@@ -350,7 +350,7 @@ class PreferenceController extends Controller
       $preference->save();
     }
     return response()->json([
-      'success' => true
+      'success' => $applicants['item']
     ]);
   }
 
