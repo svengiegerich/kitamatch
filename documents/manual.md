@@ -35,7 +35,7 @@ The database scheme and the EER-Diagram have been created with MySQLWorkbench (h
 
 #### Factories
 There are factories defined to sample test data for the app.
-To sample new ones: `php artisan db:seed`
+To sample new ones: `php artisan migrate:refresh --seed`
 (After edits in `factories` or `seeds`, please run `composer dump-autoload` for changes to take place)
 
 #### Changes in .env
