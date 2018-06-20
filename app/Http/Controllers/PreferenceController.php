@@ -192,7 +192,7 @@ class PreferenceController extends Controller
   }
 
 
-  function cmp($a, $b)
+  public function cmp($a, $b)
   {
       if ($a['status'] == $b['status']) {
           return 0;
