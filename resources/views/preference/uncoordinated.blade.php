@@ -259,7 +259,7 @@
       )
     <tr
           @if (array_key_exists($applicant->aid, $offers))
-            @if ($offers[$applicant->aid]['id'] == -1)
+            @if ($offers[$applicant->aid]['status'] == -1)
               class="table-danger"
             @endif
           @endif
