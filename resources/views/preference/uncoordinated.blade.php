@@ -176,7 +176,7 @@
 
     <h3>Available Applicants</h3>
 
-    <table class="table" id="availableApplicantsTable">
+    <table class="table" id="availablcveApplicantsTable">
         <thead>
             <tr>
                 <th>ID</th>
@@ -238,7 +238,7 @@
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h3>Available Applicants</h3>
+    <h3>Available Applicants 2</h3>
 
     <table class="table" id="availableApplicantsTable">
         <thead>
