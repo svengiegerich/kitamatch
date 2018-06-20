@@ -45,7 +45,7 @@ class CriteriumController extends Controller
   */
   public function showByProvider($p_id) {
     $criteria = Criterium::where('p_id', '=', $p_id)
-      ->orderBy('rank', 'asc')
+      ->orderBy('rank', 'desc')
       ->get();
     //no criteria found, duplicate default criteria -> store, with store_type = 1
     if (!($criteria->first())) {
@@ -56,7 +56,7 @@ class CriteriumController extends Controller
                              'program' => 0]);
       $this->store($request);
       $criteria = Criterium::where('p_id', '=', $p_id)
-        ->orderBy('rank', 'asc')
+        ->orderBy('rank', 'desc')
         ->get();
     }
     foreach ($criteria as $criterium) {
@@ -74,7 +74,7 @@ class CriteriumController extends Controller
   public function showByProgram($pid) {
     $criteria = Criterium::where('p_id', '=', $pid)
       ->where('program', '=', 1)
-      ->orderBy('rank', 'asc')
+      ->orderBy('rank', 'desc')
       ->get();
     //no criteria found, duplicate default criteria -> store, with store_type = 1
     if (!($criteria->first())) {
@@ -86,7 +86,7 @@ class CriteriumController extends Controller
       $this->storeByProgram($request);
       $criteria = Criterium::where('p_id', '=', $pid)
         ->where('program', '=', 1)
-        ->orderBy('rank', 'asc')
+        ->orderBy('rank', 'desc')
         ->get();
     }
     foreach ($criteria as $criterium) {
