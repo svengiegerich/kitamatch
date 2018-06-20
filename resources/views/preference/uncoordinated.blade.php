@@ -24,6 +24,8 @@
 
     <h4>Program {{$program->name}} - uncoordinated process</h4>
 
+    <br>
+
     <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
 
     <br>
