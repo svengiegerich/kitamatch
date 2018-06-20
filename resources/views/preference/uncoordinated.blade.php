@@ -188,7 +188,9 @@
         </thead>
         <tbody>
             @foreach($availableApplicants as $applicant)
-            @if ( true)
+            @if (
+              !array_key_exists($applicant->aid, $offers)
+            )
             <tr
 
                 >
