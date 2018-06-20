@@ -181,10 +181,9 @@ class Preference extends Model
         //no guardian -> order = 10000, to order asc
         $applicant->order = 0;
       }
-
       //highly important applicants
       if ($applicant->status == 25) {
-        $applicant->order = -10;
+        $applicant->order = 10^10;
       }
     }
 
