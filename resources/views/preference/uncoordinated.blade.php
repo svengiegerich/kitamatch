@@ -261,7 +261,7 @@
           @if (
             !(array_key_exists($applicant->aid, $offers))
           )
-          @if(applicant->status != 26)
+          @if($applicant->status != 26)
           <tr
                 @if (array_key_exists($applicant->aid, $offers))
                   @if ($offers[$applicant->aid]['id'] == -1)
