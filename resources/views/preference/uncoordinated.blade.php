@@ -190,7 +190,7 @@
         </thead>
         <tbody>
     @foreach($availableApplicants as $applicant)
-    @if ( !(array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] != -1) )
+
     <tr
           @if (array_key_exists($applicant->aid, $offers))
             @if ($offers[$applicant->aid]['id'] == -1)
@@ -228,7 +228,6 @@
             @endif
         </td>
     </tr>
-    @endif
     @endforeach
 </tbody>
     </table>
