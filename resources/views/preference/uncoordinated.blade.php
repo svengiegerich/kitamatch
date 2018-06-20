@@ -15,9 +15,6 @@
       "pageLength": 100,
 
     } );
-
-  
-
   } );
 </script>
 
@@ -197,7 +194,6 @@
         </thead>
         <tbody>
     @foreach($availableApplicants as $applicant)
-
     <tr
           @if (array_key_exists($applicant->aid, $offers))
             @if ($offers[$applicant->aid]['id'] == -1)
@@ -260,21 +256,60 @@
             </tr>
         </thead>
         <tbody>
+
+          @foreach($availableApplicants as $applicant)
+          @if (
+            !array_key_exists($applicant->aid, $offers)
+          )
+          <tr
+                @if (array_key_exists($applicant->aid, $offers))
+                  @if ($offers[$applicant->aid]['id'] == -1)
+                    class="table-danger"
+                  @endif
+                @endif
+                @if ($applicant->status == 26)
+                  class="table-danger"
+                @endif
+              >
+              <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+              <td>{{$applicant->first_name}}</td>
+              <td>{{$applicant->last_name}}</td>
+              <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+              <td>{{$applicant->gender}}</td>
+              <td>
+                  <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
+                  @if ($applicant->status == 26)
+                      Matched
+                  @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
+                  <form action="/preference/program/uncoordinated/offer/{{$program->pid}}" method="POST">
+                      {{ csrf_field() }}
+                      <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                      <button>Offer</button>
+                  </form>
+                  @endif
+              </td>
+              <td>
+                  @if ($applicant->status != 26 && !((array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] == -1)) )
+                  <form action="/preference/program/uncoordinated/waitlist/{{$program->pid}}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                    <button>Waitlist</button>
+                  </form>
+                  @endif
+              </td>
+          </tr>
+          @endif
+          @endforeach
+
+
     @foreach($availableApplicants as $applicant)
     @if (
       ( array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] != 1 ) or
       ( $applicant->status == 26 && !array_key_exists($applicant->aid, $offers) )
       )
     <tr
-          @if (array_key_exists($applicant->aid, $offers))
-            @if ($offers[$applicant->aid]['status'] == -1)
-              class="table-danger"
-            @endif
-          @endif
-          @if ($applicant->status == 26)
-            class="table-danger"
-          @endif
-        >
+      class="table-danger"
+      >
         <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
         <td>{{$applicant->first_name}}</td>
         <td>{{$applicant->last_name}}</td>
