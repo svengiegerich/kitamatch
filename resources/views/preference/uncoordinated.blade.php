@@ -8,8 +8,31 @@
   $(document).ready( function () {
     $('#availableApplicantsTable').DataTable( {
       "aaSorting": [],
-      "pageLength": 100
+      "pageLength": 100,
+
     } );
+
+    var i,
+      table = $('table'),
+      rows = $('tr'),
+      classes = [];
+
+  // build an array from the 2nd item in the class list on each row
+
+  rows.each(function(i, e) {
+      classes.push(e.className.split(' ')[1]);
+  });
+
+  // sort the array
+
+  classes.sort();
+
+  // reorganize the rows by adding each one again to the table, in the order of the
+  // sorted class list. ("Adding" it with jquery append will move it to the end).
+
+  for (i = 0; i < classes.length; i++) {
+      table.append(table.find('tr.' + classes[i]));
+  }
   } );
 </script>
 
@@ -186,15 +209,17 @@
         </thead>
         <tbody>
             @foreach($availableApplicants as $applicant)
-            @if ( !(array_key_exists($applicant->aid, $offers) and $offers[$applicant->aid]['id'] != -1) )
+            @if ( !(array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] != -1) )
             <tr
                   @if (array_key_exists($applicant->aid, $offers))
                     @if ($offers[$applicant->aid]['id'] == -1)
-                      class="table-danger"
+                      class="table-danger 2"
                     @endif
                   @endif
                   @if ($applicant->status == 26)
-                    class="table-danger"
+                    class="table-danger 2"
+                  @else
+                    class="table-info 1"
                   @endif
                 >
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
