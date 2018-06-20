@@ -12,27 +12,10 @@
 
     } );
 
-    var i,
-      table = $('table'),
-      rows = $('tr'),
-      classes = [];
-
-  // build an array from the 2nd item in the class list on each row
-
-  rows.each(function(i, e) {
-      classes.push(e.className.split(' ')[1]);
-  });
-
-  // sort the array
-
-  classes.sort();
-
-  // reorganize the rows by adding each one again to the table, in the order of the
-  // sorted class list. ("Adding" it with jquery append will move it to the end).
-
-  for (i = 0; i < classes.length; i++) {
-      table.append(table.find('tr.' + classes[i]));
-  }
+    $("#availableApplicantsTable").append($("tr").get().sort(function(a, b) {
+    return parseInt($(a).attr("class").match(/\d+/), 10)
+         - parseInt($(b).attr("class").match(/\d+/), 10);
+    }));
   } );
 </script>
 
@@ -213,13 +196,11 @@
             <tr
                   @if (array_key_exists($applicant->aid, $offers))
                     @if ($offers[$applicant->aid]['id'] == -1)
-                      class="table-danger 2"
+                      class="1 table-danger"
                     @endif
                   @endif
                   @if ($applicant->status == 26)
-                    class="table-danger 2"
-                  @else
-                    class="table-info 1"
+                    class="1 table-danger"
                   @endif
                 >
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
