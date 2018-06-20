@@ -21,7 +21,6 @@
   @endif
 
   <div class="row justify-content-center">
-      <div class="col-md-12">
 
     <h4>Program {{$program->name}} - uncoordinated process</h4>
 
@@ -29,6 +28,7 @@
 
     <br>
 
+    <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
     <h3>Offers</h3>
 
@@ -70,10 +70,9 @@
     </table>
 
 </div></div>
-    <hr class="mb-4">
 
-    <div class="row justify-content-center">
-        <div class="col-md-12">
+<div class="row justify-content-center">
+  <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
     <h3>Waitlist</h3>
 
@@ -85,7 +84,6 @@
               <th>Last name</th>
               <th>Birthday</th>
               <th>Gender</th>
-              <th>&nbsp;</th>
               <th>&nbsp;</th>
           </tr>
       </thead>
@@ -143,8 +141,7 @@
                     <button>Offer</button>
                 </form>
                 @endif
-            </td>
-            <td>
+
                 @if ($offers[$applicant->aid]['id'] > 0
                   && $applicant->status != 26
                   && $offers[$applicant->aid]['delete'])
@@ -162,12 +159,10 @@
       </tbody>
     </table>
 
-    <hr class="mb-4">
-
 </div></div>
 
 <div class="row justify-content-center">
-    <div class="col-md-12">
+    <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
     <h3>Available Applicants</h3>
 
