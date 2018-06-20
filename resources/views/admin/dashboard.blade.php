@@ -2,7 +2,7 @@
 
 @section('content')
 
-<?php echo pow(2,6);?>
+<?php echo pow(2,0);?>
 
 <script>
   $(document).ready( function () {
