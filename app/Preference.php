@@ -183,7 +183,7 @@ class Preference extends Model
       }
       //highly important applicants
       if ($applicant->status == 25) {
-        $applicant->order = 10^10;
+        $applicant->order = 2^10;
       }
     }
 
@@ -198,7 +198,6 @@ class Preference extends Model
       }
       return $a->order < $b->order ? +1 : -1;
     });
-    dd($applicants);
     return $applicants;
   }
 
