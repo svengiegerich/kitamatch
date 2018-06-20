@@ -191,6 +191,15 @@ class PreferenceController extends Controller
     return $preference;
   }
 
+
+  function cmp($a, $b)
+  {
+      if ($a['status'] == $b['status']) {
+          return 0;
+      }
+      return ($a['status'] < $b['status']) ? -1 : 1;
+  }
+
   /**
   * Show all preferences of a program on a view
   *
@@ -237,6 +246,7 @@ class PreferenceController extends Controller
               $offers[$applicant->aid]['rank'] = $preference->rank;
               $offers[$applicant->aid]['id_to'] = $preference->id_to;
               $offers[$applicant->aid]['id_from'] = $preference->id_from;
+              $offers[$applicant->aid]['status'] = $preference->status;
                 //you can remove your offer for a window of 10h
                 if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
                   $offers[$applicant->aid]['delete'] = true;
@@ -250,10 +260,10 @@ class PreferenceController extends Controller
                 $countWaitlist++;
               }
 
-              } else if ($preference->status == -1) {
-                $offers[$applicant->aid]['id'] = -1;
-              }
+            } else if ($preference->status == -1) {
+              $offers[$applicant->aid]['id'] = -1;
             }
+          }
         }
       }
       $program->openOffers = $openOffers;
@@ -272,6 +282,7 @@ class PreferenceController extends Controller
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
+      usort($offers, "cmp");
 
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
@@ -280,7 +291,6 @@ class PreferenceController extends Controller
                   );
     }
   }
-
 
   /**
   * Add a preference by program

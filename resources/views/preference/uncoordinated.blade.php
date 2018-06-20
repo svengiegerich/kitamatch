@@ -22,11 +22,7 @@
 
   <div class="row justify-content-center">
 
-    <h4>Program {{$program->name}} - uncoordinated process</h4>
-
-    <br>
-
-    <h6>Capacity: {{$program->openOffers}}/{{$program->capacity}}</h6>
+    <h4>Program {{$program->name}} - Capacity: {{$program->openOffers}}/{{$program->capacity}}</h4>
 
     <br>
 
