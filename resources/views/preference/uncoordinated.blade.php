@@ -292,6 +292,3 @@
 </div>
 
 @endsection
-
-
-<?php print_r($availableApplicants);?>
