@@ -259,9 +259,9 @@
 
           @foreach($availableApplicants as $applicant)
           @if (
-            !(array_key_exists($applicant->aid, $offers)) or
-            $applicant->status != 26
+            !(array_key_exists($applicant->aid, $offers))
           )
+          @if(applicant->status != 26)
           <tr
                 @if (array_key_exists($applicant->aid, $offers))
                   @if ($offers[$applicant->aid]['id'] == -1)
@@ -299,6 +299,7 @@
                   @endif
               </td>
           </tr>
+          @endif
           @endif
           @endforeach
 
