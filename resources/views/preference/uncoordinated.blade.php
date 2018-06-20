@@ -44,7 +44,7 @@
 
         @foreach ($offers as $aid => $offer)
           @if ($offer['id'] > 0 && $offer['rank'] == 1)
-            <?php $applicant = $availableApplicants::find($aid); ?>
+            <?php $applicant = $availableApplicants::where($aid); ?>
             @if ($applicant->status == 26)
               <tr class="table-success" data-sort="1">
                 <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
