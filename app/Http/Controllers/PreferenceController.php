@@ -268,7 +268,7 @@ public function cmp($a, $b)
 
             } else if ($preference->status == -1) {
               $offers[$applicant->aid]['id'] = -1;
-              $offers[$applicant->aid]['status'] = -1;
+              $offers[$applicant->aid]['final'] = -1;
             }
           }
         }
