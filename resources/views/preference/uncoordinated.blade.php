@@ -189,8 +189,7 @@
         <tbody>
             @foreach($availableApplicants as $applicant)
             @if ( !(array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] != -1) &&
-              array_key_exists($applicant->aid, $offers) &&
-              $offers[$applicant->aid]['id'] != -1 &&
+              !array_key_exists($applicant->aid, $offers)
               $applicant->status != 26
               )
             <tr
