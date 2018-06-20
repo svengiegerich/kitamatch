@@ -228,7 +228,6 @@
                     <input type="hidden" name="aid" value="{{$applicant->aid}}">
                     <button>Waitlist</button>
                   </form>
-                  @endif
               </td>
           </tr>
           @endif
