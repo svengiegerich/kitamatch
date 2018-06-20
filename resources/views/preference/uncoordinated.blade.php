@@ -45,7 +45,7 @@
         @foreach($availableApplicants as $applicant)
             @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] > 0 && $offers[$applicant->aid]['rank'] == 1)
               @if ($applicant->status == 26)
-                <tr class="table-success" data-sort="1">
+                <tr class="table-success" data-order="1">
                   <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
@@ -53,7 +53,7 @@
                   <td>{{$applicant->gender}}</td>
                 </tr>
               @elseif ($offers[$applicant->aid]['rank'] == 1)
-              <tr class="table-info" data-sort="2">
+              <tr class="table-info" data-order="2">
                 <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
