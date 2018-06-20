@@ -16,11 +16,7 @@
 
     } );
 
-    $('#ad').DataTable( {
-      "aaSorting": [],
-      "pageLength": 100,
-
-    } );
+  
 
   } );
 </script>
