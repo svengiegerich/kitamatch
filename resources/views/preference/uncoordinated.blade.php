@@ -227,7 +227,7 @@
 
             @foreach($availableApplicants as $applicant)
             <!-- -->
-            @if (array_key_exists($applicant->aid, $offers) && ($offers[$applicant->aid]['id'] == -1 and $applicant->status == 26))
+            @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] == -1)
             <tr
                   class="table-danger"f
                 >
