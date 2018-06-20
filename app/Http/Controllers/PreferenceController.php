@@ -244,11 +244,11 @@ class PreferenceController extends Controller
               }
 
                 //you can remove your offer for a window of 10h
-                /*if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
+                if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
                   $offers[$applicant->aid]['delete'] = true;
                 } else {
                   $offers[$applicant->aid]['delete'] = false;
-                }*/
+                }
 
               if ($preference->rank == 1) {
                 $openOffers++;
