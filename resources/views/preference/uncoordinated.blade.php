@@ -46,7 +46,21 @@
             @if ($offer['id'] > 0 && $offer['rank'] == 1)
               <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
               @if ($applicant->status == 26)
-                <tr class="table-success" data-sort="1">
+                <tr class="table-success">
+                  <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+                  <td>{{$applicant->first_name}}</td>
+                  <td>{{$applicant->last_name}}</td>
+                  <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                  <td>{{$applicant->gender}}</td>
+                </tr>
+              @endif
+            @endif
+          @endforeach
+          @foreach ($offers as $aid => $offer)
+            @if ($offer['id'] > 0 && $offer['rank'] == 1)
+              <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
+              @if ($applicant->status != 26)
+                <tr class="table-info">
                   <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>

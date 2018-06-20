@@ -191,16 +191,6 @@ class PreferenceController extends Controller
     return $preference;
   }
 
-
-public function cmp($a, $b)
-  {
-      if ($a['final'] == $b['final']) {
-          return 0;
-      }
-      return ($a['final'] < $b['final']) ? -1 : 1;
-  }
-
-
   /**
   * Show all preferences of a program on a view
   *
@@ -288,9 +278,6 @@ public function cmp($a, $b)
                 }
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
-
-dd($offers);
-usort($offers, array($this, "cmp"));
 
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
