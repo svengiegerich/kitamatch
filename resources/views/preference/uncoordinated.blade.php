@@ -85,6 +85,7 @@
               <th>Birthday</th>
               <th>Gender</th>
               <th>&nbsp;</th>
+              <th>&nbsp;</th>
           </tr>
       </thead>
       <tbody id="sortable">
@@ -141,7 +142,7 @@
                     <button>Offer</button>
                 </form>
                 @endif
-
+              </td><td>
                 @if ($offers[$applicant->aid]['id'] > 0
                   && $applicant->status != 26
                   && $offers[$applicant->aid]['delete'])
