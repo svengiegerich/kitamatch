@@ -47,7 +47,7 @@
       <tbody>
         @if (count($offers) > 0)
           @foreach ($offers as $aid => $offer)
-            @if ($offer['id'] > 0 && $offer['rank'] == 1)
+            @if ($offer['status'] != -1 && $offer['rank'] == 1)
               <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
               @if ($applicant->status == 26)
                 <tr class="table-success">
