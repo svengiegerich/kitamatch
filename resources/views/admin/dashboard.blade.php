@@ -2,8 +2,6 @@
 
 @section('content')
 
-<?php echo pow(2,0);?>
-
 <script>
   $(document).ready( function () {
     $('#matches').DataTable( {
