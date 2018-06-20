@@ -53,6 +53,14 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
               </tr>
+            @elseif ($offer['rank'] == 1)
+              <tr class="table-info" data-sort="2">
+                <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+                <td>{{$applicant->first_name}}</td>
+                <td>{{$applicant->last_name}}</td>
+                <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                <td>{{$applicant->gender}}</td>
+              </tr>
             @endif
           @endif
         @endforeach
