@@ -16,6 +16,12 @@
 
     } );
 
+    $('#ad').DataTable( {
+      "aaSorting": [],
+      "pageLength": 100,
+
+    } );
+
   } );
 </script>
 
@@ -181,7 +187,7 @@
 
     <h3>Available Applicants</h3>
 
-    <table class="table" id="availablcveApplicantsTable">
+    <table class="table" id="ad">
         <thead>
             <tr>
                 <th>ID</th>
