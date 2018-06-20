@@ -67,6 +67,15 @@ class Preference extends Model
       ->update(array('preferences.status' => -1));
   }
 
+  public function resetAllUncoordnatedQueuesByApplicant($aid, $pid) {
+    $nonactive = DB::table('preferences')
+      ->where('pr_kind', '=', 3)
+      ->where('rank', '>', 1)
+      ->where('id_to', '=', $aid)
+      ->where('id_from', '!=', $pid)
+      ->update(array('status' => -1));
+  }
+
   /**
   * Does the program has any active (status = 1) preferences?
   *

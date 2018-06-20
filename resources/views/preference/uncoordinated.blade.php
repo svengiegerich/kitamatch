@@ -132,7 +132,10 @@
 
         {{ csrf_field() }}
         @foreach($offers as $offer)
-          @if ($offer['status'] != -1 && $offer['rank'] > 1 && $availableApplicants->where('aid', '=', $offer['id_to'])->first()->status != 26)
+          @if ($offer['status'] != -1 &&
+           $offer['rank'] > 1 &&
+           $availableApplicants->where('aid', '=', $offer['id_to'])->first()->status != 26
+          )
           <tr id="item-<?php
             $applicant = $availableApplicants->where('aid', '=', $offer['id_to'])->first();
             $key = array_search($applicant->aid, array_column($preferences, 'id_to'));
