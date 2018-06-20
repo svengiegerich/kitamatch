@@ -248,11 +248,11 @@ class PreferenceController extends Controller
               $offers[$applicant->aid]['id_from'] = $preference->id_from;
               $offers[$applicant->aid]['status'] = $preference->status;
                 //you can remove your offer for a window of 10h
-                if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
+                /*if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
                   $offers[$applicant->aid]['delete'] = true;
                 } else {
                   $offers[$applicant->aid]['delete'] = false;
-                }
+                }*/
 
               if ($preference->rank == 1) {
                 $openOffers++;
@@ -262,6 +262,7 @@ class PreferenceController extends Controller
 
             } else if ($preference->status == -1) {
               $offers[$applicant->aid]['id'] = -1;
+              $offers[$applicant->aid]['status'] = $preference->status;
             }
           }
         }
@@ -282,7 +283,9 @@ class PreferenceController extends Controller
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-      usort($offers, array($this, "cmp"));
+      //usort($offers, array($this, "cmp"));
+
+      $availableApplicants = $availableApplicants->sortBy('status');
 
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
