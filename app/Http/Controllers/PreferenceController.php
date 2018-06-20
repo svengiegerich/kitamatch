@@ -237,6 +237,7 @@ class PreferenceController extends Controller
               $offers[$applicant->aid]['rank'] = $preference->rank;
               $offers[$applicant->aid]['id_to'] = $preference->id_to;
               $offers[$applicant->aid]['id_from'] = $preference->id_from;
+              $offers[$applicant->aid]['status'] = $preference->status;
               if ($applicant->status == 26) {
                 $offers[$applicant->aid]['final'] = 1;
               } else {
