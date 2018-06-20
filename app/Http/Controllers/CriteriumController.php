@@ -105,8 +105,7 @@ class CriteriumController extends Controller
     $criteriaIds = $request->all();
     //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
     parse_str($request->order, $criteria);
-    $maxIndex = 10;
-    //$maxIndex = max(array_keys($criteria['item']))+1; //from 0
+    $maxIndex = max(array_keys($criteria['item']))+1; //from 0
     foreach ($criteria['item'] as $index => $criteriumId) {
         $criterium = Criterium::find($criteriumId);
         $criterium->rank = ($maxIndex - $index + 1);
