@@ -13,6 +13,15 @@
   } );
 </script>
 
+<script>
+$('tr').sort(function (a, b) {
+
+     var contentA =parseInt( $(a).attr('data-sort'));
+     var contentB =parseInt( $(b).attr('data-sort'));
+     return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+  })
+</script>
+
 <div class="panel-body">
   @if (count($availableApplicants) == 0)
   <div class="alert alert-warning" role="alert">
@@ -45,16 +54,16 @@
         @foreach($availableApplicants as $applicant)
             @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['id'] > 0 && $offers[$applicant->aid]['rank'] == 1)
               @if ($applicant->status == 26)
-                <tr class="table-success">
-                  <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}" data-order="1">{{$applicant->aid}}</a></th>
+                <tr class="table-success" data-sort="1">
+                  <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
                 </tr>
               @elseif ($offers[$applicant->aid]['rank'] == 1)
-              <tr class="table-info">
-                <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}" data-order="2">{{$applicant->aid}}</a></th>
+              <tr class="table-info" data-sort="2">
+                <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
