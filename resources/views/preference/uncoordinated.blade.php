@@ -255,7 +255,7 @@
         <tbody>
     @foreach($availableApplicants as $applicant)
     @if (
-      (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid] != 1)
+      (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] != 1)
       )
     <tr
           @if (array_key_exists($applicant->aid, $offers))

@@ -257,8 +257,9 @@ class PreferenceController extends Controller
               }
 
             } else if ($preference->status == -1) {
-              $offers[$applicant->aid]['id'] = -1;
+              $offers[$applicant->aid]['id'] = $preference->prid;
               $offers[$applicant->aid]['final'] = -1;
+              $offers[$applicant->aid]['status'] = -1;
             }
           }
         }
