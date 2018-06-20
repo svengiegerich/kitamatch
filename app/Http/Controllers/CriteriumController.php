@@ -108,7 +108,7 @@ class CriteriumController extends Controller
     $maxIndex = max(array_keys($criteria['item']))+1; //from 0
     foreach ($criteria['item'] as $index => $criteriumId) {
         $criterium = Criterium::find($criteriumId);
-        $criterium->rank = pow(2, ($maxIndex - $index + 1));
+        $criterium->rank = ($maxIndex - $index + 1);
         $criterium->save();
     }
     return response()->json([
