@@ -59,7 +59,7 @@
           @foreach ($offers as $aid => $offer)
             @if ($offer['id'] > 0 && $offer['rank'] == 1)
               <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
-              @if ($applicant->status == 26)
+              @if ($applicant->status != 26)
                 <tr class="table-info">
                   <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
                   <td>{{$applicant->first_name}}</td>
