@@ -2,10 +2,6 @@
 
 @section('content')
 
-<?php count($availableApplicants);?>
-
-<?php print_r($availableApplicants);?>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <script>
@@ -296,3 +292,6 @@
 </div>
 
 @endsection
+
+
+<?php print_r($availableApplicants);?>
