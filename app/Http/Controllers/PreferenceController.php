@@ -289,7 +289,7 @@ public function cmp($a, $b)
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-usort($offers, "cmp");
+usort($offers, array($this, "cmp"));
 
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
