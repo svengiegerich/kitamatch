@@ -249,6 +249,9 @@
         <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
         <td>{{$applicant->gender}}</td>
         <td>
+          @if ($applicant->status == 26)
+              Matched
+          @endif
         </td>
         <td>
         </td>
