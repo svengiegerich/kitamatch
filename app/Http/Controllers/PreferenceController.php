@@ -282,7 +282,7 @@ class PreferenceController extends Controller
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-      usort($offers, array("PreferenceController", "cmp"));
+      usort($offers, array($this, "cmp"));
 
       return view('preference.uncoordinated', array('program' => $program,
                                                     'availableApplicants' => $availableApplicants,
