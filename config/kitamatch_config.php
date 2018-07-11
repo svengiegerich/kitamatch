@@ -14,10 +14,10 @@ return [
 
 
   //seeds
-  'count_applicants' => 100,
-  'count_programs' => 10,
+  'count_applicants' => 80,
+  'count_programs' => 6,
   'count_providers' => 3,
-  'count_guardians' => 60,
+  'count_guardians' => 80,
   'count_users' => 10,
 
 ];

@@ -3,7 +3,7 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Program::class, function (Faker $faker) {
-  $random = rand(1, 10);
+  /*$random = rand(1, 10);
   //70% for public, 30% for private programs
   if ($random <= 7) {
     //public
@@ -13,7 +13,10 @@ $factory->define(App\Program::class, function (Faker $faker) {
     //privaten
     $p_kind = 2;
     $coordination = 0;
-  }
+  }*/
+
+  $p_kind = 2;
+  $coordination = 0;
 
   return [
     'name' => $faker->company,
