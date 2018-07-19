@@ -98,7 +98,7 @@ class MatchingController extends Controller
 
     //null=4
     if (!(strlen(json_encode($input))>5)) {
-      //return redirect()->action('AdminController@index');
+      return redirect()->action('AdminController@index');
     }
     print_r(json_encode($input));
     echo "<br><br><br><br><br><br>";
@@ -356,6 +356,8 @@ class MatchingController extends Controller
       }
     }
     $json["college_capacity"] = $capacityList;
+
+    print_r($json);
 
     return ($json);
   }
