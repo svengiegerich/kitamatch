@@ -280,8 +280,6 @@ class MatchingController extends Controller
       return;
     }
 
-    print_r($json["student_prefs"]);
-
     //--------------------
     //capacity
     $capacityPreList = array();
@@ -327,6 +325,9 @@ class MatchingController extends Controller
         }
       }
     }
+
+    print_r($preferencesPrograms);
+
     //2: add the programs that take the uncoordinated way
     foreach ($programsU as $program) {
       if (array_key_exists($program->pid, $capacityPreList)) {
