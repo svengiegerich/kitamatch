@@ -93,13 +93,12 @@ class MatchingController extends Controller
     $Preference = new Preference;
     $Matching = new Matching;
 
-    print_r("tey");
 
     $input = $this->prepareMatching();
 
     //null=4
     if (!(strlen(json_encode($input))>5)) {
-      return redirect()->action('AdminController@index');
+      //return redirect()->action('AdminController@index');
     }
     print_r(json_encode($input));
     echo "<br><br><br><br><br><br>";
