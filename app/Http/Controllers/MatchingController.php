@@ -225,7 +225,7 @@ class MatchingController extends Controller
     }*/
     //return redirect()->action('AdminController@index');
 
-    
+
   }
 
 
@@ -279,6 +279,8 @@ class MatchingController extends Controller
       //there are no valid students listed, so abort
       return;
     }
+
+    print_r($applicants);
 
     //--------------------
     //capacity
@@ -358,8 +360,6 @@ class MatchingController extends Controller
       }
     }
     $json["college_capacity"] = $capacityList;
-
-    print_r($json);
 
     return ($json);
   }
