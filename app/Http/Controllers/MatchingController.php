@@ -93,9 +93,8 @@ class MatchingController extends Controller
     $Preference = new Preference;
     $Matching = new Matching;
 
-
     $input = $this->prepareMatching();
-    /*
+
     //null=4
     if (!(strlen(json_encode($input))>5)) {
       return redirect()->action('AdminController@index');
@@ -224,8 +223,6 @@ class MatchingController extends Controller
       }
     }*/
     //return redirect()->action('AdminController@index');
-
-
   }
 
 
@@ -325,9 +322,6 @@ class MatchingController extends Controller
         }
       }
     }
-
-    print_r($preferencesPrograms);
-
     //2: add the programs that take the uncoordinated way
     foreach ($programsU as $program) {
       if (array_key_exists($program->pid, $capacityPreList)) {
