@@ -280,7 +280,7 @@ class MatchingController extends Controller
       return;
     }
 
-    print_r($applicants);
+    print_r($json["student_prefs"]);
 
     //--------------------
     //capacity
