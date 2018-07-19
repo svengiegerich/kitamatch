@@ -93,9 +93,9 @@ class MatchingController extends Controller
     $Preference = new Preference;
     $Matching = new Matching;
 
-    $input = $this->prepareMatching();
+    print_r("tey");
 
-    print_r($input);
+    $input = $this->prepareMatching();
 
     //null=4
     if (!(strlen(json_encode($input))>5)) {
