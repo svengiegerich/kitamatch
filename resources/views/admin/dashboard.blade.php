@@ -86,8 +86,8 @@
             <tbody>
                 @foreach($matches as $match)
                     <tr>
-                      <td><a target="_blank" href="{{url('/preference/program/$match->pid')}}">{{$match->program_name}}</a></td>
-                      <td><a target="_blank" href="{{url('/preference/applicant/$match->aid')}}'">{{$match->applicant_name}}</a></td>
+                      <td><a target="_blank" href="{{url('/preference/program/' . $match->pid )}}">{{$match->program_name}}</a></td>
+                      <td><a target="_blank" href="{{url('/preference/applicant/' . $match->aid )}}'">{{$match->applicant_name}}</a></td>
                       <td>{{$match->status_text}}</td>
                     </tr>
                 @endforeach
