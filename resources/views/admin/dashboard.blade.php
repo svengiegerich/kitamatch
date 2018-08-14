@@ -73,7 +73,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
-        <h4>All {{count($matches)}} Zuordnungen:</h4>
+        <h4>Alle {{count($matches)}} Zuordnungen:</h4>
         <br>
         <table class="table" id="matches">
             <thead>
