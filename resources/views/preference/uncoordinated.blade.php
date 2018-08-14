@@ -72,7 +72,7 @@
                     <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
-                      <button>Angebot Löschen</button>
+                      <button>Zurücknehmen</button>
                     </form>
                   </td>
                 </tr>
