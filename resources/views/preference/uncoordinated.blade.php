@@ -39,6 +39,7 @@
               <th>Nachnamen</th>
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
+              <th>&nbsp;</th>
           </tr>
       </thead>
       <tbody>
@@ -67,6 +68,11 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
+                  <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button>Angebot Löschen</button>
+                  </form>
                 </tr>
               @endif
             @endif
