@@ -23,7 +23,7 @@
 
   <div class="row justify-content-center">
 
-    <h4>Program {{$program->name}} - Capacity: {{$program->openOffers}}/{{$program->capacity}}</h4>
+    <h4>Kita {{$program->name}} - Kapazität: {{$program->openOffers}}/{{$program->capacity}}</h4>
 
     <br>
 

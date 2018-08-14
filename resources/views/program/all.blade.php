@@ -12,7 +12,7 @@
 </script>
 <div class="row justify-content-center">
 <div class="col-md-8">
-<h2>List of Programs</h2>
+<h2>Liste alle Kitas</h2>
 </div>
 </div>
 
@@ -23,11 +23,11 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Capacity</th>
-            <th>Address</th>
+            <th>Freie Plätze</th>
+            <th>Adresse</th>
             <th>PLZ</th>
-            <th>Kind</th>
-            <th>Coordination</th>
+            <th>Öffentlich / Frei</th>
+            <th>Koordinierung</th>
             <th>Status</th>
             <th>&nbsp;</th>
         </tr>
@@ -48,7 +48,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <button>Delete</button>
+                        <button>Löschen</button>
                     </form>
                 </td>
             </tr>
