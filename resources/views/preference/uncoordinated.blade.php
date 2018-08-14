@@ -17,7 +17,7 @@
 <div class="panel-body">
   @if (count($availableApplicants) == 0)
   <div class="alert alert-warning" role="alert">
-    Right now there are no available applicants for your program.
+    Aktuell gibt sind noch keine Bewerber verfügbar.
   </div>
   @endif
 
@@ -29,16 +29,16 @@
 
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h3>Offers</h3>
+    <h3>Verbindliche Angebote</h3>
 
     <table class="table" id="offers">
       <thead>
           <tr>
               <th>ID</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Birthday</th>
-              <th>Gender</th>
+              <th>Vornamen</th>
+              <th>Nachnamen</th>
+              <th>Gebursdatum</th>
+              <th>Geschlecht</th>
           </tr>
       </thead>
       <tbody>
@@ -80,16 +80,16 @@
 <div class="row justify-content-center">
   <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h3>Waitlist</h3>
+    <h3>Warteliste</h3>
 
     <table class="table" id="waitlist">
       <thead>
           <tr>
               <th>ID</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Birthday</th>
-              <th>Gender</th>
+              <th>Vornamen</th>
+              <th>Nachnamen</th>
+              <th>Gebursdatum</th>
+              <th>Geschlecht</th>
               <th>&nbsp;</th>
               <th>&nbsp;</th>
           </tr>
@@ -148,7 +148,7 @@
                 <form action="/preference/program/uncoordinated/upoffer" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="prid" value="{{$offers[$applicant->aid]['id']}}">
-                    <button>Offer</button>
+                    <button>Angebot</button>
                 </form>
                 @endif
               </td><td>
@@ -158,7 +158,7 @@
                 <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
-                  <button>Delete</button>
+                  <button>Angebot Löschen</button>
                 </form>
                 @endif
             </td>
@@ -174,16 +174,16 @@
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h3>Available Applicants</h3>
+    <h3>Bewerber</h3>
 
     <table class="table" id="availableApplicantsTable">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Birthday</th>
-                <th>Gender</th>
+              <th>ID</th>
+              <th>Vornamen</th>
+              <th>Nachnamen</th>
+              <th>Gebursdatum</th>
+              <th>Geschlecht</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -218,7 +218,7 @@
                   <form action="/preference/program/uncoordinated/offer/{{$program->pid}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                      <button>Offer</button>
+                      <button>Angebot</button>
                   </form>
                   @endif
               </td>
@@ -226,7 +226,7 @@
                   <form action="/preference/program/uncoordinated/waitlist/{{$program->pid}}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                    <button>Waitlist</button>
+                    <button>Warteliste</button>
                   </form>
               </td>
           </tr>
@@ -250,7 +250,7 @@
         <td>{{$applicant->gender}}</td>
         <td>
           @if ($applicant->status == 26)
-              Matched
+              Schon vergeben
           @endif
         </td>
         <td>
@@ -269,9 +269,9 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <hr class="mb-4">
-        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Back to program</button></a>
+        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten</button></a>
         <hr class="mb-4">
-        <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Edit criteria</button></a>
+        <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
     </div>
 </div>
 
