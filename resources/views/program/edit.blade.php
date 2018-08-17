@@ -25,7 +25,7 @@
       </div>
       @endif
 
-        <h2>Edit your Program information</h2>
+        <h2>Stammdaten der Kita verwalten</h2>
 </div>
 </div>
 <div class="row justify-content-center">
@@ -41,19 +41,19 @@
             </div>
             <!-- Email but with user-table! -->
             <div class="form-group row">
-                <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
+                <label for="capacity" class="col-sm-2 col-form-label">Platzkapazität (freie Plätze)</label>
                 <div class="col-sm-10">
                   <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                <label for="phone" class="col-sm-2 col-form-label">Telefonnummer</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$program->phone}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <label for="address" class="col-sm-2 col-form-label">Adresse</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="{{$program->address}}">
                 </div>
@@ -63,7 +63,7 @@
                 <div class="col-sm-3">
                   <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$program->plz}}">
                 </div>
-                <label for="city" class="col-sm-2 col-form-label">City</label>
+                <label for="city" class="col-sm-2 col-form-label">Gemeinde</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$program->city}}">
                 </div>
@@ -81,7 +81,7 @@
             @endif
 
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Änderungen speichern</button>
         </form>
     </div>
 </div>
@@ -91,9 +91,9 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         @if ($program->coordination == 1)
-            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">See preferences</button></a>
+            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Rangliste einsehen</button></a>
         @else
-            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Make offers</button></a>
+            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zum Koordinierungsverfahren</button></a>
         @endif
 
         <!-- to do: add provider button if it has a provider-->
