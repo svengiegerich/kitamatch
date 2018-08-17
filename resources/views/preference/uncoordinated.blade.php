@@ -23,13 +23,13 @@
 
   <div class="row justify-content-center">
 
-    <h4>Kita {{$program->name}} - Kapazität: {{$program->openOffers}}/{{$program->capacity}}</h4>
+    <h4>Kita {{$program->name}} - Platzkapazität (freie Plätze): {{$program->openOffers}}/{{$program->capacity}}</h4>
 
     <br>
 
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h3>Verbindliche Angebote</h3>
+    <h3>Verbindliche Angebote der Kita </h3>
 
     <table class="table" id="offers">
       <thead>
@@ -182,7 +182,7 @@
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h3>Bewerber</h3>
+    <h3>Bewerberliste</h3>
 
     <table class="table" id="availableApplicantsTable">
         <thead>
@@ -277,7 +277,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <hr class="mb-4">
-        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten</button></a>
+        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
         <hr class="mb-4">
         <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
     </div>

@@ -12,7 +12,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-      <h2>Dashboard</h2>
+      <h2>Übersicht</h2>
 
       @if ($data['totalCapacity'] == count($matches))
       <div class="alert alert-success" role="alert">
@@ -30,9 +30,9 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{$data['applicantsVerified']}} <small class="text-muted">/ {{$data['applicantsCount']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Bewerber sind verifiziert</li>
+              <li>Bewerber sind bestätigt</li>
             </ul>
-            <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Berwerber verifizieren</button></a>
+            <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Berwerber</button></a>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -49,13 +49,13 @@
         </div>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Vergabe</h4>
+            <h4 class="my-0 font-weight-normal">Platzvergabe</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}} /</small> {{count($matches)}} <small class="text-muted">/ {{$data['totalCapacity']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Endgültig zugeordnet</li>
-              <li>Noch im Verfahren</li>
+              <li>Endgültig zugeordnet (intern)</li>
+              <li>Vorläufig zugeorndet (intern)</li>
               <li>Verfügbare Plätze</li>
             </ul>
             <a href="#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Zuteilung ansehen</button></a>
