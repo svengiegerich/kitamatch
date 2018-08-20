@@ -9,7 +9,9 @@
     $('#availableApplicantsTable').DataTable( {
       "aaSorting": [],
       "pageLength": 100,
-
+      "language": {
+                "url": "dataTables.german.lang"
+            },
     } );
   } );
 </script>
@@ -54,6 +56,7 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
+                  <td></td>
                 </tr>
               @endif
             @endif
@@ -85,7 +88,7 @@
 
 </div></div>
 
-<div class="row justify-content-center">
+<!--<div class="row justify-content-center">
   <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
     <h3>Warteliste</h3>
@@ -178,6 +181,7 @@
     </table>
 
 </div></div>
+-->
 
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
