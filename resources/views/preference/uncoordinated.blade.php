@@ -10,7 +10,7 @@
       "aaSorting": [],
       "pageLength": 100,
       "language": {
-                "url": "dataTables.german.lang"
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
             },
     } );
   } );
