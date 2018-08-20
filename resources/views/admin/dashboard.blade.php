@@ -5,7 +5,10 @@
 <script>
   $(document).ready( function () {
     $('#matches').DataTable( {
-      "pageLength": 50
+      "pageLength": 50,
+      "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
+            },
     } );
   } );
 </script>
