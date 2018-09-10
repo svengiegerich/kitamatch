@@ -233,7 +233,7 @@
                   <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                   @if ($applicant->status == 26)
                       Schon endtgültig vergeben
-                  @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
+                  @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers < $program->capacity))
                   <form action="/preference/program/uncoordinated/offer/{{$program->pid}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
