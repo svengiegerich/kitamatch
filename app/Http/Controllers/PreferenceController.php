@@ -373,7 +373,7 @@ class PreferenceController extends Controller
     $preference->rank = 1;
     $preference->save();
 
-    return redirect()->action('PreferenceController@showByProgram', 1);
+    return redirect()->action('PreferenceController@showByProgram', $preference->id_from);
   }
 
   /**
