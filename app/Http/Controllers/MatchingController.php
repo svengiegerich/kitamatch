@@ -302,6 +302,8 @@ class MatchingController extends Controller
       }
     }
 
+    print_r($capacityPreList);
+
     //--------------------
     //by program
     $preferencesPrograms = array();
@@ -356,7 +358,9 @@ class MatchingController extends Controller
     }
     $json["college_capacity"] = $capacityList;
 
+print("Capacity List:");
 print_r($capacityList);
+print("<br><br>");
 
     return ($json);
   }
