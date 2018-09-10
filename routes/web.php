@@ -59,7 +59,7 @@ Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgra
 Route::post('/preference/program/uncoordinated/offer/{pID}', 'PreferenceController@addOfferUncoordinatedProgram');
 Route::post('/preference/program/uncoordinated/waitlist/{pID}', 'PreferenceController@addWaitlistUncoordinatedProgram');
 Route::post('/preference/program/uncoordinated/reorder/{pID}', 'PreferenceController@reorderWaitlistByProgramAjax');
-Route::post('/preference/program/uncoordinated/upoffer', 'PreferenceController@updateOfferUncoordinatedProgram');
+Route::post('/preference/program/uncoordinated/upoffer/{pID}', 'PreferenceController@updateOfferUncoordinatedProgram');
 Route::delete('/preference/program/uncoordinated/{aID}', 'PreferenceController@deleteByProgram');
 // ------ All
 Route::get('/preference/all', 'PreferenceController@all');

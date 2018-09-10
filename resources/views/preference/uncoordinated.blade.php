@@ -163,7 +163,7 @@
             <td>{{$applicant->gender}}</td>
             <td>
                 @if ($program->openOffers < $program->capacity)
-                <form action="/preference/program/uncoordinated/upoffer" method="POST">
+                <form action="/preference/program/uncoordinated/upoffer/{{$program->id}}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="prid" value="{{$offers[$applicant->aid]['id']}}">
                     <button>Angebot</button>
