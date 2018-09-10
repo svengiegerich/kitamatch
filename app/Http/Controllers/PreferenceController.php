@@ -23,6 +23,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Preference;
 use App\Program;
+use App\Matching;
 use App\Applicant;
 use App\Traits\GetPreferences;
 
