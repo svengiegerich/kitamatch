@@ -231,6 +231,7 @@ class PreferenceController extends Controller
       //temp: easier?
       $offers = array();
       $openOffers = 0;
+      $successfullOffers = 0;
       $countWaitlist = 0;
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
@@ -244,16 +245,10 @@ class PreferenceController extends Controller
               $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
               if ($applicant->status == 26) {
                 $offers[$applicant->aid]['final'] = 1;
+                $successfullOffers = $successfullOffers + 1;
               } else {
                 $offers[$applicant->aid]['final'] = 0;
               }
-
-                //you can remove your offer for a window of 10h
-                if (strtotime($preference->updated_at) > strtotime('-10 hours')) {
-                  $offers[$applicant->aid]['delete'] = true;
-                } else {
-                  $offers[$applicant->aid]['delete'] = false;
-                }
 
               if ($preference->rank == 1) {
                 $openOffers++;
@@ -269,7 +264,7 @@ class PreferenceController extends Controller
           }
         }
       }
-      $program->openOffers = $openOffers;
+      $program->openOffers = $openOffers + $successfullOffers;
             //create display rank
             /*foreach ($availableApplicants as $applicant) {
                 if (array_key_exists($applicant->aid, $offers)) {

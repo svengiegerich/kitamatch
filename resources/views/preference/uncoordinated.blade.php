@@ -216,7 +216,7 @@
           )
           @if($applicant->status != 26)
           <tr
-                @if (array_key_exists($applicant->aid, $offers))
+            @if (array_key_exists($applicant->aid, $offers))
                   @if ($offers[$applicant->aid]['id'] == -1)
                     class="table-danger"
                   @endif
@@ -224,7 +224,7 @@
                 @if ($applicant->status == 26)
                   class="table-danger"
                 @endif
-              >
+            >
               <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
               <td>{{$applicant->first_name}}</td>
               <td>{{$applicant->last_name}}</td>
@@ -233,7 +233,7 @@
               <td>
                   <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                   @if ($applicant->status == 26)
-                      Matched
+                      Schon endtgültig vergeben
                   @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers != $program->capacity))
                   <form action="/preference/program/uncoordinated/offer/{{$program->pid}}" method="POST">
                       {{ csrf_field() }}
@@ -270,7 +270,7 @@
         <td>{{$applicant->gender}}</td>
         <td>
           @if ($applicant->status == 26)
-              Schon vergeben
+              Schon endtgültig vergeben
           @endif
         </td>
         <td>
