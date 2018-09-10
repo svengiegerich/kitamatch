@@ -75,11 +75,11 @@
                   <td>{{$applicant->gender}}</td>
                   <td>
                     @if ($offer['updated_at'] > $lastMatch)
-                    <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
-                      {{ csrf_field() }}
-                      {{ method_field('DELETE') }}
-                      <button>Zurücknehmen</button>
-                    </form>
+                      <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button>Zurücknehmen</button>
+                      </form>
                     @endif
                   </td>
                 </tr>
@@ -167,14 +167,16 @@
                 </form>
                 @endif
               </td><td>
-                @if ($offers[$applicant->aid]['id'] > 0
-                  && $applicant->status != 26
-                  && $offers[$applicant->aid]['delete'])
-                <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
-                  {{ csrf_field() }}
-                  {{ method_field('DELETE') }}
-                  <button>Angebot Löschen</button>
-                </form>
+                @if ($offer['updated_at'] > $lastMatch)
+                  @if ($offers[$applicant->aid]['id'] > 0
+                    && $applicant->status != 26
+                    && $offers[$applicant->aid]['delete'])
+                  <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button>Zurücknehmen</button>
+                  </form>
+                  @endif
                 @endif
             </td>
           </tr>
