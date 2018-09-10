@@ -44,6 +44,7 @@
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
               <th>&nbsp;</th>
+              <th>&nbsp;</th>
           </tr>
       </thead>
       <tbody>
@@ -73,6 +74,7 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
+                  <td></td>
                   <td>
                     @if ($offer['updated_at'] > $lastMatch)
                       <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
