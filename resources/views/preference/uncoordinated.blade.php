@@ -162,7 +162,7 @@
             <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
             <td>{{$applicant->gender}}</td>
             <td>
-                @if ($program->openOffers != $program->capacity)
+                @if ($program->openOffers < $program->capacity)
                 <form action="/preference/program/uncoordinated/upoffer" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="prid" value="{{$offers[$applicant->aid]['id']}}">

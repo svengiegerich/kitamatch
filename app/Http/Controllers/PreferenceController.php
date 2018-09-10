@@ -231,7 +231,6 @@ class PreferenceController extends Controller
       //temp: easier?
       $offers = array();
       $openOffers = 0;
-      $successfullOffers = 0;
       $countWaitlist = 0;
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
@@ -245,7 +244,6 @@ class PreferenceController extends Controller
               $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
               if ($applicant->status == 26) {
                 $offers[$applicant->aid]['final'] = 1;
-                $successfullOffers = $successfullOffers + 1;
               } else {
                 $offers[$applicant->aid]['final'] = 0;
               }
