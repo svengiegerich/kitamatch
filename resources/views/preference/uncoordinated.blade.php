@@ -170,15 +170,13 @@
                 </form>
                 @endif
               </td><td>
-                @if ($offer['updated_at'] > $lastMatch)
-                  @if ($offers[$applicant->aid]['id'] > 0
-                    && $applicant->status != 26)
+                @if ($offers[$applicant->aid]['id'] > 0
+                  && $applicant->status != 26)
                   <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <button>Zurücknehmen</button>
                   </form>
-                  @endif
                 @endif
             </td>
           </tr>
