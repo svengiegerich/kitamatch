@@ -103,7 +103,7 @@ class MatchingController extends Controller
     echo "<br><br><br><br><br><br>";
 
     //GuzzleHttp\Client
-    /*$client = new Client();
+    $client = new Client();
     try {
     $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
       [
@@ -167,7 +167,7 @@ class MatchingController extends Controller
         $matchRequest->request->add(['status' => 31]);
         $this->store($matchRequest);
       }
-    }*/
+    }
 
     /*
 
