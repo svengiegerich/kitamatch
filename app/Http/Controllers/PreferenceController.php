@@ -213,6 +213,8 @@ class PreferenceController extends Controller
     } else {
       //coordination: false
       $Program = new Program();
+      $Matching = new Matching();
+      $lastMatch = $Matching->lastMatch();
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
@@ -282,6 +284,7 @@ class PreferenceController extends Controller
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
       return view('preference.uncoordinated', array('program' => $program,
+                                                    'lastMatch' => $lastMatch,
                                                     'availableApplicants' => $availableApplicants,
                                                     'preferences' => $preferences,
                                                     'offers' => $offers)

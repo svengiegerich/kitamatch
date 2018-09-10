@@ -38,6 +38,14 @@ class Matching extends Model
       ->update(array('status' => 33));
   }
 
+  public function lastMatch() {
+    $lastMatch = DB::table('matches')
+      ->orderBy('updated_at', 'desc')
+      ->limit(1)
+      ->get();
+    return $lastMatch->updated_at;
+  }
+
   public $primaryKey = 'mid';
   protected $table = 'matches';
 }
