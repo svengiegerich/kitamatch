@@ -74,7 +74,7 @@
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
                   <td>
-                    @if ($offer['updated_at'] > strtotime('2020-04-14 15:23'))
+                    @if ($offer['updated_at'] > $lastMatch)
                     <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
