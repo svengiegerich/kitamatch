@@ -43,7 +43,11 @@ class Matching extends Model
       ->orderBy('updated_at', 'desc')
       ->limit(1)
       ->first();
-    return $lastMatch->updated_at;
+    if () {
+      return $lastMatch->updated_at;
+    } else {
+      return strtotime('01/01/2000');
+    }
   }
 
   public $primaryKey = 'mid';
