@@ -101,7 +101,7 @@ class MatchingController extends Controller
     }
     print_r(json_encode($input));
     echo "<br><br><br><br><br><br>";
-/*
+
     //GuzzleHttp\Client
     $client = new Client();
     try {
@@ -168,7 +168,7 @@ class MatchingController extends Controller
         $this->store($matchRequest);
       }
     }
-*/
+
     /*
 
 
