@@ -264,7 +264,7 @@ class PreferenceController extends Controller
           }
         }
       }
-      $program->openOffers = $openOffers + $successfullOffers;
+      $program->openOffers = $openOffers;
             //create display rank
             /*foreach ($availableApplicants as $applicant) {
                 if (array_key_exists($applicant->aid, $offers)) {
