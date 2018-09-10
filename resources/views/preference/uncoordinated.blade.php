@@ -172,8 +172,7 @@
               </td><td>
                 @if ($offer['updated_at'] > $lastMatch)
                   @if ($offers[$applicant->aid]['id'] > 0
-                    && $applicant->status != 26
-                    && $offers[$applicant->aid]['delete'])
+                    && $applicant->status != 26)
                   <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
