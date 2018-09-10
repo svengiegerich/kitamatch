@@ -42,7 +42,7 @@ class Matching extends Model
     $lastMatch = DB::table('matches')
       ->orderBy('updated_at', 'desc')
       ->limit(1)
-      ->get();
+      ->first();
     return $lastMatch->updated_at;
   }
 
