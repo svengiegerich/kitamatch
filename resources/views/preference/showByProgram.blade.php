@@ -2,6 +2,20 @@
 
 @section('content')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script>
+  $(document).ready( function () {
+    $('#preferences').DataTable( {
+      "aaSorting": [],
+      "pageLength": 100,
+      "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
+            },
+    } );
+  } );
+</script>
+
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h2>Kita <?php echo $program->name; ?></h2>
@@ -22,7 +36,7 @@
         <br><br>
         </div>
 
-                <table class="table table-hover">
+                <table class="table table-hover" id="preferences">
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
