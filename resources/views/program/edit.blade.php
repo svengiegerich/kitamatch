@@ -99,7 +99,7 @@
         <!-- to do: add provider button if it has a provider-->
         @if ($program->proid)
         <hr class="mb-4">
-        <a href="/provider/{{$program->proid}}"><button class="btn btn-primary btn-lg btn-block">Back to provider</button></a>
+        <a href="/provider/{{$program->proid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zum Träger</button></a>
         @endif
     </div>
 </div>
