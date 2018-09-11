@@ -21,6 +21,7 @@
         <span class="badge badge-light">Bewerber</span>
         <br><br>
         </div>
+            <?php $i = 1; ?>
             @if (count($matches) > 0)
                 <table class="table table-hover" id="preferences">
                     <thead>
@@ -36,7 +37,6 @@
                     </thead>
                     <tbody>
                         <!-- first all successfull -->
-                        <?php $i = 1; ?>
                         @foreach ($preferences as $preference)
                           @if ($preference->finalMatch == 1)
                             <tr class="table-success">
