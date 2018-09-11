@@ -81,7 +81,7 @@
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
-                              <td><input type="checkbox" name="deleteRows[]" class="form-check-input" value="{{$preference->prid}}"></td>
+                              <td><input type="checkbox" name="deleteRows[]" class="form-check-input" value="{{$preference->prid}}" form="multipleForm"></td>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
