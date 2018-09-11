@@ -114,7 +114,7 @@
                                     {{ method_field('DELETE') }}
                                     <button>X</button>
                                   </form>-->
-                                  <input type="checkbox" name="deleteRows[]" value="{{$preference->prid}}" form="multipleForm"></td>
+                                  <input type="checkbox" name="deleteRows[]" value="{{$preference->prid}}" form="multipleForm">
                                 </td>
                             </tr>
                             <?php $i = $i + 1; ?>
