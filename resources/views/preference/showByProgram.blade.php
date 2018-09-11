@@ -26,8 +26,9 @@
                         @foreach ($preferences as $preference)
                         <tr
                           @if ($preference->applicantStatus == 26)
-                            
                             class="table-success"
+                            @elseif ($preference->openOffer == 1)
+                            class="table-danger"
                             @endif
                             >
                                 <td>{{$i}}</td>
