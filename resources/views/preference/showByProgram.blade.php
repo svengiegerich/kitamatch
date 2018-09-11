@@ -28,7 +28,7 @@
                           @if ($preference->applicantStatus == 26)
                             class="table-success"
                             @elseif ($preference->openOffer == 1)
-                            class="table-danger"
+                            class="table-info"
                             @endif
                             >
                                 <td>{{$i}}</td>
