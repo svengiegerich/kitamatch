@@ -208,6 +208,8 @@ class PreferenceController extends Controller
       $preferences = $this->getPreferencesByProgram($pid);
       $program->currentOffers = 0;
       foreach ($preferences as $preference) {
+        $preference->openOffer = 0;
+        $preference->finalMatch = 0;
         $applicant = Applicant::find($preference->id_to);
         if ($applicant->status == 26 AND $matches->contains('aid', $applicant->aid)) {
           $preference->finalMatch = 1;
@@ -216,8 +218,7 @@ class PreferenceController extends Controller
           $preference->openOffer = 1;
           $program->currentOffers = $program->currentOffers + 1;
         } else {
-          $preference->openOffer = 0;
-          $preference->finalMatch = 0;
+
         }
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
