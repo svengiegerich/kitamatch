@@ -219,7 +219,7 @@ class PreferenceController extends Controller
         $preference->applicantFirstName = $applicant->first_name;
       }
 
-      $preference->sortByDesc('applicantStatus')->sortByDesc('openOffer');
+      $preference->sortByDesc('applicantStatus');
 
       return view('preference.showByProgram', array('preferences' => $preferences,
                                                     'program' => $program));
