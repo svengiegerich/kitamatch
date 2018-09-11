@@ -214,7 +214,7 @@ class PreferenceController extends Controller
           $preference->finalMatch = 1;
           $program->currentOffers = $program->currentOffers + 1;
         } else ($matches->contains('aid', $applicant->aid)) {
-          $preference->openOffer = 1;
+          
           $program->currentOffers = $program->currentOffers + 1;
         } else {
           $preference->openOffer = 0;
