@@ -51,7 +51,7 @@ class Matching extends Model
   }
 
   public function getMatchesByProgram($pid) {
-    $matches = DB:table('matches')
+    $matches = DB::table('matches')
       ->where('pid', '=', $pid)
       ->get();
     return $matches;
