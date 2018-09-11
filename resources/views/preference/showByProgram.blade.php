@@ -66,7 +66,7 @@
 
                         <!-- others -->
                         @foreach ($preferences as $preference)
-                          @if ($preference->openOffer != 1 AND $preference->applicantStatus != 26)
+                          @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
                               <td>{{$i}}</td>
                                 <td>
