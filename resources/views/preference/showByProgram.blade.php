@@ -158,11 +158,8 @@
                       $('#sortable').sortable({
                         axis: 'y',
                         update: function (event, ui) {
-                          $("span.rank").text(function() {
-                            return $(this).parent().index("tr")+1;
-                          });
                           var order = $(this).sortable('serialize');
-                          alert(order);
+                          alert("k");
                           var _token = $("input[name=_token]").val();
                           var data = {"order": order, "_token": _token};
                           $.ajax({
