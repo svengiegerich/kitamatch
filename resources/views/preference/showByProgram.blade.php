@@ -21,7 +21,7 @@
         <span class="badge badge-light">Bewerber</span>
         <br><br>
         </div>
-            @if (!empty($matches))
+            @if (count($matches) > 0)
                 <table class="table table-hover" id="preferences">
                     <thead>
                         <tr>
