@@ -54,6 +54,7 @@ class Matching extends Model
     $matches = DB::table('matches')
       ->where('pid', '=', $pid)
       ->get();
+    print_r($matches);
     return $matches;
   }
 
