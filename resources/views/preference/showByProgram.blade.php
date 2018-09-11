@@ -97,7 +97,7 @@
                         <form action="/preference/program/delete/multiple" method="POST" id="multipleForm">
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
-                            <tr>
+                            <tr id="item-{{$preference->prid}}">
                                 <th scope="row"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></th>
                                 <td>{{$i}}</td>
                                 <td>
@@ -123,7 +123,7 @@
 
                         <!-- all deleted -->
                         @foreach ($deletedPreferences as $preference)
-                            <tr class="table-danger">
+                            <tr class="table-danger" id="item-{{$preference->prid}}">
                               <td>&nbsp;</td>
                               <td>{{$i}}</td>
                                 <td>
@@ -159,7 +159,7 @@
                         axis: 'y',
                         update: function (event, ui) {
                           var order = $(this).sortable('serialize');
-                          alert("k");
+                          alert(order);
                           var _token = $("input[name=_token]").val();
                           var data = {"order": order, "_token": _token};
                           $.ajax({
