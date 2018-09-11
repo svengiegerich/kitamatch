@@ -103,7 +103,7 @@
                                 <td>
                                   <form action="/preference/program/undo/{{$program->pid}}" method="POST">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="prid">{{$preference->prid}}</input>
+                                    <input type="hidden" name="prid" value="{{$preference->prid}}"></input>
                                     <button>Rückgängig</button>
                                   </form>
                                 </td>
