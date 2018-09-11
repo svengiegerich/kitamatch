@@ -204,6 +204,8 @@ class PreferenceController extends Controller
     if ($program->coordination == 1) {
       //coordination: true
       $Matching = new Matching();
+      $Preference = new Perference();
+      
       $matches = $Matching->getMatchesByProgram($program->pid);
       $preferences = $this->getPreferencesByProgram($pid);
       $deletedPreferences = $Preference->getAllDeletedCoordinatedPreferences($pid);
