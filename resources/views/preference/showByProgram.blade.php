@@ -48,8 +48,8 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
-                                <td>{{preference->applicantBirthday}}</td>
-                                <td>{{preference->applicantGender}}</td>
+                                <td>{{$preference->applicantBirthday}}</td>
+                                <td>{{$preference->applicantGender}}</td>
                                 <td></td>
                             </tr>
                             <?php $i = $i + 1; ?>
