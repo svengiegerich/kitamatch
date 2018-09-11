@@ -227,12 +227,17 @@ class PreferenceController extends Controller
 
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
+        $preference->applicantBirthday = $applicant->birthday;
+        $preference->applicantGender = $applicant->gender;
       }
 
+      //for all deleted prefs
       foreach ($deletedPreferences as $preference) {
         $applicant = Applicant::find($preference->id_to);
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
+        $preference->applicantBirthday = $applicant->birthday;
+        $preference->applicantGender = $applicant->gender;
       }
 
       return view('preference.showByProgram', array('preferences' => $preferences,

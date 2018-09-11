@@ -11,7 +11,7 @@
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
 
-    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
+    <div class="col-md-10 my-1 p-1 bg-white rounded box-shadow">
         <h4>Präferenzliste</h4>
         <h5>Platzkapazität (freie Plätze): {{$program->currentOffers}}/{{$program->capacity}}</h5>
 
@@ -27,8 +27,10 @@
                         <tr>
                             <th>&nbsp;</th>
                             <th>Index</th>
-                            <th>Last name</th>
-                            <th>First name</th>
+                            <th>Nachname</th>
+                            <th>Vorname</th>
+                            <th>Geburtstag</th>
+                            <th>M/W</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -46,6 +48,8 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
+                                <td>{{preference->applicantBirthday}}</td>
+                                <td>{{preference->applicantGender}}</td>
                                 <td></td>
                             </tr>
                             <?php $i = $i + 1; ?>
