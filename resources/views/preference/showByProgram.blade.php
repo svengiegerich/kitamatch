@@ -10,11 +10,12 @@
 <!-- Current Preferences -->
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
-    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
 
-      <span class="label label-default">Default Label</span>
-<span class="label label-primary">Primary Label</span>
-<span class="label label-success">Success Label</span>
+  <span class="badge badge-primary">Default Label</span>
+<span class="badge badge-primary">Primary Label</span>
+<span class="badge badge-primary">Success Label</span>
+
+    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
 
         <h4>List of preferences</h4>
                 <table class="table table-hover">
