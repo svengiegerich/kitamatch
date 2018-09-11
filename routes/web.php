@@ -59,7 +59,7 @@ Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByAppl
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
 Route::post('/preference/program/{pID}', 'PreferenceController@addByProgram');
 Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgram');
-Route::delete('/preference/program/delete/multiple', 'PreferenceController@deleteMultipleByProgram');
+Route::post('/preference/program/delete/multiple', 'PreferenceController@deleteMultipleByProgram');
 Route::post('/preference/program/undo/{pID}', 'PreferenceController@undoByProgram');
 Route::post('/preference/program/reorder/{pID}', 'PreferenceController@reorderByProgramAjax');
 // ------ By Program - uncoordinated
@@ -67,7 +67,7 @@ Route::post('/preference/program/uncoordinated/offer/{pID}', 'PreferenceControll
 Route::post('/preference/program/uncoordinated/waitlist/{pID}', 'PreferenceController@addWaitlistUncoordinatedProgram');
 Route::post('/preference/program/uncoordinated/reorder/{pID}', 'PreferenceController@reorderWaitlistByProgramAjax');
 Route::post('/preference/program/uncoordinated/upoffer', 'PreferenceController@updateOfferUncoordinatedProgram');
-Route::post('/preference/program/uncoordinated/{aID}', 'PreferenceController@deleteByProgram');
+Route::delte('/preference/program/uncoordinated/{aID}', 'PreferenceController@deleteByProgram');
 // ------ All
 Route::get('/preference/all', 'PreferenceController@all');
 
