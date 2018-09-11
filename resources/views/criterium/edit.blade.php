@@ -6,7 +6,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Criteria</h4>
+        <h4>Kriterien</h4>
 
       </div>
   </div>
@@ -56,9 +56,9 @@
     <div class="col-md-8">
         <hr class="mb-4">
         @if ($criterium->program == 1)
-        <a href="/preference/program/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Back to Preferences</button></a>
+        <a href="/preference/program/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Angeboten</button></a>
         @else
-        <a href="/provider/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Back to provider</button></a>
+        <a href="/provider/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Zurück zum Träger</button></a>
         @endif
     </div>
 </div>
