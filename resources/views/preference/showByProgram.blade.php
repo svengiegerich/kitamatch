@@ -77,10 +77,11 @@
                         @endforeach
 
                         <!-- others active preferences -->
+                        <form action="/preference/.." method="POST">
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
-                              <th><input type="checkbox" /></th>
+                              <th><input type="checkbox" name="deleteRows[]" class="form-check-input" value="{{$preference->prid}}"></th>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
@@ -130,6 +131,7 @@
 
                 <br>
                 <button type="button" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
+              </from>
     </div>
 </div>
 @endif
