@@ -155,7 +155,7 @@
                     });
 
                     $(function() {
-                      $('#preferences_other').sortable({
+                      $('#sortable').sortable({
                         axis: 'y',
                         update: function (event, ui) {
                           $("span.rank").text(function() {
