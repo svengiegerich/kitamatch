@@ -238,8 +238,9 @@ class MatchingController extends Controller
     $json = [];
     $preferencesApplicants = [];
 
-    //create coordinated prefs
-    app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
+    //create coordinated prefs -> done via generateCoordinated
+    //app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
+    
     //look for non active programs
     app('App\Http\Controllers\ProgramController')->setNonActive();
 

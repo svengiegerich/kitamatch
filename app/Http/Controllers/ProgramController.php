@@ -216,7 +216,7 @@ class ProgramController extends Controller
     $countFinalsMatches = count(Matching::where('pid', '=', $pid)
         ->where('status', '=', 32)
         ->get());
-        
+
 		 return ($program->capacity - $countFinalsMatches);
 	 }
 
@@ -256,6 +256,11 @@ class ProgramController extends Controller
         //!Mail
       }
     }
+  }
+
+  public function generateCoordinated(Request $request) {
+    app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
+    return redirect()->action('ProgramController@all');
   }
 
 }

@@ -38,13 +38,17 @@ Route::get('applicant/setPriority/{aID}', 'ApplicantController@setPriority');
 Route::get('/program', 'ProgramController@all');
 Route::get('/program/all', 'ProgramController@all');
 Route::delete('/program/{program}', 'ProgramController@delete');
+Route::post('/program/generateCoordinated', 'ProgramController@generateCoordinated');
+//
 Route::get('/program/add/{proid}', 'ProgramController@addByProvider');
 Route::post('/program/add/{proid}', 'ProgramController@createByProvider');
+//
 Route::get('/program/{pID}', 'ProgramController@show');
 Route::post('/program/{pID}', 'ProgramController@edit');
 
 //Preference
 Route::get('/preference/single/{preference}', 'PreferenceController@show');
+
 // ------ By Applicant
 Route::get('/preference/applicant/{aID}', 'PreferenceController@showByApplicant');
 Route::post('/preference/applicant/{aID}', 'PreferenceController@addByApplicant');

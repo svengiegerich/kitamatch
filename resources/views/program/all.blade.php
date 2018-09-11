@@ -15,7 +15,11 @@
 </script>
 <div class="row justify-content-center">
 <div class="col-md-8">
-<h2>Liste alle Kitas - <button type="button" class="btn btn-outline-secondary">Koordinierte Präferenzen erstellen</button></h2>
+<h2>Liste alle Kitas - </h2>
+<form action="/program/generateCoordinated" method="POST">
+<button type="button" class="btn btn-outline-secondary">Koordinierte Präferenzen erstellen</button>
+{{ csrf_field() }}
+</form>
 </div>
 </div>
 
