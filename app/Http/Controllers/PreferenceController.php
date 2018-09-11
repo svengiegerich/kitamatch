@@ -207,11 +207,14 @@ class PreferenceController extends Controller
       $matches = $Matching->getMatchesByProgram($program->pid);
       $matches = $matches->where('status', '=', 31);
       $preferences = $this->getPreferencesByProgram($pid);
+      $currentOffers = 0;
       foreach ($preferences as $preference) {
         $applicant = Applicant::find($preference->id_to);
         $preference->applicantStatus = $applicant->status;
+        if ($preference->applicantStatus == 26) { $currentOffers = $currentOffers + 1; }
         if ($matches->contains('aid', $applicant->aid)) {
           $preference->openOffer = 1;
+          $currentOffers = $currentOffers + 1;
         } else {
           $preference->openOffer = 0;
         }
