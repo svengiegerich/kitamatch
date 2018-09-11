@@ -359,7 +359,7 @@ class PreferenceController extends Controller
   }
 
   public function deleteMultipleByProgram(Request $request) {
-    print_r($request->deleteRows);
+    print(Hey);
   }
 
   /**
