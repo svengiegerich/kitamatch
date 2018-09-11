@@ -410,6 +410,20 @@ class PreferenceController extends Controller
     ]);
   }
 
+  public function reorderByProgramAjax(Request $request, $pid) {
+    $preferenceIds = $request->all();
+    parse_str($request->order, $preferences);
+    foreach ($preferences['item'] as $index => $preferenceId) {
+      $preference = Preference::find($preferenceId);
+      //waitlist prefs start with rank >= 2 and not 0
+      $preference->rank = $index + 2;
+      $preference->save();
+    }
+    return response()->json([
+      'success' => $applicants['item']
+    ]);
+  }
+
   /**
   * Update an waitinglist preference to an definite offer by uncoordinated program
   *
