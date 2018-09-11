@@ -167,7 +167,7 @@
                           $.ajax({
                             data: data,
                             type: 'POST',
-                            url: '/preference/program/reorder/{{$program->pid}',
+                            url: '/preference/program/reorder/{{$program->pid}}',
                             success: function(data) {
                               console.log(data);
                             }
