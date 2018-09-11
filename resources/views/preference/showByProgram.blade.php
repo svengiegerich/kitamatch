@@ -81,36 +81,6 @@
                   </table>
                 @endif
                   <table class="table table-hover" id="preferences_other">
-                    <script>
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $("input[name=_token]").val()
-                            }
-                        });
-
-                        $(function() {
-                          $('#preferences_other').sortable({
-                            axis: 'y',
-                            update: function (event, ui) {
-                              $("span.rank").text(function() {
-                                return $(this).parent().index("tr")+1;
-                              });
-                              var order = $(this).sortable('serialize');
-                              var _token = $("input[name=_token]").val();
-                              var data = {"order": order, "_token": _token};
-                              $.ajax({
-                                data: data,
-                                type: 'POST',
-                                url: '/preference/program/uncoordinated/reorder/{{$preferences[0]->id_from}}',
-                                success: function(data) {
-                                  console.log(data);
-                                }
-                              });
-                            }
-                          })
-                          $( "#sortable" ).disableSelection();
-                        });
-                    </script>
                       <thead>
                           <tr>
                               <th>&nbsp;</th>
@@ -139,11 +109,7 @@
                                 <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td>
-                                  <!--<form action="/preference/program/{{$preference->prid}}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button>X</button>
-                                  </form>-->
+                                  
                                   <input type="checkbox" name="deleteRows[]" value="{{$preference->prid}}" form="multipleForm"></td>
                                 </td>
                             </tr>
@@ -176,6 +142,37 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                <script>
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $("input[name=_token]").val()
+                        }
+                    });
+
+                    $(function() {
+                      $('#preferences_other').sortable({
+                        axis: 'y',
+                        update: function (event, ui) {
+                          $("span.rank").text(function() {
+                            return $(this).parent().index("tr")+1;
+                          });
+                          var order = $(this).sortable('serialize');
+                          var _token = $("input[name=_token]").val();
+                          var data = {"order": order, "_token": _token};
+                          $.ajax({
+                            data: data,
+                            type: 'POST',
+                            url: '/preference/program/uncoordinated/reorder/{{$preferences[0]->id_from}}',
+                            success: function(data) {
+                              console.log(data);
+                            }
+                          });
+                        }
+                      })
+                      $( "#sortable" ).disableSelection();
+                    });
+                </script>
 
                 <br>
                 <button type="submit" form="multipleForm" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
