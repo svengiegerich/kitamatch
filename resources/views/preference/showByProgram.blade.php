@@ -159,7 +159,6 @@
                         axis: 'y',
                         update: function (event, ui) {
                           var order = $(this).sortable('serialize');
-                          alert(order);
                           var _token = $("input[name=_token]").val();
                           var data = {"order": order, "_token": _token};
                           $.ajax({
