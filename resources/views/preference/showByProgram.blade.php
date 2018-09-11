@@ -109,7 +109,6 @@
                                 </td>
                             </tr>
                             <?php $i = $i + 1; ?>
-                          @endif
                         @endforeach
                     </tbody>
                 </table>
