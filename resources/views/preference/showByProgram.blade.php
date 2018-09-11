@@ -109,7 +109,11 @@
                                 <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td>
-                                  
+                                  <!--<form action="/preference/program/{{$preference->prid}}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button>X</button>
+                                  </form>-->
                                   <input type="checkbox" name="deleteRows[]" value="{{$preference->prid}}" form="multipleForm"></td>
                                 </td>
                             </tr>
@@ -175,6 +179,7 @@
                 </script>
 
                 <br>
+                {{ method_field('DELETE') }}
                 <button type="submit" form="multipleForm" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
               </form>
     </div>
