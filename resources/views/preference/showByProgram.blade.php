@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h2>Kita <?php echo $program->name; ?></h2>
@@ -79,6 +81,36 @@
                   </table>
                 @endif
                   <table class="table table-hover" id="preferences_other">
+                    <script>
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $("input[name=_token]").val()
+                            }
+                        });
+
+                        $(function() {
+                          $('#preferences_other').sortable({
+                            axis: 'y',
+                            update: function (event, ui) {
+                              $("span.rank").text(function() {
+                                return $(this).parent().index("tr")+1;
+                              });
+                              var order = $(this).sortable('serialize');
+                              var _token = $("input[name=_token]").val();
+                              var data = {"order": order, "_token": _token};
+                              $.ajax({
+                                data: data,
+                                type: 'POST',
+                                url: '/preference/program/uncoordinated/reorder/{{$preferences[0]->id_from}}',
+                                success: function(data) {
+                                  console.log(data);
+                                }
+                              });
+                            }
+                          })
+                          $( "#sortable" ).disableSelection();
+                        });
+                    </script>
                       <thead>
                           <tr>
                               <th>&nbsp;</th>
@@ -90,7 +122,7 @@
                               <th>&nbsp;</th>
                           </tr>
                       </thead>
-                      <tbody>
+                      <tbody id="sortable">
                         <!-- others active preferences -->
                         <form action="/preference/program/delete/multiple" method="POST" id="multipleForm">
                         @foreach ($preferences as $preference)
