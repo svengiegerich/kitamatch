@@ -21,7 +21,7 @@
         <h5><span class="badge badge-success">Erfolgreiches Angebot</span>
         <span class="badge badge-info">Gehaltenes Angbot</span>
         <span class="badge badge-light">Bewerber</span></h5>
-        <br><br>
+        <br>
         </div>
             <?php $i = 1; ?>
             @if (count($matches) > 0)
