@@ -335,7 +335,7 @@ class PreferenceController extends Controller
   public function undoByProgram(Request $request, $pid) {
     $preference = Preference::findOrFail($request->prid);
     $preference->status = 1;
-    $prefernce->save();
+    $preference->save();
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
 
