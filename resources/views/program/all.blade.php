@@ -62,7 +62,7 @@
     <br><br>
     <form action="/program/generate/coordinated" method="POST">
       {{ csrf_field() }}
-      Bewerberpräferenzen vollständig erhoben. <button type="submit" class="btn btn-outline-secondary">Nun Koordinierte Präferenzen erstellen</button>
+      Bewerberpräferenzen vollständig erhoben. <button type="submit" class="btn btn-outline-secondary">Nun Koordinierte Präferenzen erstellen (nur einmal am Anfang)</button>
     </form>
 </div>
 </div>
