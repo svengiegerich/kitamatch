@@ -14,10 +14,13 @@
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
         <h4>List of preferences</h4>
 
-        <span class="badge badge-success">Erfolgreiches Angebot</span>
+      <div>
+      <span class="badge badge-success">Erfolgreiches Angebot</span>
       <span class="badge badge-info">Gehaltens Angbot</span>
       <span class="badge badge-light">Bewerber</span>
       <br>
+      <br>
+      </div>
 
                 <table class="table table-hover">
                     <thead>
