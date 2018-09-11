@@ -135,9 +135,11 @@
 @endif
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-6">
         <hr class="mb-4">
-        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Back to program</button></a>
+        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
+        <hr class="mb-4">
+        <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
     </div>
 </div>
 
