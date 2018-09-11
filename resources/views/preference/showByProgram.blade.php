@@ -50,7 +50,7 @@
 
                         <!-- all open -->
                         @foreach ($preferences as $preference)
-                          @if ($preference->openOffer == 1 AND $preference->applicantStatus != 26)
+                          @if ($preference->openOffer == 1)
                             <tr class="table-info">
                               <td>{{$i}}</td>
                                 <td>
