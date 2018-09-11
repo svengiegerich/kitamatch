@@ -75,14 +75,28 @@
                             <?php $i = $i + 1; ?>
                           @endif
                         @endforeach
-
+                      </tbody>
+                  </table>
+                  <table class="table table-hover" id="preferences_other">
+                      <thead>
+                          <tr>
+                              <th>&nbsp;</th>
+                              <th>Index</th>
+                              <th>Nachname</th>
+                              <th>Vorname</th>
+                              <th>Geburtstag</th>
+                              <th>M/W</th>
+                              <th>&nbsp;</th>
+                          </tr>
+                      </thead>
+                      <tbody>
                         <!-- others active preferences -->
                         <form action="/preference/program/delete/multiple" method="POST" id="multipleForm">
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
-                              <td><input type="checkbox" name="deleteRows[]" value="{{$preference->prid}}" form="multipleForm"></td>
-                              <td>{{$i}}</td>
+                                <th scope="row"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></th>
+                                <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
                                 </td>
@@ -92,11 +106,12 @@
                                 <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td>
-                                  <form action="/preference/program/{{$preference->prid}}" method="POST">
+                                  <!--<form action="/preference/program/{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button>X</button>
-                                  </form>
+                                  </form>-->
+                                  <input type="checkbox" name="deleteRows[]" value="{{$preference->prid}}" form="multipleForm"></td>
                                 </td>
                             </tr>
                             <?php $i = $i + 1; ?>
