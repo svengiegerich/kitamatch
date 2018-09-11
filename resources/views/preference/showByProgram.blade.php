@@ -11,7 +11,7 @@
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
 
-    <div class="col-md-10 my-1 p-1 bg-white rounded box-shadow">
+    <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
         <h4>Präferenzliste</h4>
         <h5>Platzkapazität (freie Plätze): {{$program->currentOffers}}/{{$program->capacity}}</h5>
 
