@@ -58,8 +58,10 @@
                 </div>
                 <label for="capacity" class="col-sm-2 col-form-label">Freie Kita?</label>
                 <div class="col-sm-3">
-                    <input type="checkbox" class="form-control" name="type" id="type" />
-                    Kita ist frei
+                    <input type="checkbox" class="form-control" name="type" id="type">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Kita ist frei
+                    </label>
                     @if ($errors->has('type'))
                     <div class="invalid-feedback">
                         Please enter a type.
