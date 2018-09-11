@@ -15,12 +15,7 @@
 </script>
 <div class="row justify-content-center">
 <div class="col-md-8">
-<h2>Liste aller Kitas -
-  <form action="/program/generate/coordinated" method="POST">
-    {{ csrf_field() }}
-    <button type="submit" class="btn btn-outline-secondary">Koordinierte Präferenzen erstellen</button>
-  </form>
-</h2>
+<h2>Liste aller Kitas</h2>
 </div>
 </div>
 
@@ -63,6 +58,12 @@
         @endforeach
       </tbody>
     </table>
+
+    <br><br>
+    <form action="/program/generate/coordinated" method="POST">
+      {{ csrf_field() }}
+      <button type="submit" class="btn btn-outline-secondary">Koordinierte Präferenzen erstellen</button>
+    </form>
 </div>
 </div>
 
