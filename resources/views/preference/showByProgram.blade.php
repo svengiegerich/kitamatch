@@ -68,6 +68,8 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
+                                <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
+                                <td>{{$preference->applicantGender}}</td>
                                 <td></td>
                             </tr>
                             <?php $i = $i + 1; ?>
@@ -86,6 +88,8 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
+                                <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
+                                <td>{{$preference->applicantGender}}</td>
                                 <td>
                                   <form action="/preference/program/{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
@@ -109,6 +113,8 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
+                                <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
+                                <td>{{$preference->applicantGender}}</td>
                                 <td>
                                   <form action="/preference/program/undo/{{$program->pid}}" method="POST">
                                     {{ csrf_field() }}
