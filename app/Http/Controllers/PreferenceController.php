@@ -210,11 +210,14 @@ class PreferenceController extends Controller
       foreach ($preferences as $preference) {
         $applicant = Applicant::find($preference->id_to);
         $preference->applicantStatus = $applicant->status;
+        if ($matches->contains('aid', $applicant->aid)) {
+          $preference->openOffer = 1;
+        } else {
+          $preference->openOffer = 0;
+        }
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
       }
-
-
 
       return view('preference.showByProgram', array('preferences' => $preferences,
                                                     'program' => $program));
