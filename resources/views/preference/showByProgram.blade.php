@@ -86,7 +86,7 @@
                                   <form action="/preference/program/{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button>Löschen</button>
+                                    <button>X</button>
                                   </form>
                                 </td>
                             </tr>
@@ -117,6 +117,9 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                <br>
+                <button>Alle ausgewählten löschen</button>
     </div>
 </div>
 @endif
