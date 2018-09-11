@@ -48,7 +48,7 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
-                                <td>{{$preference->applicantBirthday}}</td>
+                                <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td></td>
                             </tr>
