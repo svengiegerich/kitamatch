@@ -205,17 +205,14 @@ class PreferenceController extends Controller
       //coordination: true
       $Matching = new Matching();
       $matches = $Matching->getMatchesByProgram($program->pid);
-      $matches = $matches->where('status', '=', 31);
       $preferences = $this->getPreferencesByProgram($pid);
       $program->currentOffers = 0;
       foreach ($preferences as $preference) {
         $applicant = Applicant::find($preference->id_to);
-        print_r($matches);
         if ($applicant->status == 26 AND $matches->contains('aid', $applicant->aid)) {
-          print("hey");
           $preference->finalMatch = 1;
           $program->currentOffers = $program->currentOffers + 1;
-        } elseif ($matches->contains('aid', $applicant->aid)) {
+        } elseif ($matches->where('status', '=', 31)->contains('aid', $applicant->aid)) {
           $preference->openOffer = 1;
           $program->currentOffers = $program->currentOffers + 1;
         } else {
