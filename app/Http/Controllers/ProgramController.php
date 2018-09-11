@@ -216,6 +216,7 @@ class ProgramController extends Controller
     $countFinalsMatches = count(Matching::where('pid', '=', $pid)
         ->where('status', '=', 32)
         ->get());
+        
 		 return ($program->capacity - $countFinalsMatches);
 	 }
 
