@@ -24,14 +24,9 @@
                         <!-- first all successfull -->
                         <?php $i = 1; ?>
                         @foreach ($preferences as $preference)
-                        <tr
                           @if ($preference->applicantStatus == 26)
-                            class="table-success"
-                            @elseif ($preference->openOffer == 1)
-                            class="table-info"
-                            @endif
-                            >
-                                <td>{{$i}}</td>
+                            <tr class="table-success">
+                              <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
                                 </td>
@@ -40,10 +35,40 @@
                                 </td>
                             </tr>
                             <?php $i = $i + 1; ?>
+                          @endif
                         @endforeach
 
                         <!-- all open -->
+                        @foreach ($preferences as $preference)
+                          @if ($preference->openOffer == 1 AND $preference->applicantStatus != 26)
+                            <tr class="table-info">
+                              <td>{{$i}}</td>
+                                <td>
+                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
+                                </td>
+                                <td>
+                                    {{ $preference->applicantFirstName }}
+                                </td>
+                            </tr>
+                            <?php $i = $i + 1; ?>
+                          @endif
+                        @endforeach
 
+                        <!-- others -->
+                        @foreach ($preferences as $preference)
+                          @if ($preference->openOffer != 1 AND $preference->applicantStatus != 26)
+                            <tr>
+                              <td>{{$i}}</td>
+                                <td>
+                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
+                                </td>
+                                <td>
+                                    {{ $preference->applicantFirstName }}
+                                </td>
+                            </tr>
+                            <?php $i = $i + 1; ?>
+                          @endif
+                        @endforeach
                     </tbody>
                 </table>
     </div>
