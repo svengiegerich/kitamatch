@@ -11,13 +11,12 @@
 @if (count($preferences) > 0)
 <div class="row justify-content-center">
 
-  <span class="badge badge-primary">Default Label</span>
-<span class="badge badge-primary">Primary Label</span>
-<span class="badge badge-primary">Success Label</span>
-
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
-
         <h4>List of preferences</h4>
+
+        <span class="badge badge-primary">Default Label</span>
+      <span class="badge badge-primary">Primary Label</span>
+      <span class="badge badge-primary">Success Label</span>
                 <table class="table table-hover">
                     <thead>
                         <tr>
