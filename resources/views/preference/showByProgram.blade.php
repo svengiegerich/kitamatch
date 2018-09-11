@@ -18,7 +18,7 @@
         <h5>Platzkapazität (freie Plätze): {{$program->currentOffers}}/{{$program->capacity}}</h5>
 
         <div style="float: right;">
-        <span class="badge badge-success">Erfolgreiches Angebot</span>
+        <h4><span class="badge badge-success">Erfolgreiches Angebot</span></h4>
         <span class="badge badge-info">Gehaltenes Angbot</span>
         <span class="badge badge-light">Bewerber</span>
         <br><br>
