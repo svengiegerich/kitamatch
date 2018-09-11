@@ -4,7 +4,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h2>Preferences of Program <?php echo $program->name; ?></h2>
+        <h2>Kita <?php echo $program->name; ?> - Platzkapazität (freie Plätze): {{$program->capacity}}</h2>
     </div>
 </div>
 <!-- Current Preferences -->
@@ -14,11 +14,10 @@
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
         <h4>List of preferences</h4>
 
-      <div>
+      <div style="float: right;">
       <span class="badge badge-success">Erfolgreiches Angebot</span>
-      <span class="badge badge-info">Gehaltens Angbot</span>
+      <span class="badge badge-info">Gehaltenes Angbot</span>
       <span class="badge badge-light">Bewerber</span>
-      <br>
       <br>
       </div>
 
