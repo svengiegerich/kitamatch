@@ -60,7 +60,7 @@
                                 </a>
 
                                 <a class="btn btn-link" href="{{url('/register')}}">
-                                    Kein Konto? Hier registrieren
+                                    Registrieren
                                 </a>
                             </div>
                         </div>
