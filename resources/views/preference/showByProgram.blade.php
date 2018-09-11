@@ -119,7 +119,7 @@
                 </table>
 
                 <br>
-                <button>Alle ausgewählten löschen</button>
+                <button type="button" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
     </div>
 </div>
 @endif
