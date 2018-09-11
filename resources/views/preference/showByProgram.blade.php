@@ -25,6 +25,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>&nbsp;</th>
                             <th>Index</th>
                             <th>Last name</th>
                             <th>First name</th>
@@ -37,6 +38,7 @@
                         @foreach ($preferences as $preference)
                           @if ($preference->finalMatch == 1)
                             <tr class="table-success">
+                              <td></td>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
@@ -54,6 +56,7 @@
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer == 1)
                             <tr class="table-info">
+                              <td></td>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
@@ -71,6 +74,7 @@
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
+                              <th><input type="checkbox" /></th>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
@@ -93,6 +97,7 @@
                         <!-- all open -->
                         @foreach ($deletedPreferences as $preference)
                             <tr class="table-danger">
+                              <th>&nbsp;</th>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
