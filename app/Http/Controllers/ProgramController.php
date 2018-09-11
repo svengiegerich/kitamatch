@@ -259,7 +259,7 @@ class ProgramController extends Controller
   }
 
   public function generateCoordinated(Request $request) {
-    app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
+    //app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
     //return redirect()->action('ProgramController@all');
   }
 
