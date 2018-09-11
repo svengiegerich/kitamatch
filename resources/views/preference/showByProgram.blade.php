@@ -21,7 +21,7 @@
         <span class="badge badge-light">Bewerber</span>
         <br><br>
         </div>
-
+            @if (!empty($matches))
                 <table class="table table-hover" id="preferences">
                     <thead>
                         <tr>
@@ -77,6 +77,7 @@
                         @endforeach
                       </tbody>
                   </table>
+                @endif
                   <table class="table table-hover" id="preferences_other">
                       <thead>
                           <tr>

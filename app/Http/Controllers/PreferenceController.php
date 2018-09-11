@@ -242,6 +242,7 @@ class PreferenceController extends Controller
 
       return view('preference.showByProgram', array('preferences' => $preferences,
                                                     'program' => $program,
+                                                    'matches' => $matches,
                                                     'deletedPreferences' => $deletedPreferences));
     } else {
       //coordination: false
