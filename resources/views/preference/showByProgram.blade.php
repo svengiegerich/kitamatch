@@ -99,7 +99,7 @@
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
                                 <th scope="row"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></th>
-                                <td><{{$i}}</td>
+                                <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
                                 </td>
