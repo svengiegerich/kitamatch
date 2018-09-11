@@ -38,7 +38,7 @@ Route::get('applicant/setPriority/{aID}', 'ApplicantController@setPriority');
 Route::get('/program', 'ProgramController@all');
 Route::get('/program/all', 'ProgramController@all');
 Route::delete('/program/{program}', 'ProgramController@delete');
-Route::post('/program/generateCoordinated', 'ProgramController@generateCoordinated');
+Route::post('/program/generate/coordinated', 'ProgramController@generateCoordinated');
 //
 Route::get('/program/add/{proid}', 'ProgramController@addByProvider');
 Route::post('/program/add/{proid}', 'ProgramController@createByProvider');
