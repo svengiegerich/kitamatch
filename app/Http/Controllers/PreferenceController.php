@@ -218,6 +218,7 @@ class PreferenceController extends Controller
           $program->currentOffers = $program->currentOffers + 1;
         } else {
           $preference->openOffer = 0;
+          $preference->finalMatch = 0;
         }
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
