@@ -134,7 +134,7 @@
                                   <form action="/preference/program/undo/{{$program->pid}}" id="delete_{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="prid" value="{{$preference->prid}}"></input>
-                                    <button form="delete_{{$preference->prid}}" class="ui-icon ui-icon-arrowthick-2-n-s"></button>
+                                    <button form="delete_{{$preference->prid}}" class="ui-icon ui-icon-closethick"></button>
                                   </form>
                                 </td>
                             </tr>
