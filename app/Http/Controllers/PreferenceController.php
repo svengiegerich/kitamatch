@@ -359,7 +359,12 @@ class PreferenceController extends Controller
   }
 
   public function deleteMultipleByProgram(Request $request) {
-    print(Hey);
+    foreach($request->deleteRows as $prid) {
+      $preference = Preference::find($prid);
+      $preference->status = -2;
+      $preference->save();
+    }
+    return redirect()->action('PreferenceController@showByProgram', $preference->id_from);
   }
 
   /**
