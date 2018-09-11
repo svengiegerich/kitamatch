@@ -12,7 +12,8 @@
 <div class="row justify-content-center">
 
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
-        <h4>Präferenzliste - Platzkapazität (freie Plätze): {{$program->capacity}}</h4>
+        <h4>Präferenzliste</h4>
+        <h3>Platzkapazität (freie Plätze): {{$program->currentOffers}}/{{$program->capacity}}</h3>
 
         <div style="float: right;">
         <span class="badge badge-success">Erfolgreiches Angebot</span>
