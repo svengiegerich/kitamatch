@@ -77,7 +77,7 @@
                         @endforeach
 
                         <!-- others active preferences -->
-                        <form action="/program/delete/multiple" method="POST" id="multipleForm">
+                        <form action="/preference/program/delete/multiple" method="POST" id="multipleForm">
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
