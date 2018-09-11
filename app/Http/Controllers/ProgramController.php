@@ -64,8 +64,18 @@ class ProgramController extends Controller
     //create a new user for the program
     $requestUser = new Request();
     $requestUser->setMethod('POST');
-    //public: 1 -> account_type = 2, private: 2 -> account_type = 3
-    if ($provider->kind == 1) { $accountType = 2; $p_kind = 1; } else if ($provider->kind == 2) { $accountType = 3; $p_kind = 2; }
+
+    //is the program private?
+    if ($request->type == 1) {
+      //private
+      $p_kind = 2;
+      $accountType = 3;
+    } else {
+      //public
+      $p_kind = 1;
+      $accountType = 2;
+    }
+
     $requestUser->request->add([
       'email' => $request->email,
       'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
