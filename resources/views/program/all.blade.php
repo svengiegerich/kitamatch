@@ -16,9 +16,9 @@
 <div class="row justify-content-center">
 <div class="col-md-8">
 <h2>Liste aller Kitas -
-  <form action="/program/generateCoordinated" method="POST">
-  <button type="button" class="btn btn-outline-secondary">Koordinierte Präferenzen erstellen</button>
-  {{ csrf_field() }}
+  <form action="/program/generate/coordinated" method="POST">
+    {{ csrf_field() }}
+    <button type="button" class="btn btn-outline-secondary" type="submit">Koordinierte Präferenzen erstellen</button>
   </form>
 </h2>
 </div>
