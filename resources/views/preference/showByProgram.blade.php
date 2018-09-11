@@ -163,7 +163,7 @@
                           var data = {"order": order, "_token": _token};
                           $.ajax({
                             data: data,
-                            type: 'POST',
+                            method: 'POST',
                             url: '/preference/program/reorder/{{$program->pid}}',
                             success: function(data) {
                               console.log(data);
