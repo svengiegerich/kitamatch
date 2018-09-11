@@ -210,9 +210,10 @@ class PreferenceController extends Controller
       $program->currentOffers = 0;
       foreach ($preferences as $preference) {
         $applicant = Applicant::find($preference->id_to);
-        $preference->applicantStatus = $applicant->status;
-        if ($preference->applicantStatus == 26) { $program->currentOffers = $program->currentOffers + 1; }
-        if ($matches->contains('aid', $applicant->aid)) {
+        if ($preference->applicantStatus == 26 AND $matches->contains('aid', $applicant->aid)) {
+          $program->finalMatch = 1;
+          $program->currentOffers = $program->currentOffers + 1;
+        } else  ($matches->contains('aid', $applicant->aid)) {
           $preference->openOffer = 1;
           $program->currentOffers = $program->currentOffers + 1;
         } else {

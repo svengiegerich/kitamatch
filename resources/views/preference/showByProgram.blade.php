@@ -34,7 +34,7 @@
                         <!-- first all successfull -->
                         <?php $i = 1; ?>
                         @foreach ($preferences as $preference)
-                          @if ($preference->applicantStatus == 26)
+                          @if ($preference->finalMatch == 1)
                             <tr class="table-success">
                               <td>{{$i}}</td>
                                 <td>
