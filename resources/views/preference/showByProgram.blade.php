@@ -67,7 +67,7 @@
                           @endif
                         @endforeach
 
-                        <!-- others -->
+                        <!-- others active preferences -->
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
@@ -82,7 +82,29 @@
                                   <form action="/preference/program/{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button>X</button>
+                                    <button>Löschen</button>
+                                  </form>
+                                </td>
+                            </tr>
+                            <?php $i = $i + 1; ?>
+                          @endif
+                        @endforeach
+
+                        <!-- all open -->
+                        @foreach ($deletedPreferences as $preference)
+                            <tr class="table-danger">
+                              <td>{{$i}}</td>
+                                <td>
+                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
+                                </td>
+                                <td>
+                                    {{ $preference->applicantFirstName }}
+                                </td>
+                                <td>
+                                  <form action="/preference/program/" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button>Rückgängig</button>
                                   </form>
                                 </td>
                             </tr>

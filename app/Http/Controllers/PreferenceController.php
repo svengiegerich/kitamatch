@@ -206,26 +206,36 @@ class PreferenceController extends Controller
       $Matching = new Matching();
       $matches = $Matching->getMatchesByProgram($program->pid);
       $preferences = $this->getPreferencesByProgram($pid);
+      $deletedPreferences = $Preference->getAllDeletedCoordinatedPreferences($pid);
       $program->currentOffers = 0;
+
       foreach ($preferences as $preference) {
         $preference->openOffer = 0;
         $preference->finalMatch = 0;
+
         $applicant = Applicant::find($preference->id_to);
+
         if ($applicant->status == 26 AND $matches->contains('aid', $applicant->aid)) {
           $preference->finalMatch = 1;
           $program->currentOffers = $program->currentOffers + 1;
         } elseif ($matches->where('status', '=', 31)->contains('aid', $applicant->aid)) {
           $preference->openOffer = 1;
           $program->currentOffers = $program->currentOffers + 1;
-        } else {
-
         }
+
+        $preference->applicantLastName = $applicant->last_name;
+        $preference->applicantFirstName = $applicant->first_name;
+      }
+
+      foreach ($deletedPreferences as $preference) {
+        $applicant = Applicant::find($preference->id_to);
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
       }
 
       return view('preference.showByProgram', array('preferences' => $preferences,
-                                                    'program' => $program));
+                                                    'program' => $program,
+                                                    'deletedPreferences' => $deletedPreferences));
     } else {
       //coordination: false
       $Program = new Program();

@@ -236,5 +236,13 @@ class Preference extends Model
     return $rank;
   }
 
+  public function getAllDeletedCoordinatedPreferences($pid) {
+    $prefs = DB::table('preferences')
+      ->where('status', '=', -2)
+      ->where('pr_kind', '=', 2)
+      ->get();
+    return $prefs;
+  }
+
   public $primaryKey = 'prid';
 }
