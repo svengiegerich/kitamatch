@@ -12,6 +12,10 @@
 <div class="row justify-content-center">
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
         <h4>List of preferences</h4>
+
+        <span class="label label-default">Default Label</span>
+<span class="label label-primary">Primary Label</span>
+<span class="label label-success">Success Label</span>
                 <table class="table table-hover">
                     <thead>
                         <tr>
