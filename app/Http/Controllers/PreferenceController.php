@@ -203,6 +203,9 @@ class PreferenceController extends Controller
     $program = Program::find($pid);
     if ($program->coordination == 1) {
       //coordination: true
+      $Matching = new Matching();
+      $matches = $Matching->getMatchesByProgram($program->pid);
+      $matches = $matches->where('status', '=', 31);
       $preferences = $this->getPreferencesByProgram($pid);
       foreach ($preferences as $preference) {
         $applicant = Applicant::find($preference->id_to);
@@ -210,6 +213,9 @@ class PreferenceController extends Controller
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
       }
+
+
+
       return view('preference.showByProgram', array('preferences' => $preferences,
                                                     'program' => $program));
     } else {
