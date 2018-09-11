@@ -179,6 +179,7 @@
                 </script>
 
                 <br>
+                {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" form="multipleForm" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
               </form>
