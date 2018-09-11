@@ -13,7 +13,7 @@
 
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
         <h4>Präferenzliste</h4>
-        <h3>Platzkapazität (freie Plätze): {{$program->currentOffers}}/{{$program->capacity}}</h3>
+        <h5>Platzkapazität (freie Plätze): {{$program->currentOffers}}/{{$program->capacity}}</h5>
 
         <div style="float: right;">
         <span class="badge badge-success">Erfolgreiches Angebot</span>
@@ -28,6 +28,7 @@
                             <th>Index</th>
                             <th>Last name</th>
                             <th>First name</th>
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,7 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
+                                <td></td>
                             </tr>
                             <?php $i = $i + 1; ?>
                           @endif
@@ -59,6 +61,7 @@
                                 <td>
                                     {{ $preference->applicantFirstName }}
                                 </td>
+                                <td></td>
                             </tr>
                             <?php $i = $i + 1; ?>
                           @endif
@@ -74,6 +77,13 @@
                                 </td>
                                 <td>
                                     {{ $preference->applicantFirstName }}
+                                </td>
+                                <td>
+                                  <form action="/preference/program/{{$preference->prid}}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button>X</button>
+                                  </form>
                                 </td>
                             </tr>
                             <?php $i = $i + 1; ?>
