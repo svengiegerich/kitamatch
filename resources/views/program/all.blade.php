@@ -22,7 +22,7 @@
 </div>
 <form action="/program/generate/coordinated" method="POST">
   {{ csrf_field() }}
-  <button type="button" class="btn btn-outline-secondary" type="submit">Koordinierte Präferenzen erstellen</button>
+  <button type="submit" class="btn btn-outline-secondary">Koordinierte Präferenzen erstellen</button>
 </form>
 
 <div class="row justify-content-center">
