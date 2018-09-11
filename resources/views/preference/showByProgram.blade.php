@@ -101,9 +101,9 @@
                                     {{ $preference->applicantFirstName }}
                                 </td>
                                 <td>
-                                  <form action="/preference/program/" method="POST">
+                                  <form action="/preference/program/undo/{{$program->pid}}" method="POST">
                                     {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
+                                    <input type="hidden" name="prid">{{$preference->prid}}</input>
                                     <button>Rückgängig</button>
                                   </form>
                                 </td>
