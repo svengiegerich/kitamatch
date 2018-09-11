@@ -103,7 +103,7 @@
                           @endif
                         @endforeach
 
-                        <!-- all open -->
+                        <!-- all deleted -->
                         @foreach ($deletedPreferences as $preference)
                             <tr class="table-danger">
                               <td>&nbsp;</td>
@@ -131,7 +131,7 @@
 
                 <br>
                 <button type="submit" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
-              </from>
+              </form>
     </div>
 </div>
 @endif
