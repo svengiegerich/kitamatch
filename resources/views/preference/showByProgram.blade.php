@@ -109,7 +109,7 @@
                                 <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td>
-                                  
+
                                   <input type="checkbox" name="deleteRows[]" value="{{$preference->prid}}" form="multipleForm">
                                 </td>
                             </tr>
@@ -134,7 +134,7 @@
                                   <form action="/preference/program/undo/{{$program->pid}}" id="delete_{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="prid" value="{{$preference->prid}}"></input>
-                                    <button form="delete_{{$preference->prid}}">Rückgängig</button>
+                                    <button form="delete_{{$preference->prid}}" class="ui-icon ui-icon-arrowthick-2-n-s"></button>
                                   </form>
                                 </td>
                             </tr>
