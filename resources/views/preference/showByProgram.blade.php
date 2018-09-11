@@ -77,7 +77,7 @@
                         @endforeach
 
                         <!-- others active preferences -->
-                        <form action="/program/delete/multiple" method="POST">
+                        <form action="/program/delete/multiple" method="POST" id="multipleForm">
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
@@ -117,10 +117,10 @@
                                 <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td>
-                                  <form action="/preference/program/undo/{{$program->pid}}" method="POST">
+                                  <form action="/preference/program/undo/{{$program->pid}}" id="delete_{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="prid" value="{{$preference->prid}}"></input>
-                                    <button>Rückgängig</button>
+                                    <button form="delete_{{$preference->prid}}">Rückgängig</button>
                                   </form>
                                 </td>
                             </tr>
@@ -130,7 +130,7 @@
                 </table>
 
                 <br>
-                <button type="submit" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
+                <button type="submit" form="multipleForm" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
               </form>
     </div>
 </div>
