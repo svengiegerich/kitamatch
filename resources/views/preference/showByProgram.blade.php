@@ -162,6 +162,7 @@
                             return $(this).parent().index("tr")+1;
                           });
                           var order = $(this).sortable('serialize');
+                          alert(order);
                           var _token = $("input[name=_token]").val();
                           var data = {"order": order, "_token": _token};
                           $.ajax({
