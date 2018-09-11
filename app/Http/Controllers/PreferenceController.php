@@ -358,6 +358,10 @@ class PreferenceController extends Controller
     return redirect()->action('PreferenceController@showByProgram', $preference->id_from);
   }
 
+  public function deleteMultipleByProgram(Request $request) {
+    print_r($request->deleteRows);
+  }
+
   /**
   * Add an offer preference by uncoordinated program
   *

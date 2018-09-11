@@ -77,11 +77,11 @@
                         @endforeach
 
                         <!-- others active preferences -->
-                        <form action="/preference/.." method="POST">
+                        <form action="/program/delete/multiple" method="POST">
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr>
-                              <th><input type="checkbox" name="deleteRows[]" class="form-check-input" value="{{$preference->prid}}"></th>
+                              <td><input type="checkbox" name="deleteRows[]" class="form-check-input" value="{{$preference->prid}}"></td>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
@@ -106,7 +106,7 @@
                         <!-- all open -->
                         @foreach ($deletedPreferences as $preference)
                             <tr class="table-danger">
-                              <th>&nbsp;</th>
+                              <td>&nbsp;</td>
                               <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
@@ -130,7 +130,7 @@
                 </table>
 
                 <br>
-                <button type="button" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
+                <button type="submit" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
               </from>
     </div>
 </div>

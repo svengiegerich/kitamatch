@@ -39,7 +39,7 @@ Route::get('/program', 'ProgramController@all');
 Route::get('/program/all', 'ProgramController@all');
 Route::delete('/program/{program}', 'ProgramController@delete');
 Route::post('/program/generate/coordinated', 'ProgramController@generateCoordinated');
-//
+// by provider
 Route::get('/program/add/{proid}', 'ProgramController@addByProvider');
 Route::post('/program/add/{proid}', 'ProgramController@createByProvider');
 //
@@ -59,6 +59,7 @@ Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByAppl
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
 Route::post('/preference/program/{pID}', 'PreferenceController@addByProgram');
 Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgram');
+Route::delete('/preference/program/delete/multiple', 'PreferenceController@deleteMultipleByProgram');
 Route::post('/preference/program/undo/{pID}', 'PreferenceController@undoByProgram');
 // ------ By Program - uncoordinated
 Route::post('/preference/program/uncoordinated/offer/{pID}', 'PreferenceController@addOfferUncoordinatedProgram');
