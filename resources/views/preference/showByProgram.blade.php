@@ -23,7 +23,11 @@
                     <tbody>
                         <?php $i = 1; ?>
                         @foreach ($preferences as $preference)
-                            <tr>
+                            <tr
+                              @if ($preference->applicantStatus == 26)
+                                class="table-success"
+                              @endif
+                            >
                                 <td>{{$i}}</td>
                                 <td>
                                     <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>

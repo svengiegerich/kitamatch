@@ -206,6 +206,7 @@ class PreferenceController extends Controller
       $preferences = $this->getPreferencesByProgram($pid);
       foreach ($preferences as $preference) {
         $applicant = Applicant::find($preference->id_to);
+        $preference->applicantStatus = $applicant->status;
         $preference->applicantLastName = $applicant->last_name;
         $preference->applicantFirstName = $applicant->first_name;
       }
