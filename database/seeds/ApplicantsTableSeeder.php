@@ -13,10 +13,10 @@ class ApplicantsTableSeeder extends Seeder
     factory('App\Applicant', config('kitamatch_config.count_applicants'))->create();
 
     //create super / admin user
-    /*$user = new App\User();
+    $user = new App\User();
     $user->password = Hash::make('secret');
     $user->email = 'm@zew.de';
     $user->account_type = "5";
-    $user->save();*/
+    $user->save();
   }
 }

@@ -9,7 +9,7 @@ $factory->define(App\Applicant::class, function (Faker $faker) {
   } else {
     $gender = "W";
   }
-  $gender = "W";
+  #$gender = "W";
 
   return [
     'last_name' => $faker->lastName,
