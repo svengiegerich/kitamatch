@@ -62,7 +62,7 @@ Route::delete('/preference/program/{prID}', 'PreferenceController@deleteByProgra
 Route::post('/preference/program/delete/multiple', 'PreferenceController@deleteMultipleByProgram');
 Route::post('/preference/program/undo/{pID}', 'PreferenceController@undoByProgram');
 Route::post('/preference/program/reorder/{pID}', 'PreferenceController@reorderByProgramAjax');
-Route::post('/preferences/program/rebuild/{pID}', 'PreferenceController@rebuildPreferences');
+Route::post('/preferences/program/rebuild/{pID}', 'PreferenceController@rebuildCoordinatedProgramPreferences');
 
 // ------ By Program - uncoordinated
 Route::post('/preference/program/uncoordinated/offer/{pID}', 'PreferenceController@addOfferUncoordinatedProgram');

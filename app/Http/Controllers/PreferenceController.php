@@ -558,7 +558,7 @@ class PreferenceController extends Controller
       }
   }
 
-  public function rebuildPreferences($pid) {
+  public function rebuildCoordinatedProgramPreferences($pid) {
     $Preference = new Preference();
     deleteAllActivePreferences($pid, 1);
     $Preference->createCoordinatedPreferences($program);
