@@ -23,5 +23,6 @@ class ProvidersTableSeeder extends Seeder
       $provider->address = "Bismarckplatz 10";
       $provider->status = 61;
       $provider->uid = factory('App\User')->create()->id;
+      $provider->save();
     }
 }
