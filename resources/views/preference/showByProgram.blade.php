@@ -174,7 +174,7 @@
                 <br>
                 {{ csrf_field() }}
                 <div style="float: right;">
-                  <a href="/preferences/program/rebuild/{{$program->pid}}"><button class="btn btn-outline-info">(1) Neu ordnen</button></a>
+                  <a href="/preferences/program/rebuild/{{$program->pid}}"><button class="btn btn-outline-info">(1) Nach Kriterien neu ordnen</button></a>
                   <button type="submit" form="multipleForm" class="btn btn-outline-danger">(2) Ausgewählte löschen</button>
                 </div>
               </form>
