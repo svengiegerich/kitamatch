@@ -160,6 +160,8 @@ class Preference extends Model
         ->get();
     }
 
+    print_r($criteria);
+
     //if criteria is null, use the default order (indicated by providerId = -1)
     if (!(count($criteria)>0)) {
       echo($p_Id);
