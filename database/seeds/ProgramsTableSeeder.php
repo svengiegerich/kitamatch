@@ -21,7 +21,7 @@ class ProgramsTableSeeder extends Seeder
       $program->p_kind = 2;
       $program->coordination = 1;
       $program->status = 12;
-      $program->uid = factory('App\User')->create(['email' => "sonnenschein.u3@zew.de", 'password' => Hash::make('secret'),])->id;
+      $program->uid = factory('App\User')->create(['email' => "sonnenschein.u3@zew.de", 'password' => Hash::make('secret'), 'account_type' => 2,])->id;
       $program->proid = 2;
       $program->save();
 
@@ -41,7 +41,7 @@ class ProgramsTableSeeder extends Seeder
       $program->p_kind = 2;
       $program->coordination = 1;
       $program->status = 12;
-      $program->uid = factory('App\User')->create(['email' => "funkelstein@zew.de", 'password' => Hash::make('secret'),])->id;
+      $program->uid = factory('App\User')->create(['email' => "funkelstein@zew.de", 'password' => Hash::make('secret'), 'account_type' => 2,])->id;
       $program->save();
 
       $program = new App\Program();
@@ -50,7 +50,7 @@ class ProgramsTableSeeder extends Seeder
       $program->p_kind = 2;
       $program->coordination = 1;
       $program->status = 12;
-      $program->uid = factory('App\User')->create(['email' => "marien@zew.de", 'password' => Hash::make('secret'),])->id;
+      $program->uid = factory('App\User')->create(['email' => "marien@zew.de", 'password' => Hash::make('secret'), 'account_type' => 2,])->id;
       $program->save();
 
       $program = new App\Program();
@@ -59,7 +59,7 @@ class ProgramsTableSeeder extends Seeder
       $program->p_kind = 2;
       $program->coordination = 1;
       $program->status = 12;
-      $program->uid = factory('App\User')->create(['email' => "emilia@zew.de", 'password' => Hash::make('secret'),])->id;
+      $program->uid = factory('App\User')->create(['email' => "emilia@zew.de", 'password' => Hash::make('secret'), 'account_type' => 2,])->id;
       $program->save();
 
       $program = new App\Program();
@@ -68,7 +68,7 @@ class ProgramsTableSeeder extends Seeder
       $program->p_kind = 2;
       $program->coordination = 1;
       $program->status = 12;
-      $program->uid = factory('App\User')->create(['email' => "kaleidoskop@zew.de", 'password' => Hash::make('secret'),])->id;
+      $program->uid = factory('App\User')->create(['email' => "kaleidoskop@zew.de", 'password' => Hash::make('secret'), 'account_type' => 2,])->id;
       $program->proid = 1;
       $program->save();
     }
