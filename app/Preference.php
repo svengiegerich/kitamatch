@@ -238,6 +238,7 @@ class Preference extends Model
 
   public function getAllDeletedCoordinatedPreferences($pid) {
     $prefs = DB::table('preferences')
+      ->where('id_from', '=', $pid)
       ->where('status', '=', -2)
       ->where('pr_kind', '=', 2)
       ->get();
