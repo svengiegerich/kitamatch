@@ -557,8 +557,8 @@ class PreferenceController extends Controller
           //generate preference
           $this->store($request);
         }
-        $rank = $rank + 1;*/
-      }
+        $rank = $rank + 1;
+      }*/
   }
 
   public function rebuildCoordinatedProgramPreferences($pid) {
