@@ -167,6 +167,8 @@ class Preference extends Model
       ->get();
     }
 
+    print_r($criteria);
+
     foreach($applicants as $applicant) {
       $guardian = Guardian::find($applicant->gid);
       $applicant->order = 0;
