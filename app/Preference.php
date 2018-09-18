@@ -162,7 +162,7 @@ class Preference extends Model
 
     //if criteria is null, use the default order (indicated by providerId = -1)
     if ($criteria) {
-      echo("ey");
+      echo($p_id);
       $criteria = Criterium::where('p_id', '=', -1)
       ->orderBy('rank', 'asc')
       ->get();
