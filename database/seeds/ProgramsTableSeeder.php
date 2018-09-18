@@ -31,7 +31,7 @@ class ProgramsTableSeeder extends Seeder
       $program->p_kind = 2;
       $program->coordination = 1;
       $program->status = 12;
-      $program->uid = factory('App\User')->create(['email' => "sonnenschein.ue3@zew.de", 'password' => Hash::make('secret'),])->id;
+      $program->uid = factory('App\User')->create(['email' => "sonnenschein.ü3@zew.de", 'password' => Hash::make('secret'),])->id;
       $program->proid = 2;
       $program->save();
 
