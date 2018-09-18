@@ -11,7 +11,7 @@ $factory->define(App\Guardian::class, function (Faker $faker) {
     'plz' => $faker->numberBetween($min = 30000, $max = 90000),
     'city' => $faker->city,
     'status' => 52,
-    'uid' => factory('App\User')->create()->id,
+    'uid' => factory('App\User')->create(['account_type' => 1, ])->id,
 
     //random attributes
     'siblings' => $faker->numberBetween($min = 840, $max = 841),
