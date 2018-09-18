@@ -558,6 +558,14 @@ class PreferenceController extends Controller
       }
   }
 
+  public function rebuildPreferences($pid) {
+    $Preference = new Preference();
+    deleteAllActivePreferences($pid, 1);
+    $Preference->createCoordinatedPreferences($program);
+
+    return redirect()->action('PreferenceController@showByProgram', $pid);
+  }
+
   /**
   * Show a single preference in a view
   *
