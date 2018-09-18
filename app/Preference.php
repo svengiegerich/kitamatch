@@ -252,7 +252,7 @@ class Preference extends Model
     }
 
     $pref = DB::table('preferences')
-      ->where('id_from', '=', 1)
+      ->where('id_from', '=', $pid)
       ->where('pr_kind', '=', $pr_kind)
       ->delete();
   }
