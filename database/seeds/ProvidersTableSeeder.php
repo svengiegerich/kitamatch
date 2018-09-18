@@ -22,7 +22,7 @@ class ProvidersTableSeeder extends Seeder
       $provider->city = "Heidelberg";
       $provider->address = "Bismarckplatz 10";
       $provider->status = 61;
-      $provider->uid = factory('App\User')->create(['email' => "stadt@zew.de", 'password' => Hash::make('secret'),])->id;
+      $provider->uid = factory('App\User')->create(['email' => "stadt@zew.de", 'password' => Hash::make('secret'), 'account_type' => 4,])->id;
       $provider->save();
 
       $provider = new App\Provider();
@@ -32,7 +32,7 @@ class ProvidersTableSeeder extends Seeder
       $provider->city = "Heidelberg";
       $provider->address = "Bismarckplatz 10";
       $provider->status = 61;
-      $provider->uid = factory('App\User')->create(['email' => "sonnenschein@zew.de", 'password' => Hash::make('secret'),])->id;
+      $provider->uid = factory('App\User')->create(['email' => "sonnenschein@zew.de", 'password' => Hash::make('secret'), 'account_type' => 4,])->id;
       $provider->save();
     }
 }
