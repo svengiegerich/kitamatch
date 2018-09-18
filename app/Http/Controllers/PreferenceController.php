@@ -532,9 +532,9 @@ class PreferenceController extends Controller
       }
 
       $applicantsByProgram = $Preference->orderByCriteria($applicants, $p_id, $provider);
-print_r($applicantsByProgram);
+      print_r($applicantsByProgram);
 
-      $rank = 1;
+      /*$rank = 1;
       foreach ($applicantsByProgram as $applicant) {
         //look if preference exists and if it has to be updated
         $preference = Preference::where('id_from', '=', $program->pid)
@@ -557,14 +557,14 @@ print_r($applicantsByProgram);
           //generate preference
           $this->store($request);
         }
-        $rank = $rank + 1;
+        $rank = $rank + 1;*/
       }
   }
 
   public function rebuildCoordinatedProgramPreferences($pid) {
     $Preference = new Preference();
     $program = Program::find($pid);
-    $Preference->deleteAllActivePreferences($pid, 1);
+    //$Preference->deleteAllActivePreferences($pid, 1);
     $this->createCoordinatedPreferencesByProgram($program);
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
