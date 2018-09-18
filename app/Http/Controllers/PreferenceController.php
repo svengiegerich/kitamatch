@@ -520,6 +520,7 @@ class PreferenceController extends Controller
     $Program = new Program;
     $Preference = new Preference;
     $Applicant = new Applicant;
+    $applicants = $Applicant->getAll();
       $providerId = $Program->getProviderId($program->pid);
       if ($providerId) {
         $provider = true;
