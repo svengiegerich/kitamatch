@@ -185,7 +185,7 @@
     <div class="col-md-6">
         <hr class="mb-4">
         <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
-        <a href="/preferences/program/rebuild/{{$program->pid}}"><button class="btn btn-primary btn-lg"> Nach Kriterien neu ordnen</button></a>
+        <a href="/preferences/program/rebuild/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block"> Nach Kriterien neu ordnen</button></a>
         <hr class="mb-4">
         <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
     </div>
