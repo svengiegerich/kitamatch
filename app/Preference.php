@@ -160,17 +160,12 @@ class Preference extends Model
         ->get();
     }
 
-    print_r($criteria);
-
     //if criteria is null, use the default order (indicated by providerId = -1)
     if (!(count($criteria)>0)) {
-      echo($p_Id);
       $criteria = Criterium::where('p_id', '=', -1)
       ->orderBy('rank', 'asc')
       ->get();
     }
-
-    print_r($criteria);
 
     foreach($applicants as $applicant) {
       $guardian = Guardian::find($applicant->gid);
