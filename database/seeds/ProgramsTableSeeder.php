@@ -12,7 +12,7 @@ class ProgramsTableSeeder extends Seeder
     public function run()
     {
       //-- Random sample
-      factory('App\Program', config('kitamatch_config.count_programs'))->create();
+      //factory('App\Program', config('kitamatch_config.count_programs'))->create();
 
       //-- Example sample (make sure count is same as in config!)
       $program = new App\Program();
