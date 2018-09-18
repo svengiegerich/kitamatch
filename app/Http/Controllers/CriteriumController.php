@@ -110,7 +110,6 @@ class CriteriumController extends Controller
         $criterium = Criterium::find($criteriumId);
         $criterium->rank = pow(2, $maxIndex-$index);
         $criterium->save();
-        $i = $i + 1;
     }
 
     return response()->json([
