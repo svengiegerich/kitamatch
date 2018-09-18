@@ -567,7 +567,7 @@ class PreferenceController extends Controller
     //$Preference->deleteAllActivePreferences($pid, 1);
     $this->createCoordinatedPreferencesByProgram($program);
 
-    return redirect()->action('PreferenceController@showByProgram', $pid);
+    //return redirect()->action('PreferenceController@showByProgram', $pid);
   }
 
   /**
