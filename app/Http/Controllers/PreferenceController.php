@@ -560,8 +560,9 @@ class PreferenceController extends Controller
 
   public function rebuildCoordinatedProgramPreferences($pid) {
     $Preference = new Preference();
-    $this->deleteAllActivePreferences($pid, 1);
-    $Preference->createCoordinatedPreferences($program);
+    $program = Program::find($pid);
+    $Preference->deleteAllActivePreferences($pid, 1);
+    $this->createCoordinatedPreferencesByProgram($program);
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
