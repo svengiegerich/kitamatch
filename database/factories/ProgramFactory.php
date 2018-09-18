@@ -15,8 +15,8 @@ $factory->define(App\Program::class, function (Faker $faker) {
     $coordination = 0;
   }*/
 
-  $p_kind = 2;
-  $coordination = 0;
+  $p_kind = 1;
+  $coordination = 1;
 
   return [
     'name' => $faker->company,
