@@ -12,11 +12,14 @@ $factory->define(App\Guardian::class, function (Faker $faker) {
     'city' => $faker->city,
     'status' => 52,
     'uid' => factory('App\User')->create()->id,
-    #'siblings' => $faker->numberBetween($min = 840, $max = 841),
-    #'parental_status' => $faker->numberBetween($min = 820, $max = 824),
-    #'volume_of_employment' => $faker->numberBetween($min = 830, $max = 833),
-    'siblings' => $faker->numberBetween($min = 840, $max = 840),
-    'parental_status' => $faker->numberBetween($min = 820, $max = 820),
-    'volume_of_employment' => $faker->numberBetween($min = 830, $max = 830),
+
+    //random attributes
+    'siblings' => $faker->numberBetween($min = 840, $max = 841),
+    'parental_status' => $faker->numberBetween($min = 820, $max = 824),
+    'volume_of_employment' => $faker->numberBetween($min = 830, $max = 833),
+    //identical attributes
+    #'siblings' => $faker->numberBetween($min = 840, $max = 840),
+    #'parental_status' => $faker->numberBetween($min = 820, $max = 820),
+    #'volume_of_employment' => $faker->numberBetween($min = 830, $max = 830),
   ];
 });
