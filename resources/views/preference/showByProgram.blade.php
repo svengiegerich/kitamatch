@@ -173,6 +173,7 @@
 
                 <br>
                 {{ csrf_field() }}
+                <button class="btn btn-outline-info" style="float: right;">Neu ordnen</button>
                 <button type="submit" form="multipleForm" class="btn btn-outline-danger" style="float: right;">Ausgewählte löschen</button>
               </form>
     </div>
