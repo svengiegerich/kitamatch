@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
 
     $this->call(ApplicantsTableSeeder::class);
 
-    $this->call(ProgramsTableSeeder::class);
+    //$this->call(ProgramsTableSeeder::class);
 
-    $this->call(ProvidersTableSeeder::class);
+    //$this->call(ProvidersTableSeeder::class);
 
     //Applicant Preferences
     $this->call(PreferencesTableSeeder::class);
