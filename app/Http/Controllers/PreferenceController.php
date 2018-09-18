@@ -471,48 +471,10 @@ class PreferenceController extends Controller
   */
   public function createCoordinatedPreferences() {
     $Program = new Program;
-    $Preference = new Preference;
-    $Applicant = new Applicant;
     //get all programs with coordination = true
     $programs = $Program->getCoordinated();
-    $applicants = $Applicant->getAll();
     foreach ($programs as $program) {
-      $providerId = $Program->getProviderId($program->pid);
-      if ($providerId) {
-        $provider = true;
-        $p_id = $program->proid;
-      } else {
-        $provider = false;
-        $p_id = $program->pid;
-      }
-
-      $applicantsByProgram = $Preference->orderByCriteria($applicants, $p_id, $provider);
-
-      $rank = 1;
-      foreach ($applicantsByProgram as $applicant) {
-        //look if preference exists and if it has to be updated
-        $preference = Preference::where('id_from', '=', $program->pid)
-          ->where('id_to', '=', $applicant->aid)
-          ->where('pr_kind', '=', 2)
-          ->where('status', '=', 1)->first();
-        $request = new Request();
-        $request->setMethod('POST');
-        $request->request->add(['from' => $program->pid,
-                                'to' => $applicant->aid,
-                                'pr_kind' => 2,
-                                'rank' => $rank,
-                                'status' => 1
-                              ]);
-        if ($preference != null) {
-          //update
-          $request->request->add(['prid' => $preference->prid]);
-          $this->update($request);
-        } else {
-          //generate preference
-          $this->store($request);
-        }
-        $rank = $rank + 1;
-      }
+      $this->createCoordinatedPreferencesByProgram($program);
     }
   }
 
@@ -520,7 +482,11 @@ class PreferenceController extends Controller
     $Program = new Program;
     $Preference = new Preference;
     $Applicant = new Applicant;
-    $applicants = $Applicant->getAll();
+    //$applicants = $Applicant->getAll();
+    //not all but only the available ones
+    $applicants = $Preference->getAvailableApplicants($program->pid);
+
+
     //als eigene funktion bauen & die drüber nur diese aufrufen lassen
       $providerId = $Program->getProviderId($program->pid);
       if ($providerId) {
