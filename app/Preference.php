@@ -153,7 +153,6 @@ class Preference extends Model
         ->orderBy('rank', 'asc')
         ->get();
     } else {
-      echo("ey");
       //single program
       $criteria = Criterium::where('p_id', '=', $p_Id)
         ->where('program', '=', 1)
@@ -163,6 +162,7 @@ class Preference extends Model
 
     //if criteria is null, use the default order (indicated by providerId = -1)
     if ($criteria) {
+      echo("ey");
       $criteria = Criterium::where('p_id', '=', -1)
       ->orderBy('rank', 'asc')
       ->get();
