@@ -521,6 +521,7 @@ class PreferenceController extends Controller
     $Preference = new Preference;
     $Applicant = new Applicant;
     $applicants = $Applicant->getAll();
+    //als eigene funktion bauen & die drüber nur diese aufrufen lassen
       $providerId = $Program->getProviderId($program->pid);
       if ($providerId) {
         $provider = true;
