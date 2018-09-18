@@ -486,6 +486,7 @@ class PreferenceController extends Controller
         $p_id = $program->pid;
       }
 
+      print($p_id);
       $applicantsByProgram = $Preference->orderByCriteria($applicants, $p_id, $provider);
 
       $rank = 1;
