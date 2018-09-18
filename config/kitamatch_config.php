@@ -15,8 +15,8 @@ return [
 
   //seeds
   'count_applicants' => 65,
-  'count_programs' => 6,
-  'count_providers' => 6,
+  'count_programs' => 5,
+  'count_providers' => 1,
   'count_guardians' => 65,
   'count_users' => 10,
 
