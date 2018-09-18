@@ -239,8 +239,9 @@ class MatchingController extends Controller
     $preferencesApplicants = [];
 
     //create coordinated prefs -> done via generateCoordinated
+    //old because it is done via program
     //app('App\Http\Controllers\PreferenceController')->createCoordinatedPreferences();
-    
+
     //look for non active programs
     app('App\Http\Controllers\ProgramController')->setNonActive();
 

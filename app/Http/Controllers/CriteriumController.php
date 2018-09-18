@@ -22,6 +22,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Criterium;
 use App\Code;
+use App\Program;
+use App\Preference;
 
 /**
 * This controller handles the criteria catalogue: creation, update.
@@ -106,11 +108,28 @@ class CriteriumController extends Controller
     //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
     parse_str($request->order, $criteria);
     $maxIndex = max(array_keys($criteria['item'])); //from 0
+    $i = 0;
     foreach ($criteria['item'] as $index => $criteriumId) {
         $criterium = Criterium::find($criteriumId);
+        if ($i = 1 AND $criterium->program = 1) { $pid = $criterium->p_id; }
         $criterium->rank = pow(2, $maxIndex-$index);
         $criterium->save();
+        $i = $i + 1;
     }
+
+    //if the program is coordinated, fist delete all current preferences and than reorder it by the new criteria
+    if (isset($pid)) {
+      $Program = new Program();
+      $Preference = new Preference();
+      $program = Program::find($pid);
+      if ($Program->isCoordinated($pid)) {
+        //delete the old preferences
+        $Preference->deleteAllActivePreferences($pid, 1);
+        //add new ones
+        $Preference->createCoordinatedPreferences($program);
+      }
+    }
+
     return response()->json([
       'success' => true
     ]);

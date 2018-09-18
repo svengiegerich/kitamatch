@@ -244,5 +244,18 @@ class Preference extends Model
     return $prefs;
   }
 
+  public function deleteAllActivePreferences($pid, $coordination) {
+    if ($coordination == 1) {
+      $pr_kind = 2;
+    } else {
+      $pr_kind = 3;
+    }
+
+    $pref = DB::table('preferences')
+      ->where('id_from', '=', 1)
+      ->where('pr_kind', '=', $pr_kind)
+      ->delete();
+  }
+
   public $primaryKey = 'prid';
 }
