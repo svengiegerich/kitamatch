@@ -19,7 +19,7 @@ class ProgramsTableSeeder extends Seeder
       $program->name = "Sonnenschein - U3";
       $program->capacity = 5;
       $program->p_kind = 2;
-      $program->coordiantion = 1;
+      $program->coordination = 1;
       $program->status = 12;
       $program->uid = factory('App\User')->create(['email' => "sonnenschein.u3@zew.de", 'password' => Hash::make('secret'),])->id;
       $program->proid = 2;
@@ -29,7 +29,7 @@ class ProgramsTableSeeder extends Seeder
       $program->name = "Sonnenschein - Ü3";
       $program->capacity = 5;
       $program->p_kind = 2;
-      $program->coordiantion = 1;
+      $program->coordination = 1;
       $program->status = 12;
       $program->uid = factory('App\User')->create(['email' => "sonnenschein.ue3@zew.de", 'password' => Hash::make('secret'),])->id;
       $program->proid = 2;
@@ -39,7 +39,7 @@ class ProgramsTableSeeder extends Seeder
       $program->name = "DRK Burg Funkelstein";
       $program->capacity = 7;
       $program->p_kind = 2;
-      $program->coordiantion = 1;
+      $program->coordination = 1;
       $program->status = 12;
       $program->uid = factory('App\User')->create(['email' => "funkelstein@zew.de", 'password' => Hash::make('secret'),])->id;
       $program->save();
@@ -48,7 +48,7 @@ class ProgramsTableSeeder extends Seeder
       $program->name = "St. Marien";
       $program->capacity = 7;
       $program->p_kind = 2;
-      $program->coordiantion = 1;
+      $program->coordination = 1;
       $program->status = 12;
       $program->uid = factory('App\User')->create(['email' => "marien@zew.de", 'password' => Hash::make('secret'),])->id;
       $program->save();
@@ -57,7 +57,7 @@ class ProgramsTableSeeder extends Seeder
       $program->name = "Emilia";
       $program->capacity = 5;
       $program->p_kind = 2;
-      $program->coordiantion = 1;
+      $program->coordination = 1;
       $program->status = 12;
       $program->uid = factory('App\User')->create(['email' => "emilia@zew.de", 'password' => Hash::make('secret'),])->id;
       $program->save();
@@ -66,7 +66,7 @@ class ProgramsTableSeeder extends Seeder
       $program->name = "Kaleidoskop";
       $program->capacity = 8;
       $program->p_kind = 2;
-      $program->coordiantion = 1;
+      $program->coordination = 1;
       $program->status = 12;
       $program->uid = factory('App\User')->create(['email' => "kaleidoskop@zew.de", 'password' => Hash::make('secret'),])->id;
       $program->proid = 1;
