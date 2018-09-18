@@ -153,6 +153,7 @@ class Preference extends Model
         ->orderBy('rank', 'asc')
         ->get();
     } else {
+      echo("ey");
       //single program
       $criteria = Criterium::where('p_id', '=', $p_Id)
         ->where('program', '=', 1)
