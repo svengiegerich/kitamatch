@@ -131,7 +131,7 @@
                                 <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td>
-                                  <form action="/preference/program/undo/{{$program->pid}}" id="delete_{{$preference->prid}}" method="POST">
+                                  <form action="/preference/program/undo/{{$program->pid}}" id="delete_{{$preference->prid}}" name="delete_{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="prid" value="{{$preference->prid}}"></input>
                                     <button form="delete_{{$preference->prid}}" class="ui-icon ui-icon-arrowreturnthick-1-n" style="border:none;"></button>
