@@ -19,7 +19,7 @@
 
         <div style="float: right;">
         <h5><span class="badge badge-success">Erfolgreiches Angebot</span>
-        <span class="badge badge-info">Gehaltenes Angbot</span>
+        <!--<span class="badge badge-info">Gehaltenes Angbot</span>-->
         <span class="badge badge-light">Bewerber</span></h5>
         <br>
         </div>
@@ -61,7 +61,7 @@
                         <!-- all open -->
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer == 1)
-                            <tr class="table-info">
+                            <tr class="table-success">
                               <td></td>
                               <td>{{$i}}</td>
                                 <td>
