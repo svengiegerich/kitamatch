@@ -2,6 +2,8 @@
 
 @section('content')
 
+{{ csrf_field() }}
+
 <script>
   $(document).ready( function () {
     $('#programs').DataTable( {
@@ -39,7 +41,7 @@
         @foreach($programs as $program)
             <tr>
                 <td>{{$program->pid}}</td>
-                <td><a href="/preference/program/{{$program->pid}}">{{$program->name}}</a></td>
+                <td><a href="{{url('/preference/program/' . $program->pid)}}">{{$program->name}}</a></td>
                 <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>
                 <td>{{$program->plz}}</td>
@@ -47,10 +49,8 @@
                 <td>{{$program->coordination_description}}</td>
                 <td>{{$program->status_description}}</td>
                 <td>
-                    <form action="/program/{{ $program->pid }}" method="POST">
-                        {{ csrf_field() }}
+                    <form action="{{url('/program/' . $program->pid)}}" method="POST">
                         {{ method_field('DELETE') }}
-
                         <button>Löschen</button>
                     </form>
                 </td>
@@ -60,8 +60,7 @@
     </table>
 
     <br><br>
-    <form action="/program/generate/coordinated" method="POST">
-      {{ csrf_field() }}
+    <form action="{{url('/program/generate/coordinated')}}" method="POST">
       Bewerberpräferenzen vollständig erhoben. <button type="submit" class="btn btn-outline-secondary">Nun Koordinierte Präferenzen erstellen (nur einmal am Anfang)</button>
     </form>
 </div>
