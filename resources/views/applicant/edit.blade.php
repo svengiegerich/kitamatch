@@ -24,13 +24,13 @@
 
         <ul class="nav nav-pills gap-nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/guardian' .$applicant->gid)}}">{{$applicant->guardianName}}</a>
+            <a class="nav-link" href="{{url('/guardian' . $applicant->gid)}}">{{$applicant->guardianName}}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{'/preference/applicant/' . $applicant->aid)}}">Preferences</a>
+            <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Preferences</a>
           </li>
         </ul>
       </div>
@@ -38,7 +38,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
 
-        <form action="/applicant/{{$applicant->aid}}" method="POST" class="">
+        <form action="{{url('/applicant/' . $applicant->aid)}}" method="POST" class="">
             {{ csrf_field() }}
 
             <div class="form-group row">
@@ -82,7 +82,7 @@
       <button class="btn btn-success btn-lg btn-block">Priority set</button>
       @endif
       @if ($applicant->status != 25)
-      <a href="/applicant/setPriority/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Set priority</button></a>
+      <a href="{{url('/applicant/setPriority/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Set priority</button></a>
       @endif
 </div>
 
