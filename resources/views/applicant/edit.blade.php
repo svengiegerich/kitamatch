@@ -24,13 +24,13 @@
 
         <ul class="nav nav-pills gap-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/guardian/{{$applicant->gid}}">{{$applicant->guardianName}}</a>
+            <a class="nav-link" href="{{url('/guardian' .$applicant->gid)}}">{{$applicant->guardianName}}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/preference/applicant/{{$applicant->aid}}">Preferences</a>
+            <a class="nav-link" href="{{'/preference/applicant/' . $applicant->aid)}}">Preferences</a>
           </li>
         </ul>
       </div>
