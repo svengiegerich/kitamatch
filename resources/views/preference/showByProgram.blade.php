@@ -188,7 +188,7 @@
         <br>
         <a href="{{url('/preferences/program/rebuild/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block"> Nach Kriterien neu sortieren</button></a>
         <hr class="mb-4">
-        <a href="{{url('/program/ . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
+        <a href="{{url('/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
     </div>
 </div>
 
