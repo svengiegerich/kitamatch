@@ -42,7 +42,7 @@
                 @endif
                 >
                 <th>{{$guardian->gid}}</a></th>
-                <td><a href="/guardian/{{$guardian->gid}}">{{$guardian->last_name}}</a></td>
+                <td><a href="{{url('/guardian/' . $guardian->gid)}}">{{$guardian->last_name}}</a></td>
                 <td>{{$guardian->first_name}}</td>
                 <td>{{$guardian->status_description}}</td>
                 <td>{{$guardian->plz}}</td>
@@ -52,7 +52,7 @@
                 <td>{{$guardian->volume_of_employment_description}}</td>
                 <td>
                     @if ( ($guardian->status == 50 OR $guardian->status == 51) && ($guardian->siblings_description != "--" && $guardian->parental_status_description != "--" && $guardian->volume_of_employment_description != "--"))
-                    <form action="/guardian/verify/{{ $guardian->gid }}" method="POST">
+                    <form action="{{url('/guardian/verify/' . $guardian->gid)}}" method="POST">
                         {{ csrf_field() }}
                         <button class="">Verify</button>
                     </form>

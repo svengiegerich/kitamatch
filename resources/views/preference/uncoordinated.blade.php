@@ -76,7 +76,7 @@
                   <td></td>
                   <td>
                     @if ($offer['updated_at'] > $lastMatch)
-                      <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
+                      <form action="{{url('/preference/program/uncoordinated/' . $offers[$applicant->aid]['id'])}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <button>Zurücknehmen</button>
@@ -132,7 +132,7 @@
                   $.ajax({
                     data: data,
                     type: 'POST',
-                    url: '/preference/program/uncoordinated/reorder/{{$preferences[0]->id_from}}',
+                    url: '{{url('/preference/program/uncoordinated/reorder/' . $preferences[0]->id_from)}}',
                     success: function(data) {
                       console.log(data);
                     }
@@ -161,7 +161,7 @@
             <td>{{$applicant->gender}}</td>
             <td>
                 @if ($program->openOffers < $program->capacity)
-                <form action="/preference/program/uncoordinated/upoffer" method="POST">
+                <form action="{{url('/preference/program/uncoordinated/upoffer')}}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="prid" value="{{$offers[$applicant->aid]['id']}}">
                     <button>Angebot</button>
@@ -170,7 +170,7 @@
               </td><td>
                 @if ($offers[$applicant->aid]['id'] > 0
                   && $applicant->status != 26)
-                  <form action="/preference/program/uncoordinated/{{$offers[$applicant->aid]['id']}}" method="POST">
+                  <form action="{{url('/preference/program/uncoordinated/' . $offers[$applicant->aid]['id'])}}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <button>Zurücknehmen</button>
@@ -230,7 +230,7 @@
                   @if ($applicant->status == 26)
                       Schon endtgültig vergeben
                   @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers < $program->capacity))
-                  <form action="/preference/program/uncoordinated/offer/{{$program->pid}}" method="POST">
+                  <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
                       <button>Angebot</button>
@@ -238,7 +238,7 @@
                   @endif
               </td>
               <td>
-                  <form action="/preference/program/uncoordinated/waitlist/{{$program->pid}}" method="POST">
+                  <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="aid" value="{{$applicant->aid}}">
                     <button>Warteliste</button>

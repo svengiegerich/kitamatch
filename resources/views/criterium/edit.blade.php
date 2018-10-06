@@ -28,7 +28,7 @@
                     $.ajax({
                         data: data,
                         type: 'POST',
-                        url: '/criteria',
+                        url: '{{url('/criteria')}}',
                         success: function(data) {
                             console.log(data);
                         }

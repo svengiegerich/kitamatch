@@ -31,7 +31,7 @@
     </div>
 <div class="row justify-content-center">
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
-        <form action="/guardian/{{$guardian->gid}}" method="POST">
+        <form action="{{url('/guardian/' . $guardian->gid)}}" method="POST">
             {{ csrf_field() }}
 
             <div class="form-group row">
@@ -122,14 +122,14 @@
         <br>
 
         @foreach ($applicants as $applicant)
-            <a href="/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">{{$applicant->last_name}} {{$applicant->first_name}}</button></a>
+            <a href="{{url('/applicant/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">{{$applicant->last_name}} {{$applicant->first_name}}</button></a>
             <br>
         @endforeach
 
         @if (count($applicants) > 0)
-          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn btn-lg btn-block">Add sibling</button></a>
+          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn btn-lg btn-block">Add sibling</button></a>
         @else
-          <a href="/applicant/add/{{$guardian->gid}}"><button class="btn-primary btn-lg btn-block">Your Applicant</button></a>
+          <a href="{{url('/applicant/add/ . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Your Applicant</button></a>
         @endif
         <br>
     </div>

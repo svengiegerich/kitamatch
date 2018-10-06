@@ -19,7 +19,7 @@
 </div>
 <div class="row justify-content-center">
 <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
-        <form action="/program/add/{{$provider->proid}}" method="POST" class="">
+        <form action="{{url('/program/add/' . $provider->proid)}}" method="POST" class="">
             {{ csrf_field() }}
 
             <div class="form-group row">

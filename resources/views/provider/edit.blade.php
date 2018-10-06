@@ -18,7 +18,7 @@
 </div>
     <div class="row justify-content-center">
     <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
-        <form action="/provider/{{$provider->proid}}" method="POST">
+        <form action="{{('/provider/' . $provider->proid)}}" method="POST">
             {{ csrf_field() }}
 
             <div class="form-group row">

@@ -19,7 +19,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
         @if (count($programs)>0)
-        <form action="/preference/applicant/{{$applicant->aid}}" method="POST" class="form-horizontal">
+        <form action="{{url('/preference/applicant/' . $applicant->aid)}}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <div class="form-group row">
@@ -65,7 +65,7 @@
                   $.ajax({
                     data: data,
                     type: 'POST',
-                    url: '/preference/applicant/reorder/{{$preferences->first()->id_from}}',
+                    url: '{{url('/preference/applicant/reorder/' . $preferences->first()->id_from)}}',
                     success: function(data) {
                       console.log(data);
                     }
@@ -78,7 +78,7 @@
                     $.ajax({
                             data: data,
                             type: 'POST',
-                            url: '/preference/applicant/delete/{{$preferences->first()->id_from}}',
+                            url: '{{url('/preference/applicant/delete/' . $preferences->first()->id_from)}}',
                             success: function(data) {
                                 console.log(data);
                             }
@@ -112,7 +112,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <hr class="mb-4">
-        <a href="/applicant/{{$applicant->aid}}"><button class="btn btn-primary btn-lg btn-block">Back to applicant</button></a>
+        <a href="{{url('/applicant/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Back to applicant</button></a>
     </div>
 </div>
 

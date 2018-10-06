@@ -30,7 +30,7 @@
 </div>
 <div class="row justify-content-center">
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
-        <form action="/program/{{$program->pid}}" method="POST">
+        <form action="{{url('/program/' . $program->pid)}}" method="POST">
             {{ csrf_field() }}
 
             <div class="form-group row">
@@ -91,15 +91,15 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         @if ($program->coordination == 1)
-            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Rangliste einsehen</button></a>
+            <a href="{{url('/preference/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Rangliste einsehen</button></a>
         @else
-            <a href="/preference/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zum Koordinierungsverfahren</button></a>
+            <a href="{{url('/preference/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Zum Koordinierungsverfahren</button></a>
         @endif
 
         <!-- to do: add provider button if it has a provider-->
         @if ($program->proid)
         <hr class="mb-4">
-        <a href="/provider/{{$program->proid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zum Träger</button></a>
+        <a href="{{url('/provider/' . $program->proid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zum Träger</button></a>
         @endif
     </div>
 </div>

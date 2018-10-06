@@ -94,7 +94,7 @@
                       </thead>
                       <tbody id="sortable">
                         <!-- others active preferences -->
-                        <form action="/preference/program/delete/multiple" method="POST" id="multipleForm">
+                        <form action="{{('/preference/program/delete/multiple')}}" method="POST" id="multipleForm">
                         @foreach ($preferences as $preference)
                           @if ($preference->openOffer != 1 AND $preference->finalMatch != 1)
                             <tr id="item-{{$preference->prid}}">
@@ -131,7 +131,7 @@
                                 <td>{{(new Carbon\Carbon($preference->applicantBirthday))->format('d.m.Y')}}</td>
                                 <td>{{$preference->applicantGender}}</td>
                                 <td>
-                                  <form action="/preference/program/undo/{{$program->pid}}" id="delete_{{$preference->prid}}" name="delete_{{$preference->prid}}" method="POST">
+                                  <form action="{{("/preference/program/undo/" . $program->pid)}}" id="delete_{{$preference->prid}}" name="delete_{{$preference->prid}}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="prid" value="{{$preference->prid}}"></input>
                                     <button form="delete_{{$preference->prid}}" class="ui-icon ui-icon-arrowreturnthick-1-n" style="border:none;"></button>
@@ -160,7 +160,7 @@
                           $.ajax({
                             data: data,
                             method: 'POST',
-                            url: '/preference/program/reorder/{{$program->pid}}',
+                            url: '{{('/preference/program/reorder/' . $program->pid)}}',
                             success: function(data) {
                               console.log(data);
                             }
@@ -184,11 +184,11 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <hr class="mb-4">
-        <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
+        <a href="{{('/criteria/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
         <br>
-        <a href="/preferences/program/rebuild/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block"> Nach Kriterien neu sortieren</button></a>
+        <a href="{{('/preferences/program/rebuild/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block"> Nach Kriterien neu sortieren</button></a>
         <hr class="mb-4">
-        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
+        <a href="{{('/program/ . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
     </div>
 </div>
 
