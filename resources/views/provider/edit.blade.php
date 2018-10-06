@@ -18,7 +18,7 @@
 </div>
     <div class="row justify-content-center">
     <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
-        <form action="{{('/provider/' . $provider->proid)}}" method="POST">
+        <form action="{{url('/provider/' . $provider->proid)}}" method="POST">
             {{ csrf_field() }}
 
             <div class="form-group row">
@@ -63,11 +63,11 @@
         <br>
 
         @foreach ($programs as $program)
-            <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">{{$program->name}}</button></a>
+            <a href="{{url('/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">{{$program->name}}</button></a>
             <br>
         @endforeach
 
-        <a href="/program/add/{{$provider->proid}}"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
+        <a href="{{url('/program/add/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
         <br>
     </div>
 </div>
@@ -76,7 +76,7 @@
     <div class="col-md-8">
         <h4>My criteria</h4>
         <br>
-        <a href="/criteria/{{$provider->proid}}"><button class="btn btn-primary btn-lg btn-block">Criteria</button></a>
+        <a href="{{url('/criteria/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Criteria</button></a>
         <br>
     </div>
 </div>
