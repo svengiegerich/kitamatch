@@ -45,7 +45,7 @@
                               <td></td>
                               <td>{{$i}}</td>
                                 <td>
-                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
+                                    <a target="_blank" href="{{url('/applicant/' . $preference->id_to )}}">{{ $preference->applicantLastName }}</a>
                                 </td>
                                 <td>
                                     {{ $preference->applicantFirstName }}
@@ -65,7 +65,7 @@
                               <td></td>
                               <td>{{$i}}</td>
                                 <td>
-                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
+                                    <a target="_blank" href="{{url('/applicant/' . $preference->id_to )}}">{{ $preference->applicantLastName }}</a>
                                 </td>
                                 <td>
                                     {{ $preference->applicantFirstName }}
@@ -101,7 +101,7 @@
                                 <th scope="row"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></th>
                                 <td>{{$i}}</td>
                                 <td>
-                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
+                                    <a target="_blank" href="{{url('/applicant/' . $preference->id_to )}}">{{ $preference->applicantLastName }}</a>
                                 </td>
                                 <td>
                                     {{ $preference->applicantFirstName }}
@@ -123,7 +123,7 @@
                               <td>&nbsp;</td>
                               <td>{{$i}}</td>
                                 <td>
-                                    <a target="_blank" href="/applicant/{{ $preference->id_to }}">{{ $preference->applicantLastName }}</a>
+                                    <a target="_blank" href="{{url('/applicant/' . $preference->id_to )}}">{{ $preference->applicantLastName }}</a>
                                 </td>
                                 <td>
                                     {{ $preference->applicantFirstName }}
