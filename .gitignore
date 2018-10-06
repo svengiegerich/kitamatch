@@ -1,5 +1,6 @@
 /node_modules
-/public/*
+/public/.htaccess
+/public/web.config
 /public/docs/cache
 /public/hot
 /public/storage
