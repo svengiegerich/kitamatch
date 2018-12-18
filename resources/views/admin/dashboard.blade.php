@@ -96,6 +96,7 @@
                 @endforeach
             </tbody>
         </table>
+        <button type="button" class="btn btn-link"><a href="{{url('/admin/export')}}">CSV Export</a></button>
     </div>
 </div>
 

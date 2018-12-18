@@ -98,3 +98,4 @@ Route::get('/criteria/program/{programId}', 'CriteriumController@showByProgram')
 //Admin
 Route::get('/admin/', 'AdminController@index');
 Route::get('/admin/dashboard', 'AdminController@index');
+Route::get('/admin/export', 'AdminController@exportMatching');
