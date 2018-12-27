@@ -79,10 +79,10 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
       @if ($applicant->status == 25)
-      <button class="btn btn-lg btn-block">Priorität setzen</button>
+      <button class="btn btn-lg btn-block">Priorität ist gesetzt</button>
       @endif
       @if ($applicant->status != 25)
-      <a href="{{url('/applicant/setPriority/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Priorität ist gesetzt</button></a>
+      <a href="{{url('/applicant/setPriority/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Priorität setzen</button></a>
       @endif
 </div>
 
