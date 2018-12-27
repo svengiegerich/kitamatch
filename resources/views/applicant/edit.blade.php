@@ -16,11 +16,11 @@
 
       @if ($applicant->status == 26)
       <div class="alert alert-success" role="alert">
-        You are successfully matched.
+        Sie wurden erfolgreich zugeteilt und haben einen Platz erhalten.
       </div>
       @endif
 
-        <h2>Edit Applicant</h2>
+        <h2>Bewerberinformationen bearbeiten</h2>
 
         <ul class="nav nav-pills gap-nav">
           <li class="nav-item">
@@ -30,7 +30,7 @@
             <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Preferences</a>
+            <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
           </li>
         </ul>
       </div>
@@ -71,7 +71,7 @@
             </div>
 
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Aktualisieren</button>
         </form>
     </div>
 </div>
@@ -79,10 +79,10 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
       @if ($applicant->status == 25)
-      <button class="btn btn-success btn-lg btn-block">Priority set</button>
+      <button class="btn btn-lg btn-block">Priorität setzen</button>
       @endif
       @if ($applicant->status != 25)
-      <a href="{{url('/applicant/setPriority/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Set priority</button></a>
+      <a href="{{url('/applicant/setPriority/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Priorität ist gesetzt</button></a>
       @endif
 </div>
 

@@ -72,7 +72,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4>Alle {{count($matches)}} Zuordnungen (<button type="button" class="btn btn-link"><a href="{{url('/admin/export')}}">CSV Export</a></button>)</h4>
+    <h4>{{count($matches)}} Zuordnungen (<button type="button" class="btn btn-link"><a href="{{url('/admin/export')}}">CSV Export</a></button>)</h4>
   </div>
 </div>
 
