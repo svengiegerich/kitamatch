@@ -14,7 +14,7 @@
     </div>
     @endif
 
-    <h4>Add Program</h4>
+    <h4>Kitagruppe hinzufügen</h4>
   </div>
 </div>
 <div class="row justify-content-center">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <label for="email" class="col-sm-2 col-form-label">E-Mail-Adresse</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="email" id="email" placeholder="" value="" required>
                     @if ($errors->has('email'))
@@ -47,7 +47,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="capacity" class="col-sm-2 col-form-label">Capacity</label>
+                <label for="capacity" class="col-sm-2 col-form-label">Kapazität</label>
                 <div class="col-sm-3">
                     <input type="numeric" class="form-control" name="capacity" id="capacity" placeholder="" required>
                     @if ($errors->has('capacity'))
@@ -56,11 +56,11 @@
                     </div>
                     @endif
                 </div>
-                <label for="capacity" class="col-sm-2 col-form-label">Freie Kita?</label>
+                <label for="capacity" class="col-sm-2 col-form-label">Koordinierung:</label>
                 <div class="col-sm-3">
                     <input type="checkbox" class="form-control" name="type" id="type">
                     <label class="form-check-label" for="defaultCheck1">
-                        Kita ist frei
+                        Dezentral
                     </label>
                     @if ($errors->has('type'))
                     <div class="invalid-feedback">
