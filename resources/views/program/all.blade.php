@@ -17,7 +17,7 @@
 </script>
 <div class="row justify-content-center">
 <div class="col-md-8">
-<h2>Liste aller Kitas</h2>
+<h2>Liste aller Kitagruppen</h2>
 </div>
 </div>
 
