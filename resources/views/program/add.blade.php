@@ -58,7 +58,11 @@
                 </div>
                 <label for="type" class="col-sm-2 col-form-label">Koordinierung</label>
                 <div class="col-sm-5">
-                    <input type="checkbox" class="form-control" name="type" id="type">
+                    <!--<input type="checkbox" class="form-control" name="type" id="type">-->
+                    <select>
+                      <option>Ja</option>
+                      <option>Nein</option>
+                    </select>
                 </div>
             </div>
 
