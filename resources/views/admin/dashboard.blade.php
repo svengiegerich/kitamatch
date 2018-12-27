@@ -16,12 +16,6 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
       <h2>Übersicht</h2>
-
-      @if ($data['totalCapacity'] == count($matches))
-      <div class="alert alert-success" role="alert">
-        <strong>Koordinierung beendet!</strong> Alle Bewerber sind erfoglreich verteilt worden.
-      </div>
-      @endif
     </div>
 </div>
 
@@ -40,14 +34,15 @@
         </div>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Kitas</h4>
+            <h4 class="my-0 font-weight-normal">Kitagruppen</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{$data['programsCount']}}</h1>
+            <h1 class="card-title pricing-card-title">{{$data['programsCount']}} / {{$data['providersCount']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Kitas nehmen teil.</li>
+              <li>Kitagruppen nehmen teil.</li>
+              <li>Kitas sind registriert.</li>
             </ul>
-            <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Kitas</button></a>
+            <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Kitagruppen</button></a>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
