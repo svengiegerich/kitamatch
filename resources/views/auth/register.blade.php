@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">Konto Registrieren</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="account-type" class="col-md-4 col-form-label text-md-right">Kontoart</label>
+                            <label for="account-type" class="col-md-4 col-form-label text-md-right">Konto</label>
 
                             <div class="col-md-6">
                                 <select id="account-type" class="form-control" name="accountType" required>
