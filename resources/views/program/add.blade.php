@@ -37,7 +37,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="capacity" class="col-sm-2 col-form-label">Kapazität</label>
+                <label for="capacity" class="col-sm-3 col-form-label">Freie Plätze</label>
                 <div class="col-sm-3">
                     <input type="numeric" class="form-control" name="capacity" id="capacity" placeholder="" required>
                     @if ($errors->has('capacity'))
