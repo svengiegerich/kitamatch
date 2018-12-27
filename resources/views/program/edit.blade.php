@@ -46,7 +46,7 @@
                   <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}">
                 </div>
             </div>
-            
+
             <hr class="mb-4 col-md-10">
 
             <div class="form-group row">
@@ -93,6 +93,8 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
+        <hr class="mb-4">
+
         @if ($program->coordination == 1)
             <a href="{{url('/preference/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Rangliste einsehen</button></a>
         @else
@@ -101,7 +103,9 @@
 
         <!-- to do: add provider button if it has a provider-->
         @if ($program->proid)
+
         <hr class="mb-4">
+        
         <a href="{{url('/provider/' . $program->proid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zur Kita</button></a>
         @endif
     </div>
