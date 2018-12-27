@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://demo.kitamatch.de'),
+    'url' => env('APP_URL', 'http://demo.kitamatch.de/kitamatch'),
 
     /*
     |--------------------------------------------------------------------------
