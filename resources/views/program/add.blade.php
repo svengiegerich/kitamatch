@@ -58,10 +58,11 @@
                 </div>
                 <label for="capacity" class="col-sm-2 col-form-label">Koordinierung:</label>
                 <div class="col-sm-3">
+                  <label class="form-check-label" for="defaultCheck1">
+                      Dezentral
+                  </label>
                     <input type="checkbox" class="form-control" name="type" id="type">
-                    <label class="form-check-label" for="defaultCheck1">
-                        Dezentral
-                    </label>
+
                     @if ($errors->has('type'))
                     <div class="invalid-feedback">
                         Please enter a type.
