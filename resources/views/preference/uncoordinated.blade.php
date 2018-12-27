@@ -25,10 +25,13 @@
   @endif
 
   <div class="row justify-content-center">
+  <div class="col-md-8">
+  <h2>Kitagruppe: {{$program->name}}, {{$program->proid}}</h2>
+  <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h5>
+  </div>
+  </div>
 
-    <h4>Kitagruppe: {{$program->name}}, {{$program->proid}}</h4>
-    <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h5>
-    <br>
+  <div class="row justify-content-center">
 
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
