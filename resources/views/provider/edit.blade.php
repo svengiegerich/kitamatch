@@ -57,6 +57,8 @@
     </div>
 </div>
 
+<hr class="mb-4 col-md-10">
+
 <div class="row justify-content-center">
     <div class="col-md-8">
         <h4>Kitagruppen</h4>
@@ -71,6 +73,8 @@
         <br>
     </div>
 </div>
+
+<hr class="mb-4 col-md-10">
 
 <div class="row justify-content-center">
     <div class="col-md-8">
