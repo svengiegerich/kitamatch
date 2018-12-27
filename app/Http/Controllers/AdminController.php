@@ -88,10 +88,10 @@ class AdminController extends Controller
     return $data;
   }
 
-  public function resetDB() {
+  /*public function resetDB() {
     $sqlSteinfurtEmpty = "";
     \DB:raw($sqlSteinfurtEmpty);
-    
+
     return redirect()->action('AdminController@index');
-  }
+  }*/
 }
