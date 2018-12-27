@@ -49,7 +49,7 @@
                 <label for="type" class="col-sm-4 col-form-label">Automatisierte Koordinierung?</label>
                 <div class="col-sm-3">
                     <!--<input type="checkbox" class="form-control" name="type" id="type">-->
-                    <select class="form-control">
+                    <select class="form-control" name="type">
                       <option value="---" selected>---</option>
                       <option value="0">Ja</option>
                       <option value="1">Nein</option>
