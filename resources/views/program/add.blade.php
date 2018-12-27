@@ -56,18 +56,27 @@
                     </div>
                     @endif
                 </div>
-                <div class="col-sm-3">
-                
-                <label for="capacity" class="col-sm-2 col-form-label">Koordinierung:</label>
+                <label for="type" class="col-sm-2 col-form-label">Koordinierung</label>
+                <div class="col-sm-5">
                     <input type="checkbox" class="form-control" name="type" id="type">
-                    <label class="form-check-label" for="type">
-                        Dezentral
-                    </label>
+                    
                     @if ($errors->has('type'))
                     <div class="invalid-feedback">
                         Please enter a type.
                     </div>
                     @endif
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="plz" class="col-sm-2 col-form-label">PLZ</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$provider->plz}}">
+                </div>
+                <label for="city" class="col-sm-2 col-form-label">Stadtteil</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$provider->city}}">
                 </div>
             </div>
 
