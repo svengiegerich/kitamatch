@@ -255,7 +255,7 @@ class PreferenceController extends Controller
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
         $provider = true;
-        $program->provider_name = Provider::find($providerID)->name;
+        $program->provider_name = Provider::find($providerId)->name;
       } else {
         $provider = false;
       }
