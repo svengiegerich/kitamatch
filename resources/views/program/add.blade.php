@@ -50,6 +50,7 @@
                 <div class="col-sm-3">
                     <!--<input type="checkbox" class="form-control" name="type" id="type">-->
                     <select class="form-control">
+                      <option name="--" selected>---</option>
                       <option name="0">Ja</option>
                       <option name="1">Nein</option>
                     </select>
