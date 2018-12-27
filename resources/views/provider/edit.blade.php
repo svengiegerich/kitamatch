@@ -65,7 +65,7 @@
         <br>
 
         @foreach ($programs as $program)
-            <a href="{{url('/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">{{$program->name}}</button></a>
+            <a href="{{url('/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">{{$program->name}} ({{$provider->name}})</button></a>
             <br>
         @endforeach
 
