@@ -34,18 +34,21 @@
             {{ csrf_field() }}
 
             <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <label for="name" class="col-sm-2 col-form-label">Gruppenname</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}">
                 </div>
             </div>
             <!-- Email but with user-table! -->
             <div class="form-group row">
-                <label for="capacity" class="col-sm-2 col-form-label">Platzkapazität (freie Plätze)</label>
+                <label for="capacity" class="col-sm-2 col-form-label">Freie Plätze</label>
                 <div class="col-sm-10">
                   <input type="number" min="1" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}">
                 </div>
             </div>
+            
+            <hr class="mb-4 col-md-10">
+
             <div class="form-group row">
                 <label for="phone" class="col-sm-2 col-form-label">Telefonnummer</label>
                 <div class="col-sm-10">

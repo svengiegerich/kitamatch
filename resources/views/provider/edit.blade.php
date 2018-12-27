@@ -45,7 +45,7 @@
                 <div class="col-sm-3">
                   <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$provider->plz}}">
                 </div>
-                <label for="city" class="col-sm-2 col-form-label">Stadtteil</label>
+                <label for="city" class="col-sm-2 col-form-label">Gemeinde</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$provider->city}}">
                 </div>

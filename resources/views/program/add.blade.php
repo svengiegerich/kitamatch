@@ -87,7 +87,7 @@
                   </div>
                   @endif
                 </div>
-                <label for="city" class="col-sm-2 col-form-label">Stadtteil</label>
+                <label for="city" class="col-sm-2 col-form-label">Gemeinde</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="">
                   @if ($errors->has('city'))
