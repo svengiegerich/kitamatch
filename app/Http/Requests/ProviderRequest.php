@@ -38,7 +38,7 @@ class ProviderRequest extends FormRequest
   */
   public function rules() {
     return [
-      'name' => 'required|string|min:5',
+      'name' => 'required|string|min:3',
       'phone' => 'nullable|string|min:6',
       'address' => 'nullable|string|min:4',
       'plz' => 'nullable|numeric|min:5',
