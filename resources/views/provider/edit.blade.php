@@ -78,9 +78,9 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Kriterienkatalog</h4>
+        <h4>Kriterien</h4>
         <br>
-        <a href="{{url('/criteria/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Zu den Kriterien</button></a>
+        <a href="{{url('/criteria/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Zum Kriterienkatalog</button></a>
         <br>
     </div>
 </div>
