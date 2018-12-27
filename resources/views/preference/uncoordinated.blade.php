@@ -20,8 +20,8 @@
 
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h2>Kitagruppe: {{$program->name}}, {{$program->proid}}</h2>
-      <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h5>
+      <h2>Kitagruppe: {{$program->name}}, {{$program->provider_name}}</h2>
+      <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote/Freie Plätze)</h5>
 
       @if (count($availableApplicants) == 0)
       <div class="alert alert-warning" role="alert">
