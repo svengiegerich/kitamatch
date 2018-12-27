@@ -56,8 +56,8 @@
                     </div>
                     @endif
                 </div>
-                <label for="type" class="col-sm-2 col-form-label">Automatisierte Koordinierung?</label>
-                <div class="col-sm-5">
+                <label for="type" class="col-sm-3 col-form-label">Automatisierte Koordinierung?</label>
+                <div class="col-sm-4">
                     <!--<input type="checkbox" class="form-control" name="type" id="type">-->
                     <select class="form-control">
                       <option name="0">Ja</option>
