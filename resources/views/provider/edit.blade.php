@@ -13,7 +13,7 @@
       </div>
       @endif
 
-      <h4>Edit Provider</h4>
+      <h4>Stammdaten der Kita</h4>
     </div>
 </div>
     <div class="row justify-content-center">
@@ -29,13 +29,13 @@
             </div>
             <!-- Email but with user-table! -->
             <div class="form-group row">
-                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                <label for="phone" class="col-sm-2 col-form-label">Telefonnummer</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$provider->phone}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <label for="address" class="col-sm-2 col-form-label">Adresse</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="{{$provider->address}}">
                 </div>
@@ -45,21 +45,21 @@
                 <div class="col-sm-3">
                   <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$provider->plz}}">
                 </div>
-                <label for="city" class="col-sm-2 col-form-label">City</label>
+                <label for="city" class="col-sm-2 col-form-label">Stadtteil</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$provider->city}}">
                 </div>
             </div>
 
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Aktualisieren</button>
         </form>
     </div>
 </div>
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>My programs</h4>
+        <h4>Kitagruppen</h4>
         <br>
 
         @foreach ($programs as $program)
@@ -67,16 +67,16 @@
             <br>
         @endforeach
 
-        <a href="{{url('/program/add/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Add program</button></a>
+        <a href="{{url('/program/add/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Gruppe hinzufügen</button></a>
         <br>
     </div>
 </div>
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>My criteria</h4>
+        <h4>Kriterienkatalog</h4>
         <br>
-        <a href="{{url('/criteria/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Criteria</button></a>
+        <a href="{{url('/criteria/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block">Zu den Kriterien</button></a>
         <br>
     </div>
 </div>

@@ -45,7 +45,6 @@ class ProviderController extends Controller
   */
   public function store(ProviderRequest $request) {
     $provider = new Provider;
-    //$provider->proid = $request->proid;
     $provider->name = $request->name;
     $provider->uid = $request->uid;
     $provider->address = $request->address;
@@ -53,8 +52,6 @@ class ProviderController extends Controller
     $provider->plz = $request->plz;
     $provider->phone = $request->phone;
     $provider->status = 61;
-    //public providers are added by hand; so the default are private provider
-    $provider->kind = 2;
     $provider->save();
     return $provider;
   }
@@ -68,11 +65,8 @@ class ProviderController extends Controller
   public function storeByUser(Request $request) {
     $provider = new Provider;
     $provider->uid = $request->uid;
-    $provider->save();
-    //tmp
     $provider->status = 61;
-    //public providers are added by hand; so the default are private provider
-    $provider->kind = 2;
+    $provider->save();
     return $provider;
   }
 
