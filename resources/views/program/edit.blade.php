@@ -71,17 +71,6 @@
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$program->city}}">
                 </div>
             </div>
-            @if ($program->p_kind == 2)
-            <div class="form-group row">
-                <div class="col-sm-2 col-form-label"></div>
-                <div class="col-sm-8">
-                    {{ Form::checkbox('coordination', 1, $program->coordination, ['class' => 'form-check-input', 'id' => 'coordination']) }}
-                    <label class="form-check-label" for="coordination">
-                        Coordination
-                    </label>
-                </div>
-            </div>
-            @endif
 
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Änderungen speichern</button>
@@ -105,7 +94,7 @@
         @if ($program->proid)
 
         <hr class="mb-4">
-        
+
         <a href="{{url('/provider/' . $program->proid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zur Kita</button></a>
         @endif
     </div>
