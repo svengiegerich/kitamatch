@@ -37,7 +37,7 @@
             <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Adresse</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="{{$provider->address}}">
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Haupstr. 77" value="{{$provider->address}}">
                 </div>
             </div>
             <div class="form-group row">
@@ -47,7 +47,7 @@
                 </div>
                 <label for="city" class="col-sm-2 col-form-label">Gemeinde</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$provider->city}}">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Gemeinde" value="{{$provider->city}}">
                 </div>
             </div>
 
