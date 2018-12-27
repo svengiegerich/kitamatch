@@ -17,21 +17,21 @@
 </script>
 
 <div class="panel-body">
-  @if (count($availableApplicants) == 0)
-  <div class="alert alert-warning" role="alert">
-    Aktuell gibt sind noch keine Bewerber verfügbar.
-  </div>
-  @endif
-
   <div class="row justify-content-center">
 
-    <h4>Kitagruppe: {{$program->name}}</h4>
+    <h4>Kitagruppe: {{$program->name}}, {{program->proid}}</h4>
     <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h5>
     <br>
 
+    @if (count($availableApplicants) == 0)
+    <div class="alert alert-warning" role="alert">
+      Aktuell gibt sind noch keine Bewerber verfügbar.
+    </div>
+    @endif
+
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h3>Verbindliche Angebote der Kita </h3>
+    <h4>Verbindliche Angebote der Kita </h4>
 
     <table class="table" id="offers">
       <thead>
