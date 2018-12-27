@@ -25,7 +25,7 @@
 
   <div class="row justify-content-center">
 
-    <h4>Kita {{$program->name}} - Platzkapazität (freie Plätze): {{$program->openOffers}}/{{$program->capacity}}</h4>
+    <h4>Kita {{$program->name}} - {{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h4>
 
     <br>
 
