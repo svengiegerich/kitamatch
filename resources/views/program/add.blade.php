@@ -56,8 +56,9 @@
                     </div>
                     @endif
                 </div>
-                <label for="capacity" class="col-sm-2 col-form-label">Koordinierung:</label>
                 <div class="col-sm-3">
+                
+                <label for="capacity" class="col-sm-2 col-form-label">Koordinierung:</label>
                     <input type="checkbox" class="form-control" name="type" id="type">
                     <label class="form-check-label" for="type">
                         Dezentral
