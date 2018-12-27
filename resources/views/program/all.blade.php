@@ -26,7 +26,7 @@
     <table class="table" id="programs">
       <thead>
         <tr>
-            <th>ID</th>
+            <th>Kita</th>
             <th>Name</th>
             <th>Freie Plätze</th>
             <th>Adresse</th>
@@ -40,7 +40,7 @@
       <tbody>
         @foreach($programs as $program)
             <tr>
-                <td>{{$program->pid}}</td>
+                <td>{{$program->provider_name}}</td>
                 <td><a href="{{url('/preference/program/' . $program->pid)}}">{{$program->name}}</a></td>
                 <td>{{$program->capacity}}</td>
                 <td>{{$program->address}}</td>

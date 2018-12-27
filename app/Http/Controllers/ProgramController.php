@@ -157,9 +157,10 @@ class ProgramController extends Controller
   public function all() {
     $programs = Program::all();
     foreach ($programs as $program) {
-      $program->status_description = Code::where('code', '=', $program->status)->first()->value;;
-      $program->coordination_description = ($program->coordination == 1) ? "true" : "false";
-      $program->p_kind_description = ($program->p_kind == 1) ? "public" : "private";
+      $program->provider_name = Provider::where('proid', '=', $program->proid)->first()->name;
+      $program->status_description = Code::where('code', '=', $program->status)->first()->value;
+      $program->coordination_description = ($program->coordination == 1) ? "Ja" : "Nein";
+      $program->p_kind_description = ($program->p_kind == 1) ? "Öffentlich" : "Frei";
     }
     return view('program.all', array('programs' => $programs));
   }
