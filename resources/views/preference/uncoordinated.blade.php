@@ -19,7 +19,7 @@
 <div class="panel-body">
   <div class="row justify-content-center">
 
-    <h4>Kitagruppe: {{$program->name}}, {{program->proid}}</h4>
+    <h4>Kitagruppe: {{$program->name}}, {{$program->proid}}</h4>
     <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h5>
     <br>
 
