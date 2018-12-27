@@ -18,17 +18,17 @@
 
 <div class="panel-body">
 
-  @if (count($availableApplicants) == 0)
-  <div class="alert alert-warning" role="alert">
-    Aktuell gibt sind noch keine Bewerber verfügbar.
-  </div>
-  @endif
-
   <div class="row justify-content-center">
-  <div class="col-md-8">
-  <h2>Kitagruppe: {{$program->name}}, {{$program->proid}}</h2>
-  <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h5>
-  </div>
+    <div class="col-md-8">
+      <h2>Kitagruppe: {{$program->name}}, {{$program->proid}}</h2>
+      <h5>{{$program->openOffers}}/{{$program->capacity}} (Angebote / Freie Plätze)</h5>
+
+      @if (count($availableApplicants) == 0)
+      <div class="alert alert-warning" role="alert">
+        Aktuell gibt sind noch keine Bewerber verfügbar.
+      </div>
+      @endif
+    </div>
   </div>
 
   <div class="row justify-content-center">
