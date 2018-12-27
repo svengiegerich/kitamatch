@@ -39,7 +39,7 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{$data['programsCount']}} / {{$data['providersCount']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Kitagruppen nehmen teil.</li>
+              <li>Gruppen nehmen teil.</li>
               <li>Kitas sind registriert.</li>
             </ul>
             <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Kitagruppen</button></a>
@@ -78,6 +78,7 @@
             <thead>
                 <tr>
                     <th>Kita</th>
+                    <th>Kitagruppe</th>
                     <th>Bewerber</th>
                     <th>Status</th>
                 </tr>
@@ -85,6 +86,7 @@
             <tbody>
                 @foreach($matches as $match)
                     <tr>
+                      <td>Kita xy</td>
                       <td><a target="_blank" href="{{url('/preference/program/' . $match->pid )}}">{{$match->program_name}}</a></td>
                       <td><a target="_blank" href="{{url('/preference/applicant/' . $match->aid )}}'">{{$match->applicant_name}}</a></td>
                       <td>{{$match->status_text}}</td>
