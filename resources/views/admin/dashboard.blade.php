@@ -65,14 +65,10 @@
     <div class="col-md-6">
       <br>
       <a target="_blank" href="{{url('/matching/get')}}"><button class="btn btn-primary btn-lg btn-block">Vergabe starten</button></a>
-      <br>
-      <a target="_blank" href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
-    </div>
-</div>
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4>Alle {{count($matches)}} Zuordnungen</h4>
+    <h4>Alle {{count($matches)}} Zuordnungen (<button type="button" class="btn btn-link"><a href="{{url('/admin/export')}}">CSV Export</a></button>)</h4>
   </div>
 </div>
 
@@ -98,8 +94,14 @@
                 @endforeach
             </tbody>
         </table>
-        <button type="button" class="btn btn-link"><a href="{{url('/admin/export')}}">CSV Export</a></button>
     </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+<br>
+<a target="_blank" href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
+</div>
 </div>
 
 
