@@ -248,12 +248,13 @@ class PreferenceController extends Controller
       //coordination: false
       $Program = new Program();
       $Matching = new Matching();
+      $Provider = new Provider();
       $lastMatch = $Matching->lastMatch();
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
         $provider = true;
-        $program->provider_name = App\Provider::find($providerID)->name;
+        $program->provider_name = Provider::find($providerID)->name;
       } else {
         $provider = false;
       }
