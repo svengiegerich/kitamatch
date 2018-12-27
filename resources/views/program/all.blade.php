@@ -27,10 +27,10 @@
       <thead>
         <tr>
             <th>Kita</th>
-            <th>Name</th>
+            <th>Gruppe</th>
             <th>Freie Plätze</th>
-            <th>Adresse</th>
-            <th>PLZ</th>
+            <!--<th>Adresse</th>
+            <th>PLZ</th>-->
             <th>Öffentlich / Frei</th>
             <th>Koordinierung</th>
             <th>Status</th>
@@ -43,8 +43,8 @@
                 <td>{{$program->provider_name}}</td>
                 <td><a href="{{url('/preference/program/' . $program->pid)}}">{{$program->name}}</a></td>
                 <td>{{$program->capacity}}</td>
-                <td>{{$program->address}}</td>
-                <td>{{$program->plz}}</td>
+                <!--<td>{{$program->address}}</td>
+                <td>{{$program->plz}}</td>-->
                 <td>{{$program->p_kind_description}}</td>
                 <td>{{$program->coordination_description}}</td>
                 <td>{{$program->status_description}}</td>
