@@ -43,9 +43,9 @@
             <h4 class="my-0 font-weight-normal">Kitas</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{$data['programsInactive']}} <small class="text-muted">/ {{$data['programsCount']}}</small></h1>
+            <h1 class="card-title pricing-card-title">{{$data['programsCount']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Kitas sind inaktiv</li>
+              <li>Kitas nehmen teil.</li>
             </ul>
             <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Kitas</button></a>
           </div>
@@ -71,6 +71,7 @@
       <br>
       <a target="_blank" href="{{url('/matching/get')}}"><button class="btn btn-primary btn-lg btn-block">Vergabe starten</button></a>
       <br>
+      <a target="_blank" href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
     </div>
 </div>
 

@@ -25,7 +25,7 @@
       </div>
       @endif
 
-        <h2>Stammdaten der Kita verwalten</h2>
+        <h2>Stammdaten der Gruppe verwalten</h2>
 </div>
 </div>
 <div class="row justify-content-center">

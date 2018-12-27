@@ -83,9 +83,15 @@ class AdminController extends Controller
     $data['applicantsVerified'] = count(Applicant::whereIn('status', [22, 25, 26])->get());
     $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
     $data['programsCount'] = count($programs);
-    $data['programsInactive'] = count(Program::where('status', '=', 13)->get());
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
     $data['totalCapacity'] = DB::select($capacitySql)['0']->totalCapacity;
     return $data;
+  }
+
+  public function resetDB() {
+    $sqlSteinfurtEmpty = "";
+    \DB:raw($sqlSteinfurtEmpty);
+    
+    return redirect()->action('AdminController@index');
   }
 }

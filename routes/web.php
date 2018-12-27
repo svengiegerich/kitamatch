@@ -38,7 +38,6 @@ Route::get('applicant/setPriority/{aID}', 'ApplicantController@setPriority');
 Route::get('/program', 'ProgramController@all');
 Route::get('/program/all', 'ProgramController@all');
 Route::delete('/program/{program}', 'ProgramController@delete');
-Route::post('/program/generate/coordinated', 'ProgramController@generateCoordinated');
 // by provider
 Route::get('/program/add/{proid}', 'ProgramController@addByProvider');
 Route::post('/program/add/{proid}', 'ProgramController@createByProvider');
@@ -99,3 +98,4 @@ Route::get('/criteria/program/{programId}', 'CriteriumController@showByProgram')
 Route::get('/admin/', 'AdminController@index');
 Route::get('/admin/dashboard', 'AdminController@index');
 Route::get('/admin/export', 'AdminController@exportMatching');
+Route::get('/admin/reset', 'AdminController@resetDB');

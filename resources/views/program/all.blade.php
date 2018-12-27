@@ -58,11 +58,6 @@
         @endforeach
       </tbody>
     </table>
-
-    <br><br>
-    <form action="{{url('/program/generate/coordinated')}}" method="POST">
-      Bewerberpräferenzen vollständig erhoben. <button type="submit" class="btn btn-outline-secondary">Nun Koordinierte Präferenzen erstellen (nur einmal am Anfang)</button>
-    </form>
 </div>
 </div>
 
