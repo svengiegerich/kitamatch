@@ -40,7 +40,7 @@
       <tbody>
         @foreach($programs as $program)
             <tr>
-                <td>{{$program->provider_name}}</td>
+                <td><a href="{{url('/provider/' . {{$program->provider_name)}}">{{$program->provider_name)}}</a></td>
                 <td><a href="{{url('/preference/program/' . $program->pid)}}">{{$program->name}}</a></td>
                 <td>{{$program->capacity}}</td>
                 <!--<td>{{$program->address}}</td>
