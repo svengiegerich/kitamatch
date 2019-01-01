@@ -114,7 +114,7 @@ class PreferenceController extends Controller
     $select = array();
     foreach ($programs as $program) {
       if (!($preferences->contains('id_to', $program->pid))) {
-        $provider = Provider::find($program->proid)->get();
+        $provider = Provider::find($program->proid);
         $select[$program->pid] = $provider->name . " (" . $program->name . ")";
       }
     }
