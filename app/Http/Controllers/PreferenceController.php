@@ -119,6 +119,7 @@ class PreferenceController extends Controller
       }
     }
     $select = rsort($select);
+    print_r($select);
     return view('preference.showByApplicant', array('preferences' => $preferences,
                                                     'applicant' => $applicant,
                                                     'programs' => $select
