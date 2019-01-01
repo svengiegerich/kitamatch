@@ -12,7 +12,7 @@
         </div>
         @endif
 
-        <h2>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}} ({{$applicant->birthday}})</h2>
+        <h2>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}} (<?php if (<?php echo $applicant->birthday->format('Y-m-d'); } ?>)</h2>
       </div>
     </div>
 
