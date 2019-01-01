@@ -118,6 +118,7 @@ class PreferenceController extends Controller
         $select[$program->pid] = $provider->name . " (" . $program->name . ")";
       }
     }
+    $select = sort($select);
     return view('preference.showByApplicant', array('preferences' => $preferences,
                                                     'applicant' => $applicant,
                                                     'programs' => $select
