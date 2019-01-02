@@ -257,7 +257,7 @@ class PreferenceController extends Controller
       $Program = new Program();
       $Matching = new Matching();
       $Provider = new Provider();
-      $lastMatch = new DateTime( '2010-01-31' );
+      $lastMatch = DateTime::createFromFormat('m-d-Y', '10-16-2003')->format('Y-m-d');
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
