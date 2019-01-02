@@ -84,7 +84,7 @@
                         id="delete_{{$offers[$applicant->aid]['id']}}" name="delete_{{$offers[$applicant->aid]['id']}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button form="delete_{{$offers[$applicant->aid]['id']}}" type="button" class="btn btn-secondary btn-sm">Angebot zurücknehmen</button>
+                        <button form="delete_{{$offers[$applicant->aid]['id']}}" type="submit" class="btn btn-secondary btn-sm">Angebot zurücknehmen</button>
                       </form>
                     @endif
                   </td>
