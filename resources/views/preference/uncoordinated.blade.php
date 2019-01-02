@@ -35,8 +35,8 @@
 
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h4>Verbindliche Angebote <a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-secondary">Secondary</a></h4> 
+    <h4>Verbindliche Angebote</h4> <a href="#" class="badge badge-primary">Primary</a>
+<a href="#" class="badge badge-secondary">Secondary</a>
 
     <table class="table" id="offers">
       <thead>
