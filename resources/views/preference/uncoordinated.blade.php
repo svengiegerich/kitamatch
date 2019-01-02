@@ -8,7 +8,7 @@
 
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h2>Kitagruppe: {{$program->name}}, {{$program->provider_name}}</h2>
+      <h2>{{$program->name}}, {{$program->provider_name}} <small class="text-muted"></small>Kitagruppe</h2>
       <h5>Angebote: <span class="badge badge-light">{{$program->openOffers}}</span> / Freie Plätze: <span class="badge badge-light">{{$program->capacity}}</span> / Bewerber: <span class="badge badge-light">{{count($availableApplicants)}}</span> </h5>
 
       @if (count($availableApplicants) == 0)
