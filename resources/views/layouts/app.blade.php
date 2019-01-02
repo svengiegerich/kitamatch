@@ -19,8 +19,8 @@
                 <!-- Navbar Contents -->
             </nav>
 
-            <div class="py-5 text-center">
-                <h2>KitaMatch</h2>
+            <div class="py-2 text-center">
+                <h2>KitaMatch - Kitaplatzvergabe</h2>
                 <p class="lead"></p>
             </div>
 

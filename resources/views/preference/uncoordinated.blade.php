@@ -245,7 +245,7 @@
                   <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                    <button>Warteliste</button>
+                    <button disabled>Warteliste</button>
                   </form>
               </td>
           </tr>
@@ -290,7 +290,7 @@
         <hr class="mb-4">
         <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
         <hr class="mb-4">
-        <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
+        <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block" disabled>Kriterien verändern</button></a>
     </div>
 </div>
 

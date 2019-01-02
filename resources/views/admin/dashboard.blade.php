@@ -28,6 +28,7 @@
             <h1 class="card-title pricing-card-title">{{$data['applicantsVerified']}} <small class="text-muted">/ {{$data['applicantsCount']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Bewerber sind bestätigt</li>
+              <li>Bewerber insgesamt registriert</li>
             </ul>
             <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Berwerber</button></a>
           </div>
@@ -52,7 +53,7 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}} /</small> {{count($matches)}} <small class="text-muted">/ {{$data['totalCapacity']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Endgültig zugeordnet (intern)</li>
+              <li>Endgültig zugeordnet (extern)</li>
               <li>Vorläufig zugeordnet (intern)</li>
               <li>Verfügbare Plätze</li>
             </ul>
@@ -72,7 +73,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4>{{count($matches)}} Zuordnungen (<button type="button" class="btn btn-link"><a href="{{url('/admin/export')}}">CSV Export</a></button>)</h4>
+    <h4>{{count($matches)}} Zuordnungen <button type="button" class="btn btn-link"><a href="{{url('/admin/export')}}">CSV Export</a></button></h4>
   </div>
 </div>
 
