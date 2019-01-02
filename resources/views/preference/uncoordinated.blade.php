@@ -4,6 +4,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+
 <script>
   $(document).ready( function () {
     $('#availableApplicantsTable').DataTable( {
@@ -22,7 +23,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <h2>Kitagruppe: {{$program->name}}, {{$program->provider_name}}</h2>
-      <h5>Angebote: <span class="badge badge-light">{{$program->openOffers}}</span> / Freie Plätze: <span class="badge badge-light">{{$program->capacity}}</span> </h5>
+      <h5>Angebote: <span class="badge badge-light">{{$program->openOffers}}</span> / Freie Plätze: <span class="badge badge-light">{{$program->capacity}} / Bewerber: <span class="badge badge-light">{{count($availableApplicants)}}</span> </h5>
 
       @if (count($availableApplicants) == 0)
       <div class="alert alert-warning" role="alert">
