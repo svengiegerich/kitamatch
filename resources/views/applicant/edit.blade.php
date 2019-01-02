@@ -31,6 +31,7 @@
           <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
         </li>
       </ul>
+      <br>
 
         <h2>Bewerberinformationen bearbeiten</h2>
       </div>
