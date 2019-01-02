@@ -18,6 +18,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 /**
 * This model handles matches
@@ -46,7 +47,7 @@ class Matching extends Model
     if (!empty($lastMatch)) {
       return $lastMatch->updated_at;
     } else {
-      return strtotime('01/01/2000');
+      return Carbon::now()->subWeek();
     }
   }
 

@@ -257,7 +257,7 @@ class PreferenceController extends Controller
       $Program = new Program();
       $Matching = new Matching();
       $Provider = new Provider();
-      $lastMatch = Carbon::now()->subWeek();
+      $lastMatch = $Matching->lastMatch();
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
