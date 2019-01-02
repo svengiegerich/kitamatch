@@ -62,7 +62,7 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td>&nbsp;</td>
+                  <td></td>
                   <td>&nbsp;</td>
                 </tr>
               @endif
@@ -78,7 +78,7 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td>&nbsp;</td>
+                  <td><a href="#" class="badge badge-info">Gehaltenes Angebot</a></td>
                   <td>
                     @if ($offer['updated_at'] > $lastMatch)
                       <form action="{{url('/preference/program/uncoordinated/' . $offers[$applicant->aid]['id'])}}"
