@@ -226,7 +226,7 @@
                   class="table-danger"
                 @endif
             >
-              <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+              <th scope="row">{{$applicant->aid}}</th>
               <td>{{$applicant->first_name}}</td>
               <td>{{$applicant->last_name}}</td>
               <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
@@ -239,7 +239,7 @@
                   <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                      <button class="btn btn-secondary">Angebot</button>
+                      <button class="btn btn-primary">Angebot</button>
                   </form>
                   @endif
               </td>
