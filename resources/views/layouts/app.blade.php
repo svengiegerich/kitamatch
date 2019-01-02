@@ -26,7 +26,7 @@
         </div>
       </nav>
 
-        <main role="main" class="container pt-10">
+        <main role="main" class="container" style="padding-top: 100px;">
 
             @yield('content')
 
