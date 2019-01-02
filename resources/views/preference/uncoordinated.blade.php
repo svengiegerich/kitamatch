@@ -8,11 +8,12 @@
   $(document).ready( function () {
     $('#availableApplicantsTable').DataTable( {
       "aaSorting": [],
-      "pageLength": 100,
+      "pageLength": 50,
       "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
             },
-    } );
+    }
+         );
   } );
 </script>
 
