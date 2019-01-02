@@ -20,7 +20,7 @@
             </nav>
 
             <div class="py-2 text-center">
-                <h2>KitaMatch - Kitaplatzvergabe</h2>
+                <h5>KitaMatch - Kitaplatzvergabe</h5>
                 <p class="lead"></p>
             </div>
 

@@ -95,7 +95,7 @@
                 <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                     <span class="rank badge badge-secondary">{{$i}}</span>
                     <span class="col-8">{{$preference->programName}}</span>
-                    <a class="delete" href="#"><span class="badge badge-primary badge-pill">x</span></a>
+                    <a class="delete" href="#"><span class="badge badge-dark badge-pill">x</span></a>
                 </li>
                 <?php $i++; ?>
              @endforeach
