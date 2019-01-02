@@ -19,7 +19,7 @@
 
       <br>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Offene Angebote entsprechen ihren offenen Plätzen</strong> Sie können nun bis zur nächsten Koordinierungsrunde keine weiteren Angebote mehr unterbreiten.
+        <strong>Die offenen Angebote entsprechen ihrer maximalen Platzzahl.</strong> Sie können nun bis zur nächsten Koordinierungsrunde keine weiteren Angebote mehr unterbreiten.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
