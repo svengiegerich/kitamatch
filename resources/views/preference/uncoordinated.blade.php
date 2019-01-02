@@ -289,7 +289,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <hr class="mb-4">
-        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten der Kita</button></a>
+        <a href="/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block">Stammdaten</button></a>
         <hr class="mb-4">
         <a href="/criteria/program/{{$program->pid}}"><button class="btn btn-primary btn-lg btn-block" disabled>Kriterien verändern</button></a>
     </div>
