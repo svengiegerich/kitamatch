@@ -160,6 +160,8 @@
                     <input type="hidden" name="prid" value="{{$offers[$applicant->aid]['id']}}">
                     <button>Angebot</button>
                 </form>
+                @else
+                  <button disabled>Angebot</button>
                 @endif
               </td><td>
                 @if ($offers[$applicant->aid]['id'] > 0
