@@ -63,7 +63,7 @@
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
                   <td></td>
-                  <td>&nbsp;</td>
+                  <td><span class="badge badge-success">Endgültige Zusage</span></td>
                 </tr>
               @endif
             @endif
