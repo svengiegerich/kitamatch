@@ -20,7 +20,7 @@
       @if (!($program->openOffers < $program->capacity))
       <br>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Die offenen Angebote entsprechen ihrer maximalen Anzahl an Plätzen.</strong> Sie können nun bis zur nächsten Koordinierungsrunde keine weiteren Angebote mehr unterbreiten. Bitte aktualieren Sie diese Seite sobald die aktuelle Runde beendet ist.
+        <strong>Die versendeten Angebote entsprechen ihrer maximalen Anzahl an Plätzen.</strong> Sie können nun bis zur nächsten Koordinierungsrunde keine weiteren Angebote mehr unterbreiten. Bitte aktualieren Sie diese Seite sobald die aktuelle Runde beendet ist.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
