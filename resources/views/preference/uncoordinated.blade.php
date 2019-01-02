@@ -21,7 +21,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <h2>Kitagruppe: {{$program->name}}, {{$program->provider_name}}</h2>
-      <h5>Angebote: {{$program->openOffers}} / Freie Plätze: {{$program->capacity}} </h5>
+      <h5>Angebote: <span class="badge badge-light">{{$program->openOffers}}</span> / Freie Plätze: {{$program->capacity}} </h5>
 
       @if (count($availableApplicants) == 0)
       <div class="alert alert-warning" role="alert">
@@ -85,7 +85,7 @@
                         id="delete_{{$offers[$applicant->aid]['id']}}" name="delete_{{$offers[$applicant->aid]['id']}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button form="delete_{{$offers[$applicant->aid]['id']}}" type="submit" class="btn btn-secondary btn-small">Angebot zurücknehmen</button>
+                        <button form="delete_{{$offers[$applicant->aid]['id']}}" type="submit" class="btn btn-secondary btn-sml">Angebot zurücknehmen</button>
                       </form>
                     @endif
                   </td>
