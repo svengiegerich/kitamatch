@@ -84,7 +84,7 @@
                         id="delete_{{$offers[$applicant->aid]['id']}}" name="delete_{{$offers[$applicant->aid]['id']}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button form="delete_{{$offers[$applicant->aid]['id']}}" type="submit" class="btn btn-secondary btn-sm">Angebot zurücknehmen</button>
+                        <button form="delete_{{$offers[$applicant->aid]['id']}}" type="submit" class="btn btn-secondary">Angebot zurücknehmen</button>
                       </form>
                     @endif
                   </td>
@@ -238,7 +238,7 @@
                   <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                      <button>Angebot</button>
+                      <button class="btn btn-secondary">Angebot</button>
                   </form>
                   @endif
               </td>
@@ -246,7 +246,7 @@
                   <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                    <button disabled>Warteliste</button>
+                    <button class="btn btn-secondary" disabled>Warteliste</button>
                   </form>
               </td>
           </tr>
