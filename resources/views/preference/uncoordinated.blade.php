@@ -17,7 +17,7 @@
       </div>
       @endif
 
-      @if ((array_key_exists($applicant->aid, $offers)) && !($program->openOffers < $program->capacity))
+      @if (!($program->openOffers < $program->capacity))
       <br>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Die offenen Angebote entsprechen ihrer maximalen Anzahl an Plätzen.</strong> Sie können nun bis zur nächsten Koordinierungsrunde keine weiteren Angebote mehr unterbreiten. Bitte aktualieren Sie diese Seite sobald die aktuelle Runde beendet ist.
