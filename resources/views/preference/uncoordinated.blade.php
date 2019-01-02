@@ -79,8 +79,7 @@
                   <td>{{$applicant->gender}}</td>
                   <td></td>
                   <td>
-                    {{$lastMatch}}
-                    @if ($offer['updated_at'] < $lastMatch)
+                    @if ($offer['updated_at'] > $lastMatch)
                       <form action="{{url('/preference/program/uncoordinated/' . $offers[$applicant->aid]['id'])}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
