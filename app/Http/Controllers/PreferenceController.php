@@ -110,7 +110,7 @@ class PreferenceController extends Controller
     $programs = $Program->getAll();
     $providers = $Provider::all();
     foreach ($preferences as $preference) {
-      $preference->programName = $provider->find($preference->id_to)->name . " - " . $programs->find($preference->id_to)->name;
+      $preference->programName = $providers->find($preference->id_to)->name . " - " . $programs->find($preference->id_to)->name;
     }
     $select = array();
     foreach ($programs as $program) {
