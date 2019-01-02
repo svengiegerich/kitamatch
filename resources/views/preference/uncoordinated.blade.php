@@ -232,7 +232,7 @@
                       <button class="btn btn-primary">Angebot</button>
                   </form>
                   @else
-                    <button disabled>Angebot</button>
+                    <button class="btn btn-primary" disabled>Angebot</button>
                   @endif
               </td>
               <td>
