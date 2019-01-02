@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row justify-content-center">
+<div class="row justify-content-center px-lt-2">
     <div class="col-md-8">
 <ul class="nav nav-pills gap-nav">
   <li class="nav-item">
