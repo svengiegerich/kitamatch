@@ -35,7 +35,7 @@
 
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h4>Verbindliche Angebote der Kita </h4>
+    <h4>Verbindliche Angebote</h4>
 
     <table class="table" id="offers">
       <thead>
