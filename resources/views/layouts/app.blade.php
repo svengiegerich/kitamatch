@@ -26,11 +26,11 @@
         </div>
       </nav>
 
-        <div class="container pt-10">
+        <main role="main" class="container pt-10">
 
             @yield('content')
 
-        </div>
+        </main>
 
         <br>
         <br>
