@@ -61,8 +61,8 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td></td>
-                  <td></td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
                 </tr>
               @endif
             @endif
