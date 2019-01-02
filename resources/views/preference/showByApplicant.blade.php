@@ -12,7 +12,7 @@
         </div>
         @endif
 
-        <h2>Rangliste der Wunscheinrichtungen von {{$applicant->last_name}} {{$applicant->first_name}} (<?php echo $applicant->birthday->format('d.m.Y'); ?>)</h2>
+        <h2>{{$applicant->first_name}} {{$applicant->last_name}}: Rangliste der Wunscheinrichtungen (<?php echo $applicant->birthday->format('d.m.Y'); ?>)</h2>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
                     )  !!}
                 </div>
                 <div class="col-sm-2">
-                  <button type="submit" class="btn btn-primary">Als Wunsch hinzufügen</button>
+                  <button type="submit" class="btn btn-primary">Wunsch hinzufügen</button>
                 </div>
             </div>
         </form>
