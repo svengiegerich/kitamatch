@@ -16,6 +16,13 @@
         Aktuell gibt sind noch keine Bewerber verfügbar.
       </div>
       @endif
+
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Angebote = offene Plätze</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -232,7 +239,7 @@
                       <button class="btn btn-primary">Angebot</button>
                   </form>
                   @else
-                    <button class="btn btn-primary" disabled>Angebot</button>
+                    <button class="btn btn-secondary" disabled>Angebot</button>
                   @endif
               </td>
               <td>
