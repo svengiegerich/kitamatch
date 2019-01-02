@@ -231,6 +231,8 @@
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
                       <button class="btn btn-primary">Angebot</button>
                   </form>
+                  @else
+                    <button disabled>Angebot</button>
                   @endif
               </td>
               <td>
