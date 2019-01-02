@@ -130,7 +130,7 @@ class Preference extends Model
     $applicants = DB::table('preferences')
       ->join('applicants', 'applicants.aid', '=', 'preferences.id_from')
       ->where('preferences.id_to', '=', $pid)
-      //tmp: status?
+      ->where('preferences.status', '=', 1)
       ->where('preferences.pr_kind', 1)
       ->select('applicants.*')
       ->get();
