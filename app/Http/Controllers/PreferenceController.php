@@ -115,6 +115,7 @@ class PreferenceController extends Controller
       $preference->programName = $provider->name . " - " . $program->name;
     }
     $select = array();
+    $select[-1] = "---";
     foreach ($programs as $program) {
       if (!($preferences->contains('id_to', $program->pid))) {
         $provider = $providers->find($program->proid);

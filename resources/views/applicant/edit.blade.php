@@ -20,19 +20,19 @@
       </div>
       @endif
 
-        <h2>Bewerberinformationen bearbeiten</h2>
+      <ul class="nav nav-pills gap-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/guardian/' . $applicant->gid)}}">{{$applicant->guardianName}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
+        </li>
+      </ul>
 
-        <ul class="nav nav-pills gap-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/guardian/' . $applicant->gid)}}">{{$applicant->guardianName}}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
-          </li>
-        </ul>
+        <h2>Bewerberinformationen bearbeiten</h2>
       </div>
 </div>
 <div class="row justify-content-center">
