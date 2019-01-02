@@ -8,11 +8,11 @@
     <div class="col-md-8">
         @if (count($preferences) < 3)
         <div class="alert alert-warning" role="alert">
-          It's recommended to add at least three programs.
+          Es wird empfohlen mindestens 3 Wünsche anzugeben.
         </div>
         @endif
 
-        <h2>Preferences of Applicant {{$applicant->last_name}} {{$applicant->first_name}} (<?php echo $applicant->birthday->format('d.m.Y'); ?>)</h2>
+        <h2>Rangliste der Wunscheinrichtungen von {{$applicant->last_name}} {{$applicant->first_name}} (<?php echo $applicant->birthday->format('d.m.Y'); ?>)</h2>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
             {{ csrf_field() }}
 
             <div class="form-group row">
-                <label for="to" class="col-sm-2 col-form-label">Program</label>
+                <label for="to" class="col-sm-2 col-form-label">Kitagruppe</label>
                 <div class="col-sm-6">
                     {!! Form::select('to', $programs,false,
                         array('id' => 'preference-id-to',
@@ -31,12 +31,12 @@
                     )  !!}
                 </div>
                 <div class="col-sm-2">
-                  <button type="submit" class="btn btn-primary">Add</button>
+                  <button type="submit" class="btn btn-primary">Als Wunsch hinzufügen</button>
                 </div>
             </div>
         </form>
         @else
-        <button type="submit" class="btn btn-secondary" disabled>All programs selected.</button>
+        <button type="submit" class="btn btn-secondary" disabled>Alle Kitas  wurden ausgewählt.</button>
         @endif
     </div>
 </div>
