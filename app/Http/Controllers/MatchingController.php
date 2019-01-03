@@ -317,7 +317,7 @@ class MatchingController extends Controller
         $preferencesByProgram = $this->getPreferencesByProgram($program->pid);
         $preferenceList = array();
         foreach ($preferencesByProgram as $preference) {
-          if ( array_key_exists($preference->id_to, $preferencesApplicants) && in_array($program->pid, $preferencesApplicants[$preference->id_to]) && ($Applicant::find($preference_id_to)->status == 22 || $Applicant::find($preference_id_to)->status == 25) ) {
+          if ( array_key_exists($preference->id_to, $preferencesApplicants) && in_array($program->pid, $preferencesApplicants[$preference->id_to]) && ($Applicant::find($preference->id_to)->status == 22 || $Applicant::find($preference->id_to)->status == 25) ) {
           //if ( applicant hat das program auch eingetragen & applicant status == 22 ) ) {
             $preferenceList[] = (string)$preference->id_to;
           }
@@ -335,7 +335,7 @@ class MatchingController extends Controller
         $preferenceList = array();
         foreach ($preferencesByProgram as $preference) {
           //list only active preferences
-          if ($preference->status == 1 && ($Applicant::find($preference_id_to)->status == 22 || $Applicant::find($preference_id_to)->status == 25)) {
+          if ($preference->status == 1 && ($Applicant::find($preference->id_to)->status == 22 || $Applicant::find($preference->id_to)->status == 25)) {
             $preferenceList[] = (string)$preference->id_to;
           }
         }
