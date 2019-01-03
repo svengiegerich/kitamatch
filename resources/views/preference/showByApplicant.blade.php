@@ -31,7 +31,7 @@
                     )  !!}
                 </div>
                 <div class="col-sm-2">
-                  <button type="submit" class="btn btn-primary">Wunsch hinzufügen</button>
+                  <button type="submit" class="btn btn-primary">Hinzufügen</button>
                 </div>
             </div>
         </form>

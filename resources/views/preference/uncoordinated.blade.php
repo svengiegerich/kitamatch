@@ -55,13 +55,13 @@
               <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
               @if ($applicant->status == 26)
                 <tr class="table-success">
-                  <th scope="row"><a target="_blank" href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+                  <th scope="row">{{$applicant->aid}}</th>
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td></td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
+                  <td></td>
                 </tr>
               @endif
             @endif
@@ -266,14 +266,16 @@
     <tr
       class="table-danger"
       >
-        <th scope="row"><a target="_blank"  href="/preference/applicant/{{$applicant->aid}}">{{$applicant->aid}}</a></th>
+        <th scope="row">{{$applicant->aid}}</th>
         <td>{{$applicant->first_name}}</td>
         <td>{{$applicant->last_name}}</td>
         <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
         <td>{{$applicant->gender}}</td>
         <td>
           @if ($applicant->status == 26)
-              Schon endtgültig vergeben
+            <span class="badge badge-danger">final zugeteilt</span>
+          @elseif
+            <span class="badge badge-danger">hält präferierteres Angebot</span>
           @endif
         </td>
         <td>
