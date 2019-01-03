@@ -274,7 +274,7 @@
         <td>
           @if ($applicant->status == 26)
             <span class="badge badge-danger">final zugeteilt</span>
-          @elseif
+          @else
             <span class="badge badge-danger">hält präferierteres Angebot</span>
           @endif
         </td>
