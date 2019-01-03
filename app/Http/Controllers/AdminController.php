@@ -52,7 +52,9 @@ class AdminController extends Controller
       $applicant = Applicant::where('aid', '=', $match->aid)->first();
       $match->applicant_name = $applicant->last_name . " " . $applicant->first_name;
       $program = Program::where('pid', '=', $match->pid)->first();
+      $provider = Provider::find($program->proid);
       $match->program_name = $program->name;
+      $match->provider_name = $provider->name;
       $match->status_text = Code::where('code', '=', $match->status)->first()->value;
     }
     return $matches;
