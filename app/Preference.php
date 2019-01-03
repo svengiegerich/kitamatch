@@ -60,6 +60,7 @@ class Preference extends Model
     $nonactive = DB::table('preferences')
       ->where('pr_kind', 3)
       ->where('rank', '=', 1)
+      ->where('status', '=', 1) //reset only valid offers
       ->join('applicants', function ($join) {
         $join->on('preferences.id_to', '=', 'applicants.aid')
         ->whereIn('applicants.status', [22, 25]);
