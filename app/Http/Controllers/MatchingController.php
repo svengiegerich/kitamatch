@@ -134,9 +134,10 @@ class MatchingController extends Controller
 
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
-    $Preference->resetUncoordinatedOffers();
 
     exit();
+
+    $Preference->resetUncoordinatedOffers();
 
     foreach ($matchingResult as $match) {
       $college = (int)$match['college'];
