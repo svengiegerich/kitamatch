@@ -132,6 +132,8 @@ class MatchingController extends Controller
 
     print_r($result);
 
+    exit();
+
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
     $Preference->resetUncoordinatedOffers();
