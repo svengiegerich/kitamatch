@@ -120,8 +120,8 @@ class MatchingController extends Controller
       return;
     }
 
-    $status = $response->getStatusCode();
-    if ($status == 500) {
+    $api_status = $response->getStatusCode();
+    if ($api_status == 500) {
       print("Exit the function");
       exit();
     }
