@@ -140,8 +140,8 @@ class MatchingController extends Controller
     exit();
 
     foreach ($matchingResult as $match) {
-      $college = (int)$match['college'];
-      $student = (int)$match['student'];
+      $college = (int)$match['college.y'];
+      $student = (int)$match['student.y'];
       $matchRequest = new Request();
       $matchRequest->setMethod('POST');
       $matchRequest->request->add(['college' => $college,
@@ -149,11 +149,11 @@ class MatchingController extends Controller
                                  ]);
 
       //check if program is uncoordinated
-      $coordination = $Program->isCoordinated((int)$match['college']);
+      $coordination = $Program->isCoordinated((int)$match['college.y']);
       if ($coordination == 0) {
-        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
+        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college.y']);
         foreach ($preferencesUncoordinated as $preference) {
-          if ($preference->id_to == (int)$match['student']) {
+          if ($preference->id_to == (int)$match['student.y']) {
             $Preference->updateStatus($preference->prid, 1);
             $Preference->updateRank($preference->prid, 1);
           }
@@ -161,7 +161,7 @@ class MatchingController extends Controller
       }
 
       //check if it's the final match
-      if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
+      if ((int)$match['college.y'] == (int)$input['student_prefs'][(int)$match['student.y']][0]) {
         $matchRequest->request->add(['status' => 32]);
         $this->store($matchRequest);
         //set applicant status to matched
@@ -187,14 +187,14 @@ class MatchingController extends Controller
     foreach ($matchingResult as $match) {
       $matchRequest = new Request();
       $matchRequest->setMethod('POST');
-      $matchRequest->request->add(['college' => (int)$match['college'],
-                                   'student' => (int)$match['student']
+      $matchRequest->request->add(['college' => (int)$match['college.y'],
+                                   'student' => (int)$match['student.y']
                                  ]);
 
       //check if it's a match on the waitlist, if update preference to rank = 1
 
       $preference = Preference::where('id_from', '=', 9)
-        ->where('id_to', '=', (int)$match['college'])
+        ->where('id_to', '=', (int)$match['college.y'])
         ->where('pr_kind', "=", 3)
         ->where('rank', '>', 1)
         ->get();
@@ -206,7 +206,7 @@ class MatchingController extends Controller
       }
 
       //check if it's the final match
-      if ((int)$match['college'] == (int)$input['student_prefs'][(int)$match['student']][0]) {
+      if ((int)$match['college.y'] == (int)$input['student_prefs'][(int)$match['student.y']][0]) {
         $matchRequest->request->add(['status' => 32]);
         $this->store($matchRequest);
         //set applicant status to matched
@@ -217,13 +217,13 @@ class MatchingController extends Controller
       }
 
       //check if program is uncoordinated
-      $coordination = $Program->isCoordinated((int)$match['college']);
+      $coordination = $Program->isCoordinated((int)$match['college.y']);
       if ($coordination == 0) {
         // if then update prefs back to 1
-        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college']);
+        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college.y']);
         foreach ($preferencesUncoordinated as $preference) {
           //only for this specific match
-          if ((int)$preference->id_to == (int)$match['student']) {
+          if ((int)$preference->id_to == (int)$match['student.y']) {
             $Preference->updateStatus($preference->prid, 1);
           }
         }
