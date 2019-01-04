@@ -120,9 +120,11 @@ class MatchingController extends Controller
       return;
     }
 
-    exit();
-
-    //status code: $response->getStatusCode();
+    $status = $response->getStatusCode();
+    if ($status == 500) {
+      print("Exit the function");
+      exit();
+    }
 
     //write the matches
     $result = json_decode($response->getBody(), true);
