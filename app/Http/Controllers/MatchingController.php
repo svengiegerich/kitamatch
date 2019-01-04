@@ -163,7 +163,7 @@ class MatchingController extends Controller
         $matchRequest->request->add(['status' => 32]);
         $this->store($matchRequest);
         //set applicant status to matched
-        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student']);
+        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student.y']);
 
         //for the queues, update all uncoordinated prefs to -1
         $Preference->resetAllUncoordnatedQueuesByApplicant($student, $college);
@@ -208,7 +208,7 @@ class MatchingController extends Controller
         $matchRequest->request->add(['status' => 32]);
         $this->store($matchRequest);
         //set applicant status to matched
-        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student']);
+        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student.y']);
       } else {
         $matchRequest->request->add(['status' => 31]);
         $this->store($matchRequest);
