@@ -137,8 +137,6 @@ class MatchingController extends Controller
 
     $Preference->resetUncoordinatedOffers();
 
-    exit();
-
     foreach ($matchingResult as $match) {
       $college = (int)$match['college.y'];
       $student = (int)$match['student.y'];
