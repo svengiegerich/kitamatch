@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h2>Edit your Profil</h2>
+        <h2>Profil bearbeiten</h2>
         <br />
 
         @if ($errors->any())
