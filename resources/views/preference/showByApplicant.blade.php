@@ -8,13 +8,13 @@
     <div class="col-md-8">
 <ul class="nav nav-pills gap-nav">
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/guardian/' . $applicant->gid)}}"></a>
+    <a class="nav-link" href="{{url('/guardian/' . $applicant->gid)}}">{{$applicant->gid)}}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
+    <a class="nav-link" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
+    <a class="nav-link active" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
   </li>
 </ul>
 </div>
