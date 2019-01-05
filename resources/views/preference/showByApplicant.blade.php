@@ -129,7 +129,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <hr class="mb-4">
-        <a href="{{url('/applicant/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Stammdaten</button></a>
+        <a href="{{url('/applicant/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Stammdaten</button></a>
     </div>
 </div>
 

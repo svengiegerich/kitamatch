@@ -80,6 +80,13 @@
     </div>
 </div>
 
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <hr class="mb-4">
+        <a href="{{url('/preferences/applicant/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">Rangliste der Wunscheinrichtungen</button></a>
+    </div>
+</div>
+
 <!--<div class="row justify-content-center">
     <div class="col-md-8">
       @if ($applicant->status == 25)
