@@ -35,26 +35,26 @@
             {{ csrf_field() }}
 
             <div class="form-group row">
-                <label for="lastName" class="col-sm-2 col-form-label">Last name</label>
+                <label for="lastName" class="col-sm-2 col-form-label">Nachname</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="lastName" name="lastName" value="{{$guardian->last_name}}" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="firstName" class="col-sm-2 col-form-label">First name</label>
+                <label for="firstName" class="col-sm-2 col-form-label">Vorname</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="firstName" name="firstName" value="{{$guardian->first_name}}" required>
                 </div>
             </div>
             <!-- Email but with user-table! -->
             <div class="form-group row">
-                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                <label for="phone" class="col-sm-2 col-form-label">Telefonnummer</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$guardian->phone}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <label for="address" class="col-sm-2 col-form-label">Addresse</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="{{$guardian->address}}">
                 </div>
@@ -64,13 +64,13 @@
                 <div class="col-sm-3">
                   <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$guardian->plz}}">
                 </div>
-                <label for="city" class="col-sm-1 col-form-label">City</label>
+                <label for="city" class="col-sm-1 col-form-label">Gemeinde</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$guardian->city}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="address" class="col-sm-2 col-form-label">Siblings?</label>
+                <label for="address" class="col-sm-2 col-form-label">Geschwisterkind?</label>
                 <div class="col-sm-10">
                     {!! Form::select('siblings', array('840' => 'No',
                                                        '841' => 'Yes'),
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="parentalStatus" class="col-sm-2 col-form-label">Parental status</label>
+                <label for="parentalStatus" class="col-sm-2 col-form-label">Elternstatus</label>
                 <div class="col-sm-10">
                     {!! Form::select('parentalStatus', array('822' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
                                                             '821' => 'Beide Erziehungsberechtigten sind beschäftigt',
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="volumeOfEmployment" class="col-sm-2 col-form-label">Volume of employment</label>
+                <label for="volumeOfEmployment" class="col-sm-2 col-form-label">Beschäftigungsumfang</label>
                 <div class="col-sm-10">
                     {!! Form::select('volumeOfEmployment', array('833' => 'ohne Beschäftigung',
                                                                         '832' => '8-15 Stunden/Woche',
@@ -107,9 +107,9 @@
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">
               @if (strlen($guardian->last_name)>0)
-                Update
+                Aktualisieren
               @else
-                Save
+                Speichern
               @endif
             </button>
         </form>
@@ -118,7 +118,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-        <h4>Applicant</h4>
+        <h4>Bewerber</h4>
         <br>
 
         @foreach ($applicants as $applicant)
@@ -127,9 +127,9 @@
         @endforeach
 
         @if (count($applicants) > 0)
-          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn btn-lg btn-block">Add sibling</button></a>
+          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn btn-lg btn-block">Geschwisterkind als Bewerber hinzufügen</button></a>
         @else
-          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Your Applicant</button></a>
+          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Bewerber</button></a>
         @endif
         <br>
     </div>
