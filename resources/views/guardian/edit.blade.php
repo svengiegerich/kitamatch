@@ -129,7 +129,7 @@
         @if (count($applicants) > 0)
           <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn btn-lg btn-block">Geschwisterkind als Bewerber hinzufügen</button></a>
         @else
-          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Bewerber</button></a>
+          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
         @endif
         <br>
     </div>
