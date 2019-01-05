@@ -4,6 +4,22 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+<div class="row justify-content-center pb-3">
+    <div class="col-md-8">
+<ul class="nav nav-pills gap-nav">
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('/guardian/' . $applicant->gid)}}"></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
+  </li>
+</ul>
+</div>
+</div>
+
 <div class="row justify-content-center">
     <div class="col-md-8">
         @if (count($preferences) < 3)
