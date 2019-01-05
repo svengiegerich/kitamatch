@@ -28,8 +28,8 @@
         </div>
         @endif
 
-        <!--<h2>{{$applicant->first_name}} {{$applicant->last_name}}: Rangliste der Wunscheinrichtungen</h2>-->
-        <h2>U2 | DRK Burg Funkelstein <small class="text-muted">Kitagruppe</small></h2>
+        <!--<h2>{{$applicant->first_name}} {{$applicant->last_name}}: </h2>-->
+        <h2>{{$applicant->first_name}} {{$applicant->last_name}} <small class="text-muted">Rangliste der Wunscheinrichtungen</small></h2>
       </div>
     </div>
 
