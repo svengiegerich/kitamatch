@@ -12,7 +12,7 @@
 
 <div class="row justify-content-center">
 <div class="col-md-8">
-<h2>List of all Guardians</h2>
+<h2>Liste aller Erziehungsberechtigten</h2>
 </div>
 </div>
 
@@ -22,16 +22,16 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Last name</th>
-            <th>First name</th>
+            <th>Nachname</th>
+            <th>Vorname</th>
             <th>Status</th>
             <th>PLZ</th>
-            <th>Phone</th>
-            <th>Siblings</th>
-            <th>Parental Status</th>
-            <th>Volume of Employment</th>
-            <th>Verification</th>
-            <th>Message</th>
+            <th>Telefonnummer</th>
+            <th>Geschwisterkind</th>
+            <th>Elternstatus</th>
+            <th>Beschäftigungsumfang</th>
+            <th>Verifikation</th>
+            <th>Nachricht</th>
         </tr>
       </thead>
         <tbody>
