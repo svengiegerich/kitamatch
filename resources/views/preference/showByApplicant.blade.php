@@ -12,7 +12,7 @@
         </div>
         @endif
 
-        <h2>{{$applicant->first_name}} {{$applicant->last_name}}: Rangliste der Wunscheinrichtungen (<?php echo $applicant->birthday->format('d.m.Y'); ?>)</h2>
+        <h2>{{$applicant->first_name}} {{$applicant->last_name}}: Rangliste der Wunscheinrichtungen</h2>
       </div>
     </div>
 
