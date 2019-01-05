@@ -31,7 +31,6 @@
             <th>Elternstatus</th>
             <th>Beschäftigungsumfang</th>
             <th>Verifikation</th>
-            <th>Nachricht</th>
         </tr>
       </thead>
         <tbody>
@@ -58,7 +57,6 @@
                     </form>
                     @endif
                 </td>
-                <td><a href="mailto:{{$guardian->email}}"><button class="">Send Message</button></a></td>
             </tr>
         @endforeach
       </tbody>
