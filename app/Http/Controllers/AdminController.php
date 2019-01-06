@@ -105,6 +105,9 @@ class AdminController extends Controller
 
     //2)
     DB::table('applicants')->update(['status' => 22]);
+
+    //3)
+    DB::table('preferences')->whereIn('status', [2, 3])->delete();
   }
 
 }
