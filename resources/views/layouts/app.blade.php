@@ -39,9 +39,8 @@
         <footer class="text-muted">
           <div class="container">
             <p class="float-right">
-              <!--<a href="#">Back to top</a>-->
+              <p>2019 © Marktdesign, Zentrum für Europäpische Wirtschaftsforschung</p>
             </p>
-            <p>© Marktdesign, Zentrum für Europäpische Wirtschaftsforschung</p>
           </div>
         </footer>
 
