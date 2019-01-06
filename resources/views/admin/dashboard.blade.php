@@ -51,7 +51,7 @@
         </div>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Kitagruppen</h4>
+            <h4 class="my-0 font-weight-normal">Kitas</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{$data['programsCount']}} & {{$data['providersCount']}}</h1>
