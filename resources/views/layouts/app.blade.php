@@ -38,8 +38,7 @@
 
         <footer class="text-muted">
           <div class="container">
-            <p class="float-right">
-              <p>2019 © Marktdesign, Zentrum für Europäpische Wirtschaftsforschung</p>
+            <p class="float-right">2019 © Marktdesign, Zentrum für Europäpische Wirtschaftsforschung</p>
             </p>
           </div>
         </footer>
