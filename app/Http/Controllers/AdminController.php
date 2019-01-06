@@ -101,7 +101,7 @@ class AdminController extends Controller
     //definition: 1) delete all matchings, 2) reset all applicant to status == 22, 3) delete all program preferences, 4) do not edit applicant preferences
 
     //1)
-    Matching::truncate();
+    App\Matching::truncate();
 
     //2)
     App\Applicant::update(['status' => 22]);
