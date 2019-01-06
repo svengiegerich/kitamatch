@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Applicant;
 use App\Provider;
 use App\Program;
@@ -63,7 +64,7 @@ class AdminController extends Controller
   public function exportMatching() {
     $matchings = $this->listMatchings();
     $filename = "matchings.csv";
-    $handle = fopen($filename, 'w+');
+    $handle = fopen($filename, 'w');
     fputcsv($handle, array('Kita', 'Bewerber', 'Status'));
     foreach($matchings as $match) {
         fputcsv($handle, array($row['program_name'], $row['applicant_name'], $row['status_text']));
