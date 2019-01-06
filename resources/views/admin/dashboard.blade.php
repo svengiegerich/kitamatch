@@ -73,7 +73,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4>{{count($matches)}} Zuordnungen | {{$data['countRounds']}} Koordinierungsrunden</h4>
+    <h4>{{count($matches)}} Zuordnungen  &  {{$data['countRounds'] + 1}}. Koordinierungsrunde</h4>
   </div>
 </div>
 
