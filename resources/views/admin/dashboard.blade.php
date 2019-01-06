@@ -73,7 +73,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4>{{count($matches)}} Zuordnungen <button type="button" class="btn btn-link"><a href="#">CSV Export</a></button></h4>
+    <h4>{{count($matches)}} Zuordnungen</h4>
   </div>
 </div>
 
@@ -105,7 +105,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
 <br>
-<a target="_blank" href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
+<a href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
 </div>
 </div>
 
