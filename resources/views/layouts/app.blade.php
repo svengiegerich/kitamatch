@@ -26,7 +26,7 @@
           <ul class="form-inline my-2 my-lg-0">
             @if(Auth::check())
               <li class="nav-item text-nowrap">
-                <a href="{{url('/logout')}}">Logout</a>
+                <a href="{{url('/logout')}}" class="nav-link">Logout</a>
               </li>
             @endif
           </ul>
