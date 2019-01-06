@@ -97,4 +97,14 @@ class AdminController extends Controller
     return $data;
   }
 
+  public function resetDB() {
+    //definition: 1) delete all matchings, 2) reset all applicant to status == 22, 3) delete all program preferences, 4) do not edit applicant preferences
+
+    //1)
+    Matching::truncate();
+
+    //2)
+    Applicant::update('status' => 22);
+  }
+
 }
