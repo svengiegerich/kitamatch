@@ -5,7 +5,7 @@
 <script>
   $(document).ready( function () {
     $('#matches').DataTable( {
-      "pageLength": 50,
+      "pageLength": 100,
       "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
             },
