@@ -64,7 +64,7 @@ class AdminController extends Controller
   public function exportMatching() {
     $matchings = $this->listMatchings();
     $filename = "matchings.csv";
-    $handle = fopen($filename, 'w');
+    $handle = fopen('php://output', 'w');
     fputcsv($handle, array('Kita', 'Bewerber', 'Status'));
     foreach($matchings as $match) {
         fputcsv($handle, array($row['program_name'], $row['applicant_name'], $row['status_text']));
