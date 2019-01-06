@@ -73,7 +73,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4><span class="badge badge-light">{{count($matches)}}</small> Zuordnungen  &  <span class="badge badge-light">{{$data['countRounds']}}.</small> Koordinierungsrunde</h4>
+    <h4><span class="badge badge-light">{{count($matches)}}</span> Zuordnungen  &  <span class="badge badge-light">{{$data['countRounds']}}.</span> Koordinierungsrunde</h4>
   </div>
 </div>
 
