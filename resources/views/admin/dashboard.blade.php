@@ -15,7 +15,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-8">
-      <h2>Übersicht</h2>
+      <h2>Übersicht <small class="text-muted">Administration</small></h2>
     </div>
 </div>
 
