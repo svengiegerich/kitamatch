@@ -21,6 +21,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="form-inline my-2 my-lg-0">
+            @if \Auth::check()
+              <li>Hey!</li>
+            @endif
           </ul>
         </div>
       </nav>
