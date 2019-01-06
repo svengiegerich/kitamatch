@@ -19,12 +19,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Applicant;
 use App\Provider;
 use App\Program;
 use App\Code;
-use Response;
 
 /**
 * This controller handles the administration side. It creates the admin dashboard and routes to various tasks.
