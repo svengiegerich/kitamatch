@@ -21,7 +21,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="form-inline my-2 my-lg-0">
-            <li class="nav-link">Login</li>
           </ul>
         </div>
       </nav>
