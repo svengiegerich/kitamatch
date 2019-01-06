@@ -21,7 +21,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li></li>
+            <li>Login</li>
           </ul>
         </div>
       </nav>
