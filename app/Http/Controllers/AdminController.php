@@ -95,7 +95,6 @@ class AdminController extends Controller
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
     $data['totalCapacity'] = DB::select($capacitySql)['0']->totalCapacity;
     $data['countRounds'] = DB::table('matches')->select(DB::raw('count(DISTINCT  created_at)'))->first();
-    print_r($data['round']);
     return $data;
   }
 
