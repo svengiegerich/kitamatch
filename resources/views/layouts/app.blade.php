@@ -23,7 +23,7 @@
           <ul class="navbar-nav mr-auto">
             <li></li>
           </ul>
-          <ul class="form-inline my-2 my-lg-0">
+          <ul class="navbar-nav px-3">
             @if(Auth::check())
               <li class="nav-item text-nowrap">
                 <a href="{{url('/logout')}}" class="nav-link">Logout</a>
