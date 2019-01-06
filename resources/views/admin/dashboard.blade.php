@@ -38,7 +38,7 @@
             <h4 class="my-0 font-weight-normal">Kitagruppen</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{$data['programsCount']}} / {{$data['providersCount']}}</h1>
+            <h1 class="card-title pricing-card-title">{{$data['programsCount']}} & {{$data['providersCount']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Gruppen nehmen teil.</li>
               <li>Kitas sind registriert.</li>
@@ -51,7 +51,7 @@
             <h4 class="my-0 font-weight-normal">Platzvergabe</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}} /</small> {{count($matches)}} <small class="text-muted">/ {{$data['totalCapacity']}}</small></h1>
+            <h1 class="card-title pricing-card-title">{{$data['applicantsFinal']}} / {{count($matches)}} / {{$data['totalCapacity']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Endgültig zugeordnet (extern)</li>
               <li>Vorläufig zugeordnet (intern)</li>
@@ -65,7 +65,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
       <br>
-      <a target="_blank" href="{{url('/matching/get')}}"><button class="btn btn-primary btn-lg btn-block">Vergabe starten</button></a>
+      <a target="_blank" href="{{url('/matching/get')}}"><button class="btn btn-primary btn-lg btn-block">Vergaberunde starten</button></a>
       <br>
       <br>
     </div>
