@@ -38,7 +38,10 @@
             <h4 class="my-0 font-weight-normal">Bewerber</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{$data['applicantsVerified']}} <small class="text-muted">/ {{$data['applicantsCount']}}</small></h1>
+            <h1 class="card-title pricing-card-title">{{$data['applicantsVerified']}}
+              / {{$data['applicantsCount']}}
+              <!--<small class="text-muted">/ {{$data['applicantsCount']}}</small>-->
+            </h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Bestätigte Bewerber</li>
               <li>Registrierte Bewerber</li>
