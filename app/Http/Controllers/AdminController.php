@@ -67,7 +67,7 @@ class AdminController extends Controller
     $handle = fopen('php://output', 'w');
     fputcsv($handle, array('Kita', 'Bewerber', 'Status'));
     foreach($matchings as $match) {
-        fputcsv($handle, array($row['program_name'], $row['applicant_name'], $row['status_text']));
+        fputcsv($handle, array($match['program_name'], $match['applicant_name'], $match['status_text']));
     }
     fclose($handle);
     $headers = array(
