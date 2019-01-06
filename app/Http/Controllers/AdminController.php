@@ -99,10 +99,9 @@ class AdminController extends Controller
 
   public function resetDB() {
     //1. delete all current tables
-    $tables = DB::select('SHOW TABLES');
-    foreach($tables as $table){
-        Schema::drop($table->Tables_in_pos);
-        echo 'Table '.$table->Tables_in_pos.' Droped. <br>';
+    foreach(\DB::select('SHOW TABLES') as $table) {
+      $table_array = get_object_vars($table);
+      \Schema::drop($table_array[key($table_array)]);
     }
 
     //2. insert new state
