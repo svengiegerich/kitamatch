@@ -99,13 +99,11 @@ class AdminController extends Controller
 
   public function resetDB() {
     //1. delete all current tables
-    foreach(\DB::select('SHOW TABLES') as $table) {
-      $table_array = get_object_vars($table);
-      \Schema::drop($table_array[key($table_array)]);
-    }
 
     //2. insert new state
     $sqlSteinfurtEmpty = "
+    DROP TABLE `codes`, `criteria`, `guardians`, `matches`, `migrations`, `password_resets`, `preferences`, `programs`, `providers`, `users`;
+
     -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2.1
 -- http://www.phpmyadmin.net
