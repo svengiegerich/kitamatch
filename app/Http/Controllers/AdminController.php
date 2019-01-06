@@ -108,6 +108,8 @@ class AdminController extends Controller
 
     //3)
     DB::table('preferences')->whereIn('status', [2, 3])->delete();
+
+    $this->index();
   }
 
 }
