@@ -51,10 +51,10 @@
             <h4 class="my-0 font-weight-normal">Platzvergabe</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}}</small> / {{count($matches)}} / {{$data['totalCapacity']}}</h1>
+            <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}} /</small>  {{count($matches)}} / {{$data['totalCapacity']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Endgültig zugeordnet (extern)</li>
-              <li>Vorläufig zugeordnet (intern)</li>
+              <li>Erstrangig zugeordnet</li>
+              <li>Insgesamt vergebene Plätze</li>
               <li>Verfügbare Plätze</li>
             </ul>
             <a href="#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Zuteilung ansehen</button></a>
