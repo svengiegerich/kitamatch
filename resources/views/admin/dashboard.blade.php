@@ -22,6 +22,20 @@
 <div class="card-deck mb-3 text-center">
         <div class="card mb-4 box-shadow">
           <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Platzvergabe</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}} /</small>  {{count($matches)}} / {{$data['totalCapacity']}}</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Erstrangig zugeordnet</li>
+              <li>Vergebene Plätze</li>
+              <li>Verfügbare Plätze</li>
+            </ul>
+            <a href="#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Zuteilung ansehen</button></a>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
             <h4 class="my-0 font-weight-normal">Bewerber</h4>
           </div>
           <div class="card-body">
@@ -46,20 +60,6 @@
             <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Kitagruppen</button></a>
           </div>
         </div>
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Platzvergabe</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}} /</small>  {{count($matches)}} / {{$data['totalCapacity']}}</h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Erstrangig zugeordnet</li>
-              <li>Insgesamt vergebene Plätze</li>
-              <li>Verfügbare Plätze</li>
-            </ul>
-            <a href="#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Zuteilung ansehen</button></a>
-          </div>
-        </div>
       </div>
 
 <div class="row justify-content-center">
@@ -73,7 +73,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4><span class="badge badge-light">{{count($matches)}}</span> Zuordnungen nach <span class="badge badge-light">{{$data['countRounds']}}.</span> Koordinierungsrunde</h4>
+    <h4><span class="badge badge-light">{{count($matches)}}</span> Zuordnungen nach <span class="badge badge-light">{{$data['countRounds']}}</span> Koordinierungsrunde</h4>
   </div>
 </div>
 
