@@ -994,7 +994,7 @@ ALTER TABLE `providers`
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
     ";
-    \DB:raw($sqlSteinfurtEmpty);
+    DB::raw($sqlSteinfurtEmpty);
 
     return redirect()->action('AdminController@index');
   }
