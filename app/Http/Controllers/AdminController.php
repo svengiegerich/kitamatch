@@ -24,6 +24,7 @@ use App\Applicant;
 use App\Provider;
 use App\Program;
 use App\Code;
+use Response;
 
 /**
 * This controller handles the administration side. It creates the admin dashboard and routes to various tasks.
