@@ -94,6 +94,8 @@ class AdminController extends Controller
     $data['providersCount'] = count($providers);
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
     $data['totalCapacity'] = DB::select($capacitySql)['0']->totalCapacity;
+    $data['round'] = DB::raw("SELECT count(DISTINCT `created_at`) FROM matches");
+    print_r($data['round']);
     return $data;
   }
 
