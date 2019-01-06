@@ -30,7 +30,7 @@
               <li>Zuordnungen</li>
               <li>Verfügbare Plätze</li>
             </ul>
-            <a href="#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Zuteilung ansehen</button></a>
+            <a href="#matches"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Zuteilung</button></a>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -40,10 +40,10 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{$data['applicantsVerified']}} <small class="text-muted">/ {{$data['applicantsCount']}}</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Bewerber sind bestätigt</li>
-              <li>Bewerber insgesamt registriert</li>
+              <li>Bestätigte Bewerber</li>
+              <li>Registrierte Bewerber</li>
             </ul>
-            <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Berwerber</button></a>
+            <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Berwerber</button></a>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -53,10 +53,10 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{$data['programsCount']}} & {{$data['providersCount']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Gruppen nehmen teil</li>
-              <li>Kitas sind registriert</li>
+              <li>Teilnehmende Gruppen</li>
+              <li>Registrierte Kitas</li>
             </ul>
-            <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Kitagruppen</button></a>
+            <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary"> Kitagruppen</button></a>
           </div>
         </div>
       </div>
