@@ -25,9 +25,8 @@
             <h4 class="my-0 font-weight-normal">Platzvergabe</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{count($matches)}} / {{$data['totalCapacity']}}</h1>
+            <h1 class="card-title pricing-card-title">{{count($matches)}} <small class="text-muted">/</small> {{$data['totalCapacity']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Erstrangig zugeordnet</li>
               <li>Vergebene Plätze</li>
               <li>Verfügbare Plätze</li>
             </ul>
