@@ -20,8 +20,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li>Login</li>
+          <ul class="form-inline my-2 my-lg-0">
+            <li class="nav-link">Login</li>
           </ul>
         </div>
       </nav>
