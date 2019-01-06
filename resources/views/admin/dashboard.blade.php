@@ -64,7 +64,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
       <br>
-      <a target="_blank" href="{{url('/matching/get')}}"><button class="btn btn-primary btn-lg btn-block">Vergaberunde starten</button></a>
+      <a target="_blank" href="{{url('/matching/get')}}"><button class="btn btn-primary btn-lg btn-block">Vergabe starten</button></a>
       <br>
       <br>
     </div>
