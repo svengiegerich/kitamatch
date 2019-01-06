@@ -20,9 +20,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li></li>
+          </ul>
           <ul class="form-inline my-2 my-lg-0">
             @if(Auth::check())
-              <li>Hey!</li>
+              <li class="nav-item text-nowrap">
+                <a href="{{url('/logout')}}">Logout</a>
+              </li>
             @endif
           </ul>
         </div>
