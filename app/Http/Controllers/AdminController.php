@@ -104,7 +104,7 @@ class AdminController extends Controller
     Matching::truncate();
 
     //2)
-    Applicant::update('status' => 22);
+    App\Applicant::update(['status' => 22]);
   }
 
 }
