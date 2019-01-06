@@ -40,8 +40,8 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{$data['programsCount']}} & {{$data['providersCount']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Gruppen nehmen teil.</li>
-              <li>Kitas sind registriert.</li>
+              <li>Gruppen nehmen teil</li>
+              <li>Kitas sind registriert</li>
             </ul>
             <a href="{{url('/program/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Alle Kitagruppen</button></a>
           </div>
@@ -51,7 +51,7 @@
             <h4 class="my-0 font-weight-normal">Platzvergabe</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{$data['applicantsFinal']}} / {{count($matches)}} / {{$data['totalCapacity']}}</h1>
+            <h1 class="card-title pricing-card-title"><small class="text-muted">{{$data['applicantsFinal']}}</small> / {{count($matches)}} / {{$data['totalCapacity']}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Endgültig zugeordnet (extern)</li>
               <li>Vorläufig zugeordnet (intern)</li>
