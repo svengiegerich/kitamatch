@@ -53,7 +53,7 @@ class AdminController extends Controller
     $matches = DB::table('matches')->whereIn('status', [31, 32])->get();
     foreach ($matches as $match) {
       $applicant = Applicant::where('aid', '=', $match->aid)->first();
-      $match->applicant_name = $applicant->last_name . " " . $applicant->first_name;
+      $match->applicant_name = $applicant->first_name . " " . $applicant->last_name;
       $program = Program::where('pid', '=', $match->pid)->first();
       $provider = Provider::find($program->proid);
       $match->program_name = $program->name;
