@@ -286,7 +286,7 @@
       </tbody>
     </table>
 
-    <a href="{{url('/criteria/program/manually/' . $program->pid)}}" style="float:right;"><button class="btn">Manuelle Rangliste</button></a>
+    <a href="{{url('/criteria/program/manual/' . $program->pid)}}" style="float:right;"><button class="btn">Manuelle Rangliste</button></a>
 </div>
 
 </div>
