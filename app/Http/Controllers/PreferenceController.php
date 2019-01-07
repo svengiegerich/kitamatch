@@ -258,7 +258,7 @@ class PreferenceController extends Controller
       $Matching = new Matching();
       $Provider = new Provider();
       $Matching = new Matching();
-      $round = $Matching->getRound();
+      $round = $Matching->getRound() + 1; //current vs. past
       $lastMatch = $Matching->lastMatch();
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
       $providerId = $Program->getProviderId($pid);

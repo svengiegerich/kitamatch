@@ -46,7 +46,7 @@
               <li>Bestätigte Bewerber</li>
               <li>Registrierte Bewerber</li>
             </ul>
-            <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Berwerber</button></a>
+            <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Bewerber</button></a>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
