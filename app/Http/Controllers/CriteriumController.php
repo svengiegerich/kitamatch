@@ -181,7 +181,7 @@ class CriteriumController extends Controller
       $programPref->status = -3;
       $programPref->pr_kind = 3;
       $programPref->id_from = $pid;
-      $programPref->id_to_ = $applicant->aid;
+      $programPref->id_to = $applicant->aid;
       $programPref->rank = $i;
       $programPref->save();
       $i = $i + 1;
