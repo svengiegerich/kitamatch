@@ -281,7 +281,7 @@ class PreferenceController extends Controller
           $applicant->manualRank = $rank_pref->rank;
         }
 
-        $availableApplicants->sortBy('manualRank');
+        $availableApplicants = $availableApplicants->sortBy('manualRank');
         print_r($availableApplicants);
       }
 
