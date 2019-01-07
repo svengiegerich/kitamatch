@@ -90,6 +90,6 @@ trait GetPreferences {
   }
 
   public function getManualRankingsByProgram($pid) {
-     return DB::table('preferences')->where('pid', '=', $pid)->where('status', '=', -3)->get();
+     return DB::table('preferences')->where('pr_kind', '=', '3')->where('id_from', '=', $pid)->where('status', '=', -3)->get();
   }
 }
