@@ -88,4 +88,8 @@ trait GetPreferences {
     $preferences = DB::select($sql);
     return $preferences;
   }
+
+  public function getManualRankingsByProgram($pid) {
+     return DB::select('preferences')->where('pid', '=', $pid)->where('status', '=', -3)->get();
+  }
 }

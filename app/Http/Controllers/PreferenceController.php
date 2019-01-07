@@ -268,7 +268,7 @@ class PreferenceController extends Controller
       } else {
         $provider = false;
       }
-      $Preference = new Preference;
+      $Preference = new Preference();
       $availableApplicants = $Preference->getAvailableApplicants($pid);
       $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
       //mark every active or closed offer
@@ -322,6 +322,9 @@ class PreferenceController extends Controller
                 }
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
+
+      //manual ranking
+      $manualRanking = $this->getManualRankingsByProgram($pid);
 
       return view('preference.uncoordinated', array('round' => $round,
                                                     'program' => $program,

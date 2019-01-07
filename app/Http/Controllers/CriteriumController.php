@@ -22,6 +22,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Criterium;
 use App\Code;
+use App\Preference;
 
 /**
 * This controller handles the criteria catalogue: creation, update.
@@ -167,5 +168,23 @@ class CriteriumController extends Controller
     if ($request->program) { $criterium->program = $request->program; }
     $criterium->save();
     return $criterium;
+  }
+
+  public function manualRanking($pid) {
+    $Preference = new Preference();
+    $availableApplicants = $Preference->getAvailableApplicants($pid);
+
+    //list preferences for each
+    $i = 1;
+    foreach($availableApplicants as $applicant) {
+      $programPref = new Preference();
+      $programPref->status = -3;
+      $programPref->pr_kind = 3;
+      $programPref->id_from = $pid;
+      $programPref->id_to_ = $applicant->aid;
+      $programPref->rank = $i;
+      $programPref->save();
+      $i = $i + 1;
+    }
   }
 }
