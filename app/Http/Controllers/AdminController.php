@@ -110,7 +110,7 @@ class AdminController extends Controller
     DB::table('applicants')->update(['status' => 22]);
 
     //3)
-    DB::table('preferences')->whereIn('pr_kind', [2, 3])->delete();
+    DB::table('preferences')->whereIn('pr_kind', [2, 3])->whereIn('status', [-2, -1, 0, 1])->delete();
 
     return redirect()->action('AdminController@index');
   }
