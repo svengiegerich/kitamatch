@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Schema;
 use App\Applicant;
+use App\Matching;
 use App\Provider;
 use App\Program;
 use App\Code;
