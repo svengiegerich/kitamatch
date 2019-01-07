@@ -33,7 +33,7 @@
 
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h4>Verbindliche Angebote <small class="text-muted" style="float: right;"><span class="badge badge-info">Aktuelles Angebot</span>
+    <h4>Verbindliche Angebote <small class="text-muted" style="float: right;"><span class="badge badge-info">Gehaltenes Angebot</span>
 <span class="badge badge-success">Endgültige Zusage</span></small></h4>
 
     <table class="table" id="offers">
