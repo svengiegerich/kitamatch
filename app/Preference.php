@@ -184,7 +184,7 @@ class Preference extends Model
       }
       //highly important applicants
       if ($applicant->status == 25) {
-        $applicant->order = 2 ** 12;
+        $applicant->order = 2 * 12;
       }
     }
 

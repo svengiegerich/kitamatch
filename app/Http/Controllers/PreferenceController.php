@@ -271,6 +271,19 @@ class PreferenceController extends Controller
       $Preference = new Preference();
       $availableApplicants = $Preference->getAvailableApplicants($pid);
       $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
+
+      //manual ranking
+      $manualRanking = $this->getManualRankingsByProgram($pid);
+      if (count($manualRanking) > 0) {
+        //sort $availableApplicants by preference rank (status = -3)
+        foreach($manualRanking as $rank_pref) {
+          $applicant = $availableApplicants->find($rank_pref->id_to);
+          $applicant->manualRank = $rank_pref->rank;
+        }
+
+        $availableApplicants->sortBy('manualRank');
+      }
+
       //mark every active or closed offer
       //1: active, -1: no match
       //temp: easier?
@@ -322,9 +335,6 @@ class PreferenceController extends Controller
                 }
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
-
-      //manual ranking
-      $manualRanking = $this->getManualRankingsByProgram($pid);
 
       return view('preference.uncoordinated', array('round' => $round,
                                                     'program' => $program,
@@ -502,7 +512,6 @@ class PreferenceController extends Controller
     //$applicants = $Applicant->getAll();
     //not all but only the available ones
     $applicants = $Preference->getAvailableApplicants($program->pid);
-
 
     //als eigene funktion bauen & die drüber nur diese aufrufen lassen
       $providerId = $Program->getProviderId($program->pid);
