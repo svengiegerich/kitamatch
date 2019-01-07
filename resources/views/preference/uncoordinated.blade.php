@@ -195,7 +195,7 @@
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h4>Bewerberliste <small class="text-muted" style="float: right;"><span class="badge badge-light">Verfügbarer Bewerber</span><small class="text-muted" style="float: right;"><span class="badge badge-danger">Vergebener Bewerber</span></h4>
+    <h4>Bewerberliste <small class="text-muted" style="float: right;"><span class="badge badge-light">Verfügbarer Bewerber</span><span class="badge badge-danger">Vergebener Bewerber</span></small></h4>
 
     <table class="table" id="availableApplicantsTable">
         <thead>
