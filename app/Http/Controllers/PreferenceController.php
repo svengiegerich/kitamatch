@@ -324,7 +324,10 @@ class PreferenceController extends Controller
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
       //manual ranking
-      $manualRanking = $this->getManualRankingsByProgram($pid);
+      //$manualRanking = $this->getManualRankingsByProgram($pid);
+      //if (count($manualRanking) > 0 ) {
+      //
+      //}
 
       return view('preference.uncoordinated', array('round' => $round,
                                                     'program' => $program,
