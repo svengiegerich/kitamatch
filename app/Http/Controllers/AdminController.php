@@ -83,6 +83,7 @@ class AdminController extends Controller
     $Applicant = new Applicant;
     $Program = new Program;
     $Provider = new Provider;
+    $Matching = new Matching;
     $data = array();
     $applicants = Applicant::all();
     $programs = Program::all();
@@ -94,7 +95,7 @@ class AdminController extends Controller
     $data['providersCount'] = count($providers);
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
     $data['totalCapacity'] = DB::select($capacitySql)['0']->totalCapacity;
-    $data['countRounds'] = DB::table('matches')->select(DB::raw('count(DISTINCT  created_at) as round'))->first()->round; //open vs. closed rounds
+    $data['countRounds'] = $Matching->getRound();
     return $data;
   }
 

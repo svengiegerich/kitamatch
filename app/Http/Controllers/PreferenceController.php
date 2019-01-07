@@ -257,6 +257,8 @@ class PreferenceController extends Controller
       $Program = new Program();
       $Matching = new Matching();
       $Provider = new Provider();
+      $Matching = new Matching();
+      $round = $Matching->getRound();
       $lastMatch = $Matching->lastMatch();
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
       $providerId = $Program->getProviderId($pid);
@@ -321,7 +323,8 @@ class PreferenceController extends Controller
             }
             $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-      return view('preference.uncoordinated', array('program' => $program,
+      return view('preference.uncoordinated', array('round' => $round,
+                                                    'program' => $program,
                                                     'lastMatch' => $lastMatch,
                                                     'availableApplicants' => $availableApplicants,
                                                     'preferences' => $preferences,
