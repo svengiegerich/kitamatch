@@ -59,7 +59,7 @@ class Matching extends Model
   }
 
   public function getRound() {
-    return DB::table('matches')->select(DB::raw('count(DISTINCT DATE_TIME(created_at, `%Y-%m-%d %H:%i`)) as round'))->first()->round; //open vs. closed rounds
+    return DB::table('matches')->select(DB::raw('count(DISTINCT TIME_FORMAT(created_at, `%Y-%m-%d %H:%i`)) as round'))->first()->round; //open vs. closed rounds
   }
 
   public $primaryKey = 'mid';
