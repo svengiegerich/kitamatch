@@ -197,8 +197,8 @@
 
     <h4>Bewerberliste
       <small class="text-muted" style="float: right;">
-        <span class="badge badge-light">Verfügbar</span>
-        <span class="badge badge-danger">Vergeben</span>
+        <span class="badge badge-light">Verfügbarer Bewerber</span>
+        <span class="badge badge-danger">Vergebener Bewerber</span>
       </small>
     </h4>
 
