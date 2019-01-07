@@ -76,7 +76,6 @@ Route::get('/preference/all', 'PreferenceController@all');
 Route::get('/guardian/all', 'GuardianController@all');
 Route::get('/guardian/{gID}', 'GuardianController@show');
 Route::post('/guardian/{gID}', 'GuardianController@edit');
-//tmp: post or get?! CSR in email?!
 Route::post('/guardian/verify/{gID}', 'GuardianController@verify');
 
 //Provider
@@ -93,7 +92,8 @@ Route::get('/criteria/{p_id}', 'CriteriumController@showByProvider');
 Route::post('/criteria', 'CriteriumController@editAjax');
 //for uncoordinated progams with no provider, create fake provider
 Route::get('/criteria/program/{programId}', 'CriteriumController@showByProgram');
-Route::post('/criteria/program/manually/{p_id}', 'CriteriumController@manualRanking');
+Route::post('/criteria/program/manual/{p_id}', 'CriteriumController@addManualRanking');
+Route::post('/criteria/program/manual-reorder/{p_id}', 'CriteriumController@reorderManualRanking');
 
 //Admin
 Route::get('/admin/', 'AdminController@index');

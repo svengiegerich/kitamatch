@@ -216,80 +216,74 @@
             </tr>
         </thead>
         <tbody>
-
-          @foreach($availableApplicants as $applicant)
-          @if (
-            !(array_key_exists($applicant->aid, $offers))
-          )
-          @if($applicant->status != 26)
-          <tr
-            @if (array_key_exists($applicant->aid, $offers))
-                  @if ($offers[$applicant->aid]['id'] == -1)
-                    class="table-danger"
-                  @endif
-                @endif
-                @if ($applicant->status == 26)
-                  class="table-danger"
-                @endif
-            >
-              <th scope="row">{{$applicant->aid}}</th>
-              <td>{{$applicant->first_name}}</td>
-              <td>{{$applicant->last_name}}</td>
-              <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
-              <td>{{$applicant->gender}}</td>
-              <td>
-                  <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
-                  @if ($applicant->status == 26)
-                      Schon endtgültig vergeben
-                  @elseif (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers < $program->capacity))
-                  <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
+          <!-- available applicants: automatic ranking -->
+          @if(count($manualRanking) == 0)
+            @foreach($availableApplicants as $applicant)
+            @if (
+              !(array_key_exists($applicant->aid, $offers))
+            )
+            @if($applicant->status != 26)
+              <tr>
+                <th scope="row">{{$applicant->aid}}</th>
+                <td>{{$applicant->first_name}}</td>
+                <td>{{$applicant->last_name}}</td>
+                <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                <td>{{$applicant->gender}}</td>
+                <td>
+                    <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
+                    @if (!(array_key_exists($applicant->aid, $offers)) && ($program->openOffers < $program->capacity))
+                    <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                        <button class="btn btn-primary">Angebot</button>
+                    </form>
+                    @else
+                      <button class="btn btn-secondary" disabled>Angebot</button>
+                    @endif
+                </td>
+                <td>
+                    <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                      <button class="btn btn-primary">Angebot</button>
-                  </form>
-                  @else
-                    <button class="btn btn-secondary" disabled>Angebot</button>
-                  @endif
-              </td>
-              <td>
-                  <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                    <button class="btn btn-secondary" disabled>Warteliste</button>
-                  </form>
-              </td>
-          </tr>
+                      <button class="btn btn-secondary" disabled>Warteliste</button>
+                    </form>
+                </td>
+              </tr>
           @endif
           @endif
           @endforeach
+        @endif
 
+        <!-- available applicants: manual ranking -->
+        @if(count($manualRanking) > 0) <!-- check if manual ranking exists -->
+          Hey
+        @endif
 
-    @foreach($availableApplicants as $applicant)
-    @if (
-      ( array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] != 1 ) or
-      ( $applicant->status == 26 && !array_key_exists($applicant->aid, $offers) )
-      )
-    <tr
-      class="table-danger"
-      >
-        <th scope="row">{{$applicant->aid}}</th>
-        <td>{{$applicant->first_name}}</td>
-        <td>{{$applicant->last_name}}</td>
-        <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
-        <td>{{$applicant->gender}}</td>
-        <td>
-          @if ($applicant->status == 26)
-            <span class="badge badge-danger">final zugeteilt</span>
-          @else
-            <span class="badge badge-danger">hält präferierteres Angebot</span>
-          @endif
-        </td>
-        <td>
-        </td>
-    </tr>
-    @endif
-    @endforeach
-</tbody>
+        <!--- infeasible applicants -->
+        @foreach($availableApplicants as $applicant)
+        @if (
+          ( array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] != 1 ) or
+          ( $applicant->status == 26 && !array_key_exists($applicant->aid, $offers) )
+          )
+          <tr class="table-danger">
+            <th scope="row">{{$applicant->aid}}</th>
+            <td>{{$applicant->first_name}}</td>
+            <td>{{$applicant->last_name}}</td>
+            <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+            <td>{{$applicant->gender}}</td>
+            <td>
+              @if ($applicant->status == 26)
+                <span class="badge badge-danger">final zugeteilt</span>
+              @else
+                <span class="badge badge-danger">hält präferierteres Angebot</span>
+              @endif
+            </td>
+            <td>
+            </td>
+          </tr>
+        @endif
+        @endforeach
+      </tbody>
     </table>
 
     <a href="{{url('/criteria/program/manually/' . $program->pid)}}" style="float:right;"><button class="btn">Manuelle Rangliste</button></a>

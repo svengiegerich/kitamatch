@@ -170,7 +170,7 @@ class CriteriumController extends Controller
     return $criterium;
   }
 
-  public function manualRanking($pid) {
+  public function addManualRanking($pid) {
     $Preference = new Preference();
     $availableApplicants = $Preference->getAvailableApplicants($pid);
 
@@ -186,5 +186,22 @@ class CriteriumController extends Controller
       $programPref->save();
       $i = $i + 1;
     }
+
+    return redirect()->action('PreferenceController@showByProgram', $pid);
+  }
+
+  public function reorderManualRanking(Request $request, $pid) {
+    $applicantIds = $request->all();
+    //https://laracasts.com/discuss/channels/laravel/sortable-list-with-change-in-database
+    parse_str($request->order, $applicants);
+    foreach ($applicants['item'] as $index => $preferenceId) {
+      $preference = Preference::find($preferenceId);
+      //waitlist prefs start with rank >= 2 and not 0
+      $preference->rank = $index + 2;
+      $preference->save();
+    }
+    return response()->json([
+      'success' => $applicants['item']
+    ]);
   }
 }
