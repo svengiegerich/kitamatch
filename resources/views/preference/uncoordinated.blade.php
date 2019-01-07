@@ -275,7 +275,7 @@
                     $.ajax({
                       data: data,
                       method: 'POST',
-                      url: '{{url('/criteria/reorder/' . $program->pid)}}',
+                      url: '{{url('/criteria/program/reorder/' . $program->pid)}}',
                       success: function(data) {
                         console.log(data);
                       }
