@@ -33,8 +33,8 @@
 
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
-    <h4>Verbindliche Angebote <small class="text-muted" style="float: right;"><span class="badge badge-info">Gehaltenes Angebot</span>
-<span class="badge badge-success">Endgültige Zusage</span></small></h4>
+    <h4>Verbindliche Angebote <small class="text-muted" style="float: right;"><span class="badge badge-info">Gehalten</span>
+<span class="badge badge-success">Endgültig</span></small></h4>
 
     <table class="table" id="offers">
       <thead>
@@ -197,8 +197,8 @@
 
     <h4>Bewerberliste
       <small class="text-muted" style="float: right;">
-        <span class="badge badge-light">Verfügbarer Bewerber</span>
-        <span class="badge badge-danger">Vergebener Bewerber</span>
+        <span class="badge badge-light">Verfügbar</span>
+        <span class="badge badge-danger">Vergeben</span>
       </small>
     </h4>
 
