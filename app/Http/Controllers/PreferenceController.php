@@ -282,7 +282,6 @@ class PreferenceController extends Controller
         }
 
         $availableApplicants = $availableApplicants->sortBy('manualRank');
-        print_r($availableApplicants);
       }
 
       //mark every active or closed offer
