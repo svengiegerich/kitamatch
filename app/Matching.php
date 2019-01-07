@@ -58,7 +58,7 @@ class Matching extends Model
     return $matches;
   }
 
-  public functino getRound() {
+  public function getRound() {
     return DB::table('matches')->select(DB::raw('count(DISTINCT  created_at) as round'))->first()->round; //open vs. closed rounds
   }
 
