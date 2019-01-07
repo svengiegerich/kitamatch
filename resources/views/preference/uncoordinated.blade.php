@@ -255,7 +255,6 @@
           @endif
           @endif
           @endforeach
-        @endif
 
         <!-- available applicants: manual ranking -->
         @if(count($manualRanking) > 0) <!-- check if manual ranking exists -->
