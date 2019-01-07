@@ -277,7 +277,7 @@ class PreferenceController extends Controller
       if (count($manualRanking) > 0) {
         //sort $availableApplicants by preference rank (status = -3)
         foreach($manualRanking as $rank_pref) {
-          $applicant = $availableApplicants::find($rank_pref->id_to);
+          $applicant = $availableApplicants:find($rank_pref->id_to);
           $applicant->manualRank = $rank_pref->rank;
         }
 
