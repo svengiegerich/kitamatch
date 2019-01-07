@@ -225,7 +225,7 @@
               @if(count($manualRanking) == 0)
                 <tr>
               @elseif(count($manualRanking) > 0)
-                <tr id="item-{{$preference->prid}}">
+                <tr id="item-<?php echo $manualRanking->where('id_to', '=', $applicant->aid)->first()->prid; ?>">
               @endif
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>
