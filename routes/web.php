@@ -93,7 +93,7 @@ Route::post('/criteria', 'CriteriumController@editAjax');
 //for uncoordinated progams with no provider, create fake provider
 Route::get('/criteria/program/{programId}', 'CriteriumController@showByProgram');
 Route::get('/criteria/program/manual/{p_id}', 'CriteriumController@addManualRanking');
-Route::post('/criteria/program/manual-reorder/{p_id}', 'CriteriumController@reorderManualRanking');
+Route::post('/criteria/program/reorder/{p_id}', 'CriteriumController@reorderManualRanking');
 
 //Admin
 Route::get('/admin/', 'AdminController@index');

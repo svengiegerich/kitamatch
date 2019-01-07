@@ -215,15 +215,18 @@
                 <th>&nbsp;</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="sortable">
           <!-- available applicants: automatic ranking -->
-          @if(count($manualRanking) == 0)
             @foreach($availableApplicants as $applicant)
             @if (
               !(array_key_exists($applicant->aid, $offers))
             )
             @if($applicant->status != 26)
-              <tr>
+              @if(count($manualRanking) == 0)
+                <tr>
+              @elseif(count($manualRanking) > 0)
+                <tr id="item-{{$preference->prid}}">
+              @endif
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
@@ -256,7 +259,33 @@
 
         <!-- available applicants: manual ranking -->
         @if(count($manualRanking) > 0) <!-- check if manual ranking exists -->
-          Hey
+          <script>
+              $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $("input[name=_token]").val()
+                  }
+              });
+
+              $(function() {
+                $('#sortable').sortable({
+                  axis: 'y',
+                  update: function (event, ui) {
+                    var order = $(this).sortable('serialize');
+                    var _token = $("input[name=_token]").val();
+                    var data = {"order": order, "_token": _token};
+                    $.ajax({
+                      data: data,
+                      method: 'POST',
+                      url: '{{url('/criteria/reorder/' . $program->pid)}}',
+                      success: function(data) {
+                        console.log(data);
+                      }
+                    });
+                  }
+                })
+                $( "#sortable" ).disableSelection();
+              });
+          </script>
         @endif
 
         <!--- infeasible applicants -->
