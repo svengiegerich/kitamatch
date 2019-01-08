@@ -46,25 +46,25 @@
             {{ csrf_field() }}
 
             <div class="form-group row">
-                <label for="firstName" class="col-sm-2 col-form-label">First name</label>
+                <label for="firstName" class="col-sm-2 col-form-label">Vorname</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="{{$applicant->first_name}}" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="lastName"  class="col-sm-2 col-form-label">Last name</label>
+                <label for="lastName"  class="col-sm-2 col-form-label">Nachname</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{$applicant->last_name}}" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="birthday"  class="col-sm-2 col-form-label">Birthday</label>
+                <label for="birthday"  class="col-sm-2 col-form-label">Geburtstag</label>
                 <div class="col-sm-10">
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="gender"  class="col-sm-2 col-form-label">Gender</label>
+                <label for="gender"  class="col-sm-2 col-form-label">Geschlecht</label>
                 <div class="col-sm-10">
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',

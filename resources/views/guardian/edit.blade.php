@@ -18,13 +18,13 @@
 
         @if (strlen($guardian->last_name)<1)
         <div class="alert alert-warning" role="alert">
-          <strong>Fullfill your profil.</strong> Please add your profil information.
+          <strong>Bitte vervollständigen Sie ihr Profil.</strong>
         </div>
         @endif
 
         @if (count($applicants) == 0)
         <div class="alert alert-warning" role="alert">
-          <strong>No applicant.</strong> You also need to add an applicant.
+          <strong>Noch kein Bewerber eingetragen</strong> Bitte fügen Sie Ihr betreutes Kind hinzu.
         </div>
         @endif
       </div>
@@ -127,7 +127,7 @@
         @endforeach
 
         @if (count($applicants) > 0)
-          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn btn-lg btn-block">Geschwisterkind als Bewerber hinzufügen</button></a>
+          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn btn-lg btn-block">Weiteren Bewerber hinzufügen</button></a>
         @else
           <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
         @endif
