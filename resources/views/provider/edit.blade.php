@@ -24,30 +24,30 @@
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="name" name="name" value="{{$provider->name}}" required>
+                  <input type="text" class="form-control" id="name" name="name" value="{{$provider->name}}" required disabled>
                 </div>
             </div>
             <!-- Email but with user-table! -->
             <div class="form-group row">
                 <label for="phone" class="col-sm-2 col-form-label">Telefonnummer</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$provider->phone}}">
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$provider->phone}}" disabled>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Adresse</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="address" name="address" placeholder="Haupstr. 77" value="{{$provider->address}}">
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Haupstr. 77" value="{{$provider->address}}" disabled>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="plz" class="col-sm-2 col-form-label">PLZ</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$provider->plz}}">
+                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$provider->plz}}" disabled>
                 </div>
                 <label for="city" class="col-sm-2 col-form-label">Gemeinde</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="city" name="city" placeholder="Gemeinde" value="{{$provider->city}}">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Gemeinde" value="{{$provider->city}}" disabled>
                 </div>
             </div>
 
