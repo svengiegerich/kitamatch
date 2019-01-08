@@ -68,7 +68,7 @@
                 <div class="col-sm-10">
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
-                                                      'Other' => 'Other'),
+                                                      'Divers' => 'Divers'),
                                                 $applicant->gender,
                         array('id' => 'gender', 'class' => 'form-control') )  !!}
                 </div>

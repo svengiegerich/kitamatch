@@ -45,7 +45,7 @@
                 <div class="col-sm-8">
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
-                                                      'Other' => 'Other'),
+                                                      'Divers' => 'Divers'),
                                               null,
                         array('id' => 'gender', 'class' => 'form-control') )  !!}
                 </div>
