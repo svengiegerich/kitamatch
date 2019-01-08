@@ -98,7 +98,7 @@
 
 </div></div>
 
-<!--<div class="row justify-content-center">
+<div class="row justify-content-center">
   <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
     <h4>Warteliste</h4>
@@ -191,7 +191,7 @@
       </tbody>
     </table>
 
-</div></div>-->
+</div></div>
 
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
