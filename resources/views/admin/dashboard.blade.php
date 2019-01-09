@@ -10,6 +10,12 @@
                 "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
             },
     } );
+    $('#no-match').DataTable( {
+      "pageLength": 25,
+      "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
+            },
+    } );
   } );
 </script>
 
@@ -103,13 +109,14 @@
     </div>
 </div>
 
+@if($data['countRounds'] > 1)
 <div class="row justify-content-center pt-5">
   <div class="col-md-8">
     <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified'] - count($matches)}}</span> Nicht zugeordnete Bewerber</h4>
   </div>
 
   <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
-        <table class="table" id="matches">
+        <table class="table" id="no-match">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -118,17 +125,18 @@
                 </tr>
             </thead>
             <tbody>
-
+              @foreach($nonMatches $nonMatch)
                     <tr>
-                      <td></td>
+                      <td>{{$nonMatch->aid}}</td>
                       <td></td>
                       <td></td>
                     </tr>
-
+              @endforeach
             </tbody>
         </table>
     </div>
 </div>
+@endif
 
 <div class="row justify-content-center">
     <div class="col-md-6">

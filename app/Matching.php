@@ -62,6 +62,10 @@ class Matching extends Model
     return (DB::table('matches')->select(DB::raw("count(DISTINCT TIME_FORMAT(created_at, '%Y-%m-%d %H:%i')) as round"))->first()->round + 1); //open vs. closed rounds
   }
 
+  public function getActiveMatches() {
+    return (DB::table('matches')->whereIn('status', [31, 32])->get());
+  }
+
   public $primaryKey = 'mid';
   protected $table = 'matches';
 }

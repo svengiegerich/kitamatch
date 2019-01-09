@@ -89,10 +89,20 @@ class AdminController extends Controller
     $applicants = Applicant::all();
     $programs = Program::all();
     $providers = Provider::all();
+    $matching = Matching->getActiveMatches();
     $data['applicants'] = $applicants;
     $data['applicantsCount'] = count($applicants);
     $data['applicantsVerified'] = count(Applicant::whereIn('status', [22, 25, 26])->get());
     $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
+
+    $nonMatches = $matching
+    foreach($applicants as $applicant) {
+      if (!$matchings->where('aid', '=', $applicant->aid)->exists()) {
+        $nonMatches->where('aid', '=', $applicant->aid)->forget();
+      }
+    }
+    $data['non-matches'] = $nonMatches;
+
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
