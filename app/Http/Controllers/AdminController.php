@@ -89,6 +89,7 @@ class AdminController extends Controller
     $applicants = Applicant::all();
     $programs = Program::all();
     $providers = Provider::all();
+    $data['applicants'] = $applicants;
     $data['applicantsCount'] = count($applicants);
     $data['applicantsVerified'] = count(Applicant::whereIn('status', [22, 25, 26])->get());
     $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
@@ -104,7 +105,7 @@ class AdminController extends Controller
     //definition: 1) delete all matchings, 2) reset all applicant to status == 22, 3) delete all program preferences, 4) do not edit applicant preferences
 
     //TO-DO
-    // manual order of applicants is also lost 
+    // manual order of applicants is also lost
 
     //1)
     DB::table('matches')->truncate();

@@ -39,8 +39,7 @@
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">{{$data['applicantsVerified']}}
-              / {{$data['applicantsCount']}}
-              <!--<small class="text-muted">/ {{$data['applicantsCount']}}</small>-->
+              / {{count($data['applicants'])}}
             </h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Bestätigte Bewerber</li>
@@ -105,9 +104,11 @@
 </div>
 
 <div class="row justify-content-center pt-5">
+  <div class="col-md-8">
+    <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified'] - count($matches)}}</span> Nicht zugeordnete Bewerber</h4>
+  </div>
 
   <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
-      <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified'] - count($matches)}}</span> nicht zugeordnete Bewerber</h4>
         <table class="table" id="matches">
             <thead>
                 <tr>
