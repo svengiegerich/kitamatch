@@ -105,6 +105,8 @@ class AdminController extends Controller
     }
     $data['non-matches'] = $nonMatches;
 
+    print_r($data['non-matches']);
+
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
