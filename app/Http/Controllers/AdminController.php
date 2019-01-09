@@ -96,11 +96,11 @@ class AdminController extends Controller
     $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
 
     $nonMatches = $matching;
-
     foreach ($applicants as $applicant) {
       $filter = DB::table('matches')->where('aid', '=', $applicant->aid)->first();
       if (count($filter) > 0) {
         $nonMatches->forget($filter->mid);
+        print($filter->mid);
       }
     }
     $data['non-matches'] = $nonMatches;
