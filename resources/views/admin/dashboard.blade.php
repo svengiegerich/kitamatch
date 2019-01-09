@@ -125,12 +125,13 @@
                 </tr>
             </thead>
             <tbody>
-
+              @foreach($data['non-matches'] as $nonMatch)
                     <tr>
-                      <td></td>
+                      <td>$nonMatch->aid</td>
                       <td></td>
                       <td></td>
                     </tr>
+              @endforeach
             </tbody>
         </table>
     </div>

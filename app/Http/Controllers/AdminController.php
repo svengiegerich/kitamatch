@@ -101,11 +101,8 @@ class AdminController extends Controller
       if (count($filter) > 0) {
         $nonMatches->forget($filter->aid);
       }
-
     }
     $data['non-matches'] = $nonMatches;
-
-    print_r($data['non-matches']);
 
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
