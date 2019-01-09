@@ -372,23 +372,4 @@ print("<br><br>");
     return ($json);
   }
 
-  /**
-  * At the end of the matching procedure send mails to all existing matches
-  *
-  * @return void
-  */
-  public function sendMailsAllMatches() {
-    $matches = Matching::whereIn('status', [31, 32])->get();
-    //to guardian
-    foreach($matches as $match) {
-      //to guardian aka applicant
-      $applicant = Guardian::where('aid', '=', $match->aid)->first();
-      $guardian = Applicant::where('gid', '=', $applicant->aid)->first();
-      $user = User::where('id', '=', $guardian->uid);
-      Mail::to($user->email)->send(new ApplicantMatchMail($guardian));
-    }
-    //to programs
-    //...
-  }
-
 }
