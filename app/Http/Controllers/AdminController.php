@@ -100,6 +100,8 @@ class AdminController extends Controller
       $filter = DB::table('matches')->where('aid', '=', $applicant->aid)->first();
       if (count($filter) > 0) {
         $nonMatches->forget($filter->aid);
+        $nonMatches->find($filter->mid)->first_name = $applicant->first_name;
+        $nonMatches->find($filter->mid)->last_name = $applicant->last_name;
       }
     }
     $data['non-matches'] = $nonMatches;
