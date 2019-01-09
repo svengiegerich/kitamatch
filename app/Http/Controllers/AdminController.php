@@ -99,9 +99,9 @@ class AdminController extends Controller
     foreach ($applicants as $applicant) {
       $filter = DB::table('matches')->where('aid', '=', $applicant->aid)->first();
       if (count($filter) > 0) {
-        $nonMatches->forget($filter->mid);
-        print($filter->mid);
+        $nonMatches->forget($filter->aid);
       }
+
     }
     $data['non-matches'] = $nonMatches;
 
