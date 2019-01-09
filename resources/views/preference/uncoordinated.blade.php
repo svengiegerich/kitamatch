@@ -2,6 +2,8 @@
 
 @section('content')
 
+<?php print_r($availableApplicants); ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <div class="panel-body">
@@ -194,8 +196,6 @@
 
 </div></div>
 -->
-
-<?php print_r($availableApplicants); ?>
 
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
