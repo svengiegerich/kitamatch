@@ -120,17 +120,16 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Alter</th>
+                    <th>Geburtsdatum</th>
                     <th>Geschlecht</th>
                 </tr>
             </thead>
             <tbody>
               @foreach($data['non-matches'] as $nonMatch)
-                <?php print_r($nonMatch); ?>
                     <tr>
-                      <td>{{$nonMatch['first_name']}}</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{$nonMatch['first_name']}} {{$nonMatch['last_name']}}</td>
+                      <td>{{$nonMatch['birthday']}}</td>
+                      <td>{{$nonMatch['gender']}}</td>
                     </tr>
               @endforeach
             </tbody>
