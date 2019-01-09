@@ -95,8 +95,8 @@ class AdminController extends Controller
     $data['applicantsVerified'] = count(Applicant::whereIn('status', [22, 25, 26])->get());
     $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
 
-    $nonMatches = $matching
-    foreach($applicants as $applicant) {
+    $nonMatches = $matching;
+    foreach ($applicants as $applicant) {
       if (!$matchings->where('aid', '=', $applicant->aid)->exists()) {
         $nonMatches->where('aid', '=', $applicant->aid)->forget();
       }
