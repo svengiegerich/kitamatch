@@ -103,6 +103,8 @@ class AdminController extends Controller
   public function resetDB() {
     //definition: 1) delete all matchings, 2) reset all applicant to status == 22, 3) turn all prefs with status = -1 in status = 1, 4) delete all program preferences, 5) do not edit applicant preferences
 
+    //TO-DO
+
     //1)
     DB::table('matches')->truncate();
 
