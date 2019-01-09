@@ -84,6 +84,7 @@ class AdminController extends Controller
     $Applicant = new Applicant;
     $Program = new Program;
     $Provider = new Provider;
+    $Matchings = new Matching;
     $data = array();
     $applicants = Applicant::all();
     $programs = Program::all();
@@ -94,17 +95,18 @@ class AdminController extends Controller
     $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
 
     foreach ($applicants as $applicant) {
-      $filters = Matching::where('aid', '=', $applicant->aid)->first();
+      $filters = DB::table('matches')->where('aid', '=', $applicant->aid)->first();
       //if (count($filters) > 0) {
         //$nonMatches->forget($filters->first()->mid);
       //}
     }
+    $data['non-matches'] = $nonMatches;
 
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
     $data['totalCapacity'] = DB::select($capacitySql)['0']->totalCapacity;
-    $data['countRounds'] = $Matching->getRound();
+    $data['countRounds'] = $Matchings->getRound();
     return $data;
   }
 
