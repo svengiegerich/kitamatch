@@ -105,6 +105,41 @@
 </div>
 
 <div class="row justify-content-center">
+  <div class="col-md-8">
+    <h4><span class="badge badge-light badge-admin">{{{{$data['applicantsVerified']}} - count($matches)}}</span> nicht koordinierte Bewerber</h4>
+  </div>
+
+  <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
+        <table class="table" id="matches">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Alter</th>
+                    <th>Geschlecht</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+<br>
+<a href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Koordinierungsverfahren bee</button></a>
+<small style="float: right;">(Manuelle Kitarangliste geht dabei verloren)</small>
+</div>
+</div>
+
+<div class="row justify-content-center">
     <div class="col-md-6">
 <br>
 <a href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
