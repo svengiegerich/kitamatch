@@ -97,8 +97,9 @@ class AdminController extends Controller
 
     $nonMatches = $matching;
     foreach ($applicants as $applicant) {
-      if (count($nonMatches->where('aid', '=', $applicant->aid)->first()) > 0) {
-        $nonMatches->where('aid', '=', $applicant->aid)->forget();
+      $match = $nonMatches->where('aid', '=', $applicant->aid)->first());
+      if (count($match) > 0) {
+        $nonMatches->->forget($match->mid);
       }
     }
     $data['non-matches'] = $nonMatches;
