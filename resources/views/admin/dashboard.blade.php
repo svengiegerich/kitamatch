@@ -104,12 +104,10 @@
     </div>
 </div>
 
-<div class="row justify-content-center">
-  <div class="col-md-8">
-    <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified']}} - count($matches)}}</span> nicht koordinierte Bewerber</h4>
-  </div>
+<div class="row justify-content-center pt-5">
 
   <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
+      <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified'] - count($matches)}}</span> nicht koordinierte Bewerber</h4>
         <table class="table" id="matches">
             <thead>
                 <tr>
@@ -129,14 +127,6 @@
             </tbody>
         </table>
     </div>
-</div>
-
-<div class="row justify-content-center">
-    <div class="col-md-6">
-<br>
-<a href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Koordinierungsverfahren bee</button></a>
-<small style="float: right;">(Manuelle Kitarangliste geht dabei verloren)</small>
-</div>
 </div>
 
 <div class="row justify-content-center">
