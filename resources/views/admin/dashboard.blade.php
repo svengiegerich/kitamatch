@@ -128,7 +128,7 @@
               @foreach($data['non-matches'] as $nonMatch)
                 <?php print_r($nonMatch); ?>
                     <tr>
-                      <td></td>
+                      <td>{{$nonMatch['first_name']}}</td>
                       <td></td>
                       <td></td>
                     </tr>
