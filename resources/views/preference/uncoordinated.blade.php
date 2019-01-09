@@ -2,8 +2,6 @@
 
 @section('content')
 
-<?php print_r($availableApplicants); exit(); ?>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <div class="panel-body">
