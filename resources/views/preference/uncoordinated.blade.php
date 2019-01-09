@@ -98,7 +98,7 @@
 
 </div></div>
 
-
+<!--
 <div class="row justify-content-center">
   <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
@@ -193,7 +193,7 @@
     </table>
 
 </div></div>
-
+-->
 
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
