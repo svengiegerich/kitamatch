@@ -125,8 +125,14 @@
                 </tr>
             </thead>
             <tbody>
-              <?php print_r($data['non-matches']); ?>
-              
+              @foreach($data['non-matches'] as $nonMatch)
+                <?php print_r($nonMatch); ?>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+              @endforeach
             </tbody>
         </table>
     </div>
