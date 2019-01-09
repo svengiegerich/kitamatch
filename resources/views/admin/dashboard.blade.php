@@ -127,7 +127,7 @@
             <tbody>
               @foreach($data['non-matches'] as $nonMatch)
                     <tr>
-                      <td>$nonMatch->aid</td>
+                      <td>{{$nonMatch->first_name}} {{$nonMatch->last_name}}</td>
                       <td></td>
                       <td></td>
                     </tr>
