@@ -106,7 +106,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4><span class="badge badge-light badge-admin">{{{{$data['applicantsVerified']}} - count($matches)}}</span> nicht koordinierte Bewerber</h4>
+    <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified']}} - count($matches)}}</span> nicht koordinierte Bewerber</h4>
   </div>
 
   <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
