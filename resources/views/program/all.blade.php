@@ -34,7 +34,6 @@
             <th>Öffentlich / Frei</th>
             <th>Koordinierung</th>
             <th>Status</th>
-            <th>&nbsp;</th>
         </tr>
       </thead>
       <tbody>
@@ -48,23 +47,11 @@
                 <td>{{$program->p_kind_description}}</td>
                 <td>{{$program->coordination_description}}</td>
                 <td>{{$program->status_description}}</td>
-                <td>
-                    <form action="{{url('/program/' . $program->pid)}}" method="POST">
-                        {{ method_field('DELETE') }}
-                        <button>Löschen</button>
-                    </form>
-                </td>
             </tr>
         @endforeach
       </tbody>
     </table>
 </div>
-</div>
-
-<div class="row justify-content-center">
-    <div class="col-md-6">
-      <br>
-      <a target="_blank" href="{{url('/matching/get')}}"><button class="btn btn-primary btn-lg btn-block">Neue Kita registrieren</button></a>
 </div>
 
 @endsection

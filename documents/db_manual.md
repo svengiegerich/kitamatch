@@ -42,8 +42,8 @@ Preference class maintains preferences in two-directions, from applicant to prog
 * 2: coordinated program to applicant
 * 3: uncoordinated program to applicant
 #### Status Codes
-* -2: manually deleted (by coordinated)
-* -1: historic
+* -2: manually deleted
+* -1: historic (preference not reciprocated)
 * 0: not valid
 * 1: valid
 

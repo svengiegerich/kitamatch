@@ -108,6 +108,7 @@
     <div class="col-md-6">
 <br>
 <a href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
+<small style="float: right;">(Manuelle Kitarangliste geht dabei verloren)</small>
 </div>
 </div>
 

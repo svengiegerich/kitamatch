@@ -122,15 +122,11 @@
         <br>
 
         @foreach ($applicants as $applicant)
-            <a href="{{url('/applicant/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">{{$applicant->last_name}} {{$applicant->first_name}}</button></a>
+            <a href="{{url('/applicant/' . $applicant->aid)}}"><button class="btn btn-primary btn-lg btn-block">{{$applicant->first_name}} {{$applicant->last_name}}</button></a>
             <br>
         @endforeach
 
-        @if (count($applicants) > 0)
-          <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn btn-lg btn-block">Weiteren Bewerber hinzufügen</button></a>
-        @else
           <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
-        @endif
         <br>
     </div>
 </div>

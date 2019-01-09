@@ -101,9 +101,10 @@ class AdminController extends Controller
   }
 
   public function resetDB() {
-    //definition: 1) delete all matchings, 2) reset all applicant to status == 22, 3) turn all prefs with status = -1 in status = 1, 4) delete all program preferences, 5) do not edit applicant preferences
+    //definition: 1) delete all matchings, 2) reset all applicant to status == 22, 3) delete all program preferences, 4) do not edit applicant preferences
 
     //TO-DO
+    // manual order of applicants is also lost 
 
     //1)
     DB::table('matches')->truncate();
@@ -111,11 +112,8 @@ class AdminController extends Controller
     //2)
     DB::table('applicants')->update(['status' => 22]);
 
-    //3)
-    DB::table('preferences')->whereIn('pr_kind', [3])->whereIn('status', [-2, -1])->update(['status' => 1]);;
-
     //4)
-    DB::table('preferences')->whereIn('pr_kind', [3])->whereIn('status', [-2, -1, 0, 1])->delete();
+    DB::table('preferences')->whereIn('pr_kind', [3])->whereIn('status', [-3, -2, -1, 0, 1])->delete();
 
     return redirect()->action('AdminController@index');
   }
