@@ -192,8 +192,10 @@
       </tbody>
     </table>
 
-</div></div> 
+</div></div>
 -->
+
+<?php print_r(availableApplicants); ?>
 
 <div class="row justify-content-center">
     <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
