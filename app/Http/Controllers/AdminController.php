@@ -101,7 +101,7 @@ class AdminController extends Controller
       if (count($filter) == 0) {
         $nonMatches[$applicant->aid]['first_name'] = $applicant->first_name;
         $nonMatches[$applicant->aid]['last_name'] = $applicant->last_name;
-        $nonMatches[$applicant->aid]['birhtday'] = $applicant->birthday;
+        $nonMatches[$applicant->aid]['birthday'] = $applicant->birthday;
         $nonMatches[$applicant->aid]['gender'] = $applicant->gender;
       }
     }
