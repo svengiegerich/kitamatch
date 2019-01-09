@@ -99,7 +99,6 @@ class AdminController extends Controller
         //$nonMatches->forget($filters->first()->mid);
       //}
     }
-    $data['non-matches'] = $nonMatches;
 
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
