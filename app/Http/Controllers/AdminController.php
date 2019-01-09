@@ -96,15 +96,16 @@ class AdminController extends Controller
     $data['applicantsFinal'] = count(Applicant::where('status', '=', 26)->get());
 
     $nonMatches = $matching;
+    print_r($nonMatches);
+    exit();
+
     foreach ($applicants as $applicant) {
-      print($applicant->aid);
       //$filters = DB::table('matches')->where('aid', '=', $applicant->aid)->get();
-      if (count($filters) > 0) {
+      //if (count($filters) > 0) {
         //$nonMatches->forget($filters->first()->mid);
-      }
+      //}
     }
     $data['non-matches'] = $nonMatches;
-    exit();
 
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
