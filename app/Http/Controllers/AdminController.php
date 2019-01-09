@@ -90,6 +90,8 @@ class AdminController extends Controller
     $programs = Program::all();
     $providers = Provider::all();
     $matching = $Matching->getActiveMatches();
+    print_r($matching);
+    exit();
     $data['applicants'] = $applicants;
     $data['applicantsCount'] = count($applicants);
     $data['applicantsVerified'] = count(Applicant::whereIn('status', [22, 25, 26])->get());
@@ -97,7 +99,7 @@ class AdminController extends Controller
 
     $nonMatches = $matching;
     foreach ($applicants as $applicant) {
-      if (count($nonMatches->where('aid', '=', $applicant->aid)->get()) > 0) {
+      if (count($nonMatches->where('aid', '=', $applicant->aid)->first()) > 0) {
         $nonMatches->where('aid', '=', $applicant->aid)->forget();
       }
     }
