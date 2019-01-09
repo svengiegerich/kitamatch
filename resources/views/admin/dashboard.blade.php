@@ -125,13 +125,12 @@
                 </tr>
             </thead>
             <tbody>
-              @foreach($nonMatches $nonMatch)
+
                     <tr>
-                      <td>{{$nonMatch->aid}}</td>
+                      <td></td>
                       <td></td>
                       <td></td>
                     </tr>
-              @endforeach
             </tbody>
         </table>
     </div>
