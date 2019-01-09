@@ -128,7 +128,7 @@
               @foreach($data['non-matches'] as $nonMatch)
                     <tr>
                       <td>{{$nonMatch['first_name']}} {{$nonMatch['last_name']}}</td>
-                      <td>{{$nonMatch['birthday']}}</td>
+                      <td>{{(new Carbon\Carbon($nonMatch['birthday']))->format('d.m.Y')}}</td>
                       <td>{{$nonMatch['gender']}}</td>
                     </tr>
               @endforeach
