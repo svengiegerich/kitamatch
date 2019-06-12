@@ -35,7 +35,7 @@
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->status}}</td>
-                <td><button type="button" class="btn btn-light"><a href="{{url('/applicant/' . $applicant->aid)}}">Ansehen</a></button</td>
+                <td><a href="{{url('/applicant/' . $applicant->aid)}}"><button type="button" class="btn btn-light">Ansehen</button></a></td>
                 <td>
                     <form action="{{url('/applicant/' . $applicant->aid)}}" method="POST">
                         {{ csrf_field() }}
@@ -49,7 +49,7 @@
     </table>
 
     <hr class="mb-4">
-    <a href="{{url('/applicant/add')}}"><button class="btn btn-primary btn-lg btn-block">Add applicant</button></a>
+    <a href="{{url('/applicant/add')}}"><button class="btn btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
 </div>
 
 @endsection
