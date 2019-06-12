@@ -81,7 +81,7 @@
 <div class="form-group row">
   <label for="{{$criterium_name->criterium_name}}" class="col-sm-6 col-form-label">{{$criterium_name->criterium_question}}</label>
   <div class="col-sm-6">
-    {!! Form::select('{{$criterium_name->criterium_name}}', array(
+    {!! Form::select('$criterium_name->criterium_name', array(
       $criterium_list,
       array('id' => '$criterium_name->criterium_name',
             'class' => 'form-control')
