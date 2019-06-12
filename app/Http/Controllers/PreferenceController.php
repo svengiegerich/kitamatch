@@ -107,7 +107,7 @@ class PreferenceController extends Controller
     $Provider = new Provider;
     $applicant = $Applicant::find($aid);
     $preferences = $this->getPreferencesByApplicant($aid);
-    $programs = $iProgram->getAll()->where('age_cohort', '=', $applicant->age_cohort);
+    $programs = $Program->getAll()->where('age_cohort', '=', $applicant->age_cohort);
     $providers = $Provider::all();
     foreach ($preferences as $preference) {
       $program = $programs->find($preference->id_to);
