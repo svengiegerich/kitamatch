@@ -150,7 +150,7 @@ class ApplicantController extends Controller
     if ($request->lastName) { $applicant->last_name = $request->lastName; }
     if ($request->gender) { $applicant->gender = $request->gender; }
     if ($request->birthday) { $applicant->birthday = strtotime($request->birthday); }
-    if ($request->age_cohort) { $applicant->gender = $request->age_cohort; }
+    if ($request->age_cohort) { $applicant->age_cohort = $request->age_cohort; }
     if ($request->status) { $applicant->status = $request->status; }
 
     // criteria
