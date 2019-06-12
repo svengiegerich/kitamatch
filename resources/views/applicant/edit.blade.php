@@ -72,7 +72,7 @@
 
             <hr class="mb-4">
 
-@foreach ($critera_names as $criterium_name)
+@foreach ($criteria_names as $criterium_name)
 <?php
   $criterium = $criteria_values->where('criterium_name', '=', $criterium_name);
   print_r($criterium_name);
