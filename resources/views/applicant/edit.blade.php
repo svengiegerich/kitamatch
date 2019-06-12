@@ -83,7 +83,7 @@
     <select name="{{$criterium_name->criterium_name}}" id="{{$criterium_name->criterium_name}}" class="form-control">
       <option value="0">Bitte auswählen...</option>
     @foreach ($criterium_values as $value)
-      @if ($applicant->toArray())
+      @if (in_array($value->criterium_value,$applicant->toArray()))
         <option value="{{$value->criterium_value}}" selected>{{$value->criterium_value_description}}</option>
       @else
         <option value="{{$value->criterium_value}}">{{$value->criterium_value_description}}</option>
