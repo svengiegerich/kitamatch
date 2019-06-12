@@ -2,19 +2,6 @@
 
 @section('content')
 
-<div class="row justify-content-center pb-3">
-    <div class="col-md-8">
-<ul class="nav nav-pills gap-nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Wunscheinrichtungen</a>
-  </li>
-</ul>
-</div>
-</div>
-
 <div class="row justify-content-center">
     <div class="col-md-8">
       @if ($errors->any())
@@ -33,7 +20,7 @@
       </div>
       @endif
 
-        <h2>Bewerberinformationen <small class="text-muted">{{$applicant->first_name}} {{$applicant->last_name}}, Status: {{$applicant->status}}</small></h2>
+        <h2>Bewerberinformationen <small class="text-muted">(Status: ){{$applicant->status}})</small></h2>
       </div>
 </div>
 <div class="row justify-content-center">
