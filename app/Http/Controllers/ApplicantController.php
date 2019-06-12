@@ -89,8 +89,8 @@ class ApplicantController extends Controller
     //$applicant->guardianName = $guardian->last_name . " " . $guardian->first_name;
 
     $preferences_view = app('App\Http\Controllers\PreferenceController')->showByApplicant($aid);
-    $preferences = $preferences_view[1];
-    $programs = $preferences_view[2];
+    $preferences = $preferences_view['preferences'];
+    $programs = $preferences_view['programs'];
 
     $criteria_values = app('App\Http\Controllers\CriteriumController')->getDefaultCriteria();
     $criteria_names = $criteria_values->unique('criterium_name');
