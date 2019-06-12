@@ -94,7 +94,7 @@
                                                             '821' => 'Beide Erziehungsberechtigten sind beschäftigt',
                                                             '820' => 'Alleinerziehend und beschäftigt',
                                                             '823' => 'Alleinerziehend ohne Beschäftigung'),
-                                                            0
+                                                            0,
                     array('id' => 'parentalStatus', 'class' => 'form-control') )  !!}
                 </div>
             </div>
@@ -107,7 +107,7 @@
                                                                         '832' => '8-15 Stunden/Woche',
                                                                         '831' => '16-27 Stunden/Woche',
                                                                         '830' => 'ab 28 Stunden/Woche'),
-                                                                        0
+                                                                        0,
                     array('id' => 'volumeOfEmployment', 'class' => 'form-control') )  !!}
 
                 </div>
