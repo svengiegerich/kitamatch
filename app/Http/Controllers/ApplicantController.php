@@ -45,7 +45,7 @@ class ApplicantController extends Controller
     $applicant = new Applicant;
     $applicant->status = 21; //created, but not proofed; no participation
     $applicant->save();
-    return redirect()->action('PreferenceController@showByApplicant', ['aid' => $applicant->aid]);
+    return redirect()->action('ApplicantController@show', ['aid' => $applicant->aid]);
   }
 
   /**

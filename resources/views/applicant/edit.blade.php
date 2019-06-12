@@ -33,7 +33,7 @@
       </div>
       @endif
 
-        <h2>Bewerberinformationen</h2>
+        <h2>Bewerberinformationen <small class="text-muted">{{$applicant->first_name}} {{$applicant->last_name}}, Status: {{$applicant->status}}</small></h2>
       </div>
 </div>
 <div class="row justify-content-center">
@@ -44,35 +44,35 @@
 
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="firstName">Vorname</label>
+                <label for="firstName">Vorname*</label>
                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="{{$applicant->first_name}}" required>
               </div>
               <div class="form-group col-md-6">
-                <label for="lastName">Nachname</label>
+                <label for="lastName">Nachname*</label>
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{$applicant->last_name}}" required>
             </div>
           </div>
             <div class="form-row">
               <div class="form-group col-md-4">
-                <label for="birthday">Geburtstag</label>
-                    <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>">
+                <label for="birthday">Geburtstag*</label>
+                    <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>" required>
               </div>
               <div class="form-group col-md-2">
-                <label for="age_cohort">Altersgruppe</label>
+                <label for="age_cohort">Altersgruppe*</label>
                   {!! Form::select('age_cohort', array('0' => '---',
                                                  '1' => 'U2',
                                                  '2' => '2',
                                                  '3' => 'Ü2'),
                                            $applicant->age_cohort,
-                   array('id' => 'age_cohort', 'class' => 'form-control') )  !!}
+                   array('id' => 'age_cohort', 'class' => 'form-control', 'required') )  !!}
               </div>
               <div class="form-group col-md-6">
-                <label for="gender">Geschlecht</label>
+                <label for="gender">Geschlecht*</label>
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
                                                       'Divers' => 'Divers'),
                                                 $applicant->gender,
-                        array('id' => 'gender', 'class' => 'form-control') )  !!}
+                        array('id' => 'gender', 'class' => 'form-control', 'required') )  !!}
             </div>
           </div>
 
