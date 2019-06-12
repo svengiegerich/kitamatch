@@ -91,7 +91,15 @@ class ApplicantController extends Controller
     $applicant = Applicant::findOrFail($aid);
     $guardian = Guardian::find($applicant->gid);
     $applicant->guardianName = $guardian->last_name . " " . $guardian->first_name;
-    return view('applicant.edit', array('applicant' => $applicant));
+
+    $criteria_values = app('App\Http\Controllers\CriteriumController')->getDefaultCriteria();
+    $criteria_names = $criteria_values->unique('criterium_name');
+
+    return view('applicant.edit', array(
+      'applicant' => $applicant,
+      'criteria_values' => $criteria_values,
+      'criteria_names' => $criteria_names
+    ));
   }
 
   /**

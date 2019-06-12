@@ -72,6 +72,28 @@
 
             <hr class="mb-4">
 
+@foreach ($critera_names as $criterium_name)
+<?php
+  $criterium = $criteria_values->where('criterium_name', '=', $criterium_name);
+  print_r($criterium_name);
+  print_r($criterium);
+?>
+<div class="form-group row">
+  <label for="siblings" class="col-sm-6 col-form-label">Geschwisterkind?</label>
+  <div class="col-sm-6">
+    {!! Form::select('siblings', array(
+    '0' => 'Bitte auswählen...',
+    '840' => 'No',
+                                       '841' => 'Yes'),
+        0,
+        array('id' => 'siblings',
+              'class' => 'form-control')
+    )  !!}
+  </div>
+</div>
+
+@endforeach
+
             <div class="form-group row">
                 <label for="siblings" class="col-sm-6 col-form-label">Geschwisterkind?</label>
                 <div class="col-sm-6">

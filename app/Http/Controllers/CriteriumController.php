@@ -38,6 +38,13 @@ class CriteriumController extends Controller
     $this->middleware('auth');
   }
 
+public function getDefaultCriteria() {
+  $criteria = Criterium::where('p_id', '=', '-1') // default criteria of municipality
+    ->orderBy('q_order') // order for questions
+    ->get();
+  return $criteria;
+}
+
   /**
   * Show criteria of a provider. If there are no previous entries for the provider, it duplicates the standard criteria catalogue (calls store() with store_type = 1, indicated by index = -1).
   *
