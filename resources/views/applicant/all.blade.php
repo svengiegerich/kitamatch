@@ -2,10 +2,24 @@
 
 @section('content')
 
-<div class="col-md-8 order-md-1" >
-    <h4>Anmeldeliste</h4>
+<script>
+  $(document).ready( function () {
+    $('#guardians').DataTable({
+      "pageLength": 50
+    });
+  } );
+</script>
 
-    <table>
+<div class="row justify-content-center">
+<div class="col-md-8">
+<h2>Liste aller Bewerber</h2>
+</div>
+</div>
+
+<div class="row justify-content-center">
+<div class="col-md-12  my-3 p-3 bg-white rounded box-shadow">
+    <table class="table" id="applicants">
+      <thead>
         <tr>
             <th>ID</th>
             <th>Vorname</th>
@@ -14,9 +28,10 @@
             <th>Status</th>
             <th>&nbsp;</th>
         </tr>
+      </thead>
         @foreach($applicants as $applicant)
             <tr>
-                <td><a href="{{url('/preference/applicant/' . $applicant->aid)}}">{{$applicant->aid}}</a></td>
+                <td><a href="{{url('/applicant/' . $applicant->aid)}}">{{$applicant->aid}}</a></td>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->address}}</td>
