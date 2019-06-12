@@ -83,6 +83,9 @@ Guardians maintain the social master data required for the coordination and hols
 * 852: Evangelisch
 * 853: Muslimisch
 * 854: Jüdisch
+#### change_request
+* 860: Ja
+* 861: Nein
 
 ## User
 ### Codes

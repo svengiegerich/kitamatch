@@ -59,7 +59,7 @@
             </div>
 
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Änderungen speichern</button>
+            <button class="btn btn-light btn-lg btn-block" type="submit">Änderungen speichern</button>
         </form>
     </div>
 </div>
@@ -81,7 +81,7 @@
 
         <hr class="mb-4">
 
-        <a href="{{url('/provider/' . $program->proid)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zur Kita</button></a>
+        <a href="{{url('/provider/' . $program->proid)}}"><button class="btn btn-light btn-lg btn-block">Zurück zur Kita</button></a>
         @endif
     </div>
 </div>

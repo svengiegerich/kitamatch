@@ -80,7 +80,7 @@
     <div class="col-md-8">
         <h4>Kriterien</h4>
         <br>
-        <a href="{{url('/criteria/' . $provider->proid)}}"><button class="btn btn-primary btn-lg btn-block" disabled>Zum Kriterienkatalog</button></a>
+        <a href="{{url('/criteria/' . $provider->proid)}}"><button class="btn btn-light btn-lg btn-block" disabled>Zum Kriterienkatalog</button></a>
         <br>
     </div>
 </div>

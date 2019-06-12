@@ -161,6 +161,7 @@ class ApplicantController extends Controller
     if ($request->volume_of_employment	) { $applicant->volume_of_employment	 = $request->volume_of_employment	; }
     if ($request->religion) { $applicant->religion = $request->religion; }
     if ($request->parental_status) { $applicant->parental_status = $request->parental_status; }
+    if ($request->change_request) { $applicant->change_request = $request->change_request; }
 
     // start & begin
     if ($request->care_start) { $applicant->care_start = $request->care_start; }
