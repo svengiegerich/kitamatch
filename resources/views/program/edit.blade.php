@@ -45,7 +45,7 @@
                   {!! Form::select('age_cohort', array('0' => '---',
                                                  '1' => 'U3',
                                                  '2' => 'Ü3'),
-                                           $applicant->age_cohort,
+                                           $program->age_cohort,
                    array('id' => 'age_cohort', 'class' => 'form-control') )  !!}
                 </div>
             </div>
