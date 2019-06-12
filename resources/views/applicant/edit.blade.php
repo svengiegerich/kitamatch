@@ -12,7 +12,7 @@
     <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
+    <a class="nav-link" href="{{url('/preference/applicant/' . $applicant->aid)}}">Wunscheinrichtungen</a>
   </li>
 </ul>
 </div>
