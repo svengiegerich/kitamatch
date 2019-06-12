@@ -36,14 +36,24 @@
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Gruppenname</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}" disabled>
+                  <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}" >
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="age_cohort" class="col-sm-2 col-form-label">Altersgruppe</label>
+                <div class="col-sm-10">
+                  {!! Form::select('age_cohort', array('0' => '---',
+                                                 '1' => 'U3',
+                                                 '2' => 'Ü3'),
+                                           $applicant->age_cohort,
+                   array('id' => 'age_cohort', 'class' => 'form-control') )  !!}
                 </div>
             </div>
             <!-- Email but with user-table! -->
             <div class="form-group row">
                 <label for="capacity" class="col-sm-2 col-form-label">Freie Plätze</label>
                 <div class="col-sm-10">
-                  <input type="number" min="0" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}" disabled>
+                  <input type="number" min="0" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}" >
                 </div>
             </div>
 
@@ -52,23 +62,23 @@
             <div class="form-group row">
                 <label for="phone" class="col-sm-2 col-form-label">Telefonnummer</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$program->phone}}" disabled>
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="+49123456789" value="{{$program->phone}}" >
                 </div>
             </div>
             <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Adresse</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="{{$program->address}}" disabled>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" value="{{$program->address}}" >
                 </div>
             </div>
             <div class="form-group row">
                 <label for="plz" class="col-sm-2 col-form-label">PLZ</label>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$program->plz}}" disabled>
+                  <input type="text" class="form-control" id="plz" name="plz" placeholder="12345" value="{{$program->plz}}" >
                 </div>
                 <label for="city" class="col-sm-2 col-form-label">Gemeinde</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$program->city}}" disabled>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{$program->city}}" >
                 </div>
             </div>
 

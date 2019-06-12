@@ -56,11 +56,11 @@
             </div>
           </div>
             <div class="form-row">
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-4">
                 <label for="birthday">Geburtstag</label>
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>">
               </div>
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-2">
                 <label for="age_cohort">Altersgruppe</label>
                   {!! Form::select('age_cohort', array('0' => '---',
                                                  '1' => 'U3',

@@ -107,6 +107,7 @@ class ProgramController extends Controller
     $program->address = $request->address;
     $program->capacity = $request->capacity;
     $program->p_kind = $request->p_kind;
+    $program->age_cohort = $request->age_cohort;
     $program->coordination = $request->coordination;
     if (!$request->coordination) { $program->coordination = 0; }
     if ($program->p_kind == 1) { $program->coordination = 1; }
@@ -189,6 +190,7 @@ class ProgramController extends Controller
     $program->name = $request->name;
     $user = User::where('id', '=', $program->uid)->first();
     $program->coordination = $request->coordination;
+    $program->age_cohort = $request->age_cohort;
     //p_kind = 1, so coordination needs to be 1
     if (!$request->coordination) { $program->coordination = 0; }
     if ($program->p_kind == 1) { $program->coordination = 1; }
