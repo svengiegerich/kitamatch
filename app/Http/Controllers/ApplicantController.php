@@ -88,7 +88,7 @@ class ApplicantController extends Controller
   * @return view applicant.edit
   */
   public function show($aid) {
-    $applicant = Applicant::findOrFail($aid);
+    $applicant = collect(Applicant::findOrFail($aid));
     $guardian = Guardian::find($applicant->gid);
     $applicant->guardianName = $guardian->last_name . " " . $guardian->first_name;
 
