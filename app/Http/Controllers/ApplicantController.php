@@ -88,7 +88,7 @@ class ApplicantController extends Controller
     //$guardian = Guardian::find($applicant->gid);
     //$applicant->guardianName = $guardian->last_name . " " . $guardian->first_name;
 
-    $preferences_view = app('App\Http\Controllers\PrintReportController')->showByApplicant($aid);
+    $preferences_view = app('App\Http\Controllers\PreferenceController')->showByApplicant($aid);
     $preferences = $preferences_view[1];
     $programs = $preferences_view[2];
 
