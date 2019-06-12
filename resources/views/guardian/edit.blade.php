@@ -91,6 +91,8 @@
             <br>
         @endforeach
 
+        <hr class="mb-4">
+
           <a href="{{url('/applicant/add/' . $guardian->gid)}}"><button class="btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
         <br>
     </div>
