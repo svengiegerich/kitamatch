@@ -67,13 +67,6 @@ class Applicant extends Model
     'birthday'
   ];
 
-  protected $fillable = [
-    'gender',
-    'options',
-    'user_id',
-    'another_one'
-  ];
-
   public $primaryKey = 'aid';
 
 }

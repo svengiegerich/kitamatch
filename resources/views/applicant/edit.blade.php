@@ -56,9 +56,17 @@
             </div>
           </div>
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-3">
                 <label for="birthday">Geburtstag</label>
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="age_cohort">Altersgruppe</label>
+                  {!! Form::select('age_cohort', array('0' => '---',
+                                                 '1' => 'U3',
+                                                 '2' => 'Ü3'),
+                                           $applicant->age_cohort,
+                   array('id' => 'age_cohort', 'class' => 'form-control') )  !!}
               </div>
               <div class="form-group col-md-6">
                 <label for="gender">Geschlecht</label>
@@ -103,10 +111,10 @@
                 <div class="col-sm-6">
                      {!! Form::select('care_start', array(
                       '0' => 'Bitte auswählen...',
-                      '1' => 'Q1',
-                      '2' => 'Q2',
-                      '3' => 'Q3',
-                      '4' => 'Q4'
+                      '1' => 'Zeitraum 1',
+                      '2' => 'Zeitraum 2',
+                      '3' => 'Zeitraum 3',
+                      '4' => 'Zeitraum 4'
                       ),
                       $applicant->care_start,
                       array('id' => 'care_start', 'class' => 'form-control') )  !!}
@@ -129,7 +137,7 @@
             <hr class="mb-4">
 
             <div class="form-group row">
-                <label for="alternative_scope" class="col-sm-6 col-form-label">Ist für die grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
+                <label for="alternative_scope" class="col-sm-6 col-form-label">Ist für Sie grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
                 <div class="col-sm-6">
                      {!! Form::select('alternative_scope', array(
                       '0' => 'Bitte auswählen...',

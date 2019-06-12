@@ -169,19 +169,19 @@ class Preference extends Model
     }
 
     foreach($applicants as $applicant) {
-      $guardian = Guardian::find($applicant->gid);
+      //$guardian = Guardian::find($applicant->gid);
       $applicant->order = 0;
-      if ($guardian != null) {
+      //if ($guardian != null) {
         foreach($criteria as $criterium) {
           $criterium_name = $criterium->criterium_name;
-          if ($criterium->criterium_value == $guardian->{$criterium_name}) {
+          if ($criterium->criterium_value == $applicant->{$criterium_name}) {
             $applicant->order = $applicant->order + $criterium->rank * $criterium->multiplier;
           }
         }
-      } else {
+      //} else {
         //no guardian -> order = 10000, to order asc
-        $applicant->order = 0;
-      }
+      //  $applicant->order = 0;
+      //}
       //highly important applicants
       if ($applicant->status == 25) {
         $applicant->order = 2 * 12;
