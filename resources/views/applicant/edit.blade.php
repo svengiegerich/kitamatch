@@ -156,7 +156,7 @@
 </div>
 
 <div class="row justify-content-center pt-5 ">
-  <div class="col-md-8">
+  <div class="col-md-8" id="list">
     <h2>Rangliste der Wunscheinrichtungen</h2>
   </div>
 </div>
@@ -229,7 +229,7 @@
                         }
                     });
             });
-            $( "#sortable" ).disableSelection();
+            $("#sortable" ).disableSelection();
         });
     </script>
 
@@ -240,7 +240,7 @@
             <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 10px;"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                 <span class="rank badge badge-dark">{{$i}}</span>
                 <span class="col-8">{{$preference->programName}}</span>
-                <a class="delete" href="#"><span class="badge badge-secondary badge-pill">x</span></a>
+                <a class="delete" href="#list"><span class="badge badge-secondary badge-pill">x</span></a>
             </li>
             <?php $i++; ?>
          @endforeach
