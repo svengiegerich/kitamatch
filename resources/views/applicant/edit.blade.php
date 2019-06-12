@@ -75,17 +75,17 @@
 @foreach ($criteria_names as $criterium_name)
 <?php
   $criterium_values = $criteria_values->where('criterium_name', '=', $criterium_name->criterium_name);
-  $criterium_list = $criterium_values->pluck('criterium_value', 'criterium_value_description');
 ?>
 
 <div class="form-group row">
   <label for="{{$criterium_name->criterium_name}}" class="col-sm-6 col-form-label">{{$criterium_name->criterium_question}}</label>
   <div class="col-sm-6">
-    {!! Form::select('{{$criterium_name->criterium_name}}', array(
-      $criterium_list,
-      array('id' => '$criterium_name->criterium_name',
-            'class' => 'form-control')
-      ))  !!}
+    <select name="{{$criterium_name->criterium_name}}" id="{{$criterium_name->criterium_name}}" class="form-control">
+      <option value="0">Bitte auswählen...</option>
+    @foreach ($criterium_values as $value)
+      <option value="{{$value->criterium_value}}">{{$value->criterium_value_description}}</option>
+    @endforeach
+    </select>
   </div>
 </div>
 
