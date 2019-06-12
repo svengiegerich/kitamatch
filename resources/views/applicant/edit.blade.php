@@ -63,8 +63,9 @@
               <div class="form-group col-md-2">
                 <label for="age_cohort">Altersgruppe</label>
                   {!! Form::select('age_cohort', array('0' => '---',
-                                                 '1' => 'U3',
-                                                 '2' => 'Ü3'),
+                                                 '1' => 'U2',
+                                                 '2' => '2',
+                                                 '3' => 'Ü2'),
                                            $applicant->age_cohort,
                    array('id' => 'age_cohort', 'class' => 'form-control') )  !!}
               </div>
