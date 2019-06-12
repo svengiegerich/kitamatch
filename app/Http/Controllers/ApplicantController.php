@@ -96,7 +96,7 @@ class ApplicantController extends Controller
     $criteria_names = $criteria_values->unique('criterium_name');
 
     return view('applicant.edit', array(
-      'applicant' => collect($applicant),
+      'applicant' => $applicant,
       'criteria_values' => $criteria_values,
       'criteria_names' => $criteria_names
     ));
