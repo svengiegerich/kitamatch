@@ -36,7 +36,7 @@
       </div>
       @endif
 
-        <h2>Bewerberinformationen bearbeiten</h2>
+        <h2>Bewerberinformationen</h2>
       </div>
 </div>
 <div class="row justify-content-center">
@@ -47,7 +47,7 @@
 
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="firstName" >Vorname</label>
+                <label for="firstName">Vorname</label>
                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="{{$applicant->first_name}}" required>
               </div>
               <div class="form-group col-md-6">
@@ -57,11 +57,11 @@
           </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="birthday"  class="col-sm-2 col-form-label">Geburtstag</label>
+                <label for="birthday">Geburtstag</label>
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>">
               </div>
               <div class="form-group col-md-6">
-                <label for="gender"  class="col-sm-2 col-form-label">Geschlecht</label>
+                <label for="gender">Geschlecht</label>
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
                                                       'Divers' => 'Divers'),
@@ -73,7 +73,50 @@
             <hr class="mb-4">
 
             <div class="form-group row">
-                <label for="care_start" class="col-sm-6 col-form-label">Frühstmöglicher Betreuungsbeginn</label>
+                <label for="siblings" class="col-sm-6 col-form-label">Geschwisterkind?</label>
+                <div class="col-sm-6">
+                    {!! Form::select('siblings', array(
+                    '0' => 'Bitte auswählen...',
+                    '840' => 'No',
+                                                       '841' => 'Yes'),
+                        $guardian->siblings,
+                        array('id' => 'siblings',
+                              'class' => 'form-control')
+                    )  !!}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="parentalStatus" class="col-sm-6 col-form-label">Elternstatus?</label>
+                <div class="col-sm-6">
+                    {!! Form::select('parentalStatus', array(
+'0' => 'Bitte auswählen...',
+                                                            '822' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
+                                                            '821' => 'Beide Erziehungsberechtigten sind beschäftigt',
+                                                            '820' => 'Alleinerziehend und beschäftigt',
+                                                            '823' => 'Alleinerziehend ohne Beschäftigung'),
+                                                            $guardian->parental_status,
+                    array('id' => 'parentalStatus', 'class' => 'form-control') )  !!}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="volumeOfEmployment" class="col-sm-6 col-form-label">Beschäftigungsumfang?</label>
+                <div class="col-sm-6">
+                    {!! Form::select('volumeOfEmployment', array(
+                    '0' => 'Bitte auswählen...',
+                    '833' => 'ohne Beschäftigung',
+                                                                        '832' => '8-15 Stunden/Woche',
+                                                                        '831' => '16-27 Stunden/Woche',
+                                                                        '830' => 'ab 28 Stunden/Woche'),
+                                                                        $guardian->volume_of_employment,
+                    array('id' => 'volumeOfEmployment', 'class' => 'form-control') )  !!}
+
+                </div>
+            </div>
+
+<hr class="mb-4">
+
+            <div class="form-group row">
+                <label for="care_start" class="col-sm-6 col-form-label">Frühstmöglicher Betreuungsbeginn?</label>
                 <div class="col-sm-6">
                      {!! Form::select('care_start', array(
                       '0' => 'Bitte auswählen...',
@@ -88,7 +131,7 @@
             </div>
 
             <div class="form-group row">
-              <label for="care_scope" class="col-sm-6 col-form-label">Präferierter Betreuungsumfang</label>
+              <label for="care_scope" class="col-sm-6 col-form-label">Präferierter Betreuungsumfang?</label>
               <div class="col-sm-6">
                    {!! Form::select('care_scope', array(
                     '0' => 'Bitte auswählen...',
@@ -104,7 +147,7 @@
 
             <div class="form-group row">
                 <label for="alternative_scope" class="col-sm-6 col-form-label">Ist für die grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                      {!! Form::select('care_start', array(
                       '0' => 'Bitte auswählen...',
                       '1' => 'Ja',
