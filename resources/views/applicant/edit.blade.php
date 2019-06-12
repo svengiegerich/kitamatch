@@ -108,7 +108,7 @@
 
 
             <div class="form-group row">
-                <label for="care_start" class="col-sm-6 col-form-label">Frühstmöglicher Betreuungsbeginn?</label>
+                <label for="care_start" class="col-sm-6 col-form-label">Welches ist der für Sie frühestmögliche akzeptable Betreuungsbeginn?</label>
                 <div class="col-sm-6">
                      {!! Form::select('care_start', array(
                       '0' => 'Bitte auswählen...',
@@ -123,7 +123,7 @@
             </div>
 
             <div class="form-group row">
-              <label for="care_scope" class="col-sm-6 col-form-label">Präferierter Betreuungsumfang?</label>
+              <label for="care_scope" class="col-sm-6 col-form-label">Präferieren Sie Halbtag oder Ganztag?</label>
               <div class="col-sm-6">
                    {!! Form::select('care_scope', array(
                     '0' => 'Bitte auswählen...',
@@ -151,7 +151,7 @@
             </div>
 
             <div class="form-group row">
-              <label for="alternative_start" class="col-sm-6 col-form-label">Sind sie bereit mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?</label>
+              <label for="alternative_start" class="col-sm-6 col-form-label">Wären Sie bereit, mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?</label>
               <div class="col-sm-6">
                    {!! Form::select('alternative_start', array(
                     '0' => 'Bitte auswählen...',
