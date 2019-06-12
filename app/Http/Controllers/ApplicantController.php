@@ -158,6 +158,12 @@ class ApplicantController extends Controller
     if ($request->religion) { $applicant->religion = $request->religion; }
     if ($request->parental_status) { $applicant->parental_status = $request->parental_status; }
 
+    // start & begin
+    if ($request->care_start) { $applicant->care_start = $request->care_start; }
+    if ($request->care_scope	) { $applicant->care_scope	 = $request->care_scope	; }
+    if ($request->alternative_start) { $applicant->alternative_start = $request->alternative_start; }
+    if ($request->alternative_scope) { $applicant->alternative_scope = $request->alternative_scope; }
+
     $applicant->save();
     return $applicant;
   }
