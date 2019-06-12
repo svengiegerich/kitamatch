@@ -23,6 +23,7 @@
         <h2>Bewerberinformationen <small class="text-muted">({{$applicant->status}})</small></h2>
       </div>
 </div>
+
 <div class="row justify-content-center">
     <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
 
@@ -153,6 +154,18 @@
         </form>
     </div>
 </div>
+
+<div class="row justify-content-center">
+        <h2>Rangliste der Wunscheinrichtungen</h2>
+      </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
+      Lorem ipsum.
+    </div>
+</div>
+
 
 <!-- Go to program list -->
 <div class="row justify-content-center">
