@@ -107,6 +107,9 @@ class PreferenceController extends Controller
     $Provider = new Provider;
     $applicant = $Applicant::find($aid);
     $preferences = $this->getPreferencesByApplicant($aid);
+
+    print_r($preferences);
+
     $programs = $Program->getAll()->where('age_cohort', '=', $applicant->age_cohort);
     $providers = $Provider::all();
     foreach ($preferences as $preference) {
@@ -115,7 +118,7 @@ class PreferenceController extends Controller
       $preference->programName = $provider->name . " - " . $program->name;
     }
     $select = array();
-    $select[-1] = "---";
+    $select[-1] = "Bitte auswählen...";
     foreach ($programs as $program) {
       if (!($preferences->contains('id_to', $program->pid))) {
         $provider = $providers->find($program->proid);
