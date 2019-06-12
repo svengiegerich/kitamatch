@@ -13,7 +13,7 @@
         @endif
 
         <!--<h2>{{$applicant->first_name}} {{$applicant->last_name}}: </h2>-->
-        <h2>{{$applicant->first_name}} {{$applicant->last_name}} <small class="text-muted">Rangliste der Wunscheinrichtungen</small></h2>
+        <h2>Rangliste der Wunscheinrichtungen<small class="text-muted">{{$applicant->first_name}} {{$applicant->last_name}} </small></h2>
       </div>
     </div>
 

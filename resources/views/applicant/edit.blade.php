@@ -20,7 +20,7 @@
       </div>
       @endif
 
-        <h2>Bewerberinformationen <small class="text-muted">(Status: ){{$applicant->status}})</small></h2>
+        <h2>Bewerberinformationen <small class="text-muted">({{$applicant->status}})</small></h2>
       </div>
 </div>
 <div class="row justify-content-center">
