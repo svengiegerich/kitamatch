@@ -88,7 +88,7 @@ class ApplicantController extends Controller
   * @return view applicant.edit
   */
   public function show($aid) {
-    $applicant = collect(Applicant::findOrFail($aid));
+    $applicant = Applicant::findOrFail($aid);
     $guardian = Guardian::find($applicant->gid);
     $applicant->guardianName = $guardian->last_name . " " . $guardian->first_name;
 
@@ -96,7 +96,7 @@ class ApplicantController extends Controller
     $criteria_names = $criteria_values->unique('criterium_name');
 
     return view('applicant.edit', array(
-      'applicant' => $applicant,
+      'applicant' => collect($applicant),
       'criteria_values' => $criteria_values,
       'criteria_names' => $criteria_names
     ));
