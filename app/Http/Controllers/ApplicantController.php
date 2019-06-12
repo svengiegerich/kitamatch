@@ -151,6 +151,13 @@ class ApplicantController extends Controller
     if ($request->gender) { $applicant->gender = $request->gender; }
     if ($request->birthday) { $applicant->birthday = strtotime($request->birthday); }
     if ($request->status) { $applicant->status = $request->status; }
+
+    // criteria
+    if ($request->siblings) { $applicant->siblings = $request->siblings; }
+    if ($request->volume_of_employment	) { $applicant->volume_of_employment	 = $request->volume_of_employment	; }
+    if ($request->religion) { $applicant->religion = $request->religion; }
+    if ($request->parental_status) { $applicant->parental_status = $request->parental_status; }
+
     $applicant->save();
     return $applicant;
   }

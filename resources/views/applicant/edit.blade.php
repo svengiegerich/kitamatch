@@ -83,7 +83,11 @@
     <select name="{{$criterium_name->criterium_name}}" id="{{$criterium_name->criterium_name}}" class="form-control">
       <option value="0">Bitte auswählen...</option>
     @foreach ($criterium_values as $value)
-      <option value="{{$value->criterium_value}}">{{$value->criterium_value_description}}</option>
+      @if ($applicant->contains($value->criterium_value))
+        <option value="{{$value->criterium_value}}" selected>{{$value->criterium_value_description}}</option>
+      @else
+        <option value="{{$value->criterium_value}}">{{$value->criterium_value_description}}</option>
+      @endif
     @endforeach
     </select>
   </div>
@@ -93,48 +97,6 @@
 
 <hr class="mb-4">
 
-            <div class="form-group row">
-                <label for="siblings" class="col-sm-6 col-form-label">Geschwisterkind?</label>
-                <div class="col-sm-6">
-                    {!! Form::select('siblings', array(
-                    '0' => 'Bitte auswählen...',
-                    '840' => 'No',
-                                                       '841' => 'Yes'),
-                        0,
-                        array('id' => 'siblings',
-                              'class' => 'form-control')
-                    )  !!}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="parentalStatus" class="col-sm-6 col-form-label">Elternstatus?</label>
-                <div class="col-sm-6">
-                    {!! Form::select('parentalStatus', array(
-'0' => 'Bitte auswählen...',
-                                                            '822' => 'Ein(e) Erziehungsberechtigte(r) ist beschäftigt',
-                                                            '821' => 'Beide Erziehungsberechtigten sind beschäftigt',
-                                                            '820' => 'Alleinerziehend und beschäftigt',
-                                                            '823' => 'Alleinerziehend ohne Beschäftigung'),
-                                                            0,
-                    array('id' => 'parentalStatus', 'class' => 'form-control') )  !!}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="volumeOfEmployment" class="col-sm-6 col-form-label">Beschäftigungsumfang?</label>
-                <div class="col-sm-6">
-                    {!! Form::select('volumeOfEmployment', array(
-                    '0' => 'Bitte auswählen...',
-                    '833' => 'ohne Beschäftigung',
-                                                                        '832' => '8-15 Stunden/Woche',
-                                                                        '831' => '16-27 Stunden/Woche',
-                                                                        '830' => 'ab 28 Stunden/Woche'),
-                                                                        0,
-                    array('id' => 'volumeOfEmployment', 'class' => 'form-control') )  !!}
-
-                </div>
-            </div>
-
-<hr class="mb-4">
 
             <div class="form-group row">
                 <label for="care_start" class="col-sm-6 col-form-label">Frühstmöglicher Betreuungsbeginn?</label>

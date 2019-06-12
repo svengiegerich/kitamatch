@@ -77,6 +77,12 @@ Guardians maintain the social master data required for the coordination and hols
 #### siblings
 * 840: Kein Geschwisterkind
 * 841: Geschwisterkind
+#### religion
+* 850: Konfessionslos
+* 851: Katholisch
+* 852: Evangelisch
+* 853: Muslimisch
+* 854: Jüdisch
 
 ## User
 ### Codes
