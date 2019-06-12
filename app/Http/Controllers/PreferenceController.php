@@ -124,7 +124,7 @@ class PreferenceController extends Controller
       }
     }
     asort($select);
-    
+
     return array('preferences' => $preferences, 'programs' => $select);
   }
 
@@ -145,7 +145,7 @@ class PreferenceController extends Controller
     $preference->rank = $rank;
     $preference->status = 1;
     $preference->save();
-    return redirect()->action('PreferenceController@showByApplicant', $aid);
+    return redirect()->action('ApplicantController@show', $aid);
   }
 
   /**

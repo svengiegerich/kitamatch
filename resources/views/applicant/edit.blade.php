@@ -170,7 +170,7 @@
         {{ csrf_field() }}
 
         <div class="form-group row">
-            <label for="to" class="col-sm-2 col-form-label">Kitagruppe</label>
+            <label for="to" class="col-sm-2 col-form-label">Kitagruppe:</label>
             <div class="col-sm-6">
                 {!! Form::select('to', $programs,false,
                     array('id' => 'preference-id-to',
@@ -251,7 +251,7 @@
     </div>
     @else
       <div class="col-md-8">
-        Please add preferences.
+        Bitte fügen Sie ihre Wunscheinrichtungen hinzu.
       </div>
     @endif
 </div>
