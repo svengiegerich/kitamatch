@@ -45,40 +45,35 @@
         <form action="{{url('/applicant/' . $applicant->aid)}}" method="POST" class="">
             {{ csrf_field() }}
 
-            <div class="form-group row">
-                <label for="firstName" class="col-sm-2 col-form-label">Vorname</label>
-                <div class="col-sm-10">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="firstName" >Vorname</label>
                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="{{$applicant->first_name}}" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="lastName"  class="col-sm-2 col-form-label">Nachname</label>
-                <div class="col-sm-10">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="lastName">Nachname</label>
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{$applicant->last_name}}" required>
-                </div>
             </div>
-            <div class="form-group row">
+            <div class="form-row">
+              <div class="form-group col-md-6">
                 <label for="birthday"  class="col-sm-2 col-form-label">Geburtstag</label>
-                <div class="col-sm-10">
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>">
-                </div>
-            </div>
-            <div class="form-group row">
+              </div>
+              <div class="form-group col-md-6">
                 <label for="gender"  class="col-sm-2 col-form-label">Geschlecht</label>
-                <div class="col-sm-10">
                      {!! Form::select('gender', array('M' => 'M',
                                                       'W' => 'W',
                                                       'Divers' => 'Divers'),
                                                 $applicant->gender,
                         array('id' => 'gender', 'class' => 'form-control') )  !!}
-                </div>
             </div>
+          </div>
 
             <hr class="mb-4">
 
             <div class="form-group row">
-                <label for="care_start"  class="col-sm-2 col-form-label">Frühstmöglicher Betreuungsbeginn</label>
-                <div class="col-sm-10">
+                <label for="care_start" class="col-sm-6 col-form-label">Frühstmöglicher Betreuungsbeginn</label>
+                <div class="col-sm-6">
                      {!! Form::select('care_start', array(
                       '0' => 'Bitte auswählen...',
                       '1' => 'Q1',
@@ -92,8 +87,8 @@
             </div>
 
             <div class="form-group row">
-              <label for="care_scope">Präferierter Betreuungsumfang</label>
-              <div class="col-sm-10">
+              <label for="care_scope" class="col-sm-6 col-form-label">Präferierter Betreuungsumfang</label>
+              <div class="col-sm-6">
                    {!! Form::select('care_scope', array(
                     '0' => 'Bitte auswählen...',
                     '1' => 'Halbtag',
@@ -107,7 +102,7 @@
             <hr class="mb-4">
 
             <div class="form-group row">
-                <label for="alternative_scope"  class="col-sm-2 col-form-label">Ist für die grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
+                <label for="alternative_scope" class="col-sm-6 col-form-label">Ist für die grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
                 <div class="col-sm-10">
                      {!! Form::select('care_start', array(
                       '0' => 'Bitte auswählen...',
@@ -120,8 +115,8 @@
             </div>
 
             <div class="form-group row">
-              <label for="alternative_start">Sind sie bereit mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?</label>
-              <div class="col-sm-10">
+              <label for="alternative_start" class="col-sm-6 col-form-label">Sind sie bereit mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?</label>
+              <div class="col-sm-6">
                    {!! Form::select('care_scope', array(
                     '0' => 'Bitte auswählen...',
                     '1' => 'Ja',
