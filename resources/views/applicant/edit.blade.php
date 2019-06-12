@@ -77,7 +77,7 @@
   $criterium_values = $criteria_values->where('criterium_name', '=', $criterium_name->criterium_name);
   $criterium_list = $criterium_values->only(['criterium_value', 'criterium_value_description'])->toArray();
 
-  print_r($criterium_values);
+  print_r($criterium_list);
 ?>
 
 <div class="form-group row">
