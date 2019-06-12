@@ -14,7 +14,7 @@
     <a class="nav-link" href="{{url('/applicant/' . $applicant->aid)}}">{{$applicant->first_name}} {{$applicant->last_name}}</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="{{url('/preference/applicant/' . $applicant->aid)}}">Präferenzen</a>
+    <a class="nav-link active" href="{{url('/preference/applicant/' . $applicant->aid)}}">Wunscheinrichtungen</a>
   </li>
 </ul>
 </div>
@@ -58,6 +58,7 @@
     </div>
 </div>
 
+<!-- List of programs -->
 <div class="row justify-content-center">
       @if (count($preferences) > 0)
     <div class="col-md-8">
@@ -125,7 +126,7 @@
         @endif
 </div>
 
-
+<!-- Go Back -->
 <div class="row justify-content-center">
     <div class="col-md-8">
         <hr class="mb-4">

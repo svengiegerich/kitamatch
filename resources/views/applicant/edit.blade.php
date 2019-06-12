@@ -75,11 +75,71 @@
             </div>
 
             <hr class="mb-4">
+
+            <div class="form-group row">
+                <label for="care_start"  class="col-sm-2 col-form-label">Frühstmöglicher Betreuungsbeginn</label>
+                <div class="col-sm-10">
+                     {!! Form::select('care_start', array(
+                      '0' => 'Bitte auswählen...',
+                      '1' => 'Q1',
+                      '2' => 'Q2',
+                      '3' => 'Q3',
+                      '4' => 'Q4'
+                      ),
+                      0,
+                      array('id' => 'care_start', 'class' => 'form-control') )  !!}
+                </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="care_scope">Präferierter Betreuungsumfang</label>
+              <div class="col-sm-10">
+                   {!! Form::select('care_scope', array(
+                    '0' => 'Bitte auswählen...',
+                    '1' => 'Halbtag',
+                    '2' => 'Ganztag'
+                    ),
+                    0,
+                    array('id' => 'care_scope', 'class' => 'form-control') )  !!}
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <div class="form-group row">
+                <label for="alternative_scope"  class="col-sm-2 col-form-label">Ist für die grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
+                <div class="col-sm-10">
+                     {!! Form::select('care_start', array(
+                      '0' => 'Bitte auswählen...',
+                      '1' => 'Ja',
+                      '2' => 'Nein'
+                      ),
+                      0,
+                      array('id' => 'alternative_scope', 'class' => 'form-control') )  !!}
+                </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="alternative_start">Sind sie bereit mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?</label>
+              <div class="col-sm-10">
+                   {!! Form::select('care_scope', array(
+                    '0' => 'Bitte auswählen...',
+                    '1' => 'Ja',
+                    '2' => 'Nein'
+                    ),
+                    0,
+                    array('id' => 'alternative_start', 'class' => 'form-control') )  !!}
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
             <button class="btn btn-primary btn-lg btn-block" type="submit">Aktualisieren</button>
         </form>
     </div>
 </div>
 
+<!-- Go to program list -->
 <div class="row justify-content-center">
     <div class="col-md-8">
         <hr class="mb-4">
