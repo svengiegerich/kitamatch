@@ -75,11 +75,10 @@
 @foreach ($criteria_names as $criterium_name)
 <?php
   $criterium = $criteria_values->where('criterium_name', '=', $criterium_name);
-  print_r($criterium_name);
-  print_r($criterium);
 ?>
+
 <div class="form-group row">
-  <label for="siblings" class="col-sm-6 col-form-label">Geschwisterkind?</label>
+  <label for="{{$criterium_name->criterium_name}}" class="col-sm-6 col-form-label">{{$criterium_name->criterium_name}}</label>
   <div class="col-sm-6">
     {!! Form::select('siblings', array(
     '0' => 'Bitte auswählen...',
@@ -93,6 +92,8 @@
 </div>
 
 @endforeach
+
+<hr class="mb-4">
 
             <div class="form-group row">
                 <label for="siblings" class="col-sm-6 col-form-label">Geschwisterkind?</label>
