@@ -17,7 +17,12 @@
 </div>
 
 <div class="row justify-content-center">
-<div class="col-md-12  my-3 p-3 bg-white rounded box-shadow">
+<div class="col-md-10  my-3 p-3 bg-white rounded box-shadow">
+
+  <a href="{{url('/applicant/add')}}"><button class="btn btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
+
+<hr class="mb-4">
+
     <table class="table" id="applicants">
       <thead>
         <tr>
@@ -35,21 +40,18 @@
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->status}}</td>
-                <td><a href="{{url('/applicant/' . $applicant->aid)}}"><button type="button" class="btn btn-light">Ansehen</button></a></td>
+                <td><a href="{{url('/applicant/' . $applicant->aid)}}"><button type="button" class="btn btn-primary">Einsehen</button></a></td>
                 <td>
                     <form action="{{url('/applicant/' . $applicant->aid)}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <button type="button" class="btn btn-dark">Delete</button>
+                        <button type="button" class="btn btn-light">Delete</button>
                     </form>
                 </td>
             </tr>
         @endforeach
     </table>
-
-    <hr class="mb-4">
-    <a href="{{url('/applicant/add')}}"><button class="btn btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
 </div>
 
 @endsection
