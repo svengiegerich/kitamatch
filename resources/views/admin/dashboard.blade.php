@@ -51,7 +51,7 @@
               <li>Bestätigte Bewerber</li>
               <li>Registrierte Bewerber</li>
             </ul>
-            <a href="{{url('/guardian/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Bewerber</button></a>
+            <a href="{{url('/applicant/all')}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Bewerber</button></a>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -137,14 +137,5 @@
     </div>
 </div>
 @endif
-
-<div class="row justify-content-center">
-    <div class="col-md-6">
-<br>
-<a href="{{url('/admin/reset')}}"><button class="btn btn-light btn-lg btn-block">Datenbank zurücksetzen</button></a>
-<small style="float: right;">(Manuelle Kitarangliste geht dabei verloren)</small>
-</div>
-</div>
-
 
 @endsection

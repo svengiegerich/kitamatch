@@ -21,8 +21,6 @@ use App\Http\Requests;
 use App\Http\Requests\ApplicantRequest;
 use App\Http\Controllers\Controller;
 use App\Applicant;
-use App\Guardian;
-
 
 /**
 * This controller handles applicants: the creation of new applicants, update of existing ones, as well as status changes (e.g. priority matching).
@@ -41,26 +39,24 @@ class ApplicantController extends Controller
   /**
   * Call the 'add applicant' view
   *
-  * @param integer $gid Guardian-ID
   * @return view applicant.add
   */
-  public function add($gid) {
-    $guardian = Guardian::findOrFail($gid);
-    return view('applicant.add', array('guardian' => $guardian));
+  public function add() {
+    $applicant = new Applicant;
+    $applicant->status = 21; //created, but not proofed; no participation
+    $applicant->save();
+    return redirect()->action('PreferenceController@showByApplicant', ['aid' => $applicant->aid]);
   }
 
   /**
   * Handle the creation of an applicant
   *
   * @param App\Http\Requests\ApplicantRequest $request
-  * @param integer $gid Guardian-ID
   * @return action PreferenceController@showByApplicant
   */
-  public function create(ApplicantRequest $request, $gid) {
-      $request->request->add(['gid' => $gid]);
-      $applicant = $this->store($request);
-      return redirect()->action('PreferenceController@showByApplicant', ['aid' => $applicant->aid]);
-  }
+  /*public function create(ApplicantRequest $request) {
+
+  }*/
 
   /**
   * Store a new applicant
@@ -69,17 +65,17 @@ class ApplicantController extends Controller
   * @param integer $gid Guardian-ID
   * @return action PreferenceController@showByApplicant
   */
-  public function store(ApplicantRequest $request) {
+  /*public function store(ApplicantRequest $request) {
     $applicant = new Applicant;
-    $applicant->gid = $request->gid;
-    $applicant->first_name = $request->firstName;
-    $applicant->last_name = $request->lastName;
-    $applicant->birthday = strtotime($request->birthday);
-    $applicant->gender = $request->gender;
-    $applicant->status = 21;
+    if ($request->gid) { $applicant->gid = $request->gid };
+    if ($request->first_name) { $applicant->first_name = $request->firstName };
+    if ($request->last_name) { $applicant->last_name = $request->lastName };
+    if ($request->birthday) { $applicant->birthday = strtotime($request->birthday) };
+    if ($request->gender) { $applicant->gender = $request->gender };
+    if ($request->status) { $applicant->status = 21 };
     $applicant->save();
     return $applicant;
-  }
+  }*/
 
   /**
   * Show a single applicant
@@ -89,8 +85,8 @@ class ApplicantController extends Controller
   */
   public function show($aid) {
     $applicant = Applicant::findOrFail($aid);
-    $guardian = Guardian::find($applicant->gid);
-    $applicant->guardianName = $guardian->last_name . " " . $guardian->first_name;
+    //$guardian = Guardian::find($applicant->gid);
+    //$applicant->guardianName = $guardian->last_name . " " . $guardian->first_name;
 
     $criteria_values = app('App\Http\Controllers\CriteriumController')->getDefaultCriteria();
     $criteria_names = $criteria_values->unique('criterium_name');
@@ -151,7 +147,8 @@ class ApplicantController extends Controller
     if ($request->gender) { $applicant->gender = $request->gender; }
     if ($request->birthday) { $applicant->birthday = strtotime($request->birthday); }
     if ($request->age_cohort) { $applicant->age_cohort = $request->age_cohort; }
-    if ($request->status) { $applicant->status = $request->status; }
+
+    if ($request->firstName and $request->lastName and $request->gender and $request->birthday and $request->age_cohort) { $applicant->status = 22; } else { $applicant->status = 21; }
 
     // criteria
     if ($request->siblings) { $applicant->siblings = $request->siblings; }

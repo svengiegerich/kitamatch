@@ -6,9 +6,6 @@
     <div class="col-md-8">
 <ul class="nav nav-pills gap-nav">
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/guardian/' . $applicant->gid)}}">{{$applicant->guardianName}}</a>
-  </li>
-  <li class="nav-item">
     <a class="nav-link active" href="#">{{$applicant->first_name}} {{$applicant->last_name}}</a>
   </li>
   <li class="nav-item">
