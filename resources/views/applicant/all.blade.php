@@ -35,13 +35,13 @@
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->status}}</td>
-                <td><a href="{{url('/applicant/' . $applicant->aid)}}">Ansehen</a></td>
+                <td><button type="button" class="btn btn-light"><a href="{{url('/applicant/' . $applicant->aid)}}">Ansehen</a></button</td>
                 <td>
                     <form action="{{url('/applicant/' . $applicant->aid)}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <button>Delete</button>
+                        <button type="button" class="btn btn-dark">Delete</button>
                     </form>
                 </td>
             </tr>
