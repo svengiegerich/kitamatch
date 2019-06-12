@@ -163,8 +163,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-<div class="row justify-content-center my-3 p-3 bg-white rounded box-shadow">
-    <div class="col-md-8">
+<div class="row justify-content-center">
+    <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
     @if (count($programs)>0)
     <form action="{{url('/preference/applicant/' . $applicant->aid)}}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
@@ -185,11 +185,10 @@
     @else
     <button type="submit" class="btn btn-secondary" disabled>Alle Kitas  wurden ausgewählt.</button>
     @endif
-</div>
+
 
 <!-- List of programs -->
   @if (count($preferences) > 0)
-<div class="col-md-8">
 
     <script>
         $.ajaxSetup({
