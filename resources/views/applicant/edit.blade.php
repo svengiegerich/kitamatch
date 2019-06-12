@@ -75,16 +75,14 @@
 @foreach ($criteria_names as $criterium_name)
 <?php
   $criterium_values = $criteria_values->where('criterium_name', '=', $criterium_name);
+  $criertium_list = $criterium_values::lists('criterium_value', 'criterium_value_description');
 ?>
 
 <div class="form-group row">
   <label for="{{$criterium_name->criterium_name}}" class="col-sm-6 col-form-label">{{$criterium_name->criterium_question}}</label>
   <div class="col-sm-6">
     {!! Form::select('{{$criterium_name->criterium_name}}', array(
-    '0' => 'Bitte auswählen...',
-    @foreach ($criterium_values as $value)
-      '{{$value->criterium_value}}' => '{{$value->criterium_value_description}}',
-    @endforeach
+    $criertium_list
 
         0,
         array('id' => '{{$criterium_name->criterium_name}}',
