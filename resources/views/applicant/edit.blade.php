@@ -85,7 +85,7 @@
       $criterium_list,
       array('id' => '$criterium_name->criterium_name',
             'class' => 'form-control')
-      )  !!}
+      ))  !!}
   </div>
 </div>
 
