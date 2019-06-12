@@ -54,6 +54,7 @@
                 <label for="lastName">Nachname</label>
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{$applicant->last_name}}" required>
             </div>
+          </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="birthday"  class="col-sm-2 col-form-label">Geburtstag</label>
