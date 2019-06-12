@@ -75,7 +75,7 @@
 @foreach ($criteria_names as $criterium_name)
 <?php
   $criterium_values = $criteria_values->where('criterium_name', '=', $criterium_name->criterium_name);
-  $criterium_list = $criterium_values->only(['criterium_value', 'criterium_value_description'])->toArray();
+  $criterium_list = $criterium_values->pluck('criterium_value', 'criterium_value_description');
 
   print_r($criterium_values->pluck('criterium_value', 'criterium_name'));
 ?>
