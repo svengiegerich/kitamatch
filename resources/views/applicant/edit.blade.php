@@ -155,7 +155,7 @@
     </div>
 </div>
 
-<div class="row justify-content-center pt-5">
+<div class="row justify-content-center pt-5 ">
   <div class="col-md-8">
     <h2>Rangliste der Wunscheinrichtungen</h2>
   </div>
@@ -164,7 +164,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <div class="row justify-content-center">
-    <div class="col-md-8  my-3 p-3 bg-white rounded box-shadow">
+    <div class="col-md-8 my-3 p-3 bg-white rounded box-shadow">
     @if (count($programs)>0)
     <form action="{{url('/preference/applicant/' . $applicant->aid)}}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
