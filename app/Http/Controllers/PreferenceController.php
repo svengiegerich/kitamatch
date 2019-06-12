@@ -108,8 +108,6 @@ class PreferenceController extends Controller
     $applicant = $Applicant::find($aid);
     $preferences = $this->getPreferencesByApplicant($aid);
 
-    print_r($preferences);
-
     $programs = $Program->getAll()->where('age_cohort', '=', $applicant->age_cohort);
     $providers = $Provider::all();
     foreach ($preferences as $preference) {
@@ -126,10 +124,8 @@ class PreferenceController extends Controller
       }
     }
     asort($select);
-    return view('preference.showByApplicant', array('preferences' => $preferences,
-                                                    'applicant' => $applicant,
-                                                    'programs' => $select
-    ));
+    
+    return array('preferences' => $preferences, 'programs' => $select);
   }
 
   /**

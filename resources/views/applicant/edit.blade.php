@@ -155,9 +155,10 @@
     </div>
 </div>
 
-<div class="row justify-content-center">
-        <h2>Rangliste der Wunscheinrichtungen</h2>
-      </div>
+<div class="row justify-content-center pt-5">
+  <div class="col-md-8">
+    <h2>Rangliste der Wunscheinrichtungen</h2>
+  </div>
 </div>
 
 <div class="row justify-content-center">
