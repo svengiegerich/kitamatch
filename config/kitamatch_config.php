@@ -4,7 +4,7 @@ return [
 
   // CARE STARTES
   'care_starts' => [
-    0 => 'Bitte auswählen...'
+    0 => 'Bitte auswählen...',
     1 => 'Q1',
     2 => 'Q2',
     3 => 'Q3',
@@ -13,14 +13,14 @@ return [
 
   // CARE SCOPES
   'care_scopes' => [
-    0 => 'Bitte auswählen...'
+    0 => 'Bitte auswählen...',
     1 => 'Halbtags',
     2 => 'Ganztags'
   ],
 
   // AGE COHORTS
   'age_cohorts' => [
-    0 => '---'
+    0 => '---',
     1 => 'U2',
     2  => '2',
     3 => 'Ü3'
