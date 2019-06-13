@@ -90,7 +90,7 @@
 
         @if (config('kitamatch_config.has_diff_starts'))
             <div class="form-group row">
-                <label for="care_start" class="col-sm-6 col-form-label">Welches ist der für Sie frühestmögliche akzeptable Betreuungsbeginn?</label>
+                <label for="care_start" class="col-sm-6 col-form-label">{{config(kitamatch_config.care_starts_text['question_select'])}}</label>
                 <div class="col-sm-6">
                      {!! Form::select('care_start', $config['care_starts'],
                       $applicant->care_start,
@@ -101,7 +101,7 @@
 
         @if (config('kitamatch_config.has_diff_scopes'))
             <div class="form-group row">
-              <label for="care_scope" class="col-sm-6 col-form-label">Präferieren Sie Halbtag oder Ganztag?</label>
+              <label for="care_scope" class="col-sm-6 col-form-label">{{config(kitamatch_config.care_scopes_text['question_select'])}}</label>
               <div class="col-sm-6">
                    {!! Form::select('care_scope', $config['care_scopes'],
                     $applicant->care_scope,
@@ -114,7 +114,8 @@
 
         @if (config('kitamatch_config.has_diff_starts'))
             <div class="form-group row">
-              <label for="alternative_start" class="col-sm-6 col-form-label">Wären Sie bereit, mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?</label>
+              <label for="alternative_start" class="col-sm-6 col-form-label">
+                {{config(kitamatch_config.care_starts_text['question_bool'])}}</label>
               <div class="col-sm-6">
                    {!! Form::select('alternative_start', array(
                     '0' => 'Bitte auswählen...',
@@ -129,7 +130,7 @@
 
         @if (config('kitamatch_config.has_diff_scopes'))
             <div class="form-group row">
-                <label for="alternative_scope" class="col-sm-6 col-form-label">Ist für Sie grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
+                <label for="alternative_scope" class="col-sm-6 col-form-label">{{config(kitamatch_config.care_scopes_text['question_bool'])}}</label>
                 <div class="col-sm-6">
                      {!! Form::select('alternative_scope', array(
                       '0' => 'Bitte auswählen...',
