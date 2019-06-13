@@ -27,7 +27,7 @@ return [
     2 => 'Ganztags'
   ],
 
-  'care_scopes' => [
+  'care_scopes_text' => [
     'question_select' => 'Präferieren Sie Halbtag oder Ganztag?',
     'question_bool' => 'Ist für Sie grundsätzlich der andere Betreuungsumfang auch akzeptabel?'
   ],
