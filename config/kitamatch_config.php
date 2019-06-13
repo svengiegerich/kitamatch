@@ -2,13 +2,17 @@
 
 return [
 
+  // DIFFERENT STARTS?
+  'has_diff_starts' => TRUE,
+  'has_diff_scopes' => TRUE,
+
   // CARE STARTES
   'care_starts' => [
     0 => 'Bitte auswählen...',
     1 => 'Q1',
     2 => 'Q2',
     3 => 'Q3',
-    3 => 'Q4'
+    4 => 'Q4'
   ],
 
   // CARE SCOPES
@@ -25,7 +29,6 @@ return [
     2  => '2',
     3 => 'Ü3'
   ],
-
 
   // -----------------------------
   // -----------------------------

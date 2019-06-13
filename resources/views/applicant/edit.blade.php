@@ -88,7 +88,7 @@
 
 <hr class="mb-4">
 
-
+        @if (config('kitamatch_config.has_diff_starts'))
             <div class="form-group row">
                 <label for="care_start" class="col-sm-6 col-form-label">Welches ist der für Sie frühestmögliche akzeptable Betreuungsbeginn?</label>
                 <div class="col-sm-6">
@@ -97,7 +97,9 @@
                       array('id' => 'care_start', 'class' => 'form-control') )  !!}
                 </div>
             </div>
+        @endif
 
+        @if (config('kitamatch_config.has_diff_scopes'))
             <div class="form-group row">
               <label for="care_scope" class="col-sm-6 col-form-label">Präferieren Sie Halbtag oder Ganztag?</label>
               <div class="col-sm-6">
@@ -106,22 +108,11 @@
                     array('id' => 'care_scope', 'class' => 'form-control') )  !!}
               </div>
             </div>
+        @endif
 
             <hr class="mb-4">
 
-            <div class="form-group row">
-                <label for="alternative_scope" class="col-sm-6 col-form-label">Ist für Sie grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
-                <div class="col-sm-6">
-                     {!! Form::select('alternative_scope', array(
-                      '0' => 'Bitte auswählen...',
-                      '1' => 'Ja',
-                      '2' => 'Nein'
-                      ),
-                      $applicant->alternative_scope,
-                      array('id' => 'alternative_scope', 'class' => 'form-control') )  !!}
-                </div>
-            </div>
-
+        @if (config('kitamatch_config.has_diff_starts'))
             <div class="form-group row">
               <label for="alternative_start" class="col-sm-6 col-form-label">Wären Sie bereit, mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?</label>
               <div class="col-sm-6">
@@ -134,6 +125,22 @@
                     array('id' => 'alternative_start', 'class' => 'form-control') )  !!}
               </div>
             </div>
+        @endif
+
+        @if (config('kitamatch_config.has_diff_scopes'))
+            <div class="form-group row">
+                <label for="alternative_scope" class="col-sm-6 col-form-label">Ist für Sie grundsätzlich der andere Betreuungsumfang auch akzeptabel?</label>
+                <div class="col-sm-6">
+                     {!! Form::select('alternative_scope', array(
+                      '0' => 'Bitte auswählen...',
+                      '1' => 'Ja',
+                      '2' => 'Nein'
+                      ),
+                      $applicant->alternative_scope,
+                      array('id' => 'alternative_scope', 'class' => 'form-control') )  !!}
+                </div>
+            </div>
+            @endif
 
             <hr class="mb-4">
 
