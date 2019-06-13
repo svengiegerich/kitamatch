@@ -115,7 +115,7 @@
         @if (config('kitamatch_config.has_diff_starts'))
             <div class="form-group row">
               <label for="alternative_start" class="col-sm-6 col-form-label">
-                {{config('kitamatch_config.care_starts_text['question_bool']')}}</label>
+                {{config('kitamatch_config.care_starts_text')['question_bool']}}</label>
               <div class="col-sm-6">
                    {!! Form::select('alternative_start', array(
                     '0' => 'Bitte auswählen...',
@@ -130,7 +130,7 @@
 
         @if (config('kitamatch_config.has_diff_scopes'))
             <div class="form-group row">
-                <label for="alternative_scope" class="col-sm-6 col-form-label">{{config('kitamatch_config.care_scopes_text['question_bool']')}}</label>
+                <label for="alternative_scope" class="col-sm-6 col-form-label">{{config('kitamatch_config.care_scopes_text')['question_bool']}}</label>
                 <div class="col-sm-6">
                      {!! Form::select('alternative_scope', array(
                       '0' => 'Bitte auswählen...',
