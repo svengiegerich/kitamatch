@@ -95,12 +95,18 @@ class ApplicantController extends Controller
     $criteria_values = app('App\Http\Controllers\CriteriumController')->getDefaultCriteria();
     $criteria_names = $criteria_values->unique('criterium_name');
 
+    $config = array();
+    $config['age_chohorts'] = config('kitamatch_config.care_scopes');
+    $config['care_starts'] = config('kitamatch_config.care_starts');
+    $config['care_scopes'] = config('kitamatch_config.care_scopes');
+
     return view('applicant.edit', array(
       'applicant' => $applicant,
       'criteria_values' => $criteria_values,
       'criteria_names' => $criteria_names,
       'preferences' => $preferences,
-      'programs' => $programs
+      'programs' => $programs,
+      'config' => $config
     ));
   }
 

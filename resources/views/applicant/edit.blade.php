@@ -95,13 +95,7 @@
             <div class="form-group row">
                 <label for="care_start" class="col-sm-6 col-form-label">Welches ist der für Sie frühestmögliche akzeptable Betreuungsbeginn?</label>
                 <div class="col-sm-6">
-                     {!! Form::select('care_start', array(
-                      '0' => 'Bitte auswählen...',
-                      '1' => 'Zeitraum 1',
-                      '2' => 'Zeitraum 2',
-                      '3' => 'Zeitraum 3',
-                      '4' => 'Zeitraum 4'
-                      ),
+                     {!! Form::select('care_start', $config['care_starts'],
                       $applicant->care_start,
                       array('id' => 'care_start', 'class' => 'form-control') )  !!}
                 </div>
