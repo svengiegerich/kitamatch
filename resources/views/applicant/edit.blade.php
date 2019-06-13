@@ -90,7 +90,7 @@
 
         @if (config('kitamatch_config.has_diff_starts'))
             <div class="form-group row">
-                <label for="care_start" class="col-sm-6 col-form-label">{{config('kitamatch_config.care_starts_text['question_select']')}}</label>
+                <label for="care_start" class="col-sm-6 col-form-label">{{config('kitamatch_config.care_starts_text')['question_select']}}</label>
                 <div class="col-sm-6">
                      {!! Form::select('care_start', $config['care_starts'],
                       $applicant->care_start,
@@ -101,7 +101,7 @@
 
         @if (config('kitamatch_config.has_diff_scopes'))
             <div class="form-group row">
-              <label for="care_scope" class="col-sm-6 col-form-label">{{config('kitamatch_config.care_scopes_text['question_select']')}}</label>
+              <label for="care_scope" class="col-sm-6 col-form-label">{{config('kitamatch_config.care_scopes_text')['question_select']}}</label>
               <div class="col-sm-6">
                    {!! Form::select('care_scope', $config['care_scopes'],
                     $applicant->care_scope,
