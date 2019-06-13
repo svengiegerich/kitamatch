@@ -18,7 +18,7 @@ return [
   'care_starts_text' => [
     'question_select' => 'Welches ist der für Sie frühestmögliche akzeptable Betreuungsbeginn?',
     'question_bool' => 'Wären Sie bereit, mindestens 3 Monate auf ihre Wunschkita zu warten, wenn dort zum Wunschzeitpunkt noch kein Platz frei ist?'
-  ]
+  ],
 
   // CARE SCOPES
   'care_scopes' => [
@@ -30,7 +30,7 @@ return [
   'care_scopes' => [
     'question_select' => 'Präferieren Sie Halbtag oder Ganztag?',
     'question_bool' => 'Ist für Sie grundsätzlich der andere Betreuungsumfang auch akzeptabel?'
-  ]
+  ],
 
   // AGE COHORTS
   'age_cohorts' => [
