@@ -4,23 +4,23 @@ return [
 
   // CARE STARTES
   'care_starts' => [
-    'Q1' => 1,
-    'Q2' => 2,
-    'Q3' => 3,
-    'Q4' => 4
+    1 => 'Q1',
+    2 => 'Q2',
+    3 => 'Q3',
+    3 => 'Q4'
   ],
 
   // CARE SCOPES
   'care_scopes' => [
-    'Halbtags' => 1,
-    'Ganztags' => 2
+    1 => 'Halbtags',
+    2 => 'Ganztags'
   ],
 
   // AGE COHORTS
   'age_cohorts' => [
-    'U2' => '1',
-    '2'  => '2',
-    'Ü3' => '3'
+    1 => 'U2',
+    2  => '2',
+    3 => 'Ü3'
   ],
 
 

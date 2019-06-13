@@ -47,10 +47,7 @@
               </div>
               <div class="form-group col-md-2">
                 <label for="age_cohort">Altersgruppe*</label>
-                  {!! Form::select('age_cohort', array('0' => '---',
-                                                 '1' => 'U2',
-                                                 '2' => '2',
-                                                 '3' => 'Ü2'),
+                  {!! Form::select('age_cohort', $config['age_chohorts'],
                                            $applicant->age_cohort,
                    array('id' => 'age_cohort', 'class' => 'form-control', 'required') )  !!}
               </div>
@@ -104,11 +101,7 @@
             <div class="form-group row">
               <label for="care_scope" class="col-sm-6 col-form-label">Präferieren Sie Halbtag oder Ganztag?</label>
               <div class="col-sm-6">
-                   {!! Form::select('care_scope', array(
-                    '0' => 'Bitte auswählen...',
-                    '1' => 'Halbtag',
-                    '2' => 'Ganztag'
-                    ),
+                   {!! Form::select('care_scope', $config['care_scopes'],
                     $applicant->care_scope,
                     array('id' => 'care_scope', 'class' => 'form-control') )  !!}
               </div>
