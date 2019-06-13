@@ -96,7 +96,7 @@ class ApplicantController extends Controller
     $criteria_names = $criteria_values->unique('criterium_name');
 
     $config = array();
-    $config['age_chohorts'] = config('kitamatch_config.care_scopes');
+    $config['age_cohorts'] = config('kitamatch_config.age_cohorts');
     $config['care_starts'] = config('kitamatch_config.care_starts');
     $config['care_scopes'] = config('kitamatch_config.care_scopes');
 
