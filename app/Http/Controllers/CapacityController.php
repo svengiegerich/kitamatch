@@ -44,8 +44,8 @@ class CapacityController extends Controller
   }
 
   public function updateByProgram($request) {
-    print_r($request->input());
-    foreach($request as $key => $value) {
+    $inputs = $request->input();
+    foreach($inputs as $key => $value) {
       if (strpos($key, 'capacity_') == TRUE) {
         $id = substr($key, 9);
         $capacity = Capacity::find($id);
