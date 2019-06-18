@@ -44,6 +44,7 @@ class CapacityController extends Controller
   }
 
   public function updateByProgram($request) {
+    print("t");
     foreach($request as $key => $value) {
       print($key);
       if (strpos($key, 'capacity_') == TRUE) {

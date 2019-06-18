@@ -177,6 +177,7 @@ class ProgramController extends Controller
   public function edit(ProgramRequest $request, $pid) {
     $request->request->add(['pid' => $pid]);
     $program = $this->update($request);
+    print("h");
     $capacities = app('App\Http\Controllers\CapacityController')->updateByProgram($request);
     return redirect()->action('ProgramController@show', ['pid' => $pid]);
   }
