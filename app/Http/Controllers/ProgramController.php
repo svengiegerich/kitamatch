@@ -177,7 +177,8 @@ class ProgramController extends Controller
   public function edit(ProgramRequest $request, $pid) {
     $request->request->add(['pid' => $pid]);
     $program = $this->update($request);
-    return view('program.edit', array('program' => $program));
+    $capacities = app('App\Http\Controllers\CapacityController')->updateByProgram($request);
+    return redirect()->action('ProgramController@show', ['pid' => $pid]);
   }
 
   /**
@@ -202,9 +203,6 @@ class ProgramController extends Controller
     $program->city = $request->city;
     $program->phone = $request->phone;
     $program->save();
-
-    // capacities
-    app('App\Http\Controllers\CapacityController')->updateByProgram($request);
 
     return $program;
   }
