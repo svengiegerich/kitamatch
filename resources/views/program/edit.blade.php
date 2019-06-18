@@ -51,12 +51,19 @@
                 </div>
             </div>
             <!-- Email but with user-table! -->
-            <div class="form-group row">
-                <label for="capacity" class="col-sm-2 col-form-label">Freie Plätze</label>
-                <div class="col-sm-10">
-                  <input type="number" min="0" class="form-control" id="capacity" name="capacity" placeholder="10" value="{{$program->capacity}}" >
+
+            Freie Plätze
+            @foreach (config('kitamatch_config.care_starts') as $care_start)
+              @foreach (config('kitamatch_config.care_starts') as $care_scope)
+                <div class="form-group row">
+                  <label for="capacity" class="col-sm-2 col-form-label">Freie Plätze</label>
+                  <div class="col-sm-10">
+                    <input type="number" min="0" class="form-control" id="{{'capacity_' . $care_start . '_' . $care_scope}}" name="capacity" placeholder="10" value="5">
+                  </div>
                 </div>
-            </div>
+              @endforeach
+            @endforeach
+
 
             <hr class="mb-4">
             <button class="btn btn-light btn-lg btn-block" type="submit">Änderungen speichern</button>

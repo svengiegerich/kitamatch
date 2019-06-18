@@ -1,5 +1,7 @@
 # KitaMatch - Database Manual
 
+*Deprecated!*
+
 ## EER Diagram
 ![alt text](db_eer_diagram.png "EER Diagram")
 
