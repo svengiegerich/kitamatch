@@ -179,7 +179,7 @@ class ProgramController extends Controller
     $program = $this->update($request);
     print("h");
     $capacities = app('App\Http\Controllers\CapacityController')->updateByProgram($request);
-    return redirect()->action('ProgramController@show', ['pid' => $pid]);
+    //return redirect()->action('ProgramController@show', ['pid' => $pid]);
   }
 
   /**
