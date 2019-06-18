@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\DB;
 /**
 * This model handles the (status-)codes
 */
-class Code extends Capacity
+class Capacity extends Model
 {
 
   public $primaryKey = 'id';
