@@ -57,7 +57,7 @@
               @foreach (config('kitamatch_config.care_starts') as $care_scope)
                 <?php $capacity = $capacities->where('care_start', '=', '1')->where('care_scope', '=', '1')->first(); ?>
                 <div class="form-group row">
-                  <label for="capacity" class="col-sm-2 col-form-label">Freie Plätze</label>
+                  <label for="capacity" class="col-sm-2 col-form-label">{{$care_start}}, {{$care_scope}}</label>
                   <div class="col-sm-10">
                     <input type="number" min="0" class="form-control" id="{{'capacity_' . $capacity->care_start . '_' . $capacity->care_scope}}" name="capacity" placeholder="10" value="{{$capacity->capacity}}">
                   </div>
