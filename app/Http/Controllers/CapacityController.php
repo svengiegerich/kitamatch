@@ -36,6 +36,24 @@ class CapacityController extends Controller
     $this->middleware('auth');
   }
 
+  public function update($request) {
+    $capacity = Capacity::find($request->id);
+    $capacity->capacity = $request->capacity;
+    $capacity->save();
+    return $capacity;
+  }
+
+  public function updateByProgram($request) {
+    foreach($request as $key => $value) {
+      if (strpos($key, 'capacity_') == TRUE) {
+        $id = substr($key, 9);
+        $capacity = Capacity::find($id);
+        $capacity->capacity = $value;
+        $capacity->save();
+      }
+    }
+  }
+
   public function getProgramCapacities($pid) {
     $capacities = Capacity::where('pid', '=', $pid) // default criteria of municipality
       ->orderBy('care_start', 'care_scope')
@@ -43,4 +61,5 @@ class CapacityController extends Controller
 
     return $capacities;
   }
+
 }

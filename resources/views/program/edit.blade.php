@@ -63,7 +63,7 @@
                 <div class="form-group row">
                   <label for="capacity" class="col-sm-2 col-form-label">{{$care_start}}, {{$care_scope}}</label>
                   <div class="col-sm-10">
-                    <input type="number" min="0" class="form-control" id="{{'capacity_' . $capacity->care_start . '_' . $capacity->care_scope}}" name="capacity" placeholder="10" value="{{$capacity->capacity}}">
+                    <input type="number" min="0" class="form-control" id="{{'capacity_' . $capacity->id}}" name="{{'capacity_' . $capacity->id}}" placeholder="" value="{{$capacity->capacity}}">
                   </div>
                 </div>
                 @endif
