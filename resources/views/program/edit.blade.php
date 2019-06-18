@@ -50,11 +50,15 @@
                    array('id' => 'age_cohort', 'class' => 'form-control') )  !!}
                 </div>
             </div>
+
+            <hr class="mb-4">
+
             <!-- Email but with user-table! -->
 
             Freie Plätze
-            @foreach (config('kitamatch_config.care_starts') as $care_start)
-              @foreach (config('kitamatch_config.care_starts') as $care_scope)
+            @foreach (config('kitamatch_config.care_starts') as $care_start_key => $care_start)
+              @foreach (config('kitamatch_config.care_scopes') as $care_scope_key => $care_scope)
+                @if ($care_start_key != 0 and $care_scope_key != 0)
                 <?php $capacity = $capacities->where('care_start', '=', '1')->where('care_scope', '=', '1')->first(); ?>
                 <div class="form-group row">
                   <label for="capacity" class="col-sm-2 col-form-label">{{$care_start}}, {{$care_scope}}</label>
@@ -62,6 +66,7 @@
                     <input type="number" min="0" class="form-control" id="{{'capacity_' . $capacity->care_start . '_' . $capacity->care_scope}}" name="capacity" placeholder="10" value="{{$capacity->capacity}}">
                   </div>
                 </div>
+                @endif
               @endforeach
             @endforeach
 
