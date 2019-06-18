@@ -89,6 +89,10 @@ class ProgramController extends Controller
       'uid' => $user->id,
     ]);
     $this->store($request);
+
+    // create capacity entries
+    app('App\Http\Controllers\CapacityController')->storeByProgram($pid);
+
     return redirect()->action('ProviderController@show', $proid);
   }
 
@@ -178,7 +182,7 @@ class ProgramController extends Controller
     $request->request->add(['pid' => $pid]);
     $program = $this->update($request);
     $capacities = app('App\Http\Controllers\CapacityController')->updateByProgram($request);
-    //return redirect()->action('ProgramController@show', ['pid' => $pid]);
+    return redirect()->action('ProgramController@show', ['pid' => $pid]);
   }
 
   /**
