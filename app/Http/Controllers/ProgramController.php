@@ -87,10 +87,10 @@ class ProgramController extends Controller
       'p_kind' => $p_kind,
       'proid' => $proid
     ]);
-    $this->store($request);
+    $program = $this->store($request);
 
     // create capacity entries
-    app('App\Http\Controllers\CapacityController')->storeByProgram($pid);
+    app('App\Http\Controllers\CapacityController')->storeByProgram($program->pid);
 
     return redirect()->action('ProviderController@show', $proid);
   }
