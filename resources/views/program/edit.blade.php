@@ -55,7 +55,7 @@
             Freie Plätze
             @foreach (config('kitamatch_config.care_starts') as $care_start)
               @foreach (config('kitamatch_config.care_starts') as $care_scope)
-                <?php $capacity = $capacities->where('care_start', '=', $care_start)->where('care_scope', '=', $care_scope)->first(); ?>
+                <?php $capacity = $capacities->where('care_start', '=', '1')->where('care_scope', '=', '1')->first(); ?>
                 <div class="form-group row">
                   <label for="capacity" class="col-sm-2 col-form-label">Freie Plätze</label>
                   <div class="col-sm-10">
