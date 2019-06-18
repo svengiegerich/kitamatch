@@ -76,17 +76,16 @@ class ProgramController extends Controller
       $accountType = 2;
     }
 
-    $requestUser->request->add([
+    /*$requestUser->request->add([
       'email' => $request->email,
       'password' => app('App\Http\Controllers\Auth\RegisterController')->generateStrongPassword(),
       'account_type' => $accountType
     ]);
-    $user = app('App\Http\Controllers\Auth\RegisterController')->storeByProvider($requestUser);
+    $user = app('App\Http\Controllers\Auth\RegisterController')->storeByProvider($requestUser);*/
     //store the program
     $request->request->add([
       'p_kind' => $p_kind,
-      'proid' => $proid,
-      'uid' => $user->id,
+      'proid' => $proid
     ]);
     $this->store($request);
 
