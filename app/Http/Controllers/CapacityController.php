@@ -36,7 +36,7 @@ class CapacityController extends Controller
     $this->middleware('auth');
   }
 
-  public getProgramCapacities($pid) {
+  public function getProgramCapacities($pid) {
     $capacities = Capacity::where('pid', '=', $pid) // default criteria of municipality
       ->orderBy('care_start', 'care_scope')
       ->get();

@@ -147,7 +147,7 @@ class ProgramController extends Controller
   */
   public function show($pid) {
     $program = Program::find($pid);
-    $capacities =  app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
+    $capacities = app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
     return view('program.edit', array('program' => $program, 'capacities' => $capacities));
   }
 
