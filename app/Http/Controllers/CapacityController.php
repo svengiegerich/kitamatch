@@ -48,6 +48,8 @@ class CapacityController extends Controller
     foreach($inputs as $key => $value) {
       if (strpos($key, 'capacity_') == TRUE) {
         $id = substr($key, 9);
+        print($id);
+        print($value);
         $capacity = Capacity::find($id);
         $capacity->capacity = $value;
         $capacity->save();
