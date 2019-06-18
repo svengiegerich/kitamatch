@@ -188,7 +188,6 @@ class ProgramController extends Controller
   * @return App\Program
   */
   public function update(ProgramRequest $request) {
-    // program
     $program = Program::find($request->pid);
     $program->name = $request->name;
     $user = User::where('id', '=', $program->uid)->first();
@@ -203,7 +202,6 @@ class ProgramController extends Controller
     $program->city = $request->city;
     $program->phone = $request->phone;
     $program->save();
-
     return $program;
   }
 
