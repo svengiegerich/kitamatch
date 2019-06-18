@@ -36,21 +36,41 @@ class CapacityController extends Controller
     $this->middleware('auth');
   }
 
-  public function update($request) {
+  public function store($request) {
+    $capacity = new Capacity;
+    $capacity->pid = $request->pid;
+    $capacity->care_start = $request->care_start;
+    $capacity->care_scope = $request->care_scope;
+    $capacity->capacity = $request->capacity;
+    $capacity->save();
+  }
+
+  public function storeByProgram($pid) {
+    foreach(config('kitamatch_config.care_starts') as $key_start => $care_start) {
+      foreach(config('kitamatch_config.care_starts') as $key_scope => $care_scope) {
+        $request = new Request();
+        $request->request->add([
+          'pid' => $pid,
+          'care_start' => $care_start,
+          'care_scope' => $care_scope
+        ]);
+        $this->store($request);
+      }
+    }
+  }
+
+  public function update(Request $request) {
     $capacity = Capacity::find($request->id);
     $capacity->capacity = $request->capacity;
     $capacity->save();
     return $capacity;
   }
 
-  public function updateByProgram($request) {
+  public function updateByProgram(Request $request) {
     $inputs = $request->input();
     foreach($inputs as $key => $value) {
-      print($key);
-      if (strpos($key, 'capacity_') == TRUE) {
+      if (strpos($key, 'capacity_') == true) {
         $id = substr($key, 9);
-        print($id);
-        print($value);
         $capacity = Capacity::find($id);
         $capacity->capacity = $value;
         $capacity->save();
