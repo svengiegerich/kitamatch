@@ -37,6 +37,7 @@ class CapacityController extends Controller
   }
 
   public function store($request) {
+    print_r($request);
     $capacity = new Capacity;
     $capacity->pid = $request->pid;
     $capacity->care_start = $request->care_start;
@@ -48,18 +49,20 @@ class CapacityController extends Controller
   public function storeByProgram($pid) {
     foreach(config('kitamatch_config.care_starts') as $key_start => $care_start) {
       foreach(config('kitamatch_config.care_starts') as $key_scope => $care_scope) {
-        print("start");
-        print($care_start);
-        print("scope");
-        print($care_scope);
-
-        $request = new Request();
-        $request->request->add([
-          'pid' => $pid,
-          'care_start' => $care_start,
-          'care_scope' => $care_scope
-        ]);
-        $this->store($request);
+        if ($key_start != 0 and $key_scope != 0) {
+          print("start");
+          print($care_start);
+          print("scope");
+          print($care_scope);
+          $request = new Request();
+          $request->request->add([
+            'pid' => $pid,
+            'care_start' => $care_start,
+            'care_scope' => $care_scope
+          ]);
+          print_r($request);
+          $this->store($request);
+        }
       }
     }
   }
