@@ -154,7 +154,7 @@ class ProgramController extends Controller
     }
 
     $capacities = app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
-    return view('program.edit', array('program' => $program, 'capacities' => $capacities));
+    //return view('program.edit', array('program' => $program, 'capacities' => $capacities));
   }
 
   /**

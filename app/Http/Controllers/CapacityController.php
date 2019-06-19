@@ -48,6 +48,11 @@ class CapacityController extends Controller
   public function storeByProgram($pid) {
     foreach(config('kitamatch_config.care_starts') as $key_start => $care_start) {
       foreach(config('kitamatch_config.care_starts') as $key_scope => $care_scope) {
+        print("start");
+        print($care_start);
+        print("scope");
+        print($care_scope);
+
         $request = new Request();
         $request->request->add([
           'pid' => $pid,
