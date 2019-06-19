@@ -90,10 +90,10 @@ class CapacityController extends Controller
     $capacities = Capacity::where('pid', '=', $pid)->get();
     if ($capacities->count() > 0) {
       print("T");
-      return TRUE;
+      return True;
     } else {
       print("F")
-      return FALSE;
+      return False;
     }
   }
 }
