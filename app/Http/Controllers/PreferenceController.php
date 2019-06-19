@@ -217,7 +217,7 @@ class PreferenceController extends Controller
               $id_to = $program->pid . '_' . $key_start . '_' . $key_scope;
               if ($applicant->care_scope == $key_scope) {
                 $rank = $i + 1;
-              } else () {
+              } else {
                 $rank = $i + 2;
               }
 
