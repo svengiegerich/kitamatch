@@ -52,7 +52,6 @@ class CapacityController extends Controller
       foreach(config('kitamatch_config.care_starts') as $key_scope => $care_scope) {
         if ($key_start != 0 and $key_scope != 0) {
           $request = new Request();
-          $request->setMethod('POST');
           $request->request->add([
             'pid' => $pid,
             'care_start' => $key_start,
