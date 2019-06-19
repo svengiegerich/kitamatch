@@ -36,7 +36,7 @@ class CapacityController extends Controller
     $this->middleware('auth');
   }
 
-  public function store($request) {
+  public function store(Request $request) {
     $capacity = new Capacity;
     $capacity->pid = $request->pid;
     $capacity->care_start = $request->care_start;
@@ -49,11 +49,6 @@ class CapacityController extends Controller
     foreach(config('kitamatch_config.care_starts') as $key_start => $care_start) {
       foreach(config('kitamatch_config.care_starts') as $key_scope => $care_scope) {
         if ($key_start != 0 and $key_scope != 0) {
-          print("start");
-          print($care_start);
-          print("scope");
-          print($care_scope);
-          print("........");
           $request = new Request();
           $request->request->add([
             'pid' => $pid,
