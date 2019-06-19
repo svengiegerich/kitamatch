@@ -37,7 +37,6 @@ class CapacityController extends Controller
   }
 
   public function store($request) {
-    print_r($request);
     $capacity = new Capacity;
     $capacity->pid = $request->pid;
     $capacity->care_start = $request->care_start;
