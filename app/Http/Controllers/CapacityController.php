@@ -86,4 +86,12 @@ class CapacityController extends Controller
     return $capacities;
   }
 
+  public function hasProgramCapacity($pid) {
+    $capacities = Capacity::where('pid', '=', $pid)->get();
+    if ($capacity->count() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
