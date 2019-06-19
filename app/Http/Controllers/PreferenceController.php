@@ -96,7 +96,7 @@ class PreferenceController extends Controller
   }
 
   /**
-  * Show all preferences of an applicant on a view
+  * Show the feasible set (pr_kind == 0) of an applicant on a view
   *
   * @param integer $aid Applicant-ID
   * @return view preference.showByApplicant
@@ -129,7 +129,7 @@ class PreferenceController extends Controller
   }
 
   /**
-  * Add a preference of an applicant
+  * Add a institution ot the feasible set (pr_kind == 0) of an applicant
   *
   * @param Illuminate\Http\Request $request request
   * @param integer $aid Applicant-ID
@@ -149,7 +149,7 @@ class PreferenceController extends Controller
   }
 
   /**
-  * Change the preference orders of a single applicant, ajax sided
+  * Change the order of the feasible of a single applicant, ajax sided
   *
   * @param App\Http\Requests $request request
   * @param integer $aid Applicant-ID
@@ -170,7 +170,7 @@ class PreferenceController extends Controller
   }
 
   /**
-  * Prepare the ajay sided deletion of a single preference by an applicant
+  * Prepare the ajay sided deletion of a single element in the feasible set by an applicant
   *
   * @param App\Http\Requests $request request
   * @param integer $aid Applicant-ID
@@ -185,7 +185,7 @@ class PreferenceController extends Controller
   }
 
   /**
-  * Delete a single preference by an applicant
+  * Delete a single element in the feasible set by an applicant
   *
   * @param App\Http\Requests $request request
   * @param integer $prid Preference-ID
@@ -198,6 +198,55 @@ class PreferenceController extends Controller
     $preference->save();
     return $preference;
   }
+
+  // write applicant's preferences based on the feasible set, by care start & scope
+  public function setPreferencesByApplicant($aid) {
+    $applicant = Applicant::find($aid);
+    $feasible_set = Prefernce::where('pr_kind', '=', 0)->where('id_from', '=', $aid)->where('status', '=', 1)->orderBy('rank')->get();
+
+    $i = 1;
+    if ($applicant->alternative_start == 1 and $applicant->alternative_scope == 1) {
+      // both: yes
+      foreach($feasible_set as $key => $program) {
+        foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
+          foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
+            if ($key_start >= $applicant->care_start and ($key_scope != 0 and $key_start != 0)) {
+              $request = new Request();
+              $request->setMethod('POST');
+
+              $id_to = $program->pid . '_' . $key_start . '_' . $key_scope;
+              if ($applicant->care_scope == $key_scope) {
+                $rank = $i + 1;
+              } else () {
+                $rank = $i + 2;
+              }
+
+              $request->request->add([
+                'id_from' => $aid,
+                'id_to' => $id_to,
+                'pr_kind' => 1,
+                'status' => 1,
+                'rank' => $rank
+              ]);
+
+              $this->store($request);
+              $i = $i + 1;
+            }
+          }
+        }
+      }
+    } elseif () {
+
+    } elseif () {
+
+    } elseif () {
+
+    } else {
+
+    }
+  }
+
+  /** ------------------------------------------------------------------------------------ */
 
   /**
   * Show all preferences of a program on a view

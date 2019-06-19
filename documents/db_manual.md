@@ -40,6 +40,7 @@ Matching class mainly handles the API calls.
 Preference class maintains preferences in two-directions, from applicant to program and from program to applicant.
 ### Codes
 #### pr_kind
+* 0: aplicant's feasible set of childcare institutions
 * 1: applicant to program
 * 2: coordinated program to applicant
 * 3: uncoordinated program to applicant
