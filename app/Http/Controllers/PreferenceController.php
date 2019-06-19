@@ -235,11 +235,11 @@ class PreferenceController extends Controller
           }
         }
       }
-    } elseif () {
+    } elseif (1 == 1) {
 
-    } elseif () {
+    } elseif (1 == 1) {
 
-    } elseif () {
+    } elseif (1 == 1) {
 
     } else {
 
