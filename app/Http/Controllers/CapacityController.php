@@ -92,7 +92,7 @@ class CapacityController extends Controller
       print("T");
       return True;
     } else {
-      print("F")
+      print("F");
       return False;
     }
   }
