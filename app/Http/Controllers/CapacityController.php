@@ -57,8 +57,8 @@ class CapacityController extends Controller
           $request = new Request();
           $request->request->add([
             'pid' => $pid,
-            'care_start' => $care_start,
-            'care_scope' => $care_scope
+            'care_start' => $key_start,
+            'care_scope' => $key_scope
           ]);
           print_r($request);
           $this->store($request);
