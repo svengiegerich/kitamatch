@@ -54,13 +54,13 @@ class CapacityController extends Controller
           print($care_start);
           print("scope");
           print($care_scope);
+          print("........");
           $request = new Request();
           $request->request->add([
             'pid' => $pid,
             'care_start' => $key_start,
             'care_scope' => $key_scope
           ]);
-          print_r($request);
           $this->store($request);
         }
       }
