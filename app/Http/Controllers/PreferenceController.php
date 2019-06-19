@@ -215,6 +215,7 @@ class PreferenceController extends Controller
               $request->setMethod('POST');
 
               $id_to = $program->pid . '_' . $key_start . '_' . $key_scope;
+              print($id_to);
               if ($applicant->care_scope == $key_scope) {
                 $rank = $i + 1;
               } else {
@@ -229,7 +230,7 @@ class PreferenceController extends Controller
                 'rank' => $rank
               ]);
 
-              $this->store($request);
+              //$this->store($request);
               $i = $i + 1;
             }
           }
