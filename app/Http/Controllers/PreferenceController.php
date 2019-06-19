@@ -222,7 +222,7 @@ class PreferenceController extends Controller
               }
 
               $request->request->add([
-                'id_from' => $aid,
+                'id_from' => $applicant->aid,
                 'id_to' => $id_to,
                 'pr_kind' => 1,
                 'status' => 1,
