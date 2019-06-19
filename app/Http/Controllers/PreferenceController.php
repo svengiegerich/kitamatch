@@ -58,7 +58,7 @@ class PreferenceController extends Controller
     $preference->pr_kind = $request->pr_kind;
     //if no pr_kind, than it is the preference from an applicant
     if (!$request->pr_kind) {
-      $preference->pr_kind = 1;
+      $preference->pr_kind = 0;
     }
     $preference->rank = $request->rank;
     $preference->status = $request->status;
@@ -87,7 +87,7 @@ class PreferenceController extends Controller
     $preference->pr_kind = $request->pr_kind;
     //if no pr_kind, than it is preference by applicant
     if (!$request->pr_kind) {
-      $preference->pr_kind = 1;
+      $preference->pr_kind = 0;
     }
     $preference->rank = $request->rank;
     $preference->status = $request->status;
@@ -141,7 +141,7 @@ class PreferenceController extends Controller
     $preference = new Preference;
     $preference->id_from = $aid;
     $preference->id_to = $request->to;
-    $preference->pr_kind = 1;
+    $preference->pr_kind = 0;
     $preference->rank = $rank;
     $preference->status = 1;
     $preference->save();

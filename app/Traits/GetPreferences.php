@@ -34,7 +34,7 @@ trait GetPreferences {
   */
   public function getPreferencesByApplicant($aid) {
     $preferences = DB::table('preferences')->where('id_from', '=', $aid)
-      ->whereIn('pr_kind', [1, 4])
+      ->whereIn('pr_kind', [0])
       ->where('status', '=', 1)
       ->orderBy('rank', 'asc')
       ->get();
