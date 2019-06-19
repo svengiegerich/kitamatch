@@ -202,6 +202,8 @@ class PreferenceController extends Controller
   // write applicant's preferences based on the feasible set, by care start & scope
   public function setPreferencesByApplicant($aid) {
     $applicant = Applicant::find($aid);
+    print_r($aid);
+    print('<br>');
     $feasible_set = Preference::where('pr_kind', '=', 0)->where('id_from', '=', $aid)->where('status', '=', 1)->orderBy('rank')->get();
 
     $i = 1;
