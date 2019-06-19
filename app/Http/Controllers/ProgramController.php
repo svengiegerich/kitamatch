@@ -148,6 +148,8 @@ class ProgramController extends Controller
   public function show($pid) {
     $program = Program::find($pid);
 
+    print_r(app('App\Http\Controllers\CapacityController')->hasProgramCapacity($pid));
+
     if (!app('App\Http\Controllers\CapacityController')->hasProgramCapacity($pid)) {
       // create capacity entries
       app('App\Http\Controllers\CapacityController')->storeByProgram($program->pid);
