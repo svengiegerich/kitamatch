@@ -230,7 +230,9 @@ class PreferenceController extends Controller
         foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
           if ($key_start >= $applicant->care_start and ($key_scope != 0 and $key_start != 0)) {
             $id_to = $pid . '_' . $key_start . '_' . $key_scope;
-            $scope_rank = ($applicant->care_scope == $key_scope)? 1 : 2; //at the moment just two scopes
+
+            //at the moment just two scopes
+            $scope_rank = ($applicant->care_scope == $key_scope)? 1 : 2;
             $scope_is_first =($applicant->care_scope == $key_scope)? 1 : 0;
 
             $preference_list[] = array(
@@ -239,7 +241,8 @@ class PreferenceController extends Controller
               'scope' => $key_scope,
               'program_rank' => $rank,
               'id_to' => $id_to,
-              'scope_is_first' => $scope_is_first
+              'scope_is_first' => $scope_is_first,
+              'scope_rank' => $scope_rank
             );
           }
         }
