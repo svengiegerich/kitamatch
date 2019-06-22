@@ -249,6 +249,8 @@ class PreferenceController extends Controller
         }
       }
       print_r($preference_list);
+
+      print_r(array_orderby($preference_list, 'start', SORT_ASC, 'scope', SORT_ASC));
     } elseif (1 == 1) {
 
     } elseif (1 == 1) {
