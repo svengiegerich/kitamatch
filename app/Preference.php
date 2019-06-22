@@ -120,7 +120,6 @@ class Preference extends Model
   * @return Illuminate\Database\Eloquent\Collection applicants
   */
   public function getAvailableApplicants($pid) {
-
     $applicants = DB::table('preferences')
       ->join('applicants', 'applicants.aid', '=', 'preferences.id_from')
       ->where('preferences.id_to', 'LIKE', $pid)
@@ -128,6 +127,9 @@ class Preference extends Model
       ->where('preferences.pr_kind', 1)
       ->select('applicants.*')
       ->get();
+      print_r($applicants);
+      exit();
+
     return $applicants;
   }
 

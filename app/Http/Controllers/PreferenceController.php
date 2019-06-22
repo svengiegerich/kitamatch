@@ -112,6 +112,28 @@ class PreferenceController extends Controller
     return $preference;
   }
 
+
+    /**
+    * Show a single preference in a view
+    *
+    * @param integer $prid Preference-ID
+    * @return view preference.edit
+    */
+    public function show($prid) {
+      $preference = Preference::find($prid);
+      return view('preference.show', array('preference' => $preference));
+    }
+
+    /**
+    * Show a listed preferences
+    *
+    * @return view preference.all
+    */
+    public function all() {
+      $preferences = Preference::all();
+      return view('preference.all', array('preferences' => $preferences));
+    }
+
   // -----------------------------------------------------------------------------------------------
   // -----------------------------------------------------------------------------------------------
   // -----------------------------------------------------------------------------------------------
@@ -343,7 +365,7 @@ class PreferenceController extends Controller
       );
     }
 
-    $i = 0;
+    $i = 1;
     foreach($sorted as $preference) {
       $request = new Request();
       $request->setMethod('POST');
@@ -429,7 +451,7 @@ class PreferenceController extends Controller
       $Matching = new Matching();
       $round = $Matching->getRound(); //current vs. past
       $lastMatch = $Matching->lastMatch();
-      $preferences = $this->getPreferencesUncoordinatedByProgram($pid);
+      $preferences = $this->getPreferencesUncoordinatedByProgram($pid); //!!
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
         $provider = true;
@@ -729,27 +751,6 @@ class PreferenceController extends Controller
     $this->createCoordinatedPreferencesByProgram($program);
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
-  }
-
-  /**
-  * Show a single preference in a view
-  *
-  * @param integer $prid Preference-ID
-  * @return view preference.edit
-  */
-  public function show($prid) {
-    $preference = Preference::find($prid);
-    return view('preference.show', array('preference' => $preference));
-  }
-
-  /**
-  * Show a listed preferences
-  *
-  * @return view preference.all
-  */
-  public function all() {
-    $preferences = Preference::all();
-    return view('preference.all', array('preferences' => $preferences));
   }
 
 }
