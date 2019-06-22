@@ -128,6 +128,7 @@ class Preference extends Model
       ->where('preferences.pr_kind', 1)
       ->select('applicants.*')
       ->get();
+      print_r($applicants);
     return $applicants;
   }
 
