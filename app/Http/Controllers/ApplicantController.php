@@ -170,12 +170,10 @@ class ApplicantController extends Controller
     if ($request->change_request) { $applicant->change_request = $request->change_request; }
 
     // start & begin
-    print_r($request->alternative_start);
-
-    if ($request->care_start) { $applicant->care_start = $request->care_start; }
-    if ($request->care_scope	) { $applicant->care_scope	 = $request->care_scope	; }
-    if ($request->alternative_start) { $applicant->alternative_start = $request->alternative_start; }
-    if ($request->alternative_scope) { $applicant->alternative_scope = $request->alternative_scope; }
+    if ($request->care_start or $request->care_start == 0) { $applicant->care_start = $request->care_start; }
+    if ($request->care_scope or $request->care_scope == 0) { $applicant->care_scope	 = $request->care_scope	; }
+    if ($request->alternative_start or $request->alternative_start == 0) { $applicant->alternative_start = $request->alternative_start; }
+    if ($request->alternative_scope or $request->alternative_scope == 0) { $applicant->alternative_scope = $request->alternative_scope; }
 
     $applicant->save();
     return $applicant;
