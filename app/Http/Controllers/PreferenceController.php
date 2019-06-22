@@ -251,7 +251,7 @@ class PreferenceController extends Controller
       $sorted = $this->array_orderby(
         $preference_list,
         'program_rank', SORT_ASC,
-        'scope_rank', SORT ASC,
+        'scope_rank', SORT_ASC,
         'start', SORT_ASC // the earlier the better
       );
 
@@ -267,7 +267,7 @@ class PreferenceController extends Controller
       $sorted = $this->array_orderby(
         $filtered,
         'program_rank', SORT_ASC,
-        'scope_rank', SORT ASC
+        'scope_rank', SORT_ASC
       );
 
     } elseif ($applicant->alternative_scope == 0 and $applicant->alternative_start == 1) {
@@ -310,7 +310,7 @@ class PreferenceController extends Controller
       $sorted = $this->array_orderby(
         $preference_list,
         'program_rank', SORT_ASC,
-        'scope_rank', SORT ASC,
+        'scope_rank', SORT_ASC,
         'start', SORT_ASC // the earlier the better
       );
     }
