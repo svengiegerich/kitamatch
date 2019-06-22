@@ -270,8 +270,8 @@ class PreferenceController extends Controller
 
       $sorted = $this->array_orderby(
         $filtered,
-        'program_rank', SORT_ASC,
-        'scope_rank', SORT_ASC
+        'scope_rank', SORT_ASC,
+        'program_rank', SORT_ASC
       );
 
     } elseif ($applicant->alternative_scope == 0 and $applicant->alternative_start == 1) {
