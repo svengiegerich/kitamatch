@@ -263,7 +263,7 @@ class PreferenceController extends Controller
       $filtered = array_filter(
         $preference_list,
         function ($var) {
-          return ($var['start'] == $applicant->alternative_start);
+          return ($var['start'] == $applicant->care_start);
         }
       );
 
@@ -299,7 +299,7 @@ class PreferenceController extends Controller
       $filtered = array_filter(
         $filtered,
         function ($var) {
-          return ($var['start'] == $applicant->alternative_start);
+          return ($var['start'] == $applicant->care_start);
         }
       );
 
