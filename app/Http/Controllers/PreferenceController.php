@@ -204,8 +204,6 @@ class PreferenceController extends Controller
     $applicant = Applicant::find($aid);
     $feasible_set = Preference::where('pr_kind', '=', 0)->where('id_from', '=', $aid)->where('status', '=', 1)->orderBy('rank')->get();
 
-    print_r($feasible_set);
-
     $i = 1;
     if ($applicant->alternative_start == 1 and $applicant->alternative_scope == 1) {
       // both: yes
