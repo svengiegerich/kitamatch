@@ -220,12 +220,16 @@ class PreferenceController extends Controller
 
   // only admins should be able to call this function
   public function setApplicantsPreferences() {
+    $preferences = Preference::where('pr_kind', '=', 1); // check if there was already a set, if so: print an error and exit
+    if ($preferences->count() > 0) {
+      abort(403, 'Die Präferenzen wurden schon einmal gesetzt. Bitte kontaktieren Sie den Systemadministrator.');
+    }
+
     $model = new Applicant;
     $applicants = $model->getAll();
     foreach ($applicants as $applicant) {
       $this->setPreferencesByApplicant($applicant->aid);
     }
-
     return redirect()->action('AdminController@index');
   }
 
