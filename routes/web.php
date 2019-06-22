@@ -55,7 +55,7 @@ Route::post('/preference/applicant/reorder/{aID}', 'PreferenceController@reorder
 Route::post('/preference/applicant/delete/{aID}', 'PreferenceController@deleteByApplicantAjax');
 Route::delete('/preference/applicant/{prID}', 'PreferenceController@deleteByApplication');
 
-Route::get('preference/applicant/set', 'PreferenceController@setApplicantsPreferences');
+Route::get('preference/applicant/set/', 'PreferenceController@setApplicantsPreferences');
 // ------ By Program - coordinated
 Route::get('/preference/program/{pID}', 'PreferenceController@showByProgram');
 Route::post('/preference/program/{pID}', 'PreferenceController@addByProgram');
