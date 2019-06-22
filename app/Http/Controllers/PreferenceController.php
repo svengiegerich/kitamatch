@@ -45,6 +45,23 @@ class PreferenceController extends Controller
         $this->middleware('auth');
   }
 
+  public function array_orderby()
+{
+    $args = func_get_args();
+    $data = array_shift($args);
+    foreach ($args as $n => $field) {
+        if (is_string($field)) {
+            $tmp = array();
+            foreach ($data as $key => $row)
+                $tmp[$key] = $row[$field];
+            $args[$n] = $tmp;
+            }
+    }
+    $args[] = &$data;
+    call_user_func_array('array_multisort', $args);
+    return array_pop($args);
+}
+
   /**
   * Store a single preference
   *
@@ -250,7 +267,7 @@ class PreferenceController extends Controller
       }
       print_r($preference_list);
 
-      print_r(array_orderby($preference_list, 'start', SORT_ASC, 'scope', SORT_ASC));
+      print_r($this->array_orderby($preference_list, 'start', SORT_ASC, 'scope', SORT_ASC));
     } elseif (1 == 1) {
 
     } elseif (1 == 1) {
