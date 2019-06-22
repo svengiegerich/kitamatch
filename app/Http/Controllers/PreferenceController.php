@@ -216,6 +216,17 @@ class PreferenceController extends Controller
     return $preference;
   }
 
+  // only admins should be able to call this function
+  public function setApplicantsPreferences() {
+    $model = new Applicant;
+    $applicants = $model->getAll();
+    foreach ($applicants as $applicant) {
+      $this->setPreferencesByApplicant($applicant->aid);
+    }
+
+    return redirect()->action('AdminController@index');
+  }
+
   // write applicant's preferences based on the feasible set, by care start & scope
   public function setPreferencesByApplicant($aid) {
     $applicant = Applicant::find($aid);
@@ -320,28 +331,25 @@ class PreferenceController extends Controller
       );
     }
 
-    print_r($sorted);
+    $i = 0;
+    foreach($sorted as $preference) {
+      $request = new Request();
+      $request->setMethod('POST');
 
-    /*if ($applicant->care_scope == $key_scope) {
-      $rank = $i + 1;
-    } else {
-      $rank = $i + 2;
-    }*/
+      $rank = $i;
 
+      $request->request->add([
+        'from' => $applicant->aid,
+        'to' => $preference->id_to,
+        'pr_kind' => 1,
+        'status' => 1,
+        'rank' => $rank
+      ]);
 
-    /*$request = new Request();
-    $request->setMethod('POST');
+      $this->store($request);
 
-    $request->request->add([
-      'from' => $applicant->aid,
-      'to' => $id_to,
-      'pr_kind' => 1,
-      'status' => 1,
-      'rank' => $rank
-    ]);
-
-    $this->store($request);
-    $i = $i + 1;*/
+      $i = $i + 1;
+    }
   }
 
   /** ------------------------------------------------------------------------------------ */
