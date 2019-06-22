@@ -206,24 +206,33 @@ class PreferenceController extends Controller
 
     print_r($feasible_set);
 
+    $preference_list = array();
     $i = 1;
     if ($applicant->alternative_start == 1 and $applicant->alternative_scope == 1) {
-      // both: yes
       foreach($feasible_set as $key => $preference) {
         $pid = $preference->id_to;
         foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
           foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
             if ($key_start >= $applicant->care_start and ($key_scope != 0 and $key_start != 0)) {
-              $request = new Request();
-              $request->setMethod('POST');
 
               $id_to = $pid . '_' . $key_start . '_' . $key_scope;
 
-              if ($applicant->care_scope == $key_scope) {
+              $preference_list[] = array(
+                'pid' => $pid,
+                'start' => $key_start,
+                'scope' => $key_scope,
+                'program_rank' => $key
+              );
+
+              /*if ($applicant->care_scope == $key_scope) {
                 $rank = $i + 1;
               } else {
                 $rank = $i + 2;
-              }
+              }*/
+
+
+              /*$request = new Request();
+              $request->setMethod('POST');
 
               $request->request->add([
                 'from' => $applicant->aid,
@@ -234,11 +243,12 @@ class PreferenceController extends Controller
               ]);
 
               $this->store($request);
-              $i = $i + 1;
+              $i = $i + 1;*/
             }
           }
         }
       }
+      print_r($preference_list);
     } elseif (1 == 1) {
 
     } elseif (1 == 1) {
