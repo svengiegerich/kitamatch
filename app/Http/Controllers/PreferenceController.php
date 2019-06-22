@@ -153,15 +153,17 @@ class PreferenceController extends Controller
   * @return action PreferenceController@showByApplicant
   */
   public function addByApplicant(Request $request, $aid) {
-    $Preference = new Preference;
-    $rank = $Preference->getLowestRankApplicant($aid) + 1;
-    $preference = new Preference;
-    $preference->id_from = $aid;
-    $preference->id_to = $request->to;
-    $preference->pr_kind = 0;
-    $preference->rank = $rank;
-    $preference->status = 1;
-    $preference->save();
+    if ($request->id_to != -1) { // should be a real program
+      $Preference = new Preference;
+      $rank = $Preference->getLowestRankApplicant($aid) + 1;
+      $preference = new Preference;
+      $preference->id_from = $aid;
+      $preference->id_to = $request->to;
+      $preference->pr_kind = 0;
+      $preference->rank = $rank;
+      $preference->status = 1;
+      $preference->save();
+    }
     return redirect()->action('ApplicantController@show', $aid);
   }
 
