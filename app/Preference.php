@@ -123,12 +123,11 @@ class Preference extends Model
 
     $applicants = DB::table('preferences')
       ->join('applicants', 'applicants.aid', '=', 'preferences.id_from')
-      ->where('preferences.id_to', 'like', '{'. $pid . '_}%')
+      ->where('preferences.id_to', 'LIKE', $pid)
       ->where('preferences.status', '=', 1)
       ->where('preferences.pr_kind', 1)
       ->select('applicants.*')
       ->get();
-      print_r($applicants);
     return $applicants;
   }
 
