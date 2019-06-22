@@ -120,17 +120,10 @@ class Preference extends Model
   * @return Illuminate\Database\Eloquent\Collection applicants
   */
   public function getAvailableApplicants($pid) {
-    /*
-    SELECT applicants.* FROM preferences
-    INNER JOIN applicants ON applicants.aid = preferences.id_from
-    WHERE preferences.id_to = <*6*>
-    WHERE preferences.pr_kind = 1
-    ORDER BY preferences.status
-    */
 
     $applicants = DB::table('preferences')
       ->join('applicants', 'applicants.aid', '=', 'preferences.id_from')
-      ->where('preferences.id_to', '=', $pid)
+      ->where('preferences.id_to', 'like', '{'. $pid . '_}%')
       ->where('preferences.status', '=', 1)
       ->where('preferences.pr_kind', 1)
       ->select('applicants.*')
