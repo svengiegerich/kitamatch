@@ -216,7 +216,7 @@ class PreferenceController extends Controller
               $request = new Request();
               $request->setMethod('POST');
 
-              $id_to = $program->pid . '_' . $key_start . '_' . $key_scope;
+              $id_to = $program->id_to . '_' . $key_start . '_' . $key_scope;
               print($id_to);
               print('<br>');
               if ($applicant->care_scope == $key_scope) {
