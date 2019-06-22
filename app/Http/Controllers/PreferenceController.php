@@ -340,7 +340,7 @@ class PreferenceController extends Controller
 
       $request->request->add([
         'from' => $applicant->aid,
-        'to' => $preference->id_to,
+        'to' => $preference['id_to'],
         'pr_kind' => 1,
         'status' => 1,
         'rank' => $rank

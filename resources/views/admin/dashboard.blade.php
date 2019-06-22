@@ -72,7 +72,7 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
           <br>
-          <a target="_blank" href="{{url('/preference/applicant/set')}}"><button class="btn btn-light btn-lg btn-block">Ranglisten der Bewerber einrasten</button></a>
+          <a target="_blank" href="{{url('/preference/set')}}"><button class="btn btn-light btn-lg btn-block">Ranglisten der Bewerber einrasten</button></a>
         </div>
       </div>
 
