@@ -8,7 +8,7 @@ return [
 
   // CARE STARTES
   'care_starts' => [
-    0 => 'Bitte auswählen...',
+    -1 => 'Bitte auswählen...',
     1 => 'Q1',
     2 => 'Q2',
     3 => 'Q3',
@@ -22,7 +22,7 @@ return [
 
   // CARE SCOPES
   'care_scopes' => [
-    0 => 'Bitte auswählen...',
+    -1 => 'Bitte auswählen...',
     1 => 'Halbtags',
     2 => 'Ganztags'
   ],

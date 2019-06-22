@@ -221,62 +221,122 @@ class PreferenceController extends Controller
     $applicant = Applicant::find($aid);
     $feasible_set = Preference::where('pr_kind', '=', 0)->where('id_from', '=', $aid)->where('status', '=', 1)->orderBy('rank')->get();
 
-    print_r($feasible_set);
-
     $preference_list = array();
-    $i = 1;
-    if ($applicant->alternative_start == 1 and $applicant->alternative_scope == 1) {
-      foreach($feasible_set as $key => $preference) {
-        $pid = $preference->id_to;
-        foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
-          foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
-            if ($key_start >= $applicant->care_start and ($key_scope != 0 and $key_start != 0)) {
 
-              $id_to = $pid . '_' . $key_start . '_' . $key_scope;
+    foreach($feasible_set as $key => $preference) {
+      $pid = $preference->id_to;
+      $rank = $preference->rank;
+      foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
+        foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
+          if ($key_start >= $applicant->care_start and ($key_scope != 0 and $key_start != 0)) {
+            $id_to = $pid . '_' . $key_start . '_' . $key_scope;
+            $scope_rank = ($applicant->care_scope == $key_scope)? 1 : 2; //at the moment just two scopes
+            $scope_is_first =($applicant->care_scope == $key_scope)? 1 : 0;
 
-              $preference_list[] = array(
-                'pid' => $pid,
-                'start' => $key_start,
-                'scope' => $key_scope,
-                'program_rank' => $key
-              );
-
-              /*if ($applicant->care_scope == $key_scope) {
-                $rank = $i + 1;
-              } else {
-                $rank = $i + 2;
-              }*/
-
-
-              /*$request = new Request();
-              $request->setMethod('POST');
-
-              $request->request->add([
-                'from' => $applicant->aid,
-                'to' => $id_to,
-                'pr_kind' => 1,
-                'status' => 1,
-                'rank' => $rank
-              ]);
-
-              $this->store($request);
-              $i = $i + 1;*/
-            }
+            $preference_list[] = array(
+              'pid' => $pid,
+              'start' => $key_start,
+              'scope' => $key_scope,
+              'program_rank' => $rank,
+              'id_to' => $id_to,
+              'scope_is_first' => $scope_is_first
+            );
           }
         }
       }
-      print_r($preference_list);
+    }
 
-      print_r($this->array_orderby($preference_list, 'start', SORT_ASC, 'scope', SORT_ASC));
-    } elseif (1 == 1) {
+    if ($applicant->alternative_scope == 1 and $applicant->alternative_start == 1) {
+      // both: yes
+      $sorted = $this->array_orderby(
+        $preference_list,
+        'program_rank', SORT_ASC,
+        'scope_rank', SORT ASC,
+        'start', SORT_ASC // the earlier the better
+      );
 
-    } elseif (1 == 1) {
+    } elseif ($applicant->alternative_scope == 1 and $applicant->alternative_start == 0) {
+      // alternative_scope: yes, alternative_start: no
+      $filtered = array_filter(
+        $preference_list,
+        function ($var) {
+          return ($var['start'] == $applicant->alternative_start);
+        }
+      );
 
-    } elseif (1 == 1) {
+      $sorted = $this->array_orderby(
+        $filtered,
+        'program_rank', SORT_ASC,
+        'scope_rank', SORT ASC
+      );
+
+    } elseif ($applicant->alternative_scope == 0 and $applicant->alternative_start == 1) {
+      // alternative_scope: no, alternative_start: yes
+      $filtered = array_filter(
+        $preference_list,
+        function ($var) {
+          return ($var['scope_is_first'] == 1);
+        }
+      );
+
+      $sorted = $this->array_orderby(
+        $filtered,
+        'program_rank', SORT_ASC,
+        'start', SORT_ASC
+      );
+
+    } elseif ($applicant->alternative_scope == 0 and $applicant->alternative_start == 0) {
+      // alternative_scope: no, alternative_start: no
+      $filtered = array_filter(
+        $preference_list,
+        function ($var) {
+          return ($var['scope_is_first'] == 1);
+        }
+      );
+      $filtered = array_filter(
+        $filtered,
+        function ($var) {
+          return ($var['start'] == $applicant->alternative_start);
+        }
+      );
+
+      $sorted = $this->array_orderby(
+        $filtered,
+        'program_rank', SORT_ASC
+      );
 
     } else {
-
+      // default
+      $sorted = $this->array_orderby(
+        $preference_list,
+        'program_rank', SORT_ASC,
+        'scope_rank', SORT ASC,
+        'start', SORT_ASC // the earlier the better
+      );
     }
+
+    print_r($sorted);
+
+    /*if ($applicant->care_scope == $key_scope) {
+      $rank = $i + 1;
+    } else {
+      $rank = $i + 2;
+    }*/
+
+
+    /*$request = new Request();
+    $request->setMethod('POST');
+
+    $request->request->add([
+      'from' => $applicant->aid,
+      'to' => $id_to,
+      'pr_kind' => 1,
+      'status' => 1,
+      'rank' => $rank
+    ]);
+
+    $this->store($request);
+    $i = $i + 1;*/
   }
 
   /** ------------------------------------------------------------------------------------ */

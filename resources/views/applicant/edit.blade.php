@@ -118,9 +118,9 @@
                 {{config('kitamatch_config.care_starts_text')['question_bool']}}</label>
               <div class="col-sm-6">
                    {!! Form::select('alternative_start', array(
-                    '0' => 'Bitte auswählen...',
+                    '-1' => 'Bitte auswählen...',
                     '1' => 'Ja',
-                    '2' => 'Nein'
+                    '0' => 'Nein'
                     ),
                     $applicant->alternative_start,
                     array('id' => 'alternative_start', 'class' => 'form-control') )  !!}
@@ -133,9 +133,9 @@
                 <label for="alternative_scope" class="col-sm-6 col-form-label">{{config('kitamatch_config.care_scopes_text')['question_bool']}}</label>
                 <div class="col-sm-6">
                      {!! Form::select('alternative_scope', array(
-                      '0' => 'Bitte auswählen...',
+                      '-1' => 'Bitte auswählen...',
                       '1' => 'Ja',
-                      '2' => 'Nein'
+                      '0' => 'Nein'
                       ),
                       $applicant->alternative_scope,
                       array('id' => 'alternative_scope', 'class' => 'form-control') )  !!}
