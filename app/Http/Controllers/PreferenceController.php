@@ -228,7 +228,7 @@ class PreferenceController extends Controller
       $rank = $preference->rank;
       foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
         foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
-          if ($key_start >= $applicant->care_start and ($key_scope != 0 and $key_start != 0)) {
+          if ($key_start >= $applicant->care_start and ($key_scope != -1 and $key_start != -1)) {
             $id_to = $pid . '_' . $key_start . '_' . $key_scope;
 
             //at the moment just two scopes

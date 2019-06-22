@@ -50,7 +50,7 @@ class CapacityController extends Controller
   public function storeByProgram($pid) {
     foreach(config('kitamatch_config.care_starts') as $key_start => $care_start) {
       foreach(config('kitamatch_config.care_starts') as $key_scope => $care_scope) {
-        if ($key_start != 0 and $key_scope != 0) {
+        if ($key_start != -1 and $key_scope != -1) {
           $request = new Request();
           $request->setMethod('POST');
           $request->request->add([
