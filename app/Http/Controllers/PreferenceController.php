@@ -260,12 +260,11 @@ class PreferenceController extends Controller
 
     } elseif ($applicant->alternative_scope == 1 and $applicant->alternative_start == 0) {
       // alternative_scope: yes, alternative_start: no
-      print_r($applicant);
-
+      $value = $applicant->care_start;
       $filtered = array_filter(
         $preference_list,
-        function ($var) {
-          return ($var['start'] == $applicant->care_start);
+        function ($var, $value) {
+          return ($var['start'] == $care_start);
         }
       );
 
