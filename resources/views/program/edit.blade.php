@@ -58,7 +58,7 @@
             Freie Plätze
             @foreach (config('kitamatch_config.care_starts') as $care_start_key => $care_start)
               @foreach (config('kitamatch_config.care_scopes') as $care_scope_key => $care_scope)
-                @if ($care_start_key != 0 and $care_scope_key != 0)
+                @if ($care_start_key != -1 and $care_scope_key != -1)
                 <?php $capacity = $capacities->where('care_start', '=', $care_start_key)->where('care_scope', '=', $care_scope_key)->first(); ?>
                 <div class="form-group row">
                   <label for="capacity" class="col-sm-2 col-form-label">{{$care_start}}, {{$care_scope}}</label>
