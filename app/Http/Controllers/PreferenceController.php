@@ -496,6 +496,7 @@ class PreferenceController extends Controller
       foreach ($availableApplicants as $applicant) {
         $servicesApplicants[$applicant->aid] = $this->getServicesByApplicantProgram($applicant->aid, $program->pid);
       }
+      print_r($servicesApplicants);
 
 
       $offers = array();
