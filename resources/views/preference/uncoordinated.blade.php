@@ -28,6 +28,7 @@
 @if ($key_start != -1)
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
+@if ($capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity > 0 && $countApplicants[$key_start][$key_scope] > 0)
 <tr>
      <td>{{$start}}</td>
      <td>{{$scope}}</td>
@@ -35,6 +36,7 @@
      <td>{{$capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity}}</td>
      <td>{{$countApplicants[$key_start][$key_scope]}}</td>
    </tr>
+@endif
 @endif
 @endforeach
 @endif
