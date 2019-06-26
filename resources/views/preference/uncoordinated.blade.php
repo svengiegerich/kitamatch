@@ -264,14 +264,15 @@
                               </div>
 
                               <hr>
-<div class="row p-3">
-  Beginn & Umfang:
+<div class="row pl-2 pb-2">
+  <h5>Beginn & Umfang:</h5>
 </div>
 
 @foreach (config('kitamatch_config.care_starts') as $key_start => $start)
+@if ($key_start != -1)
 <div class="row p-3">
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
-@if ($key_start != -1 && $key_scope != -1)
+@if ($key_scope != -1)
   <div class="col-md-6">
     <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
         {{ csrf_field() }}
@@ -283,6 +284,7 @@
 @endif
 @endforeach
 </div>
+@endif
 @endforeach
 
                           </div>
