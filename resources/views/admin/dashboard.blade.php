@@ -72,7 +72,11 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
           <br>
+          @if ($data['isSet'])
           <a target="_blank" href="{{url('/preference/set')}}"><button class="btn btn-light btn-lg btn-block">Ranglisten der Bewerber einrasten</button></a>
+          @else
+          <button class="btn btn-light btn-lg btn-block">Ranglisten der Bewerber eingerastet</button>
+          @endif
         </div>
       </div>
 

@@ -107,6 +107,8 @@ class AdminController extends Controller
     }
     $data['non-matches'] = $nonMatches;
 
+    $data['isSet'] = app('App\Http\Controllers\PreferenceController')->isSet();
+
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
     $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";

@@ -386,6 +386,15 @@ class PreferenceController extends Controller
     }
   }
 
+  public function isSet() {
+    $preferences = Preference::where('pr_kind', '=', 1)->get();
+    if ($preferences->count() > 0) {
+      return True;
+    } else {
+      return False;
+    }
+  }
+
   // -----------------------------------------------------------------------------------------------
   // -----------------------------------------------------------------------------------------------
   // Programs
