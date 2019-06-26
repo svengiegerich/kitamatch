@@ -579,6 +579,7 @@ class PreferenceController extends Controller
                                                     'preferences' => $preferences,
                                                     'offers' => $offers,
                                                     'capacities' => $capacities,
+                                                    'countApplicants' => $countApplicants,
                                                     'servicesApplicants' => $servicesApplicants,
                                                     'manualRanking' => $manualRanking)
                   );
