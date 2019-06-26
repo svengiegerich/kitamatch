@@ -271,11 +271,11 @@
                           </div>
                           <div class="modal-body">
                             <div class="container-fluid">
-                              <div class="row">
+                              <div class="row pt-1">
                                 <div class="col-md-8">Präferierter Betreuungsbeginn:</div>
                                 <div class="col-md-4">{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</div>
                               </div>
-                              <div class="row">
+                              <div class="row pt-1">
                                 <div class="col-md-8">Präferierter Betreuungsumfang:</div>
                                 <div class="col-md-4">{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</div>
                               </div>
