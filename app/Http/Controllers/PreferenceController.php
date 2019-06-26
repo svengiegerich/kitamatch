@@ -530,7 +530,7 @@ class PreferenceController extends Controller
             $offers[$applicant->aid]['scope'] = $scope;
             $offers[$applicant->aid]['status'] = $preference->status;
             $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
-            $offers[$applicant->aid]['preferences'] = $this->getPreferencesByApplicant($applicant->aid); 
+            $offers[$applicant->aid]['preferences'] = $this->getPreferencesByApplicant($applicant->aid);
             if ($applicant->status == 26) {
               $offers[$applicant->aid]['final'] = 1;
             } else {
@@ -567,6 +567,8 @@ class PreferenceController extends Controller
               }
           }
           $availableApplicants = $availableApplicants->sortBy('rank'); */
+
+          print("sfb");
 
     return view('preference.uncoordinated', array('round' => $round,
                                                   'program' => $program,
