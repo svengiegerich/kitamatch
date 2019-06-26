@@ -49,8 +49,6 @@ trait GetPreferences {
       return $preferences;
   }
 
-  public function
-
   /**
   * Get all active preferences of a coordinated program
   *
