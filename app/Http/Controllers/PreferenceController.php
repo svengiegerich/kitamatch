@@ -508,7 +508,7 @@ class PreferenceController extends Controller
       foreach ($availableApplicants as $applicant) {
         $servicesApplicants[$applicant->aid] = $this->getServicesByApplicantProgram($applicant->aid, $program->pid);
         foreach ($servicesApplicants[$applicant->aid] as $key_start => $level_start) {
-          foreach ($level_scope as $key_scope => $scope) {
+          foreach ($level_start as $key_scope => $level_scope) {
             if ($scope) {
               $countApplicants[$key_start][$key_scope]++;
             }
