@@ -55,7 +55,7 @@ trait GetPreferences {
       ->where('pr_kind', '=', 2)
       ->orderBy('rank', 'asc')
       ->get();*/
-    $sql = "SELECT * FROM preferences WHERE (`id_from` LIKE " . $pid . "\\_% AND `status` = 1 AND `pr_kind` = 2) ORDER BY rank asc, RAND()";
+    $sql = "SELECT * FROM preferences WHERE (`id_from` LIKE " . $pid . "\\_%) AND `status` = 1 AND `pr_kind` = 2) ORDER BY rank asc, RAND()";
     $preferences = DB::select($sql);
     return $preferences;
   }
@@ -73,7 +73,7 @@ trait GetPreferences {
       ->orderBy('rank', 'asc')
       ->get();*/
     //tmp: issue if all offers with rank = 1 and so ordered by time
-    $sql = "SELECT * FROM preferences WHERE (`id_from` LIKE " . $pid . "\\_% AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
+    $sql = "SELECT * FROM preferences WHERE (`id_from` LIKE " . $pid . "\\_%) AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
     $preferences = DB::select($sql);
     return $preferences;
   }
