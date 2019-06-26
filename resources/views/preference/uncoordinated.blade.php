@@ -256,11 +256,11 @@
                             <div class="container-fluid">
                               <div class="row">
                                 <div class="col-md-6">Präferierter Betreuungsbeginn</div>
-                                <div class="col-md-6">{{config('kitamatch_config.care_scopes_text')['care_starts'][$applicant->care_start]}}</div>
+                                <div class="col-md-6">{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</div>
                               </div>
                               <div class="row">
                                 <div class="col-md-6">Präferierter Betreuungsumfang</div>
-                                <div class="col-md-6">{{config('kitamatch_config.care_scopes_text')['care_scopes'][$applicant->care_scope]}}</div>
+                                <div class="col-md-6">{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</div>
                               </div>
 
                               <hr>
