@@ -38,10 +38,18 @@ trait GetPreferences {
       ->where('status', '=', 1)
       ->orderBy('rank', 'asc')
       ->get();
+
+    $preferences->map(function ($preference) {
+      $preference['start'] = explode("_", $peference->id_to)[1];
+      return $preference;
+    });
+
       /*$sql = "SELECT * FROM preferences WHERE (`id_from` = " . $aid . " AND `status` = 1 AND (`pr_kind` = 1 OR `pr_kind` = 4)) ORDER BY rank asc, RAND()";
       $preferences = DB::select($sql);*/
       return $preferences;
   }
+
+  public function
 
   /**
   * Get all active preferences of a coordinated program
