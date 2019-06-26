@@ -39,16 +39,28 @@ trait GetPreferences {
       ->orderBy('rank', 'asc')
       ->get();
 
-    $preferences->map(function ($preference) {
-      $preference['pid'] = explode("_", $preference->id_to)[0];
-      $preference['start'] = explode("_", $preference->id_to)[1];
-      $preference['scope'] = explode("_", $preference->id_to)[2];
-      return $preference;
-    });
-
       /*$sql = "SELECT * FROM preferences WHERE (`id_from` = " . $aid . " AND `status` = 1 AND (`pr_kind` = 1 OR `pr_kind` = 4)) ORDER BY rank asc, RAND()";
       $preferences = DB::select($sql);*/
     return $preferences;
+  }
+
+  public function getServicesByApplicantProgram($aid, $pid) {
+    $preferences = DB::table('preferences')->where('id_from', '=', $aid)
+      -where('id_to', LIKE, '$pid' . '\\_%')
+      ->where('pr_kind', '=', 1)
+      ->where('status', '=', 1)
+      ->get();
+
+    $services = array();
+    forach($preferences as $preference) {
+      $id_from_explode = explode("_", $preference->id_to);
+      $pid = $id_from_explode[0];
+      $start = $id_from_explode[1];
+      $scope = $id_from_explode[2];
+      $services[$start][$scope] = True;
+    }
+
+    return $services;
   }
 
   /**

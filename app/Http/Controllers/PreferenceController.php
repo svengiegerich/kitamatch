@@ -492,10 +492,11 @@ class PreferenceController extends Controller
         $availableApplicants = $availableApplicants->sortBy('manualRank');
       }
 
-      $preferencesApplicants = array();
-      foreach($availableApplicants as $applicant) {
-        $preferencesApplicants[$applicant->aid] = $this->getPreferencesByApplicant($applicant->aid);
+      $servicesApplicants = array();
+      foreach ($availableApplicants as $applicant) {
+        $servicesApplicants[$applicant->aid] = $this->getServicesByApplicantProgram($applicant->aid, $program->pid);
       }
+
 
       $offers = array();
       $openOffers = array();
@@ -570,7 +571,7 @@ class PreferenceController extends Controller
                                                     'preferences' => $preferences,
                                                     'offers' => $offers,
                                                     'capacities' => $capacities,
-                                                    'preferencesApplicants' => $preferencesApplicants,
+                                                    'servicesApplicants' => $servicesApplicants,
                                                     'manualRanking' => $manualRanking)
                   );
     }
