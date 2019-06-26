@@ -238,30 +238,40 @@
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if (!($program->openOffers < $program->capacity))
 
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                                        Launch
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
+                                                        Angebot
                                                       </button>
 
                                                       <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="{{$applicant->aid}}_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Angebot an {{$applicant->first_name}} {{$applicant->last_name}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-md-6">Geburtstag</div>
+                                <div class="col-md-6">{{$applicant->birthday}}</div>
+                              </div>
+
+                              <hr>
+
+                              <div class="row">
+                                <div class="col-md-6">.col-md-4</div>
+                                <div class="col-md-6">.col-md-4 .ml-auto</div>
+                              </div>
+
                             <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                                <input type="hidden" name="pid" value="{{$applicant->aid}}">
                                 <button class="btn btn-primary">Angebot</button>
                             </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
                           </div>
                         </div>
                       </div>
