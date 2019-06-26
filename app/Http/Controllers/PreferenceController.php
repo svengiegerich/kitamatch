@@ -492,13 +492,6 @@ class PreferenceController extends Controller
         $availableApplicants = $availableApplicants->sortBy('manualRank');
       }
 
-      $servicesApplicants = array();
-      foreach ($availableApplicants as $applicant) {
-        $servicesApplicants[$applicant->aid] = $this->getServicesByApplicantProgram($applicant->aid, $program->pid);
-      }
-      print_r($servicesApplicants);
-
-
       $offers = array();
       $openOffers = array();
       foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
@@ -508,7 +501,21 @@ class PreferenceController extends Controller
           }
         }
       }
-      $countWaitlist = $openOffers;
+      $countWaitlist = $openOffers; // 0 init
+      $countApplicants = $openOffers; // 0 init
+
+      $servicesApplicants = array();
+      foreach ($availableApplicants as $applicant) {
+        $servicesApplicants[$applicant->aid] = $this->getServicesByApplicantProgram($applicant->aid, $program->pid);
+        foreach ($servicesApplicants[$applicant->aid] as $key_start => $level_start) {
+          foreach ($level_scope as $key_scope => $scope) {
+            if ($scope) {
+              $countApplicants[$key_start][$key_scope]++;
+            }
+          }
+        }
+      }
+
 
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
