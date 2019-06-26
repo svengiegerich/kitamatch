@@ -568,8 +568,6 @@ class PreferenceController extends Controller
           }
           $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-          print("sfb");
-
     return view('preference.uncoordinated', array('round' => $round,
                                                   'program' => $program,
                                                   'lastMatch' => $lastMatch,
