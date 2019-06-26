@@ -9,7 +9,17 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <h2>{{$program->name}} | {{$program->provider_name}} <small class="text-muted">Kitagruppe</small></h2>
+
+@foreach (config('kitamatch_config.care_starts') as $key_start => $start)
+@if ($key_start != -1)
+@foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
+@if ($key_scope != -1)
       <h5>Angebote: <span class="badge badge-light">{{$program->openOffers}}</span> / Freie Plätze: <span class="badge badge-light">{{$program->capacity}}</span> / Bewerber: <span class="badge badge-light">{{count($availableApplicants)}}</span></h5>
+@endif
+@endforeach
+@endif
+@endforeach
+
       <h5>Koordinierungsrunde: <span class="badge badge-light">{{$round}}</span> (<a href="{{url('/preference/program/' . $program->pid)}}">aktualisieren</a>)</h5>
 
       @if (count($availableApplicants) == 0)

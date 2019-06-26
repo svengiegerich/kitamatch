@@ -55,7 +55,7 @@ trait GetPreferences {
       ->where('pr_kind', '=', 2)
       ->orderBy('rank', 'asc')
       ->get();*/
-    $sql = "SELECT * FROM preferences WHERE (`id_from` = " . $pid . " AND `status` = 1 AND `pr_kind` = 2) ORDER BY rank asc, RAND()";
+    $sql = "SELECT * FROM preferences WHERE (`id_from` LIKE " . $pid . "\\_% AND `status` = 1 AND `pr_kind` = 2) ORDER BY rank asc, RAND()";
     $preferences = DB::select($sql);
     return $preferences;
   }
@@ -73,7 +73,7 @@ trait GetPreferences {
       ->orderBy('rank', 'asc')
       ->get();*/
     //tmp: issue if all offers with rank = 1 and so ordered by time
-    $sql = "SELECT * FROM preferences WHERE (`id_from` = " . $pid . " AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
+    $sql = "SELECT * FROM preferences WHERE (`id_from` LIKE " . $pid . "\\_% AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
     $preferences = DB::select($sql);
     return $preferences;
   }
@@ -84,12 +84,12 @@ trait GetPreferences {
   * @return Illuminate\Database\Eloquent\Collection preferences
   */
   public function getNonActivePreferencesByProgram() {
-    $sql = "SELECT ANY_VALUE(`id_from`),ANY_VALUE(`pr_kind`),ANY_VALUE(`updated_at`),ANY_VALUE(`updated_at`),ANY_VALUE(`status`) FROM preferences WHERE (pr_kind = 2 OR OR pr_kind = 3) AND DATE(updated_at) < DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY id_from";
+    $sql = "SELECT ANY_VALUE(`id_from`), ANY_VALUE(`pr_kind`), ANY_VALUE(`updated_at`), ANY_VALUE(`updated_at`), ANY_VALUE(`status`) FROM preferences WHERE (pr_kind = 2 OR OR pr_kind = 3) AND DATE(updated_at) < DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY id_from";
     $preferences = DB::select($sql);
     return $preferences;
   }
 
   public function getManualRankingsByProgram($pid) {
-     return DB::table('preferences')->where('pr_kind', '=', '3')->where('id_from', '=', $pid)->where('status', '=', -3)->get();
+     return DB::table('preferences')->where('pr_kind', '=', '3')->where('id_from', 'LIKE', $pid . '\\_%')->where('status', '=', -3)->get();
   }
 }

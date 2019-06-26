@@ -605,7 +605,7 @@ class PreferenceController extends Controller
   public function addOfferUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
 
-    $preference->id_from = $pid;
+    $preference->id_from = $request->sid; // service id
     $preference->id_to = $request->aid;
     $preference->pr_kind = 3;
     $preference->rank = 1;
@@ -690,6 +690,11 @@ class PreferenceController extends Controller
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
+
+  // ------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------------
+  // ------------------------------------------------------------------------------------
+
 
   /**
   * Create the preferences of all coordinated programs by their corresponding criteria catalogues.
