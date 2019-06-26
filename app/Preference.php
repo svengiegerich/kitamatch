@@ -128,8 +128,6 @@ class Preference extends Model
       ->select('applicants.*')
       ->distinct()
       ->get();
-      print_r($applicants);
-      exit();
 
     return $applicants;
   }
