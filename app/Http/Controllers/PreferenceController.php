@@ -559,6 +559,7 @@ class PreferenceController extends Controller
                                                     'availableApplicants' => $availableApplicants,
                                                     'preferences' => $preferences,
                                                     'offers' => $offers,
+                                                    'capacities' => $capacities,
                                                   'manualRanking' => $manualRanking)
                   );
     }
