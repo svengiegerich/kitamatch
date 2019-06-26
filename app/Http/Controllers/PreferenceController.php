@@ -490,7 +490,15 @@ class PreferenceController extends Controller
       //temp: easier?
       $offers = array();
       $openOffers = array();
-      $countWaitlist = array();
+      foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
+        foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope) {
+          if ($key_start != -1 && $key_scope != -1) {
+            $openOffers[$key_start][$key_scope] = 0;
+          }
+        }
+      }
+      $countWaitlist = $openOffers();
+      
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
           if ($preference->id_to == $applicant->aid) {
