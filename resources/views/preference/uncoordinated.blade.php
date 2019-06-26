@@ -255,22 +255,31 @@
                           <div class="modal-body">
                             <div class="container-fluid">
                               <div class="row">
-                                <div class="col-md-6">Präferierter Betreuungsbeginn</div>
-                                <div class="col-md-6">{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</div>
+                                <div class="col-md-8">Präferierter Betreuungsbeginn:</div>
+                                <div class="col-md-4">{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</div>
                               </div>
                               <div class="row">
-                                <div class="col-md-6">Präferierter Betreuungsumfang</div>
-                                <div class="col-md-6">{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</div>
+                                <div class="col-md-8">Präferierter Betreuungsumfang:</div>
+                                <div class="col-md-4">{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</div>
                               </div>
 
                               <hr>
 
-                            <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                                <input type="hidden" name="pid" value="{{$applicant->aid}}">
-                                <button class="btn btn-primary">Angebot</button>
-                            </form>
+@foreach (config('kitamatch_config.care_starts') as $key_start => $start)
+<div class="row">
+@foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
+  <div class="col-md-6">
+    <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
+        {{ csrf_field() }}
+        <input type="hidden" name="aid" value="{{$applicant->aid}}">
+        <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
+        <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
+    </form>
+  </div>
+@endforeach
+</div>
+@endforeach
+
                           </div>
                         </div>
                       </div>
