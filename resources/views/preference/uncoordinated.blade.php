@@ -255,16 +255,15 @@
                           <div class="modal-body">
                             <div class="container-fluid">
                               <div class="row">
-                                <div class="col-md-6">Geburtstag</div>
-                                <div class="col-md-6">{{$applicant->birthday}}</div>
+                                <div class="col-md-6">Präferierter Betreuungsbeginn</div>
+                                <div class="col-md-6">{{config('kitamatch_config.care_scopes_text')['care_starts'][$applicant->care_start]}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">Präferierter Betreuungsumfang</div>
+                                <div class="col-md-6">{{config('kitamatch_config.care_scopes_text')['care_scopes'][$applicant->care_scope]}}</div>
                               </div>
 
                               <hr>
-
-                              <div class="row">
-                                <div class="col-md-6">.col-md-4</div>
-                                <div class="col-md-6">.col-md-4 .ml-auto</div>
-                              </div>
 
                             <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                                 {{ csrf_field() }}
