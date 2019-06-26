@@ -125,6 +125,7 @@ class Preference extends Model
       ->where('preferences.id_to', 'LIKE', $pid . '_%')
       ->where('preferences.status', '=', 1)
       ->where('preferences.pr_kind', 1)
+      ->destinct('applicants.aid')
       ->select('applicants.*')
       ->get();
       print_r($applicants);
