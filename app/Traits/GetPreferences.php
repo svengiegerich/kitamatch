@@ -52,7 +52,7 @@ trait GetPreferences {
       ->get();
 
     $services = array();
-    forach($preferences as $preference) {
+    foreach($preferences as $preference) {
       $id_from_explode = explode("_", $preference->id_to);
       $pid = $id_from_explode[0];
       $start = $id_from_explode[1];
