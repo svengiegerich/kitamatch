@@ -575,7 +575,7 @@ class PreferenceController extends Controller
                                                   'preferences' => $preferences,
                                                   'offers' => $offers,
                                                   'capacities' => $capacities,
-                                                'manualRanking' => $manualRanking)
+                                                  'manualRanking' => $manualRanking)
                 );
   }
 
