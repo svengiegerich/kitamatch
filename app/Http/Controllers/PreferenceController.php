@@ -462,6 +462,7 @@ class PreferenceController extends Controller
   }
 
   public function showByUncoordinatedProgram($pid) {
+    $program = Program::find($pid);
     //coordination: false
     $Program = new Program();
     $Matching = new Matching();
@@ -479,6 +480,8 @@ class PreferenceController extends Controller
     } else {
       $provider = false;
     }
+
+    $capacities = app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
 
     $availableApplicants = $Preference->getAvailableApplicants($pid);
     // order applicants
@@ -498,10 +501,6 @@ class PreferenceController extends Controller
       $availableApplicants = $availableApplicants->sortBy('manualRank');
     }
 
-    //mark every active or closed offer
-    //1: active, -1: no match
-    //temp: easier?
-    $capacities = app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
     $offers = array();
     $openOffers = array();
     foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
@@ -521,6 +520,7 @@ class PreferenceController extends Controller
             $pid = $id_from_split[0];
             $start = $id_from_split[1];
             $scope = $id_from_split[2];
+
             $offers[$applicant->aid]['id'] = $preference->prid;
             $offers[$applicant->aid]['rank'] = $preference->rank;
             $offers[$applicant->aid]['id_to'] = $preference->id_to;
@@ -530,6 +530,7 @@ class PreferenceController extends Controller
             $offers[$applicant->aid]['scope'] = $scope;
             $offers[$applicant->aid]['status'] = $preference->status;
             $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
+            $offers[$applicant->aid]['preferences'] = $this->getPreferencesByApplicant($applicant->aid); 
             if ($applicant->status == 26) {
               $offers[$applicant->aid]['final'] = 1;
             } else {
@@ -543,6 +544,7 @@ class PreferenceController extends Controller
             }
 
           } else if ($preference->status == -1) {
+            // not successfull
             $offers[$applicant->aid]['id'] = $preference->prid;
             $offers[$applicant->aid]['final'] = -1;
             $offers[$applicant->aid]['status'] = -1;

@@ -40,13 +40,15 @@ trait GetPreferences {
       ->get();
 
     $preferences->map(function ($preference) {
+      $preference['pid'] = explode("_", $peference->id_to)[0];
       $preference['start'] = explode("_", $peference->id_to)[1];
+      $preference['scope'] = explode("_", $peference->id_to)[2];
       return $preference;
     });
 
       /*$sql = "SELECT * FROM preferences WHERE (`id_from` = " . $aid . " AND `status` = 1 AND (`pr_kind` = 1 OR `pr_kind` = 4)) ORDER BY rank asc, RAND()";
       $preferences = DB::select($sql);*/
-      return $preferences;
+    return $preferences;
   }
 
   /**
