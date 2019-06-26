@@ -264,9 +264,12 @@
                               </div>
 
                               <hr>
+<div class="row p-3">
+  Beginn & Umfang:
+</div>
 
 @foreach (config('kitamatch_config.care_starts') as $key_start => $start)
-<div class="row">
+<div class="row p-3">
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_start != -1 && $key_scope != -1)
   <div class="col-md-6">
