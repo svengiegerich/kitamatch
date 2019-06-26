@@ -51,6 +51,8 @@ trait GetPreferences {
       ->where('status', '=', 1)
       ->get();
 
+      print($aid);
+      print($pid);
       print_r($preferences);
 
     $services = array();
