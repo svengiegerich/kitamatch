@@ -531,6 +531,7 @@ class PreferenceController extends Controller
             $offers[$applicant->aid]['status'] = $preference->status;
             $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
             $offers[$applicant->aid]['preferences'] = $this->getPreferencesByApplicant($applicant->aid);
+            print("he");
             if ($applicant->status == 26) {
               $offers[$applicant->aid]['final'] = 1;
             } else {
