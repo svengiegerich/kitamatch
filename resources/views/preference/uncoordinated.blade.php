@@ -291,20 +291,7 @@
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
 @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity))
-@if ($offers[$applicant->aid]['preferences']->where('start', '=', $key_start)->where('scope', '=', $key_scope)->where('pid', '=', $program->pid)->count() == 1)
-  <div class="col-md-6">
-    <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
-        {{ csrf_field() }}
-        <input type="hidden" name="aid" value="{{$applicant->aid}}">
-        <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
-        <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
-    </form>
-  </div>
-@else
-<div class="col-md-6">
-  <button class="btn btn-primary" disabled>{{$start}}, {{$scope}}</button>
-</div>
-@endif
+<?php print_r($offers[$applicant->id]); ?>
 @endif
 @endif
 @endforeach
