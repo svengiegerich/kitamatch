@@ -51,6 +51,8 @@ trait GetPreferences {
       ->where('status', '=', 1)
       ->get();
 
+      print_r($preferences);
+
     $services = array();
     foreach($preferences as $preference) {
       $id_from_explode = explode("_", $preference->id_to);
@@ -58,6 +60,7 @@ trait GetPreferences {
       $start = $id_from_explode[1];
       $scope = $id_from_explode[2];
       $services[$start][$scope] = True;
+      print($start);
     }
 
     return $services;
