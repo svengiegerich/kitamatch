@@ -488,6 +488,7 @@ class PreferenceController extends Controller
       //mark every active or closed offer
       //1: active, -1: no match
       //temp: easier?
+      $capacities = app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
       $offers = array();
       $openOffers = array();
       foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
@@ -497,8 +498,8 @@ class PreferenceController extends Controller
           }
         }
       }
-      $countWaitlist = $openOffers();
-      
+      $countWaitlist = $openOffers;
+
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
           if ($preference->id_to == $applicant->aid) {
