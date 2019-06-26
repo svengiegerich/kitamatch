@@ -453,131 +453,124 @@ class PreferenceController extends Controller
                                                     'matches' => $matches,
                                                     'deletedPreferences' => $deletedPreferences));
     } else {
-      return redirect()->action('PreferenceController@showByUncoordinatedProgram', [$pid]);
-    }
-  }
+      $program = Program::find($pid);
+      //coordination: false
+      $Program = new Program();
+      $Matching = new Matching();
+      $Provider = new Provider();
+      $Matching = new Matching();
+      $Preference = new Preference();
 
-  public function showByCoordinatedProgram($pid) {
+      $round = $Matching->getRound(); //current vs. past
+      $lastMatch = $Matching->lastMatch();
 
-  }
-
-  public function showByUncoordinatedProgram($pid) {
-    $program = Program::find($pid);
-    //coordination: false
-    $Program = new Program();
-    $Matching = new Matching();
-    $Provider = new Provider();
-    $Matching = new Matching();
-    $Preference = new Preference();
-
-    $round = $Matching->getRound(); //current vs. past
-    $lastMatch = $Matching->lastMatch();
-
-    $providerId = $Program->getProviderId($pid);
-    if ($providerId) {
-      $provider = true;
-      $program->provider_name = Provider::find($providerId)->name;
-    } else {
-      $provider = false;
-    }
-
-    $capacities = app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
-
-    $availableApplicants = $Preference->getAvailableApplicants($pid);
-    // order applicants
-    $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
-
-    $preferences = $this->getPreferencesUncoordinatedByProgram($pid); //!!
-
-    //manual ranking
-    $manualRanking = $this->getManualRankingsByProgram($pid);
-    if (count($manualRanking) > 0) {
-      //sort $availableApplicants by preference rank (status = -3)
-      foreach($manualRanking as $rank_pref) {
-        $applicant = $availableApplicants->where('aid', '=', $rank_pref->id_to)->first();
-        $applicant->manualRank = $rank_pref->rank;
+      $providerId = $Program->getProviderId($pid);
+      if ($providerId) {
+        $provider = true;
+        $program->provider_name = Provider::find($providerId)->name;
+      } else {
+        $provider = false;
       }
 
-      $availableApplicants = $availableApplicants->sortBy('manualRank');
-    }
+      $capacities = app('App\Http\Controllers\CapacityController')->getProgramCapacities($pid);
 
-    $offers = array();
-    $openOffers = array();
-    foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
-      foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope) {
-        if ($key_start != -1 && $key_scope != -1) {
-          $openOffers[$key_start][$key_scope] = 0;
+      $availableApplicants = $Preference->getAvailableApplicants($pid);
+      // order applicants
+      $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
+
+      $preferences = $this->getPreferencesUncoordinatedByProgram($pid); //!!
+
+      //manual ranking
+      $manualRanking = $this->getManualRankingsByProgram($pid);
+      if (count($manualRanking) > 0) {
+        //sort $availableApplicants by preference rank (status = -3)
+        foreach($manualRanking as $rank_pref) {
+          $applicant = $availableApplicants->where('aid', '=', $rank_pref->id_to)->first();
+          $applicant->manualRank = $rank_pref->rank;
         }
+
+        $availableApplicants = $availableApplicants->sortBy('manualRank');
       }
-    }
-    $countWaitlist = $openOffers;
 
-    foreach ($preferences as $preference) {
-      foreach ($availableApplicants as $applicant) {
-        if ($preference->id_to == $applicant->aid) {
-          if ($preference->status == 1) {
-            $id_from_split = explode("_", $preference->id_from);
-            $pid = $id_from_split[0];
-            $start = $id_from_split[1];
-            $scope = $id_from_split[2];
-
-            $offers[$applicant->aid]['id'] = $preference->prid;
-            $offers[$applicant->aid]['rank'] = $preference->rank;
-            $offers[$applicant->aid]['id_to'] = $preference->id_to;
-            $offers[$applicant->aid]['id_from'] = $preference->id_from;
-            $offers[$applicant->aid]['pid'] = $pid;
-            $offers[$applicant->aid]['start'] = $start;
-            $offers[$applicant->aid]['scope'] = $scope;
-            $offers[$applicant->aid]['status'] = $preference->status;
-            $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
-            $offers[$applicant->aid]['preferences'] = $this->getPreferencesByApplicant($applicant->aid);
-            if ($applicant->status == 26) {
-              $offers[$applicant->aid]['final'] = 1;
-            } else {
-              $offers[$applicant->aid]['final'] = 0;
-            }
-
-            if ($preference->rank == 1) {
-              $openOffers[$start][$scope] = $openOffers[$start][$scope] + 1;
-            } else {
-              $countWaitlist[$start][$scope] = $countWaitlist[$start][$scope] + 1;
-            }
-
-          } else if ($preference->status == -1) {
-            // not successfull
-            $offers[$applicant->aid]['id'] = $preference->prid;
-            $offers[$applicant->aid]['final'] = -1;
-            $offers[$applicant->aid]['status'] = -1;
+      $offers = array();
+      $openOffers = array();
+      foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
+        foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope) {
+          if ($key_start != -1 && $key_scope != -1) {
+            $openOffers[$key_start][$key_scope] = 0;
           }
         }
       }
-    }
-    $program->openOffers = $openOffers;
-          //create display rank
-          /*foreach ($availableApplicants as $applicant) {
-              if (array_key_exists($applicant->aid, $offers)) {
-                  if ($offers[$applicant->aid] > 0) {
-                      $applicant->rank = $applicant->aid - 1000000;
-                  } else if ($offers[$applicant->aid] == -1) {
-                      $applicant->rank = $applicant->aid + 1000000;
-                  }
-              }  else {
-                  //!!!!!!!!!!! to points
-                  $applicant->rank = $applicant->aid;
+      $countWaitlist = $openOffers;
+
+      foreach ($preferences as $preference) {
+        foreach ($availableApplicants as $applicant) {
+          if ($preference->id_to == $applicant->aid) {
+            if ($preference->status == 1) {
+              $id_from_split = explode("_", $preference->id_from);
+              $pid = $id_from_split[0];
+              $start = $id_from_split[1];
+              $scope = $id_from_split[2];
+
+              $offers[$applicant->aid]['id'] = $preference->prid;
+              $offers[$applicant->aid]['rank'] = $preference->rank;
+              $offers[$applicant->aid]['id_to'] = $preference->id_to;
+              $offers[$applicant->aid]['id_from'] = $preference->id_from;
+              $offers[$applicant->aid]['pid'] = $pid;
+              $offers[$applicant->aid]['start'] = $start;
+              $offers[$applicant->aid]['scope'] = $scope;
+              $offers[$applicant->aid]['status'] = $preference->status;
+              $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
+              $offers[$applicant->aid]['preferences'] = $this->getPreferencesByApplicant($applicant->aid);
+              if ($applicant->status == 26) {
+                $offers[$applicant->aid]['final'] = 1;
+              } else {
+                $offers[$applicant->aid]['final'] = 0;
               }
-          }
-          $availableApplicants = $availableApplicants->sortBy('rank'); */
 
-    return view('preference.uncoordinated', array('round' => $round,
-                                                  'program' => $program,
-                                                  'lastMatch' => $lastMatch,
-                                                  'availableApplicants' => $availableApplicants,
-                                                  'preferences' => $preferences,
-                                                  'offers' => $offers,
-                                                  'capacities' => $capacities,
-                                                  'manualRanking' => $manualRanking)
-                );
+              if ($preference->rank == 1) {
+                $openOffers[$start][$scope] = $openOffers[$start][$scope] + 1;
+              } else {
+                $countWaitlist[$start][$scope] = $countWaitlist[$start][$scope] + 1;
+              }
+
+            } else if ($preference->status == -1) {
+              // not successfull
+              $offers[$applicant->aid]['id'] = $preference->prid;
+              $offers[$applicant->aid]['final'] = -1;
+              $offers[$applicant->aid]['status'] = -1;
+            }
+          }
+        }
+      }
+      $program->openOffers = $openOffers;
+            //create display rank
+            /*foreach ($availableApplicants as $applicant) {
+                if (array_key_exists($applicant->aid, $offers)) {
+                    if ($offers[$applicant->aid] > 0) {
+                        $applicant->rank = $applicant->aid - 1000000;
+                    } else if ($offers[$applicant->aid] == -1) {
+                        $applicant->rank = $applicant->aid + 1000000;
+                    }
+                }  else {
+                    //!!!!!!!!!!! to points
+                    $applicant->rank = $applicant->aid;
+                }
+            }
+            $availableApplicants = $availableApplicants->sortBy('rank'); */
+
+      return view('preference.uncoordinated', array('round' => $round,
+                                                    'program' => $program,
+                                                    'lastMatch' => $lastMatch,
+                                                    'availableApplicants' => $availableApplicants,
+                                                    'preferences' => $preferences,
+                                                    'offers' => $offers,
+                                                    'capacities' => $capacities,
+                                                    'manualRanking' => $manualRanking)
+                  );
+    }
   }
+
 
   /**
   * Add a preference by program
