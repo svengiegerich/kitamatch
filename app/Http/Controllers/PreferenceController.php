@@ -460,6 +460,7 @@ class PreferenceController extends Controller
       $Matching = new Matching();
       $round = $Matching->getRound(); //current vs. past
       $lastMatch = $Matching->lastMatch();
+
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid); //!!
       $providerId = $Program->getProviderId($pid);
       if ($providerId) {
@@ -488,16 +489,23 @@ class PreferenceController extends Controller
       //1: active, -1: no match
       //temp: easier?
       $offers = array();
-      $openOffers = 0;
-      $countWaitlist = 0;
+      $openOffers = array();
+      $countWaitlist = array();
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
           if ($preference->id_to == $applicant->aid) {
             if ($preference->status == 1) {
+              $id_from_split = explode("_", $preference->id_from);
+              $pid = $id_from_split[0];
+              $start = $id_from_split[1];
+              $scope = $id_from_split[2];
               $offers[$applicant->aid]['id'] = $preference->prid;
               $offers[$applicant->aid]['rank'] = $preference->rank;
               $offers[$applicant->aid]['id_to'] = $preference->id_to;
               $offers[$applicant->aid]['id_from'] = $preference->id_from;
+              $offers[$applicant->aid]['pid'] = $pid;
+              $offers[$applicant->aid]['start'] = $start;
+              $offers[$applicant->aid]['scope'] = $scope;
               $offers[$applicant->aid]['status'] = $preference->status;
               $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
               if ($applicant->status == 26) {
@@ -507,9 +515,9 @@ class PreferenceController extends Controller
               }
 
               if ($preference->rank == 1) {
-                $openOffers++;
+                $openOffers[$start][$scope] = $openOffers[$start][$scope] + 1;
               } else {
-                $countWaitlist++;
+                $countWaitlist[$start][$scope] = $countWaitlist[$start][$scope] + 1;
               }
 
             } else if ($preference->status == -1) {
