@@ -10,18 +10,37 @@
     <div class="col-md-8">
       <h2>{{$program->name}} | {{$program->provider_name}} <small class="text-muted">Kitagruppe</small></h2>
 
+      <h5>Koordinierungsrunde: <span class="badge badge-light">{{$round}}</span> (<a href="{{url('/preference/program/' . $program->pid)}}">aktualisieren</a>)</h5>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Start</th>
+            <th scope="col">Beginn</th>
+            <th scope="col">Angebote</th>
+            <th scope="col">Freie Plätze</th>
+            <th scope="col">Bewerber</th>
+          </tr>
+        </thead>
+        <tbody>
+
 @foreach (config('kitamatch_config.care_starts') as $key_start => $start)
 @if ($key_start != -1)
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
-      <strong>{{$start}}, {{$scope}}</strong> - Angebote: <span class="badge badge-light">{{$program->openOffers[$key_start][$key_scope]}}</span> / Freie Plätze: <span class="badge badge-light">{{$capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity}}</span> / Bewerber: <span class="badge badge-light">{{$countApplicants[$key_start][$key_scope]}}</span>
-      <br>
+<tr>
+     <td>{{$start}}</td>
+     <td>{{$scope}}</td>
+     <td>{{$program->openOffers[$key_start][$key_scope]}}</td>
+     <td>{{$capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity}}</td>
+     <td>{{$countApplicants[$key_start][$key_scope]}}</td>
+   </tr>
 @endif
 @endforeach
 @endif
 @endforeach
-
-      <h5>Koordinierungsrunde: <span class="badge badge-light">{{$round}}</span> (<a href="{{url('/preference/program/' . $program->pid)}}">aktualisieren</a>)</h5>
+</tbody>
+</table>
 
       @if (count($availableApplicants) == 0)
       <div class="alert alert-warning" role="alert">
