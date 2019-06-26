@@ -599,9 +599,10 @@ class PreferenceController extends Controller
   */
   public function deleteByProgram(Request $request, $prid) {
     $preference = Preference::find($prid);
+    $pid = explode("_", $preference)[0];
     $preference->status = -2;
     $preference->save();
-    return redirect()->action('PreferenceController@showByProgram', $preference->id_from);
+    return redirect()->action('PreferenceController@showByProgram', $pid);
   }
 
   public function deleteMultipleByProgram(Request $request) {

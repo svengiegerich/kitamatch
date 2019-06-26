@@ -14,7 +14,7 @@
 @if ($key_start != -1)
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
-      <h5>{{$start}}, {{$scope}}</h5> - Angebote: <span class="badge badge-light">{{$program->openOffers[$key_start][$key_scope]}}</span> / Freie Plätze: <span class="badge badge-light">{{$capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity}}</span> / Bewerber: <span class="badge badge-light">{{count($availableApplicants)}}</span></h5>
+      <strong>{{$start}}, {{$scope}}</strong> - Angebote: <span class="badge badge-light">{{$program->openOffers[$key_start][$key_scope]}}</span> / Freie Plätze: <span class="badge badge-light">{{$capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity}}</span> / Bewerber: <span class="badge badge-light">{{count($availableApplicants)}}</span></h5>
 @endif
 @endforeach
 @endif
@@ -74,7 +74,7 @@
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
                   <td>{{config('kitamatch_config.care_starts')[$offer['start']]}}</td>
-                  <td>{{config('kitamatch_config.care_starts')[$offer['scope']]}}</td>
+                  <td>{{config('kitamatch_config.care_scopes')[$offer['scope']]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
                   <td></td>
                 </tr>
@@ -92,7 +92,7 @@
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
                   <td>{{config('kitamatch_config.care_starts')[$offer['start']]}}</td>
-                  <td>{{config('kitamatch_config.care_starts')[$offer['scope']]}}</td>
+                  <td>{{config('kitamatch_config.care_scopes')[$offer['scope']]}}</td>
                   <td><span class="badge badge-info">Gehaltenes Angebot</span></td>
                   <td>
                     @if ($offer['updated_at'] > $lastMatch)
