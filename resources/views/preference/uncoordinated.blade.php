@@ -291,7 +291,7 @@
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
 @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity))
-<?php print_r($availableApplicants); ?>
+<?php print_r($preferencesApplicants[$applicant->aid]); ?>
 @endif
 @endif
 @endforeach

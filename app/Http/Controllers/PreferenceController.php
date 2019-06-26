@@ -492,6 +492,11 @@ class PreferenceController extends Controller
         $availableApplicants = $availableApplicants->sortBy('manualRank');
       }
 
+      $preferencesApplicants = array();
+      foreach($availableApplicants as $applicant) {
+        $preferencesApplicants[$applicant->aid] = $this->getPreferencesByApplicant($applicant->aid);
+      }
+
       $offers = array();
       $openOffers = array();
       foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
@@ -521,7 +526,6 @@ class PreferenceController extends Controller
               $offers[$applicant->aid]['scope'] = $scope;
               $offers[$applicant->aid]['status'] = $preference->status;
               $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
-              $offers[$applicant->aid]['preferences'] = $this->getPreferencesByApplicant($applicant->aid);
               if ($applicant->status == 26) {
                 $offers[$applicant->aid]['final'] = 1;
               } else {
@@ -566,6 +570,7 @@ class PreferenceController extends Controller
                                                     'preferences' => $preferences,
                                                     'offers' => $offers,
                                                     'capacities' => $capacities,
+                                                    'preferencesApplicants' => $preferencesApplicants,
                                                     'manualRanking' => $manualRanking)
                   );
     }
