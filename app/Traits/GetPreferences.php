@@ -40,9 +40,9 @@ trait GetPreferences {
       ->get();
 
     $preferences->map(function ($preference) {
-      $preference['pid'] = explode("_", $peference->id_to)[0];
-      $preference['start'] = explode("_", $peference->id_to)[1];
-      $preference['scope'] = explode("_", $peference->id_to)[2];
+      $preference['pid'] = explode("_", $preference->id_to)[0];
+      $preference['start'] = explode("_", $preference->id_to)[1];
+      $preference['scope'] = explode("_", $preference->id_to)[2];
       return $preference;
     });
 
