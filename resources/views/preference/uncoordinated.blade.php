@@ -268,6 +268,7 @@
 @foreach (config('kitamatch_config.care_starts') as $key_start => $start)
 <div class="row">
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
+@if ($key_start != -1 && $key_scope != -1)
   <div class="col-md-6">
     <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
         {{ csrf_field() }}
@@ -276,6 +277,7 @@
         <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
     </form>
   </div>
+@endif
 @endforeach
 </div>
 @endforeach
