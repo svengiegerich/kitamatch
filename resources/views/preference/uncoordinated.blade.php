@@ -302,12 +302,17 @@
     </form>
   </div>
 @else
+  <!-- No pref by applicant -->
 <div class="col-md-6">
   <button class="btn btn-primary" disabled>{{$start}}, {{$scope}}</button>
 </div>
 @endif
 
-
+@else
+  <!-- No capacity -->
+<div class="col-md-6">
+  <button class="btn btn-primary" disabled>{{$start}}, {{$scope}}</button>
+</div>
 @endif
 @endif
 @endforeach
