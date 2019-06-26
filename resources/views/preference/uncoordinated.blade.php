@@ -14,7 +14,7 @@
 @if ($key_start != -1)
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
-      <h5>Angebote: <span class="badge badge-light">{{$program->openOffers[$key_start][$key_scope]}}</span> / Freie Plätze: <span class="badge badge-light">{{$capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity}}</span> / Bewerber: <span class="badge badge-light">{{count($availableApplicants)}}</span></h5>
+      <h5>{{$start}}, {{$scope}} -- Angebote: <span class="badge badge-light">{{$program->openOffers[$key_start][$key_scope]}}</span> / Freie Plätze: <span class="badge badge-light">{{$capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity}}</span> / Bewerber: <span class="badge badge-light">{{count($availableApplicants)}}</span></h5>
 @endif
 @endforeach
 @endif
