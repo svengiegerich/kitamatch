@@ -417,7 +417,7 @@ print("<br><br>");
 
     foreach($services as $service) {
       $i = 0;
-      $$preferencesByService = $preferencesByServices->where('id_from', '=', $service->id_from);
+      $preferencesByService = $preferencesByServices->where('id_from', '=', $service->id_from);
       foreach ($$preferencesByService as $pref) {
         $preferencesServices[$service->id_from][$i] = $pref->id_to;
         $i++;
