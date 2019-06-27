@@ -179,7 +179,17 @@ public function getDefaultCriteria() {
 
   public function addManualRanking($pid) {
     $Preference = new Preference();
+
+    $providerId = $Program->getProviderId($pid);
+    if ($providerId) {
+      $provider = true;
+      $program->provider_name = Provider::find($providerId)->name;
+    } else {
+      $provider = false;
+    }
     $availableApplicants = $Preference->getAvailableApplicants($pid);
+    // order applicants
+    $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
 
     //list preferences for each
     $i = 1;
