@@ -138,7 +138,7 @@
                       '0' => 'Nein'
                       ),
                       $applicant->alternative_scope,
-                      array('id' => 'alternative_scope', 'class' => 'form-control', 'required') )  !!}
+                      array('id' => 'alternative_scope', 'class' => 'form-control') )  !!}
                 </div>
             </div>
             @endif
@@ -243,7 +243,7 @@
     </div>
     @else
       <div class="col-md-8">
-        Bitte fügen Sie ihre Wunscheinrichtungen hinzu.
+        Bitte fügen Sie ihre Wunscheinrichtungen hinzu. Hierfür muss zunächst das Formular ausgefüllt werden.
       </div>
     @endif
 </div>
