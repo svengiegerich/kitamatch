@@ -138,7 +138,7 @@
                       '0' => 'Nein'
                       ),
                       $applicant->alternative_scope,
-                      array('id' => 'alternative_scope', 'class' => 'form-control') )  !!}
+                      array('id' => 'alternative_scope', 'class' => 'form-control', 'required') )  !!}
                 </div>
             </div>
             @endif

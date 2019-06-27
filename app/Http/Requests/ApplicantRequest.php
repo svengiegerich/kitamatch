@@ -42,6 +42,7 @@ class ApplicantRequest extends FormRequest
       //'lastName' => 'required|string|min:2',
       'birthday' => 'required|date|date_format:Y-m-d',
       'gender' => 'required|string',
+      'age_cohort' => 'required'
     ];
   }
 }
