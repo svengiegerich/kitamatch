@@ -405,7 +405,7 @@ print("<br><br>");
     // Services ------------------
     $preferencesServices = array();
     $capacities = array();
-    $preferencesByServices = Preferences::whereIn('pr_kind', [2,3])
+    $preferencesByServices = DB::table('preferences')->whereIn('pr_kind', [2,3])
       ->where('status', '=', 1)
       ->orderBy('rank', 'asc')
       ->get();
