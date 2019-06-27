@@ -122,7 +122,7 @@ trait GetPreferences {
   public function getManualRankingsByProgram($pid) {
     $ranking = DB::table('preferences')
      ->where('pr_kind', '=', '3')
-     ->where('id_from', 'like', $pid . '\\_%')
+     ->where('id_from', 'like', $pid) // pid and not service id, since the ranking stands for all services of one program
      ->where('status', '=', -3)
      ->orderBy('rank', 'asc')
      ->get();
