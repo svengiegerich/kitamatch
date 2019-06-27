@@ -29,6 +29,7 @@ use App\Matching;
 use App\Applicant;
 use App\Program;
 use App\Preference;
+use App\Capacity;
 use App\Traits\GetPreferences;
 use App\Mail\ApplicantMatch;
 use App\Mail\ProgramMatch;
@@ -374,7 +375,7 @@ print("<br><br>");
 
   public function prepareMatching2() {
     $Preference = new Preference;
-    $capacity = new Capacity;
+    $Capacity = new Capacity;
     $json = array();
 
 
