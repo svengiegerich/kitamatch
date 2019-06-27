@@ -120,14 +120,15 @@ trait GetPreferences {
   }
 
   public function getManualRankingsByProgram($pid) {
-    print_r($pid);
-    print_r("hey");
+    $ranking = DB::table('preferences')
+     ->where('pr_kind', '=', '3')
+     ->where('id_from', 'like', $pid . '\\_%')
+     ->where('status', '=', -3)
+     ->orderBy('rank', 'asc')
+     ->get();
 
-     return DB::table('preferences')
-      ->where('pr_kind', '=', '3')
-      ->where('id_from', 'like', $pid . '\\_%')
-      ->where('status', '=', -3)
-      ->orderBy('rank', 'asc')
-      ->get();
+     print_r($ranking);
+
+     return $ranking;
   }
 }
