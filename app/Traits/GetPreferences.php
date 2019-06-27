@@ -127,8 +127,6 @@ trait GetPreferences {
      ->orderBy('rank', 'asc')
      ->get();
 
-     print_r($ranking);
-
      return $ranking;
   }
 }
