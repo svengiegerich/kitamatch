@@ -395,11 +395,8 @@ print("<br><br>");
         $preferencesApplicants[$applicant->aid] = $preferenceList;
       }
     }
-    if (count($preferencesApplicants)>0) {
+    if (count($preferencesApplicants) > 0) {
       $json["student_prefs"] = $preferencesApplicants;
-    } else {
-      //there are no valid students listed, so abort
-      return;
     }
 
     // Services ------------------
@@ -428,7 +425,16 @@ print("<br><br>");
     $json['college_prefs'] = $preferencesServices;
     $json['capacities'] = $capacities;
 
+    // Last Matching ------------------
+
+    
+
     print_r($json);
+
+    // If no information, return NULL
+    if ($preferencesByServices->count() == 0 || count($preferencesApplicants) == 0) {
+      return;
+    }
 
   }
 
