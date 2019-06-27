@@ -418,7 +418,7 @@ print("<br><br>");
     foreach($services as $service) {
       $preferencesServices[$service->id_from] = $preferencesByServices->where('id_from', '=', $service->id_from);
 
-      $capacities[$service->id_from] = $capacity->getCapacity($service->id_from);
+      $capacities[$service->id_from] = $Capacity->getCapacity($service->id_from);
     }
     $json['college_prefs'] = $preferencesServices;
     $json['capacities'] = $capacities;
