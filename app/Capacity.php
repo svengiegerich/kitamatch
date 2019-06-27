@@ -32,8 +32,8 @@ class Capacity extends Model
     $scope = $sid_explode[2];
 
     $capacity = Capacity::where('pid', '=', $pid)
-      ->where('start', '=', $start)
-      ->where('scope', '=', $scope)
+      ->where('care_start', '=', $start)
+      ->where('care_scope', '=', $scope)
       ->get();
     return $capacity->capacity;
   }
