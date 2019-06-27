@@ -406,7 +406,7 @@ print("<br><br>");
     $preferencesByServices = Preferences::whereIn('pr_kind', [2,3])
       ->where('status', '=', 1)
       ->orderBy('rank', 'asc')
-      ->get()
+      ->get();
 
     $services = $preferencesByProgram->select('id_from')->distinct();
     foreach($services as $service) {
