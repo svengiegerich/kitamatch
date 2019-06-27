@@ -405,12 +405,16 @@ print("<br><br>");
     // Services ------------------
     $preferencesServices = array();
     $capacities = array();
+    $services = DB::table('preferences')->select('id_from')
+      ->whereIn('pr_kind', [2,3])
+      ->where('status', '=', 1)
+      ->distinct()
+      ->get();
     $preferencesByServices = DB::table('preferences')->whereIn('pr_kind', [2,3])
       ->where('status', '=', 1)
       ->orderBy('rank', 'asc')
       ->get();
 
-    $services = $preferencesByServices->first(['id_from'])->distinct();
     foreach($services as $service) {
       $preferencesServices[$service->id_from] = $preferencesByServices->where('id_from', '=', $service->id_from);
 
