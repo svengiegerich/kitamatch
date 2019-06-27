@@ -410,7 +410,7 @@ print("<br><br>");
       ->orderBy('rank', 'asc')
       ->get();
 
-    $services = $preferencesByServices->select('id_from')->distinct();
+    $services = $preferencesByServices->first(['id_from'])->distinct();
     foreach($services as $service) {
       $preferencesServices[$service->id_from] = $preferencesByServices->where('id_from', '=', $service->id_from);
 
