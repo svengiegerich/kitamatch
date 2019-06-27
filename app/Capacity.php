@@ -24,6 +24,20 @@ use Illuminate\Support\Facades\DB;
 class Capacity extends Model
 {
 
+  public function getCapacity($sid) {
+    // service id (sid): pid_start_scope
+    $sid_explode = explode("_", $sid);
+    $pid = $sid_explode[0];
+    $start = $sid_explode[1];
+    $scope = $sid_explode[2];
+
+    $capacity = Capacity::where('pid', '=', $pid)
+      ->where('start', '=', $start)
+      ->where('scope', '=', $scope)
+      ->get();
+    return $capacity->capacity;
+  }
+
   public $primaryKey = 'id';
   protected $table = 'capacities';
 }

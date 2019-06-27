@@ -372,4 +372,53 @@ print("<br><br>");
     return ($json);
   }
 
+  public function prepareMatching2() {
+    $Preference = new Preference;
+    $capacity = new Capacity;
+    $json = array();
+
+
+    // Applicants ------------------
+    $preferencesApplicants = array();
+    $applicants = $Applicant->getAll();
+
+    foreach ($applicants as $applicant) {
+      $preferencesByApplicant = $this->getServicesByApplicant($applicant->aid);
+      $preferenceList = array();
+      foreach ($preferencesByApplicant as $preference) {
+        $preferenceList[] = (string)$preference->id_to;
+      }
+      //check if there are any preferences
+      if (count($preferenceList) > 0) {
+        $preferencesApplicants[$applicant->aid] = $preferenceList;
+      }
+    }
+    if (count($preferencesApplicants)>0) {
+      $json["student_prefs"] = $preferencesApplicants;
+    } else {
+      //there are no valid students listed, so abort
+      return;
+    }
+
+    // Services ------------------
+    $preferencesServices = array();
+    $capacities = array();
+    $preferencesByServices = Preferences::whereIn('pr_kind', [2,3])
+      ->where('status', '=', 1)
+      ->orderBy('rank', 'asc')
+      ->get()
+
+    $services = $preferencesByProgram->select('id_from')->distinct();
+    foreach($services as $service) {
+      $preferencesServices[$service->id_from] = $preferencesByServices->where('id_from', '=', $service->id_from);
+
+      $capacities[$service->id_from] = $capacity->getCapacity($service->id_from);
+    }
+    $json['college_prefs'] = $preferencesServices;
+    $json['capacities'] = $capacities;
+
+    print_r($json);
+
+  }
+
 }

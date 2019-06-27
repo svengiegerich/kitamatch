@@ -44,6 +44,16 @@ trait GetPreferences {
     return $preferences;
   }
 
+  public function getServicesByApplicant($aid) {
+    $preferences = $preferences = DB::table('preferences')
+      ->where('id_from', '=', $aid)
+      ->where('pr_kind', '=', 1)
+      ->where('status', '=', 1)
+      ->get();
+
+    return $preferences;
+  }
+
   public function getServicesByApplicantProgram($aid, $pid) {
     $preferences = DB::table('preferences')->where('id_from', '=', $aid)
       ->where('id_to', 'like', $pid . '\\_%')
