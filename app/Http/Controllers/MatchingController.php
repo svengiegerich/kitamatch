@@ -376,6 +376,7 @@ print("<br><br>");
   public function prepareMatching2() {
     $Preference = new Preference;
     $Capacity = new Capacity;
+    $Applicant = new Applicant;
     $json = array();
 
 
