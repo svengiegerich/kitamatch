@@ -482,6 +482,7 @@ class PreferenceController extends Controller
 
       //manual ranking
       $manualRanking = $this->getManualRankingsByProgram($pid);
+      print_r($manualRanking);
       if (count($manualRanking) > 0) {
         //sort $availableApplicants by preference rank (status = -3)
         foreach($manualRanking as $rank_pref) {
