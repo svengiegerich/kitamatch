@@ -134,6 +134,26 @@ class PreferenceController extends Controller
       return view('preference.all', array('preferences' => $preferences));
     }
 
+    // only admins should be able to call this function
+    public function setPreferences() {
+      $preferences = Preference::where('pr_kind', '=', 1); // check if there was already a set, if so: print an error and exit
+      if ($preferences->count() > 0) {
+        abort(403, 'Die Präferenzen wurden schon einmal gesetzt. Bitte kontaktieren Sie den Systemadministrator.');
+      }
+
+      // applicants
+      $applicantModel = new Applicant;
+      $applicants = $applicantModel->getAll();
+      foreach ($applicants as $applicant) {
+        $this->setPreferencesByApplicant($applicant->aid);
+      }
+
+      // coordinated programs
+      $this->createCoordinatedPreferences($program->pid);
+
+      return redirect()->action('AdminController@index');
+    }
+
   // -----------------------------------------------------------------------------------------------
   // -----------------------------------------------------------------------------------------------
   // -----------------------------------------------------------------------------------------------
@@ -244,21 +264,6 @@ class PreferenceController extends Controller
     $preference->status = 0;
     $preference->save();
     return $preference;
-  }
-
-  // only admins should be able to call this function
-  public function setApplicantsPreferences() {
-    $preferences = Preference::where('pr_kind', '=', 1); // check if there was already a set, if so: print an error and exit
-    if ($preferences->count() > 0) {
-      abort(403, 'Die Präferenzen wurden schon einmal gesetzt. Bitte kontaktieren Sie den Systemadministrator.');
-    }
-
-    $model = new Applicant;
-    $applicants = $model->getAll();
-    foreach ($applicants as $applicant) {
-      $this->setPreferencesByApplicant($applicant->aid);
-    }
-    return redirect()->action('AdminController@index');
   }
 
   // write applicant's preferences based on the feasible set, by care start & scope
@@ -755,49 +760,63 @@ class PreferenceController extends Controller
     $Program = new Program;
     $Preference = new Preference;
     $Applicant = new Applicant;
-    //$applicants = $Applicant->getAll();
     //not all but only the available ones
     $applicants = $Preference->getAvailableApplicants($program->pid);
 
     //als eigene funktion bauen & die drüber nur diese aufrufen lassen
-      $providerId = $Program->getProviderId($program->pid);
-      if ($providerId) {
-        $provider = true;
-        $p_id = $program->proid;
+    $providerId = $Program->getProviderId($program->pid);
+    if ($providerId) {
+      $provider = true;
+      $p_id = $program->proid;
+    } else {
+      $provider = false;
+      $p_id = $program->pid;
+    }
+
+    $applicantsByProgram = $Preference->orderByCriteria($applicants, $p_id, $provider);
+
+    $rank = 1;
+    foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
+
+      foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
+
+        if ($key_start >= $applicant->care_start and ($key_scope != -1 and $key_start != -1)) {
+          $id_to = $pid . '_' . $key_start . '_' . $key_scope;
+
+    foreach ($applicantsByProgram as $applicant) {
+      //look if preference exists and if it has to be updated
+      $preference = Preference::where('id_from', '=', $program->pid . '_' . $key_start . '_' . $key_scope)
+        ->where('id_to', '=', $applicant->aid)
+        ->where('pr_kind', '=', 2)
+        ->where('status', '=', 1)->first();
+
+      //construct (update) new preference
+      $request = new Request();
+      $request->setMethod('POST');
+      $request->request->add(['from' => $program->pid . '_' . $key_start . '_' . $key_scope,
+                              'to' => $applicant->aid,
+                              'pr_kind' => 2,
+                              'rank' => $rank,
+                              'status' => 1
+                            ]);
+
+      //does a preference exist?
+      if ($preference != null) {
+        //update
+        $request->request->add(['prid' => $preference->prid]);
+        $this->update($request);
       } else {
-        $provider = false;
-        $p_id = $program->pid;
+        //generate preference
+        $this->store($request);
       }
-
-      $applicantsByProgram = $Preference->orderByCriteria($applicants, $p_id, $provider);
-      //print_r($applicantsByProgram);
-
-      $rank = 1;
-      foreach ($applicantsByProgram as $applicant) {
-        //look if preference exists and if it has to be updated
-        $preference = Preference::where('id_from', '=', $program->pid)
-          ->where('id_to', '=', $applicant->aid)
-          ->where('pr_kind', '=', 2)
-          ->where('status', '=', 1)->first();
-        $request = new Request();
-        $request->setMethod('POST');
-        $request->request->add(['from' => $program->pid,
-                                'to' => $applicant->aid,
-                                'pr_kind' => 2,
-                                'rank' => $rank,
-                                'status' => 1
-                              ]);
-        if ($preference != null) {
-          //update
-          $request->request->add(['prid' => $preference->prid]);
-          $this->update($request);
-        } else {
-          //generate preference
-          $this->store($request);
-        }
-        $rank = $rank + 1;
-      }
+      $rank = $rank + 1;
+    }
   }
+
+}}
+
+    }
+
 
   public function rebuildCoordinatedProgramPreferences($pid) {
     $Preference = new Preference();

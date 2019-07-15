@@ -73,9 +73,9 @@
   <div class="col-md-6">
           <br>
           @if (!$data['isSet'])
-          <a target="_blank" href="{{url('/preference/set')}}"><button class="btn btn-light btn-lg btn-block">Ranglisten der Bewerber einrasten</button></a>
+          <a target="_blank" href="{{url('/preference/set')}}"><button class="btn btn-primary btn-lg btn-block">Ranglisten einrasten</button></a>
           @else
-          <button class="btn btn-light btn-lg btn-block">Ranglisten der Bewerber eingerastet</button>
+          <button class="btn btn-light btn-lg btn-block">Ranglisten eingerastet</button>
           @endif
         </div>
       </div>
