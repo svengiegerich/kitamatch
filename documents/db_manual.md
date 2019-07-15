@@ -67,25 +67,31 @@ Guardians maintain the social master data required for the coordination and hols
 ## Criteria
 ### Codes
 #### parental_status
-* 820: Eine/Ein Alleinerziehende/r beschäftig
-* 821: Beide Erziehungsberechtigte beschäftigt
-* 822: Ein Erziehungsberechtigter beschäftigt
-* 823: Alleinerziehend ohne Beschäftigung
-* 824: Sonstig
+* 0:  Neutral
+* 820: Hoch (Eine/Ein Alleinerziehende/r beschäftigt)
+* 821: Mittel (Beide Erziehungsberechtigte beschäftigt
+* 822: Niedrig (Ein Erziehungsberechtigter beschäftigt)
+
 #### volume_of_employment
-* 830: Ganztags (ab 28 h/Woche)
-* 831: Halbtags (ab 16-27 h/Woche)
-* 832: Geringfügig (ab 8-15 h/Woche)
-* 833: Ohne Beschäftigung
+* 0:  Neutral
+* 830: Hoch (Ganztags, ab 28 h/Woche)
+* 831: Mittel (Halbtags, ab 16-27 h/Woche)
+* 832: Niedrig (Geringfügig, ab 8-15 h/Woche)
+
 #### siblings
-* 840: Kein Geschwisterkind
-* 841: Geschwisterkind
+* 0:  Neutral
+* 840: Kein Geschwisterkind (Nein)
+* 841: Geschwisterkind (Ja)
+
 #### religion
+* 0:  Neutral
 * 850: Konfessionslos
 * 851: Katholisch
 * 852: Evangelisch
 * 853: Muslimisch
 * 854: Jüdisch
+* 855: Andere
+
 #### change_request
 * 860: Ja
 * 861: Nein
