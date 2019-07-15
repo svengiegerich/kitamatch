@@ -143,6 +143,7 @@ public function getDefaultCriteria() {
                 $criterium->multiplier = $defaultCriterium->multiplier;
                 $criterium->p_id = $request->p_id;
                 $criterium->program = $request->program;
+                $criterium->criterium_value_description = $request->criterium_value_description;
                 $criterium->save();
             }
         }
@@ -169,6 +170,7 @@ public function getDefaultCriteria() {
     $criterium = Criterium::find($request->cid);
     if ($request->criterium_name) { $criterium->criterium_name = $request->criterium_name; }
     if ($request->criterium_value) { $criterium->criterium_value = $request->criterium_value; }
+    if ($request->criterium_value_description) { $criterium->criterium_value_description = $request->criterium_value_description; }
     if ($request->rank) { $criterium->rank = $request->rank; }
     if ($request->multiplier) { $criterium->multiplier = $request->multiplier; }
     if ($request->p_id) { $criterium->p_id = $request->p_id; }
