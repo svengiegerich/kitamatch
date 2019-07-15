@@ -67,10 +67,7 @@ public function getDefaultCriteria() {
         ->orderBy('rank', 'desc')
         ->get();
     }
-    foreach ($criteria as $criterium) {
-      print_r($criterium);
-      //$criterium->criterium_value_description = Code::where('code', '=', $criterium->criterium_value_description)->first()->value;
-    }
+
     return view('criterium.edit', array('criteria' => $criteria));
   }
 
@@ -138,11 +135,11 @@ public function getDefaultCriteria() {
                 $criterium = new Criterium();
                 $criterium->criterium_name = $defaultCriterium->criterium_name;
                 $criterium->criterium_value = $defaultCriterium->criterium_value;
+                $criterium->criterium_value_description = $request->criterium_value_description;
                 $criterium->rank = $defaultCriterium->rank;
                 $criterium->multiplier = $defaultCriterium->multiplier;
                 $criterium->p_id = $request->p_id;
                 $criterium->program = $request->program;
-                $criterium->criterium_value_description = $request->criterium_value_description;
                 $criterium->save();
             }
         }
