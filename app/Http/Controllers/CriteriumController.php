@@ -135,7 +135,7 @@ public function getDefaultCriteria() {
                 $criterium = new Criterium();
                 $criterium->criterium_name = $defaultCriterium->criterium_name;
                 $criterium->criterium_value = $defaultCriterium->criterium_value;
-                $criterium->criterium_value_description = $defaultCriteria->criterium_value_description;
+                $criterium->criterium_value_description = $defaultCriterium->criterium_value_description;
                 $criterium->rank = $defaultCriterium->rank;
                 $criterium->multiplier = $defaultCriterium->multiplier;
                 $criterium->p_id = $request->p_id;
