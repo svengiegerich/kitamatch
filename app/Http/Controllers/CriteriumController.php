@@ -98,10 +98,7 @@ public function getDefaultCriteria() {
         ->orderBy('rank', 'desc')
         ->get();
     }
-    foreach ($criteria as $criterium) {
-      print_r($criterium);
-      //$criterium->criterium_value_description = Code::where('code', '=', $criterium->criterium_value)->first()->value;
-    }
+
     return view('criterium.edit', array('criteria' => $criteria));
   }
 
