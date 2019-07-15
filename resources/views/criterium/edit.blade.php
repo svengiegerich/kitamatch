@@ -63,7 +63,7 @@
             @foreach ($criteria as $criterium)
                 <li id="item-{{$criterium->cid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center">
                   <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                  <span class="col-8">{{$criterium->code_description}}</span>
+                  <span class="col-8">{{$criterium->criterium_value_description}}</span>
                   <a class="deactivate" href="#list"><span class="badge badge-secondary badge-pill">x</span></a>
                 </li>
              @endforeach
