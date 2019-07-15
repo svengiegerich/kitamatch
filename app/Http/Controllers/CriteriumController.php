@@ -68,7 +68,7 @@ public function getDefaultCriteria() {
         ->get();
     }
     foreach ($criteria as $criterium) {
-      $criterium->code_description = Code::where('code', '=', $criterium->criterium_value)->first()->value;
+      $criterium->criterium_value_description = Code::where('code', '=', $criterium->criterium_value_description)->first()->value;
     }
     return view('criterium.edit', array('criteria' => $criteria));
   }
@@ -98,7 +98,7 @@ public function getDefaultCriteria() {
         ->get();
     }
     foreach ($criteria as $criterium) {
-      $criterium->code_description = Code::where('code', '=', $criterium->criterium_value)->first()->value;
+      $criterium->criterium_value_description = Code::where('code', '=', $criterium->criterium_value_description)->first()->value;
     }
     return view('criterium.edit', array('criteria' => $criteria));
   }
