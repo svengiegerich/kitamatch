@@ -324,19 +324,19 @@
     <div class="row p-3">
     @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
       @if ($key_scope != -1)
-        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid); ?>
-        @if ($preference->count() == 1 && $offers[$applicant->aid]['final'] != 1 && $offers[$applicant->aid]['start'] == $key_start && $offers[$applicant->aid]['scope'] == $key_scope)
-          @if ($offers[$applicant->aid]['status'] == 1)
+        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid)->first(); ?>
+        @if ($preference->count() == 1 && $offers[$applicant->aid]['final'] != 1)
+          @if ($preference->status == 1)
             <div class="col-md-6">
               <button class="btn btn-info" disabled>Abgegeben</button>
             </div>
-          @elseif ($offers[$applicant->aid]['status'] == -1)
+          @elseif ($preference->status == -1)
             <div class="col-md-6">
               <button class="btn btn-danger" disabled>Absage</button>
             </div>
           @endif
         @else  <!-- offers key does not exists -->
-          @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity && isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]) && !(array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] == 1)) <!-- there is capacity -->
+          @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity && isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]) && !(count($preference) != 1 && $preference->status == 1)) <!-- there is capacity & there is no open offer -->
             <div class="col-md-6">
               <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                   {{ csrf_field() }}
