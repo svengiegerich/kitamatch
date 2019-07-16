@@ -324,7 +324,8 @@
     <div class="row p-3">
     @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
       @if ($key_scope != -1)
-        @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['final'] != 1 && $offers[$applicant->aid]['start'] == $key_start && $offers[$applicant->aid]['scope'] == $key_scope)
+        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid); ?>
+        @if ($preference->count() == 1 && $offers[$applicant->aid]['final'] != 1 && $offers[$applicant->aid]['start'] == $key_start && $offers[$applicant->aid]['scope'] == $key_scope)
           @if ($offers[$applicant->aid]['status'] == 1)
             <div class="col-md-6">
               <button class="btn btn-info" disabled>Abgegeben</button>

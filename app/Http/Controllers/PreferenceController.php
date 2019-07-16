@@ -485,8 +485,6 @@ class PreferenceController extends Controller
 
       $preferences = $this->getPreferencesUncoordinatedByProgram($pid); //!!
 
-      print_r($preferences);
-
       //manual ranking
       $manualRanking = $this->getManualRankingsByProgram($pid);
       if (count($manualRanking) > 0) {
@@ -591,7 +589,8 @@ class PreferenceController extends Controller
                                                     'capacities' => $capacities,
                                                     'countApplicants' => $countApplicants,
                                                     'servicesApplicants' => $servicesApplicants,
-                                                    'manualRanking' => $manualRanking)
+                                                    'manualRanking' => $manualRanking,
+                                                    'preferences' => $preferences)
                   );
     }
   }
