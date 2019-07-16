@@ -331,7 +331,7 @@
             </div>
           @elseif ($offers[$applicant->aid]['status'] == -1 && $offers[$applicant->aid]['start'] == $key_start && $offers[$applicant->aid]['scope'] == $key_scope)
             <div class="col-md-6">
-              <button class="btn btn-danger" disabled>Vergeben</button>
+              <button class="btn btn-danger" disabled>Absage</button>
             </div>
           @endif
         @else  <!-- offers key does not exists -->
@@ -408,8 +408,9 @@
           </script>
         @endif
 
+        <!-- current status: Not displayed -->
         <!--- infeasible applicants -->
-        @foreach($availableApplicants as $applicant)
+        <!--@foreach($availableApplicants as $applicant)
         @if (
           ( array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] != 1 ) or
           ( $applicant->status == 26 && !array_key_exists($applicant->aid, $offers) )
@@ -427,7 +428,8 @@
             </td>
           </tr>
         @endif
-        @endforeach
+        @endforeach-->
+
       </tbody>
     </table>
 
