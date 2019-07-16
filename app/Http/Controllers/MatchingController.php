@@ -132,6 +132,7 @@ class MatchingController extends Controller
     $result = json_decode($response->getBody(), true);
     $matchingResult = $result['hri_matching'];
 
+    print("Results:");
     print_r($result);
 
     // !!!!!!!!!!!
