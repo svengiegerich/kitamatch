@@ -50,7 +50,7 @@
       </div>
       @endif
 
-      @if (!($program->openOffers < $program->capacity))
+      <!--
       <br>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Die versendeten Angebote entsprechen ihrer maximalen Anzahl an Plätzen.</strong> Sie können nun bis zur nächsten Koordinierungsrunde keine weiteren Angebote mehr unterbreiten. Bitte aktualieren Sie diese Seite sobald die aktuelle Runde beendet ist.
@@ -58,7 +58,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      @endif
+    -->
     </div>
   </div>
 
@@ -117,7 +117,7 @@
                   <td>{{config('kitamatch_config.care_scopes')[$offer['scope']]}}</td>
                   <td><span class="badge badge-info">Gehaltenes Angebot</span></td>
                   <td>
-                    @if ($offer['updated_at'] > $lastMatch)
+                    @if ($offer['updated_at'] > $lastMatch or is_null($lastMatch))
                       <form action="{{url('/preference/program/uncoordinated/' . $offers[$applicant->aid]['id'])}}"
                         id="delete_{{$offers[$applicant->aid]['id']}}" name="delete_{{$offers[$applicant->aid]['id']}}" method="POST">
                         {{ csrf_field() }}
