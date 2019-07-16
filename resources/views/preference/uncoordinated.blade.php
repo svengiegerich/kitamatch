@@ -324,7 +324,7 @@
     <div class="row p-3">
     @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
       @if ($key_scope != -1)
-        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid)->first(); print($preference);?>
+        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid)->first(); print_r($preference);?>
         @if (count($preference) == 1 && $offers[$applicant->aid]['final'] != 1)
           @if ($preference->status == 1)
             <div class="col-md-6">
