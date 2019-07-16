@@ -324,6 +324,7 @@
 <div class="row p-3">
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
+<?php print_r($offers[$applicant->aid]); print("Services"); print_r($servicesApplicants[$applicant->aid]); ?>
 @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity)
 
 @if (isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]))
