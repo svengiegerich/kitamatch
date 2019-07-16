@@ -336,11 +336,11 @@
             <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
         </form>
       </div>
-    @elseif ($offers[$applicant->aid][status] == 1)
+    @elseif ($offers[$applicant->aid]['status'] == 1)
       <div class="col-md-6">
         <button class="btn btn-light">Abgegeben</button>
       </div>
-    @elseif ($offers[$applicant->aid][status] == -1)
+    @elseif ($offers[$applicant->aid]['status'] == -1)
       <div class="col-md-6">
         <button class="btn btn-danger">Vergeben</button>
       </div>
