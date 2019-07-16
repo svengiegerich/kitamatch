@@ -177,8 +177,6 @@ class PreferenceController extends Controller
     $providers = $Provider::all();
     foreach ($preferences as $preference) {
       $program = $programs->find($preference->id_to);
-      print_r($preference);
-      exit();
       $provider = $providers->find($program->proid);
       $preference->programName = $provider->name . " - " . $program->name;
     }
