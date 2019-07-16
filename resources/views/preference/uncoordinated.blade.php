@@ -324,7 +324,7 @@
     <div class="row p-3">
     @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
       @if ($key_scope != -1)
-        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid)->first(); print_r($preference);?>
+        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid)->first();?>
         @if (count($preference) == 1 && $offers[$applicant->aid]['final'] != 1)
           @if ($preference->status == 1)
             <div class="col-md-6">
@@ -336,7 +336,7 @@
             </div>
           @endif
         @else  <!-- offers key does not exists -->
-          @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity && isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]) && !(count($preference) == 1 && $preference->status == 1)) <!-- there is capacity & there is no open offer -->
+          @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity && isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]) && !(count($preferences->where('status', 1)) >= 1)) <!-- there is capacity & there is no open offer -->
             <div class="col-md-6">
               <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                   {{ csrf_field() }}
