@@ -103,9 +103,6 @@ class MatchingController extends Controller
     print_r(json_encode($input));
     echo "<br><br><br><br><br><br>";
 
-    // !!!!!!!!!!!
-    exit();
-    // !!!!!!!!!!!
 
     //GuzzleHttp\Client
     $client = new Client();
@@ -136,6 +133,10 @@ class MatchingController extends Controller
     $matchingResult = $result['hri_matching'];
 
     print_r($result);
+
+    // !!!!!!!!!!!
+    exit();
+    // !!!!!!!!!!!
 
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
@@ -431,7 +432,7 @@ print("<br><br>");
     $json['capacities'] = $capacities;
 
     // Last Matching ------------------
-    $lastMatchDate = $Matching->lastMatch();
+    /*$lastMatchDate = $Matching->lastMatch();
     $lastMatchTime = strtotime($lastMatchDate);
     $lastMatchTime = $lastMatchTime - (1 * 60); // minus 1 minute
     $lastMatchDate = date("Y-m-d H:i:s", $lastMatchTime);
@@ -444,7 +445,7 @@ print("<br><br>");
       $matching[$match->mid]['student'] = $match->aid;
       $matching[$match->mid]['college'] = $match->pid;
     }
-    $json['matching'] = $matching;
+    $json['matching'] = $matching;*/
 
     // ----------
 
