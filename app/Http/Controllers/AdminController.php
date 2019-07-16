@@ -111,7 +111,7 @@ class AdminController extends Controller
 
     $data['programsCount'] = count($programs);
     $data['providersCount'] = count($providers);
-    $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM programs";
+    $capacitySql = "SELECT SUM(capacity) AS 'totalCapacity' FROM capacities";
     $data['totalCapacity'] = DB::select($capacitySql)['0']->totalCapacity;
     $data['countRounds'] = $Matching->getRound();
     return $data;
