@@ -108,6 +108,15 @@ trait GetPreferences {
     return $preferences;
   }
 
+  public function getPreferencesUncoordinatedByProgramCollection($pid) {
+    $preferences = DB::table('preferences')
+      ->where('id_to', 'like', $pid . '\\_%')
+      ->where('pr_kind' = 3)
+      ->whereIn('status', [-1, 1])
+      ->get();
+    return $preferences
+  }
+
   /**
   * Get all non-active preferences of a program (coord or uncoord)
   *

@@ -483,7 +483,7 @@ class PreferenceController extends Controller
       // order applicants
       $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
 
-      $preferences = $this->getPreferencesUncoordinatedByProgram($pid); //!!
+      $preferences = $this->getPreferencesUncoordinatedByProgramCollection($pid); //!!
 
       //manual ranking
       $manualRanking = $this->getManualRankingsByProgram($pid);
