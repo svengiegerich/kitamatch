@@ -111,7 +111,7 @@ trait GetPreferences {
   public function getPreferencesUncoordinatedByProgramCollection($pid) {
     $preferences = DB::table('preferences')
       ->where('id_to', 'like', $pid . '\\_%')
-      ->where('pr_kind' = 3)
+      ->where('pr_kind', 3)
       ->whereIn('status', [-1, 1])
       ->get();
     return $preferences
