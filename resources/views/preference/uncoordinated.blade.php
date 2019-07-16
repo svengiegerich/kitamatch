@@ -320,49 +320,45 @@
 </div>
 
 @foreach (config('kitamatch_config.care_starts') as $key_start => $start)
-@if ($key_start != -1)
-<div class="row p-3">
-@foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
-@if ($key_scope != -1)
-<?php print_r($offers[$applicant->aid]); print("Services"); print_r($servicesApplicants[$applicant->aid]); ?>
-@if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity)
-
-@if (isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]))
-    @if (!(array_key_exists($applicant->aid, $offers)))
-      <div class="col-md-6">
-        <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
-            {{ csrf_field() }}
-            <input type="hidden" name="aid" value="{{$applicant->aid}}">
-            <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
-            <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
-        </form>
-      </div>
-    @elseif ($offers[$applicant->aid]['status'] == 1)
-      <div class="col-md-6">
-        <button class="btn btn-info" disabled>Abgegeben</button>
-      </div>
-    @elseif ($offers[$applicant->aid]['status'] == -1)
-      <div class="col-md-6">
-        <button class="btn btn-danger" disabled>Vergeben</button>
-      </div>
-    @endif
-@else
-  <!-- No pref by applicant -->
-<div class="col-md-6">
-  <button class="btn btn-light" disabled>{{$start}}, {{$scope}}</button>
-</div>
-@endif
-
-@else
-  <!-- No capacity -->
-<div class="col-md-6">
-  <button class="btn btn-light" disabled>{{$start}}, {{$scope}}</button>
-</div>
-@endif
-@endif
-@endforeach
-</div>
-@endif
+  @if ($key_start != -1)
+    <div class="row p-3">
+    @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
+      @if ($key_scope != -1)
+        @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity)
+        @if (isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]))
+          @if (!(array_key_exists($applicant->aid, $offers)) && )
+            <div class="col-md-6">
+              <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                  <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
+                  <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
+              </form>
+            </div>
+          @elseif ($offers[$applicant->aid]['status'] == 1)
+            <div class="col-md-6">
+              <button class="btn btn-info" disabled>Abgegeben</button>
+            </div>
+          @elseif ($offers[$applicant->aid]['status'] == -1)
+            <div class="col-md-6">
+              <button class="btn btn-danger" disabled>Vergeben</button>
+            </div>
+          @else
+            <!-- No pref by applicant -->
+            <div class="col-md-6">
+              <button class="btn btn-light" disabled>{{$start}}, {{$scope}}</button>
+            </div>
+          @endif
+        @else
+          <!-- No capacity -->
+          <div class="col-md-6">
+            <button class="btn btn-light" disabled>Keine Kapazität</button>
+          </div>
+        @endif
+      @endif
+    @endforeach
+  </div>
+  @endif
 @endforeach
 
                           </div>
