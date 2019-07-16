@@ -269,15 +269,17 @@
         <tbody id="sortable">
           <!-- available applicants: automatic ranking -->
             @foreach($availableApplicants as $applicant)
-            @if (
-              !(array_key_exists($applicant->aid, $offers))
-            )
+
             @if($applicant->status != 26)
+
+            <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)
                 <tr>
               @elseif(count($manualRanking) > 0)
                 <tr id="item-<?php echo $manualRanking->where('id_to', '=', $applicant->aid)->first()->prid; ?>">
               @endif
+            <!-- END -->
+
                 <th scope="row">{{$applicant->aid}}</th>
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
@@ -325,14 +327,24 @@
 @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity)
 
 @if (isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]))
-  <div class="col-md-6">
-    <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
-        {{ csrf_field() }}
-        <input type="hidden" name="aid" value="{{$applicant->aid}}">
-        <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
-        <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
-    </form>
-  </div>
+    @if (!(array_key_exists($applicant->aid, $offers)))
+      <div class="col-md-6">
+        <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
+            {{ csrf_field() }}
+            <input type="hidden" name="aid" value="{{$applicant->aid}}">
+            <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
+            <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
+        </form>
+      </div>
+    @elseif ($offers[$applicant->aid][status] == 1)
+      <div class="col-md-6">
+        <button class="btn btn-light">Abgegeben</button>
+      </div>
+    @elseif ($offers[$applicant->aid][status] == -1)
+      <div class="col-md-6">
+        <button class="btn btn-danger">Vergeben</button>
+      </div>
+    @endif
 @else
   <!-- No pref by applicant -->
 <div class="col-md-6">
@@ -370,7 +382,6 @@
                     </form>
                 </td>
               </tr>
-          @endif
           @endif
           @endforeach
 
@@ -418,11 +429,7 @@
             <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
             <td>{{$applicant->gender}}</td>
             <td>
-              @if ($applicant->status == 26)
-                <span class="badge badge-danger">final zugeteilt</span>
-              @else
-                <span class="badge badge-danger">hält präferierteres Angebot</span>
-              @endif
+              <span class="badge badge-danger">hält präferierteres Angebot</span>
             </td>
             <td>
             </td>

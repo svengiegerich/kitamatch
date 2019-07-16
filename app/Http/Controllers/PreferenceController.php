@@ -496,7 +496,9 @@ class PreferenceController extends Controller
 
         $availableApplicants = $availableApplicants->sortBy('manualRank');
       }
+      //---
 
+      //create empty array for services
       $offers = array();
       $openOffers = array();
       foreach (config('kitamatch_config.care_starts') as $key_start => $start) {
@@ -508,7 +510,9 @@ class PreferenceController extends Controller
       }
       $countWaitlist = $openOffers; // 0 init
       $countApplicants = $openOffers; // 0 init
+      //---
 
+      //services
       $servicesApplicants = array();
       foreach ($availableApplicants as $applicant) {
         $servicesApplicants[$applicant->aid] = $this->getServicesByApplicantProgram($applicant->aid, $program->pid);
@@ -520,8 +524,9 @@ class PreferenceController extends Controller
           }
         }
       }
+      //---
 
-
+      //preferences
       foreach ($preferences as $preference) {
         foreach ($availableApplicants as $applicant) {
           if ($preference->id_to == $applicant->aid) {
@@ -561,21 +566,9 @@ class PreferenceController extends Controller
           }
         }
       }
+      //---
+      
       $program->openOffers = $openOffers;
-            //create display rank
-            /*foreach ($availableApplicants as $applicant) {
-                if (array_key_exists($applicant->aid, $offers)) {
-                    if ($offers[$applicant->aid] > 0) {
-                        $applicant->rank = $applicant->aid - 1000000;
-                    } else if ($offers[$applicant->aid] == -1) {
-                        $applicant->rank = $applicant->aid + 1000000;
-                    }
-                }  else {
-                    //!!!!!!!!!!! to points
-                    $applicant->rank = $applicant->aid;
-                }
-            }
-            $availableApplicants = $availableApplicants->sortBy('rank'); */
 
       return view('preference.uncoordinated', array('round' => $round,
                                                     'program' => $program,
