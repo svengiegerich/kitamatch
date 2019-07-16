@@ -4,6 +4,17 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+<script>
+  $(document).ready( function () {
+    $('#offers').DataTable( {
+      "pageLength": 100,
+      "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
+            },
+    } );
+  } );
+</script>
+
 <div class="panel-body">
 
   <div class="row justify-content-center">
