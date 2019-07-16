@@ -117,6 +117,7 @@
                   <td>{{config('kitamatch_config.care_scopes')[$offer['scope']]}}</td>
                   <td><span class="badge badge-info">Gehaltenes Angebot</span></td>
                   <td>
+                    <?php print_r($lastMatch); ?>
                     @if ($offer['updated_at'] > $lastMatch or is_null($lastMatch))
                       <form action="{{url('/preference/program/uncoordinated/' . $offers[$applicant->aid]['id'])}}"
                         id="delete_{{$offers[$applicant->aid]['id']}}" name="delete_{{$offers[$applicant->aid]['id']}}" method="POST">
