@@ -324,12 +324,12 @@
     <div class="row p-3">
     @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
       @if ($key_scope != -1)
-        @if (array_key_exists($applicant->aid, $offers))
+        @if (array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['final'] == 1)
           @if ($offers[$applicant->aid]['status'] == 1 && $offers[$applicant->aid]['start'] == $key_start && $offers[$applicant->aid]['scope'] == $key_scope)
             <div class="col-md-6">
               <button class="btn btn-info" disabled>Abgegeben</button>
             </div>
-          @elseif ($offers[$applicant->aid]['status'] == -1)
+          @elseif ($offers[$applicant->aid]['status'] == -1 && $offers[$applicant->aid]['start'] == $key_start && $offers[$applicant->aid]['scope'] == $key_scope)
             <div class="col-md-6">
               <button class="btn btn-danger" disabled>Vergeben</button>
             </div>
