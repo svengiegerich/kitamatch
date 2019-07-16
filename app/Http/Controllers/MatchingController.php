@@ -94,7 +94,7 @@ class MatchingController extends Controller
     $Preference = new Preference;
     $Matching = new Matching;
 
-    $input = $this->prepareMatching();
+    $input = $this->prepareMatching2();
 
     //null=4
     if (!(strlen(json_encode($input))>5)) {
@@ -102,6 +102,10 @@ class MatchingController extends Controller
     }
     print_r(json_encode($input));
     echo "<br><br><br><br><br><br>";
+
+    // !!!!!!!!!!!
+    exit();
+    // !!!!!!!!!!!
 
     //GuzzleHttp\Client
     $client = new Client();
@@ -377,6 +381,7 @@ print("<br><br>");
     $Preference = new Preference;
     $Capacity = new Capacity;
     $Applicant = new Applicant;
+    $Matching = new Matching;
     $json = array();
 
 
@@ -426,8 +431,22 @@ print("<br><br>");
     $json['capacities'] = $capacities;
 
     // Last Matching ------------------
+    $lastMatchDate = $Matching->lastMatch();
+    $lastMatchTime = strtotime($lastMatchDate);
+    $lastMatchTime = $lastMatchTime - (1 * 60); // minus 1 minute
+    $lastMatchDate = date("Y-m-d H:i:s", $lastMatchTime);
+    $matches = DB::table('matchings')
+      ->where('updated_at', '>=', $lastMatchDate)
+      ->get();
 
-    
+    $matching = array();
+    foreach($matches as $id => $match) {
+      $matching[$match->mid]['student'] = $match->aid;
+      $matching[$match->mid]['college'] = $match->pid;
+    }
+    $json['matching'] = $matching;
+
+    // ----------
 
     print_r($json);
 
