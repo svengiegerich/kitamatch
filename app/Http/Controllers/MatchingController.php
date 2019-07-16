@@ -435,7 +435,7 @@ print("<br><br>");
     $lastMatchTime = strtotime($lastMatchDate);
     $lastMatchTime = $lastMatchTime - (1 * 60); // minus 1 minute
     $lastMatchDate = date("Y-m-d H:i:s", $lastMatchTime);
-    $matches = DB::table('matchings')
+    $matches = DB::table('matches')
       ->where('updated_at', '>=', $lastMatchDate)
       ->get();
 
