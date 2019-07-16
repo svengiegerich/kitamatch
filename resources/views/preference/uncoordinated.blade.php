@@ -336,7 +336,7 @@
             <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
         </form>
       </div>
-    @elseif ($offers[$applicant->aid]['status'] == 1 && $offers[$applicant->aid]['start'] == $key_start && $offers[$applicant->aid]['scope'] == $key_scope)
+    @elseif ($offers[$applicant->aid]['status'] == 1 )
       <div class="col-md-6">
         <button class="btn btn-info">Abgegeben</button>
       </div>
