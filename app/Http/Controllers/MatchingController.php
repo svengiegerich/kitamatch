@@ -137,10 +137,6 @@ class MatchingController extends Controller
     print("Results:");
     print_r($result);
 
-    // !!!!!!!!!!!
-    exit();
-    // !!!!!!!!!!!
-
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
 
@@ -157,6 +153,7 @@ class MatchingController extends Controller
 
       //check if program is uncoordinated
       $coordination = $Program->isCoordinated((int)$match['college.y']);
+      // is uncoordianted
       if ($coordination == 0) {
         $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college.y']);
         foreach ($preferencesUncoordinated as $preference) {
@@ -182,61 +179,6 @@ class MatchingController extends Controller
         $this->store($matchRequest);
       }
     }
-
-    /*
-
-
-
-
-    $Preference->resetUncoordinated();
-
-    //store the positiv matches
-    foreach ($matchingResult as $match) {
-      $matchRequest = new Request();
-      $matchRequest->setMethod('POST');
-      $matchRequest->request->add(['college' => (int)$match['college.y'],
-                                   'student' => (int)$match['student.y']
-                                 ]);
-
-      //check if it's a match on the waitlist, if update preference to rank = 1
-
-      $preference = Preference::where('id_from', '=', 9)
-        ->where('id_to', '=', (int)$match['college.y'])
-        ->where('pr_kind', "=", 3)
-        ->where('rank', '>', 1)
-        ->get();
-      if ($preference->count() != 0) {
-        echo "ranked";
-        $preference = $preference->first();
-        $preference->rank = 1;
-        $preference->save();
-      }
-
-      //check if it's the final match
-      if ((int)$match['college.y'] == (int)$input['student_prefs'][(int)$match['student.y']][0]) {
-        $matchRequest->request->add(['status' => 32]);
-        $this->store($matchRequest);
-        //set applicant status to matched
-        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student.y']);
-      } else {
-        $matchRequest->request->add(['status' => 31]);
-        $this->store($matchRequest);
-      }
-
-      //check if program is uncoordinated
-      $coordination = $Program->isCoordinated((int)$match['college.y']);
-      if ($coordination == 0) {
-        // if then update prefs back to 1
-        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college.y']);
-        foreach ($preferencesUncoordinated as $preference) {
-          //only for this specific match
-          if ((int)$preference->id_to == (int)$match['student.y']) {
-            $Preference->updateStatus($preference->prid, 1);
-          }
-        }
-      }
-    }*/
-    //return redirect()->action('AdminController@index');
   }
 
 
