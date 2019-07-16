@@ -88,7 +88,7 @@ Route::post('/provider/{proid}', 'ProviderController@edit');
 Route::get('/matching/all', 'MatchingController@all');
 Route::get('/matching/json', 'MatchingController@createJson');
 
-Route::get('/matching/get', 'MatchingController@prepareMatching2');
+Route::get('/matching/get', 'MatchingController@findMatchings');
 
 //Criteria
 Route::get('/criteria/{p_id}', 'CriteriumController@showByProvider');
