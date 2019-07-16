@@ -448,8 +448,6 @@ print("<br><br>");
 
     // ----------
 
-    print_r($json);
-
     // If no information, return NULL
     if ($preferencesByServices->count() == 0 || count($preferencesApplicants) == 0) {
       return;
