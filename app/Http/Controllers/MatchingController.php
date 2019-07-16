@@ -453,6 +453,7 @@ print("<br><br>");
       return;
     }
 
+    return($json);
   }
 
 }
