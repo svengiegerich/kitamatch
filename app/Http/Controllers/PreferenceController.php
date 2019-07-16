@@ -568,6 +568,8 @@ class PreferenceController extends Controller
       }
 
       print_r($offers);
+      print("Services");
+      print_r($servicesApplicants);
       //---
 
       $program->openOffers = $openOffers;
