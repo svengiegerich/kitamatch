@@ -432,7 +432,7 @@ print("<br><br>");
       $capacities[$service->id_from] = $Capacity->getCapacity($service->id_from);
     }
     $json['college_prefs'] = $preferencesServices;
-    $json['capacities'] = $capacities;
+    $json['college_capacity'] = $capacities;
 
     // Last Matching ------------------
     /*$lastMatchDate = $Matching->lastMatch();
