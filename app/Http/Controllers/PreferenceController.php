@@ -149,7 +149,7 @@ class PreferenceController extends Controller
       }
 
       // coordinated programs
-      $this->createCoordinatedPreferences($program->pid);
+      $this->createCoordinatedPreferences();
 
       return redirect()->action('AdminController@index');
     }
