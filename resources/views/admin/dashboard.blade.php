@@ -75,7 +75,7 @@
           @if (!$data['isSet'])
           <a target="_blank" href="{{url('/preference/set')}}"><button class="btn btn-primary btn-lg btn-block">Ranglisten einrasten</button></a>
           @else
-          <button class="btn btn-light btn-lg btn-block">Ranglisten eingerastet</button>
+          <button class="btn btn-light btn-lg btn-block" disabled>Ranglisten eingerastet</button>
           @endif
         </div>
       </div>

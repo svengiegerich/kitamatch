@@ -566,8 +566,10 @@ class PreferenceController extends Controller
           }
         }
       }
+
+      print_r($offers);
       //---
-      
+
       $program->openOffers = $openOffers;
 
       return view('preference.uncoordinated', array('round' => $round,
