@@ -114,7 +114,7 @@ trait GetPreferences {
       ->where('pr_kind', 3)
       ->whereIn('status', [-1, 1])
       ->get();
-    return $preferences
+    return $preferences;
   }
 
   /**
