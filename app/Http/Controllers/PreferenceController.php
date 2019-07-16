@@ -562,6 +562,15 @@ class PreferenceController extends Controller
               $offers[$applicant->aid]['id'] = $preference->prid;
               $offers[$applicant->aid]['final'] = -1;
               $offers[$applicant->aid]['status'] = -1;
+
+              $offers[$applicant->aid]['rank'] = $preference->rank;
+              $offers[$applicant->aid]['id_to'] = $preference->id_to;
+              $offers[$applicant->aid]['id_from'] = $preference->id_from;
+              $offers[$applicant->aid]['pid'] = $pid;
+              $offers[$applicant->aid]['start'] = $start;
+              $offers[$applicant->aid]['scope'] = $scope;
+              $offers[$applicant->aid]['status'] = $preference->status;
+              $offers[$applicant->aid]['updated_at'] = $preference->updated_at;
             }
           }
         }
