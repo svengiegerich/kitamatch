@@ -310,7 +310,7 @@ class PreferenceController extends Controller
 
     } elseif ($applicant->alternative_scope == 1 and $applicant->alternative_start == 0) {
       // alternative_scope: yes, alternative_start: no
-      $care_start = $applicant->care_start;
+      /*$care_start = $applicant->care_start;
       $filtered = array_filter(
         $preference_list,
         function ($var) use ($care_start)  {
@@ -322,6 +322,13 @@ class PreferenceController extends Controller
         $filtered,
         'scope_rank', SORT_ASC,
         'program_rank', SORT_ASC
+      );*/
+
+      $sorted = $this->array_orderby(
+        $preference_list,
+        'start', SORT_ASC // the earlier the better
+        'program_rank', SORT_ASC,
+        'scope_rank', SORT_ASC
       );
 
     } elseif ($applicant->alternative_scope == 0 and $applicant->alternative_start == 1) {
