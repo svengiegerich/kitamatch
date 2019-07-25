@@ -95,10 +95,10 @@
           </tr>
       </thead>
       <tbody>
-        @if (count($offers) > 0)
-          @foreach ($offers as $offer)
-            @if ($offer['status'] != -1 && $offer['rank'] == 1)
-              <?php $applicant = $availableApplicants->where('aid', '=', $offer['id_to'])->first(); ?>
+        @if (count($preferences) > 0)
+          @foreach ($preferences as $preference)
+            @if ($preference->status != -1 && $preference->rank == 1)
+              <?php $applicant = $availableApplicants->where('aid', '=', $preference->id_to)->first(); ?>
               @if ($applicant->status == 26)
                 <tr class="table-success">
                   <th scope="row">{{$applicant->aid}}</th>
@@ -106,18 +106,17 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td>{{config('kitamatch_config.care_starts')[$offer['start']]}}</td>
-                  <td>{{config('kitamatch_config.care_scopes')[$offer['scope']]}}</td>
+                  <td>{{config('kitamatch_config.care_starts')[$preference['start']]}}</td>
+                  <td>{{config('kitamatch_config.care_scopes')[$preference['scope']]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
                   <td></td>
                 </tr>
               @endif
             @endif
           @endforeach
-          @foreach ($offers as $offer)
-            <?php print_r($offer); print($offer['rank']); print("h"); print($offer['status']); print("---"); ?>
-            @if ($offer['status'] != -1 && $offer['rank'] == 1)
-              <?php $applicant = $availableApplicants->where('aid', '=', $offer['id_to'])->first(); ?>
+          @foreach ($preferences as $preference)
+            @if ($preference->status != -1 && $preference->rank == 1)
+              <?php $applicant = $availableApplicants->where('aid', '=', $preference->id_to)->first(); ?>
               @if ($applicant->status != 26)
                 <tr class="table-info">
                   <th scope="row">{{$applicant->aid}}</th>
@@ -125,16 +124,16 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td>{{config('kitamatch_config.care_starts')[$offer['start']]}}</td>
-                  <td>{{config('kitamatch_config.care_scopes')[$offer['scope']]}}</td>
+                  <td>{{config('kitamatch_config.care_starts')[$preference['start']]}}</td>
+                  <td>{{config('kitamatch_config.care_scopes')[$preference['scope']]}}</td>
                   <td><span class="badge badge-info">Gehaltenes Angebot</span></td>
                   <td>
                     @if ($offer['updated_at'] >= $lastMatch)
-                      <form action="{{url('/preference/program/uncoordinated/' . $offers[$applicant->aid]['id'])}}"
-                        id="delete_{{$offers[$applicant->aid]['id']}}" name="delete_{{$offers[$applicant->aid]['id']}}" method="POST">
+                      <form action="{{url('/preference/program/uncoordinated/' . $preference->prid)}}"
+                        id="delete_{{$preference->prid}}" name="delete_{{$preference->prid}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button form="delete_{{$offers[$applicant->aid]['id']}}" type="submit" class="badge badge-light">Zurücknehmen</button>
+                        <button form="delete_{{$preference->prid}}" type="submit" class="badge badge-light">Zurücknehmen</button>
                       </form>
                     @endif
                   </td>

@@ -116,7 +116,17 @@ trait GetPreferences {
       ->whereIn('status', [-1, 1])
       ->get();
 
-    print_r($preferences);
+
+    foreach($preferences as &$preference) {
+      $id_from_explode = explode("_", $preference->id_to);
+      $pid = $id_from_explode[0];
+      $start = $id_from_explode[1];
+      $scope = $id_from_explode[2];
+      $preference->pid = $pid;
+      $preference->start = $start;
+      $preference->scope = $scope;
+    }
+
     return $preferences;
   }
 
