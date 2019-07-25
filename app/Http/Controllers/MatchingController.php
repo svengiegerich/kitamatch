@@ -163,7 +163,7 @@ class MatchingController extends Controller
 
         //
         print_r($match['college.y']);
-        print_r($preferencesUncoordinated);
+        print_r($this->getPreferencesByUncoordinatedService($match['college.y']));
 
         /*foreach ($preferencesUncoordinated as $preference) {
           if ($preference->id_to == $match['student.y']) {
