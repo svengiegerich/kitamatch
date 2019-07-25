@@ -23,6 +23,7 @@ use App\Http\Controllers\Controller;
 use App\Criterium;
 use App\Code;
 use App\Preference;
+use App\Program;
 
 /**
 * This controller handles the criteria catalogue: creation, update.
