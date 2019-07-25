@@ -115,9 +115,9 @@
             @endif
           @endforeach
           @foreach ($offers as $aid => $offer)
-            <?php print_r($offer); ?>
+            <?php print_r($offer); print($offer['rank']); print("h"); print($offer['status']); print("---"); ?>
             @if ($offer['status'] != -1 && $offer['rank'] == 1)
-              <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); print_r($applicant);?>
+              <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
               @if ($applicant->status != 26)
                 <tr class="table-info">
                   <th scope="row">{{$applicant->aid}}</th>
