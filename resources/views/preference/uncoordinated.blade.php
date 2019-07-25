@@ -106,8 +106,8 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td>{{config('kitamatch_config.care_starts')[$preference['start']]}}</td>
-                  <td>{{config('kitamatch_config.care_scopes')[$preference['scope']]}}</td>
+                  <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
+                  <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
                   <td></td>
                 </tr>
@@ -124,8 +124,8 @@
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                   <td>{{$applicant->gender}}</td>
-                  <td>{{config('kitamatch_config.care_starts')[$preference['start']]}}</td>
-                  <td>{{config('kitamatch_config.care_scopes')[$preference['scope']]}}</td>
+                  <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
+                  <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td><span class="badge badge-info">Gehaltenes Angebot</span></td>
                   <td>
                     @if ($offer['updated_at'] >= $lastMatch)
