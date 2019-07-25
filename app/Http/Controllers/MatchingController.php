@@ -152,12 +152,12 @@ class MatchingController extends Controller
                                  ]);
 
       //check if program is uncoordinated
-      $coordination = $Program->isCoordinated($match['college.y']);
+      $coordination = $Program->isCoordinated((int)$match['college.y']);
       // is uncoordianted
       if ($coordination == 0) {
-        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram($match['college.y']);
+        $preferencesUncoordinated = $this->getPreferencesUncoordinatedByProgram((int)$match['college.y']);
         foreach ($preferencesUncoordinated as $preference) {
-          if ($preference->id_to == $match['student.y']) {
+          if ($preference->id_to == (int)$match['student.y']) {
             $Preference->updateStatus($preference->prid, 1);
             $Preference->updateRank($preference->prid, 1);
           }
@@ -165,7 +165,7 @@ class MatchingController extends Controller
       }
 
       //check if it's the final match
-      if ((int)$match['college.y'] == $input['student_prefs'][$match['student.y']][0]) {
+      if ((int)$match['college.y'] == (int)$input['student_prefs'][(int)$match['student.y']][0]) {
         $matchRequest->request->add(['status' => 32]);
         $this->store($matchRequest);
         //set applicant status to matched
