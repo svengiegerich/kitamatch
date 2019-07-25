@@ -177,6 +177,7 @@ public function getDefaultCriteria() {
 
   public function addManualRanking($pid) {
     $Preference = new Preference();
+    $Program = new Program();
 
     $providerId = $Program->getProviderId($pid);
     if ($providerId) {

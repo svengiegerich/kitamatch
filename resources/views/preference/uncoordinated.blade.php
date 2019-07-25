@@ -91,7 +91,6 @@
               <th>Beginn</th>
               <th>Umfang</th>
               <th>&nbsp;</th>
-              <th>&nbsp;</th>
           </tr>
       </thead>
       <tbody>
@@ -109,7 +108,6 @@
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
-                  <td></td>
                 </tr>
               @endif
             @endif
@@ -126,7 +124,6 @@
                   <td>{{$applicant->gender}}</td>
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
-                  <td><span class="badge badge-info">Gehaltenes Angebot</span></td>
                   <td>
                     @if ($preference->updated_at >= $lastMatch)
                       <form action="{{url('/preference/program/uncoordinated/' . $preference->prid)}}"
@@ -135,6 +132,8 @@
                         {{ method_field('DELETE') }}
                         <button form="delete_{{$preference->prid}}" type="submit" class="badge badge-light">Zurücknehmen</button>
                       </form>
+                    @else
+                      <span class="badge badge-info">Gehaltenes Angebot</span>
                     @endif
                   </td>
                 </tr>
