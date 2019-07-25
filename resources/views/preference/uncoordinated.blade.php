@@ -117,7 +117,7 @@
           @foreach ($offers as $aid => $offer)
             <?php print_r($offer); ?>
             @if ($offer['status'] != -1 && $offer['rank'] == 1)
-              <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
+              <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); print_r($applicant);?>
               @if ($applicant->status != 26)
                 <tr class="table-info">
                   <th scope="row">{{$applicant->aid}}</th>
