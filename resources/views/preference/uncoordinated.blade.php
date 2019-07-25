@@ -115,6 +115,7 @@
             @endif
           @endforeach
           @foreach ($offers as $aid => $offer)
+            <?php print_r($offer); ?>
             @if ($offer['status'] != -1 && $offer['rank'] == 1)
               <?php $applicant = $availableApplicants->where('aid', '=', $aid)->first(); ?>
               @if ($applicant->status != 26)
