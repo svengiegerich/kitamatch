@@ -368,7 +368,7 @@ print("<br><br>");
       $preferencesByService = $preferencesByServices->where('id_from', '=', $service->id_from);
       foreach ($preferencesByService as $pref) {
         print($i);
-        print_r($applicants->find($pref->id_to)->first()->status);
+        print_r($applicants->where('aid', '=', $pref->id_to)->first()->status);
         print_r("----");
         //if ($applicants->find($pref->id_to)->status == 22 || $applicants->find($pref->id_to)->status == 25) {
           $preferencesServices[$service->id_from][$i] = $pref->id_to;
