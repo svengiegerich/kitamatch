@@ -401,8 +401,6 @@ print("<br><br>");
       return;
     }
 
-    exit();
-
     return($json);
   }
 
