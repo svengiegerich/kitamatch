@@ -118,7 +118,7 @@ trait GetPreferences {
 
 
     foreach($preferences as &$preference) {
-      $id_from_explode = explode("_", $preference->id_to);
+      $id_from_explode = explode("_", $preference->id_from);
       $pid = $id_from_explode[0];
       $start = $id_from_explode[1];
       $scope = $id_from_explode[2];
