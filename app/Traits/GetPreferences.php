@@ -131,7 +131,7 @@ trait GetPreferences {
   }
 
   public function getPreferencesByUncoordinatedService($sid) {
-    $sql = "SELECT * FROM preferences WHERE (`id_from` = '" . $sid . "\\_%' AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
+    $sql = "SELECT * FROM preferences WHERE (`id_from` = '" . $sid . "' AND (`status` = 1 OR `status` = -1) AND `pr_kind` = 3) ORDER BY rank asc, RAND()";
     $preferences = DB::select($sql);
     return $preferences;
   }
