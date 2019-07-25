@@ -155,10 +155,14 @@ class MatchingController extends Controller
       //check if program is uncoordinated
       $coordination = $Program->isCoordinated($match['college.y']);
       // is uncoordianted
+
+      print("---------- <br>");
+
       if ($coordination == 0) {
         $preferencesUncoordinated = $this->getPreferencesByUncoordinatedService($match['college.y']);
 
         //
+        print_r($match['college.y']);
         print_r($preferencesUncoordinated);
 
         /*foreach ($preferencesUncoordinated as $preference) {
