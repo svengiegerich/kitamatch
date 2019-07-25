@@ -128,7 +128,7 @@
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td><span class="badge badge-info">Gehaltenes Angebot</span></td>
                   <td>
-                    @if ($offer['updated_at'] >= $lastMatch)
+                    @if ($preference->updated_at >= $lastMatch)
                       <form action="{{url('/preference/program/uncoordinated/' . $preference->prid)}}"
                         id="delete_{{$preference->prid}}" name="delete_{{$preference->prid}}" method="POST">
                         {{ csrf_field() }}
