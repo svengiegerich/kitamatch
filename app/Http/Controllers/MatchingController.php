@@ -367,10 +367,11 @@ print("<br><br>");
       $i = 0;
       $preferencesByService = $preferencesByServices->where('id_from', '=', $service->id_from);
       foreach ($preferencesByService as $pref) {
-        if ($applicants->find($pref->id_to)->status == 22 || $applicants->find($pref->id_to)->status == 25) {
+        print_r($applicants->find($pref->id_to));
+        //if ($applicants->find($pref->id_to)->status == 22 || $applicants->find($pref->id_to)->status == 25) {
           $preferencesServices[$service->id_from][$i] = $pref->id_to;
           $i++;
-        }
+        //}
       }
 
       $capacities[$service->id_from] = $Capacity->getCapacity($service->id_from);
@@ -400,6 +401,8 @@ print("<br><br>");
     if ($preferencesByServices->count() == 0 || count($preferencesApplicants) == 0) {
       return;
     }
+
+    exit();
 
     return($json);
   }
