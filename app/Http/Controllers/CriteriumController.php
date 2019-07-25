@@ -24,6 +24,7 @@ use App\Criterium;
 use App\Code;
 use App\Preference;
 use App\Program;
+use App\Provider;
 
 /**
 * This controller handles the criteria catalogue: creation, update.
