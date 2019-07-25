@@ -181,6 +181,8 @@ public function getDefaultCriteria() {
     $Preference = new Preference();
     $Program = new Program();
 
+    $program = Program::find($pid);
+
     $providerId = $Program->getProviderId($pid);
     if ($providerId) {
       $provider = true;
