@@ -342,7 +342,7 @@ class PreferenceController extends Controller
 
       $sorted = $this->array_orderby(
         $filtered,
-        'program_rank', SORT_ASC
+        'program_rank', SORT_ASC,
         'start', SORT_ASC
       );
 
