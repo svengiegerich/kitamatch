@@ -249,7 +249,7 @@
     <h4>Bewerberliste
       <small class="text-muted" style="float: right;">
         <span class="badge badge-light">Verfügbarer Bewerber</span>
-        <span class="badge badge-danger">Vergebener Bewerber</span>
+        <!--<span class="badge badge-danger">Vergebener Bewerber</span>-->
       </small>
     </h4>
 
@@ -269,7 +269,7 @@
           <!-- available applicants: automatic ranking -->
             @foreach($availableApplicants as $applicant)
 
-            @if($applicant->status != 26)
+            @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->where('status', 1)) >= 1))
 
             <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)

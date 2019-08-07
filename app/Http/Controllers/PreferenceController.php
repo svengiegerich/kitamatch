@@ -494,8 +494,6 @@ class PreferenceController extends Controller
 
       $preferences = $this->getPreferencesUncoordinatedByProgramCollection($pid); //!!
 
-      print_r($preferences);
-
       //manual ranking
       $manualRanking = $this->getManualRankingsByProgram($pid);
       if (count($manualRanking) > 0) {
