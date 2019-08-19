@@ -82,6 +82,7 @@ Guardians maintain the social master data required for the coordination and hols
 * 0:  Neutral
 * 840: Kein Geschwisterkind (Nein)
 * 841: Geschwisterkind (Ja)
+* Manual Points: Provider-Id of the sibling
 
 #### religion
 * 0:  Neutral
