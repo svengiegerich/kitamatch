@@ -138,7 +138,7 @@ class Preference extends Model
   * Adds an additional order attribute to every entry containing the criteria score
   *
   * @param App\Applicant $applicants applicants
-  * @param integer $p_ID Program/Provider-ID
+  * @param integer $p_id Program/Provider-ID
   * @param boolean $provider IsProvider?
   * @return Illuminate\Database\Eloquent\Collection applicants ordered, and with order-attribute (correspoonding criteria-points)
   */
@@ -150,7 +150,7 @@ class Preference extends Model
       $criteria = Criterium::where('p_id', '=', $p_id)
         ->orderBy('rank', 'asc')
         ->get();
-      $provider_id = $p_Id;
+      $provider_id = $p_id;
     } else {
       //single program
       $criteria = Criterium::where('p_id', '=', $p_id)
