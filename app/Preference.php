@@ -17,6 +17,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Program;
 
 /**
 * This model handles the preferences of programs and applicants
@@ -141,18 +142,22 @@ class Preference extends Model
   * @param boolean $provider IsProvider?
   * @return Illuminate\Database\Eloquent\Collection applicants ordered, and with order-attribute (correspoonding criteria-points)
   */
-  public function orderByCriteria($applicants, $p_Id, $provider) {
+  public function orderByCriteria($applicants, $p_id, $provider) {
+    $Program = new Program();
+
     //$provider = true -> criteria from a provider level
     if ($provider) {
-      $criteria = Criterium::where('p_id', '=', $p_Id)
+      $criteria = Criterium::where('p_id', '=', $p_id)
         ->orderBy('rank', 'asc')
         ->get();
+      $provider_id = $p_Id;
     } else {
       //single program
-      $criteria = Criterium::where('p_id', '=', $p_Id)
+      $criteria = Criterium::where('p_id', '=', $p_id)
         ->where('program', '=', 1)
         ->orderBy('rank', 'asc')
         ->get();
+      $povider_id = $Program->getProviderId($p_id);
     }
 
     //if criteria is null, use the default order (indicated by providerId = -1)
@@ -162,6 +167,7 @@ class Preference extends Model
       ->get();
     }
 
+    // 1. add order tag
     foreach($applicants as $applicant) {
       //$guardian = Guardian::find($applicant->gid);
       $applicant->order = 0;
@@ -172,6 +178,11 @@ class Preference extends Model
             $applicant->order = $applicant->order + $criterium->rank * $criterium->multiplier;
           }
         }
+
+      // if manual points = TRUE, calculate points if sibiling is within the same institution
+      if (config('manual_points') && $applicant->sibilings == $provider_id) {
+        $applicant->points = $applicant->points + config('manual_points_value');
+      }
       //} else {
         //no guardian -> order = 10000, to order asc
       //  $applicant->order = 0;
@@ -182,17 +193,33 @@ class Preference extends Model
       }
     }
 
-    //tie braker, sort by birthday on the same level
-    //https://github.com/laravel/ideas/issues/11;
-    $applicants = $applicants->sort(function($a, $b) {
-      if($a->order === $b->order) {
-        if($a->birthday === $b->birthday) {
-          return 0;
-         }
-        return $a->birthday < $b->birthday ? -1 : +1;
-      }
-      return $a->order < $b->order ? -1 : +1;
-    });
+    // 2. sort: i) by manual points in the db, ii) by order tag
+    // [tie braker, sort by birthday on the same level
+    // https://github.com/laravel/ideas/issues/11;]
+    if (config('manual_points')) { // order by manual points
+      // points_manual
+      $applicants = $applicants->sort(function($a, $b) {
+        if($a->points_manual === $b->points_manual) {
+          if($a->birthday === $b->birthday) {
+            return 0;
+           }
+          return $a->birthday < $b->birthday ? -1 : +1;
+        }
+        return $a->points_manual < $b->points_manual ? -1 : +1;
+      });
+    } else {
+      // order
+      $applicants = $applicants->sort(function($a, $b) {
+        if($a->order === $b->order) {
+          if($a->birthday === $b->birthday) {
+            return 0;
+           }
+          return $a->birthday < $b->birthday ? -1 : +1;
+        }
+        return $a->order < $b->order ? -1 : +1;
+      });
+    }
+
     return $applicants;
   }
 

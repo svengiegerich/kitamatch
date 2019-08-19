@@ -6,6 +6,14 @@ return [
   // -----------------------------
   // -----------------------------
 
+  // MANUEL POINTS
+  'manual_points' => FALSE,
+  'manual_points_value' => 10,
+
+  // -----------------------------
+  // -----------------------------
+  // -----------------------------
+
   // DIFFERENT STARTS?
   'has_diff_starts' => TRUE,
   'has_diff_scopes' => TRUE,
