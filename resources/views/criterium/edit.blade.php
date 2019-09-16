@@ -35,17 +35,17 @@
                         }
                     });
                 }
-            })
+            });
             // deactivate
             .on('click', '.deactivate', function() {
                 $(this).closest('li').remove(); //decativate?!
-                var data = {'itemId': $(this).closest('li').attr('id')};
+                var criteriaId = {'itemId': $(this).closest('li').attr('id')};
                 $.ajax({
-                        data: data,
+                        data: criteriaId,
                         type: 'POST',
-                        url: '{{url('/criteria/delete/')}}' . data, //concatinate
-                        success: function(data) {
-                            console.log(data);
+                        url: '{{url('/criteria/delete/')}}' . criteriaId, //concatinate
+                        success: function(criteriaId) {
+                            console.log(criteriaId);
                         }
                     });
             });

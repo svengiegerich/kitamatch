@@ -181,7 +181,7 @@ class Preference extends Model
 
       // if manual points = TRUE, calculate points if sibiling is within the same institution
       if (config('manual_points') && $applicant->sibilings == $provider_id) {
-        $applicant->points = $applicant->points + config('manual_points_value');
+        $applicant->points = $applicant->points_manual + config('manual_points_value');
       }
       //} else {
         //no guardian -> order = 10000, to order asc
@@ -199,13 +199,13 @@ class Preference extends Model
     if (config('manual_points')) { // order by manual points
       // points_manual
       $applicants = $applicants->sort(function($a, $b) {
-        if($a->points_manual === $b->points_manual) {
+        if($a->points === $b->points) {
           if($a->birthday === $b->birthday) {
             return 0;
            }
           return $a->birthday < $b->birthday ? -1 : +1;
         }
-        return $a->points_manual < $b->points_manual ? -1 : +1;
+        return $a->points < $b->points ? -1 : +1;
       });
     } else {
       // order
