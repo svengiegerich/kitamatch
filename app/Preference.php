@@ -181,7 +181,7 @@ class Preference extends Model
 
       // if manual points = TRUE, calculate points if sibiling is within the same institution
       if (config('kitamatch_config.manual_points')) {
-        if ($applicant->sibilings == $provider_id) {
+        if ($applicant->siblings == $provider_id) {
           $applicant->points = $applicant->points_manual + config('kitamatch_config.manual_points_value');
         } else {
           $applicant->points = $applicant->points_manual;
