@@ -35,7 +35,7 @@
                         }
                     });
                 }
-            });
+            })
             // deactivate
             .on('click', '.deactivate', function() {
                 $(this).closest('li').remove(); //decativate?!
