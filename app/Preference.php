@@ -160,6 +160,11 @@ class Preference extends Model
       $povider_id = $Program->getProviderId($p_id);
     }
 
+    print("Provider_id:");
+    print($provider_id);
+    print("Provider");
+    print($provider);
+
     //if criteria is null, use the default order (indicated by providerId = -1)
     if (!(count($criteria)>0)) {
       $criteria = Criterium::where('p_id', '=', -1)
@@ -180,9 +185,15 @@ class Preference extends Model
         }
 
       // if manual points = TRUE, calculate points if sibiling is within the same institution
-      if (config('manual_points') && $applicant->sibilings == $provider_id) {
-        $applicant->points = $applicant->points_manual + config('manual_points_value');
+      if (config('kitamatch_config.manual_points') {
+        if ($applicant->sibilings == $provider_id) {
+          $applicant->points = $applicant->points_manual + config('kitamatch_config.manual_points_value');
+        } else {
+          $applicant->points = $applicant->points_manual;
+        }
       }
+
+
       //} else {
         //no guardian -> order = 10000, to order asc
       //  $applicant->order = 0;
@@ -196,7 +207,7 @@ class Preference extends Model
     // 2. sort: i) by manual points in the db, ii) by order tag
     // [tie braker, sort by birthday on the same level
     // https://github.com/laravel/ideas/issues/11;]
-    if (config('manual_points')) { // order by manual points
+    if (config('kitamatch_config.manual_points')) { // order by manual points
       // points_manual
       $applicants = $applicants->sort(function($a, $b) {
         if($a->points === $b->points) {
