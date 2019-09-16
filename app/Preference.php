@@ -160,11 +160,6 @@ class Preference extends Model
       $povider_id = $Program->getProviderId($p_id);
     }
 
-    print("Provider_id:");
-    print($provider_id);
-    print("Provider");
-    print($provider);
-
     //if criteria is null, use the default order (indicated by providerId = -1)
     if (!(count($criteria)>0)) {
       $criteria = Criterium::where('p_id', '=', -1)
@@ -192,7 +187,6 @@ class Preference extends Model
           $applicant->points = $applicant->points_manual;
         }
       }
-
 
       //} else {
         //no guardian -> order = 10000, to order asc
@@ -230,6 +224,8 @@ class Preference extends Model
         return $a->order < $b->order ? -1 : +1;
       });
     }
+
+    print_r($applicants);
 
     return $applicants;
   }

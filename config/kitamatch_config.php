@@ -7,7 +7,7 @@ return [
   // -----------------------------
 
   // MANUEL POINTS
-  'manual_points' => FALSE,
+  'manual_points' => TRUE,
   'manual_points_value' => 10,
 
   // -----------------------------
