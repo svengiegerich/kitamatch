@@ -225,8 +225,6 @@ class Preference extends Model
       });
     }
 
-    print_r($applicants);
-
     return $applicants;
   }
 
