@@ -30,6 +30,7 @@
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Status</th>
+            <th>Punkt</th>
             <th>&nbsp;</th>
             <th>&nbsp;</th>
         </tr>
@@ -40,6 +41,7 @@
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{$applicant->status}}</td>
+                <td>{{$applicant->points}}</td>
                 <td><a href="{{url('/applicant/' . $applicant->aid)}}"><button type="button" class="btn btn-primary">Einsehen</button></a></td>
                 <td>
                     <form action="{{url('/applicant/' . $applicant->aid)}}" method="POST">
