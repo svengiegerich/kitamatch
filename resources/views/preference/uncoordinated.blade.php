@@ -261,6 +261,7 @@
               <th>Nachnamen</th>
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
+              <th>Punkt</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -284,6 +285,7 @@
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
+                <td>{{$applicant->points}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if (!($program->openOffers < $program->capacity))
