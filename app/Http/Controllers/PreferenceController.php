@@ -589,9 +589,17 @@ class PreferenceController extends Controller
 
       //available offer check
       foreach($availableApplicants as $applicant){
-        $appliacntPreference = $Preference -> getPreferenceByApplicant($applicant->aid);
-        if($appliacntPreference){
-            //if available check program and their available seat
+        $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid);
+        if(count($appliacntPreferences) > 0){
+          foreach($appliacntPreferences as $preference){
+            $id_to_split = explode("_", $preference->id_to);
+            $pid = $id_from_split[0];
+            $start = $id_from_split[1];
+            $scope = $id_from_split[2];
+
+            $capacity = $capacity->getScopeCapacity($pid, $start, $scope);
+
+          }
         }
       }
 
