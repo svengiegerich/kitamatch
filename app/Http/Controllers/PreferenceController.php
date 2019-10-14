@@ -26,6 +26,7 @@ use App\Program;
 use App\Provider;
 use App\Matching;
 use App\Applicant;
+use App\Capacity;
 use App\Traits\GetPreferences;
 
 /**
@@ -474,6 +475,7 @@ class PreferenceController extends Controller
       $Provider = new Provider();
       $Matching = new Matching();
       $Preference = new Preference();
+      $Capacity = new Capacity();
 
       $round = $Matching->getRound(); //current vs. past 
       $lastMatch = $Matching->lastMatch();
@@ -589,16 +591,23 @@ class PreferenceController extends Controller
 
       //available offer check
       foreach($availableApplicants as $applicant){
-        $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid);
+        $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
         if(count($appliacntPreferences) > 0){
           foreach($appliacntPreferences as $preference){
             $id_to_split = explode("_", $preference->id_to);
-            $pid = $id_from_split[0];
-            $start = $id_from_split[1];
-            $scope = $id_from_split[2];
+            $pid = $id_to_split[0];
+            $start = $id_to_split[1];
+            $scope = $id_to_split[2];
 
-            $capacity = $capacity->getScopeCapacity($pid, $start, $scope);
+            $scopeCapacity = $Capacity->getScopeCapacity($pid, $start, $scope);
+            $openOffere = $Preference->getCurrentOfferOfScope($preference->id_to);
 
+            if($scopeCapacity != 0 || $scopeCapacity > count($openOffer)){
+             Applicant::where('aid','=',$applicant->aid)->update(array('isOfferAvailable'=>'1'));
+             break 1;
+            }else{
+              Applicant::where('aid','=',$applicant->aid)->update(array('isOfferAvailable'=>'0'));
+            }
           }
         }
       }

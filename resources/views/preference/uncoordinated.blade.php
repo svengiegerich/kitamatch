@@ -262,7 +262,6 @@
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
               <th>Manuell Punkt</th>
-              <th>test</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -287,10 +286,9 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>{{$applicant->points}}</td>
-                <td><?php echo count($preferences->where('id_from', 'like',$applicant->aid)) ?></td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
-                    @if (!($program->openOffers < $program->capacity))
+                    @if ($applicant->isOfferAvailable == 1)
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
                                                         Angebot
                                                       </button>
@@ -365,7 +363,7 @@
                     </div>
 
 
-                    @else
+                    @elseif ($applicant->isOfferAvailable == 0)
                       <button class="btn btn-secondary" disabled>kein Angebot Verfügbar</button>
                     @endif
                 </td>
