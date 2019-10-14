@@ -261,7 +261,8 @@
               <th>Nachnamen</th>
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
-              <th>Punkt</th>
+              <th>Manuell Punkt</th>
+              <th>test</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -270,7 +271,7 @@
           <!-- available applicants: automatic ranking -->
             @foreach($availableApplicants as $applicant)
 
-            @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->where('status', 1)) >= 1))
+            @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
 
             <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)
@@ -286,10 +287,10 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>{{$applicant->points}}</td>
+                <td><?php echo count($preferences->where('id_from', 'like',$applicant->aid)) ?></td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if (!($program->openOffers < $program->capacity))
-
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
                                                         Angebot
                                                       </button>
@@ -341,8 +342,8 @@
             <div class="col-md-6">
               <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                   {{ csrf_field() }}
-                  <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                  <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
+                  <input name="aid" value="{{$applicant->aid}}">
+                  <input name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
                   <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
               </form>
             </div>
@@ -365,7 +366,7 @@
 
 
                     @else
-                      <button class="btn btn-secondary" disabled>Angebot</button>
+                      <button class="btn btn-secondary" disabled>kein Angebot Verfügbar</button>
                     @endif
                 </td>
                 <td>

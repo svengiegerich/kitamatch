@@ -584,8 +584,16 @@ class PreferenceController extends Controller
           }
         }
       }
-
       //---
+
+
+      //available offer check
+      foreach($availableApplicants as $applicant){
+        $appliacntPreference = $Preference -> getPreferenceByApplicant($applicant->aid);
+        if($appliacntPreference){
+            //if available check program and their available seat
+        }
+      }
 
       $program->openOffers = $openOffers;
 

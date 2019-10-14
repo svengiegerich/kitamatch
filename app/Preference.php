@@ -133,6 +133,16 @@ class Preference extends Model
     return $applicants;
   }
 
+  public function getPreferenceByApplicant($aid){
+    $preference =DB::table('preferences')
+      ->where('preferences.id_from', '=', $aid)
+      ->where('preferences.id_to','like','%_%_%')
+      ->where('preferences.status', '=', 1)
+      ->where('preferences.pr_kind', '=', 1);
+
+    return $preference;
+  }
+
   /**
   * Takes an array of applicants and sorts them after the corresponding criteria catalogue of the provider or program.
   * Adds an additional order attribute to every entry containing the criteria score

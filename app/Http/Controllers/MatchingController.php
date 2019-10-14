@@ -162,11 +162,15 @@ class MatchingController extends Controller
 
         foreach ($preferencesUncoordinated as $preference) {
           if ($preference->id_to == $match['student.y']) {
-            $Preference->updateStatus($preference->prid, 1);
+            $Preference->updateStatus($preference->prid, 1); 
             $Preference->updateRank($preference->prid, 1);
+            
           }
         }
       }
+
+      # LOOK at every applicant that is in the matchingResults
+      # for every pref that is below this rank for this applicant, and not status -1 already, set status to -3
 
       //check if it's the final match
       if ($match['college.y'] == $input['student_prefs'][$match['student.y']][0]) {
