@@ -600,9 +600,9 @@ class PreferenceController extends Controller
             $scope = $id_to_split[2];
 
             $scopeCapacity = $Capacity->getScopeCapacity($pid, $start, $scope);
-            $openOffere = $Preference->getCurrentOfferOfScope($preference->id_to);
+            $openOffer = $Preference->getCurrentOfferOfScope($preference->id_to);
 
-            if($scopeCapacity != 0 || $scopeCapacity > count($openOffer)){
+            if($scopeCapacity != 0 && $scopeCapacity > count($openOffer)){
              Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
             }else{
              Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0'));
