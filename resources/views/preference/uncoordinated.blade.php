@@ -270,7 +270,7 @@
           <!-- available applicants: automatic ranking -->
             @foreach($availableApplicants as $applicant)
 
-            @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
+            @if( $applicant->offerStatus == 1 && $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
 
             <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)
@@ -409,27 +409,31 @@
           </script>
         @endif
 
-        <!-- current status: Not displayed -->
-        <!--- infeasible applicants -->
-        <!--@foreach($availableApplicants as $applicant)
-        @if (
-          ( array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] != 1 ) or
-          ( $applicant->status == 26 && !array_key_exists($applicant->aid, $offers) )
-          )
-          <tr class="table-danger">
-            <th scope="row">{{$applicant->aid}}</th>
-            <td>{{$applicant->first_name}}</td>
-            <td>{{$applicant->last_name}}</td>
-            <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
-            <td>{{$applicant->gender}}</td>
-            <td>
-              <span class="badge badge-danger">hält präferierteres Angebot</span>
-            </td>
-            <td>
-            </td>
-          </tr>
-        @endif
-        @endforeach-->
+        <!--- invalid applicants -->
+        @foreach($availableApplicants as $applicant)
+          @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
+            @if ($applicant->offerStatus == 0)
+            <tr class="table-danger">
+              <th scope="row">{{$applicant->aid}}</th>
+              <td>{{$applicant->first_name}}</td>
+              <td>{{$applicant->last_name}}</td>
+              <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+              <td>{{$applicant->gender}}</td>
+              <td>{{$applicant->points}}</td>
+              <td>
+                <button class="btn btn-danger" disabled>Kein Angebot Verfügbar</button>
+              </td>
+              <td>
+                <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                  <button class="btn btn-secondary" disabled>Warteliste</button>
+                </form>
+              </td>
+            </tr>
+            @endif
+          @endif
+        @endforeach
 
       </tbody>
     </table>
