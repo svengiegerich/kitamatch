@@ -340,8 +340,8 @@
             <div class="col-md-6">
               <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                   {{ csrf_field() }}
-                  <input name="aid" value="{{$applicant->aid}}">
-                  <input name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
+                  <input name="aid" type="hidden" value="{{$applicant->aid}}">
+                  <input name="sid" type="hidden" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
                   <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
               </form>
             </div>
