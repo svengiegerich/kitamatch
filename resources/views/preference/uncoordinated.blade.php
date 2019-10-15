@@ -364,7 +364,7 @@
 
 
                     @elseif ($applicant->isOfferAvailable == 0)
-                      <button class="btn btn-secondary" disabled>kein Angebot Verfügbar</button>
+                      <button class="btn btn-danger" disabled>kein Angebot Verfügbar</button>
                     @endif
                 </td>
                 <td>
