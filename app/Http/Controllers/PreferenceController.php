@@ -603,12 +603,18 @@ class PreferenceController extends Controller
             $openOffere = $Preference->getCurrentOfferOfScope($preference->id_to);
 
             if($scopeCapacity != 0 || $scopeCapacity > count($openOffer)){
-             Applicant::where('aid','=',$applicant->aid)->update(array('isOfferAvailable'=>'1'));
-             break 1;
+             Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
             }else{
-              Applicant::where('aid','=',$applicant->aid)->update(array('isOfferAvailable'=>'0'));
+             Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0'));
             }
           }
+        }
+        $appliacntPreferencesUpdated = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
+        
+        if(count($appliacntPreferencesUpdated->where('isValid', '=', '1'))>0){
+          $applicant->offerStatus = 1;
+        }else{
+          $applicant->offerStatus = 0;
         }
       }
 
@@ -694,6 +700,7 @@ class PreferenceController extends Controller
     $preference->pr_kind = 3;
     $preference->rank = 1;
     $preference->status = 1;
+    $preference->isValid = 0;
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);

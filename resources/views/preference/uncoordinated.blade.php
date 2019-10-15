@@ -288,7 +288,7 @@
                 <td>{{$applicant->points}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
-                    @if ($applicant->isOfferAvailable == 1)
+                    @if ($applicant->offerStatus == 1)
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
                                                         Angebot
                                                       </button>
@@ -363,7 +363,7 @@
                     </div>
 
 
-                    @elseif ($applicant->isOfferAvailable == 0)
+                    @else
                       <button class="btn btn-danger" disabled>kein Angebot Verfügbar</button>
                     @endif
                 </td>
