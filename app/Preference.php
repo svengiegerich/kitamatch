@@ -144,6 +144,16 @@ class Preference extends Model
     return $preferences;
   }
 
+  public function getOfferedPreference($pid, $aid){
+    $preferences =DB::table('preferences')
+      ->where('preferences.id_to', '=', $aid)
+      ->where('preferences.id_from','like', $pid.'\\_%_%')
+      ->whereIn('pr_kind', [2, 3])
+      ->get();
+
+    return $offeredPreference;
+  }
+
   public function getCurrentOfferOfScope($preference){
     $currentOffer =DB::table('preferences')
       ->where('preferences.id_from', 'like', $preference)

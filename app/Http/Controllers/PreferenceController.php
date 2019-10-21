@@ -601,9 +601,14 @@ class PreferenceController extends Controller
 
             $scopeCapacity = $Capacity->getScopeCapacity($pid, $start, $scope);
             $openOffer = $Preference->getCurrentOfferOfScope($preference->id_to);
-
+            
             if($scopeCapacity != 0 && $scopeCapacity > count($openOffer)){
-             Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
+              //check if offer made from kita to applicant
+              $offeredPreference = $Preference->getOfferedPreference($preference->id_to, $applicant->aid);
+              if( count($offeredPreference) > 0 && $offeredPreference->status == '-1')
+                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0'));
+              else
+                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
             }else{
              Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0'));
             }
@@ -701,6 +706,7 @@ class PreferenceController extends Controller
     $preference->rank = 1;
     $preference->status = 1;
     $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
