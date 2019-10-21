@@ -80,6 +80,8 @@ class PreferenceController extends Controller
     }
     $preference->rank = $request->rank;
     $preference->status = $request->status;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
 
     //set active, if pr_kind = 3 & program is status = 13
@@ -109,6 +111,8 @@ class PreferenceController extends Controller
     }
     $preference->rank = $request->rank;
     $preference->status = $request->status;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
     return $preference;
   }
@@ -211,6 +215,8 @@ class PreferenceController extends Controller
       $preference->pr_kind = 0;
       $preference->rank = $rank;
       $preference->status = 1;
+      $preference->isValid = 0;
+      $preference->invalidReason = "";
       $preference->save();
     }
     return redirect()->action('ApplicantController@show', $aid);
@@ -606,11 +612,11 @@ class PreferenceController extends Controller
               //check if offer made from kita to applicant
               $offeredPreference = $Preference->getOfferedPreference($preference->id_to, $applicant->aid);
               if( count($offeredPreference) > 0 && $offeredPreference->status == '-1')
-                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0'));
+                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'Absage'));
               else
                 Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
             }else{
-             Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0'));
+             Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'keine Kapazität'));
             }
           }
         }
@@ -655,6 +661,8 @@ class PreferenceController extends Controller
     $preference->pr_kind = 2;
     $preference->rank = $request->rank;
     $preference->status = 1;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
@@ -783,6 +791,8 @@ class PreferenceController extends Controller
       $preference->rank = 2;
     }
     $preference->status = 1;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
