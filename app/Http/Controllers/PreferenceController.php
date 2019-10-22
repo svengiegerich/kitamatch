@@ -611,7 +611,7 @@ class PreferenceController extends Controller
             if($scopeCapacity != 0 && $scopeCapacity > count($openOffer)){
               //check if offer made from kita to applicant
               $offeredPreference = $Preference->getOfferedPreference($preference->id_to, $applicant->aid);
-              if( count($offeredPreference) > 0 && $offeredPreference->status == '-1')
+              if( count($offeredPreference) > 0 && $offeredPreference[0]->status == '-1')
                 Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'Absage'));
               else
                 Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
