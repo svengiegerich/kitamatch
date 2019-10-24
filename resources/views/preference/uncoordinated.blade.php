@@ -261,7 +261,9 @@
               <th>Nachnamen</th>
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
+              @if (config('kitamatch_config.manual_points'))
               <th>Manuell Punkt</th>
+              @endif
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -364,7 +366,7 @@
 
 
                     @else
-                      <button class="btn btn-danger" disabled>kein Angebot Verfügbar</button>
+                      <button class="btn btn-danger" disabled>kein Angebot verfügbar</button>
                     @endif
                 </td>
                 <td>
@@ -421,7 +423,7 @@
               <td>{{$applicant->gender}}</td>
               <td>{{$applicant->points}}</td>
               <td>
-                <button class="btn btn-danger" disabled>Kein Angebot Verfügbar</button>
+                <button class="btn btn-danger" disabled>Kein Angebot verfügbar</button>
               </td>
               <td>
                 <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
