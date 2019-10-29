@@ -262,7 +262,7 @@
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
               @if (config('kitamatch_config.manual_points'))
-              <th>Manuell Punkt</th>
+              <th>Manuelle Punkte</th>
               @endif
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
