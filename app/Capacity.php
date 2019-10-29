@@ -40,7 +40,7 @@ class Capacity extends Model
 
   public function getScopeCapacity($pid, $start, $scope){
     $capacity = Capacity::where('pid', '=', $pid)->where('care_start', '=', $start)->where('care_scope', '=', $scope)->first();
-    return $capacity->capacity['capacity'];
+    return $capacity->capacity;
   }
 
   public $primaryKey = 'id';
