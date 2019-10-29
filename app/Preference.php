@@ -148,6 +148,7 @@ class Preference extends Model
     $offeredPreference =DB::table('preferences')
       ->where('preferences.id_from','like', $id_to)
       ->where('preferences.id_to', '=', $aid)
+      ->whereIn('preferences.status', [1, -1])
       ->get();
 
     return $offeredPreference;
