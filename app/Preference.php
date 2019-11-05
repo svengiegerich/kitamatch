@@ -133,6 +133,37 @@ class Preference extends Model
     return $applicants;
   }
 
+  public function getPreferencesByApplicant($aid, $pid){
+    $preferences =DB::table('preferences')
+      ->where('preferences.id_from', '=', $aid)
+      ->where('preferences.id_to','like', $pid . '\\_%')
+      ->where('preferences.status', '=', 1)
+      ->where('preferences.pr_kind', '=', 1)
+      ->get();
+
+    return $preferences;
+  }
+
+  public function getOfferedPreference($id_to, $aid){
+    $offeredPreference =DB::table('preferences')
+      ->where('preferences.id_from','like', $id_to)
+      ->where('preferences.id_to', '=', $aid)
+      ->whereIn('preferences.status', [1, -1])
+      ->get();
+
+    return $offeredPreference;
+  }
+
+  public function getCurrentOfferOfScope($id_to){
+    $currentOffer =DB::table('preferences')
+      ->where('preferences.id_from', 'like', $id_to)
+      ->where('preferences.status', '=', 1)
+      ->whereIn('pr_kind', [2, 3])
+      ->get();
+
+    return $currentOffer;
+  }
+
   /**
   * Takes an array of applicants and sorts them after the corresponding criteria catalogue of the provider or program.
   * Adds an additional order attribute to every entry containing the criteria score

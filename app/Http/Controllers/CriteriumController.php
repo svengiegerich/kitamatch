@@ -203,6 +203,8 @@ public function getDefaultCriteria() {
       $programPref->id_from = $pid;
       $programPref->id_to = $applicant->aid;
       $programPref->rank = $i;
+      $programPref->isValid = 0;
+      $programPref->invalidReason = "";
       $programPref->save();
       $i = $i + 1;
     }

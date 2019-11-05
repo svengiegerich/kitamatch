@@ -26,6 +26,7 @@ use App\Program;
 use App\Provider;
 use App\Matching;
 use App\Applicant;
+use App\Capacity;
 use App\Traits\GetPreferences;
 
 /**
@@ -79,6 +80,8 @@ class PreferenceController extends Controller
     }
     $preference->rank = $request->rank;
     $preference->status = $request->status;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
 
     //set active, if pr_kind = 3 & program is status = 13
@@ -108,6 +111,8 @@ class PreferenceController extends Controller
     }
     $preference->rank = $request->rank;
     $preference->status = $request->status;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
     return $preference;
   }
@@ -210,6 +215,8 @@ class PreferenceController extends Controller
       $preference->pr_kind = 0;
       $preference->rank = $rank;
       $preference->status = 1;
+      $preference->isValid = 0;
+      $preference->invalidReason = "";
       $preference->save();
     }
     return redirect()->action('ApplicantController@show', $aid);
@@ -474,6 +481,7 @@ class PreferenceController extends Controller
       $Provider = new Provider();
       $Matching = new Matching();
       $Preference = new Preference();
+      $Capacity = new Capacity();
 
       $round = $Matching->getRound(); //current vs. past 
       $lastMatch = $Matching->lastMatch();
@@ -584,8 +592,41 @@ class PreferenceController extends Controller
           }
         }
       }
-
       //---
+
+
+      //available offer check
+      foreach($availableApplicants as $applicant){
+        $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
+        if(count($appliacntPreferences) > 0){
+          foreach($appliacntPreferences as $preference){
+            $id_to_split = explode("_", $preference->id_to);
+            $pid = $id_to_split[0];
+            $start = $id_to_split[1];
+            $scope = $id_to_split[2];
+
+            $scopeCapacity = $Capacity->getScopeCapacity($pid, $start, $scope);
+            $openOffer = $Preference->getCurrentOfferOfScope($preference->id_to);
+            
+            if($scopeCapacity != 0 && $scopeCapacity > count($openOffer)){
+              $offeredPreference = $Preference->getOfferedPreference($preference->id_to, $applicant->aid);
+              if( count($offeredPreference) > 0 && $offeredPreference[0]->status == '-1')
+                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'Absage'));
+              else
+                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
+            }else{
+             Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'keine Kapazität'));
+            }
+          }
+        }
+        $appliacntPreferencesUpdated = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
+        
+        if(count($appliacntPreferencesUpdated->where('isValid', '=', '1'))>0){
+          $applicant->offerStatus = 1;
+        }else{
+          $applicant->offerStatus = 0;
+        }
+      }
 
       $program->openOffers = $openOffers;
 
@@ -619,6 +660,8 @@ class PreferenceController extends Controller
     $preference->pr_kind = 2;
     $preference->rank = $request->rank;
     $preference->status = 1;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
@@ -669,6 +712,8 @@ class PreferenceController extends Controller
     $preference->pr_kind = 3;
     $preference->rank = 1;
     $preference->status = 1;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
@@ -745,6 +790,8 @@ class PreferenceController extends Controller
       $preference->rank = 2;
     }
     $preference->status = 1;
+    $preference->isValid = 0;
+    $preference->invalidReason = "";
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);

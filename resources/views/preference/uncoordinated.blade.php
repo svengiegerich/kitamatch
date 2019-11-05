@@ -261,6 +261,9 @@
               <th>Nachnamen</th>
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
+              @if (config('kitamatch_config.manual_points'))
+              <th>Manuelle Punkte</th>
+              @endif
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -269,7 +272,7 @@
           <!-- available applicants: automatic ranking -->
             @foreach($availableApplicants as $applicant)
 
-            @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->where('status', 1)) >= 1))
+            @if( $applicant->offerStatus == 1 && $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
 
             <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)
@@ -284,10 +287,10 @@
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
+                <td>{{$applicant->points}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
-                    @if (!($program->openOffers < $program->capacity))
-
+                    @if ($applicant->offerStatus == 1)
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
                                                         Angebot
                                                       </button>
@@ -339,8 +342,8 @@
             <div class="col-md-6">
               <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                   {{ csrf_field() }}
-                  <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                  <input type="hidden" name="sid" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
+                  <input name="aid" type="hidden" value="{{$applicant->aid}}">
+                  <input name="sid" type="hidden" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
                   <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
               </form>
             </div>
@@ -363,7 +366,7 @@
 
 
                     @else
-                      <button class="btn btn-secondary" disabled>Angebot</button>
+                      <button class="btn btn-danger" disabled>kein Angebot verfügbar</button>
                     @endif
                 </td>
                 <td>
@@ -408,27 +411,31 @@
           </script>
         @endif
 
-        <!-- current status: Not displayed -->
-        <!--- infeasible applicants -->
-        <!--@foreach($availableApplicants as $applicant)
-        @if (
-          ( array_key_exists($applicant->aid, $offers) && $offers[$applicant->aid]['status'] != 1 ) or
-          ( $applicant->status == 26 && !array_key_exists($applicant->aid, $offers) )
-          )
-          <tr class="table-danger">
-            <th scope="row">{{$applicant->aid}}</th>
-            <td>{{$applicant->first_name}}</td>
-            <td>{{$applicant->last_name}}</td>
-            <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
-            <td>{{$applicant->gender}}</td>
-            <td>
-              <span class="badge badge-danger">hält präferierteres Angebot</span>
-            </td>
-            <td>
-            </td>
-          </tr>
-        @endif
-        @endforeach-->
+        <!--- invalid applicants -->
+        @foreach($availableApplicants as $applicant)
+          @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
+            @if ($applicant->offerStatus == 0)
+            <tr class="table-danger">
+              <th scope="row">{{$applicant->aid}}</th>
+              <td>{{$applicant->first_name}}</td>
+              <td>{{$applicant->last_name}}</td>
+              <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+              <td>{{$applicant->gender}}</td>
+              <td>{{$applicant->points}}</td>
+              <td>
+                <button class="btn btn-danger" disabled>Kein Angebot verfügbar</button>
+              </td>
+              <td>
+                <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                  <button class="btn btn-secondary" disabled>Warteliste</button>
+                </form>
+              </td>
+            </tr>
+            @endif
+          @endif
+        @endforeach
 
       </tbody>
     </table>

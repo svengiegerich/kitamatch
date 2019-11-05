@@ -38,6 +38,11 @@ class Capacity extends Model
     return $capacity->capacity;
   }
 
+  public function getScopeCapacity($pid, $start, $scope){
+    $capacity = Capacity::where('pid', '=', $pid)->where('care_start', '=', $start)->where('care_scope', '=', $scope)->first();
+    return $capacity->capacity;
+  }
+
   public $primaryKey = 'id';
   protected $table = 'capacities';
 }
