@@ -44,9 +44,9 @@ class HomeController extends Controller
   public function index() {
     $user = Auth::user();
     if ($user->account_type == 1) {
-      $Guardian = new Guardian;
-      $guardian = $Guardian->getGuardianByUid($user->id);
-      return redirect()->action('GuardianController@show', [$guardian->gid]);
+      $Applicant = new Applicant;
+      $applicant = $Applicant->getApplicantsByUid($user->id);
+      return redirect()->action('ApplicantController@show', [$applicant->aid]);
     } else if ($user->account_type == 2 || $user->account_type == 3) {
       $Program = new Program;
       $program = $Program->getProgramByUid($user->id);

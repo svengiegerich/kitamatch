@@ -15,13 +15,20 @@
 
     <body class=".bg-light">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pt-0 pb-0">
-        <a class="navbar-brand" href="{{url('/')}}">{{config('app.name')}}</a>
+        <a class="navbar-brand" href="{{url('/')}}">{{config('app.name')}}</a>       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li></li>
+            @if(Auth::check())
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/program/all')}}">Kitagruppen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/applicant/all')}}">Bewerber</a>
+            </li>
+            @endif
           </ul>
           <ul class="navbar-nav px-3">
             @if(Auth::check())
@@ -45,7 +52,7 @@
 
         <footer class="text-muted">
           <div class="container">
-            <p class="float-right">2019 © Marktdesign, Zentrum für Europäpische Wirtschaftsforschung</p>
+            <p class="float-right">2019 © Marktdesign, Zentrum für Europäische Wirtschaftsforschung</p>
             </p>
           </div>
         </footer>

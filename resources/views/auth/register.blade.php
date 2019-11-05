@@ -55,7 +55,7 @@
 
                             <div class="col-md-6">
                                 <select id="account-type" class="form-control" name="accountType" required>
-                                    <option value="1">Erziehungsberechtigter</option>
+                                    <option value="1">Bewerber</option>
                                     <!--<option value="2">Öffentliche Kita</option>-->
                                     <!--<option value="3">Private Kita</option>-->
                                     <option value="4">Kindertagesstätte</option>
