@@ -49,6 +49,9 @@ Preference class maintains preferences in two-directions, from applicant to prog
 * -1: historic (preference not reciprocated)
 * 0: not valid
 * 1: valid
+#### isValid (shows the validity of the preference after each matching rounds)
+* 0: not valid
+* 1: valid
 
 ## Guardians
 Guardians maintain the social master data required for the coordination and hols
