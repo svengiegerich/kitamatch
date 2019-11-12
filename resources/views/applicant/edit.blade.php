@@ -173,7 +173,11 @@
                 )  !!}
             </div>
             <div class="col-sm-2">
-              <button type="submit" class="btn btn-primary">Hinzufügen</button>
+              @if (!$data['isSet'])
+                <button type="submit" class="btn btn-primary">Hinzufügen</button>
+              @else    
+                <button type="submit" class="btn btn-primary" disabled>Hinzufügen</button>
+              @endif
             </div>
         </div>
     </form>
@@ -227,25 +231,39 @@
             $("#sortable" ).disableSelection();
         });
     </script>
-
-    <ul id="sortable" class="list-group">
-        {{ csrf_field() }}
-        <?php $i = 1; ?>
-        @foreach ($preferences as $preference)
-            <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 10px;"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                <span class="rank badge badge-dark">{{$i}}</span>
-                <span class="col-8">{{$preference->programName}}</span>
-                <a class="delete" href="#list"><span class="badge badge-secondary badge-pill">x</span></a>
-            </li>
-            <?php $i++; ?>
-         @endforeach
-    </ul>
+      @if (!$data['isSet'])
+        <ul id="sortable" class="list-group">
+            {{ csrf_field() }}
+            <?php $i = 1; ?>
+            @foreach ($preferences as $preference)
+                <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 10px;"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                    <span class="rank badge badge-dark">{{$i}}</span>
+                    <span class="col-8">{{$preference->programName}}</span>
+                    <a class="delete" href="#list"><span class="badge badge-secondary badge-pill">x</span></a>
+                </li>
+                <?php $i++; ?>
+            @endforeach
+        </ul>
+      @else
+        <ul  class="list-group">
+            {{ csrf_field() }}
+            <?php $i = 1; ?>
+            @foreach ($preferences as $preference)
+                <li id="item-{{$preference->prid}}" class="ui-state-default list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 10px;"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                    <span class="rank badge badge-dark">{{$i}}</span>
+                    <span class="col-8">{{$preference->programName}}</span>
+                    <a class="delete" href="#list"><span class="badge badge-secondary badge-pill"></span></a>
+                </li>
+                <?php $i++; ?>
+            @endforeach
+        </ul>
+      @endif
     </div>
-    @else
-      <div class="col-md-8">
-        Bitte fügen Sie ihre Wunscheinrichtungen hinzu. Hierfür muss zunächst das Formular ausgefüllt werden.
-      </div>
-    @endif
+  @else
+    <div class="col-md-8">
+      Bitte fügen Sie ihre Wunscheinrichtungen hinzu. Hierfür muss zunächst das Formular ausgefüllt werden.
+    </div>
+  @endif
 </div>
 
 
