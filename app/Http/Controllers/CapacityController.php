@@ -75,6 +75,9 @@ class CapacityController extends Controller
       if (strpos($key, 'capacity_') !== false) {
         $id = substr($key, 9);
         $capacity = Capacity::find($id);
+        if($capacity->capacity > $value){
+          return back()->withErrors("Die neue Kapazität muss höher sein die vorherige Kapazität.");
+        }
         $capacity->capacity = $value;
         $capacity->save();
       }
