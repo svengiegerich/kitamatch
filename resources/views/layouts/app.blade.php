@@ -32,6 +32,10 @@
           </ul>
           <ul class="navbar-nav px-3">
             @if(Auth::check())
+              <li class="nav-item">
+                <?php $user = \Auth::user(); ?>
+                <a class="nav-link">{{$user->email}}</a>
+              </li>
               <li class="nav-item text-nowrap">
                 <a href="{{url('/logout')}}" class="nav-link">Logout</a>
               </li>
