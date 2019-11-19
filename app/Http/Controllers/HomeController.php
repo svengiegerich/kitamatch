@@ -60,7 +60,7 @@ class HomeController extends Controller
     $user->password = bcrypt($request->get('new-password'));
     $user->save();
     Auth::logout();
-    return redirect('/')->with("success","Password changed successfully !");
+    return redirect()->route('login')->with("success","Password changed successfully !");
     
   }
 
