@@ -77,7 +77,7 @@ class CapacityController extends Controller
         $id = substr($key, 9);
         $capacity = Capacity::find($id);
         if(($capacity->capacity > $value) && ($data['isSet'])){
-          return back()->withErrors("Die neue Kapazität muss höher sein die vorherige Kapazität.");
+          return back()->withErrors("Sie koennen die Anzahl an freien Plaetzen nur erweitern, nicht reduzieren.");
         }
         $capacity->capacity = $value;
         $capacity->save();
