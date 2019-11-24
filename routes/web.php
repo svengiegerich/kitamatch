@@ -109,3 +109,4 @@ Route::get('/admin/dashboard', 'AdminController@index');
 Route::get('/admin/export', 'AdminController@exportMatching');
 Route::get('/admin/reset', 'AdminController@resetDB');
 Route::get('/admin/exportAssigned', 'AdminController@exportAssignedApplicants');
+Route::get('/admin/exportUnassigned', 'AdminController@exportUnassignedApplicants');

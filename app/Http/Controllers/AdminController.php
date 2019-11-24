@@ -159,4 +159,26 @@ class AdminController extends Controller
     })->download('xlsx');
   }
 
+  public function exportUnassignedApplicants()
+  {
+    $data = $this->generateDashboard();
+    $nonMatches_array[] = array('Name', 'Geburtsdatum', 'Geschlecht');
+
+    foreach($data['non-matches'] as $nonMatche){
+      
+      $nonMatches_array[] = array(
+        'Name' => $nonMatche['first_name'],
+        'Geburtsdatum' => $nonMatche['birthday']->format('d.m.Y'),
+        'Geschlecht'=> $nonMatche['gender'], 
+      );
+
+    };
+    Excel::create('Nicht zugeordnete Bewerber', function($excel) use($nonMatches_array){
+      $excel->setTitle('Nicht zugeordnete Bewerber');
+      $excel->sheet('Nicht zugeordnete Bewerber', function($sheet) use ($nonMatches_array){
+        $sheet->fromArray($nonMatches_array, null, 'A1', false, false);
+      });
+    })->download('xlsx');
+  }
+
 }
