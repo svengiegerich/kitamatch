@@ -136,7 +136,7 @@ class AdminController extends Controller
     return redirect()->action('AdminController@index');
   }
 
-  public function exportCSV()
+  public function exportAssignedApplicants()
   {
     $matches = $this->listMatchings();
     $matches_array[] = array('Kita', 'Kitagruppe', 'Bewerber', 'Status');
