@@ -108,3 +108,4 @@ Route::get('/admin/', 'AdminController@index');
 Route::get('/admin/dashboard', 'AdminController@index');
 Route::get('/admin/export', 'AdminController@exportMatching');
 Route::get('/admin/reset', 'AdminController@resetDB');
+Route::get('/admin/exportCSV', 'AdminController@exportCSV');

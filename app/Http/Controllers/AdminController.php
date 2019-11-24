@@ -21,6 +21,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Schema;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Applicant;
 use App\Matching;
 use App\Provider;
@@ -133,6 +134,29 @@ class AdminController extends Controller
     DB::table('preferences')->whereIn('pr_kind', [3])->whereIn('status', [-3, -2, -1, 0, 1])->delete();
 
     return redirect()->action('AdminController@index');
+  }
+
+  public function exportCSV()
+  {
+    $matches = $this->listMatchings();
+    $matches_array[] = array('Kita', 'Kitagruppe', 'Bewerber', 'Status');
+
+    foreach($matches as $match){
+      
+      $matches_array[] = array(
+        'Kita' => $match->provider_name, 
+        'Kitagruppe' => $match->program_name,
+        'Bewerber'=> $match->applicant_name, 
+        'Status' => $match->status_text 
+      );
+
+    };
+    Excel::create('Zuordnungen', function($excel) use($matches_array){
+      $excel->setTitle('Zuordnungen');
+      $excel->sheet('Zuordnungen', function($sheet) use ($matches_array){
+        $sheet->fromArray($matches_array, null, 'A1', false, false);
+      });
+    })->download('xlsx');
   }
 
 }
