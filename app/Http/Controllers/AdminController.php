@@ -164,12 +164,12 @@ class AdminController extends Controller
     $data = $this->generateDashboard();
     $nonMatches_array[] = array('Name', 'Geburtsdatum', 'Geschlecht');
 
-    foreach($data['non-matches'] as $nonMatche){
+    foreach($data['non-matches'] as $nonMatch){
       
       $nonMatches_array[] = array(
-        'Name' => $nonMatche['first_name'],
-        'Geburtsdatum' => $nonMatche['birthday']->format('d.m.Y'),
-        'Geschlecht'=> $nonMatche['gender'], 
+        'Name' => $nonMatch['first_name'].' '.$nonMatch['last_name'],
+        'Geburtsdatum' => $nonMatch['birthday']->format('d.m.Y'),
+        'Geschlecht'=> $nonMatch['gender'], 
       );
 
     };
