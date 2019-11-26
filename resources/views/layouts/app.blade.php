@@ -38,9 +38,9 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-user"></i> Profile </a>
+                  <i class="fas fa-user"></i>Benutzer </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                  <a class="dropdown-item" style="background:#e5e5e5" >Benutzer: {{Auth::user()->email}}</a>
+                  <a class="dropdown-item" style="background:#e5e5e5" >{{Auth::user()->email}}</a>
                   <a class="dropdown-item" href="{{ route('password.change')}}">Passwort ändern</a>
                   <a class="dropdown-item" href="{{url('/logout')}}">Abmelden</a>
                 </div>
