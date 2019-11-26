@@ -239,7 +239,7 @@ class Preference extends Model
           if($a->birthday === $b->birthday) {
             return 0;
            }
-          return $a->birthday < $b->birthday ? 1 : -1;
+          return $a->birthday < $b->birthday ? -1 : 1; //now, the older will get priority , if we switch +,- then younger will get priority
         }
         return $a->points < $b->points ? +1 : -1;
       });
@@ -250,7 +250,7 @@ class Preference extends Model
           if($a->birthday === $b->birthday) {
             return 0;
            }
-          return $a->birthday < $b->birthday ? -1 : +1;
+          return $a->birthday < $b->birthday ? 1 : -1; //now, the older will get priority , if we switch +,- then younger will get priority
         }
         return $a->order < $b->order ? -1 : +1;
       });

@@ -21,7 +21,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            @if(Auth::check())
+            @if(Auth::check() && $user->account_type == 5)
             <li class="nav-item">
               <a class="nav-link" href="{{url('/program/all')}}">Kitagruppen</a>
             </li>
@@ -40,9 +40,9 @@
                   aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-user"></i> Profile </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                  <a class="dropdown-item" href="#">User: {{Auth::user()->email}}</a>
-                  <a class="dropdown-item" href="{{ route('password.change')}}">Change Password</a>
-                  <a class="dropdown-item" href="{{url('/logout')}}">Log out</a>
+                  <a class="dropdown-item" style="background:#e5e5e5" >Benutzer: {{Auth::user()->email}}</a>
+                  <a class="dropdown-item" href="{{ route('password.change')}}">Passwort ändern</a>
+                  <a class="dropdown-item" href="{{url('/logout')}}">Abmelden</a>
                 </div>
               </li>
             @endif

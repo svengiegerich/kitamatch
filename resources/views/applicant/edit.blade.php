@@ -144,8 +144,11 @@
             @endif
 
             <hr class="mb-4">
-
+            @if (!$data['isSet'])           
             <button class="btn btn-primary btn-lg btn-block" type="submit">Aktualisieren</button>
+            @else
+            <button class="btn btn-primary btn-lg btn-block" type="submit" disabled>Aktualisieren</button>
+            @endif
         </form>
     </div>
 </div>

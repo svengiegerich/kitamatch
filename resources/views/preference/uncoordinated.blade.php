@@ -57,7 +57,7 @@
 
       @if (count($availableApplicants) == 0)
       <div class="alert alert-warning" role="alert">
-        Aktuell gibt sind noch keine Bewerber verfügbar.
+        Aktuell sind noch keine Bewerber verfügbar.
       </div>
       @endif
 
