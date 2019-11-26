@@ -21,7 +21,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            @if(Auth::check() && $user->account_type == 5)
+            @if(Auth::check() && Auth::user()->account_type == 5)
             <li class="nav-item">
               <a class="nav-link" href="{{url('/program/all')}}">Kitagruppen</a>
             </li>
