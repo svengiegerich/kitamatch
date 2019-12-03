@@ -91,7 +91,7 @@
 
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h4><span class="badge badge-light badge-admin">{{count($matches)}}</span> Zuordnungen, <span class="badge badge-light badge-admin">{{$data['countRounds']}}.</span> Koordinierungsrunde</h4>
+    <h4><span class="badge badge-light badge-admin">{{count($matches)}}</span> Zuordnungen, <span class="badge badge-light badge-admin">{{$data['countRounds']}}.</span> Koordinierungsrunde, <a class="btn btn-warning" target="_blank" href="{{url('/admin/exportAssigned')}}">Export</a></h4>
   </div>
 </div>
 
@@ -123,7 +123,7 @@
 @if($data['countRounds'] > 1)
 <div class="row justify-content-center pt-5">
   <div class="col-md-8">
-    <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified'] - count($matches)}}</span> Nicht zugeordnete Bewerber</h4>
+    <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified'] - count($matches)}}</span> Nicht zugeordnete Bewerber, <a class="btn btn-warning" target="_blank" href="{{url('/admin/exportUnassigned')}}">Export</a></h4>
   </div>
 
   <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">

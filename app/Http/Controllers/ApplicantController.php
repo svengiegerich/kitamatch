@@ -91,6 +91,7 @@ class ApplicantController extends Controller
     $preferences_view = app('App\Http\Controllers\PreferenceController')->showByApplicant($aid);
     $preferences = $preferences_view['preferences'];
     $programs = $preferences_view['programs'];
+    $data['isSet'] = app('App\Http\Controllers\PreferenceController')->isSet();
 
     $criteria_values = app('App\Http\Controllers\CriteriumController')->getDefaultCriteria();
     $criteria_names = $criteria_values->unique('criterium_name');
@@ -106,7 +107,8 @@ class ApplicantController extends Controller
       'criteria_names' => $criteria_names,
       'preferences' => $preferences,
       'programs' => $programs,
-      'config' => $config
+      'config' => $config,
+      'data' => $data
     ));
   }
 

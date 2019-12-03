@@ -71,10 +71,14 @@ class CapacityController extends Controller
 
   public function updateByProgram(Request $request) {
     $inputs = $request->input();
+    $data['isSet'] = app('App\Http\Controllers\PreferenceController')->isSet();
     foreach($inputs as $key => $value) {
       if (strpos($key, 'capacity_') !== false) {
         $id = substr($key, 9);
         $capacity = Capacity::find($id);
+        if(($capacity->capacity > $value) && ($data['isSet'])){
+          return back()->withErrors("Sie koennen die Anzahl an freien Plaetzen nur erweitern, nicht reduzieren.");
+        }
         $capacity->capacity = $value;
         $capacity->save();
       }

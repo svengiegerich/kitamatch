@@ -57,7 +57,7 @@
 
       @if (count($availableApplicants) == 0)
       <div class="alert alert-warning" role="alert">
-        Aktuell gibt sind noch keine Bewerber verfügbar.
+        Aktuell sind noch keine Bewerber verfügbar.
       </div>
       @endif
 
@@ -262,7 +262,7 @@
               <th>Gebursdatum</th>
               <th>Geschlecht</th>
               @if (config('kitamatch_config.manual_points'))
-              <th>Manuelle Punkte</th>
+              <th>Punktzahl</th>
               @endif
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>

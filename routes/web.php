@@ -18,12 +18,14 @@ Route::get('/', 'HomeController@index', function(){
    return View::make("welcome");
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/changePassword','HomeController@showChangePasswordForm')->name('password.change');
+Route::post('/changePassword','HomeController@changePassword')->name('password.update');
 
 //Auth
 Route::auth();
 Route::get('/logout', function () {
    Auth::logout();
-   return redirect('/');
+   return redirect()->back();
 });
 Auth::routes();
 
@@ -106,3 +108,5 @@ Route::get('/admin/', 'AdminController@index');
 Route::get('/admin/dashboard', 'AdminController@index');
 Route::get('/admin/export', 'AdminController@exportMatching');
 Route::get('/admin/reset', 'AdminController@resetDB');
+Route::get('/admin/exportAssigned', 'AdminController@exportAssignedApplicants');
+Route::get('/admin/exportUnassigned', 'AdminController@exportUnassignedApplicants');
