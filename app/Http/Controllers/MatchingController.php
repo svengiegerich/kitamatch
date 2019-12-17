@@ -180,7 +180,7 @@ class MatchingController extends Controller
         app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student.y']);
 
         //for the queues, update all uncoordinated prefs to -1
-        $Preference->resetAllUncoordnatedQueuesByApplicant($student, $college);
+      //  $Preference->resetAllUncoordnatedQueuesByApplicant($student, $college);
 
       } else {
         $matchRequest->request->add(['status' => 31]);
