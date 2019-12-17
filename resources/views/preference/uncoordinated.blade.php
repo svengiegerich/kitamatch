@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <script>
@@ -317,47 +319,47 @@
                               </div>
 
                               <hr>
-<div class="row pl-2 pb-2">
-  <h5>Beginn & Umfang:</h5>
-</div>
+                              <div class="row pl-2 pb-2">
+                                <h5>Beginn & Umfang:</h5>
+                              </div>
 
-@foreach (config('kitamatch_config.care_starts') as $key_start => $start)
-  @if ($key_start != -1)
-    <div class="row p-3">
-    @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
-      @if ($key_scope != -1)
-        <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid)->first();?>
-        @if (count($preference) == 1 && $offers[$applicant->aid]['final'] != 1)
-          @if ($preference->status == 1)
-            <div class="col-md-6">
-              <button class="btn btn-info" disabled>Abgegeben</button>
-            </div>
-          @elseif ($preference->status == -1)
-            <div class="col-md-6">
-              <button class="btn btn-danger" disabled>Absage</button>
-            </div>
-          @endif
-        @else  <!-- offers key does not exists -->
-          @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity && isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]) && !(count($preferences->where('id_to', '=', $applicant->aid)->where('status', 1)) >= 1)) <!-- there is capacity & there is no open offer -->
-            <div class="col-md-6">
-              <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
-                  {{ csrf_field() }}
-                  <input name="aid" type="hidden" value="{{$applicant->aid}}">
-                  <input name="sid" type="hidden" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
-                  <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
-              </form>
-            </div>
-          @else
-            <div class="col-md-6">
-              <button class="btn btn-light" disabled>{{$start}}, {{$scope}}</button>
-            </div>
-          @endif
-        @endif
-      @endif
-    @endforeach
-  </div>
-  @endif
-@endforeach
+                              @foreach (config('kitamatch_config.care_starts') as $key_start => $start)
+                                @if ($key_start != -1)
+                                  <div class="row p-3">
+                                  @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
+                                    @if ($key_scope != -1)
+                                      <?php $preference = $preferences->where('id_from', $program->pid . '_' . $key_start . '_' . $key_scope)->where('id_to', $applicant->aid)->first();?>
+                                      @if (count($preference) == 1 && $offers[$applicant->aid]['final'] != 1)
+                                        @if ($preference->status == 1)
+                                          <div class="col-md-6">
+                                            <button class="btn btn-info" disabled>Abgegeben</button>
+                                          </div>
+                                        @elseif ($preference->status == -1)
+                                          <div class="col-md-6">
+                                            <button class="btn btn-danger" disabled>Absage</button>
+                                          </div>
+                                        @endif
+                                      @else  <!-- offers key does not exists -->
+                                        @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity && isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]) && !(count($preferences->where('id_to', '=', $applicant->aid)->where('status', 1)) >= 1)) <!-- there is capacity & there is no open offer -->
+                                          <div class="col-md-6">
+                                            <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
+                                                {{ csrf_field() }}
+                                                <input name="aid" type="hidden" value="{{$applicant->aid}}">
+                                                <input name="sid" type="hidden" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
+                                                <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
+                                            </form>
+                                          </div>
+                                        @else
+                                          <div class="col-md-6">
+                                            <button class="btn btn-light" disabled>{{$start}}, {{$scope}}</button>
+                                          </div>
+                                        @endif
+                                      @endif
+                                    @endif
+                                  @endforeach
+                                </div>
+                                @endif
+                              @endforeach
 
                           </div>
                         </div>
@@ -413,8 +415,12 @@
 
         <!--- invalid applicants -->
         @foreach($availableApplicants as $applicant)
-          @if($applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
-            @if ($applicant->offerStatus == 0)
+          @if( 
+            ($applicant->status == 26 && !(count($preferences->where('id_to', '=', $applicant->aid)) >= 1)) 
+            ||
+            ( !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) && $applicant->offerStatus == 0)
+            )
+
             <tr class="table-danger">
               <th scope="row">{{$applicant->aid}}</th>
               <td>{{$applicant->first_name}}</td>
@@ -434,9 +440,8 @@
               </td>
             </tr>
             @endif
-          @endif
         @endforeach
-
+       
       </tbody>
     </table>
 
@@ -446,8 +451,6 @@
 </div>
 
 </div>
-
-
 
 <div class="row justify-content-center">
     <div class="col-md-6">
