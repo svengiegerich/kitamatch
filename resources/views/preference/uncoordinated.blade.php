@@ -446,7 +446,7 @@
     </table>
 
     @if(count($manualRanking) == 0)
-    <a href="{{url('/criteria/program/manual/' . $program->pid)}}" style="float:right;"><button class="btn">Manuelle Rangliste</button></a>
+    <a href="{{url('/criteria/program/manual/' . $program->pid)}}" style="float:right;"><button class="invisible" disabled>Manuelle Rangliste</button></a>
     @endif
 </div>
 
