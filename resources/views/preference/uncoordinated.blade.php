@@ -88,7 +88,7 @@
               <th>ID</th>
               <th>Vornamen</th>
               <th>Nachnamen</th>
-              <th>Gebursdatum</th>
+              <th>Geburtsdatum</th>
               <th>Geschlecht</th>
               <th>Beginn</th>
               <th>Umfang</th>
@@ -160,7 +160,7 @@
               <th>ID</th>
               <th>Vornamen</th>
               <th>Nachnamen</th>
-              <th>Gebursdatum</th>
+              <th>Geburtsdatum</th>
               <th>Geschlecht</th>
               <th>&nbsp;</th>
               <th>&nbsp;</th>
@@ -261,7 +261,7 @@
               <th>ID</th>
               <th>Vornamen</th>
               <th>Nachnamen</th>
-              <th>Gebursdatum</th>
+              <th>Geburtsdatum</th>
               <th>Geschlecht</th>
               @if (config('kitamatch_config.manual_points'))
               <th>Punktzahl</th>
@@ -446,7 +446,7 @@
     </table>
 
     @if(count($manualRanking) == 0)
-    <a href="{{url('/criteria/program/manual/' . $program->pid)}}" style="float:right;"><button class="invisible" disabled>Manuelle Rangliste</button></a>
+    <a href="{{url('/criteria/program/manual/' . $program->pid)}}" style="float:right;"><button class="btn" >Manuelle Rangliste</button></a>
     @endif
 </div>
 
