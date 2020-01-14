@@ -104,6 +104,7 @@ class AdminController extends Controller
         $nonMatches[$applicant->aid]['last_name'] = $applicant->last_name;
         $nonMatches[$applicant->aid]['birthday'] = $applicant->birthday;
         $nonMatches[$applicant->aid]['gender'] = $applicant->gender;
+        $nonMatches[$applicant->aid]['age_cohort'] = $applicant->age_cohort;
       }
     }
     $data['non-matches'] = $nonMatches;
@@ -162,14 +163,15 @@ class AdminController extends Controller
   public function exportUnassignedApplicants()
   {
     $data = $this->generateDashboard();
-    $nonMatches_array[] = array('Name', 'Geburtsdatum', 'Geschlecht');
+    $nonMatches_array[] = array('Name', 'Geburtsdatum', 'Geschlecht','Age Cohort');
 
     foreach($data['non-matches'] as $nonMatch){
       
       $nonMatches_array[] = array(
         'Name' => $nonMatch['first_name'].' '.$nonMatch['last_name'],
         'Geburtsdatum' => $nonMatch['birthday']->format('d.m.Y'),
-        'Geschlecht'=> $nonMatch['gender'], 
+        'Geschlecht'=> $nonMatch['gender'],
+        'age_cohort' => $nonMatch['age_cohort'] 
       );
 
     };
