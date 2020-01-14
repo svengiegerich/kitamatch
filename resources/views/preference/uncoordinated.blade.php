@@ -14,6 +14,10 @@
                 "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
             },
     } );
+
+    $('#form_offer').on('submit',function(){
+      $('#btn_submit_offer').attr('disabled','true');
+    })
   } );
 </script>
 
@@ -342,11 +346,11 @@
                                       @else  <!-- offers key does not exists -->
                                         @if ($program->openOffers[$key_start][$key_scope] < $capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity && isset($servicesApplicants[$applicant->aid][$key_start][$key_scope]) && !(count($preferences->where('id_to', '=', $applicant->aid)->where('status', 1)) >= 1)) <!-- there is capacity & there is no open offer -->
                                           <div class="col-md-6">
-                                            <form action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
+                                            <form id="form_offer" action="{{url('/preference/program/uncoordinated/offer/' . $program->pid)}}" method="POST">
                                                 {{ csrf_field() }}
                                                 <input name="aid" type="hidden" value="{{$applicant->aid}}">
                                                 <input name="sid" type="hidden" value="{{$program->pid}}_{{$key_start}}_{{$key_scope}}">
-                                                <button class="btn btn-primary">{{$start}}, {{$scope}}</button>
+                                                <button id="btn_submit_offer" class="btn btn-primary">{{$start}}, {{$scope}}</button>
                                             </form>
                                           </div>
                                         @else
