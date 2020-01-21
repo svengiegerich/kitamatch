@@ -219,6 +219,15 @@ class Preference extends Model
         }
       }
 
+      //Bonus for first prefered kita
+      if(config('kitamatch_config.preference_bouns')){
+        if ($applicant->first_preference_program == $provider_id) {
+          $applicant->points = $applicant->points + config('kitamatch_config.preference_bouns_value');
+        } else {
+          $applicant->points = $applicant->points;
+        }
+      }
+
       //} else {
         //no guardian -> order = 10000, to order asc
       //  $applicant->order = 0;

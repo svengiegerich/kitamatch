@@ -11,6 +11,8 @@ return [
   'manual_points_value' => 10,
 
   // -----------------------------
+  'preference_bouns' => TRUE,
+  'preference_bouns_value' => 3,
   // -----------------------------
   // -----------------------------
 

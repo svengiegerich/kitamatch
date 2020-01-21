@@ -143,8 +143,8 @@ class MatchingController extends Controller
     $Preference->resetUncoordinatedOffers();
 
     foreach ($matchingResult as $match) {
-      $college = $match['college.y'];
-      $student = $match['student.y'];
+      $college = $match['college'];
+      $student = $match['student'];
       $matchRequest = new Request();
       $matchRequest->setMethod('POST');
       $matchRequest->request->add(['college' => $college,
@@ -152,16 +152,16 @@ class MatchingController extends Controller
                                  ]);
 
       //check if program is uncoordinated
-      $coordination = $Program->isCoordinated($match['college.y']);
+      $coordination = $Program->isCoordinated($match['college']);
       // is uncoordianted
 
       print("---------- <br>");
 
       if ($coordination == 0) {
-        $preferencesUncoordinated = $this->getPreferencesByUncoordinatedService($match['college.y']);
+        $preferencesUncoordinated = $this->getPreferencesByUncoordinatedService($match['college']);
 
         foreach ($preferencesUncoordinated as $preference) {
-          if ($preference->id_to == $match['student.y']) {
+          if ($preference->id_to == $match['student']) {
             $Preference->updateStatus($preference->prid, 1); 
             $Preference->updateRank($preference->prid, 1);
             
@@ -173,14 +173,14 @@ class MatchingController extends Controller
       # for every pref that is below this rank for this applicant, and not status -1 already, set status to -3
 
       //check if it's the final match
-      if ($match['college.y'] == $input['student_prefs'][$match['student.y']][0]) {
+      if ($match['college'] == $input['student_prefs'][$match['student']][0]) {
         $matchRequest->request->add(['status' => 32]);
         $this->store($matchRequest);
         //set applicant status to matched
-        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student.y']);
+        app('App\Http\Controllers\ApplicantController')->setFinalMatch($match['student']);
 
         //for the queues, update all uncoordinated prefs to -1
-        $Preference->resetAllUncoordnatedQueuesByApplicant($student, $college);
+      //  $Preference->resetAllUncoordnatedQueuesByApplicant($student, $college);
 
       } else {
         $matchRequest->request->add(['status' => 31]);
