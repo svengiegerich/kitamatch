@@ -299,7 +299,7 @@
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if ($applicant->offerStatus == 1)
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
+                    <button type="button btn-sm" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
                                                         Angebot
                                                       </button>
 
