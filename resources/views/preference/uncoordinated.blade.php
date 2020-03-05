@@ -374,7 +374,7 @@
 
 
                     @else
-                      <button class="btn btn-danger" disabled>kein Angebot verfügbar</button>
+                      <button class="btn btn-danger btn-sm" disabled>kein Angebot verfügbar</button>
                     @endif
                 </td>
                 <td>
@@ -436,7 +436,7 @@
               <td>{{$applicant->points}}</td>
               <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
               <td>
-                <button class="btn btn-danger" disabled>Kein Angebot verfügbar</button>
+                <button class="btn btn-danger btn-sm" disabled>Kein Angebot verfügbar</button>
               </td>
               <td>
                 <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
