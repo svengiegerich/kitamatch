@@ -250,7 +250,7 @@
 -->
 
 <div class="row justify-content-center">
-    <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
+  <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
     <h4>Bewerberliste
       <small class="text-muted" style="float: right;">
@@ -269,6 +269,7 @@
               <th>Geschlecht</th>
               @if (config('kitamatch_config.manual_points'))
               <th>Punktzahl</th>
+              <th>Betreuungsbeginn</th>
               @endif
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
@@ -294,6 +295,7 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>{{$applicant->points}}</td>
+                <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if ($applicant->offerStatus == 1)
@@ -432,6 +434,7 @@
               <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
               <td>{{$applicant->gender}}</td>
               <td>{{$applicant->points}}</td>
+              <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
               <td>
                 <button class="btn btn-danger" disabled>Kein Angebot verfügbar</button>
               </td>
