@@ -381,7 +381,7 @@
                   <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                      <button class="btn btn-secondary" disabled>Warteliste</button>
+                      <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
                     </form>
                 </td>
               </tr>
@@ -442,7 +442,7 @@
                 <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                   {{ csrf_field() }}
                   <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                  <button class="btn btn-secondary" disabled>Warteliste</button>
+                  <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
                 </form>
               </td>
             </tr>
