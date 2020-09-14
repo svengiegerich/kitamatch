@@ -9,11 +9,22 @@ return [
   // MANUEL POINTS
   'manual_points' => TRUE,
   'manual_points_value' => 10,
-
   // -----------------------------
+  
   'preference_bouns' => TRUE,
   'preference_bouns_value' => 3,
   // -----------------------------
+
+  'additionalCriteriaBonus_1' => TRUE,
+  'additionalCriteriaBonus_1_value' => 3,
+  // -----------------------------
+
+  'additionalCriteriaBonus_2' => FALSE,
+  'additionalCriteriaBonus_2_value' => 3,
+  // -----------------------------
+
+  'additionalCriteriaBonus_3' => FALSE,
+  'additionalCriteriaBonus_3_value' => 3,
   // -----------------------------
 
   // DIFFERENT STARTS?
