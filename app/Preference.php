@@ -228,6 +228,33 @@ class Preference extends Model
         }
       }
 
+      //Additional Bonus for applicants
+      if(config('kitamatch_config.additionalCriteriaBonus_1')){
+        if ($applicant->additionalCriteria_1 == $provider_id) {
+          $applicant->points = $applicant->points + config('kitamatch_config.additionalCriteriaBonus_1_value');
+        } else {
+          $applicant->points = $applicant->points;
+        }
+      }
+
+      //Additional Bonus for applicants
+      if(config('kitamatch_config.additionalCriteriaBonus_2')){
+        if ($applicant->additionalCriteria_2 == $provider_id) {
+          $applicant->points = $applicant->points + config('kitamatch_config.additionalCriteriaBonus_2_value');
+        } else {
+          $applicant->points = $applicant->points;
+        }
+      }
+      
+      //Additional Bonus for applicants
+      if(config('kitamatch_config.additionalCriteriaBonus_3')){
+        if ($applicant->additionalCriteria_3 == $provider_id) {
+          $applicant->points = $applicant->points + config('kitamatch_config.additionalCriteriaBonus_3_value');
+        } else {
+          $applicant->points = $applicant->points;
+        }
+      }
+
       //} else {
         //no guardian -> order = 10000, to order asc
       //  $applicant->order = 0;
