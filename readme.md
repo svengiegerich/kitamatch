@@ -3,7 +3,7 @@
 ## About
 KitaMatch is a web application **in development** for innovative childcare assignment.
 
-![alt text](https://github.com/svengiegerich/kitamatch/blob/master/documents/kitamatch_dashboard.png "KitaMatch Dashboard")
+![alt text](https://github.com/svengiegerich/kitamatch/blob/master/documents/screenshot_admin-1.png.png "KitaMatch Dashboard")
 
 
 ## Architecture
