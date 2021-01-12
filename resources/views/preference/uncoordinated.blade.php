@@ -279,7 +279,9 @@
           <!-- available applicants: automatic ranking -->
             @foreach($availableApplicants as $applicant)
 
-            @if( $applicant->offerStatus == 1 && $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
+            @if( $applicant->offerStatus == 1 && 
+                  $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) &&
+                    $applicant->rejectedBestOffer == 0 )
 
             <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)
@@ -422,7 +424,7 @@
         <!--- invalid applicants -->
         @foreach($availableApplicants as $applicant)
           @if( 
-            ($applicant->status == 26 && !(count($preferences->where('id_to', '=', $applicant->aid)) >= 1)) 
+            ($applicant->status == 26 && !(count($preferences->where('id_to', '=', $applicant->aid)) >= 1))
             ||
             ( !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) && $applicant->offerStatus == 0)
             )
@@ -437,6 +439,31 @@
               <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
               <td>
                 <button class="btn btn-danger btn-sm" disabled>Kein Angebot verfügbar</button>
+              </td>
+              <td>
+                <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                  <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
+                </form>
+              </td>
+            </tr>
+            @endif
+        @endforeach
+
+        @foreach($availableApplicants as $applicant)
+          @if($applicant->rejectedBestOffer == 1)
+
+            <tr class="table-info">
+              <th scope="row">{{$applicant->aid}}</th>
+              <td>{{$applicant->first_name}}</td>
+              <td>{{$applicant->last_name}}</td>
+              <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+              <td>{{$applicant->gender}}</td>
+              <td>{{$applicant->points}}</td>
+              <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
+              <td>
+                <button class="btn btn-info btn-sm" disabled>Rejected Best Offer</button>
               </td>
               <td>
                 <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
