@@ -154,8 +154,15 @@ class Preference extends Model
     return $preferences;
   }
 
-  public function getPreferenceDetails($college){
+  public function getPreferenceDetails($college, $student){
+    $preference =DB::table('preferences')
+      ->where('preferences.id_from', '=', $student)
+      ->where('preferences.id_to', '=', $college)
+      ->where('preferences.status', '=', 1)
+      ->where('preferences.pr_kind', '=', 1)
+      ->get();
 
+    return $preference;
   }
 
   public function getPreferenceByApplicantAndSid($aid, $sid){
