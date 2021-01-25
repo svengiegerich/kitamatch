@@ -170,6 +170,20 @@ class MatchingController extends Controller
       # LOOK at every applicant that is in the matchingResults
       # for every pref that is below this rank for this applicant, and not status -1 already, set status to -3
 
+      foreach($matchingResult as $match){
+        $college = $match['college'];
+        $student = $match['student'];
+
+        $preferences = $Preference->getAllPreferencesByApplicantID($student);
+
+        foreach($preferences as $preference){
+          if($college == $preference->id_to){
+            
+          }
+        }
+
+      }
+
       //check if it's the final match
       if ($match['college'] == $input['student_prefs'][$match['student']][0]) {
         $matchRequest->request->add(['status' => 32]);

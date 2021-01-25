@@ -714,12 +714,13 @@ class PreferenceController extends Controller
   */
   public function addOfferUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
-    $existing_preference = $preference->getPreferenceByApplicantAndSid($request->aid, $request->sid);
+   // $existing_preference = $preference->getPreferenceByApplicantAndSid($request->aid, $request->sid);
    
     $preference->id_from = $request->sid; // service id
     $preference->id_to = $request->aid;
     $preference->pr_kind = 3;
-    $preference->rank = $existing_preference[0]->rank;
+  //  $preference->rank = $existing_preference[0]->rank;
+    $preference->rank = 1;
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";

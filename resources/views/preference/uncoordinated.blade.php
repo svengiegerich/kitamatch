@@ -425,7 +425,7 @@
         @foreach($availableApplicants as $applicant)
           @if($applicant->rejectedBestOffer == 0)      
             @if( 
-              ($applicant->status == 26 && !(count($preferences->where('id_to', '=', $applicant->aid)) >= 1))
+              ($applicant->status == 26)
               ||
               ( !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) && $applicant->offerStatus == 0)
               )
@@ -456,7 +456,7 @@
         @foreach($availableApplicants as $applicant)
           @if($applicant->rejectedBestOffer == 1)
 
-            <tr class="table-info">
+            <tr class="table-danger">
               <th scope="row">{{$applicant->aid}}</th>
               <td>{{$applicant->first_name}}</td>
               <td>{{$applicant->last_name}}</td>
@@ -465,7 +465,7 @@
               <td>{{$applicant->points}}</td>
               <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
               <td>
-                <button class="btn btn-info btn-sm" disabled>Rejected Best Offer</button>
+                <button class="btn btn-danger btn-sm" disabled>Rejected Best Offer</button>
               </td>
               <td>
                 <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
