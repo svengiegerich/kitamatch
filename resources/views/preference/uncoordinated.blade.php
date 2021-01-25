@@ -102,7 +102,7 @@
       <tbody>
         @if (count($preferences) > 0)
           @foreach ($preferences as $preference)
-            @if ($preference->status != -1 && $preference->rank == 1)
+            @if ($preference->status != -1)
               <?php $applicant = $availableApplicants->where('aid', '=', $preference->id_to)->first(); ?>
               @if ($applicant->status == 26)
                 <tr class="table-success">
@@ -119,7 +119,7 @@
             @endif
           @endforeach
           @foreach ($preferences as $preference)
-            @if ($preference->status != -1 && $preference->rank == 1)
+            @if ($preference->status != -1)
               <?php $applicant = $availableApplicants->where('aid', '=', $preference->id_to)->first(); ?>
               @if ($applicant->status != 26)
                 <tr class="table-info">

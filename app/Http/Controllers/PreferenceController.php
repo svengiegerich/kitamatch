@@ -593,8 +593,7 @@ class PreferenceController extends Controller
         }
       }
       //---
-
-
+     
       //available offer check
       foreach($availableApplicants as $applicant){
         $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
@@ -635,8 +634,8 @@ class PreferenceController extends Controller
         }else{
           $applicant->offerStatus = 0;
         }
-      }
-
+      }      
+      
       $program->openOffers = $openOffers;
 
       return view('preference.uncoordinated', array('round' => $round,
@@ -715,11 +714,12 @@ class PreferenceController extends Controller
   */
   public function addOfferUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
-
+    $existing_preference = $preference->getPreferenceByApplicantAndSid($request->aid, $request->sid);
+   
     $preference->id_from = $request->sid; // service id
     $preference->id_to = $request->aid;
     $preference->pr_kind = 3;
-    $preference->rank = 1;
+    $preference->rank = $existing_preference[0]->rank;
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";

@@ -94,8 +94,6 @@ class MatchingController extends Controller
     $Preference = new Preference;
     $Matching = new Matching;
 
-    print("Hey");
-
     $input = $this->prepareMatching2();
 
     //null=4
