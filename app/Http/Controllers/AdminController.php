@@ -60,6 +60,14 @@ class AdminController extends Controller
       $match->program_name = $program->name;
       $match->provider_name = $provider->name;
       $match->status_text = Code::where('code', '=', $match->status)->first()->value;
+
+      $scopes = config('kitamatch_config.care_scopes');
+      $starts = config('kitamatch_config.care_starts');
+
+      $pid_split = explode("_", $match->pid);
+      $pid = $pid_split[0];
+      $match->start = $starts[$pid_split[1]];
+      $match->scope = $scopes[$pid_split[2]];
     }
     return $matches;
   }

@@ -124,7 +124,7 @@ class Preference extends Model
     $applicants = DB::table('preferences')
       ->join('applicants', 'applicants.aid', '=', 'preferences.id_from')
       ->where('preferences.id_to', 'like', $pid . '\\_%')
-      ->where('preferences.status', '=', 1)
+      ->whereIn('preferences.status',  [1, -1])
       ->where('preferences.pr_kind', '=', 1)
       ->select('applicants.*')
       ->distinct()

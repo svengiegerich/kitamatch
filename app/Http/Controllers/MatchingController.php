@@ -179,7 +179,7 @@ class MatchingController extends Controller
         $college_preference = $Preference->getPreferenceDetails($college, $student);
 
         foreach($preferences as $preference){
-          if($college != $preference->id_to && $college_preference[0]->rank < $preference->rank){
+          if($college != $preference->id_to && $college_preference[0]->rank < $preference->rank && $preference->status != -1){
             $Preference->updateStatus($preference->prid, -1); 
           }
         }
