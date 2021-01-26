@@ -101,8 +101,8 @@
             <thead>
                 <tr>
                     <th>Kita</th>
-                    <th>Umfang</th>
                     <th>Beginn</th>
+                    <th>Umfang</th>
                     <th>Kitagruppe</th>
                     <th>Bewerber</th>
                     <th>Status</th>

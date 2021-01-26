@@ -66,7 +66,7 @@ class AdminController extends Controller
 
       $pid_split = explode("_", $match->pid);
       $pid = $pid_split[0];
-      $match->start = $starts[$pid_split[1]];
+      $match->start = $starts[$pid_split[1]];#
       $match->scope = $scopes[$pid_split[2]];
     }
     return $matches;
@@ -167,8 +167,8 @@ class AdminController extends Controller
         'Kita' => $match->provider_name, 
         'Kitagruppe' => $match->program_name,
         'Status' => $match->status_text,
-        'Umfang' => $start,
-        'Beginn' => $scope
+        'Umfang' => $scope,
+        'Beginn' => $start
       );
 
     };
