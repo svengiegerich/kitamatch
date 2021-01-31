@@ -597,7 +597,7 @@ class PreferenceController extends Controller
       //available offer check
       foreach($availableApplicants as $applicant){
         $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
-        $applicant->rejectedBestOffer = 0;
+       // $applicant->rejectedBestOffer = 0;
 
         if(count($appliacntPreferences) > 0){
           foreach($appliacntPreferences as $preference){
@@ -617,9 +617,9 @@ class PreferenceController extends Controller
                 Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));                  
               }
 
-              if(( $applicant->care_start == $start && $applicant->care_scope == $scope ) && ($offeredPreference[0]->status == '-1')){
-                $applicant->rejectedBestOffer = 1;            
-              }
+              // if(( $applicant->care_start == $start && $applicant->care_scope == $scope ) && ($offeredPreference[0]->status == '-1')){
+              //   $applicant->rejectedBestOffer = 1;            
+              // }
       
             }else{
              Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'keine Kapazität'));

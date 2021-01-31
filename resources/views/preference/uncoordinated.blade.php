@@ -423,9 +423,9 @@
 
         <!--- invalid applicants -->
         @foreach($availableApplicants as $applicant)
-          @if($applicant->rejectedBestOffer == 0)      
+        <!--  @if($applicant->rejectedBestOffer == 0)      -->
             @if( 
-              ($applicant->status == 26)
+              ($applicant->status == 26 && !(count($preferences->where('id_to', '=', $applicant->aid)) >= 1))
               ||
               ( !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) && $applicant->offerStatus == 0)
               )
@@ -450,9 +450,9 @@
                 </td>
               </tr>
             @endif
-          @endif    
+      <!--    @endif    -->
         @endforeach
-
+<!--
         @foreach($availableApplicants as $applicant)
           @if($applicant->rejectedBestOffer == 1)
 
@@ -477,7 +477,7 @@
             </tr>
             @endif
         @endforeach
-       
+       -->
       </tbody>
     </table>
 
