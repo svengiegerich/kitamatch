@@ -32,8 +32,8 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Start</th>
             <th scope="col">Beginn</th>
+            <th scope="col">Umfang</th>
             <th scope="col">Angebote</th>
             <th scope="col">Freie Plätze</th>
             <th scope="col">Bewerber</th>
@@ -267,6 +267,7 @@
               <th>Nachnamen</th>
               <th>Geburtsdatum</th>
               <th>Geschlecht</th>
+              <th>Geschwister</th>
               @if (config('kitamatch_config.manual_points'))
               <th>Punktzahl</th>
               <th>Betreuungsbeginn</th>
@@ -296,6 +297,7 @@
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
+                <td>{{$applicant->siblingsIsPresent}}</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
@@ -379,13 +381,13 @@
                       <button class="btn btn-danger btn-sm" disabled>kein Angebot verfügbar</button>
                     @endif
                 </td>
-                <td>
+                <!-- <td>
                   <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
                       <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
                     </form>
-                </td>
+                </td> -->
               </tr>
           @endif
           @endforeach
@@ -436,18 +438,19 @@
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
+                <td>{{$applicant->siblingsIsPresent}}</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
                   <button class="btn btn-danger btn-sm" disabled>Kein Angebot verfügbar</button>
                 </td>
-                <td>
+                <!-- <td>
                   <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="aid" value="{{$applicant->aid}}">
                     <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
                   </form>
-                </td>
+                </td> -->
               </tr>
             @endif
       <!--    @endif    -->

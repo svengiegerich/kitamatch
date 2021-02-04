@@ -593,12 +593,12 @@ class PreferenceController extends Controller
         }
       }
       //---
-     
-      //available offer check
+    
       foreach($availableApplicants as $applicant){
         $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
        // $applicant->rejectedBestOffer = 0;
 
+        //available offer check
         if(count($appliacntPreferences) > 0){
           foreach($appliacntPreferences as $preference){
             $id_to_split = explode("_", $preference->id_to);
@@ -634,7 +634,10 @@ class PreferenceController extends Controller
         }else{
           $applicant->offerStatus = 0;
         }
-      }      
+
+        $applicant->siblingsIsPresent = ($applicant->siblings == $providerId ? "Ja" : "Nein");
+        
+      }
       
       $program->openOffers = $openOffers;
 
