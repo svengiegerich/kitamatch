@@ -267,7 +267,8 @@
               <th>Nachnamen</th>
               <th>Geburtsdatum</th>
               <th>Geschlecht</th>
-              <th>Geschwister</th>
+              <th>Geschwister betreut</th>
+              <th>Geschwister angemeldet</th>
               @if (config('kitamatch_config.manual_points'))
               <th>Punktzahl</th>
               <th>Betreuungsbeginn</th>
@@ -298,6 +299,7 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>{{$applicant->siblingsIsPresent}}</td>
+                <td>test</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
@@ -439,6 +441,7 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>{{$applicant->siblingsIsPresent}}</td>
+                <td>test</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>

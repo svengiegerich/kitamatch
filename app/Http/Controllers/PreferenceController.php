@@ -592,8 +592,7 @@ class PreferenceController extends Controller
           }
         }
       }
-      //---
-    
+          
       foreach($availableApplicants as $applicant){
         $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
        // $applicant->rejectedBestOffer = 0;
