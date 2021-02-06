@@ -642,14 +642,24 @@ class PreferenceController extends Controller
 
         $applicant->siblingsIsPresent = ($applicant->siblings == $providerId ? "Ja" : "Nein");
 
-      //   if( !empty($applicant->sibling_applicant_id1)){
-      //      $applicant->sibling_applicant_id1 = $applicant->sibling_applicant_id1;
-      //   }
+        if( !empty($applicant->sibling_applicant_id1)){
+          $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id1);
+          foreach($sibling_preference as $preference){
+            if($preference->provider_id == $providerId ){
+              $applicant->sibling_applicant_id_1 = $applicant->sibling_applicant_id1;
+            }
+          }
+        }
 
-      //   if( !empty($applicant->sibling_applicant_id2)){
-      //     $applicant->sibling_applicant_id2 = $applicant->sibling_applicant_id2;
-      //  }
-        
+        if( !empty($applicant->sibling_applicant_id2)){
+          $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id2);
+          foreach($sibling_preference as $preference){
+            if($preference->provider_id == $providerId ){
+              $applicant->sibling_applicant_id_2 = $applicant->sibling_applicant_id2;
+            }
+          }
+        }
+
       }
       
       $program->openOffers = $openOffers;
