@@ -40,7 +40,7 @@
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="{{$applicant->last_name}}" required>
             </div>
           </div>
-            <div class="form-row">
+            <div class="form-row" style="pointer-events: none; opacity: 0.7;">
               <div class="form-group col-md-4">
                 <label for="birthday">Geburtstag*</label>
                     <input type="date" class="form-control" name="birthday" id="birthday" placeholder="" value="<?php if ($applicant->birthday) { echo $applicant->birthday->format('Y-m-d'); } ?>" required>

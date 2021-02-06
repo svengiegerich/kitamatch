@@ -499,7 +499,7 @@
         <hr class="mb-4">
         <a href="{{url('/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Stammdaten</button></a>
         <hr class="mb-4">
-        <a href="{{url('/criteria/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
+        <a href="{{url('/criteria/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block" disabled>Kriterien verändern</button></a>
     </div>
 </div>
 
