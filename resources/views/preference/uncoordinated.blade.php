@@ -299,7 +299,7 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>{{$applicant->siblingsIsPresent}}</td>
-                <td>test</td>
+                <td>{{$applicant->sibling_applicant_id1}} - {{$applicant->sibling_applicant_id2}}</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
@@ -441,7 +441,7 @@
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
                 <td>{{$applicant->gender}}</td>
                 <td>{{$applicant->siblingsIsPresent}}</td>
-                <td>test</td>
+                <td>{{$applicant->sibling_applicant_id1}} - {{$applicant->sibling_applicant_id2}}</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>

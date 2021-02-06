@@ -82,6 +82,7 @@ class PreferenceController extends Controller
     $preference->status = $request->status;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
     $preference->save();
 
     //set active, if pr_kind = 3 & program is status = 13
@@ -113,6 +114,7 @@ class PreferenceController extends Controller
     $preference->status = $request->status;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
     $preference->save();
     return $preference;
   }
@@ -217,6 +219,7 @@ class PreferenceController extends Controller
       $preference->status = 1;
       $preference->isValid = 0;
       $preference->invalidReason = "";
+      $preference->provider_id = $request->provider_id;
       $preference->save();
     }
     return redirect()->action('ApplicantController@show', $aid);
@@ -283,6 +286,7 @@ class PreferenceController extends Controller
     foreach($feasible_set as $key => $preference) {
       $pid = $preference->id_to;
       $rank = $preference->rank;
+      $provider_id = $preference->provider_id;
       foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
         foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
           if ($key_start >= $applicant->care_start and ($key_scope != -1 and $key_start != -1)) {
@@ -299,7 +303,8 @@ class PreferenceController extends Controller
               'program_rank' => $rank,
               'id_to' => $id_to,
               'scope_is_first' => $scope_is_first,
-              'scope_rank' => $scope_rank
+              'scope_rank' => $scope_rank,
+              'provider_id' => $provider_id,
             );
           }
         }
@@ -398,7 +403,8 @@ class PreferenceController extends Controller
         'to' => $preference['id_to'],
         'pr_kind' => 1,
         'status' => 1,
-        'rank' => $rank
+        'rank' => $rank,
+        'provider_id' => $preference['provider_id']
       ]);
 
       $this->store($request);
@@ -635,6 +641,14 @@ class PreferenceController extends Controller
         }
 
         $applicant->siblingsIsPresent = ($applicant->siblings == $providerId ? "Ja" : "Nein");
+
+      //   if( !empty($applicant->sibling_applicant_id1)){
+      //      $applicant->sibling_applicant_id1 = $applicant->sibling_applicant_id1;
+      //   }
+
+      //   if( !empty($applicant->sibling_applicant_id2)){
+      //     $applicant->sibling_applicant_id2 = $applicant->sibling_applicant_id2;
+      //  }
         
       }
       
@@ -672,6 +686,7 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
     $preference->save();
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
@@ -716,7 +731,7 @@ class PreferenceController extends Controller
   */
   public function addOfferUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
-   // $existing_preference = $preference->getPreferenceByApplicantAndSid($request->aid, $request->sid);
+    $existing_preference = $preference->getPreferenceByApplicantAndSid($request->aid, $request->sid);
    
     $preference->id_from = $request->sid; // service id
     $preference->id_to = $request->aid;
@@ -726,6 +741,7 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $existing_preference[0]->provider_id;
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
@@ -804,6 +820,7 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
