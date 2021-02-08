@@ -83,6 +83,7 @@ class PreferenceController extends Controller
     $preference->isValid = 0;
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
 
     //set active, if pr_kind = 3 & program is status = 13
@@ -115,6 +116,7 @@ class PreferenceController extends Controller
     $preference->isValid = 0;
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
     return $preference;
   }
@@ -220,6 +222,7 @@ class PreferenceController extends Controller
       $preference->isValid = 0;
       $preference->invalidReason = "";
       $preference->provider_id = $request->provider_id;
+      $preference->program_id = $request->program_id;
       $preference->save();
     }
     return redirect()->action('ApplicantController@show', $aid);
@@ -287,6 +290,7 @@ class PreferenceController extends Controller
       $pid = $preference->id_to;
       $rank = $preference->rank;
       $provider_id = $preference->provider_id;
+      $program_id = $preference->program_id;
       foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
         foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
           if ($key_start >= $applicant->care_start and ($key_scope != -1 and $key_start != -1)) {
@@ -305,6 +309,7 @@ class PreferenceController extends Controller
               'scope_is_first' => $scope_is_first,
               'scope_rank' => $scope_rank,
               'provider_id' => $provider_id,
+              'program_id' => $program_id,
             );
           }
         }
@@ -404,7 +409,8 @@ class PreferenceController extends Controller
         'pr_kind' => 1,
         'status' => 1,
         'rank' => $rank,
-        'provider_id' => $preference['provider_id']
+        'provider_id' => $preference['provider_id'],
+        'program_id' => $preference['program_id']
       ]);
 
       $this->store($request);
@@ -697,6 +703,7 @@ class PreferenceController extends Controller
     $preference->isValid = 0;
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
@@ -752,6 +759,7 @@ class PreferenceController extends Controller
     $preference->isValid = 0;
     $preference->invalidReason = "";
     $preference->provider_id = $existing_preference[0]->provider_id;
+    $preference->program_id = $existing_preference[0]->program_id;
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
@@ -831,6 +839,7 @@ class PreferenceController extends Controller
     $preference->isValid = 0;
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
