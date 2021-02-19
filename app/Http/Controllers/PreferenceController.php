@@ -666,6 +666,15 @@ class PreferenceController extends Controller
           }
         }
 
+        if( !empty($applicant->sibling_applicant_id3)){
+          $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id3);
+          foreach($sibling_preference as $preference){
+            if($preference->provider_id == $providerId ){
+              $applicant->sibling_applicant_id_3 = $applicant->sibling_applicant_id3;
+            }
+          }
+        }
+
       }
       
       $program->openOffers = $openOffers;

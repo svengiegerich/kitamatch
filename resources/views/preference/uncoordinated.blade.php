@@ -266,7 +266,9 @@
               <th>Vornamen</th>
               <th>Nachnamen</th>
               <th>Geburtsdatum</th>
+              @if (config('kitamatch_config.show_gender'))
               <th>Geschlecht</th>
+              @endif
               <th>Geschwister betreut</th>
               <th>Geschwister angemeldet</th>
               @if (config('kitamatch_config.manual_points'))
@@ -297,9 +299,11 @@
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                @if (config('kitamatch_config.show_gender'))
                 <td>{{$applicant->gender}}</td>
+                @endif
                 <td>{{$applicant->siblingsIsPresent}}</td>
-                <td>{{$applicant->sibling_applicant_id_1}} - {{$applicant->sibling_applicant_id_2}}</td>
+                <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
@@ -439,9 +443,11 @@
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                @if (config('kitamatch_config.show_gender'))
                 <td>{{$applicant->gender}}</td>
+                @endif
                 <td>{{$applicant->siblingsIsPresent}}</td>
-                <td>{{$applicant->sibling_applicant_id_1}} - {{$applicant->sibling_applicant_id_2}}</td>
+                <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
