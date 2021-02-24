@@ -93,7 +93,9 @@
               <th>Vornamen</th>
               <th>Nachnamen</th>
               <th>Geburtsdatum</th>
+              @if (config('kitamatch_config.show_gender'))
               <th>Geschlecht</th>
+              @endif
               <th>Beginn</th>
               <th>Umfang</th>
               <th>&nbsp;</th>
@@ -110,7 +112,9 @@
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                  @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
+                  @endif
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
@@ -127,7 +131,9 @@
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                  @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
+                  @endif
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td>

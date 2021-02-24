@@ -136,7 +136,9 @@
                 <tr>
                     <th>Name</th>
                     <th>Geburtsdatum</th>
+                    @if (config('kitamatch_config.show_gender'))
                     <th>Geschlecht</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -144,7 +146,9 @@
                     <tr>
                       <td>{{$nonMatch['first_name']}} {{$nonMatch['last_name']}}</td>
                       <td>{{(new Carbon\Carbon($nonMatch['birthday']))->format('d.m.Y')}}</td>
+                      @if (config('kitamatch_config.show_gender'))
                       <td>{{$nonMatch['gender']}}</td>
+                      @endif
                     </tr>
               @endforeach
             </tbody>
