@@ -60,6 +60,14 @@ class AdminController extends Controller
       $match->program_name = $program->name;
       $match->provider_name = $provider->name;
       $match->status_text = Code::where('code', '=', $match->status)->first()->value;
+
+      $scopes = config('kitamatch_config.care_scopes');
+      $starts = config('kitamatch_config.care_starts');
+
+      $pid_split = explode("_", $match->pid);
+      $pid = $pid_split[0];
+      $match->start = $starts[$pid_split[1]];#
+      $match->scope = $scopes[$pid_split[2]];
     }
     return $matches;
   }
@@ -140,15 +148,27 @@ class AdminController extends Controller
   public function exportAssignedApplicants()
   {
     $matches = $this->listMatchings();
-    $matches_array[] = array('Kita', 'Kitagruppe', 'Bewerber', 'Status');
+    $matches_array[] = array('aid','Bewerber','ServiceID','Kita', 'Kitagruppe', 'Status','Umfang', 'Beginn');
+
+    $scopes = config('kitamatch_config.care_scopes');
+    $starts = config('kitamatch_config.care_starts');
 
     foreach($matches as $match){
       
+      $id_to_split = explode("_", $match->pid);
+            $p_id = $id_to_split[0];
+            $start = $starts[$id_to_split[1]];
+            $scope = $scopes[$id_to_split[2]];
+
       $matches_array[] = array(
+        'BewerberID'=> $match->aid,
+        'Bewerber'=> $match->applicant_name, 
+        'ServiceID'=>$match->pid,
         'Kita' => $match->provider_name, 
         'Kitagruppe' => $match->program_name,
-        'Bewerber'=> $match->applicant_name, 
-        'Status' => $match->status_text 
+        'Status' => $match->status_text,
+        'Umfang' => $scope,
+        'Beginn' => $start
       );
 
     };

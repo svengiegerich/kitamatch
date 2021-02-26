@@ -82,6 +82,8 @@ class PreferenceController extends Controller
     $preference->status = $request->status;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
 
     //set active, if pr_kind = 3 & program is status = 13
@@ -113,6 +115,8 @@ class PreferenceController extends Controller
     $preference->status = $request->status;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
     return $preference;
   }
@@ -217,6 +221,8 @@ class PreferenceController extends Controller
       $preference->status = 1;
       $preference->isValid = 0;
       $preference->invalidReason = "";
+      $preference->provider_id = $request->provider_id;
+      $preference->program_id = $request->program_id;
       $preference->save();
     }
     return redirect()->action('ApplicantController@show', $aid);
@@ -283,6 +289,8 @@ class PreferenceController extends Controller
     foreach($feasible_set as $key => $preference) {
       $pid = $preference->id_to;
       $rank = $preference->rank;
+      $provider_id = $preference->provider_id;
+      $program_id = $preference->program_id;
       foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
         foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
           if ($key_start >= $applicant->care_start and ($key_scope != -1 and $key_start != -1)) {
@@ -299,7 +307,9 @@ class PreferenceController extends Controller
               'program_rank' => $rank,
               'id_to' => $id_to,
               'scope_is_first' => $scope_is_first,
-              'scope_rank' => $scope_rank
+              'scope_rank' => $scope_rank,
+              'provider_id' => $provider_id,
+              'program_id' => $program_id,
             );
           }
         }
@@ -310,9 +320,9 @@ class PreferenceController extends Controller
       // both: yes
       $sorted = $this->array_orderby(
         $preference_list,
-        'program_rank', SORT_ASC,
-        'scope_rank', SORT_ASC,
-        'start', SORT_ASC // the earlier the better
+        'scope_rank', SORT_ASC, //scope is first priority, then ->Start and last ->program
+        'start', SORT_ASC,
+        'program_rank', SORT_ASC
       );
 
     } elseif ($applicant->alternative_scope == 1 and $applicant->alternative_start == 0) {
@@ -334,8 +344,8 @@ class PreferenceController extends Controller
       $sorted = $this->array_orderby(
         $preference_list,
         'start', SORT_ASC, // the earlier the better
-        'program_rank', SORT_ASC,
-        'scope_rank', SORT_ASC
+        'scope_rank', SORT_ASC,
+        'program_rank', SORT_ASC
       );
 
     } elseif ($applicant->alternative_scope == 0 and $applicant->alternative_start == 1) {
@@ -349,8 +359,8 @@ class PreferenceController extends Controller
 
       $sorted = $this->array_orderby(
         $filtered,
-        'program_rank', SORT_ASC,
-        'start', SORT_ASC
+        'start', SORT_ASC,
+        'program_rank', SORT_ASC 
       );
 
     } elseif ($applicant->alternative_scope == 0 and $applicant->alternative_start == 0) {
@@ -380,9 +390,9 @@ class PreferenceController extends Controller
       // default
       $sorted = $this->array_orderby(
         $preference_list,
-        'program_rank', SORT_ASC,
         'scope_rank', SORT_ASC,
-        'start', SORT_ASC // the earlier the better
+        'start', SORT_ASC, // the earlier the better
+        'program_rank', SORT_ASC
       );
     }
 
@@ -398,7 +408,9 @@ class PreferenceController extends Controller
         'to' => $preference['id_to'],
         'pr_kind' => 1,
         'status' => 1,
-        'rank' => $rank
+        'rank' => $rank,
+        'provider_id' => $preference['provider_id'],
+        'program_id' => $preference['program_id']
       ]);
 
       $this->store($request);
@@ -592,12 +604,12 @@ class PreferenceController extends Controller
           }
         }
       }
-      //---
-
-
-      //available offer check
+          
       foreach($availableApplicants as $applicant){
         $appliacntPreferences = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
+       // $applicant->rejectedBestOffer = 0;
+
+        //available offer check
         if(count($appliacntPreferences) > 0){
           foreach($appliacntPreferences as $preference){
             $id_to_split = explode("_", $preference->id_to);
@@ -610,13 +622,20 @@ class PreferenceController extends Controller
             
             if($scopeCapacity != 0 && $scopeCapacity > count($openOffer)){
               $offeredPreference = $Preference->getOfferedPreference($preference->id_to, $applicant->aid);
-              if( count($offeredPreference) > 0 && $offeredPreference[0]->status == '-1')
+              if( count($offeredPreference) > 0 && $offeredPreference[0]->status == '-1') {
                 Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'Absage'));
-              else
-                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));
+              }else{
+                Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'1'));                  
+              }
+
+              // if(( $applicant->care_start == $start && $applicant->care_scope == $scope ) && ($offeredPreference[0]->status == '-1')){
+              //   $applicant->rejectedBestOffer = 1;            
+              // }
+      
             }else{
              Preference::where('id_from','=',$applicant->aid)->where('id_to','=',$preference->id_to)->update(array('isValid'=>'0', 'invalidReason'=>'keine Kapazität'));
             }
+
           }
         }
         $appliacntPreferencesUpdated = $Preference->getPreferencesByApplicant($applicant->aid, $pid);
@@ -626,8 +645,38 @@ class PreferenceController extends Controller
         }else{
           $applicant->offerStatus = 0;
         }
-      }
 
+        $applicant->siblingsIsPresent = ($applicant->siblings == $providerId ? "Ja" : "Nein");
+
+        if( !empty($applicant->sibling_applicant_id1)){
+          $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id1);
+          foreach($sibling_preference as $preference){
+            if($preference->provider_id == $providerId ){
+              $applicant->sibling_applicant_id_1 = $applicant->sibling_applicant_id1;
+            }
+          }
+        }
+
+        if( !empty($applicant->sibling_applicant_id2)){
+          $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id2);
+          foreach($sibling_preference as $preference){
+            if($preference->provider_id == $providerId ){
+              $applicant->sibling_applicant_id_2 = $applicant->sibling_applicant_id2;
+            }
+          }
+        }
+
+        if( !empty($applicant->sibling_applicant_id3)){
+          $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id3);
+          foreach($sibling_preference as $preference){
+            if($preference->provider_id == $providerId ){
+              $applicant->sibling_applicant_id_3 = $applicant->sibling_applicant_id3;
+            }
+          }
+        }
+
+      }
+      
       $program->openOffers = $openOffers;
 
       return view('preference.uncoordinated', array('round' => $round,
@@ -662,6 +711,8 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
@@ -706,14 +757,18 @@ class PreferenceController extends Controller
   */
   public function addOfferUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
-
+    $existing_preference = $preference->getPreferenceByApplicantAndSid($request->aid, $request->sid);
+   
     $preference->id_from = $request->sid; // service id
     $preference->id_to = $request->aid;
     $preference->pr_kind = 3;
+  //  $preference->rank = $existing_preference[0]->rank;
     $preference->rank = 1;
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $existing_preference[0]->provider_id;
+    $preference->program_id = $existing_preference[0]->program_id;
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
@@ -792,6 +847,8 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->provider_id = $request->provider_id;
+    $preference->program_id = $request->program_id;
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);

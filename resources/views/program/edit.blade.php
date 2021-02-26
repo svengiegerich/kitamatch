@@ -39,7 +39,7 @@
                   <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}" >
                 </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" style="pointer-events: none; opacity: 0.7;">
                 <label for="age_cohort" class="col-sm-2 col-form-label">Altersgruppe</label>
                 <div class="col-sm-10">
                   {!! Form::select('age_cohort', array('0' => '---',

@@ -194,10 +194,13 @@ public function getDefaultCriteria() {
     // order applicants
     $availableApplicants = $Preference->orderByCriteria($availableApplicants, $providerId, $provider);
 
+    
+
     //list preferences for each
     $i = 1;
     foreach($availableApplicants as $applicant) {
       $programPref = new Preference();
+      $existing_preference = $programPref->getPreferenceByApplicantAndSid($applicant->aid, $pid);
       $programPref->status = -3;
       $programPref->pr_kind = 3;
       $programPref->id_from = $pid;
@@ -205,6 +208,8 @@ public function getDefaultCriteria() {
       $programPref->rank = $i;
       $programPref->isValid = 0;
       $programPref->invalidReason = "";
+      $programPref->provider_id = $existing_preference[0]->provider_id;;
+      $programPref->program_id = $existing_preference[0]->program_id;;
       $programPref->save();
       $i = $i + 1;
     }

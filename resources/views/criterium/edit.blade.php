@@ -75,9 +75,9 @@
     <div class="col-md-8">
         <hr class="mb-4">
         @if ($criterium->program == 1)
-        <a href="/preference/program/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Angeboten</button></a>
+        <a href="{{url('/preference/program/' . $criterium->p_id)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zu Angeboten</button></a>
         @else
-        <a href="/provider/{{$criterium->p_id}}"><button class="btn btn-primary btn-lg btn-block">Zurück zum Träger</button></a>
+        <a href="{{url('/provider/program/' . $criterium->p_id)}}"><button class="btn btn-primary btn-lg btn-block">Zurück zum Träger</button></a>
         @endif
     </div>
 </div>

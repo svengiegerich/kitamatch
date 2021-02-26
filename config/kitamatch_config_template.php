@@ -3,19 +3,79 @@
 return [
 
   // -----------------------------
-  // -----------------------------
+  'show_gender' => FALSE,
   // -----------------------------
 
   // MANUEL POINTS
   'manual_points' => TRUE,
   'manual_points_value' => 10,
-
   // -----------------------------
+
+  // ADDITIONAL BONUS FOR FIRST PREFERENCE KITA
   'preference_bouns' => TRUE,
   'preference_bouns_value' => 3,
   // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )
+  'additionalCriteriaBonus_1' => TRUE,
+  'additionalCriteriaBonus_1_value' => 9,
   // -----------------------------
 
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )
+  'additionalCriteriaBonus_2' => FALSE,
+  'additionalCriteriaBonus_2_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_3' => FALSE,
+  'additionalCriteriaBonus_3_value' => 3,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_4' => FALSE,
+  'additionalCriteriaBonus_4_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_5' => FALSE,
+  'additionalCriteriaBonus_5_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_6' => FALSE,
+  'additionalCriteriaBonus_6_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_7' => FALSE,
+  'additionalCriteriaBonus_7_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_8' => FALSE,
+  'additionalCriteriaBonus_8_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_9' => FALSE,
+  'additionalCriteriaBonus_9_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_10' => FALSE,
+  'additionalCriteriaBonus_10_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_11' => FALSE,
+  'additionalCriteriaBonus_11_value' => 6,
+  // -----------------------------
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_12' => FALSE,
+  'additionalCriteriaBonus_12_value' => 6,
+  // -----------------------------
+  
   // DIFFERENT STARTS?
   'has_diff_starts' => TRUE,
   'has_diff_scopes' => TRUE,

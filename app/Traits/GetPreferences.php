@@ -56,7 +56,7 @@ trait GetPreferences {
 
   public function getServicesByApplicantProgram($aid, $pid) {
     $preferences = DB::table('preferences')->where('id_from', '=', $aid)
-      ->where('id_to', 'like', $pid . '\\_%')
+      ->where('program_id', '=', $pid)
       ->where('pr_kind', '=', 1)
       ->where('status', '=', 1)
       ->get();
@@ -111,7 +111,7 @@ trait GetPreferences {
   public function getPreferencesUncoordinatedByProgramCollection($pid) {
 
     $preferences = DB::table('preferences')
-      ->where('id_from', 'like', $pid . '\\_%')
+      ->where('program_id', '=', $pid)
       ->where('pr_kind', 3)
       ->whereIn('status', [-1, 1])
       ->get();

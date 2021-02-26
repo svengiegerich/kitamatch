@@ -96,11 +96,13 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
+  <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
         <table class="table" id="matches">
             <thead>
                 <tr>
                     <th>Kita</th>
+                    <th>Beginn</th>
+                    <th>Umfang</th>
                     <th>Kitagruppe</th>
                     <th>Bewerber</th>
                     <th>Status</th>
@@ -110,8 +112,10 @@
                 @foreach($matches as $match)
                     <tr>
                       <td>{{$match->provider_name}}</td>
+                      <td>{{$match->start}}</td>
+                      <td>{{$match->scope}}</td>
                       <td><a target="_blank" href="{{url('/preference/program/' . $match->pid )}}">{{$match->program_name}}</a></td>
-                      <td><a target="_blank" href="{{url('/preference/applicant/' . $match->aid )}}'">{{$match->applicant_name}}</a></td>
+                      <td><a target="_blank" href="{{url('/applicant/' . $match->aid )}}">{{$match->applicant_name}}</a></td>
                       <td>{{$match->status_text}}</td>
                     </tr>
                 @endforeach
@@ -132,7 +136,9 @@
                 <tr>
                     <th>Name</th>
                     <th>Geburtsdatum</th>
+                    @if (config('kitamatch_config.show_gender'))
                     <th>Geschlecht</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -140,7 +146,9 @@
                     <tr>
                       <td>{{$nonMatch['first_name']}} {{$nonMatch['last_name']}}</td>
                       <td>{{(new Carbon\Carbon($nonMatch['birthday']))->format('d.m.Y')}}</td>
+                      @if (config('kitamatch_config.show_gender'))
                       <td>{{$nonMatch['gender']}}</td>
+                      @endif
                     </tr>
               @endforeach
             </tbody>

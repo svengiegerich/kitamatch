@@ -32,8 +32,8 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Start</th>
             <th scope="col">Beginn</th>
+            <th scope="col">Umfang</th>
             <th scope="col">Angebote</th>
             <th scope="col">Freie Plätze</th>
             <th scope="col">Bewerber</th>
@@ -45,7 +45,7 @@
 @if ($key_start != -1)
 @foreach (config('kitamatch_config.care_scopes') as $key_scope => $scope)
 @if ($key_scope != -1)
-@if ($capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity > 0 && $countApplicants[$key_start][$key_scope] > 0)
+@if ($capacities->where('care_start', '=', $key_start)->where('care_scope', '=', $key_scope)->first()->capacity > 0)
 <tr>
      <td>{{$start}}</td>
      <td>{{$scope}}</td>
@@ -93,7 +93,9 @@
               <th>Vornamen</th>
               <th>Nachnamen</th>
               <th>Geburtsdatum</th>
+              @if (config('kitamatch_config.show_gender'))
               <th>Geschlecht</th>
+              @endif
               <th>Beginn</th>
               <th>Umfang</th>
               <th>&nbsp;</th>
@@ -102,7 +104,7 @@
       <tbody>
         @if (count($preferences) > 0)
           @foreach ($preferences as $preference)
-            @if ($preference->status != -1 && $preference->rank == 1)
+            @if ($preference->status != -1)
               <?php $applicant = $availableApplicants->where('aid', '=', $preference->id_to)->first(); ?>
               @if ($applicant->status == 26)
                 <tr class="table-success">
@@ -110,7 +112,9 @@
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                  @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
+                  @endif
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
@@ -119,7 +123,7 @@
             @endif
           @endforeach
           @foreach ($preferences as $preference)
-            @if ($preference->status != -1 && $preference->rank == 1)
+            @if ($preference->status != -1)
               <?php $applicant = $availableApplicants->where('aid', '=', $preference->id_to)->first(); ?>
               @if ($applicant->status != 26)
                 <tr class="table-info">
@@ -127,7 +131,9 @@
                   <td>{{$applicant->first_name}}</td>
                   <td>{{$applicant->last_name}}</td>
                   <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                  @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
+                  @endif
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
                   <td>
@@ -250,7 +256,7 @@
 -->
 
 <div class="row justify-content-center">
-    <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
+  <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
 
     <h4>Bewerberliste
       <small class="text-muted" style="float: right;">
@@ -266,9 +272,14 @@
               <th>Vornamen</th>
               <th>Nachnamen</th>
               <th>Geburtsdatum</th>
+              @if (config('kitamatch_config.show_gender'))
               <th>Geschlecht</th>
+              @endif
+              <th>Geschwister betreut</th>
+              <th>Geschwister angemeldet</th>
               @if (config('kitamatch_config.manual_points'))
               <th>Punktzahl</th>
+              <th>Betreuungsbeginn</th>
               @endif
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
@@ -278,7 +289,9 @@
           <!-- available applicants: automatic ranking -->
             @foreach($availableApplicants as $applicant)
 
-            @if( $applicant->offerStatus == 1 && $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1))
+            @if( $applicant->offerStatus == 1 && 
+                  $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) &&
+                    $applicant->rejectedBestOffer == 0 )
 
             <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)
@@ -292,12 +305,17 @@
                 <td>{{$applicant->first_name}}</td>
                 <td>{{$applicant->last_name}}</td>
                 <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                @if (config('kitamatch_config.show_gender'))
                 <td>{{$applicant->gender}}</td>
+                @endif
+                <td>{{$applicant->siblingsIsPresent}}</td>
+                <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
                 <td>{{$applicant->points}}</td>
+                <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if ($applicant->offerStatus == 1)
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
+                    <button type="button btn-sm" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
                                                         Angebot
                                                       </button>
 
@@ -372,16 +390,16 @@
 
 
                     @else
-                      <button class="btn btn-danger" disabled>kein Angebot verfügbar</button>
+                      <button class="btn btn-danger btn-sm" disabled>kein Angebot verfügbar</button>
                     @endif
                 </td>
-                <td>
+                <!-- <td>
                   <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                       {{ csrf_field() }}
                       <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                      <button class="btn btn-secondary" disabled>Warteliste</button>
+                      <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
                     </form>
-                </td>
+                </td> -->
               </tr>
           @endif
           @endforeach
@@ -419,11 +437,42 @@
 
         <!--- invalid applicants -->
         @foreach($availableApplicants as $applicant)
-          @if( 
-            ($applicant->status == 26 && !(count($preferences->where('id_to', '=', $applicant->aid)) >= 1)) 
-            ||
-            ( !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) && $applicant->offerStatus == 0)
-            )
+        <!--  @if($applicant->rejectedBestOffer == 0)      -->
+            @if( 
+              ($applicant->status == 26 && !(count($preferences->where('id_to', '=', $applicant->aid)) >= 1))
+              ||
+              ( !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) && $applicant->offerStatus == 0)
+              )
+
+              <tr class="table-danger">
+                <th scope="row">{{$applicant->aid}}</th>
+                <td>{{$applicant->first_name}}</td>
+                <td>{{$applicant->last_name}}</td>
+                <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
+                @if (config('kitamatch_config.show_gender'))
+                <td>{{$applicant->gender}}</td>
+                @endif
+                <td>{{$applicant->siblingsIsPresent}}</td>
+                <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
+                <td>{{$applicant->points}}</td>
+                <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" disabled>Kein Angebot verfügbar</button>
+                </td>
+                <!-- <td>
+                  <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="aid" value="{{$applicant->aid}}">
+                    <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
+                  </form>
+                </td> -->
+              </tr>
+            @endif
+      <!--    @endif    -->
+        @endforeach
+<!--
+        @foreach($availableApplicants as $applicant)
+          @if($applicant->rejectedBestOffer == 1)
 
             <tr class="table-danger">
               <th scope="row">{{$applicant->aid}}</th>
@@ -432,20 +481,21 @@
               <td>{{(new Carbon\Carbon($applicant->birthday))->format('d.m.Y')}}</td>
               <td>{{$applicant->gender}}</td>
               <td>{{$applicant->points}}</td>
+              <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
               <td>
-                <button class="btn btn-danger" disabled>Kein Angebot verfügbar</button>
+                <button class="btn btn-danger btn-sm" disabled>Rejected Best Offer</button>
               </td>
               <td>
                 <form action="{{url('/preference/program/uncoordinated/waitlist/' . $program->pid)}}" method="POST">
                   {{ csrf_field() }}
                   <input type="hidden" name="aid" value="{{$applicant->aid}}">
-                  <button class="btn btn-secondary" disabled>Warteliste</button>
+                  <button class="btn btn-secondary btn-sm" disabled>Warteliste</button>
                 </form>
               </td>
             </tr>
             @endif
         @endforeach
-       
+       -->
       </tbody>
     </table>
 
@@ -461,7 +511,7 @@
         <hr class="mb-4">
         <a href="{{url('/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Stammdaten</button></a>
         <hr class="mb-4">
-        <a href="{{url('/criteria/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block">Kriterien verändern</button></a>
+        <a href="{{url('/criteria/program/' . $program->pid)}}"><button class="btn btn-primary btn-lg btn-block" disabled>Kriterien verändern</button></a>
     </div>
 </div>
 
