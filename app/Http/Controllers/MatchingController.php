@@ -169,21 +169,14 @@ class MatchingController extends Controller
 
       # LOOK at every applicant that is in the matchingResults
       # for every pref that is below this rank for this applicant, and not status -1 already, set status to -3
+      # for every pref that is below this rank for this applicant, set status -1
+      $preferences = $Preference->getAllPreferencesByApplicantID($student);
+      $college_preference = $Preference->getPreferenceDetails($college, $student);
 
-      foreach($matchingResult as $match){
-        $college = $match['college'];
-        $student = $match['student'];
-
-        $preferences = $Preference->getAllPreferencesByApplicantID($student);
-
-        $college_preference = $Preference->getPreferenceDetails($college, $student);
-
-        foreach($preferences as $preference){
-          if($college != $preference->id_to && $college_preference[0]->rank < $preference->rank && $preference->status != -1){
-            $Preference->updateStatus($preference->prid, -1); 
-          }
+      foreach($preferences as $preference){
+        if($college != $preference->id_to && $college_preference[0]->rank < $preference->rank && $preference->status != -1){
+          $Preference->updateStatus($preference->prid, -1); 
         }
-
       }
 
       //check if it's the final match
