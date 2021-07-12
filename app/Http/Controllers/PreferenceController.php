@@ -343,8 +343,8 @@ class PreferenceController extends Controller
 
       $sorted = $this->array_orderby(
         $preference_list,
-        'start', SORT_ASC, // the earlier the better
         'scope_rank', SORT_ASC,
+        'start', SORT_ASC,
         'program_rank', SORT_ASC
       );
 

@@ -5,6 +5,8 @@ return [
   // -----------------------------
   'show_gender' => FALSE,
   // -----------------------------
+  'can_user_change_capacity' => TRUE,
+  // -----------------------------
 
   // MANUEL POINTS
   'manual_points' => TRUE,
