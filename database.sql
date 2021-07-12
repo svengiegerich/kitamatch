@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 12, 2021 at 03:00 PM
+-- Generation Time: Jul 12, 2021 at 03:21 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kitamatch_kaiserslautern`
+-- Database: `database`
 --
 
 -- --------------------------------------------------------
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `applicants` (
   PRIMARY KEY (`aid`),
   KEY `status` (`status`),
   KEY `gid` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -103,41 +103,6 @@ CREATE TABLE IF NOT EXISTS `codes` (
   `value` varchar(600) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `codes`
---
-
-INSERT INTO `codes` (`created_at`, `updated_at`, `code`, `value`) VALUES
-(NULL, NULL, 10, 'ungültig'),
-(NULL, NULL, 11, 'erstellt, unbestätigt; keine Teilnahme'),
-(NULL, NULL, 12, 'bestätigt, nimmt teil'),
-(NULL, NULL, 13, 'inaktiv seit 7 Tage; keine Teilnahme'),
-(NULL, NULL, 20, 'ungültig'),
-(NULL, NULL, 21, 'erstellt, unbestätigt; keine Teilnahme'),
-(NULL, NULL, 22, 'gültig'),
-(NULL, NULL, 25, 'Priorität'),
-(NULL, NULL, 26, 'Zuordnung endgültig'),
-(NULL, NULL, 30, 'Keine Zuordnung'),
-(NULL, NULL, 31, 'Gehaltenes Angebot'),
-(NULL, NULL, 32, 'Finale Zuordnung'),
-(NULL, NULL, 33, 'Historische Zuordnung'),
-(NULL, NULL, 50, 'ungültig (keine Rangliste oder Dokumente)'),
-(NULL, NULL, 51, 'erstellt, aber unbestätigt; keine Teilnahme'),
-(NULL, NULL, 52, 'gültig'),
-(NULL, NULL, 60, 'ungültig (Kita)'),
-(NULL, NULL, 61, 'gültig (Kita)'),
-(NULL, NULL, 820, 'Elternstatus: Eine/Ein Alleinerziehende/r beschäftig\r\n'),
-(NULL, NULL, 821, 'Elternstatus: Beide Erziehungsberechtigte beschäftigt'),
-(NULL, NULL, 822, 'Elternstatus: Ein Erziehungsberechtigter beschäftigt'),
-(NULL, NULL, 823, 'Elternstatus: Alleinerziehend ohne Beschäftigung'),
-(NULL, NULL, 824, 'Elternstatus: Sonstig'),
-(NULL, NULL, 830, 'Beschäftigungsumfang: Ganztags (ab 28 h/Woche)'),
-(NULL, NULL, 831, 'Beschäftigungsumfang: Halbtags (ab 16-27 h/Woche)'),
-(NULL, NULL, 832, 'Beschäftigungsumfang: Geringfügig (ab 8-15 h/Woche)'),
-(NULL, NULL, 833, 'Beschäftigungsumfang: Ohne Beschäftigung'),
-(NULL, NULL, 840, 'Kein Geschwisterkind'),
-(NULL, NULL, 841, 'Geschwisterkind');
 
 -- --------------------------------------------------------
 
@@ -192,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `guardians` (
   KEY `parental_status` (`parental_status`),
   KEY `volume_of_employment` (`volume_of_employment`),
   KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -212,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `matches` (
   KEY `aid` (`aid`(191),`pid`(191)),
   KEY `pid` (`pid`(191)),
   KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2056 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -265,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `preferences` (
   PRIMARY KEY (`prid`),
   KEY `id_from` (`id_from`(191)),
   KEY `id_to` (`id_to`(191))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58844 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -294,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
   KEY `status` (`status`),
   KEY `uid` (`uid`),
   KEY `proid` (`proid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -317,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `providers` (
   PRIMARY KEY (`proid`),
   KEY `uid` (`uid`),
   KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -336,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `account_type` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1332 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Constraints for dumped tables
