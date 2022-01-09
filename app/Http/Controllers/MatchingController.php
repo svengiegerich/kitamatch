@@ -108,6 +108,7 @@ class MatchingController extends Controller
 
     //GuzzleHttp\Client
     $client = new Client();
+    $client = new \GuzzleHttp\Client(['verify' => false ]);    
     try {
     $response = $client->post('https://api.matchingtools.org/hri/demo?optimum=college-optimal',
       [
