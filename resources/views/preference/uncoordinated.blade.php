@@ -290,8 +290,7 @@
             @foreach($availableApplicants as $applicant)
 
             @if( $applicant->offerStatus == 1 && 
-                  $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) &&
-                    $applicant->rejectedBestOffer == 0 )
+                  $applicant->status != 26 && !(count($preferences->where('id_to', '=', $applicant->aid)->whereIn('status', 1)) >= 1) )
 
             <!-- START <tr> for manual ranking -->
               @if(count($manualRanking) == 0)
