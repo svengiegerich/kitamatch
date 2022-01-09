@@ -31,6 +31,16 @@ return [
   'additionalCriteriaBonus_3_value' => 3,
   // -----------------------------
 
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_4' => FALSE,
+  'additionalCriteriaBonus_4_value' => 3,
+  // -----------------------------  
+
+  // ADDITIONAL CRITERIA FOR BONUS (EX. PARENTS OCCUPATION, RELIGION, REGIONAL )  
+  'additionalCriteriaBonus_5' => FALSE,
+  'additionalCriteriaBonus_5_value' => 3,
+  // -----------------------------
+
   // DIFFERENT STARTS?
   'has_diff_starts' => TRUE,
   'has_diff_scopes' => TRUE,

@@ -255,6 +255,24 @@ class Preference extends Model
         }
       }
 
+      //Additional Bonus for applicants
+      if(config('kitamatch_config.additionalCriteriaBonus_4')){
+        if ($applicant->additionalCriteria_4 == $provider_id) {
+          $applicant->points = $applicant->points + config('kitamatch_config.additionalCriteriaBonus_4_value');
+        } else {
+          $applicant->points = $applicant->points;
+        }
+      }      
+
+      //Additional Bonus for applicants
+      if(config('kitamatch_config.additionalCriteriaBonus_5')){
+        if ($applicant->additionalCriteria_5 == $provider_id) {
+          $applicant->points = $applicant->points + config('kitamatch_config.additionalCriteriaBonus_5_value');
+        } else {
+          $applicant->points = $applicant->points;
+        }
+      }
+
       //} else {
         //no guardian -> order = 10000, to order asc
       //  $applicant->order = 0;
