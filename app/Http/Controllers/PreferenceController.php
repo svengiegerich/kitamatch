@@ -648,6 +648,7 @@ class PreferenceController extends Controller
 
         $applicant->siblingsIsPresent = ($applicant->siblings == $providerId ? "Ja" : "Nein");
 
+        $applicant->sibling_applicant_id_1 = 'N';
         if( !empty($applicant->sibling_applicant_id1)){
           $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id1);
           foreach($sibling_preference as $preference){
@@ -657,6 +658,7 @@ class PreferenceController extends Controller
           }
         }
 
+        $applicant->sibling_applicant_id_2 = 'N';
         if( !empty($applicant->sibling_applicant_id2)){
           $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id2);
           foreach($sibling_preference as $preference){
@@ -666,6 +668,7 @@ class PreferenceController extends Controller
           }
         }
 
+        $applicant->sibling_applicant_id_3 = 'N';
         if( !empty($applicant->sibling_applicant_id3)){
           $sibling_preference = $Preference->getAllPreferencesByApplicantID($applicant->sibling_applicant_id3);
           foreach($sibling_preference as $preference){
