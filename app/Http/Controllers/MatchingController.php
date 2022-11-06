@@ -33,6 +33,8 @@ use App\Capacity;
 use App\Traits\GetPreferences;
 use App\Mail\ApplicantMatch;
 use App\Mail\ProgramMatch;
+use App\MatchingResult;
+use SebastianBergmann\Environment\Console;
 
 /**
 * This controller is responsible for the matching process: preperation, call and handling of the Matchingtools API.
@@ -93,6 +95,7 @@ class MatchingController extends Controller
     $Applicant = new Applicant;
     $Preference = new Preference;
     $Matching = new Matching;
+    $storeMatchingResult = new MatchingResult;
 
     $input = $this->prepareMatching2();
 
@@ -135,6 +138,13 @@ class MatchingController extends Controller
 
     print("Results:");
     print_r($result);
+
+    $storeMatchingResult->round = $this->getRoundNumber();
+//    $storeMatchingResult->student_prefs = json_encode($input);
+    $storeMatchingResult->college_prefs = json_encode($input['college_prefs']);
+    $storeMatchingResult->college_capacity = json_encode($input['college_capacity']);
+    $storeMatchingResult->result = json_encode($matchingResult);
+    $storeMatchingResult->save();
 
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
@@ -332,11 +342,17 @@ class MatchingController extends Controller
     }
     $json["college_capacity"] = $capacityList;
 
-print("Capacity List:");
-print_r($capacityList);
-print("<br><br>");
+    print("Capacity List:");
+    print_r($capacityList);
+    print("<br><br>");
 
     return ($json);
+  }
+
+  public function getRoundNumber() {
+    $Matching = new Matching();
+    $round = $Matching->getRound();
+    return $round;
   }
 
   public function prepareMatching2() {

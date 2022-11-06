@@ -84,6 +84,7 @@ class PreferenceController extends Controller
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
+    $preference->round = $this->getRoundNumber();
     $preference->save();
 
     //set active, if pr_kind = 3 & program is status = 13
@@ -117,6 +118,7 @@ class PreferenceController extends Controller
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
+    $preference->round = $this->getRoundNumber();
     $preference->save();
     return $preference;
   }
@@ -223,6 +225,7 @@ class PreferenceController extends Controller
       $preference->invalidReason = "";
       $preference->provider_id = $request->provider_id;
       $preference->program_id = $request->program_id;
+      $preference->round = $this->getRoundNumber();
       $preference->save();
     }
     return redirect()->action('ApplicantController@show', $aid);
@@ -716,6 +719,7 @@ class PreferenceController extends Controller
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
+    $preference->round = $this->getRoundNumber();
     $preference->save();
     return redirect()->action('PreferenceController@showByProgram', $pid);
   }
@@ -761,7 +765,7 @@ class PreferenceController extends Controller
   public function addOfferUncoordinatedProgram(Request $request, $pid) {
     $preference = new Preference;
     $existing_preference = $preference->getPreferenceByApplicantAndSid($request->aid, $request->sid);
-   
+
     $preference->id_from = $request->sid; // service id
     $preference->id_to = $request->aid;
     $preference->pr_kind = 3;
@@ -772,6 +776,7 @@ class PreferenceController extends Controller
     $preference->invalidReason = "";
     $preference->provider_id = $existing_preference[0]->provider_id;
     $preference->program_id = $existing_preference[0]->program_id;
+    $preference->round = $this->getRoundNumber();
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
@@ -852,6 +857,7 @@ class PreferenceController extends Controller
     $preference->invalidReason = "";
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
+    $preference->round = $this->getRoundNumber();
     $preference->save();
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
@@ -945,6 +951,12 @@ class PreferenceController extends Controller
     $this->createCoordinatedPreferencesByProgram($program);
 
     return redirect()->action('PreferenceController@showByProgram', $pid);
+  }
+
+  public function getRoundNumber() {
+    $Matching = new Matching();
+    $round = $Matching->getRound();
+    return $round;
   }
 
 }
