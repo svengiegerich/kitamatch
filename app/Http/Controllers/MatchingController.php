@@ -63,6 +63,7 @@ class MatchingController extends Controller
     $match = new Matching;
     $match->aid = $request->student;
     $match->pid = $request->college;
+    $match->round = $request->round;
     $match->status = $request->status;
     $match->save();
     return $match;
@@ -135,12 +136,14 @@ class MatchingController extends Controller
     //write the matches
     $result = json_decode($response->getBody(), true);
     $matchingResult = $result['hri_matching'];
+    $matchingRound = $Matching->getRound();
 
     print("Results:");
     print_r($result);
 
+    #storing matching results at table in each round
     $storeMatchingResult->round = $this->getRoundNumber();
-//    $storeMatchingResult->student_prefs = json_encode($input);
+    //$storeMatchingResult->student_prefs = json_encode($input);
     $storeMatchingResult->college_prefs = json_encode($input['college_prefs']);
     $storeMatchingResult->college_capacity = json_encode($input['college_capacity']);
     $storeMatchingResult->result = json_encode($matchingResult);
@@ -154,6 +157,7 @@ class MatchingController extends Controller
     foreach ($matchingResult as $match) {
       $college = $match['college'];
       $student = $match['student'];
+      
       $matchRequest = new Request();
       $matchRequest->setMethod('POST');
       $matchRequest->request->add(['college' => $college,
@@ -165,6 +169,9 @@ class MatchingController extends Controller
       // is uncoordianted
 
       print("---------- <br>");
+      #print("Round:".$matchingRound);
+      #print(" Student:".$student);
+      #print("<br>");
 
       if ($coordination == 0) {
         $preferencesUncoordinated = $this->getPreferencesByUncoordinatedService($match['college']);
@@ -192,6 +199,7 @@ class MatchingController extends Controller
 
       //check if it's the final match
       if ($match['college'] == $input['student_prefs'][$match['student']][0]) {
+        $matchRequest->request->add(['round' => $matchingRound]);
         $matchRequest->request->add(['status' => 32]);
         $this->store($matchRequest);
         //set applicant status to matched
@@ -201,6 +209,7 @@ class MatchingController extends Controller
       //  $Preference->resetAllUncoordnatedQueuesByApplicant($student, $college);
 
       } else {
+        $matchRequest->request->add(['round' => $matchingRound]);
         $matchRequest->request->add(['status' => 31]);
         $this->store($matchRequest);
       }
