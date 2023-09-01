@@ -33,6 +33,7 @@ use App\Capacity;
 use App\Traits\GetPreferences;
 use App\Mail\ApplicantMatch;
 use App\Mail\ProgramMatch;
+use App\MatchingConfig;
 use App\MatchingResult;
 use SebastianBergmann\Environment\Console;
 
@@ -97,6 +98,8 @@ class MatchingController extends Controller
     $Preference = new Preference;
     $Matching = new Matching;
     $storeMatchingResult = new MatchingResult;
+
+    $this->saveMatchingConfig();
 
     $input = $this->prepareMatching2();
 
@@ -214,6 +217,8 @@ class MatchingController extends Controller
         $this->store($matchRequest);
       }
     }
+
+    $this->updateMatchingConfig();
   }
 
 
@@ -443,6 +448,21 @@ class MatchingController extends Controller
     }
 
     return($json);
+  }
+
+  public function saveMatchingConfig() {
+
+    $matchingConfig = new MatchingConfig;
+
+    $matchingConfig->config_name = "isMatchingRunning";
+    $matchingConfig->value = "True";
+    $matchingConfig->save();
+
+  }
+
+  public function updateMatchingConfig() {
+    $MatchingConfig = new MatchingConfig;
+    $MatchingConfig->updateConfig("isMatchingRunning","False");
   }
 
 }
