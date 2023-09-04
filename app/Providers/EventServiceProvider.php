@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Listeners\MatchingConfigChangeListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use App\Events\DatabaseConfigChangeEvent;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,12 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\Event' => [
             'App\Listeners\EventListener',
+        ],
+        DatabaseConfigChangeEvent::class => [
+            MatchingConfigChangeListener::class,
+        ],
+        'reloadPage' => [
+            // List of listeners that should respond to this event
         ],
     ];
 

@@ -36,7 +36,7 @@ use App\Mail\ProgramMatch;
 use App\MatchingConfig;
 use App\MatchingResult;
 use SebastianBergmann\Environment\Console;
-
+use App\Events\DatabaseConfigChangeEvent;
 /**
 * This controller is responsible for the matching process: preperation, call and handling of the Matchingtools API.
 */
@@ -451,13 +451,13 @@ class MatchingController extends Controller
   }
 
   public function saveMatchingConfig() {
+    
+    $matchingConfig = MatchingConfig::updateOrInsert(
+      ['config_name' => 'isMatchingRunning'],
+      ['value' => 'True']
+  );
 
-    $matchingConfig = new MatchingConfig;
-
-    $matchingConfig->config_name = "isMatchingRunning";
-    $matchingConfig->value = "True";
-    $matchingConfig->save();
-
+    event(new DatabaseConfigChangeEvent());
   }
 
   public function updateMatchingConfig() {

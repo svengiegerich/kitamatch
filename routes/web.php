@@ -1,4 +1,9 @@
 <?php
+
+//use Illuminate\Routing\Route;
+use App\Http\Controllers\SSEController;
+use Illuminate\Support\Facades\Route;
+
 if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 }
@@ -110,3 +115,6 @@ Route::get('/admin/export', 'AdminController@exportMatching');
 Route::get('/admin/reset', 'AdminController@resetDB');
 Route::get('/admin/exportAssigned', 'AdminController@exportAssignedApplicants');
 Route::get('/admin/exportUnassigned', 'AdminController@exportUnassignedApplicants');
+
+//SSE listener
+Route::get('/sse', 'SSEController@listen');

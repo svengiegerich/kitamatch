@@ -19,6 +19,13 @@
       $('#btn_submit_offer').attr('disabled','true');
     })
   } );
+
+  console.log('JavaScript code is running');
+  document.addEventListener('databaseConfigChange', function () {
+    console.log('Event listener');
+    window.location.reload(true);
+});
+
 </script>
 
 <div class="panel-body">
