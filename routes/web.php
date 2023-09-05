@@ -116,5 +116,3 @@ Route::get('/admin/reset', 'AdminController@resetDB');
 Route::get('/admin/exportAssigned', 'AdminController@exportAssignedApplicants');
 Route::get('/admin/exportUnassigned', 'AdminController@exportUnassignedApplicants');
 
-//SSE listener
-Route::get('/sse', 'SSEController@listen');
