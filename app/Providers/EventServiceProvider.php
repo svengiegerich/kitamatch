@@ -18,12 +18,6 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
-        DatabaseConfigChangeEvent::class => [
-            MatchingConfigChangeListener::class,
-        ],
-        'reloadPage' => [
-            // List of listeners that should respond to this event
-        ],
     ];
 
     /**

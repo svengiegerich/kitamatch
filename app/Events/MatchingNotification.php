@@ -10,7 +10,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class DatabaseConfigChangeEvent
+class MatchingNotification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -19,9 +19,21 @@ class DatabaseConfigChangeEvent
      *
      * @return void
      */
+    //public $message;
+
     public function __construct()
     {
-        //
+        //$this->message = $message;
+    }
+
+    /**
+     * Get the data to broadcast.
+     *
+     * @return array
+     */
+    public function broadcastWith()
+    {
+        return ['data' => '']; // An empty JSON object
     }
 
     /**
@@ -31,6 +43,11 @@ class DatabaseConfigChangeEvent
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        return ['matching-notification'];
+    }
+
+    public function broadcastAs()
+    {
+        return 'page-reload';
     }
 }

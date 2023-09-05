@@ -3,7 +3,7 @@
 @section('content')
 
 
-
+<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 <script>
@@ -20,11 +20,17 @@
     })
   } );
 
-  console.log('JavaScript code is running');
-  document.addEventListener('databaseConfigChange', function () {
-    console.log('Event listener');
-    window.location.reload(true);
-});
+    // Enable pusher logging - don't include this in production
+    //Pusher.logToConsole = true;
+
+    var pusher = new Pusher('2bbf9ca4a16c0191de4c', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('matching-notification');
+    channel.bind('page-reload', function() {
+      location.reload();
+    });
 
 </script>
 

@@ -37,6 +37,8 @@ use App\MatchingConfig;
 use App\MatchingResult;
 use SebastianBergmann\Environment\Console;
 use App\Events\DatabaseConfigChangeEvent;
+use App\Events\MatchingNotification;
+
 /**
 * This controller is responsible for the matching process: preperation, call and handling of the Matchingtools API.
 */
@@ -99,7 +101,7 @@ class MatchingController extends Controller
     $Matching = new Matching;
     $storeMatchingResult = new MatchingResult;
 
-    $this->saveMatchingConfig();
+    $this->sendPusherNotification();
 
     $input = $this->prepareMatching2();
 
@@ -218,7 +220,6 @@ class MatchingController extends Controller
       }
     }
 
-    $this->updateMatchingConfig();
   }
 
 
@@ -450,19 +451,8 @@ class MatchingController extends Controller
     return($json);
   }
 
-  public function saveMatchingConfig() {
-    
-    $matchingConfig = MatchingConfig::updateOrInsert(
-      ['config_name' => 'isMatchingRunning'],
-      ['value' => 'True']
-  );
-
-    event(new DatabaseConfigChangeEvent());
-  }
-
-  public function updateMatchingConfig() {
-    $MatchingConfig = new MatchingConfig;
-    $MatchingConfig->updateConfig("isMatchingRunning","False");
+  public function sendPusherNotification() {
+    event(new MatchingNotification());
   }
 
 }
