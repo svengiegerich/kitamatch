@@ -101,7 +101,7 @@ class MatchingController extends Controller
     $Matching = new Matching;
     $storeMatchingResult = new MatchingResult;
 
-    $this->sendPusherNotification();
+    $this->sendPusherNotificationToRefresh();
 
     $input = $this->prepareMatching2();
 
@@ -220,6 +220,7 @@ class MatchingController extends Controller
       }
     }
 
+    $this->sendPusherNotificationToRefresh();
   }
 
 
@@ -451,7 +452,7 @@ class MatchingController extends Controller
     return($json);
   }
 
-  public function sendPusherNotification() {
+  public function sendPusherNotificationToRefresh() {
     event(new MatchingNotification());
   }
 
