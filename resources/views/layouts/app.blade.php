@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>KitaMatch</title>
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- CSS And JavaScript -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link href="{{ asset('css/kitamatch.css') }}" rel="stylesheet">
@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
-    </head>
+      </head>
 
     <body class=".bg-light">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pt-0 pb-0">
