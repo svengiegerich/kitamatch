@@ -18,13 +18,21 @@
     $('#form_offer').on('submit',function(){
       $('#btn_submit_offer').attr('disabled','true');
     })
-  } );
+    });
 
-    // Enable pusher logging - don't include this in production
+    //Enable pusher logging - don't include this in production
     //Pusher.logToConsole = true;
 
     var pusher = new Pusher('2bbf9ca4a16c0191de4c', {
       cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('matching-initiated');
+    channel.bind('process-init', function() {
+      var buttons = document.querySelectorAll('[id="angebot_btn"]');
+      buttons.forEach(function(button) {
+      button.disabled = true;
+    });
     });
 
     var channel = pusher.subscribe('matching-notification');
@@ -327,7 +335,7 @@
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if ($applicant->offerStatus == 1)
-                    <button type="button btn-sm" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
+                    <button type="button btn-sm" class="btn btn-primary btn-sm" id="angebot_btn" data-toggle="modal" data-target="#{{$applicant->aid}}_modal">
                                                         Angebot
                                                       </button>
 

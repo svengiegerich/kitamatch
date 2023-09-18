@@ -37,6 +37,7 @@ use App\MatchingConfig;
 use App\MatchingResult;
 use SebastianBergmann\Environment\Console;
 use App\Events\DatabaseConfigChangeEvent;
+use App\Events\MatchingInitiated;
 use App\Events\MatchingNotification;
 
 /**
@@ -101,7 +102,7 @@ class MatchingController extends Controller
     $Matching = new Matching;
     $storeMatchingResult = new MatchingResult;
 
-    $this->sendPusherNotificationToRefresh();
+    $this->sendMatchingInitiatedNotification();
 
     $input = $this->prepareMatching2();
 
@@ -220,7 +221,7 @@ class MatchingController extends Controller
       }
     }
 
-    $this->sendPusherNotificationToRefresh();
+    $this->sendNotificationToRefresh();
   }
 
 
@@ -452,7 +453,11 @@ class MatchingController extends Controller
     return($json);
   }
 
-  public function sendPusherNotificationToRefresh() {
+  public function sendMatchingInitiatedNotification(){
+    event(new MatchingInitiated());
+  }
+
+  public function sendNotificationToRefresh() {
     event(new MatchingNotification());
   }
 
