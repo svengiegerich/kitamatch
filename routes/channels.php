@@ -12,6 +12,6 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('matching-notification', function () {
+Broadcast::channel('matching-completed', function () {
     return true;
 });

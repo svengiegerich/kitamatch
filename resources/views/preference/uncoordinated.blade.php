@@ -32,10 +32,10 @@
       var buttons = document.querySelectorAll('[id="angebot_btn"]');
       buttons.forEach(function(button) {
       button.disabled = true;
-    });
+      });
     });
 
-    var channel = pusher.subscribe('matching-notification');
+    var channel = pusher.subscribe('matching-completed');
     channel.bind('page-reload', function() {
       location.reload();
     });

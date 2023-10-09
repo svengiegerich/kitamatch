@@ -10,7 +10,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class MatchingNotification implements ShouldBroadcast
+class MatchingProcessCompleted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -43,7 +43,7 @@ class MatchingNotification implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['matching-notification'];
+        return ['matching-completed'];
     }
 
     public function broadcastAs()

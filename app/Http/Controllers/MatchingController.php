@@ -36,9 +36,8 @@ use App\Mail\ProgramMatch;
 use App\MatchingConfig;
 use App\MatchingResult;
 use SebastianBergmann\Environment\Console;
-use App\Events\DatabaseConfigChangeEvent;
-use App\Events\MatchingInitiated;
-use App\Events\MatchingNotification;
+use App\Events\MatchingProcessInitiated;
+use App\Events\MatchingProcessCompleted;
 
 /**
 * This controller is responsible for the matching process: preperation, call and handling of the Matchingtools API.
@@ -454,11 +453,11 @@ class MatchingController extends Controller
   }
 
   public function sendMatchingInitiatedNotification(){
-    event(new MatchingInitiated());
+    event(new MatchingProcessInitiated());
   }
 
   public function sendNotificationToRefresh() {
-    event(new MatchingNotification());
+    event(new MatchingProcessCompleted());
   }
 
 }
