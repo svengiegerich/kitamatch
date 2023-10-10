@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+
 <script>
   $(document).ready( function () {
     $('#matches').DataTable( {
@@ -17,6 +19,16 @@
             },
     } );
   } );
+
+  var pusher = new Pusher('2bbf9ca4a16c0191de4c', {
+      cluster: 'eu'
+    });
+
+  var channel = pusher.subscribe('matching-completed');
+    channel.bind('page-reload', function() {
+      location.reload();
+    });
+
 </script>
 
 <div class="row justify-content-center">
@@ -88,7 +100,13 @@
     <br>
   </div>
 </div>
-
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <br>
+    <a target="_blank" href="{{url('/start-scheduler')}}"><button class="btn btn-primary btn-lg btn-block">Start Scheduler</button></a>
+    <br>
+  </div>
+</div>
 <div class="row justify-content-center">
   <div class="col-md-8">
     <h4><span class="badge badge-light badge-admin">{{count($matches)}}</span> Zuordnungen, <span class="badge badge-light badge-admin">{{$data['countRounds']}}.</span> Koordinierungsrunde, <a class="btn btn-warning" target="_blank" href="{{url('/admin/exportAssigned')}}">Export</a></h4>

@@ -3,6 +3,7 @@
 //use Illuminate\Routing\Route;
 use App\Http\Controllers\SSEController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SchedulerController;
 
 if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
@@ -116,3 +117,5 @@ Route::get('/admin/reset', 'AdminController@resetDB');
 Route::get('/admin/exportAssigned', 'AdminController@exportAssignedApplicants');
 Route::get('/admin/exportUnassigned', 'AdminController@exportUnassignedApplicants');
 
+Route::get('/start-scheduler', 'SchedulerController@startScheduler');
+Route::get('/stop-scheduler', 'SchedulerController@stopScheduler');
