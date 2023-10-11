@@ -18,7 +18,9 @@ class HourlyTaskCommand extends Command
 
     public function handle()
     {
-        Log::info("Scheduling task started");
+        $currentTime = now()->format('Y-m-d H:i:s');
+
+        Log::info("Scheduling task started: " .$currentTime);
         
         app(MatchingController::class)->findMatchings();
         
