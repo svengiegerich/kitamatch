@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('hourly:task')->hourlyAt(45);
+        $schedule->command('hourly:task')->hourlyAt(config('kitamatch_config.matching_process_job_scheduled_at'));
     }
 
     /**

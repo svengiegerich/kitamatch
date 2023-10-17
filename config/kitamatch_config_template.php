@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+  'matching_process_job_scheduled_at' => 0,
   // -----------------------------
   'show_gender' => FALSE,
   // -----------------------------
