@@ -20,8 +20,8 @@
     } );
   } );
 
-  var pusher = new Pusher('2bbf9ca4a16c0191de4c', {
-      cluster: 'eu'
+  var pusher = new Pusher('{{ config('broadcasting.connections.pusher.key') }}', {
+      cluster: '{{ config('broadcasting.connections.pusher.options.cluster') }}'
     });
 
   var channel = pusher.subscribe('matching-completed');

@@ -22,13 +22,15 @@
 
     //Enable pusher logging - don't include this in production
     //Pusher.logToConsole = true;
+    var matchingStatusElement = document.getElementById('matching-status');
 
-    var pusher = new Pusher('2bbf9ca4a16c0191de4c', {
-      cluster: 'eu'
+    var pusher = new Pusher('{{ config('broadcasting.connections.pusher.key') }}', {
+      cluster: '{{ config('broadcasting.connections.pusher.options.cluster') }}'
     });
 
     var channel = pusher.subscribe('matching-initiated');
     channel.bind('process-init', function() {
+      matchingStatusElement.innerHTML = 'Das Matching läuft gerade. Angebote können in ca. 1 Minute wieder gemacht werden.';
       var buttons = document.querySelectorAll('[id="angebot_btn"]');
       buttons.forEach(function(button) {
       button.disabled = true;
@@ -45,6 +47,10 @@
 <div class="panel-body">
 
   <div class="row justify-content-center">
+    <div id="matching-status" class="alert alert-danger">
+      <h3> Das Matching startet jeweils {{config('kitamatch_config.matching_process_job_scheduled_at')}} Minuten nach der vollen Stunde, also 8:{{config('kitamatch_config.matching_process_job_scheduled_at')}}, 9:{{config('kitamatch_config.matching_process_job_scheduled_at')}}, usw. </h3>
+    </div>
+
     <div class="col-md-8">
       <h2>{{$program->name}} | {{$program->provider_name}} <small class="text-muted">Kitagruppe</small></h2>
 
