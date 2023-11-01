@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
+Broadcast::channel('matching-initiated', function () {
+    return true;
+});
+
 Broadcast::channel('matching-completed', function () {
     return true;
 });
