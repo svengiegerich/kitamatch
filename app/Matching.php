@@ -60,6 +60,8 @@ class Matching extends Model
 
   public function getRound() {
     return (DB::table('matches')->select(DB::raw("count(DISTINCT TIME_FORMAT(created_at, '%Y-%m-%d %H:%i')) as round"))->first()->round + 1); //open vs. closed rounds
+  //  $maxMrid = DB::table('matching_results')->max('mrid');
+  //  return isset($maxMrid) ? $maxMrid + 1 : 1;
   }
 
   public function getActiveMatches() {

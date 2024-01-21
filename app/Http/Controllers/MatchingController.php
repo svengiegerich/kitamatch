@@ -109,9 +109,7 @@ class MatchingController extends Controller
     if (!(strlen(json_encode($input))>5)) {
       return redirect()->action('AdminController@index');
     }
-    print_r(json_encode($input));
-    echo "<br><br><br><br><br><br>";
-
+//    print_r(json_encode($input));
 
     //GuzzleHttp\Client
     $client = new Client();
@@ -143,8 +141,9 @@ class MatchingController extends Controller
     $matchingResult = $result['hri_matching'];
     $matchingRound = $Matching->getRound();
 
-    print("Results:");
-    print_r($result);
+    print("Results: Process completed! Round: ".$matchingRound);
+    echo"<br>";
+  //  print_r($result);
 
     #storing matching results at table in each round
     $storeMatchingResult->round = $this->getRoundNumber();
@@ -153,6 +152,8 @@ class MatchingController extends Controller
     $storeMatchingResult->college_capacity = json_encode($input['college_capacity']);
     $storeMatchingResult->result = json_encode($matchingResult);
     $storeMatchingResult->save();
+
+    print("Data stored successfully!");
 
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();
@@ -173,7 +174,7 @@ class MatchingController extends Controller
       $coordination = $Program->isCoordinated($match['college']);
       // is uncoordianted
 
-      print("---------- <br>");
+      print("<br>");
       #print("Round:".$matchingRound);
       #print(" Student:".$student);
       #print("<br>");
