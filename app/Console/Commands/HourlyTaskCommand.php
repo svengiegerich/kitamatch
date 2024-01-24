@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Log;
 
 class HourlyTaskCommand extends Command
 {
-    protected $signature = 'hourly:task';
-    protected $description = 'Run the hourly task';
+    protected $signature = 'schedule:run';
+    protected $description = 'Running scheduled task';
 
     public function __construct()
     {
@@ -24,7 +24,7 @@ class HourlyTaskCommand extends Command
         
         app(MatchingController::class)->findMatchings();
         
-        Log::info("Scheduling task executed successfully");
-        $this->info('Hourly task executed successfully.');
+        Log::info("Scheduled task executed successfully");
+        $this->info('Scheduled task executed successfully.');
     }
 }

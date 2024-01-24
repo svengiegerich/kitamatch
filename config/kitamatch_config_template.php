@@ -6,7 +6,7 @@ return [
     'before_process' => 'Das Matching startet täglich um 12:00 Uhr Mittags und um Mitternacht. Nach dem Matching sehen Sie welche Ihrer Angebote angenommen und abgelehnt wurden.',
     'during_process' => 'Das Matching läuft gerade. Angebote können in ca. 1 Minute wieder gemacht werden.'
   ],
-  'matching_process_job_scheduled_at' => 0,
+  'automated_matching_cron' => '*/1 * * * *',
   // -----------------------------
   'show_gender' => FALSE,
   // -----------------------------
