@@ -227,6 +227,7 @@ CREATE TABLE IF NOT EXISTS `preferences` (
   `status` tinyint(1) DEFAULT NULL,
   `isValid` tinyint(1) NOT NULL,
   `invalidReason` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prefered_scope` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`prid`),
   KEY `id_from` (`id_from`(191)),
   KEY `id_to` (`id_to`(191))

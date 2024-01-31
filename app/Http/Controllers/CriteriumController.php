@@ -208,6 +208,7 @@ public function getDefaultCriteria() {
       $programPref->rank = $i;
       $programPref->isValid = 0;
       $programPref->invalidReason = "";
+      $programPref->prefered_scope = $existing_preference[0]->prefered_scope;
       $programPref->provider_id = $existing_preference[0]->provider_id;;
       $programPref->program_id = $existing_preference[0]->program_id;;
       $programPref->save();

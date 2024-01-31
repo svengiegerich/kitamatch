@@ -312,6 +312,7 @@
               <th>Punktzahl</th>
               <th>Betreuungsbeginn</th>
               @endif
+              <th>Betreuungswunsch</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -342,6 +343,7 @@
                 <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
                 <td>{{$applicant->points}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
+                <td>{{($applicant->prefered_scope)}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if ($applicant->offerStatus == 1)
@@ -368,6 +370,10 @@
                               <div class="row pt-1">
                                 <div class="col-md-8">Präferierter Betreuungsumfang:</div>
                                 <div class="col-md-4">{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</div>
+                              </div>
+                              <div class="row pt-1">
+                                <div class="col-md-8">Präferierter Betreuungswunsch:</div>
+                                <div class="col-md-4">{{($applicant->prefered_scope)}}</div>
                               </div>
 
                               <hr>

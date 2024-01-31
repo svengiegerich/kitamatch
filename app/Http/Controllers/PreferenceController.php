@@ -82,6 +82,7 @@ class PreferenceController extends Controller
     $preference->status = $request->status;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->prefered_scope = $request->prefered_scope;
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
     $preference->round = $this->getRoundNumber();
@@ -116,6 +117,7 @@ class PreferenceController extends Controller
     $preference->status = $request->status;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->prefered_scope = $request->prefered_scope;
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
     $preference->round = $this->getRoundNumber();
@@ -223,6 +225,7 @@ class PreferenceController extends Controller
       $preference->status = 1;
       $preference->isValid = 0;
       $preference->invalidReason = "";
+      $preference->prefered_scope = $request->prefered_scope;
       $preference->provider_id = $request->provider_id;
       $preference->program_id = $request->program_id;
       $preference->round = $this->getRoundNumber();
@@ -294,6 +297,7 @@ class PreferenceController extends Controller
       $rank = $preference->rank;
       $provider_id = $preference->provider_id;
       $program_id = $preference->program_id;
+      $prefered_scope = $preference->prefered_scope;
       foreach (config('kitamatch_config.care_scopes') as $key_scope => $care_scope) {
         foreach (config('kitamatch_config.care_starts') as $key_start => $care_start) {
           if ($key_start >= $applicant->care_start and ($key_scope != -1 and $key_start != -1)) {
@@ -313,6 +317,7 @@ class PreferenceController extends Controller
               'scope_rank' => $scope_rank,
               'provider_id' => $provider_id,
               'program_id' => $program_id,
+              'prefered_scope' => $prefered_scope
             );
           }
         }
@@ -413,7 +418,8 @@ class PreferenceController extends Controller
         'status' => 1,
         'rank' => $rank,
         'provider_id' => $preference['provider_id'],
-        'program_id' => $preference['program_id']
+        'program_id' => $preference['program_id'],
+        'prefered_scope' => $preference['prefered_scope']
       ]);
 
       $this->store($request);
@@ -681,6 +687,8 @@ class PreferenceController extends Controller
           }
         }
 
+        $applicant->prefered_scope = $Preference->getPreferenceByApplicantAndSid($applicant->aid, $pid)->first()->prefered_scope;
+        
       }
       
       $program->openOffers = $openOffers;
@@ -717,6 +725,7 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->prefered_scope = $request->prefered_scope;
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
     $preference->round = $this->getRoundNumber();
@@ -774,6 +783,7 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->prefered_scope = $existing_preference[0]->prefered_scope;
     $preference->provider_id = $existing_preference[0]->provider_id;
     $preference->program_id = $existing_preference[0]->program_id;
     $preference->round = $this->getRoundNumber();
@@ -855,6 +865,7 @@ class PreferenceController extends Controller
     $preference->status = 1;
     $preference->isValid = 0;
     $preference->invalidReason = "";
+    $preference->prefered_scope = $request->prefered_scope;
     $preference->provider_id = $request->provider_id;
     $preference->program_id = $request->program_id;
     $preference->round = $this->getRoundNumber();
