@@ -141,7 +141,7 @@ class MatchingController extends Controller
     $matchingResult = $result['hri_matching'];
     $matchingRound = $Matching->getRound();
 
-    print("Results: Process completed! Round: ".$matchingRound);
+    print("Result: Process completed! Round: ".$matchingRound);
     echo"<br>";
   //  print_r($result);
 
@@ -153,7 +153,7 @@ class MatchingController extends Controller
     $storeMatchingResult->result = json_encode($matchingResult);
     $storeMatchingResult->save();
 
-    print("Data stored successfully!");
+    print("Data saved successfully!");
 
     //temp: set active = 0 for all previous entries != final
     $Matching->resetMatches();

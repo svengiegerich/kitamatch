@@ -382,7 +382,11 @@
                             <div class="container-fluid">
                               <div class="row pt-1">
                                 <div class="col-md-8">Präferierter Umfang:</div>
+                                @if (config('kitamatch_config.preference_specific_scope'))
+                                <div class="col-md-4">{{$applicant->prefered_scope}}</div>
+                                @else
                                 <div class="col-md-4">{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</div>
+                                @endif
                               </div>
                               <div class="row pt-1">
                                 <div class="col-md-8">Präferierter Beginn:</div>

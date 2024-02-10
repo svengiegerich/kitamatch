@@ -31,7 +31,7 @@
 
 </script>
 
-<div class="row justify-content-center">
+<div class="row justify-content-left">
     <div class="col-md-8">
       <h2>Übersicht <small class="text-muted">Administration</small></h2>
     </div>
@@ -100,7 +100,7 @@
     <br>
   </div>
 </div>
-<div class="row justify-content-center">
+<div class="row justify-content-left">
   <div class="col-md-8">
     <h4><span class="badge badge-light badge-admin">{{count($matches)}}</span> Zuordnungen, <span class="badge badge-light badge-admin">{{$data['countRounds']}}.</span> Koordinierungsrunde, <a class="btn btn-warning" target="_blank" href="{{url('/admin/exportAssigned')}}">Export</a></h4>
   </div>
@@ -112,7 +112,7 @@
             <thead>
                 <tr>
                     <th>Kita</th>
-                    <th>Beginn</th>
+                    <th>Quartal</th>
                     <th>Umfang</th>
                     <th>Kitagruppe</th>
                     <th>Bewerber</th>
@@ -136,12 +136,12 @@
 </div>
 
 @if($data['countRounds'] > 1)
-<div class="row justify-content-center pt-5">
+<div class="row justify-content-left pt-5">
   <div class="col-md-8">
     <h4><span class="badge badge-light badge-admin">{{$data['applicantsVerified'] - count($matches)}}</span> Nicht zugeordnete Bewerber, <a class="btn btn-warning" target="_blank" href="{{url('/admin/exportUnassigned')}}">Export</a></h4>
   </div>
 
-  <div class="col-md-10 my-3 p-3 bg-white rounded box-shadow">
+  <div class="col-md-12 my-3 p-3 bg-white rounded box-shadow">
         <table class="table" id="no-match">
             <thead>
                 <tr>

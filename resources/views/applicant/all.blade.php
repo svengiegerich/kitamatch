@@ -11,16 +11,9 @@
 </script>
 
 <div class="row justify-content-center">
-<div class="col-md-8">
 <h2>Liste aller Bewerber</h2>
-</div>
-</div>
-
-<div class="row justify-content-center">
 <div class="col-md-10  my-3 p-3 bg-white rounded box-shadow">
-
   <a href="{{url('/applicant/add')}}"><button class="btn btn-primary btn-lg btn-block">Bewerber hinzufügen</button></a>
-
 <hr class="mb-4">
 
     <table class="table" id="applicants">
