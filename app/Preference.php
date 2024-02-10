@@ -176,6 +176,16 @@ class Preference extends Model
     return $preference;
   }
 
+  public function getPreferenceByApplicantAndProgram($aid, $prid){
+    $preference =DB::table('preferences')
+    ->where('preferences.id_from', '=', $aid)
+    ->where('preferences.program_id','=', $prid)
+    ->where('preferences.pr_kind', '=', 0)
+    ->get();
+
+    return $preference;
+  }
+
   public function getOfferedPreference($id_to, $aid){
     $offeredPreference =DB::table('preferences')
       ->where('preferences.id_from','like', $id_to)

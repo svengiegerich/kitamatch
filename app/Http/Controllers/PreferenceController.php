@@ -687,7 +687,7 @@ class PreferenceController extends Controller
           }
         }
 
-        $applicant->prefered_scope = $Preference->getPreferenceByApplicantAndSid($applicant->aid, $pid)->first()->prefered_scope;
+        $applicant->prefered_scope = $Preference->getPreferenceByApplicantAndProgram($applicant->aid, $pid)->first()->prefered_scope;
         
       }
       
