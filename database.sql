@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `applicants` (
   `sibling_applicant_id2` int(5) DEFAULT NULL,
   `sibling_applicant_id3` int(5) DEFAULT NULL,
   `sibling_applicant_id4` int(5) DEFAULT NULL,
+  `start_date` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`aid`),
   KEY `status` (`status`),
   KEY `gid` (`uid`)

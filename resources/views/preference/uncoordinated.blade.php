@@ -63,7 +63,7 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Beginn</th>
+            <th scope="col">Quartal</th>
             <th scope="col">Umfang</th>
             <th scope="col">Angebote</th>
             <th scope="col">Freie Plätze</th>
@@ -127,8 +127,9 @@
               @if (config('kitamatch_config.show_gender'))
               <th>Geschlecht</th>
               @endif
-              <th>Beginn</th>
               <th>Umfang</th>
+              <th>Beginn</th>
+              <th>Quartal</th>
               <th>&nbsp;</th>
           </tr>
       </thead>
@@ -146,8 +147,9 @@
                   @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
                   @endif
-                  <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
+                  <td>{{$applicant->start_date}}</td>
+                  <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
                 </tr>
               @endif
@@ -165,8 +167,9 @@
                   @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
                   @endif
-                  <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
+                  <td>{{$applicant->start_date}}</td>
+                  <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>
                     @if ($preference->updated_at >= $lastMatch)
                       <form action="{{url('/preference/program/uncoordinated/' . $preference->prid)}}"
@@ -310,9 +313,10 @@
               <th>Geschwister angemeldet</th>
               @if (config('kitamatch_config.manual_points'))
               <th>Punktzahl</th>
-              <th>Betreuungsbeginn</th>
               @endif
-              <th>Betreuungswunsch</th>
+              <th>Umfang</th>
+              <th>Beginn</th>
+              <th>Quartal</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -342,8 +346,9 @@
                 <td>{{$applicant->siblingsIsPresent}}</td>
                 <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
                 <td>{{$applicant->points}}</td>
-                <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
                 <td>{{($applicant->prefered_scope)}}</td>
+                <td>{{$applicant->start_date}}</td>
+                <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</td>
                 <td>
                     <!-- show button, if no -1 or 1 set && capacity is not fullfilled-->
                     @if ($applicant->offerStatus == 1)
@@ -364,18 +369,17 @@
                           <div class="modal-body">
                             <div class="container-fluid">
                               <div class="row pt-1">
-                                <div class="col-md-8">Präferierter Betreuungsbeginn:</div>
-                                <div class="col-md-4">{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</div>
-                              </div>
-                              <div class="row pt-1">
-                                <div class="col-md-8">Präferierter Betreuungsumfang:</div>
+                                <div class="col-md-8">Präferierter Umfang:</div>
                                 <div class="col-md-4">{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</div>
                               </div>
                               <div class="row pt-1">
-                                <div class="col-md-8">Präferierter Betreuungswunsch:</div>
-                                <div class="col-md-4">{{($applicant->prefered_scope)}}</div>
+                                <div class="col-md-8">Präferierter Beginn:</div>
+                                <div class="col-md-4">{{($applicant->start_date)}}</div>
                               </div>
-
+                              <div class="row pt-1">
+                                <div class="col-md-8">Präferierter Quartal:</div>
+                                <div class="col-md-4">{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</div>
+                              </div>
                               <hr>
                               <div class="row pl-2 pb-2">
                                 <h5>Beginn & Umfang:</h5>
