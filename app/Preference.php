@@ -169,7 +169,6 @@ class Preference extends Model
     $preference =DB::table('preferences')
     ->where('preferences.id_from', '=', $aid)
     ->where('preferences.program_id','=', $sid)
-    ->where('preferences.status', '=', 1)
     ->where('preferences.pr_kind', '=', 1)
     ->get();
 
