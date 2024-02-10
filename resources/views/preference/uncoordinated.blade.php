@@ -147,7 +147,11 @@
                   @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
                   @endif
+                  @if (config('kitamatch_config.preference_specific_scope'))
+                  <td>{{$applicant->prefered_scope}}</td>
+                  @else
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
+                  @endif
                   <td>{{$applicant->start_date}}</td>
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td><span class="badge badge-success">Endgültige Zusage</span></td>
@@ -167,7 +171,11 @@
                   @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
                   @endif
+                  @if (config('kitamatch_config.preference_specific_scope'))
+                  <td>{{$applicant->prefered_scope}}</td>
+                  @else
                   <td>{{config('kitamatch_config.care_scopes')[$preference->scope]}}</td>
+                  @endif
                   <td>{{$applicant->start_date}}</td>
                   <td>{{config('kitamatch_config.care_starts')[$preference->start]}}</td>
                   <td>
@@ -346,7 +354,11 @@
                 <td>{{$applicant->siblingsIsPresent}}</td>
                 <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
                 <td>{{$applicant->points}}</td>
+                @if (config('kitamatch_config.preference_specific_scope'))
                 <td>{{($applicant->prefered_scope)}}</td>
+                @else
+                <td>{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
+                @endif
                 <td>{{$applicant->start_date}}</td>
                 <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</td>
                 <td>
@@ -494,7 +506,13 @@
                 <td>{{$applicant->siblingsIsPresent}}</td>
                 <td>{{$applicant->sibling_applicant_id_1}}-{{$applicant->sibling_applicant_id_2}}-{{$applicant->sibling_applicant_id_3}}</td>
                 <td>{{$applicant->points}}</td>
-                <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}} - {{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
+                @if (config('kitamatch_config.preference_specific_scope'))
+                <td>{{($applicant->prefered_scope)}}</td>
+                @else
+                <td>{{config('kitamatch_config.care_scopes')[$applicant->care_scope]}}</td>
+                @endif
+                <td>{{$applicant->start_date}}</td>
+                <td>{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</td>
                 <td>
                   <button class="btn btn-danger btn-sm" disabled>Kein Angebot verfügbar</button>
                 </td>

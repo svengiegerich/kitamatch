@@ -12,7 +12,7 @@ return [
   // -----------------------------
   'can_user_change_capacity' => TRUE,
   // -----------------------------
-
+  'preference_specific_scope' => TRUE,
   // MANUEL POINTS
   'manual_points' => TRUE,
   'manual_points_value' => 10,
