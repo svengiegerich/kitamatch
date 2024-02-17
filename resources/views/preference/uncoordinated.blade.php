@@ -127,6 +127,7 @@
               @if (config('kitamatch_config.show_gender'))
               <th>Geschlecht</th>
               @endif
+              <th>Punktzahl</th>
               <th>Umfang</th>
               <th>Beginn</th>
               <th>Quartal</th>
@@ -147,6 +148,7 @@
                   @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
                   @endif
+                  <td>{{$applicant->points}}</td>
                   @if (config('kitamatch_config.preference_specific_scope'))
                   <td>{{$applicant->prefered_scope}}</td>
                   @else
@@ -171,6 +173,7 @@
                   @if (config('kitamatch_config.show_gender'))
                   <td>{{$applicant->gender}}</td>
                   @endif
+                  <td>{{$applicant->points}}</td>
                   @if (config('kitamatch_config.preference_specific_scope'))
                   <td>{{$applicant->prefered_scope}}</td>
                   @else
@@ -393,7 +396,7 @@
                                 <div class="col-md-4">{{($applicant->start_date)}}</div>
                               </div>
                               <div class="row pt-1">
-                                <div class="col-md-8">Präferierter Quartal:</div>
+                                <div class="col-md-8">Präferiertes Quartal:</div>
                                 <div class="col-md-4">{{config('kitamatch_config.care_starts')[$applicant->care_start]}}</div>
                               </div>
                               <hr>
