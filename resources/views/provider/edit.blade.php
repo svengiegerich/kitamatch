@@ -52,7 +52,11 @@
             </div>
 
             <hr class="mb-4">
+            @if (!$data['isSet'])
             <button class="btn btn-light btn-lg btn-block" type="submit">Aktualisieren</button>
+            @else
+            <button class="btn btn-light btn-lg btn-block" type="submit" disabled>Aktualisieren</button>
+            @endif
         </form>
     </div>
 </div>
@@ -69,7 +73,9 @@
             <br>
         @endforeach
 
+        @if(Auth::check() && Auth::user()->account_type == 5)
         <a href="{{url('/program/add/' . $provider->proid)}}"><button class="btn btn-light btn-lg btn-block">Gruppe hinzufügen</button></a>
+        @endif
         <br>
     </div>
 </div>

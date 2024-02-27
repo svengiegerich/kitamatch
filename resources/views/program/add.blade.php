@@ -33,7 +33,11 @@
             </div>
 
             <hr class="mb-4">
+            @if (!$data['isSet'])
             <button class="btn btn-primary btn-lg btn-block" type="submit">Gruppe hinzufügen</button>
+            @else
+            <button class="btn btn-primary btn-lg btn-block" type="submit" disabled>Gruppe hinzufügen</button>
+            @endif
         </form>
     </div>
 </div>
