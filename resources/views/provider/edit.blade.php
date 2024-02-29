@@ -52,10 +52,8 @@
             </div>
 
             <hr class="mb-4">
-            @if (!$data['isSet'])
+            @if(Auth::check() && Auth::user()->account_type == 5)
             <button class="btn btn-light btn-lg btn-block" type="submit">Aktualisieren</button>
-            @else
-            <button class="btn btn-light btn-lg btn-block" type="submit" disabled>Aktualisieren</button>
             @endif
         </form>
     </div>
